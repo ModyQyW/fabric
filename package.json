@@ -1,0 +1,91 @@
+{
+  "name": "@modyqyw/fabric",
+  "version": "0.0.1",
+  "description": "Shareable configs for different projects.",
+  "keywords": [
+    "config",
+    "prettier",
+    "eslint",
+    "stylelint",
+    "javascript",
+    "typescript",
+    "js",
+    "ts",
+    "react",
+    "react-native",
+    "taro",
+    "vue",
+    "vue2",
+    "vue3",
+    "uniapp",
+    "uni-app",
+    "css",
+    "less",
+    "scss"
+  ],
+  "homepage": "https://github.com/MillCloud/fabric#readme",
+  "bugs": {
+    "url": "https://github.com/MillCloud/fabric/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "ModyQyW",
+    "email": "wurui7@mail3.sysu.edu.cn",
+    "url": "https://modyqyw.github.io"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MillCloud/fabric.git"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "~4.6.1",
+    "@typescript-eslint/parser": "~4.6.1",
+    "babel-eslint": "~10.1.0",
+    "eslint-config-airbnb": "~18.2.1",
+    "eslint-config-airbnb-base": "~14.2.1",
+    "eslint-config-airbnb-typescript": "~12.0.0",
+    "eslint-config-prettier": "~6.15.0",
+    "eslint-import-resolver-node": "~0.3.4",
+    "eslint-import-resolver-webpack": "~0.13.0",
+    "eslint-plugin-import": "~2.22.1",
+    "eslint-plugin-jsx-a11y": "~6.4.1",
+    "eslint-plugin-prettier": "~3.1.4",
+    "eslint-plugin-react": "~7.21.5",
+    "eslint-plugin-react-hooks": "~4.2.0",
+    "eslint-plugin-vue": "~7.1.0",
+    "stylelint-config-prettier": "~8.0.2",
+    "stylelint-config-twbs-bootstrap": "~2.1.0",
+    "typescript": "~4.0.5",
+    "vue-class-component": "~7.2.6",
+    "vue-eslint-parser": "~7.1.1",
+    "vue-property-decorator": "~9.0.2"
+  },
+  "devDependencies": {
+    "eslint": "~7.13.0",
+    "husky": "~4.3.0",
+    "lint-staged": "~10.5.1",
+    "prettier": "~2.1.2"
+  },
+  "engines": {
+    "node": ">=10",
+    "npm": ">=6"
+  },
+  "eslintConfig": {
+    "extends": "./eslint/native"
+  },
+  "prettier": "./prettier",
+  "publishConfig": {
+    "access": "public"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  }
+}
