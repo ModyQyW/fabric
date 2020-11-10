@@ -1,6 +1,6 @@
 # @modyqyw/fabric
 
-Shareable configs for different projects, based on prettier.
+Shareable configs for different projects.
 
 ## Usage
 
