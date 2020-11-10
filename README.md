@@ -1,13 +1,13 @@
 # @modyqyw/fabric
 
-Shareable configs for different projects.
+Shareable configs for different projects, based on prettier.
 
 ## Usage
 
 ```sh
-npm i -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~1.0.0
+npm i -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~0.0.2
 # or
-#yarn add -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~1.0.0
+#yarn add -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~0.0.2
 ```
 
 ### Prettier
