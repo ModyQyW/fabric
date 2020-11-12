@@ -115,7 +115,7 @@ module.exports = {
 - `@modyqyw/eslint-config` - [Github](https://github.com/MillCloud/eslint-config#readme) [Gitee](https://gitee.com/millcloud/eslint-config#readme)
 - `@modyqyw/stylelint-config` - [Github](https://github.com/MillCloud/stylelint-config#readme) [Gitee](https://gitee.com/millcloud/stylelint-config#readme)
 
-`@modyqyw/eslint-config` and `@modyqyw/stylelint-config` do not use any  `Prettier` config and plugin, while `@modyqyw/fabric` does.
+`@modyqyw/eslint-config` and `@modyqyw/stylelint-config` do not use any `Prettier` config and plugin, while `@modyqyw/fabric` does.
 
 ## License
 
