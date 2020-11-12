@@ -2,12 +2,14 @@
 
 Shareable configs for different projects.
 
+[Github](https://github.com/MillCloud/fabric#readme) | [Gitee](https://gitee.com/millcloud/fabric#readme)
+
 ## Usage
 
 ```sh
-npm i -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~0.0.2
+npm i -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~1.0.0
 # or
-#yarn add -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~0.0.2
+#yarn add -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~1.0.0
 ```
 
 ### Prettier
@@ -18,6 +20,7 @@ const config = require("@modyqyw/fabric/prettier");
 
 module.exports = {
   ...config,
+  // write your configs here
 };
 ```
 
@@ -34,6 +37,9 @@ module.exports = {
   // ...config.vue2, // for vue2 and uni-app with js
   // ...config.vue3Typescript, // for vue3 and uni-app with ts
   // ...config.vue3, // for vue3 and uni-app with js
+  rules: [
+    // write your rules here
+  ],
 };
 ```
 
@@ -47,6 +53,9 @@ module.exports = {
   ...config.css, // for css
   // ...config.less, // for less
   // ...config.scss, // for scss
+  rules: [
+    // write your rules here
+  ],
 };
 ```
 
@@ -99,6 +108,14 @@ module.exports = {
   }
 }
 ```
+
+## More Configs
+
+- `@modyqyw/prettier-config` - [Github](https://github.com/MillCloud/prettier-config#readme) [Gitee](https://gitee.com/millcloud/prettier-config#readme)
+- `@modyqyw/eslint-config` - [Github](https://github.com/MillCloud/eslint-config#readme) [Gitee](https://gitee.com/millcloud/eslint-config#readme)
+- `@modyqyw/stylelint-config` - [Github](https://github.com/MillCloud/stylelint-config#readme) [Gitee](https://gitee.com/millcloud/stylelint-config#readme)
+
+`@modyqyw/eslint-config` and `@modyqyw/stylelint-config` do not use any  `Prettier` config and plugin, while `@modyqyw/fabric` does.
 
 ## License
 
