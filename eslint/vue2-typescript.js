@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: ['prettier'],
   extends: [
+    'plugin:unicorn/recommended',
     'airbnb-typescript/base',
     'plugin:vue/recommended',
     'prettier',

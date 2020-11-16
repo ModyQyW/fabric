@@ -5,6 +5,7 @@ module.exports = {
     parser: 'babel-eslint',
   },
   extends: [
+    'plugin:unicorn/recommended',
     'airbnb-base',
     'plugin:vue/vue3-recommended',
     'prettier',

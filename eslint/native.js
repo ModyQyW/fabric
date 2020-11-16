@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   plugins: ['prettier'],
-  extends: ['airbnb-base', 'prettier'],
+  extends: ['plugin:unicorn/recommended', 'airbnb-base', 'prettier'],
   env: {
     browser: true,
     es2021: true,
@@ -42,6 +42,7 @@ module.exports = {
       },
       plugins: ['prettier'],
       extends: [
+        'plugin:unicorn/recommended',
         'airbnb-typescript/base',
         'prettier',
         'prettier/@typescript-eslint',

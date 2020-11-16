@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: ['prettier'],
   extends: [
+    'plugin:unicorn/recommended',
     'airbnb-base',
     'plugin:vue/recommended',
     'prettier',
