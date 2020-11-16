@@ -1,7 +1,7 @@
 module.exports = {
   extends: [
     'stylelint-config-twbs-bootstrap/scss',
-    'stylelint-config-prettier',
+    'stylelint-prettier/recommended',
   ],
   rules: {
     'comment-empty-line-before': [
