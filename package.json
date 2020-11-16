@@ -53,6 +53,7 @@
     "eslint-plugin-prettier": "~3.1.4",
     "eslint-plugin-react": "~7.21.5",
     "eslint-plugin-react-hooks": "~4.2.0",
+    "eslint-plugin-unicorn": "~23.0.0",
     "eslint-plugin-vue": "~7.1.0",
     "stylelint-config-prettier": "~8.0.2",
     "stylelint-config-twbs-bootstrap": "~2.1.0",
