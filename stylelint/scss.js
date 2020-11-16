@@ -13,10 +13,15 @@ module.exports = {
         ignoreComments: [/^#ifdef/, /^#ifndef/, /^#endif/],
       },
     ],
+    'selector-pseudo-class-no-unknown': [
+      true,
+      // for :export
+      { ignorePseudoClasses: ['export'] },
+    ],
     'selector-pseudo-element-no-unknown': [
       true,
       // for ::v-deep
-      { ignorePseudoElements: ['/^v-/'] },
+      { ignorePseudoElements: ['v-deep'] },
     ],
     'selector-type-no-unknown': [
       true,
