@@ -99,13 +99,6 @@ module.exports = {
           dirs: {
             directories: true,
           },
-          doc: {
-            document: true,
-          },
-          docs: {
-            documentation: true,
-            documents: true,
-          },
           e: {
             err: true,
             error: true,
