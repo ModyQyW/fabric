@@ -20,7 +20,6 @@ const config = require("@modyqyw/fabric/prettier");
 
 module.exports = {
   ...config,
-  // write your configs here
 };
 ```
 
@@ -37,9 +36,6 @@ module.exports = {
   // ...config.vue2, // for vue2 and uni-app with js
   // ...config.vue3Typescript, // for vue3 and uni-app with ts
   // ...config.vue3, // for vue3 and uni-app with js
-  rules: [
-    // write your rules here
-  ],
 };
 ```
 
@@ -53,9 +49,6 @@ module.exports = {
   ...config.css, // for css
   // ...config.less, // for less
   // ...config.scss, // for scss
-  rules: [
-    // write your rules here
-  ],
 };
 ```
 
