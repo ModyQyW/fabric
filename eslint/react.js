@@ -102,6 +102,16 @@ module.exports = {
         },
       },
     ],
+    'unicorn/filename-case': [
+      'error',
+      {
+        cases: {
+          kebabCase: true,
+        },
+        ignore: ['.jsx$', '.tsx$', '.vue$'],
+      },
+    ],
+    'unicorn/prevent-abbreviations': 'warn',
   },
   overrides: [
     {
@@ -206,6 +216,16 @@ module.exports = {
             },
           },
         ],
+        'unicorn/filename-case': [
+          'error',
+          {
+            cases: {
+              kebabCase: true,
+            },
+            ignore: ['.jsx$', '.tsx$', '.vue$'],
+          },
+        ],
+        'unicorn/prevent-abbreviations': 'warn',
       },
     },
   ],

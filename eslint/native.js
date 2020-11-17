@@ -31,6 +31,16 @@ module.exports = {
         ? 'warn'
         : 'off',
     'prettier/prettier': 'warn',
+    'unicorn/filename-case': [
+      'error',
+      {
+        cases: {
+          kebabCase: true,
+        },
+        ignore: ['.jsx$', '.tsx$', '.vue$'],
+      },
+    ],
+    'unicorn/prevent-abbreviations': 'warn',
   },
   overrides: [
     {
@@ -67,6 +77,16 @@ module.exports = {
             ? 'warn'
             : 'off',
         'prettier/prettier': 'warn',
+        'unicorn/filename-case': [
+          'error',
+          {
+            cases: {
+              kebabCase: true,
+              pascalCase: true,
+            },
+          },
+        ],
+        'unicorn/prevent-abbreviations': 'warn',
       },
     },
   ],
