@@ -89,6 +89,7 @@ module.exports = {
         ignore: ['.jsx$', '.tsx$', '.vue$'],
       },
     ],
+    'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'warn',
     'vue/order-in-components': [
       'warn',

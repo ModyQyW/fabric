@@ -111,6 +111,7 @@ module.exports = {
         ignore: ['.jsx$', '.tsx$', '.vue$'],
       },
     ],
+    'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'warn',
   },
   overrides: [
@@ -225,6 +226,7 @@ module.exports = {
             ignore: ['.jsx$', '.tsx$', '.vue$'],
           },
         ],
+        'unicorn/no-null': 'off',
         'unicorn/prevent-abbreviations': 'warn',
       },
     },
