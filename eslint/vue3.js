@@ -54,6 +54,7 @@ module.exports = {
         ignorePropertyModificationsFor: [
           'state',
           'acc',
+          'accumulator',
           'e',
           'err',
           'error',
@@ -82,7 +83,68 @@ module.exports = {
       },
     ],
     'unicorn/no-null': 'off',
-    'unicorn/prevent-abbreviations': 'warn',
+    'unicorn/prevent-abbreviations': [
+      'warn',
+      {
+        extendDefaultReplacements: false,
+        replacements: {
+          dest: {
+            destination: true,
+          },
+          dir: {
+            direction: true,
+            directory: true,
+          },
+          dirs: {
+            directories: true,
+          },
+          doc: {
+            document: true,
+          },
+          docs: {
+            documentation: true,
+            documents: true,
+          },
+          e: {
+            err: true,
+            error: true,
+            ev: true,
+            evt: true,
+            event: true,
+          },
+          mod: {
+            module: true,
+          },
+          rel: {
+            related: true,
+            relationship: true,
+            relative: true,
+          },
+          res: {
+            response: true,
+            result: true,
+          },
+          ret: {
+            returnValue: true,
+          },
+          retVal: {
+            returnValue: true,
+          },
+          sep: {
+            separator: true,
+          },
+          stdDev: {
+            standardDeviation: true,
+          },
+          tbl: {
+            table: true,
+          },
+          tit: {
+            title: true,
+          },
+        },
+      },
+    ],
     'vue/order-in-components': [
       'warn',
       {

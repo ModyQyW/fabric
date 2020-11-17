@@ -29,6 +29,25 @@ module.exports = {
       process.env.NODE_ENV === 'staging'
         ? 'warn'
         : 'off',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: [
+          'state',
+          'acc',
+          'accumulator',
+          'e',
+          'err',
+          'error',
+          'event',
+          'r',
+          'res',
+          'result',
+          'response',
+        ],
+      },
+    ],
     'no-unused-vars':
       process.env.NODE_ENV === 'production' ||
       process.env.NODE_ENV === 'pre-production' ||
@@ -112,7 +131,68 @@ module.exports = {
       },
     ],
     'unicorn/no-null': 'off',
-    'unicorn/prevent-abbreviations': 'warn',
+    'unicorn/prevent-abbreviations': [
+      'warn',
+      {
+        extendDefaultReplacements: false,
+        replacements: {
+          dest: {
+            destination: true,
+          },
+          dir: {
+            direction: true,
+            directory: true,
+          },
+          dirs: {
+            directories: true,
+          },
+          doc: {
+            document: true,
+          },
+          docs: {
+            documentation: true,
+            documents: true,
+          },
+          e: {
+            err: true,
+            error: true,
+            ev: true,
+            evt: true,
+            event: true,
+          },
+          mod: {
+            module: true,
+          },
+          rel: {
+            related: true,
+            relationship: true,
+            relative: true,
+          },
+          res: {
+            response: true,
+            result: true,
+          },
+          ret: {
+            returnValue: true,
+          },
+          retVal: {
+            returnValue: true,
+          },
+          sep: {
+            separator: true,
+          },
+          stdDev: {
+            standardDeviation: true,
+          },
+          tbl: {
+            table: true,
+          },
+          tit: {
+            title: true,
+          },
+        },
+      },
+    ],
   },
   overrides: [
     {
@@ -158,76 +238,6 @@ module.exports = {
                 },
               ]
             : 'off',
-        'prettier/prettier': 'warn',
-        'react/jsx-filename-extension': [
-          'error',
-          { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-        ],
-        'react/sort-comp': [
-          'error',
-          {
-            order: [
-              'static-variables',
-              'static-methods',
-              'instance-variables',
-              'lifecycle',
-              '/^on.+$/',
-              'getters',
-              'setters',
-              '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
-              'instance-methods',
-              'everything-else',
-              'rendering',
-            ],
-            groups: {
-              lifecycle: [
-                'displayName',
-                'propTypes',
-                'contextTypes',
-                'childContextTypes',
-                'mixins',
-                'statics',
-                'defaultProps',
-                'constructor',
-                'getDefaultProps',
-                'getInitialState',
-                'state',
-                'getChildContext',
-                'getDerivedStateFromProps',
-                'onLaunch',
-                'onReady',
-                'onLoad',
-                'componentWillMount',
-                'UNSAFE_componentWillMount',
-                'componentDidMount',
-                'componentDidShow',
-                'componentDidHide',
-                'componentWillReceiveProps',
-                'UNSAFE_componentWillReceiveProps',
-                'shouldComponentUpdate',
-                'componentWillUpdate',
-                'UNSAFE_componentWillUpdate',
-                'getSnapshotBeforeUpdate',
-                'componentDidUpdate',
-                'componentDidCatchError',
-                'componentDidNotFound',
-                'componentWillUnmount',
-              ],
-              rendering: ['/^render.+$/', 'render'],
-            },
-          },
-        ],
-        'unicorn/filename-case': [
-          'error',
-          {
-            cases: {
-              kebabCase: true,
-            },
-            ignore: ['.jsx$', '.tsx$', '.vue$'],
-          },
-        ],
-        'unicorn/no-null': 'off',
-        'unicorn/prevent-abbreviations': 'warn',
       },
     },
   ],
