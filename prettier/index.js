@@ -21,6 +21,7 @@ module.exports = {
     {
       files: ['*.css', '*.less', '*.scss'],
       options: {
+        printWidth: 120,
         singleQuote: false,
         trailingComma: 'none',
       },
