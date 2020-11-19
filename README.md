@@ -16,10 +16,12 @@ npm i -D prettier@~2.1.0 eslint@~7.13.0 stylelint@~13.7.2 @modyqyw/fabric@~1.0.0
 
 ```js
 // ${PROJECT_DIR}/prettier.config.js
+/* eslint-disable import/no-extraneous-dependencies */
 const config = require("@modyqyw/fabric/prettier");
 
 module.exports = {
   ...config,
+  // write your own rules here
 };
 ```
 
@@ -27,22 +29,30 @@ module.exports = {
 
 ```js
 // ${PROJECT_DIR}/.eslintrc.js
-const config = require("@modyqyw/fabric/eslint");
+/* eslint-disable import/no-extraneous-dependencies */
+const config = require("@modyqyw/fabric/eslint/native"); // for js and ts
+// const config = require("@modyqyw/fabric/eslint/react"); // for react, react-native and taro3, with js or ts
+// const config = require("@modyqyw/fabric/eslint/vue2-typescript"); // for vue2 and uni-app with ts
+// const config = require("@modyqyw/fabric/eslint/vue2"); // for vue2 and uni-app with js
+// const config = require("@modyqyw/fabric/eslint/vue3-typescript"); // for vue3 and uni-app with ts
+// const config = require("@modyqyw/fabric/eslint/vue3"); // for vue3 and uni-app with js
 
 module.exports = {
-  ...config.native, // for js and ts
-  // ...config.react, // for react, react-native and taro3, with js or ts
-  // ...config.vue2Typescript, // for vue2 and uni-app with ts
-  // ...config.vue2, // for vue2 and uni-app with js
-  // ...config.vue3Typescript, // for vue3 and uni-app with ts
-  // ...config.vue3, // for vue3 and uni-app with js
+  ...config,
+  rules: {
+    ...config.rules,
+    // write your own rules here
+  }
 };
 ```
+
+Do not use `const config = require("@modyqyw/fabric/eslint");` unless you are using vue.
 
 ### Stylelint
 
 ```js
 // ${PROJECT_DIR}/stylelint.config.js
+/* eslint-disable import/no-extraneous-dependencies */
 const config = require("@modyqyw/fabric/stylelint");
 
 module.exports = {
