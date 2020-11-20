@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D prettier@~2.2.0 eslint@~7.13.0 stylelint@~13.8.0 @modyqyw/fabric@~1.1.0 typescript@~4.1.2
+npm i -D prettier@~2.2.0 eslint@~7.13.0 stylelint@~13.8.0 @modyqyw/fabric@~1.1.0
 # or
-#yarn add -D prettier@~2.2.0 eslint@~7.13.0 stylelint@~13.8.0 @modyqyw/fabric@~1.1.0 typescript@~4.1.2
+#yarn add -D prettier@~2.2.0 eslint@~7.13.0 stylelint@~13.8.0 @modyqyw/fabric@~1.1.0
 ```
 
 ### Prettier
