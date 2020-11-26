@@ -7,9 +7,11 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D prettier@~2.2.0 eslint@~7.13.0 stylelint@~13.8.0 @modyqyw/fabric@~1.1.0
+npm i -D prettier@~2.2.0 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
+npm i -D @commitlint/cli@～11.0.0 husky@~4.3.0 lint-staged@~10.5.2
 # or
-#yarn add -D prettier@~2.2.0 eslint@~7.13.0 stylelint@~13.8.0 @modyqyw/fabric@~1.1.0
+# yarn add -D prettier@~2.2.0 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
+# yarn add -D @commitlint/cli@～11.0.0 husky@~4.3.0 lint-staged@~10.5.2
 ```
 
 ### Prettier
@@ -53,13 +55,88 @@ Do not use `const config = require("@modyqyw/fabric/eslint");` unless you are us
 ```js
 // ${PROJECT_DIR}/stylelint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
-const config = require("@modyqyw/fabric/stylelint");
+const config = require("@modyqyw/fabric/stylelint/css"); // for css
+// const config = require("@modyqyw/fabric/stylelint/less"); // for less
+// const config = require("@modyqyw/fabric/stylelint/scss"); // for scss
 
 module.exports = {
-  ...config.css, // for css
-  // ...config.less, // for less
-  // ...config.scss, // for scss
+  ...config,
 };
+```
+
+### Commitlint
+
+```js
+// ${PROJECT_DIR}/commitlint.config.js
+/* eslint-disable import/no-extraneous-dependencies */
+const config = require("@modyqyw/fabric/commitlint");
+
+module.exports = {
+  ...config
+};
+```
+
+### LsLint
+
+```yml
+# ${PROJECT_DIR}/.ls-lint.yml
+ls:
+  src/**:
+    .js: kebab-case
+    .jsx: kebab-case | PascalCase
+    .ts: kebab-case
+    .tsx: kebab-case | PascalCase
+    .vue: kebab-case | PascalCase
+    .scss: kebab-case
+    .less: kebab-case
+
+ignore:
+  - .git
+  - node_modules
+
+```
+
+### EditorConfig
+
+```sh
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+```
+
+### Husky & LintStaged
+
+```json
+{
+  ...,
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{css,less,scss}": [
+      "stylelint --fix"
+    ],
+    "./src/**/*.{js,jsx,ts,tsx,vue}": [
+      "vue-cli-service lint --fix",
+    ],
+    "./src/**/*.vue": [
+      "stylelint --fix"
+    ],
+    ".": [
+      "ls-lint"
+    ]
+  }
+}
 ```
 
 ## VSCode
