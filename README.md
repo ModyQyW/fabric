@@ -7,10 +7,10 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D prettier@~2.2.0 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
+npm i -D prettier@~2.2.1 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
 npm i -D @commitlint/cli@～11.0.0 husky@~4.3.0 lint-staged@~10.5.2
 # or
-# yarn add -D prettier@~2.2.0 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
+# yarn add -D prettier@~2.2.1 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
 # yarn add -D @commitlint/cli@～11.0.0 husky@~4.3.0 lint-staged@~10.5.2
 ```
 
