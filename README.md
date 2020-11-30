@@ -155,9 +155,9 @@ ls:
     .ts: kebab-case
     .tsx: kebab-case | PascalCase
     .vue: kebab-case | PascalCase
-    .css: kebab-case
-    .less: kebab-case
-    .scss: kebab-case
+    .css: kebab-case | point.case
+    .less: kebab-case | point.case
+    .scss: kebab-case | point.case
 
 ignore:
   - .git
