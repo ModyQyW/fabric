@@ -221,13 +221,13 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.2
       "stylelint --fix"
     ],
     "./src/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix",
+      "eslint --fix"
     ],
     "./views/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix",
+      "eslint --fix"
     ],
     "./pages/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix",
+      "eslint --fix"
     ],
     ".": [
       "ls-lint"
