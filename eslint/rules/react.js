@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 module.exports = {
   'no-unused-vars':
     process.env.NODE_ENV === 'production' ||
@@ -16,6 +19,9 @@ module.exports = {
     'error',
     { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
   ],
+  'react/react-in-jsx-scope': fs.existsSync(path.resolve('node_modules', 'rax'))
+    ? 'off'
+    : 'error',
   'react/sort-comp': [
     'error',
     {
