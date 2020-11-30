@@ -158,22 +158,6 @@ ls:
     .css: kebab-case
     .less: kebab-case
     .scss: kebab-case
-  pages/**:
-    .js: kebab-case
-    .jsx: kebab-case | PascalCase
-    .ts: kebab-case
-    .tsx: kebab-case | PascalCase
-    .vue: kebab-case | PascalCase
-  views/**:
-    .js: kebab-case
-    .jsx: kebab-case | PascalCase
-    .ts: kebab-case
-    .tsx: kebab-case | PascalCase
-    .vue: kebab-case | PascalCase
-  styles/**:
-    .css: kebab-case
-    .less: kebab-case
-    .scss: kebab-case
 
 ignore:
   - .git
@@ -217,16 +201,7 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.2
     "./src/**/*.{css,less,scss,vue}": [
       "stylelint --fix"
     ],
-    "./styles/**/*.{css,less,scss,vue}": [
-      "stylelint --fix"
-    ],
     "./src/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix"
-    ],
-    "./views/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix"
-    ],
-    "./pages/**/*.{js,jsx,ts,tsx,vue}": [
       "eslint --fix"
     ],
     ".": [
