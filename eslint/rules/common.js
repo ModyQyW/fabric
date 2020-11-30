@@ -37,15 +37,7 @@ module.exports = {
       ? 'warn'
       : 'off',
   'prettier/prettier': 'warn',
-  'unicorn/filename-case': [
-    'error',
-    {
-      cases: {
-        kebabCase: true,
-      },
-      ignore: ['.jsx$', '.tsx$', '.vue$'],
-    },
-  ],
+  'unicorn/filename-case': 'off',
   'unicorn/no-null': 'off',
   'unicorn/prevent-abbreviations': [
     'warn',
