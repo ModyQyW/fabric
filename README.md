@@ -9,9 +9,9 @@ Shareable configs for different projects.
 Install the dependency first.
 
 ```sh
-npm i -D @modyqyw/fabric@~1.3.5
+npm i -D @modyqyw/fabric@~1.3.7
 # or
-# yarn add -D @modyqyw/fabric@~1.3.5
+# yarn add -D @modyqyw/fabric@~1.3.7
 ```
 
 Then follow the corresponding guides.
