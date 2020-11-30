@@ -6,15 +6,11 @@ Shareable configs for different projects.
 
 ## Usage
 
-Install the dependency first.
-
 ```sh
-npm i -D @modyqyw/fabric@~1.3.7
+npm i -D @modyqyw/fabric@~1.3.9
 # or
-# yarn add -D @modyqyw/fabric@~1.3.7
+# yarn add -D @modyqyw/fabric@~1.3.9
 ```
-
-Then follow the corresponding guides.
 
 ### Prettier
 
@@ -27,7 +23,7 @@ npm i -D prettier@~2.2.1
 ```js
 // ${PROJECT_DIR}/prettier.config.js
 /* eslint-disable import/no-extraneous-dependencies */
-const config = require("@modyqyw/fabric/prettier");
+const config = require('@modyqyw/fabric/prettier');
 
 module.exports = {
   ...config,
@@ -48,22 +44,22 @@ npm i -D eslint@~7.14.0
 // ${PROJECT_DIR}/.eslintrc.js
 /* eslint-disable import/no-extraneous-dependencies */
 // for js and ts
-const config = require("@modyqyw/fabric/eslint/native");
+const config = require('@modyqyw/fabric/eslint/native');
 
-// for react, react-native, taro3 and rax, with js or ts
-// const config = require("@modyqyw/fabric/eslint/react");
+// for react, react-native, taro3, rax1, umi and next, with js or ts
+// const config = require('@modyqyw/fabric/eslint/react');
 
-// for vue2 and uni-app, with js
-// const config = require("@modyqyw/fabric/eslint/vue2");
+// for vue2, uni-app and nuxt, with js
+// const config = require('@modyqyw/fabric/eslint/vue2');
 
-// for vue2 and uni-app, with ts
-// const config = require("@modyqyw/fabric/eslint/vue2-typescript");
+// for vue2, uni-app and nuxt, with ts
+// const config = require('@modyqyw/fabric/eslint/vue2-typescript');
 
 // for vue3 and uni-app, with js
-// const config = require("@modyqyw/fabric/eslint/vue3");
+// const config = require('@modyqyw/fabric/eslint/vue3');
 
 // for vue3 and uni-app, with ts
-// const config = require("@modyqyw/fabric/eslint/vue3-typescript");
+// const config = require('@modyqyw/fabric/eslint/vue3-typescript');
 
 module.exports = {
   ...config,
@@ -87,13 +83,13 @@ npm i -D stylelint@~13.8.0
 // ${PROJECT_DIR}/stylelint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
 // for css
-const config = require("@modyqyw/fabric/stylelint/css");
+const config = require('@modyqyw/fabric/stylelint/css');
 
 // for less
-// const config = require("@modyqyw/fabric/stylelint/less");
+// const config = require('@modyqyw/fabric/stylelint/less');
 
 // for scss
-// const config = require("@modyqyw/fabric/stylelint/scss");
+// const config = require('@modyqyw/fabric/stylelint/scss');
 
 module.exports = {
   ...config,
@@ -110,9 +106,9 @@ Using `extends` is also ok.
 ```js
 // ${PROJECT_DIR}/stylelint.config.js
 module.exports = {
-  extends: ["@modyqyw/fabric/stylelint/css"],
-  // extends: ["@modyqyw/fabric/stylelint/less"],
-  // extends: ["@modyqyw/fabric/stylelint/scss"],
+  extends: ['@modyqyw/fabric/stylelint/css'],
+  // extends: ['@modyqyw/fabric/stylelint/less'],
+  // extends: ['@modyqyw/fabric/stylelint/scss'],
   rules: {
     // write your own rules here
   },
@@ -131,11 +127,12 @@ npm i -D @commitlint/cli@~11.0.0
 ```js
 // ${PROJECT_DIR}/commitlint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
-const config = require("@modyqyw/fabric/commitlint");
+const config = require('@modyqyw/fabric/commitlint');
 
 module.exports = {
-  ...config
+  ...config,
 };
+
 ```
 
 ### LsLint
@@ -150,18 +147,26 @@ npm i -D @ls-lint/ls-lint@~1.9.2
 # ${PROJECT_DIR}/.ls-lint.yml
 ls:
   src/**:
-    .js: camelCase | kebab-case | PascalCase | point.case
-    .jsx: camelCase | kebab-case | PascalCase | point.case
-    .ts: camelCase | kebab-case | PascalCase | point.case
-    .tsx: camelCase | kebab-case | PascalCase | point.case
+    # useToken.js | remote-search.js | index.config.js
+    .js: camelCase | kebab-case | point.case
+    .ts: camelCase | kebab-case | point.case
+    # FormItem.tsx
+    .jsx: PascalCase
+    .tsx: PascalCase
+    # auth-redirect.vue | FromItem.vue
     .vue: kebab-case | PascalCase
-    .css: kebab-case | point.case
-    .less: kebab-case | point.case
-    .scss: kebab-case | point.case
+    # index.css | Index.css | index.module.css
+    .css: kebab-case | PascalCase | point.case
+    .less: kebab-case | PascalCase | point.case
+    .scss: kebab-case | PascalCase | point.case
 
 ignore:
   - .git
   - node_modules
+  - .nuxt
+  - .next
+  - .umi
+  - locales
 
 ```
 
@@ -209,6 +214,7 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.2
     ]
   }
 }
+
 ```
 
 ## VSCode
