@@ -6,15 +6,23 @@ Shareable configs for different projects.
 
 ## Usage
 
+Install the dependency first.
+
 ```sh
-npm i -D prettier@~2.2.1 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
-npm i -D @commitlint/cli@～11.0.0 husky@~4.3.0 lint-staged@~10.5.2
+npm i -D @modyqyw/fabric@~1.3.0
 # or
-# yarn add -D prettier@~2.2.1 eslint@~7.14.0 stylelint@~13.8.0 @modyqyw/fabric@~1.2.0
-# yarn add -D @commitlint/cli@～11.0.0 husky@~4.3.0 lint-staged@~10.5.2
+# yarn add -D @modyqyw/fabric@~1.3.0
 ```
 
+Then follow the corresponding guides.
+
 ### Prettier
+
+```sh
+npm i -D prettier@~2.2.1
+# or
+# yarn add -D prettier@~2.2.1
+```
 
 ```js
 // ${PROJECT_DIR}/prettier.config.js
@@ -25,46 +33,100 @@ module.exports = {
   ...config,
   // write your own rules here
 };
+
 ```
 
 ### ESLint
 
+```sh
+npm i -D eslint@~7.14.0
+# or
+# yarn add -D eslint@~7.14.0
+```
+
 ```js
 // ${PROJECT_DIR}/.eslintrc.js
 /* eslint-disable import/no-extraneous-dependencies */
-const config = require("@modyqyw/fabric/eslint/native"); // for js and ts
-// const config = require("@modyqyw/fabric/eslint/react"); // for react, react-native and taro3, with js or ts
-// const config = require("@modyqyw/fabric/eslint/vue2-typescript"); // for vue2 and uni-app with ts
-// const config = require("@modyqyw/fabric/eslint/vue2"); // for vue2 and uni-app with js
-// const config = require("@modyqyw/fabric/eslint/vue3-typescript"); // for vue3 and uni-app with ts
-// const config = require("@modyqyw/fabric/eslint/vue3"); // for vue3 and uni-app with js
+// for js and ts
+const config = require("@modyqyw/fabric/eslint/native");
+
+// for react, react-native, taro3 and rax, with js or ts
+// const config = require("@modyqyw/fabric/eslint/react");
+
+// for vue2 and uni-app, with js
+// const config = require("@modyqyw/fabric/eslint/vue2");
+
+// for vue2 and uni-app, with ts
+// const config = require("@modyqyw/fabric/eslint/vue2-typescript");
+
+// for vue3 and uni-app, with js
+// const config = require("@modyqyw/fabric/eslint/vue3");
+
+// for vue3 and uni-app, with ts
+// const config = require("@modyqyw/fabric/eslint/vue3-typescript");
 
 module.exports = {
   ...config,
   rules: {
     ...config.rules,
     // write your own rules here
-  }
+  },
 };
+
 ```
 
-Do not use `const config = require("@modyqyw/fabric/eslint");` unless you are using vue.
-
 ### Stylelint
+
+```sh
+npm i -D stylelint@~13.8.0
+# or
+# yarn add -D stylelint@~13.8.0
+```
 
 ```js
 // ${PROJECT_DIR}/stylelint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
-const config = require("@modyqyw/fabric/stylelint/css"); // for css
-// const config = require("@modyqyw/fabric/stylelint/less"); // for less
-// const config = require("@modyqyw/fabric/stylelint/scss"); // for scss
+// for css
+const config = require("@modyqyw/fabric/stylelint/css");
+
+// for less
+// const config = require("@modyqyw/fabric/stylelint/less");
+
+// for scss
+// const config = require("@modyqyw/fabric/stylelint/scss");
 
 module.exports = {
   ...config,
+  rules: {
+    ...config.rules,
+    // write your own rules here
+  },
 };
+
+```
+
+Using `extends` is also ok.
+
+```js
+// ${PROJECT_DIR}/stylelint.config.js
+module.exports = {
+  extends: ["@modyqyw/fabric/stylelint/css"],
+  // extends: ["@modyqyw/fabric/stylelint/less"],
+  // extends: ["@modyqyw/fabric/stylelint/scss"],
+  rules: {
+    // write your own rules here
+  },
+};
+
 ```
 
 ### Commitlint
+
+```sh
+npm i -D @commitlint/cli@~11.0.0
+# or
+# yarn add -D @commitlint/cli@~11.0.0
+```
 
 ```js
 // ${PROJECT_DIR}/commitlint.config.js
@@ -78,6 +140,12 @@ module.exports = {
 
 ### LsLint
 
+```sh
+npm i -D @ls-lint/ls-lint@~1.9.2
+# or
+# yarn add -D @ls-lint/ls-lint@~1.9.2
+```
+
 ```yml
 # ${PROJECT_DIR}/.ls-lint.yml
 ls:
@@ -87,8 +155,25 @@ ls:
     .ts: kebab-case
     .tsx: kebab-case | PascalCase
     .vue: kebab-case | PascalCase
-    .scss: kebab-case
+    .css: kebab-case
     .less: kebab-case
+    .scss: kebab-case
+  pages/**:
+    .js: kebab-case
+    .jsx: kebab-case | PascalCase
+    .ts: kebab-case
+    .tsx: kebab-case | PascalCase
+    .vue: kebab-case | PascalCase
+  views/**:
+    .js: kebab-case
+    .jsx: kebab-case | PascalCase
+    .ts: kebab-case
+    .tsx: kebab-case | PascalCase
+    .vue: kebab-case | PascalCase
+  styles/**:
+    .css: kebab-case
+    .less: kebab-case
+    .scss: kebab-case
 
 ignore:
   - .git
@@ -113,6 +198,12 @@ trim_trailing_whitespace = true
 
 ### Husky & LintStaged
 
+```sh
+npm i -D husky@~4.3.0 lint-staged@~10.5.2
+# or
+# yarn add -D husky@~4.3.0 lint-staged@~10.5.2
+```
+
 ```json
 {
   ...,
@@ -123,14 +214,11 @@ trim_trailing_whitespace = true
     }
   },
   "lint-staged": {
-    "./src/**/*.{css,less,scss}": [
+    "./src/**/*.{css,less,scss,vue}": [
       "stylelint --fix"
     ],
     "./src/**/*.{js,jsx,ts,tsx,vue}": [
-      "vue-cli-service lint --fix",
-    ],
-    "./src/**/*.vue": [
-      "stylelint --fix"
+      "eslint --fix",
     ],
     ".": [
       "ls-lint"
@@ -188,14 +276,6 @@ trim_trailing_whitespace = true
   }
 }
 ```
-
-## More Configs
-
-- `@modyqyw/prettier-config` - [Github](https://github.com/MillCloud/prettier-config#readme) [Gitee](https://gitee.com/millcloud/prettier-config#readme)
-- `@modyqyw/eslint-config` - [Github](https://github.com/MillCloud/eslint-config#readme) [Gitee](https://gitee.com/millcloud/eslint-config#readme)
-- `@modyqyw/stylelint-config` - [Github](https://github.com/MillCloud/stylelint-config#readme) [Gitee](https://gitee.com/millcloud/stylelint-config#readme)
-
-`@modyqyw/eslint-config` and `@modyqyw/stylelint-config` do not use any `Prettier` config and plugin, while `@modyqyw/fabric` does.
 
 ## License
 
