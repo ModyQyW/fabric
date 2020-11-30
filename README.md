@@ -150,9 +150,9 @@ ls:
     # useToken.js | remote-search.js | index.config.js
     .js: camelCase | kebab-case | point.case
     .ts: camelCase | kebab-case | point.case
-    # FormItem.tsx
-    .jsx: PascalCase
-    .tsx: PascalCase
+    # index.tsx | FormItem.tsx
+    .jsx: camelCase | PascalCase
+    .tsx: camelCase | PascalCase
     # auth-redirect.vue | FromItem.vue
     .vue: kebab-case | PascalCase
     # index.css | Index.css | index.module.css
@@ -165,8 +165,8 @@ ignore:
   - node_modules
   - .nuxt
   - .next
-  - .umi
-  - locales
+  - ./src/.umi
+  - ./src/locales
 
 ```
 
