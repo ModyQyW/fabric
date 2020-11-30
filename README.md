@@ -150,10 +150,10 @@ npm i -D @ls-lint/ls-lint@~1.9.2
 # ${PROJECT_DIR}/.ls-lint.yml
 ls:
   src/**:
-    .js: kebab-case
-    .jsx: kebab-case | PascalCase
-    .ts: kebab-case
-    .tsx: kebab-case | PascalCase
+    .js: kebab-case | PascalCase | point.case
+    .jsx: kebab-case | PascalCase | point.case
+    .ts: kebab-case | PascalCase | point.case
+    .tsx: kebab-case | PascalCase | point.case
     .vue: kebab-case | PascalCase
     .css: kebab-case | point.case
     .less: kebab-case | point.case
