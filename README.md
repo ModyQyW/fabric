@@ -196,6 +196,14 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.2
 ```json
 {
   ...,
+  "scripts": {
+    ...,
+    "lint": "yarn lint:json && yarn lint:script && yarn lint:style && yarn lint:ls",
+    "lint:json": "prettier ./src/**/*.json --write",
+    "lint:script": "eslint ./src --ext .js,.jsx,.ts,.tsx,.vue --fix",
+    "lint:style": "stylelint ./src/**/*.{css,less,scss} --fix",
+    "lint:ls": "ls-lint"
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
@@ -203,15 +211,7 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.2
     }
   },
   "lint-staged": {
-    "./src/**/*.{css,less,scss,vue}": [
-      "stylelint --fix"
-    ],
-    "./src/**/*.{js,jsx,ts,tsx,vue}": [
-      "eslint --fix"
-    ],
-    ".": [
-      "ls-lint"
-    ]
+    ".": "yarn lint"
   }
 }
 
