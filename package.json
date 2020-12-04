@@ -1,6 +1,6 @@
 {
   "name": "@modyqyw/fabric",
-  "version": "1.3.10",
+  "version": "1.4.0",
   "description": "Shareable configs for different projects.",
   "keywords": [
     "config",
