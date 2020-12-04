@@ -212,7 +212,7 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.2
     "lint": "yarn lint:json && yarn lint:script && yarn lint:style && yarn lint:ls",
     "lint:json": "prettier ./**/*.json -w",
     "lint:script": "eslint ./src --ext .js,.jsx,.ts,.tsx,.vue --fix",
-    "lint:style": "stylelint ./src/**/*.{css,less,scss} --fix",
+    "lint:style": "stylelint ./src/**/*.{css,less,scss,vue} --fix",
     "lint:ls": "ls-lint"
   },
   "husky": {
