@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.3.9
+npm i -D @modyqyw/fabric@~1.5.0
 # or
-# yarn add -D @modyqyw/fabric@~1.3.9
+# yarn add -D @modyqyw/fabric@~1.5.0
 ```
 
 ### Prettier
@@ -27,7 +27,17 @@ const config = require('@modyqyw/fabric/prettier');
 
 module.exports = {
   ...config,
-  // write your own rules here
+  // write your own rules here link below
+  overrides: [
+    {
+      files: ['*.css', '*.less', '*.scss'],
+      options: {
+        printWidth: 150,
+        singleQuote: false,
+        trailingComma: 'none',
+      },
+    },
+  ],
 };
 
 ```
@@ -37,6 +47,7 @@ module.exports = {
 .next/
 .nuxt/
 .umi/
+.vuepress/
 build/
 dist/
 node_modules/
@@ -46,9 +57,9 @@ node_modules/
 ### ESLint
 
 ```sh
-npm i -D eslint@~7.14.0
+npm i -D eslint@~7.15.0
 # or
-# yarn add -D eslint@~7.14.0
+# yarn add -D eslint@~7.15.0
 ```
 
 ```js
@@ -199,9 +210,9 @@ trim_trailing_whitespace = true
 ### Husky & LintStaged
 
 ```sh
-npm i -D husky@~4.3.0 lint-staged@~10.5.2
+npm i -D husky@~4.3.0 lint-staged@~10.5.3
 # or
-# yarn add -D husky@~4.3.0 lint-staged@~10.5.2
+# yarn add -D husky@~4.3.0 lint-staged@~10.5.3
 ```
 
 ```json
