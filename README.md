@@ -42,17 +42,7 @@ module.exports = {
 
 ```
 
-```sh
-# .prettierignore
-.next/
-.nuxt/
-.umi/
-.vuepress/
-build/
-dist/
-node_modules/
-
-```
+A `.prettierignore` example [here](./.gitignore) (can also be `.gitignore`).
 
 ### ESLint
 
