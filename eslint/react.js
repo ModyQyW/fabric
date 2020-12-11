@@ -13,6 +13,8 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'prettier',
+    'prettier/prettier',
+    'prettier/unicorn',
     'prettier/react',
   ],
   env: {

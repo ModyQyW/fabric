@@ -5,7 +5,13 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   plugins: ['prettier'],
-  extends: ['plugin:unicorn/recommended', 'airbnb-base', 'prettier'],
+  extends: [
+    'plugin:unicorn/recommended',
+    'airbnb-base',
+    'prettier',
+    'prettier/prettier',
+    'prettier/unicorn',
+  ],
   env: {
     browser: true,
     es2021: true,

@@ -14,6 +14,8 @@ module.exports = {
     'airbnb-base',
     'plugin:vue/recommended',
     'prettier',
+    'prettier/prettier',
+    'prettier/unicorn',
     'prettier/vue',
   ],
   env: {
