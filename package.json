@@ -27,9 +27,9 @@
     "less",
     "scss"
   ],
-  "homepage": "https://github.com/MillCloud/fabric#readme",
+  "homepage": "https://github.com/ModyQyW/fabric#readme",
   "bugs": {
-    "url": "https://github.com/MillCloud/fabric/issues"
+    "url": "https://github.com/ModyQyW/fabric/issues"
   },
   "license": "MIT",
   "author": {
@@ -40,7 +40,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:MillCloud/fabric.git"
+    "url": "git@github.com:ModyQyW/fabric.git"
   },
   "dependencies": {
     "@commitlint/config-conventional": "~11.0.0",

@@ -2,7 +2,7 @@
 
 Shareable configs for different projects.
 
-[Github](https://github.com/MillCloud/fabric#readme) | [Gitee](https://gitee.com/millcloud/fabric#readme)
+[Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
 ## Usage
 
@@ -293,4 +293,4 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.3
 
 [MIT](./LICENSE)
 
-Copyright (c) 2020-present MillCloud
+Copyright (c) 2020-present ModyQyW
