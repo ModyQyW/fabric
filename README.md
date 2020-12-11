@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.5.0
+npm i -D @modyqyw/fabric@~1.6.0
 # or
-# yarn add -D @modyqyw/fabric@~1.5.0
+# yarn add -D @modyqyw/fabric@~1.6.0
 ```
 
 ### Prettier
@@ -173,10 +173,6 @@ ls:
     .scss: kebab-case | PascalCase | point.case
 
 ignore:
-  - .git
-  - node_modules
-  - .nuxt
-  - .next
   - ./src/.umi
   - ./src/locales
 
@@ -214,7 +210,7 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.3
     "lint:json": "prettier ./**/*.json -w",
     "lint:script": "eslint ./src --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "lint:style": "stylelint ./src/**/*.{css,less,scss,vue} --fix",
-    "lint:ls": "ls-lint"
+    "lint:ls": "ls-lint ."
   },
   "husky": {
     "hooks": {
@@ -247,6 +243,8 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.3
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -268,6 +266,7 @@ npm i -D husky@~4.3.0 lint-staged@~10.5.3
     "*.jxml": "html",
     "*.jxss": "css",
     "*.wpy": "vue",
+    "*.json": "jsonc",
     "*.nvue": "vue",
     "*.ux": "vue"
   },
