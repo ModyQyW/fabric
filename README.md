@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.6.0
+npm i -D @modyqyw/fabric@~1.6.1
 # or
-# yarn add -D @modyqyw/fabric@~1.6.0
+# yarn add -D @modyqyw/fabric@~1.6.1
 ```
 
 ### Prettier
@@ -27,7 +27,7 @@ const config = require('@modyqyw/fabric/prettier');
 
 module.exports = {
   ...config,
-  // write your own rules here link below
+  // write your own rules here like below
   overrides: [
     {
       files: ['*.css', '*.less', '*.scss'],
@@ -196,9 +196,9 @@ trim_trailing_whitespace = true
 ### Husky & LintStaged
 
 ```sh
-npm i -D husky@~4.3.0 lint-staged@~10.5.3
+npm i -D husky@~4.3.5 lint-staged@~10.5.3
 # or
-# yarn add -D husky@~4.3.0 lint-staged@~10.5.3
+# yarn add -D husky@~4.3.5 lint-staged@~10.5.3
 ```
 
 ```json
