@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.6.1
+npm i -D @modyqyw/fabric@~1.8.0
 # or
-# yarn add -D @modyqyw/fabric@~1.6.1
+# yarn add -D @modyqyw/fabric@~1.8.0
 ```
 
 ### Prettier
@@ -47,9 +47,9 @@ A `.prettierignore` example [here](./.gitignore) (can also be `.gitignore`).
 ### ESLint
 
 ```sh
-npm i -D eslint@~7.15.0
+npm i -D eslint@~7.16.0
 # or
-# yarn add -D eslint@~7.15.0
+# yarn add -D eslint@~7.16.0
 ```
 
 ```js
@@ -196,9 +196,9 @@ trim_trailing_whitespace = true
 ### Husky & LintStaged
 
 ```sh
-npm i -D husky@~4.3.5 lint-staged@~10.5.3
+npm i -D husky@~4.3.6 lint-staged@~10.5.3
 # or
-# yarn add -D husky@~4.3.5 lint-staged@~10.5.3
+# yarn add -D husky@~4.3.6 lint-staged@~10.5.3
 ```
 
 ```json
@@ -230,6 +230,8 @@ npm i -D husky@~4.3.5 lint-staged@~10.5.3
 - Install plugins.
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  - [language-stylus](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
+  - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
 - Set up `Settings.json`. Then `F1 => File: Save`.
