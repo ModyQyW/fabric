@@ -42,6 +42,8 @@ module.exports = {
         'airbnb-typescript',
         'airbnb/hooks',
         'prettier',
+        'prettier/prettier',
+        'prettier/unicorn',
         'prettier/@typescript-eslint',
         'prettier/react',
       ],

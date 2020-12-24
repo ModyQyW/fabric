@@ -36,6 +36,8 @@ module.exports = {
         'plugin:unicorn/recommended',
         'airbnb-typescript/base',
         'prettier',
+        'prettier/prettier',
+        'prettier/unicorn',
         'prettier/@typescript-eslint',
       ],
       rules: {
