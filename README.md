@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.8.0
+npm i -D @modyqyw/fabric@~1.10.0
 # or
-# yarn add -D @modyqyw/fabric@~1.8.0
+# yarn add -D @modyqyw/fabric@~1.10.0
 ```
 
 ### Prettier
@@ -47,9 +47,9 @@ A `.prettierignore` example [here](./.gitignore) (can also be `.gitignore`).
 ### ESLint
 
 ```sh
-npm i -D eslint@~7.16.0
+npm i -D eslint@~7.17.0
 # or
-# yarn add -D eslint@~7.16.0
+# yarn add -D eslint@~7.17.0
 ```
 
 ```js
@@ -58,13 +58,13 @@ npm i -D eslint@~7.16.0
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
 
-// for react, react-native, taro3, rax1, umi and next, with js or ts
+// for react17, react-native, taro3, rax1, umi3 and next10, with js or ts
 // const config = require('@modyqyw/fabric/eslint/react');
 
-// for vue2, uni-app and nuxt, with js
+// for vue2, uni-app and nuxt2, with js
 // const config = require('@modyqyw/fabric/eslint/vue2');
 
-// for vue2, uni-app and nuxt, with ts
+// for vue2, uni-app and nuxt2, with ts
 // const config = require('@modyqyw/fabric/eslint/vue2-typescript');
 
 // for vue3 and uni-app, with js
@@ -196,9 +196,9 @@ trim_trailing_whitespace = true
 ### Husky & LintStaged
 
 ```sh
-npm i -D husky@~4.3.6 lint-staged@~10.5.3
+npm i -D husky@~4.3.7 lint-staged@~10.5.3
 # or
-# yarn add -D husky@~4.3.6 lint-staged@~10.5.3
+# yarn add -D husky@~4.3.7 lint-staged@~10.5.3
 ```
 
 ```json
