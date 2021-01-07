@@ -18,6 +18,7 @@
     "react",
     "react-native",
     "taro",
+    "rax",
     "vue",
     "vue2",
     "vue3",
