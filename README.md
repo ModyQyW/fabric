@@ -7,9 +7,24 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.10.0
+npm i -D @modyqyw/fabric@~1.11.0
 # or
-# yarn add -D @modyqyw/fabric@~1.10.0
+# yarn add -D @modyqyw/fabric@~1.11.0
+```
+
+### EditorConfig
+
+```sh
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
 ```
 
 ### Prettier
@@ -42,7 +57,7 @@ module.exports = {
 
 ```
 
-A `.prettierignore` example [here](./.gitignore) (can also be `.gitignore`).
+A `.prettierignore` example [here](./.prettierignore).
 
 ### ESLint
 
@@ -82,6 +97,8 @@ module.exports = {
 };
 
 ```
+
+A `.eslintignore` example [here](./.eslintignore).
 
 ### Stylelint
 
@@ -128,24 +145,25 @@ module.exports = {
 
 ```
 
-### Commitlint
+A `.stylelintignore` example [here](./.stylelintignore).
+
+### MarkdownLint
 
 ```sh
-npm i -D @commitlint/cli@~11.0.0
+npm i -D markdownlint-cli@~0.26.0
 # or
-# yarn add -D @commitlint/cli@~11.0.0
+# yarn add -D markdownlint-cli@~0.26.0
 ```
 
-```js
-// ${PROJECT_DIR}/commitlint.config.js
-/* eslint-disable import/no-extraneous-dependencies */
-const config = require('@modyqyw/fabric/commitlint');
-
-module.exports = {
-  ...config,
-};
+```json
+// ${PROJECT_DIR}/.markdownlint.json
+{
+  "MD013": false
+}
 
 ```
+
+A `.markdownlintignore` example [here](./.markdownlintignore).
 
 ### LsLint
 
@@ -178,18 +196,22 @@ ignore:
 
 ```
 
-### EditorConfig
+### Commitlint
 
 ```sh
-root = true
+npm i -D @commitlint/cli@~11.0.0
+# or
+# yarn add -D @commitlint/cli@~11.0.0
+```
 
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
+```js
+// ${PROJECT_DIR}/commitlint.config.js
+/* eslint-disable import/no-extraneous-dependencies */
+const config = require('@modyqyw/fabric/commitlint');
+
+module.exports = {
+  ...config,
+};
 
 ```
 
@@ -206,10 +228,11 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
   ...,
   "scripts": {
     ...,
-    "lint": "yarn lint:json && yarn lint:script && yarn lint:style && yarn lint:ls",
-    "lint:json": "prettier ./**/*.json -w",
-    "lint:script": "eslint ./src --ext .js,.jsx,.ts,.tsx,.vue --fix",
-    "lint:style": "stylelint ./src/**/*.{css,less,scss,vue} --fix",
+    "lint": "npm run lint:json && npm run lint:markdown && npm run lint:script && npm run lint:style && npm run lint:ls",
+    "lint:json": "prettier ./**/*.json --write",
+    "lint:markdown": "markdownlint ./**/*.md --fix",
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
+    "lint:style": "stylelint ./**/*.{css,less,scss,vue} --fix",
     "lint:ls": "ls-lint ."
   },
   "husky": {
@@ -219,7 +242,7 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
     }
   },
   "lint-staged": {
-    ".": "yarn lint"
+    ".": "npm run lint"
   }
 }
 
@@ -228,9 +251,10 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
 ## VSCode
 
 - Install plugins.
-  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [language-stylus](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
+  - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
@@ -241,19 +265,14 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
   "css.validate": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
+    "source.fixAll.markdownlint": true,
     "source.fixAll.stylelint": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.rulers": [{ "column": 80 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
   "files.eol": "\n",
   "files.associations": {
     "*.wxml": "html",
