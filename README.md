@@ -248,6 +248,8 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
 
 ```
 
+When you are using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service lint --fix`.
+
 ## VSCode
 
 - Install plugins.

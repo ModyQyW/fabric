@@ -90,7 +90,7 @@
     "access": "public"
   },
   "scripts": {
-    "lint": "npm run lint:json && npm run lint:markdown && npm run lint:script",
+    "lint": "yarn lint:json && yarn lint:markdown && yarn lint:script",
     "lint:json": "prettier ./**/*.json --write",
     "lint:markdown": "markdownlint ./**/*.md --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
@@ -102,6 +102,6 @@
     }
   },
   "lint-staged": {
-    ".": "npm run lint"
+    ".": "yarn lint"
   }
 }
