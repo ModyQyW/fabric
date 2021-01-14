@@ -85,17 +85,23 @@
     "extends": "./eslint/native"
   },
   "prettier": "./prettier",
+  "commitlint": "./commitlint",
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "lint": "npm run lint:json && npm run lint:markdown && npm run lint:script",
+    "lint:json": "prettier ./**/*.json --write",
+    "lint:markdown": "markdownlint ./**/*.md --fix",
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
+  },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix"
-    ]
+    ".": "npm run lint"
   }
 }
