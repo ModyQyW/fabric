@@ -230,7 +230,7 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
     ...,
     "lint": "npm run lint:json && npm run lint:markdown && npm run lint:script && npm run lint:style && npm run lint:ls",
     "lint:json": "prettier ./**/*.json --write",
-    "lint:markdown": "markdownlint ./**/*.md --fix",
+    "lint:markdown": "markdownlint . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "lint:style": "stylelint ./**/*.{css,less,scss,vue} --fix",
     "lint:ls": "ls-lint ."
@@ -238,11 +238,14 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
+      "pre-commit": "ls-lint . && lint-staged"
     }
   },
   "lint-staged": {
-    ".": "npm run lint"
+    "*.json": "prettier --write",
+    "*.markdown": "markdownlint --fix",
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix",
+    "*.{css,less,scss,vue}": "stylelint --fix"
   }
 }
 
