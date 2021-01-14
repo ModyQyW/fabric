@@ -85,14 +85,16 @@
     "extends": "./eslint/native"
   },
   "prettier": "./prettier",
-  "commitlint": "./commitlint",
+  "commitlint": {
+    "extends": "./commitlint"
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "lint": "yarn lint:json && yarn lint:markdown && yarn lint:script",
     "lint:json": "prettier ./**/*.json --write",
-    "lint:markdown": "markdownlint ./**/*.md --fix",
+    "lint:markdown": "markdownlint . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
   },
   "husky": {
@@ -102,6 +104,8 @@
     }
   },
   "lint-staged": {
-    ".": "yarn lint"
+    "*.json": "prettier --write",
+    "*.md": "markdownlint --fix",
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
   }
 }
