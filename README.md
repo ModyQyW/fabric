@@ -7,10 +7,23 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.11.0
+npm i -D @modyqyw/fabric@~1.12.0
 # or
-# yarn add -D @modyqyw/fabric@~1.11.0
+# yarn add -D @modyqyw/fabric@~1.12.0
 ```
+
+### .gitattributes
+
+```sh
+git config --global core.autocrlf false
+```
+
+```sh
+# .gitattributes
+* text=auto
+```
+
+A better example [here](https://stackoverflow.com/a/32278635).
 
 ### EditorConfig
 
@@ -62,7 +75,7 @@ A `.prettierignore` example [here](./.prettierignore).
 ### ESLint
 
 ```sh
-npm i -D eslint@~7.17.0
+npm i -D eslint@~7.18.0
 # or
 # yarn add -D eslint@~7.17.0
 ```
@@ -103,9 +116,9 @@ A `.eslintignore` example [here](./.eslintignore).
 ### Stylelint
 
 ```sh
-npm i -D stylelint@~13.8.0
+npm i -D stylelint@~13.9.0
 # or
-# yarn add -D stylelint@~13.8.0
+# yarn add -D stylelint@~13.9.0
 ```
 
 ```js
@@ -218,9 +231,9 @@ module.exports = {
 ### Husky & LintStaged
 
 ```sh
-npm i -D husky@~4.3.7 lint-staged@~10.5.3
+npm i -D husky@~4.3.8 lint-staged@~10.5.3
 # or
-# yarn add -D husky@~4.3.7 lint-staged@~10.5.3
+# yarn add -D husky@~4.3.8 lint-staged@~10.5.3
 ```
 
 ```json
@@ -251,7 +264,7 @@ npm i -D husky@~4.3.7 lint-staged@~10.5.3
 
 ```
 
-When you are using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service lint --fix`.
+When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service lint --fix`.
 
 ## VSCode
 
