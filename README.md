@@ -171,7 +171,8 @@ npm i -D markdownlint-cli@~0.26.0
 ```json
 // ${PROJECT_DIR}/.markdownlint.json
 {
-  "MD013": false
+  "MD013": false,
+  "MD033": false
 }
 
 ```
@@ -256,7 +257,7 @@ npm i -D husky@~4.3.8 lint-staged@~10.5.3
   },
   "lint-staged": {
     "*.json": "prettier --write",
-    "*.markdown": "markdownlint --fix",
+    "*.md": "markdownlint --fix",
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix",
     "*.{css,less,scss,vue}": "stylelint --fix"
   }
