@@ -56,10 +56,7 @@ module.exports = {
           directories: true,
         },
         e: {
-          err: true,
           error: true,
-          ev: true,
-          evt: true,
           event: true,
         },
         mod: {
