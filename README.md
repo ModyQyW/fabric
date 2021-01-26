@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.12.0
+npm i -D @modyqyw/fabric@~1.13.0
 # or
-# yarn add -D @modyqyw/fabric@~1.12.0
+# yarn add -D @modyqyw/fabric@~1.13.0
 ```
 
 ### .gitattributes
@@ -203,6 +203,12 @@ ls:
     .css: kebab-case | PascalCase | point.case
     .less: kebab-case | PascalCase | point.case
     .scss: kebab-case | PascalCase | point.case
+  tests/**:
+    .js: camelCase | kebab-case | point.case
+    .ts: camelCase | kebab-case | point.case
+  __tests__:
+    .js: camelCase | kebab-case | point.case
+    .ts: camelCase | kebab-case | point.case
 
 ignore:
   - ./src/.umi
