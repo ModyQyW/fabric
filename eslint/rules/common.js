@@ -38,6 +38,7 @@ module.exports = {
       : 'off',
   'prettier/prettier': 'warn',
   'unicorn/filename-case': 'off',
+  'unicorn/no-array-for-each': 'off',
   'unicorn/no-null': 'off',
   'unicorn/prevent-abbreviations': [
     'warn',
