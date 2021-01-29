@@ -16,9 +16,12 @@ module.exports = {
     {
       props: true,
       ignorePropertyModificationsFor: [
-        'state',
         'acc',
         'accumulator',
+        'ctx',
+        'context',
+        'app',
+        'application',
         'e',
         'err',
         'error',
@@ -27,6 +30,7 @@ module.exports = {
         'res',
         'result',
         'response',
+        'state',
       ],
     },
   ],
