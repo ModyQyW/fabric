@@ -18,9 +18,12 @@ npm i -D @modyqyw/fabric@~1.13.0
 git config --global core.autocrlf false
 ```
 
+For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like Gitee.
+
 ```sh
-# .gitattributes
+# ${PROJECT_DIR}/.gitattributes
 * text=auto
+
 ```
 
 A better example [here](https://stackoverflow.com/a/32278635).
@@ -28,6 +31,7 @@ A better example [here](https://stackoverflow.com/a/32278635).
 ### EditorConfig
 
 ```sh
+# ${PROJECT_DIR}/.editorconfig
 root = true
 
 [*]
@@ -58,7 +62,7 @@ module.exports = {
   // write your own rules here like below
   overrides: [
     {
-      files: ['*.css', '*.less', '*.scss'],
+      files: ['*.css', '*.less', '*.sass', '*.scss'],
       options: {
         printWidth: 150,
         singleQuote: false,
@@ -75,9 +79,9 @@ A `.prettierignore` example [here](./.prettierignore).
 ### ESLint
 
 ```sh
-npm i -D eslint@~7.18.0
+npm i -D eslint@~7.19.0
 # or
-# yarn add -D eslint@~7.17.0
+# yarn add -D eslint@~7.19.0
 ```
 
 ```js
@@ -86,7 +90,8 @@ npm i -D eslint@~7.18.0
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
 
-// for react17, react-native, taro3, rax1, umi3 and next10, with js or ts
+// for react17, react-native0.63, taro3, rax1, remax2, umi3 and next10
+// with js or ts
 // const config = require('@modyqyw/fabric/eslint/react');
 
 // for vue2, uni-app and nuxt2, with js
@@ -130,6 +135,9 @@ const config = require('@modyqyw/fabric/stylelint/css');
 // for less
 // const config = require('@modyqyw/fabric/stylelint/less');
 
+// for sass
+// const config = require('@modyqyw/fabric/stylelint/sass');
+
 // for scss
 // const config = require('@modyqyw/fabric/stylelint/scss');
 
@@ -150,6 +158,7 @@ Using `extends` is also ok.
 module.exports = {
   extends: ['@modyqyw/fabric/stylelint/css'],
   // extends: ['@modyqyw/fabric/stylelint/less'],
+  // extends: ['@modyqyw/fabric/stylelint/sass'],
   // extends: ['@modyqyw/fabric/stylelint/scss'],
   rules: {
     // write your own rules here
@@ -190,38 +199,123 @@ npm i -D @ls-lint/ls-lint@~1.9.2
 ```yml
 # ${PROJECT_DIR}/.ls-lint.yml
 ls:
-  src/**:
-    # useToken.js | remote-search.js | index.config.js
-    .js: camelCase | kebab-case | point.case
-    .ts: camelCase | kebab-case | point.case
-    # index.tsx | FormItem.tsx
-    .jsx: camelCase | PascalCase
-    .tsx: camelCase | PascalCase
-    # auth-redirect.vue | FromItem.vue
-    .vue: kebab-case | PascalCase
-    # index.css | Index.css | index.module.css
-    .css: kebab-case | PascalCase | point.case
-    .less: kebab-case | PascalCase | point.case
-    .scss: kebab-case | PascalCase | point.case
-  tests/**:
-    .js: camelCase | kebab-case | point.case
-    .ts: camelCase | kebab-case | point.case
+  config:
+    .js: kebab-case | point.case
+    .ts: kebab-case | point.case
+    .config.js: kebab-case
+    .config.ts: kebab-case
+  build:
+    .js: kebab-case
+    .ts: kebab-case
+    .config.js: kebab-case
+    .config.ts: kebab-case
+  mock:
+    .js: kebab-case
+    .ts: kebab-case
+  src:
+    .js: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+    .config.js: kebab-case
+    .config.ts: kebab-case
+    .jsx: kebab-case
+    .tsx: kebab-case
+    .vue: kebab-case
+    .css: kebab-case
+    .less: kebab-case
+    .sass: kebab-case
+    .scss: kebab-case
+    .module.css: kebab-case
+    .module.less: kebab-case
+    .module.sass: kebab-case
+    .module.scss: kebab-case
+  src/hooks:
+    .js: camelCase
+    .ts: camelCase
+  src/**/components:
+    .jsx: PascalCase
+    .tsx: PascalCase
+    .vue: PascalCase
+  src/**/test:
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
+  src/**/__test__:
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
+  src/**/tests:
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
+  src/**/__tests__:
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
+  test:
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
+  __test__:
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
+  tests:
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   __tests__:
-    .js: camelCase | kebab-case | point.case
-    .ts: camelCase | kebab-case | point.case
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
 
 ignore:
+  - ./src/.next
+  - ./src/.nuxt
+  - ./src/.rax
   - ./src/.umi
-  - ./src/locales
+  - ./src/App.js
+  - ./src/App.ts
+  - ./src/App.jsx
+  - ./src/App.tsx
+  - ./src/App.vue
+  - ./src/App.css
+  - ./src/App.less
+  - ./src/App.sass
+  - ./src/App.scss
 
 ```
 
-### Commitlint
+### Commitlint & Commitizen
 
 ```sh
-npm i -D @commitlint/cli@~11.0.0
+npm i -D commitlint@~11.0.0 commitizen@~4.2.3
 # or
-# yarn add -D @commitlint/cli@~11.0.0
+# yarn add -D commitlint@~11.0.0 commitizen@~4.2.3
 ```
 
 ```js
@@ -234,6 +328,23 @@ module.exports = {
 };
 
 ```
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "commit": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
+```
+
+You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
 
 ### Husky & LintStaged
 
@@ -252,7 +363,7 @@ npm i -D husky@~4.3.8 lint-staged@~10.5.3
     "lint:json": "prettier ./**/*.json --write",
     "lint:markdown": "markdownlint . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
-    "lint:style": "stylelint ./**/*.{css,less,scss,vue} --fix",
+    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix",
     "lint:ls": "ls-lint ."
   },
   "husky": {
@@ -265,7 +376,7 @@ npm i -D husky@~4.3.8 lint-staged@~10.5.3
     "*.json": "prettier --write",
     "*.md": "markdownlint --fix",
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix",
-    "*.{css,less,scss,vue}": "stylelint --fix"
+    "*.{css,less,sass,scss,vue}": "stylelint --fix"
   }
 }
 
@@ -283,6 +394,7 @@ When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
 - Set up `Settings.json`. Then `F1 => File: Save`.
 
 ```json
