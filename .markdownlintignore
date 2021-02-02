@@ -123,6 +123,7 @@ dist
 # VSCode
 .vscode-test
 .vscode
+*.vsix
 
 # Jetbrains
 .idea
