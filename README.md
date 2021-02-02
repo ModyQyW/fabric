@@ -233,9 +233,9 @@ ls:
     .js: camelCase
     .ts: camelCase
   src/**/components:
-    .jsx: PascalCase
-    .tsx: PascalCase
-    .vue: PascalCase
+    .jsx: PascalCase | kebab-case
+    .tsx: PascalCase | kebab-case
+    .vue: PascalCase | kebab-case
   src/**/test:
     .js: kebab-case
     .ts: kebab-case
