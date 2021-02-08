@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.13.0
+npm i -D @modyqyw/fabric@~1.14.0
 # or
-# yarn add -D @modyqyw/fabric@~1.13.0
+# yarn add -D @modyqyw/fabric@~1.14.0
 ```
 
 ### .gitattributes
@@ -349,9 +349,9 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 ### Husky & LintStaged
 
 ```sh
-npm i -D husky@~4.3.8 lint-staged@~10.5.3
+npm i -D husky@~4.3.8 lint-staged@~10.5.4
 # or
-# yarn add -D husky@~4.3.8 lint-staged@~10.5.3
+# yarn add -D husky@~4.3.8 lint-staged@~10.5.4
 ```
 
 ```json
