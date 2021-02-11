@@ -1,3 +1,5 @@
+const commonEnv = require('./env/common');
+const commonGlobals = require('./globals/common');
 const commonRules = require('./rules/common');
 const vue3Rules = require('./rules/vue3');
 const vue3Settings = require('./settings/vue3');
@@ -8,6 +10,7 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
+  plugins: ['prettier'],
   extends: [
     'plugin:unicorn/recommended',
     'airbnb-base',
@@ -18,16 +21,10 @@ module.exports = {
     'prettier/vue',
   ],
   env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-    mocha: true,
-    node: true,
+    ...commonEnv,
   },
   globals: {
-    plus: 'readonly',
-    uni: 'readonly',
-    weex: 'readonly',
+    ...commonGlobals,
   },
   rules: {
     ...commonRules,

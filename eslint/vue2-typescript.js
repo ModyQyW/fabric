@@ -1,3 +1,5 @@
+const commonEnv = require('./env/common');
+const commonGlobals = require('./globals/common');
 const commonTypescriptRules = require('./rules/common-typescript');
 const vue2TypescriptRules = require('./rules/vue2-typescript');
 const vue2TypescriptSettings = require('./rules/vue2-typescript');
@@ -24,16 +26,10 @@ module.exports = {
     'prettier/vue',
   ],
   env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-    mocha: true,
-    node: true,
+    ...commonEnv,
   },
   globals: {
-    plus: 'readonly',
-    uni: 'readonly',
-    weex: 'readonly',
+    ...commonGlobals,
   },
   rules: {
     ...commonTypescriptRules,
@@ -49,5 +45,7 @@ module.exports = {
       },
     },
   ],
-  settings: vue2TypescriptSettings,
+  settings: {
+    ...vue2TypescriptSettings,
+  },
 };

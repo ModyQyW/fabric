@@ -1,3 +1,5 @@
+const commonEnv = require('./env/common');
+const commonGlobals = require('./globals/common');
 const commonRules = require('./rules/common');
 const vue2Rules = require('./rules/vue2');
 const vue2Settings = require('./settings/vue2');
@@ -19,20 +21,16 @@ module.exports = {
     'prettier/vue',
   ],
   env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-    mocha: true,
-    node: true,
+    ...commonEnv,
   },
   globals: {
-    plus: 'readonly',
-    uni: 'readonly',
-    weex: 'readonly',
+    ...commonGlobals,
   },
   rules: {
     ...commonRules,
     ...vue2Rules,
   },
-  settings: vue2Settings,
+  settings: {
+    ...vue2Settings,
+  },
 };

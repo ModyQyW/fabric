@@ -1,3 +1,5 @@
+const commonEnv = require('./env/common');
+const commonGlobals = require('./globals/common');
 const commonRules = require('./rules/common');
 const commonTypescriptRules = require('./rules/common-typescript');
 
@@ -13,12 +15,11 @@ module.exports = {
     'prettier/unicorn',
   ],
   env: {
-    browser: true,
-    es2021: true,
-    jest: true,
+    ...commonEnv,
     jquery: true,
-    mocha: true,
-    node: true,
+  },
+  globals: {
+    ...commonGlobals,
   },
   rules: {
     ...commonRules,

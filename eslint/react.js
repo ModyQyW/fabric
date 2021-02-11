@@ -1,3 +1,5 @@
+const commonEnv = require('./env/common');
+const commonGlobals = require('./globals/common');
 const commonRules = require('./rules/common');
 const commonTypescriptRules = require('./rules/common-typescript');
 const reactRules = require('./rules/react');
@@ -18,11 +20,10 @@ module.exports = {
     'prettier/react',
   ],
   env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-    mocha: true,
-    node: true,
+    ...commonEnv,
+  },
+  globals: {
+    ...commonGlobals,
   },
   rules: {
     ...commonRules,
@@ -53,5 +54,7 @@ module.exports = {
       },
     },
   ],
-  settings: reactSettings,
+  settings: {
+    ...reactSettings,
+  },
 };
