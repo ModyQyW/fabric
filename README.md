@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.14.0
+npm i -D @modyqyw/fabric@~1.15.0
 # or
-# yarn add -D @modyqyw/fabric@~1.14.0
+# yarn add -D @modyqyw/fabric@~1.15.0
 ```
 
 ### .gitattributes
@@ -61,12 +61,11 @@ module.exports = {
   ...config,
   // write your own rules here like below
   overrides: [
+    ...config.overrides,
     {
       files: ['*.css', '*.less', '*.sass', '*.scss'],
       options: {
-        printWidth: 150,
-        singleQuote: false,
-        trailingComma: 'none',
+        printWidth: 160,
       },
     },
   ],
@@ -108,10 +107,30 @@ const config = require('@modyqyw/fabric/eslint/native');
 
 module.exports = {
   ...config,
+  plugins: [
+    ...config.plugins,
+    // write your own plugins here
+  ],
+  extends: [
+    ...config.extends,
+    // write your own extends here
+  ],
+  env: {
+    ...config.env,
+    // write your own env here
+  },
+  globals: {
+    ...config.globals,
+    // write your own globals here
+  },
   rules: {
     ...config.rules,
     // write your own rules here
   },
+  settings: {
+    ...config.settings,
+    // write your own settings here
+  }
 };
 
 ```
@@ -143,24 +162,12 @@ const config = require('@modyqyw/fabric/stylelint/css');
 
 module.exports = {
   ...config,
+  extends: [
+    ...config.extends,
+    // write your own extends here
+  ],
   rules: {
     ...config.rules,
-    // write your own rules here
-  },
-};
-
-```
-
-Using `extends` is also ok.
-
-```js
-// ${PROJECT_DIR}/stylelint.config.js
-module.exports = {
-  extends: ['@modyqyw/fabric/stylelint/css'],
-  // extends: ['@modyqyw/fabric/stylelint/less'],
-  // extends: ['@modyqyw/fabric/stylelint/sass'],
-  // extends: ['@modyqyw/fabric/stylelint/scss'],
-  rules: {
     // write your own rules here
   },
 };
