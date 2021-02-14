@@ -10,13 +10,13 @@ module.exports = {
   ],
   'selector-pseudo-class-no-unknown': [
     true,
-    // for :export
+    // for :export, :deep, :slotted, :global
     { ignorePseudoClasses: ['export'] },
   ],
   'selector-pseudo-element-no-unknown': [
     true,
-    // for ::v-deep
-    { ignorePseudoElements: ['v-deep'] },
+    // for ::v-deep, ::v-slotted, ::v-global
+    { ignorePseudoElements: ['v-deep', 'v-slotted', '::v-global'] },
   ],
   'selector-type-no-unknown': [
     true,
