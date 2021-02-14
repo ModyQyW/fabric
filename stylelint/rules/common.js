@@ -11,7 +11,7 @@ module.exports = {
   'selector-pseudo-class-no-unknown': [
     true,
     // for :export, :deep, :slotted, :global
-    { ignorePseudoClasses: ['export'] },
+    { ignorePseudoClasses: ['export', 'deep', 'slotted', 'global'] },
   ],
   'selector-pseudo-element-no-unknown': [
     true,
