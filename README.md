@@ -78,9 +78,9 @@ A `.prettierignore` example [here](./.prettierignore).
 ### ESLint
 
 ```sh
-npm i -D eslint@~7.19.0
+npm i -D eslint@~7.20.0
 # or
-# yarn add -D eslint@~7.19.0
+# yarn add -D eslint@~7.20.0
 ```
 
 ```js
@@ -236,6 +236,9 @@ ls:
     .module.less: kebab-case
     .module.sass: kebab-case
     .module.scss: kebab-case
+  src/composables:
+    .js: camelCase
+    .ts: camelCase
   src/hooks:
     .js: camelCase
     .ts: camelCase
