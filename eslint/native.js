@@ -8,11 +8,11 @@ module.exports = {
   parser: 'babel-eslint',
   plugins: ['prettier'],
   extends: [
-    'plugin:unicorn/recommended',
+    // 'plugin:unicorn/recommended',
     'airbnb-base',
     'prettier',
     'prettier/prettier',
-    'prettier/unicorn',
+    // 'prettier/unicorn',
   ],
   env: {
     ...commonEnv,
@@ -34,11 +34,11 @@ module.exports = {
       },
       plugins: ['prettier'],
       extends: [
-        'plugin:unicorn/recommended',
+        // 'plugin:unicorn/recommended',
         'airbnb-typescript/base',
         'prettier',
         'prettier/prettier',
-        'prettier/unicorn',
+        // 'prettier/unicorn',
         'prettier/@typescript-eslint',
       ],
       rules: {

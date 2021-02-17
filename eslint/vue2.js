@@ -12,12 +12,12 @@ module.exports = {
   },
   plugins: ['prettier'],
   extends: [
-    'plugin:unicorn/recommended',
+    // 'plugin:unicorn/recommended',
     'airbnb-base',
     'plugin:vue/recommended',
     'prettier',
     'prettier/prettier',
-    'prettier/unicorn',
+    // 'prettier/unicorn',
     'prettier/vue',
   ],
   env: {
