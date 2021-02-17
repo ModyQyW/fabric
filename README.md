@@ -7,9 +7,9 @@ Shareable configs for different projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.15.0
+npm i -D @modyqyw/fabric@~1.16.0
 # or
-# yarn add -D @modyqyw/fabric@~1.15.0
+# yarn add -D @modyqyw/fabric@~1.16.0
 ```
 
 ### .gitattributes
