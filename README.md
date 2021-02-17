@@ -446,6 +446,19 @@ When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service
 }
 ```
 
+## Acknowledge
+
+Sorted according to alphabetical order.
+
+- [Airbnb CSS/SASS Style Guide](https://github.com/airbnb/css#readme)
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#readme)
+- [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react#readme)
+- [Code Guide](https://codeguide.co/)
+- [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
+- [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
+- [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html)
+- [TypeScript Deep Dive - TypeScript Style Guide](https://basarat.gitbook.io/typescript/styleguide)
+
 ## License
 
 [MIT](./LICENSE)
