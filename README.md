@@ -7,18 +7,29 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.16.0
+npm i -D @modyqyw/fabric@~1.17.0
 # or
-# yarn add -D @modyqyw/fabric@~1.16.0
+# yarn add -D @modyqyw/fabric@~1.17.0
 ```
 
-### .gitattributes
+### Naming
+
+Naming is very hard and cannot be checked using linter. However, there are still relevant naming suggestions available.
+
+- JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet#readme)
+- CSS/LESS/SASS/SCSS - [BEM](http://getbem.com/)，[OOCSS](https://github.com/stubbornella/oocss/wiki)，[ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)，[SMACSS](http://smacss.com/)
+
+Besides, you can learn naming from some open-source projects, such as [Vuetify](https://vuetifyjs.com/), [MaterialUI](https://material-ui.com/), [Bootstrap](https://getbootstrap.com/), [TailwindCSS](https://tailwindcss.com/) and [Bulma](https://bulma.io/).
+
+In my opinion, simplicity and clarity are the highest priority for naming.
+
+### Git
 
 ```sh
 git config --global core.autocrlf false
 ```
 
-For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like Gitee.
+For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems [Gitee](https://gitee.com/).
 
 ```sh
 # ${PROJECT_DIR}/.gitattributes
@@ -26,7 +37,9 @@ For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/g
 
 ```
 
-A better example [here](https://stackoverflow.com/a/32278635).
+A better `.gitattributes` example [here](https://stackoverflow.com/a/32278635).
+
+A `.gitignore` example [here](./.gitignore).
 
 ### EditorConfig
 
@@ -59,9 +72,10 @@ const config = require('@modyqyw/fabric/prettier');
 
 module.exports = {
   ...config,
-  // write your own rules here like below
+  // write your own rules here
   overrides: [
     ...config.overrides,
+    // // write your own overrides here
     {
       files: ['*.css', '*.less', '*.sass', '*.scss'],
       options: {
@@ -126,6 +140,10 @@ module.exports = {
   rules: {
     ...config.rules,
     // write your own rules here
+    // arrow-body-style and prefer-arrow-callback issue
+    // https://github.com/prettier/eslint-plugin-prettier#arrow-body-style-and-prefer-arrow-callback-issue
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
   },
   settings: {
     ...config.settings,
@@ -140,9 +158,9 @@ A `.eslintignore` example [here](./.eslintignore).
 ### Stylelint
 
 ```sh
-npm i -D stylelint@~13.9.0
+npm i -D stylelint@~13.11.0
 # or
-# yarn add -D stylelint@~13.9.0
+# yarn add -D stylelint@~13.11.0
 ```
 
 ```js
@@ -247,61 +265,61 @@ ls:
     .tsx: PascalCase | kebab-case
     .vue: PascalCase | kebab-case
   src/**/test:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
   src/**/__test__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
   src/**/tests:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
   src/**/__tests__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
   test:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
   __test__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
   tests:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
   __tests__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+    .js: kebab-case | camelCase
+    .ts: kebab-case | camelCase
+    .spec.js: kebab-case | camelCase
+    .spec.ts: kebab-case | camelCase
+    .test.js: kebab-case | camelCase
+    .test.ts: kebab-case | camelCase
 
 ignore:
   - ./src/.next
@@ -323,9 +341,9 @@ ignore:
 ### Commitlint & Commitizen
 
 ```sh
-npm i -D commitlint@~11.0.0 commitizen@~4.2.3
+npm i -D @commitlint/cli@~12.0.0 commitizen@~4.2.3
 # or
-# yarn add -D commitlint@~11.0.0 commitizen@~4.2.3
+# yarn add -D @commitlint/cli@~12.0.0 commitizen@~4.2.3
 ```
 
 ```js
