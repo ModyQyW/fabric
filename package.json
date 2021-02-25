@@ -4,7 +4,10 @@
   "description": "Shareable specification for different front-end projects.",
   "keywords": [
     "fabric",
+    "specification",
     "config",
+    "front-end",
+    "frontend",
     "prettier",
     "markdownlint",
     "eslint",
@@ -30,7 +33,9 @@
     "css",
     "less",
     "sass",
-    "scss"
+    "scss",
+    "git",
+    "naming"
   ],
   "homepage": "https://github.com/ModyQyW/fabric#readme",
   "bugs": {
