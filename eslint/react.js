@@ -15,9 +15,6 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'prettier',
-    'prettier/prettier',
-    // 'prettier/unicorn',
-    'prettier/react',
   ],
   env: {
     ...commonEnv,
@@ -43,10 +40,6 @@ module.exports = {
         'airbnb-typescript',
         'airbnb/hooks',
         'prettier',
-        'prettier/prettier',
-        // 'prettier/unicorn',
-        'prettier/@typescript-eslint',
-        'prettier/react',
       ],
       rules: {
         ...commonTypescriptRules,

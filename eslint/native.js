@@ -11,8 +11,6 @@ module.exports = {
     // 'plugin:unicorn/recommended',
     'airbnb-base',
     'prettier',
-    'prettier/prettier',
-    // 'prettier/unicorn',
   ],
   env: {
     ...commonEnv,
@@ -37,9 +35,6 @@ module.exports = {
         // 'plugin:unicorn/recommended',
         'airbnb-typescript/base',
         'prettier',
-        'prettier/prettier',
-        // 'prettier/unicorn',
-        'prettier/@typescript-eslint',
       ],
       rules: {
         ...commonTypescriptRules,

@@ -22,10 +22,6 @@ module.exports = {
     'airbnb-typescript/base',
     'plugin:vue/vue3-recommended',
     'prettier',
-    'prettier/prettier',
-    // 'prettier/unicorn',
-    'prettier/@typescript-eslint',
-    'prettier/vue',
   ],
   env: {
     ...commonEnv,
