@@ -1,6 +1,6 @@
 # @modyqyw/fabric
 
-Shareable configs for different projects.
+Shareable specification for different front-end projects.
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
