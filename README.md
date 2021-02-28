@@ -14,7 +14,7 @@ npm i -D @modyqyw/fabric@~1.17.0
 
 ### Naming
 
-Naming is very hard and cannot be checked using linter. However, there are still relevant naming suggestions available.
+Naming is very hard and hardly be checked by linters. However, there are still relevant naming suggestions available.
 
 - JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet#readme)
 - CSS/LESS/SASS/SCSS - [BEM](http://getbem.com/)，[OOCSS](https://github.com/stubbornella/oocss/wiki)，[ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)，[SMACSS](http://smacss.com/)
@@ -24,6 +24,8 @@ Besides, you can learn naming from some open-source projects, such as [Vuetify](
 In my opinion, simplicity and clarity are the highest priority for naming.
 
 ### Git
+
+Learn about [Git](https://git-scm.com/doc), [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) and [GifLFS](https://git-lfs.github.com/).
 
 ```sh
 git config --global core.autocrlf false
@@ -43,6 +45,8 @@ A `.gitignore` example [here](./.gitignore).
 
 ### EditorConfig
 
+Learn about [EditorConfig](https://editorconfig.org/).
+
 ```sh
 # ${PROJECT_DIR}/.editorconfig
 root = true
@@ -58,6 +62,8 @@ trim_trailing_whitespace = true
 ```
 
 ### Prettier
+
+Learn about [Prettier](https://prettier.io/).
 
 ```sh
 npm i -D prettier@~2.2.1
@@ -90,6 +96,8 @@ module.exports = {
 A `.prettierignore` example [here](./.prettierignore).
 
 ### ESLint
+
+Learn about [ESLint](https://eslint.org/).
 
 ```sh
 npm i -D eslint@~7.20.0
@@ -157,6 +165,8 @@ A `.eslintignore` example [here](./.eslintignore).
 
 ### Stylelint
 
+Learn about [Stylelint](https://stylelint.io/).
+
 ```sh
 npm i -D stylelint@~13.11.0
 # or
@@ -194,7 +204,9 @@ module.exports = {
 
 A `.stylelintignore` example [here](./.stylelintignore).
 
-### MarkdownLint
+### Markdownlint
+
+Learn about [Markdown](https://commonmark.org/) ([Chinese tutorial](https://markdown.com.cn/)) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
 
 ```sh
 npm i -D markdownlint-cli@~0.26.0
@@ -214,6 +226,8 @@ npm i -D markdownlint-cli@~0.26.0
 A `.markdownlintignore` example [here](./.markdownlintignore).
 
 ### LsLint
+
+Learn about [LsLint](https://ls-lint.org/).
 
 ```sh
 npm i -D @ls-lint/ls-lint@~1.9.2
@@ -340,6 +354,8 @@ ignore:
 
 ### Commitlint & Commitizen
 
+Learn about [Commitlint](https://commitlint.js.org/) and [Commitizen](https://commitizen-tools.github.io/commitizen/).
+
 ```sh
 npm i -D @commitlint/cli@~12.0.0 commitizen@~4.2.3
 # or
@@ -375,6 +391,8 @@ module.exports = {
 You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
 
 ### Husky & LintStaged
+
+Learn about [Husky](https://github.com/typicode/husky#readme) and [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
 npm i -D husky@~4.3.8 lint-staged@~10.5.4
