@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.17.0
+npm i -D @modyqyw/fabric@~1.18.0
 # or
-# yarn add -D @modyqyw/fabric@~1.17.0
+# yarn add -D @modyqyw/fabric@~1.18.0
 ```
 
 ### Naming
@@ -100,9 +100,9 @@ A `.prettierignore` example [here](./.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.20.0
+npm i -D eslint@~7.21.0
 # or
-# yarn add -D eslint@~7.20.0
+# yarn add -D eslint@~7.21.0
 ```
 
 ```js
@@ -209,9 +209,9 @@ A `.stylelintignore` example [here](./.stylelintignore).
 Learn about [Markdown](https://commonmark.org/) ([Chinese tutorial](https://markdown.com.cn/)) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
 
 ```sh
-npm i -D markdownlint-cli@~0.26.0
+npm i -D markdownlint-cli@~0.27.1
 # or
-# yarn add -D markdownlint-cli@~0.26.0
+# yarn add -D markdownlint-cli@~0.27.1
 ```
 
 ```json
@@ -357,9 +357,9 @@ ignore:
 Learn about [Commitlint](https://commitlint.js.org/) and [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
-npm i -D @commitlint/cli@~12.0.0 commitizen@~4.2.3
+npm i -D @commitlint/cli@~12.0.1 commitizen@~4.2.3
 # or
-# yarn add -D @commitlint/cli@~12.0.0 commitizen@~4.2.3
+# yarn add -D @commitlint/cli@~12.0.1 commitizen@~4.2.3
 ```
 
 ```js
