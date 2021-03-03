@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "@commitlint/config-conventional": "~12.0.1",
-    "@typescript-eslint/eslint-plugin": "~4.15.2",
-    "@typescript-eslint/parser": "~4.15.2",
+    "@typescript-eslint/eslint-plugin": "~4.16.1",
+    "@typescript-eslint/parser": "~4.16.1",
     "babel-eslint": "~10.1.0",
     "eslint-config-airbnb": "~18.2.1",
     "eslint-config-airbnb-base": "~14.2.1",
@@ -68,13 +68,13 @@
     "eslint-plugin-prettier": "~3.3.1",
     "eslint-plugin-react": "~7.22.0",
     "eslint-plugin-react-hooks": "~4.2.0",
-    "eslint-plugin-vue": "~7.6.0",
+    "eslint-plugin-vue": "~7.7.0",
     "stylelint-config-prettier": "~8.0.2",
     "stylelint-config-twbs-bootstrap": "~2.1.0",
     "stylelint-prettier": "~1.2.0",
     "typescript": "~4.2.2",
     "vue-class-component": "~7.2.6",
-    "vue-eslint-parser": "~7.5.0",
+    "vue-eslint-parser": "~7.6.0",
     "vue-property-decorator": "~9.1.2"
   },
   "devDependencies": {
@@ -83,8 +83,9 @@
     "eslint": "~7.21.0",
     "husky": "~4.3.8",
     "lint-staged": "~10.5.4",
-    "markdownlint-cli": "~0.26.0",
-    "prettier": "~2.2.1"
+    "markdownlint-cli": "~0.27.1",
+    "prettier": "~2.2.1",
+    "stylelint": "~13.11.0"
   },
   "config": {
     "commitizen": {
