@@ -1,16 +1,23 @@
-# @modyqyw/fabric
+const fs = require('fs');
+
+const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+
+const readme = `# ${packageJson.name}
 
 Shareable specification for different front-end projects.
 
-[Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
+[Github](${packageJson.homepage}) | [Gitee](${packageJson.homepage.replace(
+  'github',
+  'gitee',
+)})
 
 ## Usage
 
-```sh
-npm i -D @modyqyw/fabric@~1.19.0
+\`\`\`sh
+npm i -D ${packageJson.name}@~${packageJson.version}
 # or
-# yarn add -D @modyqyw/fabric@~1.19.0
-```
+# yarn add -D ${packageJson.name}@~${packageJson.version}
+\`\`\`
 
 ### Naming
 
@@ -27,28 +34,28 @@ In my opinion, simplicity and clarity are the highest priority for naming.
 
 Learn about [Git](https://git-scm.com/doc), [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) and [GifLFS](https://git-lfs.github.com/).
 
-```sh
+\`\`\`sh
 git config --global core.autocrlf false
 git config --global init.defaultBranch main
-```
+\`\`\`
 
 For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems [Gitee](https://gitee.com/).
 
-```sh
+\`\`\`sh
 # {PROJECT_DIR}/.gitattributes
 * text=auto
 
-```
+\`\`\`
 
-A better `.gitattributes` example [here](https://stackoverflow.com/a/32278635).
+A better \`.gitattributes\` example [here](https://stackoverflow.com/a/32278635).
 
-A `.gitignore` example [here](./.gitignore).
+A \`.gitignore\` example [here](./.gitignore).
 
 ### EditorConfig
 
 Learn about [EditorConfig](https://editorconfig.org/).
 
-```sh
+\`\`\`sh
 # {PROJECT_DIR}/.editorconfig
 root = true
 
@@ -60,19 +67,19 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-```
+\`\`\`
 
 ### Prettier
 
 Learn about [Prettier](https://prettier.io/).
 
-```sh
-npm i -D prettier@~2.2.1
+\`\`\`sh
+npm i -D prettier@${packageJson.devDependencies.prettier}
 # or
-# yarn add -D prettier@~2.2.1
-```
+# yarn add -D prettier@${packageJson.devDependencies.prettier}
+\`\`\`
 
-```js
+\`\`\`js
 // {PROJECT_DIR}/prettier.config.js
 /* eslint-disable import/no-extraneous-dependencies */
 const config = require('@modyqyw/fabric/prettier');
@@ -92,21 +99,21 @@ module.exports = {
   ],
 };
 
-```
+\`\`\`
 
-A `.prettierignore` example [here](./.prettierignore).
+A \`.prettierignore\` example [here](./.prettierignore).
 
 ### ESLint
 
 Learn about [ESLint](https://eslint.org/).
 
-```sh
-npm i -D eslint@~7.21.0
+\`\`\`sh
+npm i -D eslint@${packageJson.devDependencies.eslint}
 # or
-# yarn add -D eslint@~7.21.0
-```
+# yarn add -D eslint@${packageJson.devDependencies.eslint}
+\`\`\`
 
-```js
+\`\`\`js
 // {PROJECT_DIR}/.eslintrc.js
 /* eslint-disable import/no-extraneous-dependencies */
 // for js and ts
@@ -160,21 +167,21 @@ module.exports = {
   },
 };
 
-```
+\`\`\`
 
-A `.eslintignore` example [here](./.eslintignore).
+A \`.eslintignore\` example [here](./.eslintignore).
 
 ### Stylelint
 
 Learn about [Stylelint](https://stylelint.io/).
 
-```sh
-npm i -D stylelint@~13.12.0
+\`\`\`sh
+npm i -D stylelint@${packageJson.devDependencies.stylelint}
 # or
-# yarn add -D stylelint@~13.12.0
-```
+# yarn add -D stylelint@${packageJson.devDependencies.stylelint}
+\`\`\`
 
-```js
+\`\`\`js
 // {PROJECT_DIR}/stylelint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
 // for css
@@ -201,42 +208,44 @@ module.exports = {
   },
 };
 
-```
+\`\`\`
 
-A `.stylelintignore` example [here](./.stylelintignore).
+A \`.stylelintignore\` example [here](./.stylelintignore).
 
 ### Markdownlint
 
 Learn about [Markdown](https://commonmark.org/) ([Chinese tutorial](https://markdown.com.cn/)) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
 
-```sh
-npm i -D markdownlint-cli@~0.27.1
+\`\`\`sh
+npm i -D markdownlint-cli@${packageJson.devDependencies['markdownlint-cli']}
 # or
-# yarn add -D markdownlint-cli@~0.27.1
-```
+# yarn add -D markdownlint-cli@${
+  packageJson.devDependencies['markdownlint-cli']
+}
+\`\`\`
 
-```json
+\`\`\`json
 // {PROJECT_DIR}/.markdownlint.json
 {
   "MD013": false,
   "MD033": false
 }
 
-```
+\`\`\`
 
-A `.markdownlintignore` example [here](./.markdownlintignore).
+A \`.markdownlintignore\` example [here](./.markdownlintignore).
 
 ### LintMD (beta)
 
 Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at Chinese markdown files.
 
-```sh
-npm i -D lint-md-cli@~0.1.2
+\`\`\`sh
+npm i -D lint-md-cli@${packageJson.devDependencies['lint-md-cli']}
 # or
-# # yarn add -D lint-md-cli@~0.1.2
-```
+# # yarn add -D lint-md-cli@${packageJson.devDependencies['lint-md-cli']}
+\`\`\`
 
-```sh
+\`\`\`sh
 {
   "excludeFiles": [],
   "rules": {
@@ -250,19 +259,21 @@ npm i -D lint-md-cli@~0.1.2
   }
 }
 
-```
+\`\`\`
 
 ### LsLint
 
 Learn about [LsLint](https://ls-lint.org/).
 
-```sh
-npm i -D @ls-lint/ls-lint@~1.9.2
+\`\`\`sh
+npm i -D @ls-lint/ls-lint@${packageJson.devDependencies['@ls-lint/ls-lint']}
 # or
-# yarn add -D @ls-lint/ls-lint@~1.9.2
-```
+# yarn add -D @ls-lint/ls-lint@${
+  packageJson.devDependencies['@ls-lint/ls-lint']
+}
+\`\`\`
 
-```yml
+\`\`\`yml
 # {PROJECT_DIR}/.ls-lint.yml
 ls:
   config:
@@ -377,19 +388,23 @@ ignore:
   - ./src/App.sass
   - ./src/App.scss
 
-```
+\`\`\`
 
 ### Commitlint & Commitizen
 
 Learn about [Commitlint](https://commitlint.js.org/) and [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
-```sh
-npm i -D @commitlint/cli@~12.0.1 commitizen@~4.2.3
+\`\`\`sh
+npm i -D @commitlint/cli@${
+  packageJson.devDependencies['@commitlint/cli']
+} commitizen@${packageJson.devDependencies.commitizen}
 # or
-# yarn add -D @commitlint/cli@~12.0.1 commitizen@~4.2.3
-```
+# yarn add -D @commitlint/cli@${
+  packageJson.devDependencies['@commitlint/cli']
+} commitizen@${packageJson.devDependencies.commitizen}
+\`\`\`
 
-```js
+\`\`\`js
 // {PROJECT_DIR}/commitlint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
 const config = require('@modyqyw/fabric/commitlint');
@@ -398,9 +413,9 @@ module.exports = {
   ...config,
 };
 
-```
+\`\`\`
 
-```json
+\`\`\`json
 {
   ...,
   "scripts": {
@@ -414,7 +429,7 @@ module.exports = {
   }
 }
 
-```
+\`\`\`
 
 You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
 
@@ -422,13 +437,17 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 
 Learn about [Husky](https://github.com/typicode/husky#readme) and [LintStaged](https://github.com/okonet/lint-staged#readme).
 
-```sh
-npm i -D husky@~4.3.8 lint-staged@~10.5.4
+\`\`\`sh
+npm i -D husky@${packageJson.devDependencies.husky} lint-staged@${
+  packageJson.devDependencies['lint-staged']
+}
 # or
-# yarn add -D husky@~4.3.8 lint-staged@~10.5.4
-```
+# yarn add -D husky@${packageJson.devDependencies.husky} lint-staged@${
+  packageJson.devDependencies['lint-staged']
+}
+\`\`\`
 
-```json
+\`\`\`json
 {
   ...,
   "scripts": {
@@ -454,9 +473,9 @@ npm i -D husky@~4.3.8 lint-staged@~10.5.4
   }
 }
 
-```
+\`\`\`
 
-When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service lint --fix`.
+When using \`vue-cli-service\`, \`lint:style\` can be replaced with \`vue-cli-service lint --fix\`.
 
 ## VSCode
 
@@ -469,9 +488,9 @@ When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
-- Set up `Settings.json`. Then `F1 => File: Save`.
+- Set up \`Settings.json\`. Then \`F1 => File: Save\`.
 
-```json
+\`\`\`json
 {
   "css.validate": false,
   "editor.codeActionsOnSave": {
@@ -484,7 +503,7 @@ When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service
   "editor.rulers": [{ "column": 80 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-  "files.eol": "\n",
+  "files.eol": "\\n",
   "files.associations": {
     "*.wxml": "html",
     "*.wxs": "javascript",
@@ -508,7 +527,7 @@ When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service
     "editor.defaultFormatter": "octref.vetur"
   }
 }
-```
+\`\`\`
 
 ## Acknowledge
 
@@ -528,3 +547,6 @@ Sorted according to alphabetical order.
 [MIT](./LICENSE)
 
 Copyright (c) 2020-present ModyQyW
+`;
+
+fs.writeFileSync('README.md', readme);
