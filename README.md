@@ -106,6 +106,14 @@ npm i -D eslint@~7.21.0
 # yarn add -D eslint@~7.21.0
 ```
 
+If you are using typescript, additional dependencies are needed.
+
+```sh
+npm i -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.17.0 @typescript-eslint/parser@~4.17.0
+# or
+# yarn add -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.17.0 @typescript-eslint/parser@~4.17.0
+```
+
 ```js
 // {PROJECT_DIR}/.eslintrc.js
 /* eslint-disable import/no-extraneous-dependencies */

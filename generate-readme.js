@@ -113,6 +113,26 @@ npm i -D eslint@${packageJson.devDependencies.eslint}
 # yarn add -D eslint@${packageJson.devDependencies.eslint}
 \`\`\`
 
+If you are using typescript, additional dependencies are needed.
+
+\`\`\`sh
+npm i -D typescript@${
+  packageJson.dependencies.typescript
+} @typescript-eslint/eslint-plugin@${
+  packageJson.dependencies['@typescript-eslint/eslint-plugin']
+} @typescript-eslint/parser@${
+  packageJson.dependencies['@typescript-eslint/parser']
+}
+# or
+# yarn add -D typescript@${
+  packageJson.dependencies.typescript
+} @typescript-eslint/eslint-plugin@${
+  packageJson.dependencies['@typescript-eslint/eslint-plugin']
+} @typescript-eslint/parser@${
+  packageJson.dependencies['@typescript-eslint/parser']
+}
+\`\`\`
+
 \`\`\`js
 // {PROJECT_DIR}/.eslintrc.js
 /* eslint-disable import/no-extraneous-dependencies */
