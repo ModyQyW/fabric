@@ -20,6 +20,7 @@ module.exports = {
   extends: [
     // 'plugin:unicorn/recommended',
     'airbnb-typescript/base',
+    'plugin:vuejs-accessibility/recommended',
     'plugin:vue/vue3-recommended',
     'prettier',
   ],
