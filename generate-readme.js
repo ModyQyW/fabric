@@ -93,6 +93,7 @@ module.exports = {
     {
       files: ['*.css', '*.less', '*.sass', '*.scss'],
       options: {
+        // sometimes you may want a longer line
         printWidth: 160,
       },
     },
@@ -255,7 +256,7 @@ npm i -D markdownlint-cli@${packageJson.devDependencies['markdownlint-cli']}
 
 A \`.markdownlintignore\` example [here](./.markdownlintignore).
 
-### LintMD (beta)
+### LintMD
 
 Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at Chinese markdown files.
 
