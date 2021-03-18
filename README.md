@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.22.0
+npm i -D @modyqyw/fabric@~1.22.1
 # or
-# yarn add -D @modyqyw/fabric@~1.22.0
+# yarn add -D @modyqyw/fabric@~1.22.1
 ```
 
 ### Naming
@@ -245,6 +245,8 @@ npm i -D lint-md-cli@~0.1.2
 # # yarn add -D lint-md-cli@~0.1.2
 ```
 
+Set `.lintmdrc`.
+
 ```sh
 {
   "excludeFiles": [],
@@ -444,7 +446,7 @@ npm i -D husky@~4.3.8 lint-staged@~10.5.4
     ...,
     "lint": "npm run lint:json && npm run lint:markdown && npm run lint:script && npm run lint:style && npm run lint:ls",
     "lint:json": "prettier ./**/*.json --write",
-    "lint:markdown": "markdownlint . --fix",
+    "lint:markdown": "markdownlint . --fix && lint-md . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix",
     "lint:ls": "ls-lint ."
@@ -457,7 +459,7 @@ npm i -D husky@~4.3.8 lint-staged@~10.5.4
   },
   "lint-staged": {
     "*.json": "prettier --write",
-    "*.md": "markdownlint --fix",
+    "*.md": "markdownlint --fix && lint-md . --fix",
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix",
     "*.{css,less,sass,scss,vue}": "stylelint --fix"
   }
