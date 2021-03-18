@@ -266,6 +266,8 @@ npm i -D lint-md-cli@${packageJson.devDependencies['lint-md-cli']}
 # # yarn add -D lint-md-cli@${packageJson.devDependencies['lint-md-cli']}
 \`\`\`
 
+Set \`.lintmdrc\`.
+
 \`\`\`sh
 {
   "excludeFiles": [],
@@ -475,7 +477,7 @@ npm i -D husky@${packageJson.devDependencies.husky} lint-staged@${
     ...,
     "lint": "npm run lint:json && npm run lint:markdown && npm run lint:script && npm run lint:style && npm run lint:ls",
     "lint:json": "prettier ./**/*.json --write",
-    "lint:markdown": "markdownlint . --fix",
+    "lint:markdown": "markdownlint . --fix && lint-md . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix",
     "lint:ls": "ls-lint ."
@@ -488,7 +490,7 @@ npm i -D husky@${packageJson.devDependencies.husky} lint-staged@${
   },
   "lint-staged": {
     "*.json": "prettier --write",
-    "*.md": "markdownlint --fix",
+    "*.md": "markdownlint --fix && lint-md . --fix",
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix",
     "*.{css,less,sass,scss,vue}": "stylelint --fix"
   }
