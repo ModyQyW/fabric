@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.22.1
+npm i -D @modyqyw/fabric@~1.23.1
 # or
-# yarn add -D @modyqyw/fabric@~1.22.1
+# yarn add -D @modyqyw/fabric@~1.23.1
 ```
 
 ### Naming
