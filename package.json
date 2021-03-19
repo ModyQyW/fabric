@@ -113,7 +113,8 @@
     "lint": "yarn lint:json && yarn lint:markdown && yarn lint:script",
     "lint:json": "prettier ./**/*.json --write",
     "lint:markdown": "markdownlint . --fix && lint-md . --fix",
-    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
+    "dist": "yarn run lint && node generate-readme.js && yarn publish"
   },
   "husky": {
     "hooks": {
