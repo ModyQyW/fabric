@@ -8,6 +8,13 @@ module.exports = {
       ignoreComments: [/^#ifdef/, /^#ifndef/, /^#endif/],
     },
   ],
+  'property-no-unknown': [
+    true,
+    {
+      // for :import, :export
+      ignoreSelectors: [':import', ':export'],
+    },
+  ],
   'selector-pseudo-class-no-unknown': [
     true,
     // for :export, :deep, :slotted, :global
