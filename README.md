@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.23.1
+npm i -D @modyqyw/fabric@~1.24.0
 # or
-# yarn add -D @modyqyw/fabric@~1.23.1
+# yarn add -D @modyqyw/fabric@~1.24.0
 ```
 
 ### Naming
@@ -110,9 +110,9 @@ npm i -D eslint@~7.22.0
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.18.0 @typescript-eslint/parser@~4.18.0
+npm i -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.19.0 @typescript-eslint/parser@~4.19.0
 # or
-# yarn add -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.18.0 @typescript-eslint/parser@~4.18.0
+# yarn add -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.19.0 @typescript-eslint/parser@~4.19.0
 ```
 
 ```js
