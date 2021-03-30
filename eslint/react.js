@@ -8,7 +8,10 @@ const reactSettings = require('./settings/react');
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+  },
   plugins: ['prettier'],
   extends: [
     // 'plugin:unicorn/recommended',

@@ -5,7 +5,10 @@ const commonTypescriptRules = require('./rules/common-typescript');
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+  },
   plugins: ['prettier'],
   extends: [
     // 'plugin:unicorn/recommended',
