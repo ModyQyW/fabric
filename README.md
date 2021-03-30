@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.24.2
+npm i -D @modyqyw/fabric@~1.25.0
 # or
-# yarn add -D @modyqyw/fabric@~1.24.2
+# yarn add -D @modyqyw/fabric@~1.25.0
 ```
 
 ### Naming
@@ -32,7 +32,7 @@ git config --global core.autocrlf false
 git config --global init.defaultBranch main
 ```
 
-For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems [Gitee](https://gitee.com/).
+For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitee](https://gitee.com/).
 
 ```sh
 # {PROJECT_DIR}/.gitattributes
@@ -40,9 +40,9 @@ For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/g
 
 ```
 
-A better `.gitattributes` example [here](https://stackoverflow.com/a/32278635).
+A better `${PROJECT_DIR}/.gitattributes` example [here](https://stackoverflow.com/a/32278635).
 
-A `.gitignore` example [here](./.gitignore).
+A `${PROJECT_DIR}/.gitignore` example [here](./.gitignore).
 
 ### EditorConfig
 
@@ -95,24 +95,38 @@ module.exports = {
 
 ```
 
-A `.prettierignore` example [here](./.prettierignore).
+Set up `package.json`.
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "lint": "npm run lint:json",
+    "lint:json": "prettier ./**/*.json --write"
+  }
+}
+
+```
+
+A `${PROJECT_DIR}/.prettierignore` example [here](./.prettierignore).
 
 ### ESLint
 
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.22.0
+npm i -D eslint@~7.23.0
 # or
-# yarn add -D eslint@~7.22.0
+# yarn add -D eslint@~7.23.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.19.0 @typescript-eslint/parser@~4.19.0
+npm i -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.20.0 @typescript-eslint/parser@~4.20.0
 # or
-# yarn add -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.19.0 @typescript-eslint/parser@~4.19.0
+# yarn add -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.20.0 @typescript-eslint/parser@~4.20.0
 ```
 
 ```js
@@ -158,11 +172,11 @@ module.exports = {
   rules: {
     ...config.rules,
     // write your own rules here
-    // arrow-body-style and prefer-arrow-callback issue
-    // https://github.com/prettier/eslint-plugin-prettier#arrow-body-style-and-prefer-arrow-callback-issue
-    'arrow-body-style': 'off',
-    'prefer-arrow-callback': 'off',
   },
+  overrides: [
+    ...config.overrides,
+    // write your own overrides here
+  ],
   settings: {
     ...config.settings,
     // write your own settings here
@@ -171,7 +185,23 @@ module.exports = {
 
 ```
 
-A `.eslintignore` example [here](./.eslintignore).
+Set up `package.json`.
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "lint": "npm run lint:script",
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
+  }
+}
+
+```
+
+When using `vue-cli-service`, `eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix` can be replaced with `vue-cli-service lint --fix`.
+
+A `${PROJECT_DIR}/.eslintignore` example [here](./.eslintignore).
 
 ### Stylelint
 
@@ -212,11 +242,25 @@ module.exports = {
 
 ```
 
-A `.stylelintignore` example [here](./.stylelintignore).
+Set up `package.json`.
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "lint": "npm run lint:style",
+    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix"
+  }
+}
+
+```
+
+A `${PROJECT_DIR}/.stylelintignore` example [here](./.stylelintignore).
 
 ### Markdownlint
 
-Learn about [Markdown](https://commonmark.org/) ([Chinese tutorial](https://markdown.com.cn/)) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
+Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
 
 ```sh
 npm i -D markdownlint-cli@~0.27.1
@@ -233,6 +277,20 @@ npm i -D markdownlint-cli@~0.27.1
 
 ```
 
+Set up `package.json`.
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "lint": "npm run lint:markdown",
+    "lint:markdown": "markdownlint . --fix"
+  }
+}
+
+```
+
 A `.markdownlintignore` example [here](./.markdownlintignore).
 
 ### LintMD
@@ -245,7 +303,7 @@ npm i -D lint-md-cli@~0.1.2
 # # yarn add -D lint-md-cli@~0.1.2
 ```
 
-Set `.lintmdrc`.
+Set up `.lintmdrc`.
 
 ```sh
 {
@@ -258,6 +316,20 @@ Set `.lintmdrc`.
         "exclude": ["css", "less", "sass", "scss"]
       }
     ]
+  }
+}
+
+```
+
+Set up `package.json`.
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "lint": "npm run lint:markdown",
+    "lint:markdown": "lint-md . --fix"
   }
 }
 
@@ -390,14 +462,28 @@ ignore:
 
 ```
 
-### Commitlint & Commitizen
+Set up `package.json`.
 
-Learn about [Commitlint](https://commitlint.js.org/) and [Commitizen](https://commitizen-tools.github.io/commitizen/).
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "lint": "npm run lint:ls",
+    "lint:ls": "ls-lint ."
+  }
+}
+
+```
+
+### Commitlint
+
+Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~12.0.1 commitizen@~4.2.3
+npm i -D @commitlint/cli@~12.0.1
 # or
-# yarn add -D @commitlint/cli@~12.0.1 commitizen@~4.2.3
+# yarn add -D @commitlint/cli@~12.0.1
 ```
 
 ```js
@@ -410,6 +496,20 @@ module.exports = {
 };
 
 ```
+
+You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
+
+### Commitizen
+
+Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
+
+```sh
+npm i -D commitizen@~4.2.3
+# or
+# yarn add -D commitizen@~4.2.3
+```
+
+Set up `package.json`.
 
 ```json
 {
@@ -429,9 +529,77 @@ module.exports = {
 
 You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
 
-### Husky & LintStaged
+### LintStaged
 
-Learn about [Husky](https://github.com/typicode/husky#readme) and [LintStaged](https://github.com/okonet/lint-staged#readme).
+Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
+
+```sh
+npm install -D lint-staged@~10.5.4
+# or
+# yarn add -D lint-staged@~10.5.4
+
+```
+
+```js
+// {PROJECT_DIR}/lint-staged.config.js
+module.exports = {
+  '*.json': 'prettier --write',
+  '*.{md,markdown}': 'markdownlint --fix && lint-md . --fix',
+  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
+  '*.{css,less,sass,scss,vue}': 'stylelint --fix'
+};
+
+```
+
+When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-service lint --fix`.
+
+### Husky
+
+Learn about [Husky](https://github.com/typicode/husky#readme).
+
+```sh
+npm install -D is-ci@~3.0.0 husky@~6.0.0
+# or
+# yarn add -D is-ci@~3.0.0 husky@~6.0.0
+
+npx husky install
+
+```
+
+Set up `package.json`.
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "prepare": "is-ci || husky install"
+  }
+}
+
+```
+
+Set up hooks.
+
+```sh
+# {PROJECT_DIR}/.husky/commit-msg
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install commitlint --edit $1
+
+```
+
+```sh
+# {PROJECT_DIR}/.husky/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install ls-lint . && npx --no-install lint-staged
+
+```
+
+If you want to use `husky@4`, steps are shown below.
 
 ```sh
 npm i -D husky@~4.3.8 lint-staged@~10.5.4
@@ -439,35 +607,19 @@ npm i -D husky@~4.3.8 lint-staged@~10.5.4
 # yarn add -D husky@~4.3.8 lint-staged@~10.5.4
 ```
 
+Set up `package.json`.
+
 ```json
 {
-  ...,
-  "scripts": {
-    ...,
-    "lint": "npm run lint:json && npm run lint:markdown && npm run lint:script && npm run lint:style && npm run lint:ls",
-    "lint:json": "prettier ./**/*.json --write",
-    "lint:markdown": "markdownlint . --fix && lint-md . --fix",
-    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
-    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix",
-    "lint:ls": "ls-lint ."
-  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "ls-lint . && lint-staged"
     }
-  },
-  "lint-staged": {
-    "*.json": "prettier --write",
-    "*.md": "markdownlint --fix && lint-md . --fix",
-    "*.{js,jsx,ts,tsx,vue}": "eslint --fix",
-    "*.{css,less,sass,scss,vue}": "stylelint --fix"
   }
 }
 
 ```
-
-When using `vue-cli-service`, `lint:style` can be replaced with `vue-cli-service lint --fix`.
 
 ## VSCode
 
