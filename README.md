@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.25.0
+npm i -D @modyqyw/fabric@~1.25.1
 # or
-# yarn add -D @modyqyw/fabric@~1.25.0
+# yarn add -D @modyqyw/fabric@~1.25.1
 ```
 
 ### Naming
@@ -116,9 +116,9 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.23.0
+npm i -D eslint@~7.23.0 @babel/core@~7.13.14 @babel/eslint-parser@~7.13.14
 # or
-# yarn add -D eslint@~7.23.0
+# yarn add -D eslint@~7.23.0 @babel/core@~7.13.14 @babel/eslint-parser@~7.13.14
 ```
 
 If you are using typescript, additional dependencies are needed.
@@ -546,7 +546,7 @@ module.exports = {
   '*.json': 'prettier --write',
   '*.{md,markdown}': 'markdownlint --fix && lint-md . --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
-  '*.{css,less,sass,scss,vue}': 'stylelint --fix'
+  '*.{css,less,sass,scss,vue}': 'stylelint --fix',
 };
 
 ```

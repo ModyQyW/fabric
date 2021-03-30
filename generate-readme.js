@@ -123,9 +123,13 @@ A \`\${PROJECT_DIR}/.prettierignore\` example [here](./.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 \`\`\`sh
-npm i -D eslint@${packageJson.devDependencies.eslint}
+npm i -D eslint@${packageJson.devDependencies.eslint} @babel/core@${
+  packageJson.dependencies['@babel/core']
+} @babel/eslint-parser@${packageJson.dependencies['@babel/eslint-parser']}
 # or
-# yarn add -D eslint@${packageJson.devDependencies.eslint}
+# yarn add -D eslint@${packageJson.devDependencies.eslint} @babel/core@${
+  packageJson.dependencies['@babel/core']
+} @babel/eslint-parser@${packageJson.dependencies['@babel/eslint-parser']}
 \`\`\`
 
 If you are using typescript, additional dependencies are needed.
@@ -569,7 +573,7 @@ module.exports = {
   '*.json': 'prettier --write',
   '*.{md,markdown}': 'markdownlint --fix && lint-md . --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
-  '*.{css,less,sass,scss,vue}': 'stylelint --fix'
+  '*.{css,less,sass,scss,vue}': 'stylelint --fix',
 };
 
 \`\`\`
