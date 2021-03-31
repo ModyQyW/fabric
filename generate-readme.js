@@ -571,7 +571,7 @@ npm install -D lint-staged@${packageJson.devDependencies['lint-staged']}
 // {PROJECT_DIR}/lint-staged.config.js
 module.exports = {
   '*.json': 'prettier --write',
-  '*.{md,markdown}': 'markdownlint --fix && lint-md . --fix',
+  '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{css,less,sass,scss,vue}': 'stylelint --fix',
 };
