@@ -19,9 +19,11 @@ module.exports = {
     'error',
     { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
   ],
-  'react/react-in-jsx-scope': fs.existsSync(path.resolve('node_modules', 'rax'))
-    ? 'off'
-    : 'error',
+  'react/react-in-jsx-scope':
+    fs.existsSync(path.resolve('node_modules', 'rax')) ||
+    fs.existsSync(path.resolve('node_modules', 'umi'))
+      ? 'off'
+      : 'error',
   'react/sort-comp': [
     'error',
     {
