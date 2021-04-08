@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.25.3
+npm i -D @modyqyw/fabric@~1.26.0
 # or
-# yarn add -D @modyqyw/fabric@~1.25.3
+# yarn add -D @modyqyw/fabric@~1.26.0
 ```
 
 ### Naming
@@ -124,9 +124,9 @@ npm i -D eslint@~7.23.0 @babel/core@~7.13.14 @babel/eslint-parser@~7.13.14
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.20.0 @typescript-eslint/parser@~4.20.0
+npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.21.0 @typescript-eslint/parser@~4.21.0
 # or
-# yarn add -D typescript@~4.2.3 @typescript-eslint/eslint-plugin@~4.20.0 @typescript-eslint/parser@~4.20.0
+# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.21.0 @typescript-eslint/parser@~4.21.0
 ```
 
 ```js
@@ -481,9 +481,9 @@ Set up `package.json`.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~12.0.1
+npm i -D @commitlint/cli@~12.1.1
 # or
-# yarn add -D @commitlint/cli@~12.0.1
+# yarn add -D @commitlint/cli@~12.1.1
 ```
 
 ```js
