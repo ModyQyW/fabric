@@ -55,9 +55,9 @@
   "dependencies": {
     "@babel/core": "~7.13.14",
     "@babel/eslint-parser": "~7.13.14",
-    "@commitlint/config-conventional": "~12.0.1",
-    "@typescript-eslint/eslint-plugin": "~4.20.0",
-    "@typescript-eslint/parser": "~4.20.0",
+    "@commitlint/config-conventional": "~12.1.1",
+    "@typescript-eslint/eslint-plugin": "~4.21.0",
+    "@typescript-eslint/parser": "~4.21.0",
     "eslint-config-airbnb": "~18.2.1",
     "eslint-config-airbnb-base": "~14.2.1",
     "eslint-config-airbnb-typescript": "~12.3.1",
@@ -74,13 +74,13 @@
     "stylelint-config-prettier": "~8.0.2",
     "stylelint-config-twbs-bootstrap": "~2.1.0",
     "stylelint-prettier": "~1.2.0",
-    "typescript": "~4.2.3",
+    "typescript": "~4.2.4",
     "vue-class-component": "~7.2.6",
     "vue-eslint-parser": "~7.6.0",
     "vue-property-decorator": "~9.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "~12.0.1",
+    "@commitlint/cli": "~12.1.1",
     "@ls-lint/ls-lint": "~1.9.2",
     "commitizen": "~4.2.3",
     "eslint": "~7.23.0",
