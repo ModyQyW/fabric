@@ -1,4 +1,11 @@
 module.exports = {
+  'at-rule-no-unknown': [
+    true,
+    {
+      // for @tailwind
+      ignoreAtRules: ['tailwind'],
+    },
+  ],
   'comment-empty-line-before': [
     'always',
     {
