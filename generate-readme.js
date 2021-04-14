@@ -360,6 +360,8 @@ Set up \`package.json\`.
 
 \`\`\`
 
+Attention: when I try to migrate to \`@lint-md/cli\`, I get an error \`env: node\\r: No such file or directory\`. If you have any idea, please help me.
+
 ### LsLint
 
 Learn about [LsLint](https://ls-lint.org/).

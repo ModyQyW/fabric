@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.26.0
+npm i -D @modyqyw/fabric@~1.27.0
 # or
-# yarn add -D @modyqyw/fabric@~1.26.0
+# yarn add -D @modyqyw/fabric@~1.27.0
 ```
 
 ### Naming
@@ -116,17 +116,17 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.23.0 @babel/core@~7.13.14 @babel/eslint-parser@~7.13.14
+npm i -D eslint@~7.24.0 @babel/core@~7.13.15 @babel/eslint-parser@~7.13.14
 # or
-# yarn add -D eslint@~7.23.0 @babel/core@~7.13.14 @babel/eslint-parser@~7.13.14
+# yarn add -D eslint@~7.24.0 @babel/core@~7.13.15 @babel/eslint-parser@~7.13.14
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.21.0 @typescript-eslint/parser@~4.21.0
+npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.0 @typescript-eslint/parser@~4.22.0
 # or
-# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.21.0 @typescript-eslint/parser@~4.21.0
+# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.0 @typescript-eslint/parser@~4.22.0
 ```
 
 ```js
@@ -334,6 +334,8 @@ Set up `package.json`.
 }
 
 ```
+
+Attention: when I try to migrate to `@lint-md/cli`, I get an error `env: node\r: No such file or directory`. If you have any idea, please help me.
 
 ### LsLint
 
