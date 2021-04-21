@@ -18,6 +18,8 @@ module.exports = {
       ignorePropertyModificationsFor: [
         'acc',
         'accumulator',
+        'app',
+        'application',
         'arg',
         'args',
         'argument',
@@ -29,8 +31,7 @@ module.exports = {
         'configurations',
         'ctx',
         'context',
-        'app',
-        'application',
+        'draft',
         'e',
         'err',
         'error',
