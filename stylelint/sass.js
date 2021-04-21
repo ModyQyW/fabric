@@ -7,5 +7,12 @@ module.exports = {
   ],
   rules: {
     ...commonRules,
+    'scss/at-rule-no-unknown': [
+      true,
+      {
+        // for @tailwind
+        ignoreAtRules: ['tailwind'],
+      },
+    ],
   },
 };
