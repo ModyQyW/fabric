@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.27.0
+npm i -D @modyqyw/fabric@~1.28.0
 # or
-# yarn add -D @modyqyw/fabric@~1.27.0
+# yarn add -D @modyqyw/fabric@~1.28.0
 ```
 
 ### Naming
@@ -116,9 +116,9 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.24.0 @babel/core@~7.13.15 @babel/eslint-parser@~7.13.14
+npm i -D eslint@~7.24.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
 # or
-# yarn add -D eslint@~7.24.0 @babel/core@~7.13.15 @babel/eslint-parser@~7.13.14
+# yarn add -D eslint@~7.24.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
 ```
 
 If you are using typescript, additional dependencies are needed.
