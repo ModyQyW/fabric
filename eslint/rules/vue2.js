@@ -74,4 +74,5 @@ module.exports = {
       ],
     },
   ],
+  'vuejs-accessibility/click-events-have-key-events': 'off',
 };
