@@ -158,7 +158,7 @@ npm i -D typescript@${
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
 
-// for react17, react-native0.63, taro3, rax1, remax2, umi3 and next10
+// for react17, react-native0.64, taro3, rax1, remax2, umi3 and next10
 // with js or ts
 // const config = require('@modyqyw/fabric/eslint/react');
 
@@ -445,6 +445,43 @@ ls:
     .spec.ts: kebab-case | camelCase
     .test.js: kebab-case | camelCase
     .test.ts: kebab-case | camelCase
+  pages:
+    .js: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+    .config.js: kebab-case
+    .config.ts: kebab-case
+    .jsx: kebab-case
+    .tsx: kebab-case
+    .vue: kebab-case
+    .css: kebab-case
+    .less: kebab-case
+    .sass: kebab-case
+    .scss: kebab-case
+    .module.css: kebab-case
+    .module.less: kebab-case
+    .module.sass: kebab-case
+    .module.scss: kebab-case
+  store:
+    .js: kebab-case
+    .ts: kebab-case
+  styles:
+    .css: kebab-case
+    .less: kebab-case
+    .sass: kebab-case
+    .scss: kebab-case
+    .module.css: kebab-case
+    .module.less: kebab-case
+    .module.sass: kebab-case
+    .module.scss: kebab-case
+  typings:
+    .js: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+  types:
+    .js: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
   test:
     .js: kebab-case | camelCase
     .ts: kebab-case | camelCase
@@ -632,14 +669,19 @@ npx --no-install ls-lint . && npx --no-install lint-staged
 
 \`\`\`
 
+Finally use \`chmod\`.
+
+\`\`\`sh
+chmod +x .git/hooks/*
+chmod +x .husky/*
+\`\`\`
+
 If you want to use \`husky@4\`, steps are shown below.
 
 \`\`\`sh
-npm i -D husky@~4.3.8 lint-staged@${packageJson.devDependencies['lint-staged']}
+npm i -D husky@~4.3.8
 # or
-# yarn add -D husky@~4.3.8 lint-staged@${
-  packageJson.devDependencies['lint-staged']
-}
+# yarn add -D husky@~4.3.8
 \`\`\`
 
 Set up \`package.json\`.

@@ -7,9 +7,9 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.28.1
+npm i -D @modyqyw/fabric@~1.29.0
 # or
-# yarn add -D @modyqyw/fabric@~1.28.1
+# yarn add -D @modyqyw/fabric@~1.29.0
 ```
 
 ### Naming
@@ -116,9 +116,9 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.24.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
+npm i -D eslint@~7.25.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
 # or
-# yarn add -D eslint@~7.24.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
+# yarn add -D eslint@~7.25.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
 ```
 
 If you are using typescript, additional dependencies are needed.
@@ -135,7 +135,7 @@ npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.0 @typescript-
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
 
-// for react17, react-native0.63, taro3, rax1, remax2, umi3 and next10
+// for react17, react-native0.64, taro3, rax1, remax2, umi3 and next10
 // with js or ts
 // const config = require('@modyqyw/fabric/eslint/react');
 
@@ -208,9 +208,9 @@ A `${PROJECT_DIR}/.eslintignore` example [here](./.eslintignore).
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-npm i -D stylelint@~13.12.0
+npm i -D stylelint@~13.13.0
 # or
-# yarn add -D stylelint@~13.12.0
+# yarn add -D stylelint@~13.13.0
 ```
 
 ```js
@@ -418,6 +418,43 @@ ls:
     .spec.ts: kebab-case | camelCase
     .test.js: kebab-case | camelCase
     .test.ts: kebab-case | camelCase
+  pages:
+    .js: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+    .config.js: kebab-case
+    .config.ts: kebab-case
+    .jsx: kebab-case
+    .tsx: kebab-case
+    .vue: kebab-case
+    .css: kebab-case
+    .less: kebab-case
+    .sass: kebab-case
+    .scss: kebab-case
+    .module.css: kebab-case
+    .module.less: kebab-case
+    .module.sass: kebab-case
+    .module.scss: kebab-case
+  store:
+    .js: kebab-case
+    .ts: kebab-case
+  styles:
+    .css: kebab-case
+    .less: kebab-case
+    .sass: kebab-case
+    .scss: kebab-case
+    .module.css: kebab-case
+    .module.less: kebab-case
+    .module.sass: kebab-case
+    .module.scss: kebab-case
+  typings:
+    .js: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+  types:
+    .js: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
   test:
     .js: kebab-case | camelCase
     .ts: kebab-case | camelCase
@@ -601,12 +638,19 @@ npx --no-install ls-lint . && npx --no-install lint-staged
 
 ```
 
+Finally use `chmod`.
+
+```sh
+chmod +x .git/hooks/*
+chmod +x .husky/*
+```
+
 If you want to use `husky@4`, steps are shown below.
 
 ```sh
-npm i -D husky@~4.3.8 lint-staged@~10.5.4
+npm i -D husky@~4.3.8
 # or
-# yarn add -D husky@~4.3.8 lint-staged@~10.5.4
+# yarn add -D husky@~4.3.8
 ```
 
 Set up `package.json`.
