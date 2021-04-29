@@ -1,6 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-
 module.exports = {
   'no-unused-vars':
     process.env.NODE_ENV === 'production' ||
