@@ -41,6 +41,9 @@
   "bugs": {
     "url": "https://github.com/ModyQyW/fabric/issues"
   },
+  "bin": {
+    "modyqyw-fabric": "./cli/index.js"
+  },
   "license": "MIT",
   "author": {
     "name": "ModyQyW",
