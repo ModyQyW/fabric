@@ -15,6 +15,12 @@ module.exports = {
           },
         ]
       : 'off',
+  'react-hooks/exhaustive-deps': [
+    'warn',
+    {
+      additionalHooks: 'useRecoilCallback',
+    },
+  ],
   'react/jsx-filename-extension': [
     'error',
     { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
