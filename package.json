@@ -42,7 +42,7 @@
     "url": "https://github.com/ModyQyW/fabric/issues"
   },
   "bin": {
-    "modyqyw-fabric": "./cli/index.js"
+    "modyqyw-fabric": "./cli.js"
   },
   "license": "MIT",
   "author": {
