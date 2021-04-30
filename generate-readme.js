@@ -1,12 +1,29 @@
 const fs = require('fs');
+const path = require('path');
 
-const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+const getFilePath = (filename) => {
+  if (fs.existsSync(path.join(__dirname, 'config', filename))) {
+    return path.join(__dirname, 'config', filename);
+  }
+  return path.join(__dirname, filename);
+};
 
-const readme = `# ${packageJson.name}
+const packageObject = JSON.parse(fs.readFileSync('./package.json'));
+const gitattributes = fs.readFileSync(getFilePath('.gitattributes'));
+const editorconfig = fs.readFileSync(getFilePath('.editorconfig'));
+const prettierrc = fs.readFileSync(getFilePath('.prettierrc.js'));
+const eslintrc = fs.readFileSync(getFilePath('.eslintrc.js'));
+const stylelintrc = fs.readFileSync(getFilePath('.stylelintrc.js'));
+const markdownlint = fs.readFileSync(getFilePath('.markdownlint.json'));
+const lintmdrc = fs.readFileSync(getFilePath('.lintmdrc'));
+const lsLint = fs.readFileSync(getFilePath('.ls-lint.yml'));
+const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
+
+const readme = `# ${packageObject.name}
 
 Shareable specification for different front-end projects.
 
-[Github](${packageJson.homepage}) | [Gitee](${packageJson.homepage.replace(
+[Github](${packageObject.homepage}) | [Gitee](${packageObject.homepage.replace(
   'github',
   'gitee',
 )})
@@ -14,9 +31,44 @@ Shareable specification for different front-end projects.
 ## Usage
 
 \`\`\`sh
-npm i -D ${packageJson.name}@~${packageJson.version}
+# locally
+npm i -D ${packageObject.name}@~${packageObject.version}
 # or
-# yarn add -D ${packageJson.name}@~${packageJson.version}
+# yarn add -D ${packageObject.name}@~${packageObject.version}
+
+# globally
+npm i -g ${packageObject.name}@~${packageObject.version}
+# or
+# yarn add -g ${packageObject.name}@~${packageObject.version}
+\`\`\`
+
+### CLI (beta)
+
+**This is still a beta feature and may cause your project to crash. Please use it in your new projects and give feedback. It will get smarter in the foreseeable future.**
+
+CLI is used to config your project easier. Just call it in your project dir after installing globally.
+
+\`\`\`sh
+modyqyw-fabric config
+\`\`\`
+
+Or, you can use scripts in \`\${PROJECT_DIR}package.json\` if you install locally.
+
+\`\`\`json
+{
+  ...,
+  "scripts": {
+    ...,
+    "config": "modyqyw-fabric config"
+  }
+}
+
+\`\`\`
+
+\`\`\`sh
+npm run config
+# or
+# yarn run config
 \`\`\`
 
 ### Naming
@@ -41,10 +93,10 @@ git config --global init.defaultBranch main
 
 For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitee](https://gitee.com/).
 
-\`\`\`sh
-# {PROJECT_DIR}/.gitattributes
-* text=auto
+Set up \`\${PROJECT_DIR}/.gitattributes\`.
 
+\`\`\`sh
+${gitattributes}
 \`\`\`
 
 A better \`\${PROJECT_DIR}/.gitattributes\` example [here](https://stackoverflow.com/a/32278635).
@@ -55,18 +107,10 @@ A \`\${PROJECT_DIR}/.gitignore\` example [here](./.gitignore).
 
 Learn about [EditorConfig](https://editorconfig.org/).
 
+Set up \`\${PROJECT_DIR}/.editorconfig\`.
+
 \`\`\`sh
-# {PROJECT_DIR}/.editorconfig
-root = true
-
-[*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
-indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
-
+${editorconfig}
 \`\`\`
 
 ### Prettier
@@ -74,35 +118,18 @@ trim_trailing_whitespace = true
 Learn about [Prettier](https://prettier.io/).
 
 \`\`\`sh
-npm i -D prettier@${packageJson.devDependencies.prettier}
+npm i -D prettier@${packageObject.devDependencies.prettier}
 # or
-# yarn add -D prettier@${packageJson.devDependencies.prettier}
+# yarn add -D prettier@${packageObject.devDependencies.prettier}
 \`\`\`
+
+Set up \`\${PROJECT_DIR}/.prettierrc.js\`.
 
 \`\`\`js
-// {PROJECT_DIR}/prettier.config.js
-/* eslint-disable import/no-extraneous-dependencies */
-const config = require('@modyqyw/fabric/prettier');
-
-module.exports = {
-  ...config,
-  // write your own rules here
-  overrides: [
-    ...config.overrides,
-    // // write your own overrides here
-    {
-      files: ['*.css', '*.less', '*.sass', '*.scss'],
-      options: {
-        // sometimes you may want a longer line
-        printWidth: 160,
-      },
-    },
-  ],
-};
-
+${prettierrc}
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -116,99 +143,49 @@ Set up \`package.json\`.
 
 \`\`\`
 
-A \`\${PROJECT_DIR}/.prettierignore\` example [here](./.prettierignore).
+A \`\${PROJECT_DIR}/.prettierignore\` example [here](./config/.prettierignore).
 
 ### ESLint
 
 Learn about [ESLint](https://eslint.org/).
 
 \`\`\`sh
-npm i -D eslint@${packageJson.devDependencies.eslint} @babel/core@${
-  packageJson.dependencies['@babel/core']
-} @babel/eslint-parser@${packageJson.dependencies['@babel/eslint-parser']}
+npm i -D eslint@${packageObject.devDependencies.eslint} @babel/core@${
+  packageObject.dependencies['@babel/core']
+} @babel/eslint-parser@${packageObject.dependencies['@babel/eslint-parser']}
 # or
-# yarn add -D eslint@${packageJson.devDependencies.eslint} @babel/core@${
-  packageJson.dependencies['@babel/core']
-} @babel/eslint-parser@${packageJson.dependencies['@babel/eslint-parser']}
+# yarn add -D eslint@${packageObject.devDependencies.eslint} @babel/core@${
+  packageObject.dependencies['@babel/core']
+} @babel/eslint-parser@${packageObject.dependencies['@babel/eslint-parser']}
 \`\`\`
 
 If you are using typescript, additional dependencies are needed.
 
 \`\`\`sh
 npm i -D typescript@${
-  packageJson.dependencies.typescript
+  packageObject.dependencies.typescript
 } @typescript-eslint/eslint-plugin@${
-  packageJson.dependencies['@typescript-eslint/eslint-plugin']
+  packageObject.dependencies['@typescript-eslint/eslint-plugin']
 } @typescript-eslint/parser@${
-  packageJson.dependencies['@typescript-eslint/parser']
+  packageObject.dependencies['@typescript-eslint/parser']
 }
 # or
 # yarn add -D typescript@${
-  packageJson.dependencies.typescript
+  packageObject.dependencies.typescript
 } @typescript-eslint/eslint-plugin@${
-  packageJson.dependencies['@typescript-eslint/eslint-plugin']
+  packageObject.dependencies['@typescript-eslint/eslint-plugin']
 } @typescript-eslint/parser@${
-  packageJson.dependencies['@typescript-eslint/parser']
+  packageObject.dependencies['@typescript-eslint/parser']
 }
 \`\`\`
 
+Set up \`\${PROJECT_DIR}/.eslintrc.js\`.
+
 \`\`\`js
-// {PROJECT_DIR}/.eslintrc.js
-/* eslint-disable import/no-extraneous-dependencies */
-// for js and ts
-const config = require('@modyqyw/fabric/eslint/native');
-
-// for react17, react-native0.64, taro3, rax1, remax2, umi3 and next10
-// with js or ts
-// const config = require('@modyqyw/fabric/eslint/react');
-
-// for vue2, uni-app and nuxt2, with js
-// const config = require('@modyqyw/fabric/eslint/vue2');
-
-// for vue2, uni-app and nuxt2, with ts
-// const config = require('@modyqyw/fabric/eslint/vue2-typescript');
-
-// for vue3 and uni-app, with js
-// const config = require('@modyqyw/fabric/eslint/vue3');
-
-// for vue3 and uni-app, with ts
-// const config = require('@modyqyw/fabric/eslint/vue3-typescript');
-
-module.exports = {
-  ...config,
-  plugins: [
-    ...config.plugins,
-    // write your own plugins here
-  ],
-  extends: [
-    ...config.extends,
-    // write your own extends here
-  ],
-  env: {
-    ...config.env,
-    // write your own env here
-  },
-  globals: {
-    ...config.globals,
-    // write your own globals here
-  },
-  rules: {
-    ...config.rules,
-    // write your own rules here
-  },
-  overrides: [
-    ...config.overrides,
-    // write your own overrides here
-  ],
-  settings: {
-    ...config.settings,
-    // write your own settings here
-  },
-};
-
+${eslintrc}
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -224,48 +201,25 @@ Set up \`package.json\`.
 
 When using \`vue-cli-service\`, \`eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix\` can be replaced with \`vue-cli-service lint --fix\`.
 
-A \`\${PROJECT_DIR}/.eslintignore\` example [here](./.eslintignore).
+A \`\${PROJECT_DIR}/.eslintignore\` example [here](./config/.eslintignore).
 
 ### Stylelint
 
 Learn about [Stylelint](https://stylelint.io/).
 
 \`\`\`sh
-npm i -D stylelint@${packageJson.devDependencies.stylelint}
+npm i -D stylelint@${packageObject.devDependencies.stylelint}
 # or
-# yarn add -D stylelint@${packageJson.devDependencies.stylelint}
+# yarn add -D stylelint@${packageObject.devDependencies.stylelint}
 \`\`\`
+
+Set up \`\${PROJECT_DIR}/.stylelintrc.js\`.
 
 \`\`\`js
-// {PROJECT_DIR}/stylelint.config.js
-/* eslint-disable import/no-extraneous-dependencies */
-// for css
-const config = require('@modyqyw/fabric/stylelint/css');
-
-// for less
-// const config = require('@modyqyw/fabric/stylelint/less');
-
-// for sass
-// const config = require('@modyqyw/fabric/stylelint/sass');
-
-// for scss
-// const config = require('@modyqyw/fabric/stylelint/scss');
-
-module.exports = {
-  ...config,
-  extends: [
-    ...config.extends,
-    // write your own extends here
-  ],
-  rules: {
-    ...config.rules,
-    // write your own rules here
-  },
-};
-
+${stylelintrc}
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -279,30 +233,27 @@ Set up \`package.json\`.
 
 \`\`\`
 
-A \`\${PROJECT_DIR}/.stylelintignore\` example [here](./.stylelintignore).
+A \`\${PROJECT_DIR}/.stylelintignore\` example [here](./config/.stylelintignore).
 
 ### Markdownlint
 
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
 
 \`\`\`sh
-npm i -D markdownlint-cli@${packageJson.devDependencies['markdownlint-cli']}
+npm i -D markdownlint-cli@${packageObject.devDependencies['markdownlint-cli']}
 # or
 # yarn add -D markdownlint-cli@${
-  packageJson.devDependencies['markdownlint-cli']
+  packageObject.devDependencies['markdownlint-cli']
 }
 \`\`\`
+
+Set up \`\${PROJECT_DIR}/.markdownlint.json\`.
 
 \`\`\`json
-// {PROJECT_DIR}/.markdownlint.json
-{
-  "MD013": false,
-  "MD033": false
-}
-
+${markdownlint}
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -316,37 +267,25 @@ Set up \`package.json\`.
 
 \`\`\`
 
-A \`.markdownlintignore\` example [here](./.markdownlintignore).
+A \`\${PROJECT_DIR}/.markdownlintignore\` example [here](./config/.markdownlintignore).
 
 ### LintMD
 
 Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at Chinese markdown files.
 
 \`\`\`sh
-npm i -D lint-md-cli@${packageJson.devDependencies['lint-md-cli']}
+npm i -D lint-md-cli@${packageObject.devDependencies['lint-md-cli']}
 # or
-# # yarn add -D lint-md-cli@${packageJson.devDependencies['lint-md-cli']}
+# # yarn add -D lint-md-cli@${packageObject.devDependencies['lint-md-cli']}
 \`\`\`
 
-Set up \`.lintmdrc\`.
+Set up \`\${PROJECT_DIR}/.lintmdrc\`.
 
 \`\`\`sh
-{
-  "excludeFiles": [],
-  "rules": {
-    "no-long-code": [
-      "error",
-      {
-        "length": 80,
-        "exclude": ["css", "less", "sass", "scss"]
-      }
-    ]
-  }
-}
-
+${lintmdrc}
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -367,168 +306,20 @@ Attention: when I try to migrate to \`@lint-md/cli\`, I get an error \`env: node
 Learn about [LsLint](https://ls-lint.org/).
 
 \`\`\`sh
-npm i -D @ls-lint/ls-lint@${packageJson.devDependencies['@ls-lint/ls-lint']}
+npm i -D @ls-lint/ls-lint@${packageObject.devDependencies['@ls-lint/ls-lint']}
 # or
 # yarn add -D @ls-lint/ls-lint@${
-  packageJson.devDependencies['@ls-lint/ls-lint']
+  packageObject.devDependencies['@ls-lint/ls-lint']
 }
 \`\`\`
 
+Set up \`\${PROJECT_DIR}/.ls-lint.yml\`.
+
 \`\`\`yml
-# {PROJECT_DIR}/.ls-lint.yml
-ls:
-  config:
-    .js: kebab-case | point.case
-    .ts: kebab-case | point.case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-  build:
-    .js: kebab-case
-    .ts: kebab-case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-  mock:
-    .js: kebab-case
-    .ts: kebab-case
-  src:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-    .jsx: kebab-case
-    .tsx: kebab-case
-    .vue: kebab-case
-    .css: kebab-case
-    .less: kebab-case
-    .sass: kebab-case
-    .scss: kebab-case
-    .module.css: kebab-case
-    .module.less: kebab-case
-    .module.sass: kebab-case
-    .module.scss: kebab-case
-  src/composables:
-    .js: camelCase
-    .ts: camelCase
-  src/hooks:
-    .js: camelCase
-    .ts: camelCase
-  src/**/components:
-    .jsx: PascalCase | kebab-case
-    .tsx: PascalCase | kebab-case
-    .vue: PascalCase | kebab-case
-  src/**/test:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-  src/**/__test__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-  src/**/tests:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-  src/**/__tests__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-  pages:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-    .jsx: kebab-case
-    .tsx: kebab-case
-    .vue: kebab-case
-    .css: kebab-case
-    .less: kebab-case
-    .sass: kebab-case
-    .scss: kebab-case
-    .module.css: kebab-case
-    .module.less: kebab-case
-    .module.sass: kebab-case
-    .module.scss: kebab-case
-  store:
-    .js: kebab-case
-    .ts: kebab-case
-  styles:
-    .css: kebab-case
-    .less: kebab-case
-    .sass: kebab-case
-    .scss: kebab-case
-    .module.css: kebab-case
-    .module.less: kebab-case
-    .module.sass: kebab-case
-    .module.scss: kebab-case
-  typings:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-  types:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-  test:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-  __test__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-  tests:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-  __tests__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
-
-ignore:
-  - ./src/.next
-  - ./src/.nuxt
-  - ./src/.rax
-  - ./src/.umi
-  - ./src/App.js
-  - ./src/App.ts
-  - ./src/App.jsx
-  - ./src/App.tsx
-  - ./src/App.vue
-  - ./src/App.css
-  - ./src/App.less
-  - ./src/App.sass
-  - ./src/App.scss
-
+${lsLint}
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -547,20 +338,17 @@ Set up \`package.json\`.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 \`\`\`sh
-npm i -D @commitlint/cli@${packageJson.devDependencies['@commitlint/cli']}
+npm i -D @commitlint/cli@${packageObject.devDependencies['@commitlint/cli']}
 # or
-# yarn add -D @commitlint/cli@${packageJson.devDependencies['@commitlint/cli']}
+# yarn add -D @commitlint/cli@${
+  packageObject.devDependencies['@commitlint/cli']
+}
 \`\`\`
 
+Set up \`\${PROJECT_DIR}/.commitlintrc.js\`.
+
 \`\`\`js
-// {PROJECT_DIR}/commitlint.config.js
-/* eslint-disable import/no-extraneous-dependencies */
-const config = require('@modyqyw/fabric/commitlint');
-
-module.exports = {
-  ...config,
-};
-
+${commitlintrc}
 \`\`\`
 
 You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
@@ -570,12 +358,12 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 \`\`\`sh
-npm i -D commitizen@${packageJson.devDependencies.commitizen}
+npm i -D commitizen@${packageObject.devDependencies.commitizen}
 # or
-# yarn add -D commitizen@${packageJson.devDependencies.commitizen}
+# yarn add -D commitizen@${packageObject.devDependencies.commitizen}
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -600,19 +388,20 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 \`\`\`sh
-npm install -D lint-staged@${packageJson.devDependencies['lint-staged']}
+npm install -D lint-staged@${packageObject.devDependencies['lint-staged']}
 # or
-# yarn add -D lint-staged@${packageJson.devDependencies['lint-staged']}
+# yarn add -D lint-staged@${packageObject.devDependencies['lint-staged']}
 
 \`\`\`
 
+Set up \`\${PROJECT_DIR}/.lintstagedrc.js\`.
+
 \`\`\`js
-// {PROJECT_DIR}/lint-staged.config.js
 module.exports = {
   '*.json': 'prettier --write',
-  '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
-  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{css,less,sass,scss,vue}': 'stylelint --fix',
+  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
+  '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
 };
 
 \`\`\`
@@ -624,19 +413,19 @@ When using \`vue-cli-service\`, \`eslint --fix\` can be replaced with \`vue-cli-
 Learn about [Husky](https://github.com/typicode/husky#readme).
 
 \`\`\`sh
-npm install -D is-ci@${packageJson.devDependencies['is-ci']} husky@${
-  packageJson.devDependencies.husky
+npm install -D is-ci@${packageObject.devDependencies['is-ci']} husky@${
+  packageObject.devDependencies.husky
 }
 # or
-# yarn add -D is-ci@${packageJson.devDependencies['is-ci']} husky@${
-  packageJson.devDependencies.husky
+# yarn add -D is-ci@${packageObject.devDependencies['is-ci']} husky@${
+  packageObject.devDependencies.husky
 }
 
 npx husky install
 
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {
@@ -649,10 +438,9 @@ Set up \`package.json\`.
 
 \`\`\`
 
-Set up hooks.
+Set up \`\${PROJECT_DIR}/.husky/commit-msg\` hook.
 
 \`\`\`sh
-# {PROJECT_DIR}/.husky/commit-msg
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
@@ -660,8 +448,9 @@ npx --no-install commitlint --edit $1
 
 \`\`\`
 
+Set up \`\${PROJECT_DIR}/.husky/pre-commit\` hook.
+
 \`\`\`sh
-# {PROJECT_DIR}/.husky/pre-commit
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
@@ -684,7 +473,7 @@ npm i -D husky@~4.3.8
 # yarn add -D husky@~4.3.8
 \`\`\`
 
-Set up \`package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`json
 {

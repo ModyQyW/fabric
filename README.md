@@ -7,9 +7,44 @@ Shareable specification for different front-end projects.
 ## Usage
 
 ```sh
-npm i -D @modyqyw/fabric@~1.29.0
+# locally
+npm i -D @modyqyw/fabric@~1.30.0
 # or
-# yarn add -D @modyqyw/fabric@~1.29.0
+# yarn add -D @modyqyw/fabric@~1.30.0
+
+# globally
+npm i -g @modyqyw/fabric@~1.30.0
+# or
+# yarn add -g @modyqyw/fabric@~1.30.0
+```
+
+### CLI (beta)
+
+**This is still a beta feature and may cause your project to crash. Please use it in your new projects and give feedback. It will get smarter in the foreseeable future.**
+
+CLI is used to config your project easier. Just call it in your project dir after installing globally.
+
+```sh
+modyqyw-fabric config
+```
+
+Or, you can use scripts in `${PROJECT_DIR}package.json` if you install locally.
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "config": "modyqyw-fabric config"
+  }
+}
+
+```
+
+```sh
+npm run config
+# or
+# yarn run config
 ```
 
 ### Naming
@@ -34,8 +69,9 @@ git config --global init.defaultBranch main
 
 For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitee](https://gitee.com/).
 
+Set up `${PROJECT_DIR}/.gitattributes`.
+
 ```sh
-# {PROJECT_DIR}/.gitattributes
 * text=auto
 
 ```
@@ -48,8 +84,9 @@ A `${PROJECT_DIR}/.gitignore` example [here](./.gitignore).
 
 Learn about [EditorConfig](https://editorconfig.org/).
 
+Set up `${PROJECT_DIR}/.editorconfig`.
+
 ```sh
-# {PROJECT_DIR}/.editorconfig
 root = true
 
 [*]
@@ -72,8 +109,9 @@ npm i -D prettier@~2.2.1
 # yarn add -D prettier@~2.2.1
 ```
 
+Set up `${PROJECT_DIR}/.prettierrc.js`.
+
 ```js
-// {PROJECT_DIR}/prettier.config.js
 /* eslint-disable import/no-extraneous-dependencies */
 const config = require('@modyqyw/fabric/prettier');
 
@@ -82,20 +120,13 @@ module.exports = {
   // write your own rules here
   overrides: [
     ...config.overrides,
-    // // write your own overrides here
-    {
-      files: ['*.css', '*.less', '*.sass', '*.scss'],
-      options: {
-        // sometimes you may want a longer line
-        printWidth: 160,
-      },
-    },
+    // write your own overrides here
   ],
 };
 
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -109,7 +140,7 @@ Set up `package.json`.
 
 ```
 
-A `${PROJECT_DIR}/.prettierignore` example [here](./.prettierignore).
+A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 
 ### ESLint
 
@@ -129,8 +160,9 @@ npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.0 @typescript-
 # yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.0 @typescript-eslint/parser@~4.22.0
 ```
 
+Set up `${PROJECT_DIR}/.eslintrc.js`.
+
 ```js
-// {PROJECT_DIR}/.eslintrc.js
 /* eslint-disable import/no-extraneous-dependencies */
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
@@ -185,7 +217,7 @@ module.exports = {
 
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -201,7 +233,7 @@ Set up `package.json`.
 
 When using `vue-cli-service`, `eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix` can be replaced with `vue-cli-service lint --fix`.
 
-A `${PROJECT_DIR}/.eslintignore` example [here](./.eslintignore).
+A `${PROJECT_DIR}/.eslintignore` example [here](./config/.eslintignore).
 
 ### Stylelint
 
@@ -213,8 +245,9 @@ npm i -D stylelint@~13.13.0
 # yarn add -D stylelint@~13.13.0
 ```
 
+Set up `${PROJECT_DIR}/.stylelintrc.js`.
+
 ```js
-// {PROJECT_DIR}/stylelint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
 // for css
 const config = require('@modyqyw/fabric/stylelint/css');
@@ -242,7 +275,7 @@ module.exports = {
 
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -256,7 +289,7 @@ Set up `package.json`.
 
 ```
 
-A `${PROJECT_DIR}/.stylelintignore` example [here](./.stylelintignore).
+A `${PROJECT_DIR}/.stylelintignore` example [here](./config/.stylelintignore).
 
 ### Markdownlint
 
@@ -268,8 +301,9 @@ npm i -D markdownlint-cli@~0.27.1
 # yarn add -D markdownlint-cli@~0.27.1
 ```
 
+Set up `${PROJECT_DIR}/.markdownlint.json`.
+
 ```json
-// {PROJECT_DIR}/.markdownlint.json
 {
   "MD013": false,
   "MD033": false
@@ -277,7 +311,7 @@ npm i -D markdownlint-cli@~0.27.1
 
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -291,7 +325,7 @@ Set up `package.json`.
 
 ```
 
-A `.markdownlintignore` example [here](./.markdownlintignore).
+A `${PROJECT_DIR}/.markdownlintignore` example [here](./config/.markdownlintignore).
 
 ### LintMD
 
@@ -303,7 +337,7 @@ npm i -D lint-md-cli@~0.1.2
 # # yarn add -D lint-md-cli@~0.1.2
 ```
 
-Set up `.lintmdrc`.
+Set up `${PROJECT_DIR}/.lintmdrc`.
 
 ```sh
 {
@@ -321,7 +355,7 @@ Set up `.lintmdrc`.
 
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -347,8 +381,9 @@ npm i -D @ls-lint/ls-lint@~1.9.2
 # yarn add -D @ls-lint/ls-lint@~1.9.2
 ```
 
+Set up `${PROJECT_DIR}/.ls-lint.yml`.
+
 ```yml
-# {PROJECT_DIR}/.ls-lint.yml
 ls:
   config:
     .js: kebab-case | point.case
@@ -501,7 +536,7 @@ ignore:
 
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -525,8 +560,9 @@ npm i -D @commitlint/cli@~12.1.1
 # yarn add -D @commitlint/cli@~12.1.1
 ```
 
+Set up `${PROJECT_DIR}/.commitlintrc.js`.
+
 ```js
-// {PROJECT_DIR}/commitlint.config.js
 /* eslint-disable import/no-extraneous-dependencies */
 const config = require('@modyqyw/fabric/commitlint');
 
@@ -548,7 +584,7 @@ npm i -D commitizen@~4.2.3
 # yarn add -D commitizen@~4.2.3
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -579,13 +615,14 @@ npm install -D lint-staged@~10.5.4
 
 ```
 
+Set up `${PROJECT_DIR}/.lintstagedrc.js`.
+
 ```js
-// {PROJECT_DIR}/lint-staged.config.js
 module.exports = {
   '*.json': 'prettier --write',
-  '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
-  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{css,less,sass,scss,vue}': 'stylelint --fix',
+  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
+  '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
 };
 
 ```
@@ -605,7 +642,7 @@ npx husky install
 
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
@@ -618,10 +655,9 @@ Set up `package.json`.
 
 ```
 
-Set up hooks.
+Set up `${PROJECT_DIR}/.husky/commit-msg` hook.
 
 ```sh
-# {PROJECT_DIR}/.husky/commit-msg
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
@@ -629,8 +665,9 @@ npx --no-install commitlint --edit $1
 
 ```
 
+Set up `${PROJECT_DIR}/.husky/pre-commit` hook.
+
 ```sh
-# {PROJECT_DIR}/.husky/pre-commit
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
@@ -653,7 +690,7 @@ npm i -D husky@~4.3.8
 # yarn add -D husky@~4.3.8
 ```
 
-Set up `package.json`.
+Set up `${PROJECT_DIR}/package.json`.
 
 ```json
 {
