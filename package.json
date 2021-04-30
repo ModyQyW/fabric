@@ -129,6 +129,7 @@
     "lint:markdown": "markdownlint . --fix && lint-md . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "dist": "yarn run lint && node generate-readme.js && yarn publish",
+    "dist:next": "yarn run lint && node generate-readme.js && yarn publish --tag next",
     "prepare": "is-ci || husky install"
   }
 }
