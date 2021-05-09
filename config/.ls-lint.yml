@@ -1,7 +1,7 @@
 ls:
   config:
-    .js: kebab-case | point.case
-    .ts: kebab-case | point.case
+    .js: kebab-case
+    .ts: kebab-case
     .config.js: kebab-case
     .config.ts: kebab-case
   build:
@@ -9,6 +9,12 @@ ls:
     .ts: kebab-case
     .config.js: kebab-case
     .config.ts: kebab-case
+  components:
+    .js: PascalCase | kebab-case
+    .jsx: PascalCase | kebab-case
+    .ts: PascalCase | kebab-case
+    .tsx: PascalCase | kebab-case
+    .vue: PascalCase | kebab-case
   mock:
     .js: kebab-case
     .ts: kebab-case
@@ -36,37 +42,39 @@ ls:
     .js: camelCase
     .ts: camelCase
   src/**/components:
+    .js: PascalCase | kebab-case
     .jsx: PascalCase | kebab-case
+    .ts: PascalCase | kebab-case
     .tsx: PascalCase | kebab-case
     .vue: PascalCase | kebab-case
   src/**/test:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   src/**/__test__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   src/**/tests:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   src/**/__tests__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   pages:
     .js: kebab-case
     .ts: kebab-case
@@ -105,33 +113,33 @@ ls:
     .ts: kebab-case
     .d.ts: kebab-case
   test:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   __test__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   tests:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   __tests__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
 
 ignore:
   - ./src/.next
