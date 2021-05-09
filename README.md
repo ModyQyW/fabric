@@ -8,14 +8,14 @@ Shareable specification for different front-end projects.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.31.2
+npm i -D @modyqyw/fabric@~1.31.3
 # or
-# yarn add -D @modyqyw/fabric@~1.31.2
+# yarn add -D @modyqyw/fabric@~1.31.3
 
 # globally
-npm i -g @modyqyw/fabric@~1.31.2
+npm i -g @modyqyw/fabric@~1.31.3
 # or
-# yarn add -g @modyqyw/fabric@~1.31.2
+# yarn add -g @modyqyw/fabric@~1.31.3
 ```
 
 ### CLI (beta)
