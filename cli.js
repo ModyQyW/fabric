@@ -187,7 +187,8 @@ program
                     path.resolve(dir, '.gitattributes'),
                   );
                   fs.copyFileSync(
-                    getCliFilePath('.gitignore'),
+                    // use eslintignore here
+                    getCliFilePath('.eslintignore'),
                     path.resolve(dir, '.gitignore'),
                   );
                 }
