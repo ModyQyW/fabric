@@ -526,7 +526,7 @@ program
                 }, {});
               packageObject.scripts = {
                 ...packageObject.scripts,
-                lint: lintScriptItems.join(' && '),
+                lint: lintScriptItems.sort().join(' && '),
               };
               fs.writeFileSync(
                 path.resolve(dir, 'package.json'),
