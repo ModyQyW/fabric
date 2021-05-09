@@ -8,24 +8,27 @@ Shareable specification for different front-end projects.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.30.1
+npm i -D @modyqyw/fabric@~1.31.1
 # or
-# yarn add -D @modyqyw/fabric@~1.30.1
+# yarn add -D @modyqyw/fabric@~1.31.1
 
 # globally
-npm i -g @modyqyw/fabric@~1.30.1
+npm i -g @modyqyw/fabric@~1.31.1
 # or
-# yarn add -g @modyqyw/fabric@~1.30.1
+# yarn add -g @modyqyw/fabric@~1.31.1
 ```
 
 ### CLI (beta)
 
 **This is still a beta feature and may cause your project to crash. Please use it in your new projects and give feedback. It will get smarter in the foreseeable future.**
 
-CLI is used to config your project easier. Just call it in your project dir after installing globally.
+CLI is used to config your project easier. Just call it after installing globally.
 
 ```sh
+# in current dir
 modyqyw-fabric config
+# specify PROJECT_DIR
+modyqyw-fabric config ./
 ```
 
 Or, you can use scripts in `${PROJECT_DIR}package.json` if you install locally.
@@ -97,6 +100,9 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+[*.md]
+trim_trailing_whitespace = false
+
 ```
 
 ### Prettier
@@ -147,17 +153,17 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.25.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
+npm i -D eslint@~7.26.0 @babel/core@~7.14.0 @babel/eslint-parser@~7.13.14
 # or
-# yarn add -D eslint@~7.25.0 @babel/core@~7.13.16 @babel/eslint-parser@~7.13.14
+# yarn add -D eslint@~7.26.0 @babel/core@~7.14.0 @babel/eslint-parser@~7.13.14
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.0 @typescript-eslint/parser@~4.22.0
+npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.1 @typescript-eslint/parser@~4.22.1
 # or
-# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.0 @typescript-eslint/parser@~4.22.0
+# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.1 @typescript-eslint/parser@~4.22.1
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -240,9 +246,9 @@ A `${PROJECT_DIR}/.eslintignore` example [here](./config/.eslintignore).
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-npm i -D stylelint@~13.13.0
+npm i -D stylelint@~13.13.1
 # or
-# yarn add -D stylelint@~13.13.0
+# yarn add -D stylelint@~13.13.1
 ```
 
 Set up `${PROJECT_DIR}/.stylelintrc.js`.
@@ -386,8 +392,8 @@ Set up `${PROJECT_DIR}/.ls-lint.yml`.
 ```yml
 ls:
   config:
-    .js: kebab-case | point.case
-    .ts: kebab-case | point.case
+    .js: kebab-case
+    .ts: kebab-case
     .config.js: kebab-case
     .config.ts: kebab-case
   build:
@@ -395,6 +401,12 @@ ls:
     .ts: kebab-case
     .config.js: kebab-case
     .config.ts: kebab-case
+  components:
+    .js: PascalCase | kebab-case
+    .jsx: PascalCase | kebab-case
+    .ts: PascalCase | kebab-case
+    .tsx: PascalCase | kebab-case
+    .vue: PascalCase | kebab-case
   mock:
     .js: kebab-case
     .ts: kebab-case
@@ -422,37 +434,39 @@ ls:
     .js: camelCase
     .ts: camelCase
   src/**/components:
+    .js: PascalCase | kebab-case
     .jsx: PascalCase | kebab-case
+    .ts: PascalCase | kebab-case
     .tsx: PascalCase | kebab-case
     .vue: PascalCase | kebab-case
   src/**/test:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   src/**/__test__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   src/**/tests:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   src/**/__tests__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   pages:
     .js: kebab-case
     .ts: kebab-case
@@ -491,33 +505,33 @@ ls:
     .ts: kebab-case
     .d.ts: kebab-case
   test:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   __test__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   tests:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
   __tests__:
-    .js: kebab-case | camelCase
-    .ts: kebab-case | camelCase
-    .spec.js: kebab-case | camelCase
-    .spec.ts: kebab-case | camelCase
-    .test.js: kebab-case | camelCase
-    .test.ts: kebab-case | camelCase
+    .js: kebab-case
+    .ts: kebab-case
+    .spec.js: kebab-case
+    .spec.ts: kebab-case
+    .test.js: kebab-case
+    .test.ts: kebab-case
 
 ignore:
   - ./src/.next
@@ -579,9 +593,9 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
-npm i -D commitizen@~4.2.3
+npm i -D commitizen@~4.2.4
 # or
-# yarn add -D commitizen@~4.2.3
+# yarn add -D commitizen@~4.2.4
 ```
 
 Set up `${PROJECT_DIR}/package.json`.

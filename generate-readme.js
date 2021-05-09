@@ -46,10 +46,13 @@ npm i -g ${packageObject.name}@~${packageObject.version}
 
 **This is still a beta feature and may cause your project to crash. Please use it in your new projects and give feedback. It will get smarter in the foreseeable future.**
 
-CLI is used to config your project easier. Just call it in your project dir after installing globally.
+CLI is used to config your project easier. Just call it after installing globally.
 
 \`\`\`sh
+# in current dir
 modyqyw-fabric config
+# specify PROJECT_DIR
+modyqyw-fabric config ./
 \`\`\`
 
 Or, you can use scripts in \`\${PROJECT_DIR}package.json\` if you install locally.
