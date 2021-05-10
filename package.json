@@ -1,6 +1,6 @@
 {
   "name": "@modyqyw/fabric",
-  "version": "1.31.4",
+  "version": "1.32.0",
   "description": "Shareable specification for different front-end projects.",
   "keywords": [
     "fabric",
@@ -128,8 +128,7 @@
     "lint:json": "prettier ./**/*.json --write",
     "lint:markdown": "markdownlint . --fix && lint-md . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
-    "dist": "yarn run lint && node generate-readme.js && yarn publish",
-    "dist:next": "yarn run lint && node generate-readme.js && yarn publish --tag next",
+    "dist": "yarn run lint && node generate-readme.js && yarn publish --tag legacy",
     "prepare": "is-ci || husky install"
   }
 }

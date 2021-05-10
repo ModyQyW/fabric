@@ -1,6 +1,6 @@
 # @modyqyw/fabric
 
-Shareable specification for different front-end projects.
+Shareable specification for different front-end projects. Node.js 10+ and npm 6+ are required.
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -8,14 +8,14 @@ Shareable specification for different front-end projects.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.31.4
+npm i -D @modyqyw/fabric@~1.32.0
 # or
-# yarn add -D @modyqyw/fabric@~1.31.4
+# yarn add -D @modyqyw/fabric@~1.32.0
 
 # globally
-npm i -g @modyqyw/fabric@~1.31.4
+npm i -g @modyqyw/fabric@~1.32.0
 # or
-# yarn add -g @modyqyw/fabric@~1.31.4
+# yarn add -g @modyqyw/fabric@~1.32.0
 ```
 
 ### CLI (beta)
@@ -110,9 +110,9 @@ trim_trailing_whitespace = false
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-npm i -D prettier@~2.2.1
+npm i -D prettier@~2.3.0
 # or
-# yarn add -D prettier@~2.2.1
+# yarn add -D prettier@~2.3.0
 ```
 
 Set up `${PROJECT_DIR}/.prettierrc.js`.

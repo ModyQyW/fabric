@@ -21,7 +21,7 @@ const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
 const readme = `# ${packageObject.name}
 
-Shareable specification for different front-end projects.
+Shareable specification for different front-end projects. Node.js 10+ and npm 6+ are required.
 
 [Github](${packageObject.homepage}) | [Gitee](${packageObject.homepage.replace(
   'github',
