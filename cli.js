@@ -46,8 +46,7 @@ program
               value: 'vue3',
             },
             {
-              name:
-                'React 17 / Umi 3 / Next 10 / ReactNative 0.64 / Taro 3 / Rax 1 / Remax 2',
+              name: 'React 17 / Umi 3 / Next 10 / ReactNative 0.64 / Taro 3 / Rax 1 / Remax 2',
               value: 'react',
             },
           ],
