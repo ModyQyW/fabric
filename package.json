@@ -96,7 +96,7 @@
     "lint-md-cli": "~0.1.2",
     "lint-staged": "~10.5.4",
     "markdownlint-cli": "~0.27.1",
-    "prettier": "~2.2.1",
+    "prettier": "~2.3.0",
     "stylelint": "~13.13.1"
   },
   "config": {
