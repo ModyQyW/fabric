@@ -1,6 +1,6 @@
 # @modyqyw/fabric
 
-Shareable specification for different front-end projects. Node.js 10+ and npm 6+ are required.
+Shareable specification for different front-end projects. Node.js 12+ and npm 6+ are required.
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -8,14 +8,28 @@ Shareable specification for different front-end projects. Node.js 10+ and npm 6+
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.32.0
+npm i -D @modyqyw/fabric@~2.0.0
 # or
-# yarn add -D @modyqyw/fabric@~1.32.0
+# yarn add -D @modyqyw/fabric@~2.0.0
 
 # globally
-npm i -g @modyqyw/fabric@~1.32.0
+npm i -g @modyqyw/fabric@~2.0.0
 # or
-# yarn add -g @modyqyw/fabric@~1.32.0
+# yarn add -g @modyqyw/fabric@~2.0.0
+```
+
+Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
+
+```sh
+# locally
+npm i -D @modyqyw/fabric@legacy
+# or
+# yarn add -D @modyqyw/fabric@legacy
+
+# globally
+npm i -g @modyqyw/fabric@legacy
+# or
+# yarn add -g @modyqyw/fabric@legacy
 ```
 
 ### CLI (beta)
@@ -153,17 +167,17 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.26.0 @babel/core@~7.14.0 @babel/eslint-parser@~7.13.14
+npm i -D eslint@~7.26.0 @babel/core@~7.14.2 @babel/eslint-parser@~7.14.2
 # or
-# yarn add -D eslint@~7.26.0 @babel/core@~7.14.0 @babel/eslint-parser@~7.13.14
+# yarn add -D eslint@~7.26.0 @babel/core@~7.14.2 @babel/eslint-parser@~7.14.2
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.1 @typescript-eslint/parser@~4.22.1
+npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.23.0 @typescript-eslint/parser@~4.23.0
 # or
-# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.22.1 @typescript-eslint/parser@~4.22.1
+# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.23.0 @typescript-eslint/parser@~4.23.0
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -569,9 +583,9 @@ Set up `${PROJECT_DIR}/package.json`.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~12.1.1
+npm i -D @commitlint/cli@~12.1.4
 # or
-# yarn add -D @commitlint/cli@~12.1.1
+# yarn add -D @commitlint/cli@~12.1.4
 ```
 
 Set up `${PROJECT_DIR}/.commitlintrc.js`.
@@ -623,9 +637,9 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
-npm install -D lint-staged@~10.5.4
+npm install -D lint-staged@~11.0.0
 # or
-# yarn add -D lint-staged@~10.5.4
+# yarn add -D lint-staged@~11.0.0
 
 ```
 

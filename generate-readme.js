@@ -21,7 +21,7 @@ const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
 const readme = `# ${packageObject.name}
 
-Shareable specification for different front-end projects. Node.js 10+ and npm 6+ are required.
+Shareable specification for different front-end projects. Node.js 12+ and npm 6+ are required.
 
 [Github](${packageObject.homepage}) | [Gitee](${packageObject.homepage.replace(
   'github',
@@ -40,6 +40,20 @@ npm i -D ${packageObject.name}@~${packageObject.version}
 npm i -g ${packageObject.name}@~${packageObject.version}
 # or
 # yarn add -g ${packageObject.name}@~${packageObject.version}
+\`\`\`
+
+Use \`@legacy\` for legacy version, which supports Node.js 10+ and npm6+.
+
+\`\`\`sh
+# locally
+npm i -D ${packageObject.name}@legacy
+# or
+# yarn add -D ${packageObject.name}@legacy
+
+# globally
+npm i -g ${packageObject.name}@legacy
+# or
+# yarn add -g ${packageObject.name}@legacy
 \`\`\`
 
 ### CLI (beta)
