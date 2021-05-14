@@ -56,11 +56,11 @@
     "url": "git@github.com:ModyQyW/fabric.git"
   },
   "dependencies": {
-    "@babel/core": "~7.14.0",
-    "@babel/eslint-parser": "~7.13.14",
-    "@commitlint/config-conventional": "~12.1.1",
-    "@typescript-eslint/eslint-plugin": "~4.22.1",
-    "@typescript-eslint/parser": "~4.22.1",
+    "@babel/core": "~7.14.2",
+    "@babel/eslint-parser": "~7.14.2",
+    "@commitlint/config-conventional": "~12.1.4",
+    "@typescript-eslint/eslint-plugin": "~4.23.0",
+    "@typescript-eslint/parser": "~4.23.0",
     "chalk": "~4.1.1",
     "commander": "~7.2.0",
     "eslint-config-airbnb": "~18.2.1",
@@ -87,14 +87,14 @@
     "vue-property-decorator": "~9.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "~12.1.1",
+    "@commitlint/cli": "~12.1.4",
     "@ls-lint/ls-lint": "~1.9.2",
     "commitizen": "~4.2.4",
     "eslint": "~7.26.0",
     "husky": "~6.0.0",
     "is-ci": "~3.0.0",
     "lint-md-cli": "~0.1.2",
-    "lint-staged": "~10.5.4",
+    "lint-staged": "~11.0.0",
     "markdownlint-cli": "~0.27.1",
     "prettier": "~2.3.0",
     "stylelint": "~13.13.1"
