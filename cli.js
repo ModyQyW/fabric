@@ -437,7 +437,7 @@ program
                   path.resolve(dir, 'lint-staged.config.js'),
                   path.resolve(dir, '.lintstagedrc.cjs'),
                 );
-                let lintStagedObject = {};
+                const lintStagedObject = {};
                 if (config.includes('markdownlint')) {
                   lintStagedObject['*.{md,markdown}'] = config.includes(
                     'lint-md',
@@ -456,19 +456,15 @@ program
                   lintStagedObject['*.{css,less,sass,scss,vue}'] =
                     'stylelint --fix';
                 }
-                lintStagedObject = Object.keys(lintStagedObject)
+                const lintStagedArray = Object.keys(lintStagedObject)
                   .sort()
                   .reduce((acc, cur) => {
-                    acc[cur] = lintStagedObject[cur];
+                    acc.push(`  '${cur}': '${lintStagedObject[cur]}',\n`);
                     return acc;
-                  }, {});
+                  }, []);
                 fs.writeFileSync(
                   path.resolve(dir, '.lintstagedrc.js'),
-                  `module.exports = ${JSON.stringify(
-                    lintStagedObject,
-                    null,
-                    indent,
-                  )};\n`,
+                  `module.exports = {\n${lintStagedArray.join('')}};\n`,
                 );
               }
               // husky
@@ -529,7 +525,7 @@ program
               };
               fs.writeFileSync(
                 path.resolve(dir, 'package.json'),
-                `${JSON.stringify(packageObject, null, indent)}`,
+                `${JSON.stringify(packageObject, null, indent)}\n`,
               );
               // install dependencies
               console.log(chalk.cyan('\nInstalling dependencies...\n'));
