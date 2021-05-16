@@ -416,7 +416,7 @@ program
           ...packageObject.devDependencies,
           'lint-staged': pkg.devDependencies['lint-staged'],
         };
-        delete packageObject['lint-stated'];
+        delete packageObject['lint-staged'];
         shell.rm(
           '-rf',
           path.resolve(dir, '.lintstagedrc'),
