@@ -8,14 +8,14 @@ Shareable specification for different front-end projects. Node.js 12+ and npm 6+
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.0.4
+npm i -D @modyqyw/fabric@~2.0.5
 # or
-# yarn add -D @modyqyw/fabric@~2.0.4
+# yarn add -D @modyqyw/fabric@~2.0.5
 
 # globally
-npm i -g @modyqyw/fabric@~2.0.4
+npm i -g @modyqyw/fabric@~2.0.5
 # or
-# yarn add -g @modyqyw/fabric@~2.0.4
+# yarn add -g @modyqyw/fabric@~2.0.5
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
