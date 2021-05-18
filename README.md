@@ -8,14 +8,14 @@ Shareable specification for different front-end projects. Node.js 10+ and npm 6+
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.33.2
+npm i -D @modyqyw/fabric@~1.33.3
 # or
-# yarn add -D @modyqyw/fabric@~1.33.2
+# yarn add -D @modyqyw/fabric@~1.33.3
 
 # globally
-npm i -g @modyqyw/fabric@~1.33.2
+npm i -g @modyqyw/fabric@~1.33.3
 # or
-# yarn add -g @modyqyw/fabric@~1.33.2
+# yarn add -g @modyqyw/fabric@~1.33.3
 ```
 
 ### CLI (beta)
