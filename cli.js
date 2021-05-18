@@ -124,32 +124,34 @@ program
       ]);
       let css = 'css';
       if (config.includes('stylelint')) {
-        css = await inquirer.prompt([
-          {
-            type: 'list',
-            name: 'css',
-            message: 'Select css pre-processor',
-            default: 'css',
-            choices: [
-              {
-                name: 'CSS',
-                value: 'css',
-              },
-              {
-                name: 'LESS',
-                value: 'less',
-              },
-              {
-                name: 'SASS',
-                value: 'sass',
-              },
-              {
-                name: 'SCSS',
-                value: 'scss',
-              },
-            ],
-          },
-        ]).css;
+        css = (
+          await inquirer.prompt([
+            {
+              type: 'list',
+              name: 'css',
+              message: 'Select css pre-processor',
+              default: 'css',
+              choices: [
+                {
+                  name: 'CSS',
+                  value: 'css',
+                },
+                {
+                  name: 'LESS',
+                  value: 'less',
+                },
+                {
+                  name: 'SASS',
+                  value: 'sass',
+                },
+                {
+                  name: 'SCSS',
+                  value: 'scss',
+                },
+              ],
+            },
+          ])
+        ).css;
       }
       if (!fs.existsSync(path.resolve(dir, 'package.json'))) {
         shell.exec('npm init -y');
