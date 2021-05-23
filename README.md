@@ -8,14 +8,14 @@ Shareable specification for different front-end projects. Node.js 10+ and npm 6+
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.33.3
+npm i -D @modyqyw/fabric@~1.34.0
 # or
-# yarn add -D @modyqyw/fabric@~1.33.3
+# yarn add -D @modyqyw/fabric@~1.34.0
 
 # globally
-npm i -g @modyqyw/fabric@~1.33.3
+npm i -g @modyqyw/fabric@~1.34.0
 # or
-# yarn add -g @modyqyw/fabric@~1.33.3
+# yarn add -g @modyqyw/fabric@~1.34.0
 ```
 
 ### CLI (beta)
@@ -153,17 +153,17 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.26.0 @babel/core@~7.14.2 @babel/eslint-parser@~7.14.2
+npm i -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.3
 # or
-# yarn add -D eslint@~7.26.0 @babel/core@~7.14.2 @babel/eslint-parser@~7.14.2
+# yarn add -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.3
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.23.0 @typescript-eslint/parser@~4.23.0
+npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.24.0 @typescript-eslint/parser@~4.24.0
 # or
-# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.23.0 @typescript-eslint/parser@~4.23.0
+# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.24.0 @typescript-eslint/parser@~4.24.0
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
