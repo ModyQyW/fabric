@@ -241,6 +241,7 @@ program
           path.resolve(dir, 'prettier.config.js'),
           path.resolve(dir, 'prettier.config.cjs'),
           path.resolve(dir, '.prettierrc.toml'),
+          path.resolve(dir, '.eslintrc'),
           path.resolve(dir, '.eslintrc.cjs'),
           path.resolve(dir, '.eslintrc.yaml'),
           path.resolve(dir, '.eslintrc.yml'),
