@@ -1,6 +1,6 @@
 # @modyqyw/fabric
 
-Shareable specification for different front-end projects. Node.js 12+ and npm 6+ are required.
+Shareable specification for different javascript/typescript projects. Node.js 12+ and npm 6+ are required.
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
