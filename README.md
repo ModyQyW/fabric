@@ -2,6 +2,10 @@
 
 Shareable specification for different javascript/typescript projects. Node.js 12+ and npm 6+ are required.
 
+This lib helps linting and formatting files in your JavsScript/TypeScript projects. I try to find a balance between flexibility and strictness, end arguments and make codes stronger. So this lib was born.
+
+[Plan](https://github.com/ModyQyW/fabric/issues/2)
+
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
 ## Usage
