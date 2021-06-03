@@ -57,10 +57,10 @@
   },
   "dependencies": {
     "@babel/core": "~7.14.3",
-    "@babel/eslint-parser": "~7.14.3",
+    "@babel/eslint-parser": "~7.14.4",
     "@commitlint/config-conventional": "~12.1.4",
-    "@typescript-eslint/eslint-plugin": "~4.24.0",
-    "@typescript-eslint/parser": "~4.24.0",
+    "@typescript-eslint/eslint-plugin": "~4.26.0",
+    "@typescript-eslint/parser": "~4.26.0",
     "chalk": "~4.1.1",
     "commander": "~7.2.0",
     "eslint-config-airbnb": "~18.2.1",
@@ -69,19 +69,19 @@
     "eslint-config-prettier": "~8.3.0",
     "eslint-import-resolver-node": "~0.3.4",
     "eslint-import-resolver-webpack": "~0.13.1",
-    "eslint-plugin-import": "~2.23.3",
+    "eslint-plugin-import": "~2.23.4",
     "eslint-plugin-jsx-a11y": "~6.4.1",
     "eslint-plugin-prettier": "~3.4.0",
-    "eslint-plugin-react": "~7.23.2",
+    "eslint-plugin-react": "~7.24.0",
     "eslint-plugin-react-hooks": "~4.2.0",
-    "eslint-plugin-vue": "~7.9.0",
-    "eslint-plugin-vuejs-accessibility": "~0.6.1",
+    "eslint-plugin-vue": "~7.10.0",
+    "eslint-plugin-vuejs-accessibility": "~0.6.2",
     "inquirer": "~8.1.0",
     "shelljs": "~0.8.4",
     "stylelint-config-prettier": "~8.0.2",
     "stylelint-config-twbs-bootstrap": "~2.2.0",
     "stylelint-prettier": "~1.2.0",
-    "typescript": "~4.2.4",
+    "typescript": "~4.3.2",
     "vue-class-component": "~7.2.6",
     "vue-eslint-parser": "~7.6.0",
     "vue-property-decorator": "~9.1.2"
@@ -96,6 +96,7 @@
     "lint-md-cli": "~0.1.2",
     "lint-staged": "~11.0.0",
     "markdownlint-cli": "~0.27.1",
+    "np": "~7.5.0",
     "prettier": "~2.3.0",
     "stylelint": "~13.13.1"
   },
@@ -121,7 +122,8 @@
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "lint": "yarn lint:json && yarn lint:markdown && yarn lint:script",
@@ -129,6 +131,9 @@
     "lint:markdown": "markdownlint . --fix && lint-md . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "dist": "yarn run lint && node generate-readme.js && yarn publish",
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky install",
+    "release": "np --no-release-draft",
+    "test": "yarn run lint",
+    "version": "node generate-readme.js && git add README.md"
   }
 }
