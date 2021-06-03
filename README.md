@@ -1,10 +1,6 @@
 # @modyqyw/fabric
 
-Shareable specification for different javascript/typescript projects. Node.js 12+ and npm 6+ are required.
-
-This lib helps linting and formatting files in your JavsScript/TypeScript projects. I try to find a balance between flexibility and strictness, end arguments and make codes stronger. So this lib was born.
-
-[Plan](https://github.com/ModyQyW/fabric/issues/2)
+Shareable specification for different front-end projects. Node.js 12+ and npm 6+ are required.
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -12,14 +8,14 @@ This lib helps linting and formatting files in your JavsScript/TypeScript projec
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.1.0
+npm i -D @modyqyw/fabric@~2.2.0
 # or
-# yarn add -D @modyqyw/fabric@~2.1.0
+# yarn add -D @modyqyw/fabric@~2.2.0
 
 # globally
-npm i -g @modyqyw/fabric@~2.1.0
+npm i -g @modyqyw/fabric@~2.2.0
 # or
-# yarn add -g @modyqyw/fabric@~2.1.0
+# yarn add -g @modyqyw/fabric@~2.2.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -171,17 +167,17 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.3
+npm i -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.4
 # or
-# yarn add -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.3
+# yarn add -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.4
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.24.0 @typescript-eslint/parser@~4.24.0
+npm i -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.0 @typescript-eslint/parser@~4.26.0
 # or
-# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.24.0 @typescript-eslint/parser@~4.24.0
+# yarn add -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.0 @typescript-eslint/parser@~4.26.0
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
