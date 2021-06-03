@@ -68,7 +68,6 @@ program
             'stylelint',
             'markdownlint',
             'lint-md',
-            'ls-lint',
             'commitlint',
             'commitizen',
             'lint-staged',
