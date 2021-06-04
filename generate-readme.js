@@ -21,7 +21,11 @@ const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
 const readme = `# ${packageObject.name}
 
-Shareable specification for different front-end projects. Node.js 12+ and npm 6+ are required.
+Shareable specification for different JavaScript/TypeScript projects.
+
+Node.js 12+ and npm 6+ are required.
+
+[Plan](https://github.com/ModyQyW/fabric/issues/2)
 
 [Github](${packageObject.homepage}) | [Gitee](${packageObject.homepage.replace(
   'github',
