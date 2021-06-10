@@ -1,6 +1,10 @@
 # @modyqyw/fabric
 
-Shareable specification for different javascript/typescript projects. Node.js 10+ and npm 6+ are required.
+Shareable specification for different JavaScript/TypeScript projects.
+
+Node.js 10+ and npm 6+ are required.
+
+[Plan](https://github.com/ModyQyW/fabric/issues/2)
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -110,9 +114,9 @@ trim_trailing_whitespace = false
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-npm i -D prettier@~2.3.0
+npm i -D prettier@~2.3.1
 # or
-# yarn add -D prettier@~2.3.0
+# yarn add -D prettier@~2.3.1
 ```
 
 Set up `${PROJECT_DIR}/.prettierrc.js`.
@@ -129,7 +133,6 @@ module.exports = {
     // write your own overrides here
   ],
 };
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -220,7 +223,6 @@ module.exports = {
     // write your own settings here
   },
 };
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -278,7 +280,6 @@ module.exports = {
     // write your own rules here
   },
 };
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -314,7 +315,6 @@ Set up `${PROJECT_DIR}/.markdownlint.json`.
   "MD013": false,
   "MD033": false
 }
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -547,7 +547,6 @@ ignore:
   - ./src/App.less
   - ./src/App.sass
   - ./src/App.scss
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -583,7 +582,6 @@ const config = require('@modyqyw/fabric/commitlint');
 module.exports = {
   ...config,
 };
-
 ```
 
 You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
@@ -623,9 +621,9 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
-npm install -D lint-staged@~10.5.4
+npm install -D lint-staged@~11.0.0
 # or
-# yarn add -D lint-staged@~10.5.4
+# yarn add -D lint-staged@~11.0.0
 
 ```
 
@@ -638,7 +636,6 @@ module.exports = {
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
 };
-
 ```
 
 When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-service lint --fix`.
@@ -715,7 +712,6 @@ Set up `${PROJECT_DIR}/package.json`.
     }
   }
 }
-
 ```
 
 ## VSCode
@@ -728,7 +724,7 @@ Set up `${PROJECT_DIR}/package.json`.
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-\*
 - Set up `Settings.json`. Then `F1 => File: Save`.
 
 ```json

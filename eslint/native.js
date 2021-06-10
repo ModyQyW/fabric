@@ -10,11 +10,7 @@ module.exports = {
     requireConfigFile: false,
   },
   plugins: ['prettier'],
-  extends: [
-    // 'plugin:unicorn/recommended',
-    'airbnb-base',
-    'prettier',
-  ],
+  extends: ['plugin:unicorn/recommended', 'airbnb-base', 'prettier'],
   env: {
     ...commonEnv,
     jquery: true,
@@ -35,7 +31,7 @@ module.exports = {
       },
       plugins: ['prettier'],
       extends: [
-        // 'plugin:unicorn/recommended',
+        'plugin:unicorn/recommended',
         'airbnb-typescript/base',
         'prettier',
       ],

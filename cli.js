@@ -68,7 +68,6 @@ program
             'stylelint',
             'markdownlint',
             'lint-md',
-            'ls-lint',
             'commitlint',
             'commitizen',
             'lint-staged',
@@ -346,17 +345,15 @@ program
           ...packageObject.devDependencies,
           'lint-md-cli': pkg.devDependencies['lint-md-cli'],
         };
-        if (config.includes('markdownlint')) {
-          packageObject.scripts = {
-            ...packageObject.scripts,
-            'lint:markdown': 'markdownlint . --fix && lint-md . --fix',
-          };
-        } else {
-          packageObject.scripts = {
-            ...packageObject.scripts,
-            'lint:markdown': 'lint-md . --fix',
-          };
-        }
+        packageObject.scripts = config.includes('markdownlint')
+          ? {
+              ...packageObject.scripts,
+              'lint:markdown': 'markdownlint . --fix && lint-md . --fix',
+            }
+          : {
+              ...packageObject.scripts,
+              'lint:markdown': 'lint-md . --fix',
+            };
         fs.copyFileSync(
           getCliFilePath('.lintmdrc'),
           path.resolve(dir, '.lintmdrc'),
@@ -540,7 +537,7 @@ program
           ),
         );
       }
-    } catch (error) {
+    } catch {
       // do something?
     }
   });
