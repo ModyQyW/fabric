@@ -1,6 +1,10 @@
 # @modyqyw/fabric
 
-Shareable specification for different front-end projects. Node.js 12+ and npm 6+ are required.
+Shareable specification for different JavaScript/TypeScript projects.
+
+Node.js 12+ and npm 6+ are required.
+
+[Plan](https://github.com/ModyQyW/fabric/issues/2)
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -8,14 +12,14 @@ Shareable specification for different front-end projects. Node.js 12+ and npm 6+
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.2.0
+npm i -D @modyqyw/fabric@~2.3.0
 # or
-# yarn add -D @modyqyw/fabric@~2.2.0
+# yarn add -D @modyqyw/fabric@~2.3.0
 
 # globally
-npm i -g @modyqyw/fabric@~2.2.0
+npm i -g @modyqyw/fabric@~2.3.0
 # or
-# yarn add -g @modyqyw/fabric@~2.2.0
+# yarn add -g @modyqyw/fabric@~2.3.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -124,9 +128,9 @@ trim_trailing_whitespace = false
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-npm i -D prettier@~2.3.0
+npm i -D prettier@~2.3.1
 # or
-# yarn add -D prettier@~2.3.0
+# yarn add -D prettier@~2.3.1
 ```
 
 Set up `${PROJECT_DIR}/.prettierrc.js`.
@@ -167,17 +171,17 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.4
+npm i -D eslint@~7.28.0 @babel/core@~7.14.5 @babel/eslint-parser@~7.14.5
 # or
-# yarn add -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.4
+# yarn add -D eslint@~7.28.0 @babel/core@~7.14.5 @babel/eslint-parser@~7.14.5
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.0 @typescript-eslint/parser@~4.26.0
+npm i -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.1 @typescript-eslint/parser@~4.26.1
 # or
-# yarn add -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.0 @typescript-eslint/parser@~4.26.0
+# yarn add -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.1 @typescript-eslint/parser@~4.26.1
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
