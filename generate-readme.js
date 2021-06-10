@@ -23,7 +23,7 @@ const readme = `# ${packageObject.name}
 
 Shareable specification for different JavaScript/TypeScript projects.
 
-Node.js 12+ and npm 6+ are required.
+Node.js 10+ and npm 6+ are required.
 
 [Plan](https://github.com/ModyQyW/fabric/issues/2)
 
