@@ -53,6 +53,7 @@ module.exports = {
   'prettier/prettier': 'warn',
   'unicorn/filename-case': 'off',
   'unicorn/no-array-for-each': 'off',
+  'unicorn/no-array-reduce': 'off',
   'unicorn/no-null': 'off',
   'unicorn/prefer-module': 'off',
   'unicorn/prevent-abbreviations': [
