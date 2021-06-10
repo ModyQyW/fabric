@@ -12,14 +12,28 @@ Node.js 10+ and npm 6+ are required.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.34.0
+npm i -D @modyqyw/fabric@~1.35.0
 # or
-# yarn add -D @modyqyw/fabric@~1.34.0
+# yarn add -D @modyqyw/fabric@~1.35.0
 
 # globally
-npm i -g @modyqyw/fabric@~1.34.0
+npm i -g @modyqyw/fabric@~1.35.0
 # or
-# yarn add -g @modyqyw/fabric@~1.34.0
+# yarn add -g @modyqyw/fabric@~1.35.0
+```
+
+Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
+
+```sh
+# locally
+npm i -D @modyqyw/fabric@legacy
+# or
+# yarn add -D @modyqyw/fabric@legacy
+
+# globally
+npm i -g @modyqyw/fabric@legacy
+# or
+# yarn add -g @modyqyw/fabric@legacy
 ```
 
 ### CLI (beta)
@@ -133,6 +147,7 @@ module.exports = {
     // write your own overrides here
   ],
 };
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -156,17 +171,17 @@ A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.3
+npm i -D eslint@~7.28.0 @babel/core@~7.14.5 @babel/eslint-parser@~7.14.5
 # or
-# yarn add -D eslint@~7.27.0 @babel/core@~7.14.3 @babel/eslint-parser@~7.14.3
+# yarn add -D eslint@~7.28.0 @babel/core@~7.14.5 @babel/eslint-parser@~7.14.5
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.24.0 @typescript-eslint/parser@~4.24.0
+npm i -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.1 @typescript-eslint/parser@~4.26.1
 # or
-# yarn add -D typescript@~4.2.4 @typescript-eslint/eslint-plugin@~4.24.0 @typescript-eslint/parser@~4.24.0
+# yarn add -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.1 @typescript-eslint/parser@~4.26.1
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -223,6 +238,7 @@ module.exports = {
     // write your own settings here
   },
 };
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -280,6 +296,7 @@ module.exports = {
     // write your own rules here
   },
 };
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -315,6 +332,7 @@ Set up `${PROJECT_DIR}/.markdownlint.json`.
   "MD013": false,
   "MD033": false
 }
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -547,6 +565,7 @@ ignore:
   - ./src/App.less
   - ./src/App.sass
   - ./src/App.scss
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -582,6 +601,7 @@ const config = require('@modyqyw/fabric/commitlint');
 module.exports = {
   ...config,
 };
+
 ```
 
 You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
@@ -621,9 +641,9 @@ You may also want to try [conventional-changelog](https://github.com/conventiona
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
-npm install -D lint-staged@~11.0.0
+npm install -D lint-staged@~10.5.4
 # or
-# yarn add -D lint-staged@~11.0.0
+# yarn add -D lint-staged@~10.5.4
 
 ```
 
@@ -636,6 +656,7 @@ module.exports = {
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
 };
+
 ```
 
 When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-service lint --fix`.
@@ -712,6 +733,7 @@ Set up `${PROJECT_DIR}/package.json`.
     }
   }
 }
+
 ```
 
 ## VSCode
@@ -724,7 +746,7 @@ Set up `${PROJECT_DIR}/package.json`.
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-\*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
 - Set up `Settings.json`. Then `F1 => File: Save`.
 
 ```json
