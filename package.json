@@ -132,7 +132,7 @@
     "lint:markdown": "markdownlint . --fix && lint-md . --fix",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix",
     "prepare": "is-ci || husky install",
-    "release": "np --no-release-draft --message='chore(release): v%s' --tag=legacy",
+    "release": "np --no-release-draft --message='chore(release): v%s' --any-branch --tag=legacy",
     "test": "yarn run lint",
     "version": "node generate-readme.js && git add README.md"
   }
