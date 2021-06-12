@@ -146,6 +146,3 @@ dist
 
 # Android
 *.keystore
-
-# project
-config
