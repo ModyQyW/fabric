@@ -1,4 +1,5 @@
 module.exports = {
+  'import/prefer-default-export': 'off',
   'no-console':
     process.env.NODE_ENV === 'production' ||
     process.env.NODE_ENV === 'pre-production' ||
