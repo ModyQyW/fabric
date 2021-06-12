@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
 
