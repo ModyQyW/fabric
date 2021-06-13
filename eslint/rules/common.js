@@ -84,6 +84,7 @@ module.exports = {
   'unicorn/no-array-reduce': 'off',
   'unicorn/no-null': 'off',
   'unicorn/prefer-module': 'off',
+  'unicorn/prefer-node-protocol': 'off',
   'unicorn/prevent-abbreviations': [
     'warn',
     {
