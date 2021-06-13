@@ -20,8 +20,8 @@ if (fs.existsSync('pnpm-lock.yaml')) {
   if (!shell.which('yarn')) {
     shell.exec('npm i -g yarn');
   }
-} else if (shell.which('pnpm')) {
-  packageManager = 'pnpm';
+} else if (fs.existsSync('package-lock.json')) {
+  packageManager = 'npm';
 } else if (shell.which('yarn')) {
   packageManager = 'yarn';
 }
