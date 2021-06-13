@@ -83,6 +83,7 @@ module.exports = {
   'unicorn/no-array-for-each': 'off',
   'unicorn/no-array-reduce': 'off',
   'unicorn/no-null': 'off',
+  'unicorn/numeric-separators-style': 'off',
   'unicorn/prefer-module': 'off',
   'unicorn/prefer-node-protocol': 'off',
   'unicorn/prevent-abbreviations': [
