@@ -1,5 +1,4 @@
 ls:
-  .json: camelCase | PascalCase | kebab-case
   .config.json: camelCase | PascalCase | kebab-case
   .project.json: camelCase | PascalCase | kebab-case
   .js: camelCase | PascalCase | kebab-case
