@@ -10,16 +10,14 @@ Node.js 12+ and npm 6+ are required.
 
 ## Usage
 
+Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classic.yarnpkg.com/) instead.
+
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.3.0
-# or
-# yarn add -D @modyqyw/fabric@~2.3.0
+npm i -D @modyqyw/fabric@~2.4.0
 
 # globally
-npm i -g @modyqyw/fabric@~2.3.0
-# or
-# yarn add -g @modyqyw/fabric@~2.3.0
+npm i -g @modyqyw/fabric@~2.4.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -27,13 +25,9 @@ Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
 ```sh
 # locally
 npm i -D @modyqyw/fabric@legacy
-# or
-# yarn add -D @modyqyw/fabric@legacy
 
 # globally
 npm i -g @modyqyw/fabric@legacy
-# or
-# yarn add -g @modyqyw/fabric@legacy
 ```
 
 ### CLI (beta)
@@ -64,8 +58,6 @@ Or, you can use scripts in `${PROJECT_DIR}package.json` if you install locally.
 
 ```sh
 npm run config
-# or
-# yarn run config
 ```
 
 ### Naming
@@ -129,14 +121,11 @@ Learn about [Prettier](https://prettier.io/).
 
 ```sh
 npm i -D prettier@~2.3.1
-# or
-# yarn add -D prettier@~2.3.1
 ```
 
 Set up `${PROJECT_DIR}/.prettierrc.js`.
 
 ```js
-/* eslint-disable import/no-extraneous-dependencies */
 const config = require('@modyqyw/fabric/prettier');
 
 module.exports = {
@@ -150,7 +139,7 @@ module.exports = {
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`.
+Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -158,13 +147,11 @@ Set up `${PROJECT_DIR}/package.json`.
   "scripts": {
     ...,
     "lint": "npm run lint:json",
-    "lint:json": "prettier ./**/*.json --write"
+    "lint:json": "prettier ./**/*.json --write --ignore-path=.gitignore"
   }
 }
 
 ```
-
-A `${PROJECT_DIR}/.prettierignore` example [here](./config/.prettierignore).
 
 ### ESLint
 
@@ -172,22 +159,17 @@ Learn about [ESLint](https://eslint.org/).
 
 ```sh
 npm i -D eslint@~7.28.0 @babel/core@~7.14.5 @babel/eslint-parser@~7.14.5
-# or
-# yarn add -D eslint@~7.28.0 @babel/core@~7.14.5 @babel/eslint-parser@~7.14.5
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
 npm i -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.1 @typescript-eslint/parser@~4.26.1
-# or
-# yarn add -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.1 @typescript-eslint/parser@~4.26.1
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
 
 ```js
-/* eslint-disable import/no-extraneous-dependencies */
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
 
@@ -241,7 +223,7 @@ module.exports = {
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`.
+Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -249,15 +231,13 @@ Set up `${PROJECT_DIR}/package.json`.
   "scripts": {
     ...,
     "lint": "npm run lint:script",
-    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
+    "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore"
   }
 }
 
 ```
 
-When using `vue-cli-service`, `eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix` can be replaced with `vue-cli-service lint --fix`.
-
-A `${PROJECT_DIR}/.eslintignore` example [here](./config/.eslintignore).
+When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore` can be replaced with `vue-cli-service lint --fix`.
 
 ### Stylelint
 
@@ -265,14 +245,11 @@ Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
 npm i -D stylelint@~13.13.1
-# or
-# yarn add -D stylelint@~13.13.1
 ```
 
 Set up `${PROJECT_DIR}/.stylelintrc.js`.
 
 ```js
-/* eslint-disable import/no-extraneous-dependencies */
 // for css
 const config = require('@modyqyw/fabric/stylelint/css');
 
@@ -299,7 +276,7 @@ module.exports = {
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`.
+Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -307,13 +284,11 @@ Set up `${PROJECT_DIR}/package.json`.
   "scripts": {
     ...,
     "lint": "npm run lint:style",
-    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix"
+    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix --ignore-path=.gitignore"
   }
 }
 
 ```
-
-A `${PROJECT_DIR}/.stylelintignore` example [here](./config/.stylelintignore).
 
 ### Markdownlint
 
@@ -321,8 +296,6 @@ Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://githu
 
 ```sh
 npm i -D markdownlint-cli@~0.27.1
-# or
-# yarn add -D markdownlint-cli@~0.27.1
 ```
 
 Set up `${PROJECT_DIR}/.markdownlint.json`.
@@ -335,7 +308,7 @@ Set up `${PROJECT_DIR}/.markdownlint.json`.
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`.
+Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -343,13 +316,11 @@ Set up `${PROJECT_DIR}/package.json`.
   "scripts": {
     ...,
     "lint": "npm run lint:markdown",
-    "lint:markdown": "markdownlint . --fix"
+    "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
 
 ```
-
-A `${PROJECT_DIR}/.markdownlintignore` example [here](./config/.markdownlintignore).
 
 ### LintMD
 
@@ -357,8 +328,6 @@ Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at C
 
 ```sh
 npm i -D lint-md-cli@~0.1.2
-# or
-# # yarn add -D lint-md-cli@~0.1.2
 ```
 
 Set up `${PROJECT_DIR}/.lintmdrc`.
@@ -401,170 +370,112 @@ Learn about [LsLint](https://ls-lint.org/).
 
 ```sh
 npm i -D @ls-lint/ls-lint@~1.9.2
-# or
-# yarn add -D @ls-lint/ls-lint@~1.9.2
 ```
 
 Set up `${PROJECT_DIR}/.ls-lint.yml`.
 
 ```yml
 ls:
-  config:
-    .js: kebab-case
-    .ts: kebab-case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-  build:
-    .js: kebab-case
-    .ts: kebab-case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-  components:
-    .js: PascalCase | kebab-case
-    .jsx: PascalCase | kebab-case
-    .ts: PascalCase | kebab-case
-    .tsx: PascalCase | kebab-case
-    .vue: PascalCase | kebab-case
-  mock:
-    .js: kebab-case
-    .ts: kebab-case
-  src:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-    .jsx: kebab-case
-    .tsx: kebab-case
-    .vue: kebab-case
-    .css: kebab-case
-    .less: kebab-case
-    .sass: kebab-case
-    .scss: kebab-case
-    .module.css: kebab-case
-    .module.less: kebab-case
-    .module.sass: kebab-case
-    .module.scss: kebab-case
-  src/composables:
-    .js: camelCase
-    .ts: camelCase
-  src/hooks:
-    .js: camelCase
-    .ts: camelCase
-  src/**/components:
-    .js: PascalCase | kebab-case
-    .jsx: PascalCase | kebab-case
-    .ts: PascalCase | kebab-case
-    .tsx: PascalCase | kebab-case
-    .vue: PascalCase | kebab-case
-  src/**/test:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
-  src/**/__test__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
-  src/**/tests:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
-  src/**/__tests__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
-  pages:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-    .config.js: kebab-case
-    .config.ts: kebab-case
-    .jsx: kebab-case
-    .tsx: kebab-case
-    .vue: kebab-case
-    .css: kebab-case
-    .less: kebab-case
-    .sass: kebab-case
-    .scss: kebab-case
-    .module.css: kebab-case
-    .module.less: kebab-case
-    .module.sass: kebab-case
-    .module.scss: kebab-case
-  store:
-    .js: kebab-case
-    .ts: kebab-case
-  styles:
-    .css: kebab-case
-    .less: kebab-case
-    .sass: kebab-case
-    .scss: kebab-case
-    .module.css: kebab-case
-    .module.less: kebab-case
-    .module.sass: kebab-case
-    .module.scss: kebab-case
-  typings:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-  types:
-    .js: kebab-case
-    .ts: kebab-case
-    .d.ts: kebab-case
-  test:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
-  __test__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
-  tests:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
-  __tests__:
-    .js: kebab-case
-    .ts: kebab-case
-    .spec.js: kebab-case
-    .spec.ts: kebab-case
-    .test.js: kebab-case
-    .test.ts: kebab-case
+  .config.json: camelCase | PascalCase | kebab-case
+  .project.json: camelCase | PascalCase | kebab-case
+  .js: camelCase | PascalCase | kebab-case
+  .jsx: camelCase | PascalCase | kebab-case
+  .d.ts: camelCase | PascalCase | kebab-case
+  .ts: camelCase | PascalCase | kebab-case
+  .tsx: camelCase | PascalCase | kebab-case
+  .vue: camelCase | PascalCase | kebab-case
+  .config.js: camelCase | PascalCase | kebab-case
+  .config.dev.js: camelCase | PascalCase | kebab-case
+  .config.development.js: camelCase | PascalCase | kebab-case
+  .config.staging.js: camelCase | PascalCase | kebab-case
+  .config.prod.js: camelCase | PascalCase | kebab-case
+  .config.production.js: camelCase | PascalCase | kebab-case
+  .config.ts: camelCase | PascalCase | kebab-case
+  .config.dev.ts: camelCase | PascalCase | kebab-case
+  .config.development.ts: camelCase | PascalCase | kebab-case
+  .config.staging.ts: camelCase | PascalCase | kebab-case
+  .config.prod.ts: camelCase | PascalCase | kebab-case
+  .config.production.ts: camelCase | PascalCase | kebab-case
+  .test.js: camelCase | PascalCase | kebab-case
+  .test.ts: camelCase | PascalCase | kebab-case
+  .spec.js: camelCase | PascalCase | kebab-case
+  .spec.ts: camelCase | PascalCase | kebab-case
+  .css: camelCase | PascalCase | kebab-case
+  .less: camelCase | PascalCase | kebab-case
+  .sass: camelCase | PascalCase | kebab-case
+  .scss: camelCase | PascalCase | kebab-case
+  .module.css: camelCase | PascalCase | kebab-case
+  .module.less: camelCase | PascalCase | kebab-case
+  .module.sass: camelCase | PascalCase | kebab-case
+  .module.scss: camelCase | PascalCase | kebab-case
 
 ignore:
-  - ./src/.next
-  - ./src/.nuxt
-  - ./src/.rax
-  - ./src/.umi
-  - ./src/App.js
-  - ./src/App.ts
-  - ./src/App.jsx
-  - ./src/App.tsx
-  - ./src/App.vue
-  - ./src/App.css
-  - ./src/App.less
-  - ./src/App.sass
-  - ./src/App.scss
+  - logs
+  - report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+  - pids
+  - lib-cov
+  - coverage
+  - .nyc_output
+  - .grunt
+  - bower_components
+  - .lock-wscript
+  - buildRelease
+  - node_modules
+  - jspm_packages
+  - web_modules
+  - .npm
+  - .eslintcache
+  - .rpt2_cache
+  - .rts2_cache_cjs
+  - .rts2_cache_es
+  - .rts2_cache_umd
+  - .node_repl_history
+  - .yarn-integrity
+  - .env
+  - .env.test
+  - .env.*.test
+  - .env.local
+  - .env.*.local
+  - .cache
+  - .parcel-cache
+  - dist_electron
+  - .next
+  - out
+  - .umi
+  - .umi-production
+  - .umi-test
+  - .nuxt
+  - dist
+  - .rax
+  - .cache
+  - .vuepressdist
+  - .serverless
+  - .fusebox
+  - .dynamodb
+  - .tern-port
+  - .vscode-test
+  - .vscode
+  - .idea
+  - .hbuilder
+  - .hbuilderx
+  - .yarncache
+  - .yarnunplugged
+  - .yarnbuild-state.yml
+  - .yarninstall-state.gz
+  - .pnp.*
+  - .DS_Store
+  - .commitlintrc.js
+  - .commitlintrc.json
+  - .eslintrc.js
+  - .eslintrc.json
+  - .lintstagedrc.js
+  - .lintstagedrc.json
+  - .markdownlintrc.js
+  - .markdownlint.json
+  - .prettierrc.js
+  - .prettierrc.json
+  - .stylelintrc.js
+  - .stylelintrc.json
 
 ```
 
@@ -588,23 +499,22 @@ Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
 npm i -D @commitlint/cli@~12.1.4
-# or
-# yarn add -D @commitlint/cli@~12.1.4
 ```
 
 Set up `${PROJECT_DIR}/.commitlintrc.js`.
 
 ```js
-/* eslint-disable import/no-extraneous-dependencies */
 const config = require('@modyqyw/fabric/commitlint');
 
 module.exports = {
   ...config,
+  rules: {
+    ...config.rules,
+    // write your own rules here
+  },
 };
 
 ```
-
-You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
 
 ### Commitizen
 
@@ -612,8 +522,6 @@ Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
 npm i -D commitizen@~4.2.4
-# or
-# yarn add -D commitizen@~4.2.4
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -634,16 +542,12 @@ Set up `${PROJECT_DIR}/package.json`.
 
 ```
 
-You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
-
 ### LintStaged
 
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
 npm install -D lint-staged@~11.0.0
-# or
-# yarn add -D lint-staged@~11.0.0
 
 ```
 
@@ -667,8 +571,6 @@ Learn about [Husky](https://github.com/typicode/husky#readme).
 
 ```sh
 npm install -D is-ci@~3.0.0 husky@~6.0.0
-# or
-# yarn add -D is-ci@~3.0.0 husky@~6.0.0
 
 npx husky install
 
@@ -718,8 +620,6 @@ If you want to use `husky@4`, steps are shown below.
 
 ```sh
 npm i -D husky@~4.3.8
-# or
-# yarn add -D husky@~4.3.8
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -735,6 +635,16 @@ Set up `${PROJECT_DIR}/package.json`.
 }
 
 ```
+
+### Deploy
+
+Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
+
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme)
+- [np](https://github.com/sindresorhus/np#readme)
+- [release](https://github.com/vercel/release#readme)
+- [release-it](https://github.com/release-it/release-it#readme)
+- [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 
 ## VSCode
 
