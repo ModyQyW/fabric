@@ -75,7 +75,7 @@
     "eslint-plugin-react": "~7.24.0",
     "eslint-plugin-react-hooks": "~4.2.0",
     "eslint-plugin-unicorn": "~33.0.1",
-    "eslint-plugin-vue": "~7.10.0",
+    "eslint-plugin-vue": "~7.11.0",
     "eslint-plugin-vuejs-accessibility": "~0.6.2",
     "inquirer": "~8.1.0",
     "shelljs": "~0.8.4",
