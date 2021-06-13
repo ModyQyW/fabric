@@ -9,23 +9,63 @@ const pkg = require('./package.json');
 
 const program = new Command();
 
-const getCliFilePath = (filename) => {
-  if (fs.existsSync(path.join(__dirname, 'config', filename))) {
-    return path.join(__dirname, 'config', filename);
+let packageManager = 'npm';
+if (fs.existsSync('pnpm-lock.yaml')) {
+  packageManager = 'pnpm';
+  if (!shell.which('pnpm')) {
+    shell.exec('npm i -g pnpm');
   }
-  return path.join(__dirname, filename);
+} else if (fs.existsSync('yarn.lock')) {
+  packageManager = 'yarn';
+  if (!shell.which('yarn')) {
+    shell.exec('npm i -g yarn');
+  }
+} else if (shell.which('pnpm')) {
+  packageManager = 'pnpm';
+} else if (shell.which('yarn')) {
+  packageManager = 'yarn';
+}
+
+const getCliFilePath = (filename) => {
+  const shortFilename = filename.slice(
+    0,
+    filename.lastIndexOf('.') === 0 ? undefined : filename.lastIndexOf('.'),
+  );
+  const shortFilenameExamplePath = path.join(
+    __dirname,
+    'examples',
+    `${shortFilename}-example`,
+  );
+  const filenameExamplePath = path.join(
+    __dirname,
+    'examples',
+    `${shortFilename}-example`,
+  );
+  const shortFilenamePath = path.join(__dirname, shortFilename);
+  const filenamePath = path.join(__dirname, filename);
+  if (fs.existsSync(shortFilenameExamplePath)) {
+    return shortFilenameExamplePath;
+  }
+  if (fs.existsSync(filenameExamplePath)) {
+    return filenameExamplePath;
+  }
+  if (fs.existsSync(shortFilenamePath)) {
+    return shortFilenamePath;
+  }
+  return filenamePath;
 };
 
-const cwd = process.cwd();
-
-console.log(chalk.cyan(`\nmodyqyw-fabric is running in ${cwd} now.\n`));
+console.log(
+  chalk.cyan(`\nmodyqyw-fabric is running in ${process.cwd()} now.\n`),
+);
 
 program
   .version(pkg.version, '-v, --version')
-  .command('config [dir]')
-  .description('Config different packages for formatting and linting')
-  .action(async (dir = '.') => {
+  .command('config [directory]')
+  .description('Config different packages for formatting and linting.')
+  .action(async (directory = '.') => {
     try {
+      // choose
       const { framework, typescript, config } = await inquirer.prompt([
         {
           type: 'list',
@@ -67,7 +107,6 @@ program
             'prettier-eslint',
             'stylelint',
             'markdownlint',
-            'lint-md',
             'commitlint',
             'commitizen',
             'lint-staged',
@@ -152,21 +191,23 @@ program
           ])
         ).css;
       }
-      if (!fs.existsSync(path.resolve(dir, 'package.json'))) {
+      // parse
+      if (!fs.existsSync(path.resolve(directory, 'package.json'))) {
         shell.exec('npm init -y');
       }
-      const packageJson = fs.readFileSync(path.resolve(dir, 'package.json'), {
-        encoding: 'utf8',
-      });
+      const packageJson = fs.readFileSync(
+        path.resolve(directory, 'package.json'),
+        { encoding: 'utf8' },
+      );
       const indent = '  ';
       const packageObject = JSON.parse(packageJson);
       const lintScriptItems = [];
-      // @modyqyw/fabric
+      // set @modyqyw/fabric
       packageObject.devDependencies = {
         ...packageObject.devDependencies,
         '@modyqyw/fabric': `~${pkg.version}`,
       };
-      // git
+      // set git
       if (config.includes('git')) {
         if (!shell.which('git')) {
           shell.echo(
@@ -175,28 +216,27 @@ program
         } else {
           shell.exec('git config --global core.autocrlf false');
           shell.exec('git config --global init.defaultBranch main');
-          if (!fs.existsSync(path.resolve(dir, '.git'))) {
+          if (!fs.existsSync(path.resolve(directory, '.git'))) {
             shell.exec('git init');
           }
-          fs.copyFileSync(
-            getCliFilePath('.gitattributes'),
-            path.resolve(dir, '.gitattributes'),
-          );
-          fs.copyFileSync(
-            // use eslintignore here
-            getCliFilePath('.eslintignore'),
-            path.resolve(dir, '.gitignore'),
-          );
         }
+        fs.copyFileSync(
+          getCliFilePath('.gitattributes'),
+          path.resolve(directory, '.gitattributes'),
+        );
+        fs.copyFileSync(
+          getCliFilePath('.gitignore'),
+          path.resolve(directory, '.gitignore'),
+        );
       }
-      // editorconfig
+      // set editorconfig
       if (config.includes('editorconfig')) {
         fs.copyFileSync(
           getCliFilePath('.editorconfig'),
-          path.resolve(dir, '.editorconfig'),
+          path.resolve(directory, '.editorconfig'),
         );
       }
-      // prettier and eslint
+      // set prettier and eslint
       if (config.includes('prettier-eslint')) {
         packageObject.devDependencies = {
           ...packageObject.devDependencies,
@@ -217,38 +257,40 @@ program
         }
         packageObject.scripts = {
           ...packageObject.scripts,
-          'lint:json': 'prettier ./**/*.json --write',
+          'lint:json': 'prettier ./**/*.json --write --ignore-path=.gitignore',
           'lint:script': packageObject.devDependencies['@vue/cli-service']
             ? 'vue-cli-service lint --fix'
-            : 'eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix',
+            : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
         };
-        if (shell.which('yarn')) {
-          lintScriptItems.push('yarn lint:json', 'yarn lint:script');
-        } else {
-          lintScriptItems.push('npm run lint:json', 'npm run lint:script');
-        }
+        lintScriptItems.push(
+          `${packageManager} run lint:json`,
+          `${packageManager} run lint:script`,
+        );
         delete packageObject.prettier;
         delete packageObject.eslintConfig;
+        delete packageObject.eslintIgnore;
         shell.rm(
           '-rf',
-          path.resolve(dir, '.prettierrc'),
-          path.resolve(dir, '.prettierrc.json'),
-          path.resolve(dir, '.prettierrc.yml'),
-          path.resolve(dir, '.prettierrc.yaml'),
-          path.resolve(dir, '.prettierrc.json5'),
-          path.resolve(dir, '.prettierrc.cjs'),
-          path.resolve(dir, 'prettier.config.js'),
-          path.resolve(dir, 'prettier.config.cjs'),
-          path.resolve(dir, '.prettierrc.toml'),
-          path.resolve(dir, '.eslintrc'),
-          path.resolve(dir, '.eslintrc.cjs'),
-          path.resolve(dir, '.eslintrc.yaml'),
-          path.resolve(dir, '.eslintrc.yml'),
-          path.resolve(dir, '.eslintrc.json'),
+          path.resolve(directory, '.prettierrc'),
+          path.resolve(directory, '.prettierrc.json'),
+          path.resolve(directory, '.prettierrc.yml'),
+          path.resolve(directory, '.prettierrc.yaml'),
+          path.resolve(directory, '.prettierrc.json5'),
+          path.resolve(directory, '.prettierrc.cjs'),
+          path.resolve(directory, 'prettier.config.js'),
+          path.resolve(directory, 'prettier.config.cjs'),
+          path.resolve(directory, '.prettierrc.toml'),
+          path.resolve(directory, '.prettierignore'),
+          path.resolve(directory, '.eslintrc'),
+          path.resolve(directory, '.eslintrc.cjs'),
+          path.resolve(directory, '.eslintrc.yaml'),
+          path.resolve(directory, '.eslintrc.yml'),
+          path.resolve(directory, '.eslintrc.json'),
+          path.resolve(directory, '.eslintignore'),
         );
         fs.copyFileSync(
           getCliFilePath('.prettierrc.js'),
-          path.resolve(dir, '.prettierrc.js'),
+          path.resolve(directory, '.prettierrc.js'),
         );
         let extend = '';
         switch (framework) {
@@ -264,18 +306,10 @@ program
         }
         fs.copyFileSync(
           getCliFilePath(`.eslintrc-${extend}.js`),
-          path.resolve(dir, '.eslintrc.js'),
-        );
-        fs.copyFileSync(
-          getCliFilePath('.prettierignore'),
-          path.resolve(dir, '.prettierignore'),
-        );
-        fs.copyFileSync(
-          getCliFilePath('.eslintignore'),
-          path.resolve(dir, '.eslintignore'),
+          path.resolve(directory, '.eslintrc.js'),
         );
       }
-      // stylelint
+      // set stylelint
       if (config.includes('stylelint')) {
         packageObject.devDependencies = {
           ...packageObject.devDependencies,
@@ -283,33 +317,27 @@ program
         };
         packageObject.scripts = {
           ...packageObject.scripts,
-          'lint:style': 'stylelint ./**/*.{css,less,sass,scss,vue} --fix',
+          'lint:style':
+            'stylelint ./**/*.{css,less,sass,scss,vue} --fix --ignore-path=.gitignore',
         };
-        if (shell.which('yarn')) {
-          lintScriptItems.push('yarn lint:style');
-        } else {
-          lintScriptItems.push('npm run lint:style');
-        }
+        lintScriptItems.push(`${packageManager} run lint:style`);
         delete packageObject.stylelint;
         shell.rm(
           '-rf',
-          path.resolve(dir, '.stylelintrc'),
-          path.resolve(dir, 'stylelint.config.js'),
-          path.resolve(dir, 'stylelint.config.cjs'),
-          path.resolve(dir, '.stylelintrc.json'),
-          path.resolve(dir, '.stylelintrc.yaml'),
-          path.resolve(dir, '.stylelintrc.yml'),
+          path.resolve(directory, '.stylelintrc'),
+          path.resolve(directory, 'stylelint.config.js'),
+          path.resolve(directory, 'stylelint.config.cjs'),
+          path.resolve(directory, '.stylelintrc.json'),
+          path.resolve(directory, '.stylelintrc.yaml'),
+          path.resolve(directory, '.stylelintrc.yml'),
+          path.resolve(directory, '.stylelintignore'),
         );
         fs.copyFileSync(
           getCliFilePath(`.stylelintrc-${css}.js`),
-          path.resolve(dir, '.stylelintrc.js'),
-        );
-        fs.copyFileSync(
-          getCliFilePath('.stylelintignore'),
-          path.resolve(dir, '.stylelintignore'),
+          path.resolve(directory, '.stylelintrc.js'),
         );
       }
-      // markdownlint
+      // set markdownlint
       if (config.includes('markdownlint')) {
         packageObject.devDependencies = {
           ...packageObject.devDependencies,
@@ -317,29 +345,22 @@ program
         };
         packageObject.scripts = {
           ...packageObject.scripts,
-          'lint:markdown': 'markdownlint . --fix',
+          'lint:markdown': 'markdownlint . --fix --ignore-path=.gitignore',
         };
-        if (shell.which('yarn')) {
-          lintScriptItems.push('yarn lint:markdown');
-        } else {
-          lintScriptItems.push('npm run lint:markdown');
-        }
+        lintScriptItems.push(`${packageManager} run lint:markdown`);
         shell.rm(
           '-rf',
-          path.resolve(dir, '.markdownlint.yaml'),
-          path.resolve(dir, '.markdownlint.yml'),
-          path.resolve(dir, '.markdownlintrc'),
+          path.resolve(directory, '.markdownlint.yaml'),
+          path.resolve(directory, '.markdownlint.yml'),
+          path.resolve(directory, '.markdownlintrc'),
+          path.resolve(directory, '.markdownlintignore'),
         );
         fs.copyFileSync(
           getCliFilePath('.markdownlint.json'),
-          path.resolve(dir, '.markdownlint.json'),
-        );
-        fs.copyFileSync(
-          getCliFilePath('.markdownlintignore'),
-          path.resolve(dir, '.markdownlintignore'),
+          path.resolve(directory, '.markdownlint.json'),
         );
       }
-      // lint-md
+      // set lint-md
       if (config.includes('lint-md')) {
         packageObject.devDependencies = {
           ...packageObject.devDependencies,
@@ -348,18 +369,20 @@ program
         packageObject.scripts = config.includes('markdownlint')
           ? {
               ...packageObject.scripts,
-              'lint:markdown': 'markdownlint . --fix && lint-md . --fix',
+              'lint:markdown':
+                'markdownlint . --fix --ignore-path=.gitignore && lint-md . --fix',
             }
           : {
               ...packageObject.scripts,
               'lint:markdown': 'lint-md . --fix',
             };
+        lintScriptItems.push(`${packageManager} run lint:markdown`);
         fs.copyFileSync(
           getCliFilePath('.lintmdrc'),
-          path.resolve(dir, '.lintmdrc'),
+          path.resolve(directory, '.lintmdrc'),
         );
       }
-      // ls-lint
+      // set ls-lint
       if (config.includes('ls-lint')) {
         packageObject.devDependencies = {
           ...packageObject.devDependencies,
@@ -369,17 +392,13 @@ program
           ...packageObject.scripts,
           'lint:ls': 'ls-lint .',
         };
-        if (shell.which('yarn')) {
-          lintScriptItems.push('yarn lint:ls');
-        } else {
-          lintScriptItems.push('npm run lint:ls');
-        }
+        lintScriptItems.push(`${packageManager} run lint:ls`);
         fs.copyFileSync(
           getCliFilePath(`.ls-lint.yml`),
-          path.resolve(dir, '.ls-lint.yml'),
+          path.resolve(directory, '.ls-lint.yml'),
         );
       }
-      // commitlint
+      // set commitlint
       if (config.includes('commitlint')) {
         packageObject.devDependencies = {
           ...packageObject.devDependencies,
@@ -388,16 +407,16 @@ program
         delete packageObject.commitlint;
         shell.rm(
           '-rf',
-          path.resolve(dir, '.commitlintrc.json'),
-          path.resolve(dir, '.commitlintrc.yml'),
-          path.resolve(dir, 'commitlint.config.js'),
+          path.resolve(directory, '.commitlintrc.json'),
+          path.resolve(directory, '.commitlintrc.yml'),
+          path.resolve(directory, 'commitlint.config.js'),
         );
         fs.copyFileSync(
           getCliFilePath('.commitlintrc.js'),
-          path.resolve(dir, '.commitlintrc.js'),
+          path.resolve(directory, '.commitlintrc.js'),
         );
       }
-      // commitizen
+      // set commitizen
       if (config.includes('commitizen')) {
         packageObject.scripts = {
           ...packageObject.scripts,
@@ -410,7 +429,7 @@ program
           },
         };
       }
-      // lint-staged
+      // set lint-staged
       if (config.includes('lint-staged')) {
         packageObject.devDependencies = {
           ...packageObject.devDependencies,
@@ -419,18 +438,21 @@ program
         delete packageObject['lint-staged'];
         shell.rm(
           '-rf',
-          path.resolve(dir, '.lintstagedrc'),
-          path.resolve(dir, '.lintstagedrc.json'),
-          path.resolve(dir, '.lintstagedrc.yaml'),
-          path.resolve(dir, '.lintstagedrc.yml'),
-          path.resolve(dir, 'lint-staged.config.js'),
-          path.resolve(dir, '.lintstagedrc.cjs'),
+          path.resolve(directory, '.lintstagedrc'),
+          path.resolve(directory, '.lintstagedrc.json'),
+          path.resolve(directory, '.lintstagedrc.yaml'),
+          path.resolve(directory, '.lintstagedrc.yml'),
+          path.resolve(directory, 'lint-staged.config.js'),
+          path.resolve(directory, '.lintstagedrc.cjs'),
         );
         const lintStagedObject = {};
-        if (config.includes('markdownlint')) {
-          lintStagedObject['*.{md,markdown}'] = config.includes('lint-md')
-            ? 'markdownlint --fix && lint-md --fix'
-            : 'markdownlint --fix';
+        if (config.includes('markdownlint') && config.includes('lint-md')) {
+          lintStagedObject['*.{md,markdown}'] =
+            'markdownlint --fix && lint-md --fix';
+        } else if (config.includes('markdownlint')) {
+          lintStagedObject['*.{md,markdown}'] = 'markdownlint --fix';
+        } else if (config.includes('lint-md')) {
+          lintStagedObject['*.{md,markdown}'] = 'lint-md --fix';
         }
         if (config.includes('prettier-eslint')) {
           lintStagedObject['*.json'] = 'prettier --write';
@@ -445,15 +467,15 @@ program
         const lintStagedArray = Object.keys(lintStagedObject)
           .sort()
           .reduce((acc, cur) => {
-            acc.push(`  '${cur}': '${lintStagedObject[cur]}',\n`);
+            acc.push(`${indent}'${cur}': '${lintStagedObject[cur]}',\n`);
             return acc;
           }, []);
         fs.writeFileSync(
-          path.resolve(dir, '.lintstagedrc.js'),
+          path.resolve(directory, '.lintstagedrc.js'),
           `module.exports = {\n${lintStagedArray.join('')}};\n`,
         );
       }
-      // husky
+      // set husky
       if (config.includes('husky')) {
         packageObject.scripts = {
           ...packageObject.scripts,
@@ -466,32 +488,32 @@ program
           husky: pkg.devDependencies.husky,
           'is-ci': pkg.devDependencies['is-ci'],
         };
-        if (!fs.existsSync(path.resolve(dir, '.husky'))) {
-          shell.mkdir(path.resolve(dir, '.husky'));
+        if (!fs.existsSync(path.resolve(directory, '.husky'))) {
+          shell.mkdir(path.resolve(directory, '.husky'));
         }
         if (config.includes('commitlint')) {
           fs.writeFileSync(
-            path.resolve(dir, '.husky', 'commit-msg'),
+            path.resolve(directory, '.husky', 'commit-msg'),
             `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install commitlint --edit $1\n`,
           );
         }
         if (config.includes('ls-lint') && config.includes('lint-staged')) {
           fs.writeFileSync(
-            path.resolve(dir, '.husky', 'pre-commit'),
+            path.resolve(directory, '.husky', 'pre-commit'),
             `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install ls-lint . && npx --no-install lint-staged\n`,
           );
         } else if (config.includes('ls-lint')) {
           fs.writeFileSync(
-            path.resolve(dir, '.husky', 'pre-commit'),
+            path.resolve(directory, '.husky', 'pre-commit'),
             `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install ls-lint .\n`,
           );
         } else if (config.includes('lint-staged')) {
           fs.writeFileSync(
-            path.resolve(dir, '.husky', 'pre-commit'),
+            path.resolve(directory, '.husky', 'pre-commit'),
             `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install lint-staged\n`,
           );
         }
-        shell.chmod('+x', path.resolve(dir, '.husky', '*'));
+        shell.chmod('+x', path.resolve(directory, '.husky', '*'));
       }
       // write package.json
       packageObject.devDependencies = Object.keys(packageObject.devDependencies)
@@ -502,34 +524,17 @@ program
         }, {});
       packageObject.scripts = {
         ...packageObject.scripts,
-        lint: lintScriptItems.sort().join(' && '),
+        lint: [...new Set(lintScriptItems)].sort().join(' && '),
       };
       fs.writeFileSync(
-        path.resolve(dir, 'package.json'),
+        path.resolve(directory, 'package.json'),
         `${JSON.stringify(packageObject, null, indent)}\n`,
       );
       // install dependencies
       console.log(chalk.cyan('\nInstalling dependencies...\n'));
-      let command = '';
-      if (fs.existsSync(path.resolve(dir, 'yarn.lock'))) {
-        if (!shell.which('yarn')) {
-          shell.echo(
-            "\nThis is a yarn project but you haven't install yarn. Installing yarn for you now...\n",
-          );
-          shell.exec('npm i -g yarn');
-        }
-        command = 'yarn install';
-      } else if (fs.existsSync(path.resolve(dir, 'package-lock.lock'))) {
-        command = 'npm install';
-      } else if (shell.which('yarn')) {
-        command = 'yarn install';
-      } else {
-        command = 'npm install';
-      }
-      shell.chmod('+x', path.resolve(dir, '.git', 'hooks', '*'));
-      // finished 🎉
-      shell.cd(path.resolve(dir));
-      shell.exec(command);
+      shell.cd(path.resolve(directory));
+      shell.exec(`${packageManager} install`);
+      shell.chmod('+x', path.resolve(directory, '.git', 'hooks', '*'));
       if (shell.cd('-').code === 0) {
         console.log(
           chalk.cyan(
@@ -537,7 +542,8 @@ program
           ),
         );
       }
-    } catch {
+    } catch (error) {
+      shell.echo('Error:', error);
       // do something?
     }
   });
