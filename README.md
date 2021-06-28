@@ -14,14 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.35.0
-# or
-# yarn add -D @modyqyw/fabric@~1.35.0
+npm i -D @modyqyw/fabric@~1.36.0
 
 # globally
-npm i -g @modyqyw/fabric@~1.35.0
-# or
-# yarn add -g @modyqyw/fabric@~1.35.0
+npm i -g @modyqyw/fabric@~1.36.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -552,8 +548,6 @@ Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
 npm install -D lint-staged@~10.5.4
-# or
-# yarn add -D lint-staged@~10.5.4
 
 ```
 
