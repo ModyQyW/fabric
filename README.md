@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.4.3
+npm i -D @modyqyw/fabric@~2.5.0
 
 # globally
-npm i -g @modyqyw/fabric@~2.4.3
+npm i -g @modyqyw/fabric@~2.5.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -120,7 +120,7 @@ trim_trailing_whitespace = false
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-npm i -D prettier@~2.3.1
+npm i -D prettier@~2.3.2
 ```
 
 Set up `${PROJECT_DIR}/.prettierrc.js`.
@@ -158,13 +158,13 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.28.0 @babel/core@~7.14.5 @babel/eslint-parser@~7.14.5
+npm i -D eslint@~7.29.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.2 @typescript-eslint/eslint-plugin@~4.26.1 @typescript-eslint/parser@~4.26.1
+npm i -D typescript@~4.3.4 @typescript-eslint/eslint-plugin@~4.28.0 @typescript-eslint/parser@~4.28.0
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
