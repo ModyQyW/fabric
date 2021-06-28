@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 // for css
 const config = require('@modyqyw/fabric/stylelint/css');
 

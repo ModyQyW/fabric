@@ -2,10 +2,32 @@ const fs = require('fs');
 const path = require('path');
 
 const getFilePath = (filename) => {
-  if (fs.existsSync(path.join(__dirname, 'config', filename))) {
-    return path.join(__dirname, 'config', filename);
+  const shortFilename = filename.slice(
+    0,
+    filename.lastIndexOf('.') === 0 ? undefined : filename.lastIndexOf('.'),
+  );
+  const shortFilenameExamplePath = path.join(
+    __dirname,
+    'examples',
+    `${shortFilename}-example`,
+  );
+  const filenameExamplePath = path.join(
+    __dirname,
+    'examples',
+    `${shortFilename}-example`,
+  );
+  const shortFilenamePath = path.join(__dirname, shortFilename);
+  const filenamePath = path.join(__dirname, filename);
+  if (fs.existsSync(shortFilenameExamplePath)) {
+    return shortFilenameExamplePath;
   }
-  return path.join(__dirname, filename);
+  if (fs.existsSync(filenameExamplePath)) {
+    return filenameExamplePath;
+  }
+  if (fs.existsSync(shortFilenamePath)) {
+    return shortFilenamePath;
+  }
+  return filenamePath;
 };
 
 const packageObject = JSON.parse(fs.readFileSync('./package.json'));
@@ -34,16 +56,14 @@ Node.js 10+ and npm 6+ are required.
 
 ## Usage
 
+Using \`npm\` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classic.yarnpkg.com/) instead.
+
 \`\`\`sh
 # locally
 npm i -D ${packageObject.name}@~${packageObject.version}
-# or
-# yarn add -D ${packageObject.name}@~${packageObject.version}
 
 # globally
 npm i -g ${packageObject.name}@~${packageObject.version}
-# or
-# yarn add -g ${packageObject.name}@~${packageObject.version}
 \`\`\`
 
 Use \`@legacy\` for legacy version, which supports Node.js 10+ and npm6+.
@@ -51,13 +71,9 @@ Use \`@legacy\` for legacy version, which supports Node.js 10+ and npm6+.
 \`\`\`sh
 # locally
 npm i -D ${packageObject.name}@legacy
-# or
-# yarn add -D ${packageObject.name}@legacy
 
 # globally
 npm i -g ${packageObject.name}@legacy
-# or
-# yarn add -g ${packageObject.name}@legacy
 \`\`\`
 
 ### CLI (beta)
@@ -88,8 +104,6 @@ Or, you can use scripts in \`\${PROJECT_DIR}package.json\` if you install locall
 
 \`\`\`sh
 npm run config
-# or
-# yarn run config
 \`\`\`
 
 ### Naming
@@ -140,8 +154,6 @@ Learn about [Prettier](https://prettier.io/).
 
 \`\`\`sh
 npm i -D prettier@${packageObject.devDependencies.prettier}
-# or
-# yarn add -D prettier@${packageObject.devDependencies.prettier}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.prettierrc.js\`.
@@ -150,7 +162,7 @@ Set up \`\${PROJECT_DIR}/.prettierrc.js\`.
 ${prettierrc}
 \`\`\`
 
-Set up \`\${PROJECT_DIR}/package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`json
 {
@@ -158,13 +170,11 @@ Set up \`\${PROJECT_DIR}/package.json\`.
   "scripts": {
     ...,
     "lint": "npm run lint:json",
-    "lint:json": "prettier ./**/*.json --write"
+    "lint:json": "prettier ./**/*.json --write --ignore-path=.gitignore"
   }
 }
 
 \`\`\`
-
-A \`\${PROJECT_DIR}/.prettierignore\` example [here](./config/.prettierignore).
 
 ### ESLint
 
@@ -172,10 +182,6 @@ Learn about [ESLint](https://eslint.org/).
 
 \`\`\`sh
 npm i -D eslint@${packageObject.devDependencies.eslint} @babel/core@${
-  packageObject.dependencies['@babel/core']
-} @babel/eslint-parser@${packageObject.dependencies['@babel/eslint-parser']}
-# or
-# yarn add -D eslint@${packageObject.devDependencies.eslint} @babel/core@${
   packageObject.dependencies['@babel/core']
 } @babel/eslint-parser@${packageObject.dependencies['@babel/eslint-parser']}
 \`\`\`
@@ -190,14 +196,6 @@ npm i -D typescript@${
 } @typescript-eslint/parser@${
   packageObject.dependencies['@typescript-eslint/parser']
 }
-# or
-# yarn add -D typescript@${
-  packageObject.dependencies.typescript
-} @typescript-eslint/eslint-plugin@${
-  packageObject.dependencies['@typescript-eslint/eslint-plugin']
-} @typescript-eslint/parser@${
-  packageObject.dependencies['@typescript-eslint/parser']
-}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.eslintrc.js\`.
@@ -206,7 +204,7 @@ Set up \`\${PROJECT_DIR}/.eslintrc.js\`.
 ${eslintrc}
 \`\`\`
 
-Set up \`\${PROJECT_DIR}/package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`json
 {
@@ -214,15 +212,13 @@ Set up \`\${PROJECT_DIR}/package.json\`.
   "scripts": {
     ...,
     "lint": "npm run lint:script",
-    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix"
+    "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore"
   }
 }
 
 \`\`\`
 
-When using \`vue-cli-service\`, \`eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix\` can be replaced with \`vue-cli-service lint --fix\`.
-
-A \`\${PROJECT_DIR}/.eslintignore\` example [here](./config/.eslintignore).
+When using \`vue-cli-service\`, \`eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore\` can be replaced with \`vue-cli-service lint --fix\`.
 
 ### Stylelint
 
@@ -230,8 +226,6 @@ Learn about [Stylelint](https://stylelint.io/).
 
 \`\`\`sh
 npm i -D stylelint@${packageObject.devDependencies.stylelint}
-# or
-# yarn add -D stylelint@${packageObject.devDependencies.stylelint}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.stylelintrc.js\`.
@@ -240,7 +234,7 @@ Set up \`\${PROJECT_DIR}/.stylelintrc.js\`.
 ${stylelintrc}
 \`\`\`
 
-Set up \`\${PROJECT_DIR}/package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`json
 {
@@ -248,13 +242,11 @@ Set up \`\${PROJECT_DIR}/package.json\`.
   "scripts": {
     ...,
     "lint": "npm run lint:style",
-    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix"
+    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix --ignore-path=.gitignore"
   }
 }
 
 \`\`\`
-
-A \`\${PROJECT_DIR}/.stylelintignore\` example [here](./config/.stylelintignore).
 
 ### Markdownlint
 
@@ -262,10 +254,6 @@ Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://githu
 
 \`\`\`sh
 npm i -D markdownlint-cli@${packageObject.devDependencies['markdownlint-cli']}
-# or
-# yarn add -D markdownlint-cli@${
-  packageObject.devDependencies['markdownlint-cli']
-}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.markdownlint.json\`.
@@ -274,7 +262,7 @@ Set up \`\${PROJECT_DIR}/.markdownlint.json\`.
 ${markdownlint}
 \`\`\`
 
-Set up \`\${PROJECT_DIR}/package.json\`.
+Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`json
 {
@@ -282,13 +270,11 @@ Set up \`\${PROJECT_DIR}/package.json\`.
   "scripts": {
     ...,
     "lint": "npm run lint:markdown",
-    "lint:markdown": "markdownlint . --fix"
+    "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
 
 \`\`\`
-
-A \`\${PROJECT_DIR}/.markdownlintignore\` example [here](./config/.markdownlintignore).
 
 ### LintMD
 
@@ -296,8 +282,6 @@ Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at C
 
 \`\`\`sh
 npm i -D lint-md-cli@${packageObject.devDependencies['lint-md-cli']}
-# or
-# # yarn add -D lint-md-cli@${packageObject.devDependencies['lint-md-cli']}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.lintmdrc\`.
@@ -328,10 +312,6 @@ Learn about [LsLint](https://ls-lint.org/).
 
 \`\`\`sh
 npm i -D @ls-lint/ls-lint@${packageObject.devDependencies['@ls-lint/ls-lint']}
-# or
-# yarn add -D @ls-lint/ls-lint@${
-  packageObject.devDependencies['@ls-lint/ls-lint']
-}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.ls-lint.yml\`.
@@ -360,10 +340,6 @@ Learn about [Commitlint](https://commitlint.js.org/).
 
 \`\`\`sh
 npm i -D @commitlint/cli@${packageObject.devDependencies['@commitlint/cli']}
-# or
-# yarn add -D @commitlint/cli@${
-  packageObject.devDependencies['@commitlint/cli']
-}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.commitlintrc.js\`.
@@ -372,16 +348,12 @@ Set up \`\${PROJECT_DIR}/.commitlintrc.js\`.
 ${commitlintrc}
 \`\`\`
 
-You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
-
 ### Commitizen
 
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 \`\`\`sh
 npm i -D commitizen@${packageObject.devDependencies.commitizen}
-# or
-# yarn add -D commitizen@${packageObject.devDependencies.commitizen}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/package.json\`.
@@ -402,16 +374,12 @@ Set up \`\${PROJECT_DIR}/package.json\`.
 
 \`\`\`
 
-You may also want to try [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme) or [semantic-release](https://semantic-release.gitbook.io/semantic-release/).
-
 ### LintStaged
 
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 \`\`\`sh
 npm install -D lint-staged@${packageObject.devDependencies['lint-staged']}
-# or
-# yarn add -D lint-staged@${packageObject.devDependencies['lint-staged']}
 
 \`\`\`
 
@@ -435,10 +403,6 @@ Learn about [Husky](https://github.com/typicode/husky#readme).
 
 \`\`\`sh
 npm install -D is-ci@${packageObject.devDependencies['is-ci']} husky@${
-  packageObject.devDependencies.husky
-}
-# or
-# yarn add -D is-ci@${packageObject.devDependencies['is-ci']} husky@${
   packageObject.devDependencies.husky
 }
 
@@ -490,8 +454,6 @@ If you want to use \`husky@4\`, steps are shown below.
 
 \`\`\`sh
 npm i -D husky@~4.3.8
-# or
-# yarn add -D husky@~4.3.8
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/package.json\`.
@@ -507,6 +469,16 @@ Set up \`\${PROJECT_DIR}/package.json\`.
 }
 
 \`\`\`
+
+### Deploy
+
+Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
+
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme)
+- [np](https://github.com/sindresorhus/np#readme)
+- [release](https://github.com/vercel/release#readme)
+- [release-it](https://github.com/release-it/release-it#readme)
+- [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 
 ## VSCode
 

@@ -1,4 +1,32 @@
 module.exports = {
+  'import/prefer-default-export': 'off',
+  'import/no-extraneous-dependencies': [
+    'error',
+    {
+      devDependencies: [
+        '**/conf/**',
+        '**/config/**',
+        '**/configs/**',
+        '**/mock/**',
+        '**/mocks/**',
+        '**/test/**',
+        '**/tests/**',
+        '**/spec/**',
+        '**/__mock__/**',
+        '**/__mocks__/**',
+        '**/__test__/**',
+        '**/__tests__/**',
+        '**/*.conf.js',
+        '**/*.conf.*.js',
+        '**/*.config.js',
+        '**/*.config.*.js',
+        '**/.*rc*',
+        '**/gulpfile.js',
+        '**/gulpfile.*.js',
+      ],
+      optionalDependencies: false,
+    },
+  ],
   'no-console':
     process.env.NODE_ENV === 'production' ||
     process.env.NODE_ENV === 'pre-production' ||
@@ -55,7 +83,9 @@ module.exports = {
   'unicorn/no-array-for-each': 'off',
   'unicorn/no-array-reduce': 'off',
   'unicorn/no-null': 'off',
+  'unicorn/numeric-separators-style': 'off',
   'unicorn/prefer-module': 'off',
+  'unicorn/prefer-node-protocol': 'off',
   'unicorn/prevent-abbreviations': [
     'warn',
     {
