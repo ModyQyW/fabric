@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.36.0
+npm i -D @modyqyw/fabric@~1.36.1
 
 # globally
-npm i -g @modyqyw/fabric@~1.36.0
+npm i -g @modyqyw/fabric@~1.36.1
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -136,6 +136,7 @@ module.exports = {
     // write your own overrides here
   ],
 };
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -219,6 +220,7 @@ module.exports = {
     // write your own settings here
   },
 };
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -271,6 +273,7 @@ module.exports = {
     // write your own rules here
   },
 };
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -302,6 +305,7 @@ Set up `${PROJECT_DIR}/.markdownlint.json`.
   "MD013": false,
   "MD033": false
 }
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -472,6 +476,7 @@ ignore:
   - .prettierrc.json
   - .stylelintrc.js
   - .stylelintrc.json
+
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -508,6 +513,7 @@ module.exports = {
     // write your own rules here
   },
 };
+
 ```
 
 ### Commitizen
@@ -554,6 +560,7 @@ module.exports = {
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
 };
+
 ```
 
 When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-service lint --fix`.
@@ -626,6 +633,7 @@ Set up `${PROJECT_DIR}/package.json`.
     }
   }
 }
+
 ```
 
 ### Deploy
@@ -648,7 +656,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-\*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
 - Set up `Settings.json`. Then `F1 => File: Save`.
 
 ```json
