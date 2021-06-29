@@ -136,7 +136,6 @@ module.exports = {
     // write your own overrides here
   ],
 };
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -164,7 +163,7 @@ npm i -D eslint@~7.29.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.4 @typescript-eslint/eslint-plugin@~4.28.0 @typescript-eslint/parser@~4.28.0
+npm i -D typescript@~4.3.4 @typescript-eslint/eslint-plugin@~4.28.1 @typescript-eslint/parser@~4.28.1
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -220,7 +219,6 @@ module.exports = {
     // write your own settings here
   },
 };
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -273,7 +271,6 @@ module.exports = {
     // write your own rules here
   },
 };
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -305,7 +302,6 @@ Set up `${PROJECT_DIR}/.markdownlint.json`.
   "MD013": false,
   "MD033": false
 }
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -476,7 +472,6 @@ ignore:
   - .prettierrc.json
   - .stylelintrc.js
   - .stylelintrc.json
-
 ```
 
 Set up `${PROJECT_DIR}/package.json`.
@@ -513,7 +508,6 @@ module.exports = {
     // write your own rules here
   },
 };
-
 ```
 
 ### Commitizen
@@ -560,7 +554,6 @@ module.exports = {
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
 };
-
 ```
 
 When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-service lint --fix`.
@@ -633,7 +626,6 @@ Set up `${PROJECT_DIR}/package.json`.
     }
   }
 }
-
 ```
 
 ### Deploy
@@ -656,7 +648,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-\*
 - Set up `Settings.json`. Then `F1 => File: Save`.
 
 ```json

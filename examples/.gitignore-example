@@ -75,6 +75,7 @@ web_modules/
 .env.*.test
 .env.local
 .env.*.local
+*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -108,8 +109,15 @@ dist
 # vuepress build output
 .vuepress/dist
 
-# Serverless directories
+# vite build output
+dist-ssr
+
+# Serverless
 .serverless/
+.dynamodb/
+.s3/
+.buckets/
+.seeds/
 
 # FuseBox cache
 .fusebox/
