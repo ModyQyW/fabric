@@ -56,7 +56,7 @@ const getCliFilePath = (filename) => {
 };
 
 console.log(
-  chalk.cyan(`\nmodyqyw-fabric is running in ${process.cwd()} now.\n`),
+  chalk.cyan(`\nmodyqyw-fabric v${pkg.version} is running in ${process.cwd()} now.\n`),
 );
 
 program
