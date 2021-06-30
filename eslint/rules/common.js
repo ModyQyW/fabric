@@ -76,6 +76,7 @@ module.exports = {
       ],
     },
   ],
+  'no-template-curly-in-string': 'warn',
   'no-unused-vars':
     process.env.NODE_ENV === 'production' ||
     process.env.NODE_ENV === 'pre-production' ||
