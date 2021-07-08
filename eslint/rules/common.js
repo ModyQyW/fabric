@@ -31,18 +31,8 @@ module.exports = {
       optionalDependencies: false,
     },
   ],
-  'no-console':
-    process.env.NODE_ENV === 'production' ||
-    process.env.NODE_ENV === 'pre-production' ||
-    process.env.NODE_ENV === 'staging'
-      ? 'warn'
-      : 'off',
-  'no-debugger':
-    process.env.NODE_ENV === 'production' ||
-    process.env.NODE_ENV === 'pre-production' ||
-    process.env.NODE_ENV === 'staging'
-      ? 'warn'
-      : 'off',
+  'no-console': 'warn',
+  'no-debugger': 'warn',
   'no-param-reassign': [
     'error',
     {
@@ -63,7 +53,6 @@ module.exports = {
         'configurations',
         'ctx',
         'context',
-        'draft',
         'e',
         'err',
         'error',
@@ -74,15 +63,11 @@ module.exports = {
         'response',
         'state',
       ],
+      ignorePropertyModificationsForRegex: ['^draft'],
     },
   ],
   'no-template-curly-in-string': 'warn',
-  'no-unused-vars':
-    process.env.NODE_ENV === 'production' ||
-    process.env.NODE_ENV === 'pre-production' ||
-    process.env.NODE_ENV === 'staging'
-      ? 'warn'
-      : 'off',
+  'no-unused-vars': 'warn',
   'prettier/prettier': 'warn',
   'unicorn/filename-case': 'off',
   'unicorn/no-array-for-each': 'off',
