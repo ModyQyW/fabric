@@ -9,21 +9,21 @@ const pkg = require('./package.json');
 
 const program = new Command();
 
-let packageManager = 'npm';
+let pkgManager = 'npm';
 if (fs.existsSync('pnpm-lock.yaml')) {
-  packageManager = 'pnpm';
+  pkgManager = 'pnpm';
   if (!shell.which('pnpm')) {
     shell.exec('npm i -g pnpm');
   }
 } else if (fs.existsSync('yarn.lock')) {
-  packageManager = 'yarn';
+  pkgManager = 'yarn';
   if (!shell.which('yarn')) {
     shell.exec('npm i -g yarn');
   }
 } else if (fs.existsSync('package-lock.json')) {
-  packageManager = 'npm';
+  pkgManager = 'npm';
 } else if (shell.which('yarn')) {
-  packageManager = 'yarn';
+  pkgManager = 'yarn';
 }
 
 const getCliFilePath = (filename) => {
@@ -67,30 +67,29 @@ program
   .description('Config different packages for formatting and linting.')
   .action(async (directory = '.') => {
     try {
+      // read
+      if (!fs.existsSync(path.resolve(directory, 'package.json'))) {
+        shell.exec('npm init -y');
+      }
+      const pkgJson = fs.readFileSync(path.resolve(directory, 'package.json'), {
+        encoding: 'utf8',
+      });
+      const indent = '  ';
+      const pkgObj = JSON.parse(pkgJson);
+      const lintScriptItems = [];
+      // TODO: better default value
       // choose
-      const { framework, typescript, config } = await inquirer.prompt([
+      const { framework, typescript, css, config } = await inquirer.prompt([
         {
           type: 'list',
           name: 'framework',
           message: 'Select framework',
           default: 'native',
           choices: [
-            {
-              name: 'Native',
-              value: 'native',
-            },
-            {
-              name: 'Vue 2 / Nuxt 2 / UniApp',
-              value: 'vue2',
-            },
-            {
-              name: 'Vue 3 / UniApp',
-              value: 'vue3',
-            },
-            {
-              name: 'React 17 / Umi 3 / Next 10 / ReactNative 0.64 / Taro 3 / Rax 1 / Remax 2',
-              value: 'react',
-            },
+            { name: 'Native', value: 'native' },
+            { name: 'Vue 2', value: 'vue2' },
+            { name: 'Vue 3', value: 'vue3' },
+            { name: 'React 17', value: 'react' },
           ],
         },
         {
@@ -115,98 +114,35 @@ program
             'husky',
           ],
           choices: [
-            {
-              name: 'Git',
-              value: 'git',
-            },
-            {
-              name: 'EditorConfig',
-              value: 'editorconfig',
-            },
-            {
-              name: 'Prettier & ESLint',
-              value: 'prettier-eslint',
-            },
-            {
-              name: 'Stylelint',
-              value: 'stylelint',
-            },
-            {
-              name: 'Markdownlint',
-              value: 'markdownlint',
-            },
-            {
-              name: 'LintMD',
-              value: 'lint-md',
-            },
-            {
-              name: 'LsLint',
-              value: 'ls-lint',
-            },
-            {
-              name: 'Commitlint',
-              value: 'commitlint',
-            },
-            {
-              name: 'Commitizen',
-              value: 'commitizen',
-            },
-            {
-              name: 'LintStaged',
-              value: 'lint-staged',
-            },
-            {
-              name: 'Husky',
-              value: 'husky',
-            },
+            { name: 'Git', value: 'git' },
+            { name: 'EditorConfig', value: 'editorconfig' },
+            { name: 'Prettier & ESLint', value: 'prettier-eslint' },
+            { name: 'Stylelint', value: 'stylelint' },
+            { name: 'Markdownlint', value: 'markdownlint' },
+            { name: 'LintMD', value: 'lint-md' },
+            { name: 'LsLint (not support arm)', value: 'ls-lint' },
+            { name: 'Commitlint', value: 'commitlint' },
+            { name: 'Commitizen', value: 'commitizen' },
+            { name: 'LintStaged', value: 'lint-staged' },
+            { name: 'Husky', value: 'husky' },
+          ],
+        },
+        {
+          type: 'list',
+          name: 'css',
+          message: 'Select css pre-processor',
+          when: (answers) => answers.config.includes('stylelint'),
+          default: 'css',
+          choices: [
+            { name: 'CSS', value: 'css' },
+            { name: 'LESS', value: 'less' },
+            { name: 'SCSS', value: 'scss' },
           ],
         },
       ]);
-      let css = 'css';
-      if (config.includes('stylelint')) {
-        css = (
-          await inquirer.prompt([
-            {
-              type: 'list',
-              name: 'css',
-              message: 'Select css pre-processor',
-              default: 'css',
-              choices: [
-                {
-                  name: 'CSS',
-                  value: 'css',
-                },
-                {
-                  name: 'LESS',
-                  value: 'less',
-                },
-                {
-                  name: 'SASS',
-                  value: 'sass',
-                },
-                {
-                  name: 'SCSS',
-                  value: 'scss',
-                },
-              ],
-            },
-          ])
-        ).css;
-      }
-      // parse
-      if (!fs.existsSync(path.resolve(directory, 'package.json'))) {
-        shell.exec('npm init -y');
-      }
-      const packageJson = fs.readFileSync(
-        path.resolve(directory, 'package.json'),
-        { encoding: 'utf8' },
-      );
-      const indent = '  ';
-      const packageObject = JSON.parse(packageJson);
-      const lintScriptItems = [];
       // set @modyqyw/fabric
-      packageObject.devDependencies = {
-        ...packageObject.devDependencies,
+      pkgObj.devDependencies = {
+        ...pkgObj.devDependencies,
         '@modyqyw/fabric': `~${pkg.version}`,
       };
       // set git
@@ -240,16 +176,16 @@ program
       }
       // set prettier and eslint
       if (config.includes('prettier-eslint')) {
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
           '@babel/core': pkg.dependencies['@babel/core'],
           '@babel/eslint-parser': pkg.dependencies['@babel/eslint-parser'],
           eslint: pkg.devDependencies.eslint,
           prettier: pkg.devDependencies.prettier,
         };
         if (typescript) {
-          packageObject.devDependencies = {
-            ...packageObject.devDependencies,
+          pkgObj.devDependencies = {
+            ...pkgObj.devDependencies,
             '@typescript-eslint/eslint-plugin':
               pkg.dependencies['@typescript-eslint/eslint-plugin'],
             '@typescript-eslint/parser':
@@ -257,20 +193,20 @@ program
             typescript: pkg.dependencies.typescript,
           };
         }
-        packageObject.scripts = {
-          ...packageObject.scripts,
+        pkgObj.scripts = {
+          ...pkgObj.scripts,
           'lint:json': 'prettier ./**/*.json --write --ignore-path=.gitignore',
-          'lint:script': packageObject.devDependencies['@vue/cli-service']
+          'lint:script': pkgObj.devDependencies['@vue/cli-service']
             ? 'vue-cli-service lint --fix'
             : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
         };
         lintScriptItems.push(
-          `${packageManager} run lint:json`,
-          `${packageManager} run lint:script`,
+          `${pkgManager} run lint:json`,
+          `${pkgManager} run lint:script`,
         );
-        delete packageObject.prettier;
-        delete packageObject.eslintConfig;
-        delete packageObject.eslintIgnore;
+        delete pkgObj.prettier;
+        delete pkgObj.eslintConfig;
+        delete pkgObj.eslintIgnore;
         shell.rm(
           '-rf',
           path.resolve(directory, '.prettierrc'),
@@ -313,17 +249,17 @@ program
       }
       // set stylelint
       if (config.includes('stylelint')) {
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
           stylelint: pkg.devDependencies.stylelint,
         };
-        packageObject.scripts = {
-          ...packageObject.scripts,
+        pkgObj.scripts = {
+          ...pkgObj.scripts,
           'lint:style':
             'stylelint ./**/*.{css,less,sass,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore',
         };
-        lintScriptItems.push(`${packageManager} run lint:style`);
-        delete packageObject.stylelint;
+        lintScriptItems.push(`${pkgManager} run lint:style`);
+        delete pkgObj.stylelint;
         shell.rm(
           '-rf',
           path.resolve(directory, '.stylelintrc'),
@@ -341,15 +277,15 @@ program
       }
       // set markdownlint
       if (config.includes('markdownlint')) {
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
           'markdownlint-cli': pkg.devDependencies['markdownlint-cli'],
         };
-        packageObject.scripts = {
-          ...packageObject.scripts,
+        pkgObj.scripts = {
+          ...pkgObj.scripts,
           'lint:markdown': 'markdownlint . --fix --ignore-path=.gitignore',
         };
-        lintScriptItems.push(`${packageManager} run lint:markdown`);
+        lintScriptItems.push(`${pkgManager} run lint:markdown`);
         shell.rm(
           '-rf',
           path.resolve(directory, '.markdownlint.yaml'),
@@ -364,21 +300,22 @@ program
       }
       // set lint-md
       if (config.includes('lint-md')) {
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
-          'lint-md-cli': pkg.devDependencies['lint-md-cli'],
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
+          '@lint-md/cli': pkg.devDependencies['@lint-md/cli'],
         };
-        packageObject.scripts = config.includes('markdownlint')
+        pkgObj.scripts = config.includes('markdownlint')
           ? {
-              ...packageObject.scripts,
+              ...pkgObj.scripts,
               'lint:markdown':
                 'markdownlint . --fix --ignore-path=.gitignore && lint-md . --fix',
             }
           : {
-              ...packageObject.scripts,
+              ...pkgObj.scripts,
               'lint:markdown': 'lint-md . --fix',
             };
-        lintScriptItems.push(`${packageManager} run lint:markdown`);
+        lintScriptItems.push(`${pkgManager} run lint:markdown`);
+        delete pkgObj.devDependencies['lint-md-cli'];
         fs.copyFileSync(
           getCliFilePath('.lintmdrc'),
           path.resolve(directory, '.lintmdrc'),
@@ -386,15 +323,15 @@ program
       }
       // set ls-lint
       if (config.includes('ls-lint')) {
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
           '@ls-lint/ls-lint': pkg.devDependencies['@ls-lint/ls-lint'],
         };
-        packageObject.scripts = {
-          ...packageObject.scripts,
+        pkgObj.scripts = {
+          ...pkgObj.scripts,
           'lint:ls': 'ls-lint .',
         };
-        lintScriptItems.push(`${packageManager} run lint:ls`);
+        lintScriptItems.push(`${pkgManager} run lint:ls`);
         fs.copyFileSync(
           getCliFilePath(`.ls-lint.yml`),
           path.resolve(directory, '.ls-lint.yml'),
@@ -402,11 +339,11 @@ program
       }
       // set commitlint
       if (config.includes('commitlint')) {
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
           '@commitlint/cli': pkg.devDependencies['@commitlint/cli'],
         };
-        delete packageObject.commitlint;
+        delete pkgObj.commitlint;
         shell.rm(
           '-rf',
           path.resolve(directory, '.commitlintrc.json'),
@@ -420,12 +357,12 @@ program
       }
       // set commitizen
       if (config.includes('commitizen')) {
-        packageObject.scripts = {
-          ...packageObject.scripts,
+        pkgObj.scripts = {
+          ...pkgObj.scripts,
           commit: 'cz',
         };
-        packageObject.config = {
-          ...packageObject.config,
+        pkgObj.config = {
+          ...pkgObj.config,
           commitizen: {
             path: './node_modules/cz-conventional-changelog',
           },
@@ -433,11 +370,11 @@ program
       }
       // set lint-staged
       if (config.includes('lint-staged')) {
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
           'lint-staged': pkg.devDependencies['lint-staged'],
         };
-        delete packageObject['lint-staged'];
+        delete pkgObj['lint-staged'];
         shell.rm(
           '-rf',
           path.resolve(directory, '.lintstagedrc'),
@@ -458,8 +395,9 @@ program
         }
         if (config.includes('prettier-eslint')) {
           lintStagedObject['*.json'] = 'prettier --write';
-          lintStagedObject['*.{js,jsx,ts,tsx,vue}'] = packageObject
-            .devDependencies['@vue/cli-service']
+          lintStagedObject['*.{js,jsx,ts,tsx,vue}'] = pkgObj.devDependencies[
+            '@vue/cli-service'
+          ]
             ? 'vue-cli-service lint --fix'
             : 'eslint --fix';
         }
@@ -479,14 +417,14 @@ program
       }
       // set husky
       if (config.includes('husky')) {
-        packageObject.scripts = {
-          ...packageObject.scripts,
+        pkgObj.scripts = {
+          ...pkgObj.scripts,
           prepare: 'is-ci || husky install',
         };
-        delete packageObject.husky;
-        delete packageObject.gitHooks;
-        packageObject.devDependencies = {
-          ...packageObject.devDependencies,
+        delete pkgObj.husky;
+        delete pkgObj.gitHooks;
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
           husky: pkg.devDependencies.husky,
           'is-ci': pkg.devDependencies['is-ci'],
         };
@@ -518,24 +456,24 @@ program
         shell.chmod('+x', path.resolve(directory, '.husky', '*'));
       }
       // write package.json
-      packageObject.devDependencies = Object.keys(packageObject.devDependencies)
+      pkgObj.devDependencies = Object.keys(pkgObj.devDependencies)
         .sort()
         .reduce((acc, cur) => {
-          acc[cur] = packageObject.devDependencies[cur];
+          acc[cur] = pkgObj.devDependencies[cur];
           return acc;
         }, {});
-      packageObject.scripts = {
-        ...packageObject.scripts,
+      pkgObj.scripts = {
+        ...pkgObj.scripts,
         lint: [...new Set(lintScriptItems)].sort().join(' && '),
       };
       fs.writeFileSync(
         path.resolve(directory, 'package.json'),
-        `${JSON.stringify(packageObject, null, indent)}\n`,
+        `${JSON.stringify(pkgObj, null, indent)}\n`,
       );
       // install dependencies
       console.log(chalk.cyan('\nInstalling dependencies...\n'));
       shell.cd(path.resolve(directory));
-      shell.exec(`${packageManager} install`);
+      shell.exec(`${pkgManager} install`);
       shell.chmod('+x', path.resolve(directory, '.git', 'hooks', '*'));
       if (shell.cd('-').code === 0) {
         console.log(
