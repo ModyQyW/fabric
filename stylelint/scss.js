@@ -7,6 +7,7 @@ module.exports = {
   ],
   rules: {
     ...commonRules,
+    'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': [
       true,
       {
