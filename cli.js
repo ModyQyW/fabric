@@ -320,7 +320,7 @@ program
         packageObject.scripts = {
           ...packageObject.scripts,
           'lint:style':
-            'stylelint ./**/*.{css,less,sass,scss,vue} --fix --ignore-path=.gitignore',
+            'stylelint ./**/*.{css,less,sass,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore',
         };
         lintScriptItems.push(`${packageManager} run lint:style`);
         delete packageObject.stylelint;
