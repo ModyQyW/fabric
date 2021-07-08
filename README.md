@@ -158,13 +158,13 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.29.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
+npm i -D eslint@~7.30.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.4 @typescript-eslint/eslint-plugin@~4.28.1 @typescript-eslint/parser@~4.28.1
+npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.2 @typescript-eslint/parser@~4.28.2
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -327,7 +327,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at Chinese markdown files.
 
 ```sh
-npm i -D lint-md-cli@~0.1.2
+npm i -D @lint-md/cli@~0.1.5
 ```
 
 Set up `${PROJECT_DIR}/.lintmdrc`.
@@ -361,8 +361,6 @@ Set up `${PROJECT_DIR}/package.json`.
 }
 
 ```
-
-Attention: when I try to migrate to `@lint-md/cli`, I get an error `env: node\r: No such file or directory`. If you have any idea, please help me.
 
 ### LsLint
 
@@ -570,7 +568,7 @@ When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-servi
 Learn about [Husky](https://github.com/typicode/husky#readme).
 
 ```sh
-npm install -D is-ci@~3.0.0 husky@~6.0.0
+npm install -D is-ci@~3.0.0 husky@~7.0.1
 
 npx husky install
 

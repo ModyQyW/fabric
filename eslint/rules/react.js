@@ -1,17 +1,12 @@
 module.exports = {
-  'no-unused-vars':
-    process.env.NODE_ENV === 'production' ||
-    process.env.NODE_ENV === 'pre-production' ||
-    process.env.NODE_ENV === 'staging'
-      ? [
-          'warn',
-          {
-            varsIgnorePattern: 'React',
-            args: 'after-used',
-            ignoreRestSiblings: true,
-          },
-        ]
-      : 'off',
+  'no-unused-vars': [
+    'warn',
+    {
+      varsIgnorePattern: 'React',
+      args: 'after-used',
+      ignoreRestSiblings: true,
+    },
+  ],
   'react-hooks/exhaustive-deps': [
     'warn',
     {
@@ -23,6 +18,7 @@ module.exports = {
     { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
   ],
   'react/jsx-props-no-spreading': 'off',
+  'react/no-array-index-key': 'warn',
   'react/prop-types': 'off',
   'react/react-in-jsx-scope': 'off',
   'react/sort-comp': [

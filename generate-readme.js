@@ -281,7 +281,7 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
 Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at Chinese markdown files.
 
 \`\`\`sh
-npm i -D lint-md-cli@${packageObject.devDependencies['lint-md-cli']}
+npm i -D @lint-md/cli@${packageObject.devDependencies['@lint-md/cli']}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.lintmdrc\`.
@@ -303,8 +303,6 @@ Set up \`\${PROJECT_DIR}/package.json\`.
 }
 
 \`\`\`
-
-Attention: when I try to migrate to \`@lint-md/cli\`, I get an error \`env: node\\r: No such file or directory\`. If you have any idea, please help me.
 
 ### LsLint
 
