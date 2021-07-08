@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.36.2
+npm i -D @modyqyw/fabric@~1.37.0
 
 # globally
-npm i -g @modyqyw/fabric@~1.36.2
+npm i -g @modyqyw/fabric@~1.37.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -568,7 +568,7 @@ When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-servi
 Learn about [Husky](https://github.com/typicode/husky#readme).
 
 ```sh
-npm install -D is-ci@~3.0.0 husky@~7.0.1
+npm install -D is-ci@~3.0.0 husky@~6.0.0
 
 npx husky install
 
