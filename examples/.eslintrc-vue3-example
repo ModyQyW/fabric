@@ -2,4 +2,8 @@ const config = require('@modyqyw/fabric/eslint/vue3');
 
 module.exports = {
   ...config,
+  rules: {
+    ...config.rules,
+    // write your own rules here
+  },
 };
