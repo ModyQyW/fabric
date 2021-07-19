@@ -134,7 +134,6 @@
     "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore",
     "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
-    "release": "release-it",
-    "test": "yarn run lint"
+    "release": "release-it"
   }
 }
