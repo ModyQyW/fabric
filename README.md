@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~1.37.1
+npm i -D @modyqyw/fabric@~1.38.0
 
 # globally
-npm i -g @modyqyw/fabric@~1.37.1
+npm i -g @modyqyw/fabric@~1.38.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -158,7 +158,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.31.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
+npm i -D eslint@~7.30.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
 ```
 
 If you are using typescript, additional dependencies are needed.
