@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.6.1
+npm i -D @modyqyw/fabric@~2.7.0
 
 # globally
-npm i -g @modyqyw/fabric@~2.6.1
+npm i -g @modyqyw/fabric@~2.7.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -158,13 +158,13 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.30.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
+npm i -D eslint@~7.31.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.2 @typescript-eslint/parser@~4.28.2
+npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.4 @typescript-eslint/parser@~4.28.4
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -302,7 +302,11 @@ Set up `${PROJECT_DIR}/.markdownlint.json`.
 
 ```json
 {
+  "MD003": false,
   "MD013": false,
+  "MD022": false,
+  "MD024": false,
+  "MD025": false,
   "MD033": false
 }
 
@@ -545,7 +549,7 @@ Set up `${PROJECT_DIR}/package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
-npm install -D lint-staged@~11.0.0
+npm install -D lint-staged@~11.0.1
 
 ```
 
