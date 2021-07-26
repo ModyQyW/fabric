@@ -6,7 +6,7 @@ module.exports = {
     commitMessage: 'chore(release): v${version}',
   },
   hooks: {
-    'before:init': 'yarn run lint',
+    'before:init': 'yarn install && yarn run lint',
     'after:bump': 'node generate-readme.js',
   },
 };
