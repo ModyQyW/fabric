@@ -1,6 +1,6 @@
 # @modyqyw/fabric
 
-Shareable specification for different JavaScript/TypeScript projects.
+Opinionated shareable specification for different JavaScript/TypeScript projects.
 
 Node.js 12+ and npm 6+ are required.
 
@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.7.0
+npm i -D @modyqyw/fabric@~2.8.0
 
 # globally
-npm i -g @modyqyw/fabric@~2.7.0
+npm i -g @modyqyw/fabric@~2.8.0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -130,11 +130,6 @@ const config = require('@modyqyw/fabric/prettier');
 
 module.exports = {
   ...config,
-  // write your own rules here
-  overrides: [
-    ...config.overrides,
-    // write your own overrides here
-  ],
 };
 
 ```
@@ -158,7 +153,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.31.0 @babel/core@~7.14.6 @babel/eslint-parser@~7.14.7
+npm i -D eslint@~7.31.0 @babel/core@~7.14.8 @babel/eslint-parser@~7.14.7
 ```
 
 If you are using typescript, additional dependencies are needed.
@@ -173,52 +168,24 @@ Set up `${PROJECT_DIR}/.eslintrc.js`.
 // for js and ts
 const config = require('@modyqyw/fabric/eslint/native');
 
-// for react17, react-native0.64, taro3, rax1, remax2, umi3 and next10
+// for react17
 // with js or ts
 // const config = require('@modyqyw/fabric/eslint/react');
 
-// for vue2, uni-app and nuxt2, with js
+// for vue2 with js
 // const config = require('@modyqyw/fabric/eslint/vue2');
 
-// for vue2, uni-app and nuxt2, with ts
+// for vue2 with ts
 // const config = require('@modyqyw/fabric/eslint/vue2-typescript');
 
-// for vue3 and uni-app, with js
+// for vue3 with js
 // const config = require('@modyqyw/fabric/eslint/vue3');
 
-// for vue3 and uni-app, with ts
+// for vue3 with ts
 // const config = require('@modyqyw/fabric/eslint/vue3-typescript');
 
 module.exports = {
   ...config,
-  plugins: [
-    ...config.plugins,
-    // write your own plugins here
-  ],
-  extends: [
-    ...config.extends,
-    // write your own extends here
-  ],
-  env: {
-    ...config.env,
-    // write your own env here
-  },
-  globals: {
-    ...config.globals,
-    // write your own globals here
-  },
-  rules: {
-    ...config.rules,
-    // write your own rules here
-  },
-  overrides: [
-    ...config.overrides,
-    // write your own overrides here
-  ],
-  settings: {
-    ...config.settings,
-    // write your own settings here
-  },
 };
 
 ```
@@ -264,14 +231,6 @@ const config = require('@modyqyw/fabric/stylelint/css');
 
 module.exports = {
   ...config,
-  extends: [
-    ...config.extends,
-    // write your own extends here
-  ],
-  rules: {
-    ...config.rules,
-    // write your own rules here
-  },
 };
 
 ```
@@ -295,7 +254,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
 
 ```sh
-npm i -D markdownlint-cli@~0.27.1
+npm i -D markdownlint-cli@~0.28.1
 ```
 
 Set up `${PROJECT_DIR}/.markdownlint.json`.
@@ -500,7 +459,7 @@ Set up `${PROJECT_DIR}/package.json`.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~12.1.4
+npm i -D @commitlint/cli@~13.1.0
 ```
 
 Set up `${PROJECT_DIR}/.commitlintrc.js`.
@@ -510,10 +469,6 @@ const config = require('@modyqyw/fabric/commitlint');
 
 module.exports = {
   ...config,
-  rules: {
-    ...config.rules,
-    // write your own rules here
-  },
 };
 
 ```
@@ -549,7 +504,7 @@ Set up `${PROJECT_DIR}/package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
 
 ```sh
-npm install -D lint-staged@~11.0.1
+npm install -D lint-staged@~11.1.1
 
 ```
 
@@ -657,7 +612,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Or [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar), see README carefully
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
 - Set up `Settings.json`. Then `F1 => File: Save`.
 
