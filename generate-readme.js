@@ -43,7 +43,7 @@ const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
 const readme = `# ${packageObject.name}
 
-Shareable specification for different JavaScript/TypeScript projects.
+Opinionated shareable specification for different JavaScript/TypeScript projects.
 
 Node.js 12+ and npm 6+ are required.
 
