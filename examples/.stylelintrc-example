@@ -12,12 +12,4 @@ const config = require('@modyqyw/fabric/stylelint/css');
 
 module.exports = {
   ...config,
-  extends: [
-    ...config.extends,
-    // write your own extends here
-  ],
-  rules: {
-    ...config.rules,
-    // write your own rules here
-  },
 };

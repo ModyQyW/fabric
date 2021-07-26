@@ -1,7 +1,7 @@
 {
   "name": "@modyqyw/fabric",
   "version": "1.38.0",
-  "description": "Shareable specification for different JavaScript/TypeScript projects.",
+  "description": "Opinionated shareable specification for different JavaScript/TypeScript projects.",
   "keywords": [
     "fabric",
     "specification",
@@ -56,7 +56,7 @@
     "url": "git@github.com:ModyQyW/fabric.git"
   },
   "dependencies": {
-    "@babel/core": "~7.14.6",
+    "@babel/core": "~7.14.8",
     "@babel/eslint-parser": "~7.14.7",
     "@commitlint/config-conventional": "~12.1.4",
     "@typescript-eslint/eslint-plugin": "~4.28.4",
@@ -93,14 +93,13 @@
     "@lint-md/cli": "~0.1.5",
     "@ls-lint/ls-lint": "~1.9.2",
     "commitizen": "~4.2.4",
-    "eslint": "~7.30.0",
+    "eslint": "~7.31.0",
     "husky": "~6.0.0",
     "is-ci": "~3.0.0",
     "lint-staged": "~10.5.4",
-    "markdownlint-cli": "~0.27.1",
-    "np": "~7.5.0",
+    "markdownlint-cli": "~0.28.1",
     "prettier": "~2.3.2",
-    "release-it": "~14.10.0",
+    "release-it": "~14.10.1",
     "stylelint": "~13.13.1"
   },
   "config": {
