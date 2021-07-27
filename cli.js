@@ -120,7 +120,7 @@ program
             { name: 'Stylelint', value: 'stylelint' },
             { name: 'Markdownlint', value: 'markdownlint' },
             { name: 'LintMD', value: 'lint-md' },
-            { name: 'LsLint (not support arm)', value: 'ls-lint' },
+            { name: 'LsLint', value: 'ls-lint' },
             { name: 'Commitlint', value: 'commitlint' },
             { name: 'Commitizen', value: 'commitizen' },
             { name: 'LintStaged', value: 'lint-staged' },
