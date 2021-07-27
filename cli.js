@@ -458,14 +458,26 @@ program
       // write package.json
       pkgObj.devDependencies = Object.keys(pkgObj.devDependencies)
         .sort()
-        .reduce((acc, cur) => {
-          acc[cur] = pkgObj.devDependencies[cur];
-          return acc;
-        }, {});
+        .reduce(
+          (acc, cur) => ({
+            ...acc,
+            [cur]: pkgObj.devDependencies[cur],
+          }),
+          {},
+        );
       pkgObj.scripts = {
         ...pkgObj.scripts,
         lint: [...new Set(lintScriptItems)].sort().join(' && '),
       };
+      pkgObj.scripts = Object.keys(pkgObj.scripts)
+        .sort()
+        .reduce(
+          (acc, cur) => ({
+            ...acc,
+            [cur]: pkgObj.scripts[cur],
+          }),
+          {},
+        );
       fs.writeFileSync(
         path.resolve(directory, 'package.json'),
         `${JSON.stringify(pkgObj, null, indent)}\n`,
