@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.9.0-0
+npm i -D @modyqyw/fabric@~2.9.0-1
 
 # globally
-npm i -g @modyqyw/fabric@~2.9.0-0
+npm i -g @modyqyw/fabric@~2.9.0-1
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
