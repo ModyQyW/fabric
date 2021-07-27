@@ -220,6 +220,8 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
 
 When using \`vue-cli-service\`, \`eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore\` can be replaced with \`vue-cli-service lint --fix\`.
 
+You should declare \`paths\` in \`jsconfig.json\` or \`tsconfig.json\` if you are using path aliases.
+
 ### Stylelint
 
 Learn about [Stylelint](https://stylelint.io/).
