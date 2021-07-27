@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.8.1
+npm i -D @modyqyw/fabric@~2.9.0-0
 
 # globally
-npm i -g @modyqyw/fabric@~2.8.1
+npm i -g @modyqyw/fabric@~2.9.0-0
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -159,7 +159,7 @@ npm i -D eslint@~7.31.0 @babel/core@~7.14.8 @babel/eslint-parser@~7.14.7
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.4 @typescript-eslint/parser@~4.28.4
+npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.5 @typescript-eslint/parser@~4.28.5
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -330,7 +330,7 @@ Set up `${PROJECT_DIR}/package.json`.
 Learn about [LsLint](https://ls-lint.org/).
 
 ```sh
-npm i -D @ls-lint/ls-lint@~1.9.2
+npm i -D @ls-lint/ls-lint@~1.10.0
 ```
 
 Set up `${PROJECT_DIR}/.ls-lint.yml`.
