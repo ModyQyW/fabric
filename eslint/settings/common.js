@@ -11,9 +11,18 @@ let settings = {
       : fs.existsSync(path.resolve('node_modules', '@nuxt', 'webpack'))
       ? { config: require.resolve('@nuxt/webpack/dist/webpack.js') }
       : {},
-    typescript: {},
   },
 };
+
+if (fs.existsSync(path.resolve('tsconfig.json'))) {
+  settings['import/resolver'].typescript = {};
+}
+
+if (fs.existsSync(path.resolve('jsconfig.json'))) {
+  settings['import/resolver'].typescript = {
+    project: './jsconfig.json',
+  };
+}
 
 // rax
 if (fs.existsSync(path.resolve('node_modules', 'rax'))) {
