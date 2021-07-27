@@ -14,10 +14,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.9.0-1
+npm i -D @modyqyw/fabric@~2.9.0-2
 
 # globally
-npm i -g @modyqyw/fabric@~2.9.0-1
+npm i -g @modyqyw/fabric@~2.9.0-2
 ```
 
 Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
@@ -205,6 +205,8 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 ```
 
 When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore` can be replaced with `vue-cli-service lint --fix`.
+
+You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are using path aliases.
 
 ### Stylelint
 
