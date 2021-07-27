@@ -6,9 +6,9 @@ let settings = {
   'import/resolver': {
     node: {},
     // eslint-disable-next-line no-nested-ternary
-    webpack: path.resolve('node_modules', '@vue', 'cli-service')
+    webpack: fs.existsSync(path.resolve('node_modules', '@vue', 'cli-service'))
       ? { config: require.resolve('@vue/cli-service/webpack.config.js') }
-      : path.resolve('node_modules', '@nuxt', 'webpack')
+      : fs.existsSync(path.resolve('node_modules', '@nuxt', 'webpack'))
       ? { config: require.resolve('@nuxt/webpack/dist/webpack.js') }
       : {},
     typescript: {},
