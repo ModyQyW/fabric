@@ -37,8 +37,6 @@ const prettierrc = fs.readFileSync(getFilePath('.prettierrc.js'));
 const eslintrc = fs.readFileSync(getFilePath('.eslintrc.js'));
 const stylelintrc = fs.readFileSync(getFilePath('.stylelintrc.js'));
 const markdownlint = fs.readFileSync(getFilePath('.markdownlint.json'));
-const lintmdrc = fs.readFileSync(getFilePath('.lintmdrc'));
-const lsLint = fs.readFileSync(getFilePath('.ls-lint.yml'));
 const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
 const readme = `# ${packageObject.name}
@@ -278,62 +276,6 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
 
 \`\`\`
 
-### LintMD
-
-Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at Chinese markdown files.
-
-\`\`\`sh
-npm i -D @lint-md/cli@${packageObject.devDependencies['@lint-md/cli']}
-\`\`\`
-
-Set up \`\${PROJECT_DIR}/.lintmdrc\`.
-
-\`\`\`sh
-${lintmdrc}
-\`\`\`
-
-Set up \`\${PROJECT_DIR}/package.json\`.
-
-\`\`\`json
-{
-  ...,
-  "scripts": {
-    ...,
-    "lint": "npm run lint:markdown",
-    "lint:markdown": "lint-md . --fix"
-  }
-}
-
-\`\`\`
-
-### LsLint
-
-Learn about [LsLint](https://ls-lint.org/).
-
-\`\`\`sh
-npm i -D @ls-lint/ls-lint@${packageObject.devDependencies['@ls-lint/ls-lint']}
-\`\`\`
-
-Set up \`\${PROJECT_DIR}/.ls-lint.yml\`.
-
-\`\`\`yml
-${lsLint}
-\`\`\`
-
-Set up \`\${PROJECT_DIR}/package.json\`.
-
-\`\`\`json
-{
-  ...,
-  "scripts": {
-    ...,
-    "lint": "npm run lint:ls",
-    "lint:ls": "ls-lint ."
-  }
-}
-
-\`\`\`
-
 ### Commitlint
 
 Learn about [Commitlint](https://commitlint.js.org/).
@@ -390,7 +332,7 @@ module.exports = {
   '*.json': 'prettier --write',
   '*.{css,less,sass,scss,vue}': 'stylelint --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
-  '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
+  '*.{md,markdown}': 'markdownlint --fix',
 };
 
 \`\`\`
@@ -439,7 +381,7 @@ Set up \`\${PROJECT_DIR}/.husky/pre-commit\` hook.
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no-install ls-lint . && npx --no-install lint-staged
+npx --no-install lint-staged
 
 \`\`\`
 
@@ -463,7 +405,7 @@ Set up \`\${PROJECT_DIR}/package.json\`.
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "ls-lint . && lint-staged"
+      "pre-commit": "lint-staged"
     }
   }
 }
