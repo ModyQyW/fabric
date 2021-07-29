@@ -159,7 +159,7 @@ npm i -D eslint@~7.31.0 @babel/core@~7.14.8 @babel/eslint-parser@~7.14.7
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.4 @typescript-eslint/parser@~4.28.4
+npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.5 @typescript-eslint/parser@~4.28.5
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -205,6 +205,8 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 ```
 
 When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore` can be replaced with `vue-cli-service lint --fix`.
+
+You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are using path aliases.
 
 ### Stylelint
 
@@ -285,175 +287,6 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 
 ```
 
-### LintMD
-
-Learn about [LintMD](https://github.com/lint-md/lint-md#readme), which aims at Chinese markdown files.
-
-```sh
-npm i -D @lint-md/cli@~0.1.5
-```
-
-Set up `${PROJECT_DIR}/.lintmdrc`.
-
-```sh
-{
-  "excludeFiles": [],
-  "rules": {
-    "no-long-code": [
-      "error",
-      {
-        "length": 80,
-        "exclude": ["css", "less", "sass", "scss"]
-      }
-    ]
-  }
-}
-
-```
-
-Set up `${PROJECT_DIR}/package.json`.
-
-```json
-{
-  ...,
-  "scripts": {
-    ...,
-    "lint": "npm run lint:markdown",
-    "lint:markdown": "lint-md . --fix"
-  }
-}
-
-```
-
-### LsLint
-
-Learn about [LsLint](https://ls-lint.org/).
-
-```sh
-npm i -D @ls-lint/ls-lint@~1.9.2
-```
-
-Set up `${PROJECT_DIR}/.ls-lint.yml`.
-
-```yml
-ls:
-  .config.json: camelCase | PascalCase | kebab-case
-  .project.json: camelCase | PascalCase | kebab-case
-  .js: camelCase | PascalCase | kebab-case
-  .jsx: camelCase | PascalCase | kebab-case
-  .d.ts: camelCase | PascalCase | kebab-case
-  .ts: camelCase | PascalCase | kebab-case
-  .tsx: camelCase | PascalCase | kebab-case
-  .vue: camelCase | PascalCase | kebab-case
-  .config.js: camelCase | PascalCase | kebab-case
-  .config.dev.js: camelCase | PascalCase | kebab-case
-  .config.development.js: camelCase | PascalCase | kebab-case
-  .config.staging.js: camelCase | PascalCase | kebab-case
-  .config.prod.js: camelCase | PascalCase | kebab-case
-  .config.production.js: camelCase | PascalCase | kebab-case
-  .config.ts: camelCase | PascalCase | kebab-case
-  .config.dev.ts: camelCase | PascalCase | kebab-case
-  .config.development.ts: camelCase | PascalCase | kebab-case
-  .config.staging.ts: camelCase | PascalCase | kebab-case
-  .config.prod.ts: camelCase | PascalCase | kebab-case
-  .config.production.ts: camelCase | PascalCase | kebab-case
-  .test.js: camelCase | PascalCase | kebab-case
-  .test.ts: camelCase | PascalCase | kebab-case
-  .spec.js: camelCase | PascalCase | kebab-case
-  .spec.ts: camelCase | PascalCase | kebab-case
-  .css: camelCase | PascalCase | kebab-case
-  .less: camelCase | PascalCase | kebab-case
-  .sass: camelCase | PascalCase | kebab-case
-  .scss: camelCase | PascalCase | kebab-case
-  .module.css: camelCase | PascalCase | kebab-case
-  .module.less: camelCase | PascalCase | kebab-case
-  .module.sass: camelCase | PascalCase | kebab-case
-  .module.scss: camelCase | PascalCase | kebab-case
-
-ignore:
-  - logs
-  - report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-  - pids
-  - lib-cov
-  - coverage
-  - .nyc_output
-  - .grunt
-  - bower_components
-  - .lock-wscript
-  - buildRelease
-  - node_modules
-  - jspm_packages
-  - web_modules
-  - .npm
-  - .eslintcache
-  - .rpt2_cache
-  - .rts2_cache_cjs
-  - .rts2_cache_es
-  - .rts2_cache_umd
-  - .node_repl_history
-  - .yarn-integrity
-  - .env
-  - .env.test
-  - .env.*.test
-  - .env.local
-  - .env.*.local
-  - .cache
-  - .parcel-cache
-  - dist_electron
-  - .next
-  - out
-  - .umi
-  - .umi-production
-  - .umi-test
-  - .nuxt
-  - dist
-  - .rax
-  - .cache
-  - .vuepressdist
-  - .serverless
-  - .fusebox
-  - .dynamodb
-  - .tern-port
-  - .vscode-test
-  - .vscode
-  - .idea
-  - .hbuilder
-  - .hbuilderx
-  - .yarncache
-  - .yarnunplugged
-  - .yarnbuild-state.yml
-  - .yarninstall-state.gz
-  - .pnp.*
-  - .DS_Store
-  - .commitlintrc.js
-  - .commitlintrc.json
-  - .eslintrc.js
-  - .eslintrc.json
-  - .lintstagedrc.js
-  - .lintstagedrc.json
-  - .markdownlintrc.js
-  - .markdownlint.json
-  - .prettierrc.js
-  - .prettierrc.json
-  - .stylelintrc.js
-  - .stylelintrc.json
-
-```
-
-Set up `${PROJECT_DIR}/package.json`.
-
-```json
-{
-  ...,
-  "scripts": {
-    ...,
-    "lint": "npm run lint:ls",
-    "lint:ls": "ls-lint ."
-  }
-}
-
-```
-
 ### Commitlint
 
 Learn about [Commitlint](https://commitlint.js.org/).
@@ -515,7 +348,7 @@ module.exports = {
   '*.json': 'prettier --write',
   '*.{css,less,sass,scss,vue}': 'stylelint --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
-  '*.{md,markdown}': 'markdownlint --fix && lint-md --fix',
+  '*.{md,markdown}': 'markdownlint --fix',
 };
 
 ```
@@ -562,7 +395,7 @@ Set up `${PROJECT_DIR}/.husky/pre-commit` hook.
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no-install ls-lint . && npx --no-install lint-staged
+npx --no-install lint-staged
 
 ```
 
@@ -586,7 +419,7 @@ Set up `${PROJECT_DIR}/package.json`.
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "ls-lint . && lint-staged"
+      "pre-commit": "lint-staged"
     }
   }
 }

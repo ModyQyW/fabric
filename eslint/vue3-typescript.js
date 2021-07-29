@@ -2,7 +2,7 @@ const commonEnv = require('./env/common');
 const commonGlobals = require('./globals/common');
 const commonTypescriptRules = require('./rules/common-typescript');
 const vue3TypescriptRules = require('./rules/vue3-typescript');
-const vue3TypescriptSettings = require('./settings/vue3-typescript');
+const commonSettings = require('./settings/common');
 
 module.exports = {
   root: true,
@@ -45,6 +45,6 @@ module.exports = {
     },
   ],
   settings: {
-    ...vue3TypescriptSettings,
+    ...commonSettings,
   },
 };

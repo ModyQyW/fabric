@@ -119,8 +119,6 @@ program
             { name: 'Prettier & ESLint', value: 'prettier-eslint' },
             { name: 'Stylelint', value: 'stylelint' },
             { name: 'Markdownlint', value: 'markdownlint' },
-            { name: 'LintMD', value: 'lint-md' },
-            { name: 'LsLint (not support arm)', value: 'ls-lint' },
             { name: 'Commitlint', value: 'commitlint' },
             { name: 'Commitizen', value: 'commitizen' },
             { name: 'LintStaged', value: 'lint-staged' },
@@ -298,45 +296,6 @@ program
           path.resolve(directory, '.markdownlint.json'),
         );
       }
-      // set lint-md
-      if (config.includes('lint-md')) {
-        pkgObj.devDependencies = {
-          ...pkgObj.devDependencies,
-          '@lint-md/cli': pkg.devDependencies['@lint-md/cli'],
-        };
-        pkgObj.scripts = config.includes('markdownlint')
-          ? {
-              ...pkgObj.scripts,
-              'lint:markdown':
-                'markdownlint . --fix --ignore-path=.gitignore && lint-md . --fix',
-            }
-          : {
-              ...pkgObj.scripts,
-              'lint:markdown': 'lint-md . --fix',
-            };
-        lintScriptItems.push(`${pkgManager} run lint:markdown`);
-        delete pkgObj.devDependencies['lint-md-cli'];
-        fs.copyFileSync(
-          getCliFilePath('.lintmdrc'),
-          path.resolve(directory, '.lintmdrc'),
-        );
-      }
-      // set ls-lint
-      if (config.includes('ls-lint')) {
-        pkgObj.devDependencies = {
-          ...pkgObj.devDependencies,
-          '@ls-lint/ls-lint': pkg.devDependencies['@ls-lint/ls-lint'],
-        };
-        pkgObj.scripts = {
-          ...pkgObj.scripts,
-          'lint:ls': 'ls-lint .',
-        };
-        lintScriptItems.push(`${pkgManager} run lint:ls`);
-        fs.copyFileSync(
-          getCliFilePath(`.ls-lint.yml`),
-          path.resolve(directory, '.ls-lint.yml'),
-        );
-      }
       // set commitlint
       if (config.includes('commitlint')) {
         pkgObj.devDependencies = {
@@ -385,13 +344,8 @@ program
           path.resolve(directory, '.lintstagedrc.cjs'),
         );
         const lintStagedObject = {};
-        if (config.includes('markdownlint') && config.includes('lint-md')) {
-          lintStagedObject['*.{md,markdown}'] =
-            'markdownlint --fix && lint-md --fix';
-        } else if (config.includes('markdownlint')) {
+        if (config.includes('markdownlint')) {
           lintStagedObject['*.{md,markdown}'] = 'markdownlint --fix';
-        } else if (config.includes('lint-md')) {
-          lintStagedObject['*.{md,markdown}'] = 'lint-md --fix';
         }
         if (config.includes('prettier-eslint')) {
           lintStagedObject['*.json'] = 'prettier --write';
@@ -437,17 +391,7 @@ program
             `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install commitlint --edit $1\n`,
           );
         }
-        if (config.includes('ls-lint') && config.includes('lint-staged')) {
-          fs.writeFileSync(
-            path.resolve(directory, '.husky', 'pre-commit'),
-            `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install ls-lint . && npx --no-install lint-staged\n`,
-          );
-        } else if (config.includes('ls-lint')) {
-          fs.writeFileSync(
-            path.resolve(directory, '.husky', 'pre-commit'),
-            `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install ls-lint .\n`,
-          );
-        } else if (config.includes('lint-staged')) {
+        if (config.includes('lint-staged')) {
           fs.writeFileSync(
             path.resolve(directory, '.husky', 'pre-commit'),
             `#!/bin/sh\n. "$(dirname "$0")/_/husky.sh"\n\nnpx --no-install lint-staged\n`,
@@ -458,14 +402,26 @@ program
       // write package.json
       pkgObj.devDependencies = Object.keys(pkgObj.devDependencies)
         .sort()
-        .reduce((acc, cur) => {
-          acc[cur] = pkgObj.devDependencies[cur];
-          return acc;
-        }, {});
+        .reduce(
+          (acc, cur) => ({
+            ...acc,
+            [cur]: pkgObj.devDependencies[cur],
+          }),
+          {},
+        );
       pkgObj.scripts = {
         ...pkgObj.scripts,
         lint: [...new Set(lintScriptItems)].sort().join(' && '),
       };
+      pkgObj.scripts = Object.keys(pkgObj.scripts)
+        .sort()
+        .reduce(
+          (acc, cur) => ({
+            ...acc,
+            [cur]: pkgObj.scripts[cur],
+          }),
+          {},
+        );
       fs.writeFileSync(
         path.resolve(directory, 'package.json'),
         `${JSON.stringify(pkgObj, null, indent)}\n`,

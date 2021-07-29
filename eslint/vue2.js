@@ -2,7 +2,7 @@ const commonEnv = require('./env/common');
 const commonGlobals = require('./globals/common');
 const commonRules = require('./rules/common');
 const vue2Rules = require('./rules/vue2');
-const vue2Settings = require('./settings/vue2');
+const commonSettings = require('./settings/common');
 
 module.exports = {
   root: true,
@@ -30,6 +30,6 @@ module.exports = {
     ...vue2Rules,
   },
   settings: {
-    ...vue2Settings,
+    ...commonSettings,
   },
 };

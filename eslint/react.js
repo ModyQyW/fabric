@@ -4,7 +4,7 @@ const commonRules = require('./rules/common');
 const commonTypescriptRules = require('./rules/common-typescript');
 const reactRules = require('./rules/react');
 const reactTypescriptRules = require('./rules/react-typescript');
-const reactSettings = require('./settings/react');
+const commonSettings = require('./settings/common');
 
 module.exports = {
   root: true,
@@ -49,6 +49,6 @@ module.exports = {
     },
   ],
   settings: {
-    ...reactSettings,
+    ...commonSettings,
   },
 };
