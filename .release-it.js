@@ -4,6 +4,6 @@ module.exports = {
   },
   hooks: {
     'before:init': 'yarn install && yarn run lint',
-    'after:bump': 'node generate-readme.js',
+    'after:bump': 'node generate-readme.js && yarn build',
   },
 };
