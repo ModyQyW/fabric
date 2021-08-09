@@ -1,15 +1,10 @@
-// for css
-const config = require('@modyqyw/fabric/stylelint/css');
-
-// for less
-// const config = require('@modyqyw/fabric/stylelint/less');
-
-// for sass
-// const config = require('@modyqyw/fabric/stylelint/sass');
-
-// for scss
-// const config = require('@modyqyw/fabric/stylelint/scss');
+const { stylelint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  // css
+  ...stylelint.css,
+  // less
+  // ...stylelint.less,
+  // scss
+  // ...stylelint.scss,
 };

@@ -1,22 +1,16 @@
-// for js and ts
-const config = require('@modyqyw/fabric/eslint/native');
-
-// for react17
-// with js or ts
-// const config = require('@modyqyw/fabric/eslint/react');
-
-// for vue2 with js
-// const config = require('@modyqyw/fabric/eslint/vue2');
-
-// for vue2 with ts
-// const config = require('@modyqyw/fabric/eslint/vue2-typescript');
-
-// for vue3 with js
-// const config = require('@modyqyw/fabric/eslint/vue3');
-
-// for vue3 with ts
-// const config = require('@modyqyw/fabric/eslint/vue3-typescript');
+const { eslint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  // vanilla
+  ...eslint.vanilla,
+  // react17
+  // ...eslint.react,
+  // vue2 typescript
+  // ...eslint.vue2Typescript,
+  // vue2
+  // ...eslint.vue2,
+  // vue3 typescript
+  // ...eslint.vue3Typescript,
+  // vue3
+  // ...eslint.vue3,
 };

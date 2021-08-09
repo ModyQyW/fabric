@@ -1,5 +1,5 @@
 const { eslint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...eslint.vue2,
+  ...eslint.vanilla,
 };

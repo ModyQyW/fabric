@@ -1,5 +1,5 @@
-const config = require('@modyqyw/fabric/prettier');
+const { prettier } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  ...prettier,
 };

@@ -1,5 +1,5 @@
-const config = require('@modyqyw/fabric/stylelint/css');
+const { stylelint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  ...stylelint.css,
 };

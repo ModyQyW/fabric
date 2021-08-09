@@ -1,5 +1,5 @@
-const config = require('@modyqyw/fabric/eslint/react');
+const { eslint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  ...eslint.react,
 };

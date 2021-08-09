@@ -1,5 +1,5 @@
-const config = require('@modyqyw/fabric/eslint/vue3-typescript');
+const { eslint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  ...eslint.vue3Typescript,
 };
