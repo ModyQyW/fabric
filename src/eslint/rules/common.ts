@@ -77,6 +77,7 @@ export default {
   'unicorn/numeric-separators-style': 'off',
   'unicorn/prefer-module': 'off',
   'unicorn/prefer-node-protocol': 'off',
+  'unicorn/prefer-object-from-entries': 'off',
   'unicorn/prevent-abbreviations': [
     'warn',
     {
