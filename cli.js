@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 const fs = require('fs');
 const path = require('path');
 const { Command } = require('commander');
@@ -9,22 +10,10 @@ const pkg = require('./package.json');
 
 const program = new Command();
 
-let pkgManager = 'npm';
-if (fs.existsSync('pnpm-lock.yaml')) {
-  pkgManager = 'pnpm';
-  if (!shell.which('pnpm')) {
-    shell.exec('npm i -g pnpm');
-  }
-} else if (fs.existsSync('yarn.lock')) {
-  pkgManager = 'yarn';
-  if (!shell.which('yarn')) {
-    shell.exec('npm i -g yarn');
-  }
-} else if (fs.existsSync('package-lock.json')) {
-  pkgManager = 'npm';
-} else if (shell.which('yarn')) {
-  pkgManager = 'yarn';
-}
+const indent = '  ';
+
+const getCliDependencyVersion = (dependency) =>
+  pkg.dependencies[dependency] || pkg.devDependencies[dependency] || 'latest';
 
 const getCliFilePath = (filename) => {
   const shortFilename = filename.slice(
@@ -55,48 +44,85 @@ const getCliFilePath = (filename) => {
   return filenamePath;
 };
 
+// Log hint
 console.log(
   chalk.cyan(
     `\nmodyqyw-fabric v${pkg.version} is running in ${process.cwd()} now.\n`,
   ),
 );
 
+// Verify node version
+const [nodeMajorVersion] = process.versions.node
+  .split('.')
+  .map((item) => Number.parseInt(item, 10));
+if (
+  nodeMajorVersion < 12 ||
+  nodeMajorVersion % 2 !== 0 ||
+  Number.isNaN(nodeMajorVersion)
+) {
+  console.log('');
+  console.log(chalk.red('You are using a unsupported old node.js version.'));
+  console.log(chalk.red('Please upgrade your node.js version to LTS.'));
+  console.log(chalk.red('See https://nodejs.org.'));
+  console.log(chalk.red('You may need n, nvm or nvs.'));
+  console.log('');
+  shell.exit(1);
+}
+
+// Confirm package manager
+let pkgManager = 'npm';
+if (fs.existsSync('pnpm-lock.yaml')) {
+  pkgManager = 'pnpm';
+  if (!shell.which('pnpm')) {
+    shell.exec('npm i -g pnpm');
+  }
+} else if (fs.existsSync('yarn.lock')) {
+  pkgManager = 'yarn';
+  if (!shell.which('yarn')) {
+    shell.exec('npm i -g yarn');
+  }
+} else if (fs.existsSync('package-lock.json')) {
+  pkgManager = 'npm';
+} else if (shell.which('yarn')) {
+  pkgManager = 'yarn';
+}
+
+// Version
+program.version(pkg.version, '-v, --version');
+
+// Command config
 program
-  .version(pkg.version, '-v, --version')
   .command('config [directory]')
   .description('Config different packages for formatting and linting.')
   .action(async (directory = '.') => {
     try {
-      // read
+      // If the project has no package.json, init one
       if (!fs.existsSync(path.resolve(directory, 'package.json'))) {
         shell.exec('npm init -y');
       }
-      const pkgJson = fs.readFileSync(path.resolve(directory, 'package.json'), {
-        encoding: 'utf8',
-      });
-      const indent = '  ';
-      const pkgObj = JSON.parse(pkgJson);
-      const lintScriptItems = [];
-      // TODO: better default value
-      // choose
-      const { framework, typescript, css, config } = await inquirer.prompt([
+      // Lint items
+      const lintItems = [];
+      // Read project package.json
+      const pkgObj = JSON.parse(
+        fs.readFileSync(path.resolve(directory, 'package.json'), {
+          encoding: 'utf8',
+        }),
+      );
+      // Ask for information
+      const { framework, css, config } = await inquirer.prompt([
         {
           type: 'list',
           name: 'framework',
           message: 'Select framework',
-          default: 'native',
+          default: 'vanilla',
           choices: [
-            { name: 'Native', value: 'native' },
+            { name: 'Vanilla', value: 'vanilla' },
             { name: 'Vue 2', value: 'vue2' },
+            { name: 'Vue 2 with TypeScript', value: 'vue2-typescript' },
             { name: 'Vue 3', value: 'vue3' },
+            { name: 'Vue 3 With TypeScript', value: 'vue3-typescript' },
             { name: 'React 17', value: 'react' },
           ],
-        },
-        {
-          type: 'confirm',
-          name: 'typescript',
-          message: 'TypeScript?',
-          default: 'y',
         },
         {
           type: 'checkbox',
@@ -134,27 +160,26 @@ program
           choices: [
             { name: 'CSS', value: 'css' },
             { name: 'LESS', value: 'less' },
-            { name: 'SCSS', value: 'scss' },
+            { name: 'SCSS / SASS', value: 'scss' },
           ],
         },
       ]);
-      // set @modyqyw/fabric
+      // Set @modyqyw/fabric
       pkgObj.devDependencies = {
         ...pkgObj.devDependencies,
         '@modyqyw/fabric': `~${pkg.version}`,
       };
-      // set git
+      // Set git
       if (config.includes('git')) {
         if (!shell.which('git')) {
-          shell.echo(
-            'Git is required in your system. Please install Git first.',
-          );
-        } else {
-          shell.exec('git config --global core.autocrlf false');
-          shell.exec('git config --global init.defaultBranch main');
-          if (!fs.existsSync(path.resolve(directory, '.git'))) {
-            shell.exec('git init');
-          }
+          console.log('');
+          console.log(chalk.red('Please install Git in your system first.'));
+          shell.exit(1);
+        }
+        shell.exec('git config --global core.autocrlf false');
+        shell.exec('git config --global init.defaultBranch main');
+        if (!fs.existsSync(path.resolve(directory, '.git'))) {
+          shell.exec('git init');
         }
         fs.copyFileSync(
           getCliFilePath('.gitattributes'),
@@ -165,40 +190,41 @@ program
           path.resolve(directory, '.gitignore'),
         );
       }
-      // set editorconfig
+      // Set editorconfig
       if (config.includes('editorconfig')) {
         fs.copyFileSync(
           getCliFilePath('.editorconfig'),
           path.resolve(directory, '.editorconfig'),
         );
       }
-      // set prettier and eslint
+      // Set prettier and eslint
       if (config.includes('prettier-eslint')) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          '@babel/core': pkg.dependencies['@babel/core'],
-          '@babel/eslint-parser': pkg.dependencies['@babel/eslint-parser'],
-          eslint: pkg.devDependencies.eslint,
-          prettier: pkg.devDependencies.prettier,
+          '@babel/core': getCliDependencyVersion('@babel/core'),
+          '@babel/eslint-parser': getCliDependencyVersion(
+            '@babel/eslint-parser',
+          ),
+          eslint: getCliDependencyVersion('eslint'),
+          prettier: getCliDependencyVersion('prettier'),
+          '@typescript-eslint/eslint-plugin': getCliDependencyVersion(
+            '@typescript-eslint/eslint-plugin',
+          ),
+          '@typescript-eslint/parser': getCliDependencyVersion(
+            '@typescript-eslint/parser',
+          ),
+          typescript: getCliDependencyVersion('typescript'),
         };
-        if (typescript) {
-          pkgObj.devDependencies = {
-            ...pkgObj.devDependencies,
-            '@typescript-eslint/eslint-plugin':
-              pkg.dependencies['@typescript-eslint/eslint-plugin'],
-            '@typescript-eslint/parser':
-              pkg.dependencies['@typescript-eslint/parser'],
-            typescript: pkg.dependencies.typescript,
-          };
-        }
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:json': 'prettier ./**/*.json --write --ignore-path=.gitignore',
-          'lint:script': pkgObj.devDependencies['@vue/cli-service']
-            ? 'vue-cli-service lint --fix'
-            : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
+          'lint:script':
+            pkgObj.dependencies['@vue/cli-service'] ||
+            pkgObj.devDependencies['@vue/cli-service']
+              ? 'vue-cli-service lint --fix'
+              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
         };
-        lintScriptItems.push(
+        lintItems.push(
           `${pkgManager} run lint:json`,
           `${pkgManager} run lint:script`,
         );
@@ -228,35 +254,23 @@ program
           getCliFilePath('.prettierrc.js'),
           path.resolve(directory, '.prettierrc.js'),
         );
-        let extend = '';
-        switch (framework) {
-          case 'vue2':
-            extend = typescript ? 'vue2-typescript' : 'vue2';
-            break;
-          case 'vue3':
-            extend = typescript ? 'vue3-typescript' : 'vue3';
-            break;
-          default:
-            extend = framework;
-            break;
-        }
         fs.copyFileSync(
-          getCliFilePath(`.eslintrc-${extend}.js`),
+          getCliFilePath(`.eslintrc-${framework}.js`),
           path.resolve(directory, '.eslintrc.js'),
         );
       }
-      // set stylelint
+      // Set stylelint
       if (config.includes('stylelint')) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          stylelint: pkg.devDependencies.stylelint,
+          stylelint: getCliDependencyVersion('stylelint'),
         };
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:style':
-            'stylelint ./**/*.{css,less,sass,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore',
+            'stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore',
         };
-        lintScriptItems.push(`${pkgManager} run lint:style`);
+        lintItems.push(`${pkgManager} run lint:style`);
         delete pkgObj.stylelint;
         shell.rm(
           '-rf',
@@ -273,17 +287,17 @@ program
           path.resolve(directory, '.stylelintrc.js'),
         );
       }
-      // set markdownlint
+      // Set markdownlint
       if (config.includes('markdownlint')) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          'markdownlint-cli': pkg.devDependencies['markdownlint-cli'],
+          'markdownlint-cli': getCliDependencyVersion('markdownlint-cli'),
         };
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:markdown': 'markdownlint . --fix --ignore-path=.gitignore',
         };
-        lintScriptItems.push(`${pkgManager} run lint:markdown`);
+        lintItems.push(`${pkgManager} run lint:markdown`);
         shell.rm(
           '-rf',
           path.resolve(directory, '.markdownlint.yaml'),
@@ -296,11 +310,11 @@ program
           path.resolve(directory, '.markdownlint.json'),
         );
       }
-      // set commitlint
+      // Set commitlint
       if (config.includes('commitlint')) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          '@commitlint/cli': pkg.devDependencies['@commitlint/cli'],
+          '@commitlint/cli': getCliDependencyVersion('@commitlint/cli'),
         };
         delete pkgObj.commitlint;
         shell.rm(
@@ -314,7 +328,7 @@ program
           path.resolve(directory, '.commitlintrc.js'),
         );
       }
-      // set commitizen
+      // Set commitizen
       if (config.includes('commitizen')) {
         pkgObj.scripts = {
           ...pkgObj.scripts,
@@ -327,11 +341,11 @@ program
           },
         };
       }
-      // set lint-staged
+      // Set lint-staged
       if (config.includes('lint-staged')) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          'lint-staged': pkg.devDependencies['lint-staged'],
+          'lint-staged': getCliDependencyVersion('lint-staged'),
         };
         delete pkgObj['lint-staged'];
         shell.rm(
@@ -349,14 +363,14 @@ program
         }
         if (config.includes('prettier-eslint')) {
           lintStagedObject['*.json'] = 'prettier --write';
-          lintStagedObject['*.{js,jsx,ts,tsx,vue}'] = pkgObj.devDependencies[
-            '@vue/cli-service'
-          ]
-            ? 'vue-cli-service lint --fix'
-            : 'eslint --fix';
+          lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
+            pkgObj.dependencies['@vue/cli-service'] ||
+            pkgObj.devDependencies['@vue/cli-service']
+              ? 'vue-cli-service lint --fix'
+              : 'eslint --fix';
         }
         if (config.includes('stylelint')) {
-          lintStagedObject['*.{css,less,sass,scss,vue}'] = 'stylelint --fix';
+          lintStagedObject['*.{css,less,scss,vue}'] = 'stylelint --fix';
         }
         const lintStagedArray = Object.keys(lintStagedObject)
           .sort()
@@ -369,7 +383,7 @@ program
           `module.exports = {\n${lintStagedArray.join('')}};\n`,
         );
       }
-      // set husky
+      // Set husky
       if (config.includes('husky')) {
         pkgObj.scripts = {
           ...pkgObj.scripts,
@@ -379,8 +393,8 @@ program
         delete pkgObj.gitHooks;
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          husky: pkg.devDependencies.husky,
-          'is-ci': pkg.devDependencies['is-ci'],
+          husky: getCliDependencyVersion('husky'),
+          'is-ci': getCliDependencyVersion('is-ci'),
         };
         if (!fs.existsSync(path.resolve(directory, '.husky'))) {
           shell.mkdir(path.resolve(directory, '.husky'));
@@ -399,34 +413,26 @@ program
         }
         shell.chmod('+x', path.resolve(directory, '.husky', '*'));
       }
-      // write package.json
-      pkgObj.devDependencies = Object.keys(pkgObj.devDependencies)
-        .sort()
-        .reduce(
-          (acc, cur) => ({
-            ...acc,
-            [cur]: pkgObj.devDependencies[cur],
-          }),
-          {},
-        );
+      // Write package.json
+      pkgObj.devDependencies = Object.fromEntries(
+        Object.keys(pkgObj.devDependencies)
+          .sort()
+          .map((cur) => [cur, pkgObj.devDependencies[cur]]),
+      );
       pkgObj.scripts = {
         ...pkgObj.scripts,
-        lint: [...new Set(lintScriptItems)].sort().join(' && '),
+        lint: [...new Set(lintItems)].sort().join(' && '),
       };
-      pkgObj.scripts = Object.keys(pkgObj.scripts)
-        .sort()
-        .reduce(
-          (acc, cur) => ({
-            ...acc,
-            [cur]: pkgObj.scripts[cur],
-          }),
-          {},
-        );
+      pkgObj.scripts = Object.fromEntries(
+        Object.keys(pkgObj.scripts)
+          .sort()
+          .map((cur) => [cur, pkgObj.scripts[cur]]),
+      );
       fs.writeFileSync(
         path.resolve(directory, 'package.json'),
         `${JSON.stringify(pkgObj, null, indent)}\n`,
       );
-      // install dependencies
+      // Install dependencies
       console.log(chalk.cyan('\nInstalling dependencies...\n'));
       shell.cd(path.resolve(directory));
       shell.exec(`${pkgManager} install`);
