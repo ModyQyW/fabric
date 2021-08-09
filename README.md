@@ -2,9 +2,10 @@
 
 Opinionated shareable specification for different JavaScript/TypeScript projects.
 
-Node.js 12+ and npm 6+ are required.
+Requires below.
 
-[Plan](https://github.com/ModyQyW/fabric/issues/2)
+- Node: ^12.17 || ^14 || ^16
+- npm: ^6.14 || ^7
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -14,27 +15,15 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~2.9.0
+npm i -D @modyqyw/fabric@~3.0.0-1
 
 # globally
-npm i -g @modyqyw/fabric@~2.9.0
+npm i -g @modyqyw/fabric@~3.0.0-1
 ```
 
-Use `@legacy` for legacy version, which supports Node.js 10+ and npm6+.
+### CLI
 
-```sh
-# locally
-npm i -D @modyqyw/fabric@legacy
-
-# globally
-npm i -g @modyqyw/fabric@legacy
-```
-
-### CLI (beta)
-
-**This is still a beta feature and may cause your project to crash. Please use it in your new projects and give feedback. It will get smarter in the foreseeable future.**
-
-CLI is used to config your project easier. Just call it after installing globally.
+CLI is used to config your new projects easier. Just call it after installing globally.
 
 ```sh
 # in current dir
@@ -43,31 +32,22 @@ modyqyw-fabric config
 modyqyw-fabric config ./
 ```
 
-Or, you can use scripts in `${PROJECT_DIR}package.json` if you install locally.
-
-```json
-{
-  ...,
-  "scripts": {
-    ...,
-    "config": "modyqyw-fabric config"
-  }
-}
-
-```
+Or, you can call it after installing locally.
 
 ```sh
-npm run config
+./node_modules/.bin/modyqyw-fabric config
 ```
+
+**CLI will not keep your original configs. Use CLI in old projects on your own risk.**
 
 ### Naming
 
 Naming is very hard and hardly be checked by linters. However, there are still relevant naming suggestions available.
 
-- JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet#readme)
-- CSS/LESS/SASS/SCSS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/)
+- JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+- CSS/LESS/SCSS/SASS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/)
 
-Besides, you can learn naming from some open-source projects, such as [Vuetify](https://vuetifyjs.com/), [MaterialUI](https://material-ui.com/), [Bootstrap](https://getbootstrap.com/), [TailwindCSS](https://tailwindcss.com/) and [Bulma](https://bulma.io/).
+Besides, you can learn naming from some open-source projects.
 
 In my opinion, simplicity and clarity are the highest priority for naming.
 
@@ -126,10 +106,10 @@ npm i -D prettier@~2.3.2
 Set up `${PROJECT_DIR}/.prettierrc.js`.
 
 ```js
-const config = require('@modyqyw/fabric/prettier');
+const { prettier } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  ...prettier,
 };
 
 ```
@@ -153,39 +133,33 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.31.0 @babel/core@~7.14.8 @babel/eslint-parser@~7.14.7
+npm i -D eslint@~7.32.0 @babel/core@~7.15.0 @babel/eslint-parser@~7.15.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.28.5 @typescript-eslint/parser@~4.28.5
+npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.29.0 @typescript-eslint/parser@~4.29.0
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
 
 ```js
-// for js and ts
-const config = require('@modyqyw/fabric/eslint/native');
-
-// for react17
-// with js or ts
-// const config = require('@modyqyw/fabric/eslint/react');
-
-// for vue2 with js
-// const config = require('@modyqyw/fabric/eslint/vue2');
-
-// for vue2 with ts
-// const config = require('@modyqyw/fabric/eslint/vue2-typescript');
-
-// for vue3 with js
-// const config = require('@modyqyw/fabric/eslint/vue3');
-
-// for vue3 with ts
-// const config = require('@modyqyw/fabric/eslint/vue3-typescript');
+const { eslint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  // vanilla
+  ...eslint.vanilla,
+  // react17
+  // ...eslint.react,
+  // vue2 typescript
+  // ...eslint.vue2Typescript,
+  // vue2
+  // ...eslint.vue2,
+  // vue3 typescript
+  // ...eslint.vue3Typescript,
+  // vue3
+  // ...eslint.vue3,
 };
 
 ```
@@ -219,20 +193,15 @@ npm i -D stylelint@~13.13.1
 Set up `${PROJECT_DIR}/.stylelintrc.js`.
 
 ```js
-// for css
-const config = require('@modyqyw/fabric/stylelint/css');
-
-// for less
-// const config = require('@modyqyw/fabric/stylelint/less');
-
-// for sass
-// const config = require('@modyqyw/fabric/stylelint/sass');
-
-// for scss
-// const config = require('@modyqyw/fabric/stylelint/scss');
+const { stylelint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  // css
+  ...stylelint.css,
+  // less
+  // ...stylelint.less,
+  // scss
+  // ...stylelint.scss,
 };
 
 ```
@@ -245,7 +214,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
   "scripts": {
     ...,
     "lint": "npm run lint:style",
-    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix --ignore-path=.gitignore"
+    "lint:style": "stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -253,7 +222,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 
 ### Markdownlint
 
-Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
+Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
 npm i -D markdownlint-cli@~0.28.1
@@ -298,10 +267,10 @@ npm i -D @commitlint/cli@~13.1.0
 Set up `${PROJECT_DIR}/.commitlintrc.js`.
 
 ```js
-const config = require('@modyqyw/fabric/commitlint');
+const { commitlint } = require('@modyqyw/fabric');
 
 module.exports = {
-  ...config,
+  ...commitlint,
 };
 
 ```
@@ -334,10 +303,10 @@ Set up `${PROJECT_DIR}/package.json`.
 
 ### LintStaged
 
-Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
+Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~11.1.1
+npm install -D lint-staged@~11.1.2
 
 ```
 
@@ -346,9 +315,9 @@ Set up `${PROJECT_DIR}/.lintstagedrc.js`.
 ```js
 module.exports = {
   '*.json': 'prettier --write',
-  '*.{css,less,sass,scss,vue}': 'stylelint --fix',
-  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{md,markdown}': 'markdownlint --fix',
+  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
+  '*.{css,less,scss,vue}': 'stylelint --fix',
 };
 
 ```
@@ -357,7 +326,7 @@ When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-servi
 
 ### Husky
 
-Learn about [Husky](https://github.com/typicode/husky#readme).
+Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
 npm install -D is-ci@~3.0.0 husky@~7.0.1
@@ -406,34 +375,14 @@ chmod +x .git/hooks/*
 chmod +x .husky/*
 ```
 
-If you want to use `husky@4`, steps are shown below.
-
-```sh
-npm i -D husky@~4.3.8
-```
-
-Set up `${PROJECT_DIR}/package.json`.
-
-```json
-{
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  }
-}
-
-```
-
 ### Deploy
 
 Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
 
-- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme)
-- [np](https://github.com/sindresorhus/np#readme)
-- [release](https://github.com/vercel/release#readme)
-- [release-it](https://github.com/release-it/release-it#readme)
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [np](https://github.com/sindresorhus/np)
+- [release](https://github.com/vercel/release)
+- [release-it](https://github.com/release-it/release-it)
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 
 ## VSCode
@@ -488,13 +437,33 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 ```
 
+## Migrate
+
+### Migrate 3.x from 2.x
+
+- Support CommonJS and ESM import.
+- Prettier/ESLint/Stylelint/Commitlint config changed.
+
+```js
+const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
+
+...
+
+```
+
+- Use `stylelint.scss` instead of `stylelint.sass`.
+
+### Migrate 2.x from 1.x
+
+Just upgrade your node' and dependencies' versions.
+
 ## Acknowledge
 
 Sorted according to alphabetical order.
 
-- [Airbnb CSS/SASS Style Guide](https://github.com/airbnb/css#readme)
-- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#readme)
-- [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react#readme)
+- [Airbnb CSS/SASS Style Guide](https://github.com/airbnb/css)
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react)
 - [Code Guide](https://codeguide.co/)
 - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
