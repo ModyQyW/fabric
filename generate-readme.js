@@ -30,7 +30,6 @@ const getFilePath = (filename) => {
   return filenamePath;
 };
 
-const packageObject = JSON.parse(fs.readFileSync('./package.json'));
 const gitattributes = fs.readFileSync(getFilePath('.gitattributes'));
 const editorconfig = fs.readFileSync(getFilePath('.editorconfig'));
 const prettierrc = fs.readFileSync(getFilePath('.prettierrc.js'));
@@ -39,18 +38,21 @@ const stylelintrc = fs.readFileSync(getFilePath('.stylelintrc.js'));
 const markdownlint = fs.readFileSync(getFilePath('.markdownlint.json'));
 const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
-const readme = `# ${packageObject.name}
+const pkg = JSON.parse(fs.readFileSync('./package.json'));
+
+const getDependencyVersion = (dependency) =>
+  pkg.dependencies[dependency] || pkg.devDependencies[dependency] || 'latest';
+
+const readme = `# ${pkg.name}
 
 Opinionated shareable specification for different JavaScript/TypeScript projects.
 
-Node.js 12+ and npm 6+ are required.
+Requires below.
 
-[Plan](https://github.com/ModyQyW/fabric/issues/2)
+- Node: ^12.17 || ^14 || ^16
+- npm: ^6.14 || ^7
 
-[Github](${packageObject.homepage}) | [Gitee](${packageObject.homepage.replace(
-  'github',
-  'gitee',
-)})
+[Github](${pkg.homepage}) | [Gitee](${pkg.homepage.replace('github', 'gitee')})
 
 ## Usage
 
@@ -58,27 +60,15 @@ Using \`npm\` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://clas
 
 \`\`\`sh
 # locally
-npm i -D ${packageObject.name}@~${packageObject.version}
+npm i -D ${pkg.name}@~${pkg.version}
 
 # globally
-npm i -g ${packageObject.name}@~${packageObject.version}
+npm i -g ${pkg.name}@~${pkg.version}
 \`\`\`
 
-Use \`@legacy\` for legacy version, which supports Node.js 10+ and npm6+.
+### CLI
 
-\`\`\`sh
-# locally
-npm i -D ${packageObject.name}@legacy
-
-# globally
-npm i -g ${packageObject.name}@legacy
-\`\`\`
-
-### CLI (beta)
-
-**This is still a beta feature and may cause your project to crash. Please use it in your new projects and give feedback. It will get smarter in the foreseeable future.**
-
-CLI is used to config your project easier. Just call it after installing globally.
+CLI is used to config your new projects easier. Just call it after installing globally.
 
 \`\`\`sh
 # in current dir
@@ -87,31 +77,22 @@ modyqyw-fabric config
 modyqyw-fabric config ./
 \`\`\`
 
-Or, you can use scripts in \`\${PROJECT_DIR}package.json\` if you install locally.
-
-\`\`\`json
-{
-  ...,
-  "scripts": {
-    ...,
-    "config": "modyqyw-fabric config"
-  }
-}
-
-\`\`\`
+Or, you can call it after installing locally.
 
 \`\`\`sh
-npm run config
+./node_modules/.bin/modyqyw-fabric config
 \`\`\`
+
+**CLI will not keep your original configs. Use CLI in old projects on your own risk.**
 
 ### Naming
 
 Naming is very hard and hardly be checked by linters. However, there are still relevant naming suggestions available.
 
-- JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet#readme)
-- CSS/LESS/SASS/SCSS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/)
+- JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+- CSS/LESS/SCSS/SASS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/)
 
-Besides, you can learn naming from some open-source projects, such as [Vuetify](https://vuetifyjs.com/), [MaterialUI](https://material-ui.com/), [Bootstrap](https://getbootstrap.com/), [TailwindCSS](https://tailwindcss.com/) and [Bulma](https://bulma.io/).
+Besides, you can learn naming from some open-source projects.
 
 In my opinion, simplicity and clarity are the highest priority for naming.
 
@@ -151,7 +132,7 @@ ${editorconfig}
 Learn about [Prettier](https://prettier.io/).
 
 \`\`\`sh
-npm i -D prettier@${packageObject.devDependencies.prettier}
+npm i -D prettier@${getDependencyVersion('prettier')}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.prettierrc.js\`.
@@ -179,21 +160,23 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
 Learn about [ESLint](https://eslint.org/).
 
 \`\`\`sh
-npm i -D eslint@${packageObject.devDependencies.eslint} @babel/core@${
-  packageObject.dependencies['@babel/core']
-} @babel/eslint-parser@${packageObject.dependencies['@babel/eslint-parser']}
+npm i -D eslint@${getDependencyVersion(
+  'eslint',
+)} @babel/core@${getDependencyVersion(
+  '@babel/core',
+)} @babel/eslint-parser@${getDependencyVersion('@babel/eslint-parser')}
 \`\`\`
 
 If you are using typescript, additional dependencies are needed.
 
 \`\`\`sh
-npm i -D typescript@${
-  packageObject.dependencies.typescript
-} @typescript-eslint/eslint-plugin@${
-  packageObject.dependencies['@typescript-eslint/eslint-plugin']
-} @typescript-eslint/parser@${
-  packageObject.dependencies['@typescript-eslint/parser']
-}
+npm i -D typescript@${getDependencyVersion(
+  'typescript',
+)} @typescript-eslint/eslint-plugin@${getDependencyVersion(
+  '@typescript-eslint/eslint-plugin',
+)} @typescript-eslint/parser@${getDependencyVersion(
+  '@typescript-eslint/parser',
+)}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.eslintrc.js\`.
@@ -225,7 +208,7 @@ You should declare \`paths\` in \`jsconfig.json\` or \`tsconfig.json\` if you ar
 Learn about [Stylelint](https://stylelint.io/).
 
 \`\`\`sh
-npm i -D stylelint@${packageObject.devDependencies.stylelint}
+npm i -D stylelint@${getDependencyVersion('stylelint')}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.stylelintrc.js\`.
@@ -242,7 +225,7 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
   "scripts": {
     ...,
     "lint": "npm run lint:style",
-    "lint:style": "stylelint ./**/*.{css,less,sass,scss,vue} --fix --ignore-path=.gitignore"
+    "lint:style": "stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -250,10 +233,10 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
 
 ### Markdownlint
 
-Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint#readme).
+Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 \`\`\`sh
-npm i -D markdownlint-cli@${packageObject.devDependencies['markdownlint-cli']}
+npm i -D markdownlint-cli@${getDependencyVersion('markdownlint-cli')}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.markdownlint.json\`.
@@ -281,7 +264,7 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
 Learn about [Commitlint](https://commitlint.js.org/).
 
 \`\`\`sh
-npm i -D @commitlint/cli@${packageObject.devDependencies['@commitlint/cli']}
+npm i -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.commitlintrc.js\`.
@@ -295,7 +278,7 @@ ${commitlintrc}
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 \`\`\`sh
-npm i -D commitizen@${packageObject.devDependencies.commitizen}
+npm i -D commitizen@${getDependencyVersion('commitizen')}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/package.json\`.
@@ -318,10 +301,10 @@ Set up \`\${PROJECT_DIR}/package.json\`.
 
 ### LintStaged
 
-Learn about [LintStaged](https://github.com/okonet/lint-staged#readme).
+Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 \`\`\`sh
-npm install -D lint-staged@${packageObject.devDependencies['lint-staged']}
+npm install -D lint-staged@${getDependencyVersion('lint-staged')}
 
 \`\`\`
 
@@ -330,9 +313,9 @@ Set up \`\${PROJECT_DIR}/.lintstagedrc.js\`.
 \`\`\`js
 module.exports = {
   '*.json': 'prettier --write',
-  '*.{css,less,sass,scss,vue}': 'stylelint --fix',
-  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{md,markdown}': 'markdownlint --fix',
+  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
+  '*.{css,less,scss,vue}': 'stylelint --fix',
 };
 
 \`\`\`
@@ -341,12 +324,12 @@ When using \`vue-cli-service\`, \`eslint --fix\` can be replaced with \`vue-cli-
 
 ### Husky
 
-Learn about [Husky](https://github.com/typicode/husky#readme).
+Learn about [Husky](https://github.com/typicode/husky).
 
 \`\`\`sh
-npm install -D is-ci@${packageObject.devDependencies['is-ci']} husky@${
-  packageObject.devDependencies.husky
-}
+npm install -D is-ci@${getDependencyVersion(
+  'is-ci',
+)} husky@${getDependencyVersion('husky')}
 
 npx husky install
 
@@ -392,34 +375,14 @@ chmod +x .git/hooks/*
 chmod +x .husky/*
 \`\`\`
 
-If you want to use \`husky@4\`, steps are shown below.
-
-\`\`\`sh
-npm i -D husky@~4.3.8
-\`\`\`
-
-Set up \`\${PROJECT_DIR}/package.json\`.
-
-\`\`\`json
-{
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
-  }
-}
-
-\`\`\`
-
 ### Deploy
 
 Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
 
-- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog#readme)
-- [np](https://github.com/sindresorhus/np#readme)
-- [release](https://github.com/vercel/release#readme)
-- [release-it](https://github.com/release-it/release-it#readme)
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [np](https://github.com/sindresorhus/np)
+- [release](https://github.com/vercel/release)
+- [release-it](https://github.com/release-it/release-it)
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 
 ## VSCode
@@ -474,13 +437,33 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 \`\`\`
 
+## Migrate
+
+### Migrate 3.x from 2.x
+
+- Support CommonJS and ESM import.
+- Prettier/ESLint/Stylelint/Commitlint config changed.
+
+\`\`\`js
+const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
+
+...
+
+\`\`\`
+
+- Use \`stylelint.scss\` instead of \`stylelint.sass\`.
+
+### Migrate 2.x from 1.x
+
+Just upgrade your node' and dependencies' versions.
+
 ## Acknowledge
 
 Sorted according to alphabetical order.
 
-- [Airbnb CSS/SASS Style Guide](https://github.com/airbnb/css#readme)
-- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#readme)
-- [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react#readme)
+- [Airbnb CSS/SASS Style Guide](https://github.com/airbnb/css)
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react)
 - [Code Guide](https://codeguide.co/)
 - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
