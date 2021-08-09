@@ -55,6 +55,9 @@
   "files": [
     "dist",
     "examples",
+    ".gitattributes",
+    ".gitignore",
+    ".markdownlint.json",
     "cli.js"
   ],
   "types": "./dist/index.d.ts",
