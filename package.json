@@ -55,6 +55,7 @@
   "files": [
     "dist",
     "examples",
+    ".editorconfig",
     ".gitattributes",
     ".gitignore",
     ".markdownlint.json",
