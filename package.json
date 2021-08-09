@@ -77,7 +77,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && rollup -i ./src/index.ts -o ./dist/index.d.ts -f es -p dts",
     "lint": "yarn lint:json && yarn lint:markdown && yarn lint:script",
     "lint:json": "prettier ./**/*.json --write --ignore-path=.gitignore",
     "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore",
@@ -131,6 +131,8 @@
     "markdownlint-cli": "~0.28.1",
     "prettier": "~2.3.2",
     "release-it": "~14.11.0",
+    "rollup": "~2.56.1",
+    "rollup-plugin-dts": "~3.0.2",
     "stylelint": "~13.13.1",
     "vite": "~2.4.4"
   },
