@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.0.0-3
+npm i -D @modyqyw/fabric@~3.0.0-4
 
 # globally
-npm i -g @modyqyw/fabric@~3.0.0-3
+npm i -g @modyqyw/fabric@~3.0.0-4
 ```
 
 ### CLI
@@ -139,7 +139,7 @@ npm i -D eslint@~7.32.0 @babel/core@~7.15.0 @babel/eslint-parser@~7.15.0
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.29.0 @typescript-eslint/parser@~4.29.0
+npm i -D typescript@~4.3.5 @typescript-eslint/eslint-plugin@~4.29.1 @typescript-eslint/parser@~4.29.1
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -441,7 +441,7 @@ Experience has proven that automation is the best option. You may want to try pa
 
 ### Migrate 3.x from 2.x
 
-- Support CommonJS and ESM import.
+- Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
 
 ```js
@@ -451,6 +451,7 @@ const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
 
 ```
 
+- Use `eslint.vanilla` instead of `eslint.native`.
 - Use `stylelint.scss` instead of `stylelint.sass`.
 
 ### Migrate 2.x from 1.x
