@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.0.0-6
+npm i -D @modyqyw/fabric@~3.0.0-7
 
 # globally
-npm i -g @modyqyw/fabric@~3.0.0-6
+npm i -g @modyqyw/fabric@~3.0.0-7
 ```
 
 ### CLI
@@ -130,7 +130,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 
 ### ESLint
 
-Learn about [ESLint](https://eslint.org/).
+Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 ```sh
 npm i -D eslint@~7.32.0 @babel/core@~7.15.0 @babel/eslint-parser@~7.15.0
@@ -184,7 +184,7 @@ You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are usin
 
 ### Stylelint
 
-Learn about [Stylelint](https://stylelint.io/).
+Learn about [Stylelint](https://stylelint.io/). Prettier is required.
 
 ```sh
 npm i -D stylelint@~13.13.1
