@@ -157,7 +157,7 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
 
 ### ESLint
 
-Learn about [ESLint](https://eslint.org/).
+Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 \`\`\`sh
 npm i -D eslint@${getDependencyVersion(
@@ -205,7 +205,7 @@ You should declare \`paths\` in \`jsconfig.json\` or \`tsconfig.json\` if you ar
 
 ### Stylelint
 
-Learn about [Stylelint](https://stylelint.io/).
+Learn about [Stylelint](https://stylelint.io/). Prettier is required.
 
 \`\`\`sh
 npm i -D stylelint@${getDependencyVersion('stylelint')}

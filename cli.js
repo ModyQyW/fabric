@@ -133,7 +133,8 @@ program
           default: [
             'git',
             'editorconfig',
-            'prettier-eslint',
+            'prettier',
+            'eslint',
             'stylelint',
             'markdownlint',
             'commitlint',
@@ -144,8 +145,9 @@ program
           choices: [
             { name: 'Git', value: 'git' },
             { name: 'EditorConfig', value: 'editorconfig' },
-            { name: 'Prettier & ESLint', value: 'prettier-eslint' },
-            { name: 'Stylelint', value: 'stylelint' },
+            { name: 'Prettier', value: 'prettier' },
+            { name: 'ESLint (needs Prettier)', value: 'eslint' },
+            { name: 'Stylelint (needs Prettier)', value: 'stylelint' },
             { name: 'Markdownlint', value: 'markdownlint' },
             { name: 'Commitlint', value: 'commitlint' },
             { name: 'Commitizen', value: 'commitizen' },
@@ -199,40 +201,22 @@ program
           path.resolve(directory, '.editorconfig'),
         );
       }
-      // Set prettier and eslint
-      if (config.includes('prettier-eslint')) {
+      // Set prettier
+      if (
+        config.includes('prettier') ||
+        config.includes('eslint') ||
+        config.includes('stylelint')
+      ) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          '@babel/core': getCliDependencyVersion('@babel/core'),
-          '@babel/eslint-parser': getCliDependencyVersion(
-            '@babel/eslint-parser',
-          ),
-          eslint: getCliDependencyVersion('eslint'),
           prettier: getCliDependencyVersion('prettier'),
-          '@typescript-eslint/eslint-plugin': getCliDependencyVersion(
-            '@typescript-eslint/eslint-plugin',
-          ),
-          '@typescript-eslint/parser': getCliDependencyVersion(
-            '@typescript-eslint/parser',
-          ),
-          typescript: getCliDependencyVersion('typescript'),
         };
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:json': 'prettier ./**/*.json --write --ignore-path=.gitignore',
-          'lint:script':
-            pkgObj.dependencies['@vue/cli-service'] ||
-            pkgObj.devDependencies['@vue/cli-service']
-              ? 'vue-cli-service lint --fix'
-              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
         };
-        lintItems.push(
-          `${pkgManager} run lint:json`,
-          `${pkgManager} run lint:script`,
-        );
+        lintItems.push(`${pkgManager} run lint:json`);
         delete pkgObj.prettier;
-        delete pkgObj.eslintConfig;
-        delete pkgObj.eslintIgnore;
         shell.rm(
           '-rf',
           path.resolve(directory, '.prettierrc'),
@@ -245,16 +229,48 @@ program
           path.resolve(directory, 'prettier.config.cjs'),
           path.resolve(directory, '.prettierrc.toml'),
           path.resolve(directory, '.prettierignore'),
+        );
+        fs.copyFileSync(
+          getCliFilePath('.prettierrc.js'),
+          path.resolve(directory, '.prettierrc.js'),
+        );
+      }
+      // Set eslint
+      if (config.includes('eslint')) {
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
+          '@babel/core': getCliDependencyVersion('@babel/core'),
+          '@babel/eslint-parser': getCliDependencyVersion(
+            '@babel/eslint-parser',
+          ),
+          '@typescript-eslint/eslint-plugin': getCliDependencyVersion(
+            '@typescript-eslint/eslint-plugin',
+          ),
+          '@typescript-eslint/parser': getCliDependencyVersion(
+            '@typescript-eslint/parser',
+          ),
+          eslint: getCliDependencyVersion('eslint'),
+          typescript: getCliDependencyVersion('typescript'),
+        };
+        pkgObj.scripts = {
+          ...pkgObj.scripts,
+          'lint:script':
+            pkgObj.dependencies['@vue/cli-service'] ||
+            pkgObj.devDependencies['@vue/cli-service']
+              ? 'vue-cli-service lint --fix'
+              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
+        };
+        lintItems.push(`${pkgManager} run lint:script`);
+        delete pkgObj.eslintConfig;
+        delete pkgObj.eslintIgnore;
+        shell.rm(
+          '-rf',
           path.resolve(directory, '.eslintrc'),
           path.resolve(directory, '.eslintrc.cjs'),
           path.resolve(directory, '.eslintrc.yaml'),
           path.resolve(directory, '.eslintrc.yml'),
           path.resolve(directory, '.eslintrc.json'),
           path.resolve(directory, '.eslintignore'),
-        );
-        fs.copyFileSync(
-          getCliFilePath('.prettierrc.js'),
-          path.resolve(directory, '.prettierrc.js'),
         );
         fs.copyFileSync(
           getCliFilePath(`.eslintrc-${framework}.js`),
