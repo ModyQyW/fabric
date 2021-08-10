@@ -108,6 +108,8 @@ program
           encoding: 'utf8',
         }),
       );
+      pkgObj.dependencies = pkgObj.dependencies || {};
+      pkgObj.devDependencies = pkgObj.devDependencies || {};
       // Ask for information
       const { framework, css, config } = await inquirer.prompt([
         {
