@@ -441,7 +441,7 @@ Experience has proven that automation is the best option. You may want to try pa
 
 ### Migrate 3.x from 2.x
 
-- Support CommonJS and ESM import.
+- Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
 
 \`\`\`js
@@ -451,6 +451,7 @@ const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
 
 \`\`\`
 
+- Use \`eslint.vanilla\` instead of \`eslint.native\`.
 - Use \`stylelint.scss\` instead of \`stylelint.sass\`.
 
 ### Migrate 2.x from 1.x
