@@ -394,7 +394,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - Or [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar), see README carefully
+  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - You may want [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) or [Vuedx](https://github.com/znck/vue-developer-experience#readme), see their READMEs carefully
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
 - Set up \`Settings.json\`. Then \`F1 => File: Save\`.
 
@@ -457,6 +457,10 @@ const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
 ### Migrate 2.x from 1.x
 
 Just upgrade your node' and dependencies' versions.
+
+## Examples
+
+See [dependency graph](https://github.com/ModyQyW/fabric/network/dependents?package_id=UGFja2FnZS0xNTg3ODMzNDM2).
 
 ## Acknowledge
 
