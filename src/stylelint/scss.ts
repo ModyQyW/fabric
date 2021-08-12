@@ -1,16 +1,14 @@
-import css from './css';
+import commonRules from './rules/common';
+import scssRules from './rules/scss';
 
 export default {
-  ...css,
+  extends: [
+    'stylelint-config-twbs-bootstrap/scss',
+    'stylelint-config-recess-order',
+    'stylelint-prettier/recommended',
+  ],
   rules: {
-    ...css.rules,
-    'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': [
-      true,
-      {
-        // for @tailwind
-        ignoreAtRules: ['tailwind'],
-      },
-    ],
+    ...commonRules,
+    ...scssRules,
   },
 };
