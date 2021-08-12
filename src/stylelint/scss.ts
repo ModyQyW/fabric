@@ -1,12 +1,9 @@
-import commonRules from './rules/common';
+import css from './css';
 
 export default {
-  extends: [
-    'stylelint-config-twbs-bootstrap/scss',
-    'stylelint-prettier/recommended',
-  ],
+  ...css,
   rules: {
-    ...commonRules,
+    ...css.rules,
     'at-rule-no-unknown': null,
     'scss/at-rule-no-unknown': [
       true,
