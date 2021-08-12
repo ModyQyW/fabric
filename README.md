@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classi
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.0.0-7
+npm i -D @modyqyw/fabric@~3.0.0-8
 
 # globally
-npm i -g @modyqyw/fabric@~3.0.0-7
+npm i -g @modyqyw/fabric@~3.0.0-8
 ```
 
 ### CLI
