@@ -379,8 +379,14 @@ program
         if (config.includes('markdownlint')) {
           lintStagedObject['*.{md,markdown}'] = 'markdownlint --fix';
         }
-        if (config.includes('prettier-eslint')) {
+        if (
+          config.includes('prettier') ||
+          config.includes('eslint') ||
+          config.includes('stylelint')
+        ) {
           lintStagedObject['*.json'] = 'prettier --write';
+        }
+        if (config.includes('eslint')) {
           lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
             pkgObj.dependencies['@vue/cli-service'] ||
             pkgObj.devDependencies['@vue/cli-service']
