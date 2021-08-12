@@ -4938,6 +4938,13 @@ stylelint-config-prettier@~8.0.2:
   resolved "https://registry.npmjs.org/stylelint-config-prettier/-/stylelint-config-prettier-8.0.2.tgz#da9de33da4c56893cbe7e26df239a7374045e14e"
   integrity sha512-TN1l93iVTXpF9NJstlvP7nOu9zY2k+mN0NSFQ/VEGz15ZIP9ohdDZTtCWHs5LjctAhSAzaILULGbgiM0ItId3A==
 
+stylelint-config-recess-order@~2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/stylelint-config-recess-order/-/stylelint-config-recess-order-2.4.0.tgz#7336da98d9e11cfd17388f4c15fada615b49c301"
+  integrity sha512-+X+cb7WgmfCt5yoG+Ewg+fpn79hosjj7ESQ7ODTtwaZQGzQT+jD6AWLAhULMqDb9v2GVDTO5fu1rY/BR9EaZJA==
+  dependencies:
+    stylelint-order "4.1.x"
+
 stylelint-config-recommended-scss@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-4.3.0.tgz#717dc253b4cab246da654cee208e499c5c797ae4"
@@ -4967,7 +4974,7 @@ stylelint-config-twbs-bootstrap@~2.2.3:
     stylelint-order "^4.1.0"
     stylelint-scss "^3.20.1"
 
-stylelint-order@^4.1.0:
+stylelint-order@4.1.x, stylelint-order@^4.1.0:
   version "4.1.0"
   resolved "https://registry.npmjs.org/stylelint-order/-/stylelint-order-4.1.0.tgz#692d05b7d0c235ac66fcf5ea1d9e5f08a76747f6"
   integrity sha512-sVTikaDvMqg2aJjh4r48jsdfmqLT+nqB1MOsaBnvM3OwLx4S+WXcsxsgk5w18h/OZoxZCxuyXMh61iBHcj9Qiw==
