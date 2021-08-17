@@ -47,10 +47,10 @@ const readme = `# ${pkg.name}
 
 Opinionated shareable specification for different JavaScript/TypeScript projects.
 
-Requires below.
+Requirements below.
 
-- Node: ^12.17 || ^14 || ^16
-- npm: ^6.14 || ^7
+- Node: ^12.22.5 || ^14.17.5 || ^16.6.2
+- npm: ^6.14.14 || ^7.20.3
 
 [Github](${pkg.homepage}) | [Gitee](${pkg.homepage.replace('github', 'gitee')})
 
@@ -441,6 +441,8 @@ Experience has proven that automation is the best option. You may want to try pa
 
 ### Migrate 3.x from 2.x
 
+- Upgrade your node version to ^12.22.5, ^14.17.5 or ^16.6.2.
+- Upgrade your npm version to ^6.14.14 or ^7.20.3.
 - Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
 
@@ -456,7 +458,7 @@ const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
 
 ### Migrate 2.x from 1.x
 
-Just upgrade your node' and dependencies' versions.
+Just upgrade your node and dependencies versions.
 
 ## Examples
 
