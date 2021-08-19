@@ -84,7 +84,7 @@
     "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore",
     "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
-    "release": "release-it --npm.tag=next"
+    "release": "release-it"
   },
   "dependencies": {
     "@babel/core": "~7.15.0",
