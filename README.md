@@ -11,14 +11,14 @@ Requirements below.
 
 ## Usage
 
-Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classic.yarnpkg.com/) instead.
+Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/) instead.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.0.2
+npm i -D @modyqyw/fabric@~3.0.3
 
 # globally
-npm i -g @modyqyw/fabric@~3.0.2
+npm i -g @modyqyw/fabric@~3.0.3
 ```
 
 ### CLI
