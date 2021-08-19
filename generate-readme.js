@@ -56,7 +56,7 @@ Requirements below.
 
 ## Usage
 
-Using \`npm\` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://classic.yarnpkg.com/) instead.
+Using \`npm\` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/) instead.
 
 \`\`\`sh
 # locally
