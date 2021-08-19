@@ -109,6 +109,8 @@ dist
 
 # vuepress build output
 .vuepress/dist
+.cache
+.temp
 
 # vite build output
 dist-ssr
