@@ -3,7 +3,7 @@ module.exports = {
     commitMessage: 'chore(release): v${version}',
   },
   hooks: {
-    'before:init': 'yarn install && yarn run lint',
-    'after:bump': 'node generate-readme.js && yarn build',
+    'before:init': 'pnpm install && pnpm run lint',
+    'after:bump': 'node generate-readme.js && pnpm build',
   },
 };

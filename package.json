@@ -79,7 +79,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && rollup -i ./src/index.ts -o ./dist/index.d.ts -f es -p dts",
-    "lint": "yarn lint:json && yarn lint:markdown && yarn lint:script",
+    "lint": "pnpm run lint:json && pnpm run lint:markdown && pnpm run lint:script",
     "lint:json": "prettier ./**/*.json --write --ignore-path=.gitignore",
     "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore",
     "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore",
