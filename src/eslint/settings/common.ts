@@ -6,6 +6,7 @@ const settings: {
   'import/resolver': {
     node: Record<string, string>;
     webpack: Record<string, string>;
+    typescript?: Record<string, string>;
   };
   react?: Record<string, string>;
 } = {
@@ -20,6 +21,14 @@ const settings: {
       : {},
   },
 };
+
+if (fs.existsSync(path.resolve('tsconfig.json'))) {
+  settings['import/resolver'].typescript = {};
+} else if (fs.existsSync(path.resolve('jsconfig.json'))) {
+  settings['import/resolver'].typescript = {
+    project: './jsconfig.json',
+  };
+}
 
 // rax
 if (fs.existsSync(path.resolve('node_modules', 'rax'))) {
