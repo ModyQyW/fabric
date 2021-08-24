@@ -19,6 +19,7 @@ specifiers:
   eslint-config-next: ~11.1.0
   eslint-config-prettier: ~8.3.0
   eslint-import-resolver-node: ~0.3.6
+  eslint-import-resolver-typescript: ~2.4.0
   eslint-import-resolver-webpack: ~0.13.1
   eslint-plugin-import: ~2.24.1
   eslint-plugin-jsx-a11y: ~6.4.1
@@ -63,6 +64,7 @@ dependencies:
   eslint-config-next: 11.1.0_eslint@7.32.0+typescript@4.3.5
   eslint-config-prettier: 8.3.0_eslint@7.32.0
   eslint-import-resolver-node: 0.3.6
+  eslint-import-resolver-typescript: 2.4.0_dd24990a2f914d6f3397930dfc8171b2
   eslint-import-resolver-webpack: 0.13.1_eslint-plugin-import@2.24.1
   eslint-plugin-import: 2.24.1_eslint@7.32.0
   eslint-plugin-jsx-a11y: 6.4.1_eslint@7.32.0
@@ -1949,6 +1951,24 @@ packages:
       debug: 4.3.2
       eslint: 7.32.0
       eslint-plugin-import: 2.24.0_eslint@7.32.0
+      glob: 7.1.7
+      is-glob: 4.0.1
+      resolve: 1.20.0
+      tsconfig-paths: 3.10.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /eslint-import-resolver-typescript/2.4.0_dd24990a2f914d6f3397930dfc8171b2:
+    resolution: {integrity: sha512-useJKURidCcldRLCNKWemr1fFQL1SzB3G4a0li6lFGvlc5xGe1hY343bvG07cbpCzPuM/lK19FIJB3XGFSkplA==}
+    engines: {node: '>=4'}
+    peerDependencies:
+      eslint: '*'
+      eslint-plugin-import: '*'
+    dependencies:
+      debug: 4.3.2
+      eslint: 7.32.0
+      eslint-plugin-import: 2.24.1_eslint@7.32.0
       glob: 7.1.7
       is-glob: 4.0.1
       resolve: 1.20.0
