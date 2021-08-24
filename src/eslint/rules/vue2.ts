@@ -75,4 +75,5 @@ export default {
     },
   ],
   'vuejs-accessibility/click-events-have-key-events': 'off',
+  'vuejs-accessibility/media-has-caption': 'off',
 };
