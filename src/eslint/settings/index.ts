@@ -1,15 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const settings: {
-  'import/extensions': string[];
-  'import/resolver': {
-    node: Record<string, string>;
-    webpack: Record<string, string>;
-    typescript?: Record<string, string>;
-  };
-  react?: Record<string, string>;
-} = {
+const settings: { [name: string]: any } = {
   'import/extensions': ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
   'import/resolver': {
     node: {},

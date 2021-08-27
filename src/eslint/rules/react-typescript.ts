@@ -1,7 +1,10 @@
-import reactRules from './react';
+import type { Linter } from 'eslint';
+import react from './react';
 
-export default {
-  ...reactRules,
+const rules: Partial<{
+  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
+}> = {
+  ...react,
   '@typescript-eslint/no-unused-vars': [
     'warn',
     {
@@ -12,3 +15,5 @@ export default {
   ],
   'no-unused-vars': 'off',
 };
+
+export default rules;

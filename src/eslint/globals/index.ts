@@ -1,4 +1,6 @@
-export default {
+const globals: {
+  [name: string]: boolean | 'readonly' | 'readable' | 'writable' | 'writeable';
+} = {
   // https://mp.jd.com/
   jd: 'readonly',
   // https://mp.kuaishou.com/
@@ -22,3 +24,5 @@ export default {
   // https://developers.weixin.qq.com/miniprogram/dev/framework/
   wx: 'readonly',
 };
+
+export default globals;

@@ -1,12 +1,10 @@
-import commonEnv from './env/common';
-import commonGlobals from './globals/common';
-import commonRules from './rules/common';
-import commonTypescriptRules from './rules/common-typescript';
-import reactRules from './rules/react';
-import reactTypescriptRules from './rules/react-typescript';
-import commonSettings from './settings/common';
+import type { Linter } from 'eslint';
+import env from './env';
+import globals from './globals';
+import rules from './rules';
+import settings from './settings';
 
-export default {
+const config: Linter.Config = {
   root: true,
   parser: '@babel/eslint-parser',
   parserOptions: {
@@ -15,14 +13,14 @@ export default {
   plugins: ['prettier'],
   extends: ['plugin:unicorn/recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
   env: {
-    ...commonEnv,
+    ...env,
   },
   globals: {
-    ...commonGlobals,
+    ...globals,
   },
   rules: {
-    ...commonRules,
-    ...reactRules,
+    ...rules.vanilla,
+    ...rules.react,
   },
   overrides: [
     {
@@ -43,12 +41,14 @@ export default {
         'prettier',
       ],
       rules: {
-        ...commonTypescriptRules,
-        ...reactTypescriptRules,
+        ...rules.vanillaTypescript,
+        ...rules.reactTypescript,
       },
     },
   ],
   settings: {
-    ...commonSettings,
+    ...settings,
   },
 };
+
+export default config;

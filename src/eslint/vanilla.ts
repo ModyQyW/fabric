@@ -1,9 +1,9 @@
-import commonEnv from './env/common';
-import commonGlobals from './globals/common';
-import commonRules from './rules/common';
-import commonTypescriptRules from './rules/common-typescript';
+import type { Linter } from 'eslint';
+import env from './env';
+import globals from './globals';
+import rules from './rules';
 
-export default {
+const config: Linter.Config = {
   root: true,
   parser: '@babel/eslint-parser',
   parserOptions: {
@@ -12,14 +12,14 @@ export default {
   plugins: ['prettier'],
   extends: ['plugin:unicorn/recommended', 'airbnb-base', 'prettier'],
   env: {
-    ...commonEnv,
+    ...env,
     jquery: true,
   },
   globals: {
-    ...commonGlobals,
+    ...globals,
   },
   rules: {
-    ...commonRules,
+    ...rules.vanilla,
   },
   overrides: [
     {
@@ -36,8 +36,10 @@ export default {
         'prettier',
       ],
       rules: {
-        ...commonTypescriptRules,
+        ...rules.vanillaTypescript,
       },
     },
   ],
 };
+
+export default config;

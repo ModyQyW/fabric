@@ -1,14 +1,16 @@
-import commonRules from './rules/common';
-import scssRules from './rules/scss';
+import type { Configuration } from 'stylelint';
+import rules from './rules';
 
-export default {
+const config: Partial<Configuration> = {
   extends: [
     'stylelint-config-twbs-bootstrap/scss',
     'stylelint-config-recess-order',
     'stylelint-prettier/recommended',
   ],
   rules: {
-    ...commonRules,
-    ...scssRules,
+    ...rules.css,
+    ...rules.scss,
   },
 };
+
+export default config;

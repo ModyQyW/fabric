@@ -1,10 +1,10 @@
-import commonEnv from './env/common';
-import commonGlobals from './globals/common';
-import commonRules from './rules/common';
-import vue3Rules from './rules/vue3';
-import commonSettings from './settings/common';
+import type { Linter } from 'eslint';
+import env from './env';
+import globals from './globals';
+import rules from './rules';
+import settings from './settings';
 
-export default {
+const config: Linter.Config = {
   root: true,
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -20,16 +20,18 @@ export default {
     'prettier',
   ],
   env: {
-    ...commonEnv,
+    ...env,
   },
   globals: {
-    ...commonGlobals,
+    ...globals,
   },
   rules: {
-    ...commonRules,
-    ...vue3Rules,
+    ...rules.vanilla,
+    ...rules.vue3,
   },
   settings: {
-    ...commonSettings,
+    ...settings,
   },
 };
+
+export default config;

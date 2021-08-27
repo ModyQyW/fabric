@@ -1,5 +1,8 @@
+import type { Configuration } from 'stylelint';
 import css from './css';
 
-export default {
+const config: Partial<Configuration> = {
   ...css,
 };
+
+export default config;

@@ -1,4 +1,8 @@
-export default {
+import type { Linter } from 'eslint';
+
+const rules: Partial<{
+  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
+}> = {
   'no-unused-vars': [
     'warn',
     {
@@ -75,3 +79,5 @@ export default {
     },
   ],
 };
+
+export default rules;

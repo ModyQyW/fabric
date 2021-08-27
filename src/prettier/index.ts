@@ -1,4 +1,7 @@
-export default {
+import type { Options } from 'prettier';
+
+const config: Options &
+  Partial<{ overrides: { files: string | string[]; options: Options }[] }> = {
   printWidth: 80,
   tabWidth: 2,
   useTabs: false,
@@ -28,3 +31,5 @@ export default {
     },
   ],
 };
+
+export default config;

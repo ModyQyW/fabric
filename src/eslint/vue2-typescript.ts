@@ -1,10 +1,10 @@
-import commonEnv from './env/common';
-import commonGlobals from './globals/common';
-import commonTypescriptRules from './rules/common-typescript';
-import vue2TypescriptRules from './rules/vue2-typescript';
-import commonSettings from './settings/common';
+import type { Linter } from 'eslint';
+import env from './env';
+import globals from './globals';
+import rules from './rules';
+import settings from './settings';
 
-export default {
+const config: Linter.Config = {
   root: true,
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -25,14 +25,14 @@ export default {
     'prettier',
   ],
   env: {
-    ...commonEnv,
+    ...env,
   },
   globals: {
-    ...commonGlobals,
+    ...globals,
   },
   rules: {
-    ...commonTypescriptRules,
-    ...vue2TypescriptRules,
+    ...rules.vanillaTypescript,
+    ...rules.vue2Typescript,
   },
   overrides: [
     {
@@ -45,6 +45,8 @@ export default {
     },
   ],
   settings: {
-    ...commonSettings,
+    ...settings,
   },
 };
+
+export default config;

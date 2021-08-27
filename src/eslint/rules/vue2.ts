@@ -1,4 +1,8 @@
-export default {
+import type { Linter } from 'eslint';
+
+const rules: Partial<{
+  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
+}> = {
   'import/extensions': [
     'error',
     'always',
@@ -77,3 +81,5 @@ export default {
   'vuejs-accessibility/click-events-have-key-events': 'off',
   'vuejs-accessibility/media-has-caption': 'off',
 };
+
+export default rules;

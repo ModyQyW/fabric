@@ -1,10 +1,12 @@
 import type { Linter } from 'eslint';
-import vue2TypescriptRules from './vue2-typescript';
+import vanilla from './vanilla';
 
 const rules: Partial<{
   [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
 }> = {
-  ...vue2TypescriptRules,
+  ...vanilla,
+  '@typescript-eslint/no-unused-vars': 'warn',
+  'no-unused-vars': 'off',
 };
 
 export default rules;

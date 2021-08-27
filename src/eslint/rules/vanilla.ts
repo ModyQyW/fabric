@@ -1,4 +1,8 @@
-export default {
+import type { Linter } from 'eslint';
+
+const rules: Partial<{
+  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
+}> = {
   'class-methods-use-this': 'off',
   'import/prefer-default-export': 'off',
   'import/no-extraneous-dependencies': [
@@ -134,3 +138,5 @@ export default {
     },
   ],
 };
+
+export default rules;
