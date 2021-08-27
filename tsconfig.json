@@ -14,7 +14,8 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "checkJs": false
+    "checkJs": false,
+    "types": ["vite/client"]
   },
   "include": ["src", "types", "tests", "vite.config.ts"],
   "exclude": ["dist", "node_modules"]
