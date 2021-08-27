@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.1.1
+npm i -D @modyqyw/fabric@~3.2.0
 
 # globally
-npm i -g @modyqyw/fabric@~3.1.1
+npm i -g @modyqyw/fabric@~3.2.0
 ```
 
 ### CLI
@@ -329,7 +329,7 @@ When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-servi
 Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
-npm install -D is-ci@~3.0.0 husky@~7.0.1
+npm install -D is-ci@~3.0.0 husky@~7.0.2
 
 npx husky install
 
