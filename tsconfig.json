@@ -17,6 +17,14 @@
     "checkJs": false,
     "types": ["vite/client"]
   },
-  "include": ["src", "types", "tests", "vite.config.ts"],
+  "include": [
+    "./**/*.js",
+    "./**/*.jsx",
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.vue",
+    "./**/.*.js",
+    "./**/.*.ts"
+  ],
   "exclude": ["dist", "node_modules"]
 }
