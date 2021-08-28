@@ -9,7 +9,7 @@ module.exports = {
     tag: true,
   },
   hooks: {
-    'before:init': 'pnpm install && pnpm run lint',
-    'after:bump': 'node generate-readme.js && pnpm build',
+    'before:init': 'pnpm install && pnpm run build && pnpm run lint',
+    'after:bump': 'node generate-readme.js && pnpm run build',
   },
 };
