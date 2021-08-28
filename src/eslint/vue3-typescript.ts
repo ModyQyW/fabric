@@ -19,6 +19,7 @@ const config: Linter.Config = {
   plugins: ['prettier'],
   extends: [
     'plugin:unicorn/recommended',
+    'airbnb-base',
     'airbnb-typescript/base',
     'plugin:vuejs-accessibility/recommended',
     'plugin:vue/vue3-recommended',

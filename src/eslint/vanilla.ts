@@ -32,6 +32,7 @@ const config: Linter.Config = {
       plugins: ['prettier'],
       extends: [
         'plugin:unicorn/recommended',
+        'airbnb-base',
         'airbnb-typescript/base',
         'prettier',
       ],
