@@ -39,7 +39,6 @@ specifiers:
   lint-staged: ~11.1.2
   markdownlint-cli: ~0.28.1
   prettier: ~2.3.2
-  prettier-plugin-package: ~1.3.0
   release-it: ~14.11.5
   rollup: ~2.56.3
   rollup-plugin-dts: ~3.0.2
@@ -80,7 +79,6 @@ dependencies:
   eslint-plugin-vue: 7.17.0_eslint@7.32.0
   eslint-plugin-vuejs-accessibility: 0.7.1_eslint@7.32.0
   inquirer: 8.1.2
-  prettier-plugin-package: 1.3.0_prettier@2.3.2
   shelljs: 0.8.4
   stylelint-config-prettier: 8.0.2_stylelint@13.13.1
   stylelint-config-recess-order: 2.5.0_stylelint@13.13.1
@@ -4306,15 +4304,6 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       fast-diff: 1.2.0
-    dev: false
-
-  /prettier-plugin-package/1.3.0_prettier@2.3.2:
-    resolution: {integrity: sha512-KPNHR/Jm2zTevBp1SnjzMnooO1BOQW2bixVbOp8flOJoW+dxdDwEncObfsKZdkjwrv6AIH4oWqm5EO/etDmK9Q==}
-    engines: {node: '>=10.13.0'}
-    peerDependencies:
-      prettier: ^2.0.0
-    dependencies:
-      prettier: 2.3.2
     dev: false
 
   /prettier/2.3.2:
