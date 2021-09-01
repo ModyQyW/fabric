@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.3.1
+npm i -D @modyqyw/fabric@~3.3.2
 
 # globally
-npm i -g @modyqyw/fabric@~3.3.1
+npm i -g @modyqyw/fabric@~3.3.2
 ```
 
 ### CLI
@@ -403,9 +403,6 @@ Experience has proven that automation is the best option. You may want to try pa
 ```json
 {
   "css.validate": false,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.rulers": [{ "column": 80 }],
