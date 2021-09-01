@@ -403,9 +403,6 @@ Experience has proven that automation is the best option. You may want to try pa
 \`\`\`json
 {
   "css.validate": false,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.rulers": [{ "column": 80 }],
