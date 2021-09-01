@@ -135,6 +135,8 @@ Learn about [Prettier](https://prettier.io/).
 npm i -D prettier@${getDependencyVersion('prettier')}
 \`\`\`
 
+It it recommended to pin \`prettier@~2.2.1\`, if you are using TailwindCSS or WindiCSS without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
+
 Set up \`\${PROJECT_DIR}/.prettierrc.js\`.
 
 \`\`\`js
@@ -402,9 +404,7 @@ Experience has proven that automation is the best option. You may want to try pa
 {
   "css.validate": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.markdownlint": true,
-    "source.fixAll.stylelint": true
+    "source.organizeImports": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
@@ -431,11 +431,62 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
   "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
+    "editor.codeActionsOnSave": {
+      "editor.defaultFormatter": "octref.vetur",
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": true
+    }
+  },
+  "[css]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[less]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[sass]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[scss]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
   }
 }
 \`\`\`
+
+If you are using Volar, remember to remove \`"editor.defaultFormatter": "octref.vetur",\`.
 
 ## Migrate
 
