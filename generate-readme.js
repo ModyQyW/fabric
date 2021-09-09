@@ -415,7 +415,6 @@ Experience has proven that automation is the best option. You may want to try pa
     "typescriptreact",
     "html",
     "vue",
-    "markdown",
     "json",
     "jsonc",
     "json5",
