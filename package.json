@@ -39,8 +39,9 @@
   "bugs": {
     "url": "https://github.com/ModyQyW/fabric/issues"
   },
-  "bin": {
-    "modyqyw-fabric": "./cli.js"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ModyQyW/fabric.git"
   },
   "license": "MIT",
   "author": {
@@ -48,9 +49,19 @@
     "email": "wurui7@mail3.sysu.edu.cn",
     "url": "https://modyqyw.github.io"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:ModyQyW/fabric.git"
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "main": "./dist/index.cjs.js",
+  "jsdelivr": "./dist/index.cjs.js",
+  "unpkg": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "modyqyw-fabric": "./cli.js"
   },
   "files": [
     "dist",
@@ -61,30 +72,24 @@
     ".markdownlint.json",
     "cli.js"
   ],
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
-  "unpkg": "./dist/index.cjs.js",
-  "jsdelivr": "./dist/index.cjs.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
-    }
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && rollup -i ./src/index.ts -o ./dist/index.d.ts -f es -p dts",
-    "lint": "pnpm run lint:json && pnpm run lint:markdown && pnpm run lint:script",
-    "lint:json": "prettier ./**/*.json --write --ignore-path=.gitignore",
-    "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore",
-    "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore",
+    "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && sort-package-json",
+    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore",
+    "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
     "release": "release-it"
+  },
+  "lint-staged": {
+    "*.json": "prettier --write",
+    "*.{md,markdown}": "markdownlint --fix",
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@babel/core": "~7.15.5",
@@ -147,21 +152,16 @@
     "release-it": "~14.11.5",
     "rollup": "~2.56.3",
     "rollup-plugin-dts": "~4.0.0",
+    "sort-package-json": "~1.50.0",
     "stylelint": "~13.13.1",
     "vite": "~2.5.6"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "engines": {
     "node": "^12.22.6 || ^14.17.6 || ^16.6.2",
     "npm": "^6.14.14 || ^7.20.3"
   },
-  "lint-staged": {
-    "*.json": "prettier --write",
-    "*.{md,markdown}": "markdownlint --fix",
-    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
