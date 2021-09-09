@@ -180,8 +180,8 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:script",
-    "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore"
+    "lint": "npm run lint:eslint",
+    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore"
   }
 }
 
@@ -212,8 +212,8 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:style",
-    "lint:style": "stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore"
+    "lint": "npm run lint:stylelint",
+    "lint:stylelint": "stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -240,8 +240,8 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:markdown",
-    "lint:markdown": "markdownlint . --fix --ignore-path=.gitignore"
+    "lint": "npm run lint:markdownlint",
+    "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
 
