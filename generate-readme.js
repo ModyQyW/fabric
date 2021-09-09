@@ -49,7 +49,7 @@ Opinionated shareable specification for different JavaScript/TypeScript projects
 
 Requirements below.
 
-- Node: ^12.22.5 || ^14.17.5 || ^16.6.2
+- Node: ^12.22.6 || ^14.17.6 || ^16.6.2
 - npm: ^6.14.14 || ^7.20.3
 
 [Github](${pkg.homepage}) | [Gitee](${pkg.homepage.replace('github', 'gitee')})
@@ -489,7 +489,7 @@ If you are using Volar, remember to remove \`"editor.defaultFormatter": "octref.
 
 ### Migrate 3.x from 2.x
 
-- Upgrade your node version to ^12.22.5, ^14.17.5 or ^16.6.2.
+- Upgrade your node version to ^12.22.6, ^14.17.6 or ^16.6.2.
 - Upgrade your npm version to ^6.14.14 or ^7.20.3.
 - Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
