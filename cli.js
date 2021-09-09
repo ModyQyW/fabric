@@ -211,11 +211,6 @@ program
           ...pkgObj.devDependencies,
           prettier: getCliDependencyVersion('prettier'),
         };
-        pkgObj.scripts = {
-          ...pkgObj.scripts,
-          'lint:json': 'prettier ./**/*.json --write --ignore-path=.gitignore',
-        };
-        lintItems.push(`${pkgManager} run lint:json`);
         delete pkgObj.prettier;
         shell.rm(
           '-rf',
@@ -254,13 +249,13 @@ program
         };
         pkgObj.scripts = {
           ...pkgObj.scripts,
-          'lint:script':
+          'lint:eslint':
             pkgObj.dependencies['@vue/cli-service'] ||
             pkgObj.devDependencies['@vue/cli-service']
               ? 'vue-cli-service lint --fix'
-              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
+              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore',
         };
-        lintItems.push(`${pkgManager} run lint:script`);
+        lintItems.push(`${pkgManager} run lint:eslint`);
         delete pkgObj.eslintConfig;
         delete pkgObj.eslintIgnore;
         shell.rm(
@@ -285,10 +280,10 @@ program
         };
         pkgObj.scripts = {
           ...pkgObj.scripts,
-          'lint:style':
+          'lint:stylelint':
             'stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore',
         };
-        lintItems.push(`${pkgManager} run lint:style`);
+        lintItems.push(`${pkgManager} run lint:stylelint`);
         delete pkgObj.stylelint;
         shell.rm(
           '-rf',
@@ -313,9 +308,9 @@ program
         };
         pkgObj.scripts = {
           ...pkgObj.scripts,
-          'lint:markdown': 'markdownlint . --fix --ignore-path=.gitignore',
+          'lint:markdownlint': 'markdownlint . --fix --ignore-path=.gitignore',
         };
-        lintItems.push(`${pkgManager} run lint:markdown`);
+        lintItems.push(`${pkgManager} run lint:markdownlint`);
         shell.rm(
           '-rf',
           path.resolve(directory, '.markdownlint.yaml'),
@@ -379,15 +374,10 @@ program
         if (config.includes('markdownlint')) {
           lintStagedObject['*.{md,markdown}'] = 'markdownlint --fix';
         }
-        if (
-          config.includes('prettier') ||
-          config.includes('eslint') ||
-          config.includes('stylelint')
-        ) {
-          lintStagedObject['*.json'] = 'prettier --write';
-        }
         if (config.includes('eslint')) {
-          lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
+          lintStagedObject[
+            '*.{js,jsx,ts,tsx,vue,json,jsonc,json5,toml,yaml,yml}'
+          ] =
             pkgObj.dependencies['@vue/cli-service'] ||
             pkgObj.devDependencies['@vue/cli-service']
               ? 'vue-cli-service lint --fix'
@@ -475,3 +465,5 @@ program
   });
 
 program.parse(process.argv);
+
+/* eslint-enable no-console */
