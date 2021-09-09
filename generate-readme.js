@@ -300,9 +300,8 @@ Set up \`\${PROJECT_DIR}/.lintstagedrc.js\`.
 
 \`\`\`js
 module.exports = {
-  '*.json': 'prettier --write',
   '*.{md,markdown}': 'markdownlint --fix',
-  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
+  '*.{js,jsx,ts,tsx,vue,json,jsonc,json5,toml,yaml,yml}': 'eslint --fix',
   '*.{css,less,scss,vue}': 'stylelint --fix',
 };
 
