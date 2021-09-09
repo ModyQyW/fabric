@@ -49,7 +49,7 @@ specifiers:
   rollup: ~2.56.3
   rollup-plugin-dts: ~4.0.0
   shelljs: ~0.8.4
-  sort-package-json: ^1.50.0
+  sort-package-json: ~1.50.0
   stylelint: ~13.13.1
   stylelint-config-prettier: ~8.0.2
   stylelint-config-recess-order: ~2.5.0
