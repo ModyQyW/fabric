@@ -143,20 +143,6 @@ Set up \`\${PROJECT_DIR}/.prettierrc.js\`.
 ${prettierrc}
 \`\`\`
 
-Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore pattern file here.
-
-\`\`\`json
-{
-  ...,
-  "scripts": {
-    ...,
-    "lint": "npm run lint:json",
-    "lint:json": "prettier ./**/*.json --write --ignore-path=.gitignore"
-  }
-}
-
-\`\`\`
-
 ### ESLint
 
 Learn about [ESLint](https://eslint.org/). Prettier is required.
