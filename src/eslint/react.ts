@@ -1,6 +1,7 @@
 import type { Linter } from 'eslint';
 import env from './env';
 import globals from './globals';
+import overrides from './overrides';
 import rules from './rules';
 import settings from './settings';
 
@@ -10,8 +11,20 @@ const config: Linter.Config = {
   parserOptions: {
     requireConfigFile: false,
   },
-  plugins: ['prettier'],
-  extends: ['plugin:unicorn/recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
+  plugins: ['regexp', 'prettier'],
+  extends: [
+    'plugin:unicorn/recommended',
+    'airbnb',
+    'airbnb/hooks',
+    'plugin:regexp/recommended',
+    'plugin:eslint-comments/recommended',
+    'plugin:jsonc/recommended-with-jsonc',
+    'plugin:jsonc/prettier',
+    'plugin:toml/standard',
+    'plugin:yml/standard',
+    'plugin:yml/prettier',
+    'prettier',
+  ],
   env: {
     ...env,
   },
@@ -23,8 +36,9 @@ const config: Linter.Config = {
     ...rules.react,
   },
   overrides: [
+    ...overrides,
     {
-      files: ['**/*.ts', '**/*.tsx'],
+      files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaFeatures: {
@@ -33,12 +47,19 @@ const config: Linter.Config = {
         project: './tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: true,
       },
-      plugins: ['prettier'],
+      plugins: ['regexp', 'prettier'],
       extends: [
         'plugin:unicorn/recommended',
         'airbnb',
         'airbnb-typescript',
         'airbnb/hooks',
+        'plugin:regexp/recommended',
+        'plugin:eslint-comments/recommended',
+        'plugin:jsonc/recommended-with-jsonc',
+        'plugin:jsonc/prettier',
+        'plugin:toml/standard',
+        'plugin:yml/standard',
+        'plugin:yml/prettier',
         'prettier',
       ],
       rules: {
