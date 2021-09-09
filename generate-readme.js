@@ -195,13 +195,13 @@ Set up \`\${PROJECT_DIR}/package.json\`. Use \`.gitignore\` as the ignore patter
   "scripts": {
     ...,
     "lint": "npm run lint:script",
-    "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore"
+    "lint:script": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore"
   }
 }
 
 \`\`\`
 
-When using \`vue-cli-service\`, \`eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore\` can be replaced with \`vue-cli-service lint --fix\`.
+When using \`vue-cli-service\`, \`eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore\` can be replaced with \`vue-cli-service lint --fix\`.
 
 You should declare \`paths\` in \`jsconfig.json\` or \`tsconfig.json\` if you are using path aliases.
 
@@ -408,6 +408,20 @@ Experience has proven that automation is the best option. You may want to try pa
   "editor.rulers": [{ "column": 80 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc",
+    "json5",
+    "toml",
+    "yaml"
+  ],
   "files.eol": "\\n",
   "files.associations": {
     "*.wxml": "html",
