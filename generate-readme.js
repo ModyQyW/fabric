@@ -530,6 +530,8 @@ See [dependency graph](https://github.com/ModyQyW/fabric/network/dependents?pack
 
 Sorted according to alphabetical order.
 
+- [AlloyTeam - eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
+- [antfu - eslint-config](https://github.com/antfu/eslint-config)
 - [Airbnb CSS/SASS Style Guide](https://github.com/airbnb/css)
 - [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 - [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react)
@@ -537,6 +539,7 @@ Sorted according to alphabetical order.
 - [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
 - [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
 - [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html)
+- [standardjs](https://standardjs.com/)
 - [TypeScript Deep Dive - TypeScript Style Guide](https://basarat.gitbook.io/typescript/styleguide)
 
 ## License
