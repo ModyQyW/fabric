@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.4.2
+npm i -D @modyqyw/fabric@~3.4.3
 
 # globally
-npm i -g @modyqyw/fabric@~3.4.2
+npm i -g @modyqyw/fabric@~3.4.3
 ```
 
 ### CLI
@@ -160,13 +160,13 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
   "scripts": {
     ...,
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore"
   }
 }
 
 ```
 
-When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore` can be replaced with `vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore`.
+When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore` can be replaced with `vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore`.
 
 You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are using path aliases.
 
@@ -303,7 +303,7 @@ Set up `${PROJECT_DIR}/.lintstagedrc.js`.
 ```js
 module.exports = {
   '*.{md,markdown}': 'markdownlint --fix',
-  '*.{js,jsx,ts,tsx,vue,json,jsonc,json5}': 'eslint --fix',
+  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{css,less,scss,vue}': 'stylelint --fix',
 };
 
@@ -399,10 +399,7 @@ Experience has proven that automation is the best option. You may want to try pa
     "typescript",
     "typescriptreact",
     "html",
-    "vue",
-    "json",
-    "jsonc",
-    "json5"
+    "vue"
   ],
   "files.eol": "\n",
   "files.associations": {
