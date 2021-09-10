@@ -1,7 +1,6 @@
 import type { Linter } from 'eslint';
 import env from './env';
 import globals from './globals';
-import overrides from './overrides';
 import rules from './rules';
 import settings from './settings';
 
@@ -18,11 +17,6 @@ const config: Linter.Config = {
     'airbnb/hooks',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
-    'plugin:jsonc/recommended-with-jsonc',
-    'plugin:jsonc/prettier',
-    'plugin:toml/standard',
-    'plugin:yml/standard',
-    'plugin:yml/prettier',
     'prettier',
   ],
   env: {
@@ -36,7 +30,6 @@ const config: Linter.Config = {
     ...rules.react,
   },
   overrides: [
-    ...overrides,
     {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
@@ -55,11 +48,6 @@ const config: Linter.Config = {
         'airbnb/hooks',
         'plugin:regexp/recommended',
         'plugin:eslint-comments/recommended',
-        'plugin:jsonc/recommended-with-jsonc',
-        'plugin:jsonc/prettier',
-        'plugin:toml/standard',
-        'plugin:yml/standard',
-        'plugin:yml/prettier',
         'prettier',
       ],
       rules: {

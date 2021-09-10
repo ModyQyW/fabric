@@ -252,8 +252,8 @@ program
           'lint:eslint':
             pkgObj.dependencies['@vue/cli-service'] ||
             pkgObj.devDependencies['@vue/cli-service']
-              ? 'vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore'
-              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore',
+              ? 'vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore'
+              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:eslint`);
         delete pkgObj.eslintConfig;
@@ -375,7 +375,7 @@ program
           lintStagedObject['*.{md,markdown}'] = 'markdownlint --fix';
         }
         if (config.includes('eslint')) {
-          lintStagedObject['*.{js,jsx,ts,tsx,vue,json,jsonc,json5}'] =
+          lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
             pkgObj.dependencies['@vue/cli-service'] ||
             pkgObj.devDependencies['@vue/cli-service']
               ? 'vue-cli-service lint --fix'
