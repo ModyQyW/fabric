@@ -11,6 +11,8 @@ const config: Options &
   jsxSingleQuote: false,
   trailingComma: 'all',
   bracketSpacing: true,
+  // @ts-ignore
+  bracketSameLine: false,
   jsxBracketSameLine: false,
   arrowParens: 'always',
   requirePragma: false,
