@@ -252,7 +252,7 @@ program
           'lint:eslint':
             pkgObj.dependencies['@vue/cli-service'] ||
             pkgObj.devDependencies['@vue/cli-service']
-              ? 'vue-cli-service lint --fix'
+              ? 'vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore'
               : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:eslint`);
