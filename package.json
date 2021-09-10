@@ -76,7 +76,7 @@
     "dev": "vite",
     "build": "tsc && vite build && rollup -i ./src/index.ts -o ./dist/index.d.ts -f es -p dts",
     "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && sort-package-json",
-    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore",
+    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
     "release": "release-it"
