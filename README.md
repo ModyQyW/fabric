@@ -5,7 +5,7 @@ Opinionated shareable specification for different JavaScript/TypeScript projects
 Requirements below.
 
 - Node: ^12.22.6 || ^14.17.6 || ^16.6.2
-- npm: ^6.14.14 || ^7.20.3
+- npm: ^6.14.15 || ^7.20.3
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.4.0
+npm i -D @modyqyw/fabric@~3.4.1
 
 # globally
-npm i -g @modyqyw/fabric@~3.4.0
+npm i -g @modyqyw/fabric@~3.4.1
 ```
 
 ### CLI
@@ -160,13 +160,13 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
   "scripts": {
     ...,
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore"
   }
 }
 
 ```
 
-When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5,.toml,.yaml,.yml --ignore-path=.gitignore` can be replaced with `vue-cli-service lint --fix`.
+When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore` can be replaced with `vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.json,.jsonc,.json5 --ignore-path=.gitignore`.
 
 You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are using path aliases.
 
@@ -303,7 +303,7 @@ Set up `${PROJECT_DIR}/.lintstagedrc.js`.
 ```js
 module.exports = {
   '*.{md,markdown}': 'markdownlint --fix',
-  '*.{js,jsx,ts,tsx,vue,json,jsonc,json5,toml,yaml,yml}': 'eslint --fix',
+  '*.{js,jsx,ts,tsx,vue,json,jsonc,json5}': 'eslint --fix',
   '*.{css,less,scss,vue}': 'stylelint --fix',
 };
 
@@ -402,9 +402,7 @@ Experience has proven that automation is the best option. You may want to try pa
     "vue",
     "json",
     "jsonc",
-    "json5",
-    "toml",
-    "yaml"
+    "json5"
   ],
   "files.eol": "\n",
   "files.associations": {
@@ -488,7 +486,7 @@ If you are using Volar, remember to remove `"editor.defaultFormatter": "octref.v
 ### Migrate 3.x from 2.x
 
 - Upgrade your node version to ^12.22.6, ^14.17.6 or ^16.6.2.
-- Upgrade your npm version to ^6.14.14 or ^7.20.3.
+- Upgrade your npm version to ^6.14.15 or ^7.20.3.
 - Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
 
