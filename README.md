@@ -4,8 +4,8 @@ Opinionated shareable specification for different JavaScript/TypeScript projects
 
 Requirements below.
 
-- Node: ^12.22.6 || ^14.17.6 || ^16.6.2
-- npm: ^6.14.15 || ^7.20.3
+- Node: ^12.22.6 || ^14.17.6 || ^16.8.0
+- npm: ^6.14.15 || ^7.21.0
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.4.3
+npm i -D @modyqyw/fabric@~3.5.0
 
 # globally
-npm i -g @modyqyw/fabric@~3.4.3
+npm i -g @modyqyw/fabric@~3.5.0
 ```
 
 ### CLI
@@ -100,7 +100,7 @@ trim_trailing_whitespace = false
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-npm i -D prettier@~2.2.1
+npm i -D prettier@~2.4.0
 ```
 
 It it recommended to pin `prettier@~2.2.1`, if you are using TailwindCSS or WindiCSS without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
@@ -127,7 +127,7 @@ npm i -D eslint@~7.32.0 @babel/core@~7.15.5 @babel/eslint-parser@~7.15.4
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.2 @typescript-eslint/eslint-plugin@~4.31.0 @typescript-eslint/parser@~4.31.0
+npm i -D typescript@~4.4.3 @typescript-eslint/eslint-plugin@~4.31.1 @typescript-eslint/parser@~4.31.1
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -482,8 +482,8 @@ If you are using Volar, remember to remove `"editor.defaultFormatter": "octref.v
 
 ### Migrate 3.x from 2.x
 
-- Upgrade your node version to ^12.22.6, ^14.17.6 or ^16.6.2.
-- Upgrade your npm version to ^6.14.15 or ^7.20.3.
+- Upgrade your node version to ^12.22.6, ^14.17.6 or ^16.8.0.
+- Upgrade your npm version to ^6.14.15 or ^7.21.0.
 - Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
 
