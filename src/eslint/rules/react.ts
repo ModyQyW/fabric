@@ -17,10 +17,7 @@ const rules: Partial<{
       additionalHooks: 'useRecoilCallback',
     },
   ],
-  'react/jsx-filename-extension': [
-    'error',
-    { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-  ],
+  'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
   'react/jsx-props-no-spreading': 'off',
   'react/no-array-index-key': 'warn',
   'react/prop-types': 'off',

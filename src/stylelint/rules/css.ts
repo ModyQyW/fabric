@@ -32,21 +32,12 @@ const rules: Partial<{ [name: string]: any }> = {
     // for ::v-deep, ::v-slotted, ::v-global
     { ignorePseudoElements: ['v-deep', 'v-slotted', '::v-global'] },
   ],
-  'selector-type-no-unknown': [
-    true,
-    { ignore: ['custom-elements', 'default-namespace'] },
-  ],
+  'selector-type-no-unknown': [true, { ignore: ['custom-elements', 'default-namespace'] }],
   'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
   'value-keyword-case': [
     'lower',
     {
-      ignoreKeywords: [
-        'Arial',
-        'Avenir',
-        'Helvetica',
-        'BlinkMacSystemFont',
-        'Roboto',
-      ],
+      ignoreKeywords: ['Arial', 'Avenir', 'Helvetica', 'BlinkMacSystemFont', 'Roboto'],
     },
   ],
 };

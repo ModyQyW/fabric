@@ -6,16 +6,8 @@ const getFilePath = (filename) => {
     0,
     filename.lastIndexOf('.') === 0 ? undefined : filename.lastIndexOf('.'),
   );
-  const shortFilenameExamplePath = path.join(
-    __dirname,
-    'examples',
-    `${shortFilename}-example`,
-  );
-  const filenameExamplePath = path.join(
-    __dirname,
-    'examples',
-    `${shortFilename}-example`,
-  );
+  const shortFilenameExamplePath = path.join(__dirname, 'examples', `${shortFilename}-example`);
+  const filenameExamplePath = path.join(__dirname, 'examples', `${shortFilename}-example`);
   const shortFilenamePath = path.join(__dirname, shortFilename);
   const filenamePath = path.join(__dirname, filename);
   if (fs.existsSync(shortFilenameExamplePath)) {
@@ -148,9 +140,7 @@ ${prettierrc}
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 \`\`\`sh
-npm i -D eslint@${getDependencyVersion(
-  'eslint',
-)} @babel/core@${getDependencyVersion(
+npm i -D eslint@${getDependencyVersion('eslint')} @babel/core@${getDependencyVersion(
   '@babel/core',
 )} @babel/eslint-parser@${getDependencyVersion('@babel/eslint-parser')}
 \`\`\`
@@ -162,9 +152,7 @@ npm i -D typescript@${getDependencyVersion(
   'typescript',
 )} @typescript-eslint/eslint-plugin@${getDependencyVersion(
   '@typescript-eslint/eslint-plugin',
-)} @typescript-eslint/parser@${getDependencyVersion(
-  '@typescript-eslint/parser',
-)}
+)} @typescript-eslint/parser@${getDependencyVersion('@typescript-eslint/parser')}
 \`\`\`
 
 Set up \`\${PROJECT_DIR}/.eslintrc.js\`.
@@ -314,9 +302,7 @@ When using \`vue-cli-service\`, \`eslint --fix\` can be replaced with \`vue-cli-
 Learn about [Husky](https://github.com/typicode/husky).
 
 \`\`\`sh
-npm install -D is-ci@${getDependencyVersion(
-  'is-ci',
-)} husky@${getDependencyVersion('husky')}
+npm install -D is-ci@${getDependencyVersion('is-ci')} husky@${getDependencyVersion('husky')}
 
 npx husky install
 

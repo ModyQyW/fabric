@@ -20,16 +20,8 @@ const getCliFilePath = (filename) => {
     0,
     filename.lastIndexOf('.') === 0 ? undefined : filename.lastIndexOf('.'),
   );
-  const shortFilenameExamplePath = path.join(
-    __dirname,
-    'examples',
-    `${shortFilename}-example`,
-  );
-  const filenameExamplePath = path.join(
-    __dirname,
-    'examples',
-    `${shortFilename}-example`,
-  );
+  const shortFilenameExamplePath = path.join(__dirname, 'examples', `${shortFilename}-example`);
+  const filenameExamplePath = path.join(__dirname, 'examples', `${shortFilename}-example`);
   const shortFilenamePath = path.join(__dirname, shortFilename);
   const filenamePath = path.join(__dirname, filename);
   if (fs.existsSync(shortFilenameExamplePath)) {
@@ -45,21 +37,13 @@ const getCliFilePath = (filename) => {
 };
 
 // Log hint
-console.log(
-  chalk.cyan(
-    `\nmodyqyw-fabric v${pkg.version} is running in ${process.cwd()} now.\n`,
-  ),
-);
+console.log(chalk.cyan(`\nmodyqyw-fabric v${pkg.version} is running in ${process.cwd()} now.\n`));
 
 // Verify node version
 const [nodeMajorVersion] = process.versions.node
   .split('.')
   .map((item) => Number.parseInt(item, 10));
-if (
-  nodeMajorVersion < 12 ||
-  nodeMajorVersion % 2 !== 0 ||
-  Number.isNaN(nodeMajorVersion)
-) {
+if (nodeMajorVersion < 12 || nodeMajorVersion % 2 !== 0 || Number.isNaN(nodeMajorVersion)) {
   console.log('');
   console.log(chalk.red('You are using a unsupported old node.js version.'));
   console.log(chalk.red('Please upgrade your node.js version to LTS.'));
@@ -189,17 +173,11 @@ program
           getCliFilePath('.gitattributes'),
           path.resolve(directory, '.gitattributes'),
         );
-        fs.copyFileSync(
-          getCliFilePath('.gitignore'),
-          path.resolve(directory, '.gitignore'),
-        );
+        fs.copyFileSync(getCliFilePath('.gitignore'), path.resolve(directory, '.gitignore'));
       }
       // Set editorconfig
       if (config.includes('editorconfig')) {
-        fs.copyFileSync(
-          getCliFilePath('.editorconfig'),
-          path.resolve(directory, '.editorconfig'),
-        );
+        fs.copyFileSync(getCliFilePath('.editorconfig'), path.resolve(directory, '.editorconfig'));
       }
       // Set prettier
       if (
@@ -235,23 +213,18 @@ program
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
           '@babel/core': getCliDependencyVersion('@babel/core'),
-          '@babel/eslint-parser': getCliDependencyVersion(
-            '@babel/eslint-parser',
-          ),
+          '@babel/eslint-parser': getCliDependencyVersion('@babel/eslint-parser'),
           '@typescript-eslint/eslint-plugin': getCliDependencyVersion(
             '@typescript-eslint/eslint-plugin',
           ),
-          '@typescript-eslint/parser': getCliDependencyVersion(
-            '@typescript-eslint/parser',
-          ),
+          '@typescript-eslint/parser': getCliDependencyVersion('@typescript-eslint/parser'),
           eslint: getCliDependencyVersion('eslint'),
           typescript: getCliDependencyVersion('typescript'),
         };
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:eslint':
-            pkgObj.dependencies['@vue/cli-service'] ||
-            pkgObj.devDependencies['@vue/cli-service']
+            pkgObj.dependencies['@vue/cli-service'] || pkgObj.devDependencies['@vue/cli-service']
               ? 'vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore'
               : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
         };
@@ -376,8 +349,7 @@ program
         }
         if (config.includes('eslint')) {
           lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
-            pkgObj.dependencies['@vue/cli-service'] ||
-            pkgObj.devDependencies['@vue/cli-service']
+            pkgObj.dependencies['@vue/cli-service'] || pkgObj.devDependencies['@vue/cli-service']
               ? 'vue-cli-service lint --fix'
               : 'eslint --fix';
         }

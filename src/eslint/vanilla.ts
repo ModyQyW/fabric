@@ -37,12 +37,7 @@ const config: Linter.Config = {
         warnOnUnsupportedTypeScriptVersion: true,
       },
       plugins: ['prettier'],
-      extends: [
-        'plugin:unicorn/recommended',
-        'airbnb-base',
-        'airbnb-typescript/base',
-        'prettier',
-      ],
+      extends: ['plugin:unicorn/recommended', 'airbnb-base', 'airbnb-typescript/base', 'prettier'],
       rules: {
         ...rules.vanillaTypescript,
       },
