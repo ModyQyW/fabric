@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.6.0
+npm i -D @modyqyw/fabric@~3.7.0
 
 # globally
-npm i -g @modyqyw/fabric@~3.6.0
+npm i -g @modyqyw/fabric@~3.7.0
 ```
 
 ### CLI
@@ -127,7 +127,7 @@ npm i -D eslint@~7.32.0 @babel/core@~7.15.5 @babel/eslint-parser@~7.15.7
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.3 @typescript-eslint/eslint-plugin@~4.31.2 @typescript-eslint/parser@~4.31.2
+npm i -D typescript@~4.4.3 @typescript-eslint/eslint-plugin@~4.32.0 @typescript-eslint/parser@~4.32.0
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
