@@ -1,7 +1,6 @@
 import type { Options } from 'prettier';
 
-const config: Options &
-  Partial<{ overrides: { files: string | string[]; options: Options }[] }> = {
+const config: Options & Partial<{ overrides: { files: string | string[]; options: Options }[] }> = {
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,
@@ -26,7 +25,6 @@ const config: Options &
     {
       files: ['*.css', '*.less', '*.scss'],
       options: {
-        printWidth: 240,
         singleQuote: false,
         trailingComma: 'none',
       },
