@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.7.0
+npm i -D @modyqyw/fabric@~3.8.0
 
 # globally
-npm i -g @modyqyw/fabric@~3.7.0
+npm i -g @modyqyw/fabric@~3.8.0
 ```
 
 ### CLI
@@ -249,7 +249,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~13.1.0
+npm i -D @commitlint/cli@~13.2.0
 ```
 
 Set up `${PROJECT_DIR}/.commitlintrc.js`.
