@@ -15,10 +15,10 @@ Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpk
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.8.0
+npm i -D @modyqyw/fabric@~3.9.0
 
 # globally
-npm i -g @modyqyw/fabric@~3.8.0
+npm i -g @modyqyw/fabric@~3.9.0
 ```
 
 ### CLI
@@ -121,13 +121,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 ```sh
-npm i -D eslint@~7.32.0 @babel/core@~7.15.5 @babel/eslint-parser@~7.15.7
+npm i -D eslint@~7.32.0 @babel/core@~7.15.8 @babel/eslint-parser@~7.15.8
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.3 @typescript-eslint/eslint-plugin@~4.32.0 @typescript-eslint/parser@~4.32.0
+npm i -D typescript@~4.4.3 @typescript-eslint/eslint-plugin@~4.33.0 @typescript-eslint/parser@~4.33.0
 ```
 
 Set up `${PROJECT_DIR}/.eslintrc.js`.
@@ -213,7 +213,7 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
-npm i -D markdownlint-cli@~0.28.1
+npm i -D markdownlint-cli@~0.29.0
 ```
 
 Set up `${PROJECT_DIR}/.markdownlint.json`.
@@ -294,7 +294,7 @@ Set up `${PROJECT_DIR}/package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~11.1.2
+npm install -D lint-staged@~11.2.0
 
 ```
 
@@ -390,7 +390,7 @@ Experience has proven that automation is the best option. You may want to try pa
   "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.rulers": [{ "column": 80 }],
+  "editor.rulers": [{ "column": 100 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "eslint.validate": [
