@@ -376,7 +376,7 @@ Experience has proven that automation is the best option. You may want to try pa
   "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.rulers": [{ "column": 80 }],
+  "editor.rulers": [{ "column": 100 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
   "eslint.validate": [
