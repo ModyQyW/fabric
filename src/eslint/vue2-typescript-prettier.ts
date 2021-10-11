@@ -16,15 +16,16 @@ const config: Linter.Config = {
     extraFileExtensions: ['.vue'],
     warnOnUnsupportedTypeScriptVersion: true,
   },
-  plugins: ['regexp'],
+  plugins: ['regexp', 'prettier'],
   extends: [
     'plugin:unicorn/recommended',
     'airbnb-base',
     'airbnb-typescript/base',
     'plugin:vuejs-accessibility/recommended',
-    'plugin:vue/vue3-recommended',
+    'plugin:vue/recommended',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
+    'prettier',
   ],
   env: {
     ...env,
@@ -34,7 +35,7 @@ const config: Linter.Config = {
   },
   rules: {
     ...rules.vanillaTypescript,
-    ...rules.vue3Typescript,
+    ...rules.vue2Typescript,
   },
   overrides: [
     {

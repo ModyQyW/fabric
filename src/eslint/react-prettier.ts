@@ -10,34 +10,49 @@ const config: Linter.Config = {
   parserOptions: {
     requireConfigFile: false,
   },
-  plugins: ['regexp'],
+  plugins: ['regexp', 'prettier'],
   extends: [
     'plugin:unicorn/recommended',
-    'airbnb-base',
+    'airbnb',
+    'airbnb/hooks',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
+    'prettier',
   ],
   env: {
     ...env,
-    jquery: true,
   },
   globals: {
     ...globals,
   },
   rules: {
     ...rules.vanilla,
+    ...rules.react,
   },
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
         project: './tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: true,
       },
-      extends: ['plugin:unicorn/recommended', 'airbnb-base', 'airbnb-typescript/base'],
+      plugins: ['regexp', 'prettier'],
+      extends: [
+        'plugin:unicorn/recommended',
+        'airbnb',
+        'airbnb-typescript',
+        'airbnb/hooks',
+        'plugin:regexp/recommended',
+        'plugin:eslint-comments/recommended',
+        'prettier',
+      ],
       rules: {
         ...rules.vanillaTypescript,
+        ...rules.reactTypescript,
       },
     },
   ],

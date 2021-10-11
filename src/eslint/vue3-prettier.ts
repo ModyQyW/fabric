@@ -8,23 +8,18 @@ const config: Linter.Config = {
   root: true,
   parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    ecmaFeatures: {
-      jsx: true,
-    },
-    project: './tsconfig.json',
-    extraFileExtensions: ['.vue'],
-    warnOnUnsupportedTypeScriptVersion: true,
+    parser: '@babel/eslint-parser',
+    requireConfigFile: false,
   },
-  plugins: ['regexp'],
+  plugins: ['regexp', 'prettier'],
   extends: [
     'plugin:unicorn/recommended',
     'airbnb-base',
-    'airbnb-typescript/base',
     'plugin:vuejs-accessibility/recommended',
     'plugin:vue/vue3-recommended',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
+    'prettier',
   ],
   env: {
     ...env,
@@ -33,19 +28,9 @@ const config: Linter.Config = {
     ...globals,
   },
   rules: {
-    ...rules.vanillaTypescript,
-    ...rules.vue3Typescript,
+    ...rules.vanilla,
+    ...rules.vue3,
   },
-  overrides: [
-    {
-      files: ['shims-tsx.d.ts'],
-      rules: {
-        '@typescript-eslint/no-empty-interface': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-      },
-    },
-  ],
   settings: {
     ...settings,
   },

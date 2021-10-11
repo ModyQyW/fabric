@@ -11,7 +11,7 @@ const config: Linter.Config = {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
-  plugins: ['regexp', 'prettier'],
+  plugins: ['regexp'],
   extends: [
     'plugin:unicorn/recommended',
     'airbnb-base',
@@ -19,7 +19,6 @@ const config: Linter.Config = {
     'plugin:vue/vue3-recommended',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
-    'prettier',
   ],
   env: {
     ...env,

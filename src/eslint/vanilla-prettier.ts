@@ -6,30 +6,43 @@ import settings from './settings';
 
 const config: Linter.Config = {
   root: true,
-  parser: 'vue-eslint-parser',
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
-  plugins: ['regexp'],
+  plugins: ['regexp', 'prettier'],
   extends: [
     'plugin:unicorn/recommended',
     'airbnb-base',
-    'plugin:vuejs-accessibility/recommended',
-    'plugin:vue/recommended',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
+    'prettier',
   ],
   env: {
     ...env,
+    jquery: true,
   },
   globals: {
     ...globals,
   },
   rules: {
     ...rules.vanilla,
-    ...rules.vue2,
   },
+  overrides: [
+    {
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: './tsconfig.json',
+        warnOnUnsupportedTypeScriptVersion: true,
+      },
+      plugins: ['prettier'],
+      extends: ['plugin:unicorn/recommended', 'airbnb-base', 'airbnb-typescript/base', 'prettier'],
+      rules: {
+        ...rules.vanillaTypescript,
+      },
+    },
+  ],
   settings: {
     ...settings,
   },

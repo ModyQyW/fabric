@@ -16,7 +16,7 @@ const config: Linter.Config = {
     extraFileExtensions: ['.vue'],
     warnOnUnsupportedTypeScriptVersion: true,
   },
-  plugins: ['regexp'],
+  plugins: ['regexp', 'prettier'],
   extends: [
     'plugin:unicorn/recommended',
     'airbnb-base',
@@ -25,6 +25,7 @@ const config: Linter.Config = {
     'plugin:vue/vue3-recommended',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
+    'prettier',
   ],
   env: {
     ...env,
