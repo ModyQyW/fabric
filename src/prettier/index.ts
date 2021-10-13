@@ -23,7 +23,7 @@ const config: Options & Partial<{ overrides: { files: string | string[]; options
   embeddedLanguageFormatting: 'auto',
   overrides: [
     {
-      files: ['*.css', '*.less', '*.scss'],
+      files: ['*.css', '*.less', '*.sass', '*.scss'],
       options: {
         singleQuote: false,
         trailingComma: 'none',
