@@ -3,8 +3,19 @@ const { stylelint } = require('@modyqyw/fabric');
 module.exports = {
   // css
   ...stylelint.css,
+
+  // css + prettier
+  // ...stylelint.cssPrettier,
+
   // less
   // ...stylelint.less,
+
+  // less + prettier
+  // ...stylelint.lessPrettier,
+
   // scss
   // ...stylelint.scss,
+
+  // scss + prettier
+  // ...stylelint.scssPrettier,
 };
