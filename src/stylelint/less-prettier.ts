@@ -3,7 +3,7 @@ import rules from './rules';
 
 const config: Partial<Configuration> = {
   extends: [
-    'stylelint-config-twbs-bootstrap/css',
+    'stylelint-config-standard',
     'stylelint-config-recess-order',
     'stylelint-prettier/recommended',
   ],
