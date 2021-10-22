@@ -2,40 +2,43 @@
 
 Opinionated shareable specification for different JavaScript/TypeScript projects.
 
-Requirements below.
+Requires:
 
-- Node: ^12.22.6 || ^14.17.6 || ^16.8.0
-- npm: ^6.14.15 || ^7.21.0
+- Latest Node 12/14/16
+- Latest npm 6/7/8
+- Set `shamefully-hoist=true` in `.npmrc` if using latest pnpm 6 instead of npm
+- Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` if using latest yarn 2/3 instead of npm
+
+Using `npm` in examples below.
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
 ## Usage
 
-Using `npm` below. You can use [pnpm](https://pnpm.io/) or [yarn](https://yarnpkg.com/) instead.
-
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.9.0
+npm i -D @modyqyw/fabric@~4.0.0-0
 
 # globally
-npm i -g @modyqyw/fabric@~3.9.0
+npm i -g @modyqyw/fabric@~4.0.0-0
 ```
+
+See more about version [here](https://github.com/npm/node-semver).
 
 ### CLI
 
-CLI is used to config your new projects easier. Just call it after installing globally.
+CLI is used to config your new projects easier.
 
 ```sh
+# if you install globally
 # in current dir
-modyqyw-fabric config
+mo-fabric config
 # specify PROJECT_DIR
-modyqyw-fabric config ./
-```
+mo-fabric config ./
 
-Or, you can call it after installing locally.
-
-```sh
-./node_modules/.bin/modyqyw-fabric config
+# if you install locally
+# in current dir
+./node_modules/.bin/mo-fabric config
 ```
 
 **CLI will not keep your original configs. Use CLI in old projects on your own risk.**
@@ -45,39 +48,39 @@ Or, you can call it after installing locally.
 Naming is very hard and hardly be checked by linters. However, there are still relevant naming suggestions available.
 
 - JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-- CSS/LESS/SCSS/SASS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/)
+- CSS/LESS/SCSS/SASS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/), [CSS Modules](https://github.com/css-modules/css-modules)
 
-Besides, you can learn naming from some open-source projects.
+Besides, you can learn naming from some open-source projects, such as [tailwindcss](https://tailwindcss.com/), [windicss](https://windicss.org/), [mui](https://mui.com/), [antd](https://ant.design/), [vuetify](https://vuetifyjs.com/) and [element-plus](https://element-plus.org/).
 
 In my opinion, simplicity and clarity are the highest priority for naming.
 
 ### Git
 
-Learn about [Git](https://git-scm.com/doc), [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) and [GifLFS](https://git-lfs.github.com/).
+Learn about [Git](https://git-scm.com/doc), [Git flow](https://nvie.com/posts/a-successful-git-branching-model/), [Github flow](https://guides.github.com/introduction/flow/), [Gitlab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) and [Gif LFS](https://git-lfs.github.com/).
 
 ```sh
 git config --global core.autocrlf false
 git config --global init.defaultBranch main
 ```
 
-For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitee](https://gitee.com/).
+For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitlab](https://gitlab.com/) and [Gitee](https://gitee.com/).
 
-Set up `${PROJECT_DIR}/.gitattributes`.
+Set up `.gitattributes`.
 
 ```sh
 * text=auto
 
 ```
 
-A better `${PROJECT_DIR}/.gitattributes` example [here](https://stackoverflow.com/a/32278635).
+A better `.gitattributes` example [here](https://stackoverflow.com/a/32278635).
 
-A `${PROJECT_DIR}/.gitignore` example [here](./.gitignore).
+A `.gitignore` example [here](./.gitignore).
 
 ### EditorConfig
 
 Learn about [EditorConfig](https://editorconfig.org/).
 
-Set up `${PROJECT_DIR}/.editorconfig`.
+Set up `.editorconfig`.
 
 ```sh
 root = true
@@ -103,9 +106,9 @@ Learn about [Prettier](https://prettier.io/).
 npm i -D prettier@~2.4.1
 ```
 
-It it recommended to pin `prettier@~2.2.1`, if you are using TailwindCSS or WindiCSS without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
+It is recommended to pin `prettier@~2.2.1`, if you are using tailwindcss or windicss without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
 
-Set up `${PROJECT_DIR}/.prettierrc.js`.
+Set up `.prettierrc.js`.
 
 ```js
 const { prettier } = require('@modyqyw/fabric');
@@ -118,7 +121,7 @@ module.exports = {
 
 ### ESLint
 
-Learn about [ESLint](https://eslint.org/). Prettier is required.
+Learn about [ESLint](https://eslint.org/).
 
 ```sh
 npm i -D eslint@~7.32.0 @babel/core@~7.15.8 @babel/eslint-parser@~7.15.8
@@ -127,10 +130,10 @@ npm i -D eslint@~7.32.0 @babel/core@~7.15.8 @babel/eslint-parser@~7.15.8
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.3 @typescript-eslint/eslint-plugin@~4.33.0 @typescript-eslint/parser@~4.33.0
+npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.1.0 @typescript-eslint/parser@~5.1.0
 ```
 
-Set up `${PROJECT_DIR}/.eslintrc.js`.
+Set up `.eslintrc.js`.
 
 ```js
 const { eslint } = require('@modyqyw/fabric');
@@ -138,21 +141,44 @@ const { eslint } = require('@modyqyw/fabric');
 module.exports = {
   // vanilla
   ...eslint.vanilla,
+
+  // vanilla + prettier
+  // ...eslint.vanillaPrettier,
+
   // react17
   // ...eslint.react,
-  // vue2 typescript
+
+  // react17 + prettier
+  // ...eslint.reactPrettier,
+
+  // vue2 + typescript
   // ...eslint.vue2Typescript,
+
+  // vue2 + typescript + prettier
+  // ...eslint.vue2TypescriptPrettier,
+
   // vue2
   // ...eslint.vue2,
-  // vue3 typescript
+
+  // vue2 + prettier
+  // ...eslint.vue2Prettier,
+
+  // vue3 + typescript
   // ...eslint.vue3Typescript,
+
+  // vue3 + typescript + prettier
+  // ...eslint.vue3TypescriptPrettier,
+
   // vue3
   // ...eslint.vue3,
+
+  // vue3 + prettier
+  // ...eslint.vue3Prettier,
 };
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
+Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -172,13 +198,13 @@ You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are usin
 
 ### Stylelint
 
-Learn about [Stylelint](https://stylelint.io/). Prettier is required.
+Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-npm i -D stylelint@~13.13.1
+npm i -D stylelint@~14.0.0
 ```
 
-Set up `${PROJECT_DIR}/.stylelintrc.js`.
+Set up `.stylelintrc.js`.
 
 ```js
 const { stylelint } = require('@modyqyw/fabric');
@@ -186,15 +212,26 @@ const { stylelint } = require('@modyqyw/fabric');
 module.exports = {
   // css
   ...stylelint.css,
+
+  // css + prettier
+  // ...stylelint.cssPrettier,
+
   // less
   // ...stylelint.less,
+
+  // less + prettier
+  // ...stylelint.lessPrettier,
+
   // scss
   // ...stylelint.scss,
+
+  // scss + prettier
+  // ...stylelint.scssPrettier,
 };
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
+Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -216,7 +253,7 @@ Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://githu
 npm i -D markdownlint-cli@~0.29.0
 ```
 
-Set up `${PROJECT_DIR}/.markdownlint.json`.
+Set up `.markdownlint.json`.
 
 ```json
 {
@@ -230,7 +267,7 @@ Set up `${PROJECT_DIR}/.markdownlint.json`.
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern file here.
+Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -249,10 +286,10 @@ Set up `${PROJECT_DIR}/package.json`. Use `.gitignore` as the ignore pattern fil
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~13.2.0
+npm i -D @commitlint/cli@~13.2.1
 ```
 
-Set up `${PROJECT_DIR}/.commitlintrc.js`.
+Set up `.commitlintrc.js`.
 
 ```js
 const { commitlint } = require('@modyqyw/fabric');
@@ -271,7 +308,7 @@ Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 npm i -D commitizen@~4.2.4
 ```
 
-Set up `${PROJECT_DIR}/package.json`.
+Set up `package.json`.
 
 ```json
 {
@@ -294,11 +331,11 @@ Set up `${PROJECT_DIR}/package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~11.2.0
+npm install -D lint-staged@~11.2.3
 
 ```
 
-Set up `${PROJECT_DIR}/.lintstagedrc.js`.
+Set up `.lintstagedrc.js`.
 
 ```js
 module.exports = {
@@ -316,13 +353,13 @@ When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-servi
 Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
-npm install -D is-ci@~3.0.0 husky@~7.0.2
+npm install -D is-ci@~3.0.0 husky@~7.0.4
 
 npx husky install
 
 ```
 
-Set up `${PROJECT_DIR}/package.json`.
+Set up `package.json`.
 
 ```json
 {
@@ -335,7 +372,7 @@ Set up `${PROJECT_DIR}/package.json`.
 
 ```
 
-Set up `${PROJECT_DIR}/.husky/commit-msg` hook.
+Set up `.husky/commit-msg` hook.
 
 ```sh
 #!/bin/sh
@@ -345,7 +382,7 @@ npx --no-install commitlint --edit $1
 
 ```
 
-Set up `${PROJECT_DIR}/.husky/pre-commit` hook.
+Set up `.husky/pre-commit` hook.
 
 ```sh
 #!/bin/sh
@@ -371,25 +408,25 @@ Experience has proven that automation is the best option. You may want to try pa
 - [release](https://github.com/vercel/release)
 - [release-it](https://github.com/release-it/release-it)
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
+- [standard-version](https://github.com/conventional-changelog/standard-version)
 
 ## VSCode
 
 - Install plugins.
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-  - [language-stylus](https://marketplace.visualstudio.com/items?itemName=sysoev.language-stylus)
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - You may want [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) or [Vuedx](https://github.com/znck/vue-developer-experience#readme), see their READMEs carefully
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3
+  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
-- Set up `Settings.json`. Then `F1 => File: Save`.
+- Set up `Settings.json`.
 
 ```json
 {
   "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
   "editor.rulers": [{ "column": 100 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -398,7 +435,6 @@ Experience has proven that automation is the best option. You may want to try pa
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "html",
     "vue"
   ],
   "files.eol": "\n",
@@ -416,11 +452,15 @@ Experience has proven that automation is the best option. You may want to try pa
     "*.jxss": "css",
     "*.wpy": "vue",
     "*.json": "jsonc",
+    "*.json5: "jsonc",
     "*.nvue": "vue",
     "*.ux": "vue"
   },
   "less.validate": false,
   "scss.validate": false,
+  "[html]": {
+    "editor.formatOnSave": true
+  },
   "[javascript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
@@ -441,18 +481,6 @@ Experience has proven that automation is the best option. You may want to try pa
       "source.fixAll.eslint": true
     }
   },
-  "[vue]": {
-    "editor.codeActionsOnSave": {
-      "editor.defaultFormatter": "octref.vetur",
-      "source.fixAll.eslint": true,
-      "source.fixAll.stylelint": true
-    }
-  },
-  "[markdown]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.markdownlint": true
-    }
-  },
   "[css]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": true
@@ -463,22 +491,47 @@ Experience has proven that automation is the best option. You may want to try pa
       "source.fixAll.stylelint": true
     }
   },
-  "[sass]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
-    }
-  },
   "[scss]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": true
     }
+  },
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": true
+    }
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true
   }
 }
 ```
 
-If you are using Volar, remember to remove `"editor.defaultFormatter": "octref.vetur",`.
-
 ## Migrate
+
+### Migrate 4.x from 3.x
+
+- Upgrade your node version to latest 12, 14 or 16.
+- Upgrade your npm version to latest 6, 7 or 8.
+- Upgrade your eslint version to latest 7 or 8. (WIP)
+- Upgrade your stylelint version to latest 14.
+- Drop `stylelint-config-twbs-bootstrap`. Use `stylelint-config-standard` and `stylelint-config-standard-scss`.
+- Add css modules supports to stylelint configs.
+- Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
+- Update CLI to match above changes. Use `mo-fabric` instead of `modyqyw-fabric`.
 
 ### Migrate 3.x from 2.x
 
