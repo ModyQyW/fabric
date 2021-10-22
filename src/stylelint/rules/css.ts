@@ -2,8 +2,7 @@ const rules: Partial<{ [name: string]: any }> = {
   'at-rule-no-unknown': [
     true,
     {
-      // for @tailwind
-      ignoreAtRules: ['tailwind'],
+      ignoreAtRules: ['tailwind', 'value'],
     },
   ],
   'comment-empty-line-before': [
@@ -11,26 +10,30 @@ const rules: Partial<{ [name: string]: any }> = {
     {
       except: ['first-nested'],
       ignore: ['stylelint-commands'],
-      // for uni-app
       ignoreComments: [/^#ifdef/, /^#ifndef/, /^#endif/],
     },
   ],
   'property-no-unknown': [
     true,
     {
-      // for :import, :export
-      ignoreSelectors: [':import', ':export'],
+      ignoreProperties: ['composes', 'compose-with'],
+      ignoreSelectors: [':export', /^:import/],
     },
   ],
   'selector-pseudo-class-no-unknown': [
     true,
-    // for :export, :deep, :slotted, :global
-    { ignorePseudoClasses: ['export', 'deep', 'slotted', 'global'] },
+    { ignorePseudoClasses: ['export', 'import', 'deep', 'slotted', 'global', 'local', 'external'] },
   ],
   'selector-pseudo-element-no-unknown': [
     true,
-    // for ::v-deep, ::v-slotted, ::v-global
-    { ignorePseudoElements: ['v-deep', 'v-slotted', '::v-global'] },
+    { ignorePseudoElements: ['v-deep', 'v-slotted', 'v-global'] },
+  ],
+  'selector-type-no-unknown': [
+    true,
+    {
+      ignore: ['custom-elements'],
+      ignoreTypes: ['from'],
+    },
   ],
   'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
   'value-keyword-case': [

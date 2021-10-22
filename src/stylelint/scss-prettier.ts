@@ -1,9 +1,10 @@
-import type { Configuration } from 'stylelint';
+import type { Config } from 'stylelint';
 import rules from './rules';
 
-const config: Partial<Configuration> = {
+const config: Partial<Config> = {
   extends: [
-    'stylelint-config-recommended-scss',
+    'stylelint-config-html',
+    'stylelint-config-standard-scss',
     'stylelint-config-recess-order',
     'stylelint-prettier/recommended',
   ],
