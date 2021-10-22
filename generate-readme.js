@@ -409,6 +409,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
+  "stylelint.snippet": ["css", "less", "scss", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
