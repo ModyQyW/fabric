@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-0
+npm i -D @modyqyw/fabric@~4.0.0-1
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-0
+npm i -g @modyqyw/fabric@~4.0.0-1
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -458,6 +458,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
+  "stylelint.snippet": ["css", "less", "scss", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
