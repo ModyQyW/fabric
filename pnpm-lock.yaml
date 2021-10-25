@@ -44,7 +44,7 @@ specifiers:
   postcss-less: ~5.0.0
   prettier: ~2.4.1
   release-it: ~14.11.6
-  rollup: ~2.58.0
+  rollup: ~2.58.1
   rollup-plugin-dts: ~4.0.0
   shelljs: ~0.8.4
   sort-package-json: ~1.52.0
@@ -120,8 +120,8 @@ devDependencies:
   markdownlint-cli: 0.29.0
   prettier: 2.4.1
   release-it: 14.11.6
-  rollup: 2.58.0
-  rollup-plugin-dts: 4.0.0_rollup@2.58.0+typescript@4.4.4
+  rollup: 2.58.1
+  rollup-plugin-dts: 4.0.0_rollup@2.58.1+typescript@4.4.4
   sort-package-json: 1.52.0
   stylelint: 14.0.0
   vite: 2.6.10
@@ -6054,7 +6054,7 @@ packages:
       glob: 7.2.0
     dev: true
 
-  /rollup-plugin-dts/4.0.0_rollup@2.58.0+typescript@4.4.4:
+  /rollup-plugin-dts/4.0.0_rollup@2.58.1+typescript@4.4.4:
     resolution: {integrity: sha512-tgUC8CxVgtlLDVloUEA9uACVaxjJHuYxlDSTp1LdCexA0bJx+RuMi45RjdLG9RTCgZlV5YBh3O7P2u6dS1KlnA==}
     engines: {node: '>=v12.22.5'}
     peerDependencies:
@@ -6062,14 +6062,14 @@ packages:
       typescript: ^4.4.2
     dependencies:
       magic-string: 0.25.7
-      rollup: 2.58.0
+      rollup: 2.58.1
       typescript: 4.4.4
     optionalDependencies:
       '@babel/code-frame': 7.15.8
     dev: true
 
-  /rollup/2.58.0:
-    resolution: {integrity: sha512-NOXpusKnaRpbS7ZVSzcEXqxcLDOagN6iFS8p45RkoiMqPHDLwJm758UF05KlMoCRbLBTZsPOIa887gZJ1AiXvw==}
+  /rollup/2.58.1:
+    resolution: {integrity: sha512-dNhchlN/3k3EKtyPXWdEEI7wiPQ07WInzsklWFm/6dUZspF63nj0O1A9PTsMxbmtQziwnOOl5oR+BgWNjTEYLA==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -7131,7 +7131,7 @@ packages:
       esbuild: 0.13.3
       postcss: 8.3.8
       resolve: 1.20.0
-      rollup: 2.58.0
+      rollup: 2.58.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
