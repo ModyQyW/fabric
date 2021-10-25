@@ -32,7 +32,8 @@ const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
-const getDependencyVersion = (dependency) => pkg.dependencies[dependency] || pkg.devDependencies[dependency] || 'latest';
+const getDependencyVersion = (dependency) =>
+  pkg.dependencies[dependency] || pkg.devDependencies[dependency] || 'latest';
 
 const readme = `# ${pkg.name}
 
@@ -151,8 +152,8 @@ If you are using typescript, additional dependencies are needed.
 
 \`\`\`sh
 npm i -D typescript@${getDependencyVersion(
-    'typescript',
-  )} @typescript-eslint/eslint-plugin@${getDependencyVersion(
+  'typescript',
+)} @typescript-eslint/eslint-plugin@${getDependencyVersion(
   '@typescript-eslint/eslint-plugin',
 )} @typescript-eslint/parser@${getDependencyVersion('@typescript-eslint/parser')}
 \`\`\`
