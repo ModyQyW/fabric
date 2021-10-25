@@ -28,6 +28,7 @@ const config: Linter.Config = {
   rules: {
     ...rules.vanilla,
     ...rules.react,
+    'prettier/prettier': 'warn',
   },
   overrides: [
     {

@@ -36,6 +36,7 @@ const config: Linter.Config = {
   rules: {
     ...rules.vanillaTypescript,
     ...rules.vue3Typescript,
+    'prettier/prettier': 'warn',
   },
   overrides: [
     {

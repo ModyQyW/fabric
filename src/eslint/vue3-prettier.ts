@@ -30,6 +30,7 @@ const config: Linter.Config = {
   rules: {
     ...rules.vanilla,
     ...rules.vue3,
+    'prettier/prettier': 'warn',
   },
   settings: {
     ...settings,
