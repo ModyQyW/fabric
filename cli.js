@@ -156,9 +156,10 @@ program
         {
           type: 'confirm',
           name: 'useTailwindcssOrWindicss',
-          message: 'Are you using or going to use TailwindCSS or WindiCSS?',
+          message:
+            'Are you using or going to use TailwindCSS or WindiCSS? Pin Prettier to 2.2.1 if yes. See https://github.com/prettier/prettier/issues/10918.',
           when: (answers) => answers.config.includes('prettier'),
-          default: false,
+          default: true,
         },
         {
           type: 'confirm',
