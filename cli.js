@@ -294,7 +294,7 @@ program
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:stylelint':
-            'stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore',
+            'stylelint \\"./**/*.{css,less,scss,vue}\\" --fix --allow-empty-input --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:stylelint`);
         delete pkgObj.stylelint;

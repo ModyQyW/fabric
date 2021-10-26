@@ -204,7 +204,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
   "scripts": {
     ...,
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \\"./**/*.{css,less,scss,vue}\\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -410,8 +410,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue"],
-  "stylelint.validate": ["css", "less", "scss", "vue"],
+  "stylelint.snippet": ["html", "css", "less", "scss", "vue"],
+  "stylelint.validate": ["html", "css", "less", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
