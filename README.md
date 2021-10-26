@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-4
+npm i -D @modyqyw/fabric@~4.0.0-5
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-4
+npm i -g @modyqyw/fabric@~4.0.0-5
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -130,7 +130,7 @@ npm i -D eslint@~7.32.0 @babel/core@~7.15.8 @babel/eslint-parser@~7.15.8
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.1.0 @typescript-eslint/parser@~5.1.0
+npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.2.0 @typescript-eslint/parser@~5.2.0
 ```
 
 Set up `.eslintrc.js`.
@@ -353,7 +353,7 @@ When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-servi
 Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
-npm install -D is-ci@~3.0.0 husky@~7.0.4
+npm install -D is-ci@~3.0.1 husky@~7.0.4
 
 npx husky install
 
