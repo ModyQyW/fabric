@@ -123,6 +123,7 @@
     "inquirer": "~8.2.0",
     "postcss-html": "~1.1.1",
     "postcss-less": "~5.0.0",
+    "postcss-scss": "~4.0.1",
     "shelljs": "~0.8.4",
     "stylelint-config-html": "~1.0.0",
     "stylelint-config-prettier": "~9.0.3",

@@ -42,6 +42,7 @@ specifiers:
   markdownlint-cli: ~0.29.0
   postcss-html: ~1.1.1
   postcss-less: ~5.0.0
+  postcss-scss: ~4.0.1
   prettier: ~2.4.1
   release-it: ~14.11.6
   rollup: ~2.58.3
@@ -94,6 +95,7 @@ dependencies:
   inquirer: 8.2.0
   postcss-html: 1.1.1
   postcss-less: 5.0.0
+  postcss-scss: 4.0.1
   shelljs: 0.8.4
   stylelint-config-html: 1.0.0_9a254e9408270b3f628d94ae4fce002d
   stylelint-config-prettier: 9.0.3_stylelint@14.0.0
