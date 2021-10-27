@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-7
+npm i -D @modyqyw/fabric@~4.0.0-8
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-7
+npm i -g @modyqyw/fabric@~4.0.0-8
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -201,7 +201,7 @@ You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are usin
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-npm i -D stylelint@~14.0.0
+npm i -D stylelint@~14.0.1
 ```
 
 Set up `.stylelintrc.js`.
@@ -331,7 +331,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~11.2.4
+npm install -D lint-staged@~11.2.6
 
 ```
 
