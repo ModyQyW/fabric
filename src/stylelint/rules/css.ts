@@ -5,6 +5,7 @@ const rules: Partial<{ [name: string]: any }> = {
       ignoreAtRules: ['tailwind', 'value'],
     },
   ],
+  'color-function-notation': null,
   'comment-empty-line-before': [
     'always',
     {
@@ -28,13 +29,7 @@ const rules: Partial<{ [name: string]: any }> = {
     true,
     { ignorePseudoElements: ['v-deep', 'v-slotted', 'v-global'] },
   ],
-  'selector-type-no-unknown': [
-    true,
-    {
-      ignore: ['custom-elements'],
-      ignoreTypes: ['from'],
-    },
-  ],
+  'selector-type-no-unknown': null,
   'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
   'value-keyword-case': [
     'lower',
