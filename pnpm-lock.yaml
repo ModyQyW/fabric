@@ -50,7 +50,6 @@ specifiers:
   shelljs: ~0.8.4
   sort-package-json: ~1.52.0
   stylelint: ~14.0.1
-  stylelint-config-html: ~1.0.0
   stylelint-config-prettier: ~9.0.3
   stylelint-config-recess-order: ~2.5.0
   stylelint-config-standard: ~23.0.0
@@ -97,7 +96,6 @@ dependencies:
   postcss-less: 5.0.0
   postcss-scss: 4.0.1
   shelljs: 0.8.4
-  stylelint-config-html: 1.0.0_3b3cba0822f09f69a8ae3e2eb09f73ea
   stylelint-config-prettier: 9.0.3_stylelint@14.0.1
   stylelint-config-recess-order: 2.5.0_stylelint@14.0.1
   stylelint-config-standard: 23.0.0_stylelint@14.0.1
@@ -6381,17 +6379,6 @@ packages:
   /style-search/0.1.0:
     resolution: {integrity: sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=}
     dev: true
-
-  /stylelint-config-html/1.0.0_3b3cba0822f09f69a8ae3e2eb09f73ea:
-    resolution: {integrity: sha512-rKQUUWDpaYC7ybsS6tLxddjn6DxhjSIXybElSmcTyVQj3ExhmU3q+l41ktrlwHRyY0M5SkTkZiwngvYPYmsgSQ==}
-    engines: {node: ^12 || >=14}
-    peerDependencies:
-      postcss-html: ^1.0.0
-      stylelint: '>=14.0.0'
-    dependencies:
-      postcss-html: 1.1.1
-      stylelint: 14.0.1
-    dev: false
 
   /stylelint-config-prettier/9.0.3_stylelint@14.0.1:
     resolution: {integrity: sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==}
