@@ -210,6 +210,10 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`
 
+Check your Postcss version, which should be 8, if you are facing problems.
+
+Install Postcss by yourself / [npm overrides](https://github.com/npm/rfcs/blob/main/accepted/0036-overrides.md) / [yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) / [pnpm overrides](https://pnpm.io/package_json#pnpmoverrides) may help.
+
 ### Markdownlint
 
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
@@ -410,8 +414,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["html", "css", "less", "scss", "vue"],
-  "stylelint.validate": ["html", "css", "less", "scss", "vue"],
+  "stylelint.snippet": ["css", "less", "scss", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
