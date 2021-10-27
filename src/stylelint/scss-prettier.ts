@@ -14,8 +14,8 @@ const config: Partial<Config> = {
   overrides: [
     {
       files: ['*.vue', '**/*.vue'],
+      customSyntax: 'postcss-html',
       extends: [
-        'stylelint-config-html',
         'stylelint-config-standard-scss',
         'stylelint-config-recess-order',
         'stylelint-prettier/recommended',
