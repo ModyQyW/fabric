@@ -20,7 +20,7 @@ specifiers:
   eslint-config-airbnb: ~18.2.1
   eslint-config-airbnb-base: ~14.2.1
   eslint-config-airbnb-typescript: ~14.0.1
-  eslint-config-next: ~12.0.0
+  eslint-config-next: ~12.0.1
   eslint-config-prettier: ~8.3.0
   eslint-import-resolver-node: ~0.3.6
   eslint-import-resolver-typescript: ~2.5.0
@@ -77,7 +77,7 @@ dependencies:
   eslint-config-airbnb: 18.2.1_b16360b5f82b82e80b8e91bb59fed09f
   eslint-config-airbnb-base: 14.2.1_560ef94424f7023f0ab025f67f79aa67
   eslint-config-airbnb-typescript: 14.0.1_e97f24e9534df37e61940d52dca8b654
-  eslint-config-next: 12.0.0_eslint@7.32.0+typescript@4.4.4
+  eslint-config-next: 12.0.1_eslint@7.32.0+typescript@4.4.4
   eslint-config-prettier: 8.3.0_eslint@7.32.0
   eslint-import-resolver-node: 0.3.6
   eslint-import-resolver-typescript: 2.5.0_560ef94424f7023f0ab025f67f79aa67
@@ -592,8 +592,8 @@ packages:
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
     dev: true
 
-  /@next/eslint-plugin-next/12.0.0:
-    resolution: {integrity: sha512-pXpSBUkaHfIPD3LOpa3SJCxoPAHS68JBgtQylmhjG/Nu2EogzxHFs+GuIyKsLJVKG/8VKe5JobnEQ4u/NmLPPg==}
+  /@next/eslint-plugin-next/12.0.1:
+    resolution: {integrity: sha512-E6xd3xvOp6Mfs2p1GcdCN5AYIbgCC6Z3LV31NaNEMACATu9GpQhMig3+Wp7b70gXbUeNUGizuGWTJNP+o9FT0g==}
     dependencies:
       glob: 7.1.7
     dev: false
@@ -2467,8 +2467,8 @@ packages:
       object.entries: 1.1.4
     dev: false
 
-  /eslint-config-next/12.0.0_eslint@7.32.0+typescript@4.4.4:
-    resolution: {integrity: sha512-h4o5e8Nq7DLgXVt0sDmgNaHauSNBfYb78ru6FPg3H9jRYAP7Z/9P4Olcs4MfpVzW4O1bDolyM0mcKVmqNOZj5g==}
+  /eslint-config-next/12.0.1_eslint@7.32.0+typescript@4.4.4:
+    resolution: {integrity: sha512-8r06kXDKN7TWdsPf9XD9+p40g1gNSoCeSHEafcgpRMmsSxQo3C2PwcUwvQynaCvE6ns7MDwOvgLEomamcPr7Ig==}
     peerDependencies:
       eslint: ^7.23.0
       next: '>=10.2.0'
@@ -2477,7 +2477,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@next/eslint-plugin-next': 12.0.0
+      '@next/eslint-plugin-next': 12.0.1
       '@rushstack/eslint-patch': 1.0.6
       '@typescript-eslint/parser': 4.31.0_eslint@7.32.0+typescript@4.4.4
       eslint: 7.32.0
