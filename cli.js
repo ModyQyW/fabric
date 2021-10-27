@@ -450,7 +450,7 @@ program
       );
       pkgObj.scripts = {
         ...pkgObj.scripts,
-        lint: [...new Set(lintItems)].join(' && '),
+        lint: [...new Set(lintItems.sort())].join(' && '),
       };
       pkgObj.scripts = Object.fromEntries(
         Object.keys(pkgObj.scripts).map((cur) => [cur, pkgObj.scripts[cur]]),
