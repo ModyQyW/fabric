@@ -121,6 +121,7 @@
     "eslint-plugin-vue": "~7.20.0",
     "eslint-plugin-vuejs-accessibility": "~1.1.0",
     "inquirer": "~8.2.0",
+    "postcss": "~8.3.11",
     "postcss-html": "~1.1.1",
     "postcss-less": "~5.0.0",
     "postcss-scss": "~4.0.1",

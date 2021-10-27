@@ -40,6 +40,7 @@ specifiers:
   is-ci: ~3.0.1
   lint-staged: ~11.2.6
   markdownlint-cli: ~0.29.0
+  postcss: ~8.3.11
   postcss-html: ~1.1.1
   postcss-less: ~5.0.0
   postcss-scss: ~4.0.1
@@ -92,14 +93,15 @@ dependencies:
   eslint-plugin-vue: 7.20.0_eslint@7.32.0
   eslint-plugin-vuejs-accessibility: 1.1.0_eslint@7.32.0
   inquirer: 8.2.0
+  postcss: 8.3.11
   postcss-html: 1.1.1
   postcss-less: 5.0.0
-  postcss-scss: 4.0.1
+  postcss-scss: 4.0.1_postcss@8.3.11
   shelljs: 0.8.4
   stylelint-config-prettier: 9.0.3_stylelint@14.0.1
   stylelint-config-recess-order: 2.5.0_stylelint@14.0.1
   stylelint-config-standard: 23.0.0_stylelint@14.0.1
-  stylelint-config-standard-scss: 2.0.0_stylelint@14.0.1
+  stylelint-config-standard-scss: 2.0.0_postcss@8.3.11+stylelint@14.0.1
   stylelint-order: 5.0.0_stylelint@14.0.1
   stylelint-prettier: 1.2.0_prettier@2.4.1+stylelint@14.0.1
   typescript: 4.4.4
@@ -5416,11 +5418,13 @@ packages:
     dependencies:
       postcss: 8.3.11
 
-  /postcss-scss/4.0.1:
+  /postcss-scss/4.0.1_postcss@8.3.11:
     resolution: {integrity: sha512-7QghUu2l07OyVFT5LyvU/QJ1f2s8IL0mfToN69Yu533PgMZm2B1S6hYd4bao8tFq70r3P5MmAbKhVrZ4wOADxg==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.3.3
+    dependencies:
+      postcss: 8.3.11
     dev: false
 
   /postcss-selector-parser/6.0.6:
@@ -6399,12 +6403,12 @@ packages:
       stylelint-order: 4.1.0_stylelint@14.0.1
     dev: false
 
-  /stylelint-config-recommended-scss/5.0.0_stylelint@14.0.1:
+  /stylelint-config-recommended-scss/5.0.0_postcss@8.3.11+stylelint@14.0.1:
     resolution: {integrity: sha512-nQonGHxkv+n61WiU03bcHBHlA9XPMg7mGyD48ZmwrcnNroCEbH2nZhfn6Y1xcxfIHpD2wnwtAUPAwFaNQQpivw==}
     peerDependencies:
       stylelint: ^14.0.0
     dependencies:
-      postcss-scss: 4.0.1
+      postcss-scss: 4.0.1_postcss@8.3.11
       stylelint: 14.0.1
       stylelint-config-recommended: 6.0.0_stylelint@14.0.1
       stylelint-scss: 4.0.0_stylelint@14.0.1
@@ -6420,13 +6424,13 @@ packages:
       stylelint: 14.0.1
     dev: false
 
-  /stylelint-config-standard-scss/2.0.0_stylelint@14.0.1:
+  /stylelint-config-standard-scss/2.0.0_postcss@8.3.11+stylelint@14.0.1:
     resolution: {integrity: sha512-Pfex2nCvFKSL4u4d8sECYRkQadu6w+XO7kiE521sZNmFBGxLYhhZt0RN9HwXj5oBKWcE6Y5g86IjbaiXI7zrPg==}
     peerDependencies:
       stylelint: ^14.0.0
     dependencies:
       stylelint: 14.0.1
-      stylelint-config-recommended-scss: 5.0.0_stylelint@14.0.1
+      stylelint-config-recommended-scss: 5.0.0_postcss@8.3.11+stylelint@14.0.1
       stylelint-config-standard: 23.0.0_stylelint@14.0.1
     transitivePeerDependencies:
       - postcss
