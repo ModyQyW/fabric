@@ -11,11 +11,7 @@ const config: Partial<Config> = {
     {
       files: ['*.vue', '**/*.vue'],
       customSyntax: 'postcss-html',
-      extends: [
-        'stylelint-config-html',
-        'stylelint-config-standard-scss',
-        'stylelint-config-recess-order',
-      ],
+      extends: ['stylelint-config-standard-scss', 'stylelint-config-recess-order'],
       rules: {
         ...rules.css,
         ...rules.scss,
