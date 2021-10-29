@@ -116,14 +116,15 @@
     "eslint-plugin-prettier": "~4.0.0",
     "eslint-plugin-react": "~7.26.1",
     "eslint-plugin-react-hooks": "~4.2.0",
-    "eslint-plugin-regexp": "~1.4.1",
+    "eslint-plugin-regexp": "~1.5.0",
     "eslint-plugin-unicorn": "~37.0.1",
     "eslint-plugin-vue": "~7.20.0",
     "eslint-plugin-vuejs-accessibility": "~1.1.0",
     "inquirer": "~8.2.0",
     "postcss": "~8.3.11",
-    "postcss-html": "~1.1.1",
+    "postcss-html": "~1.2.0",
     "postcss-less": "~5.0.0",
+    "postcss-markdown": "~1.1.0",
     "postcss-scss": "~4.0.1",
     "shelljs": "~0.8.4",
     "stylelint-config-prettier": "~9.0.3",
@@ -154,7 +155,7 @@
     "rollup-plugin-dts": "~4.0.0",
     "sort-package-json": "~1.52.0",
     "stylelint": "~14.0.1",
-    "vite": "~2.6.12"
+    "vite": "~2.6.13"
   },
   "engines": {
     "node": "^12.22.6 || ^14.17.6 || ^16.8.0",
