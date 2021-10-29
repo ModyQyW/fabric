@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-10
+npm i -D @modyqyw/fabric@~4.0.0-11
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-10
+npm i -g @modyqyw/fabric@~4.0.0-11
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -343,7 +343,7 @@ Set up `.lintstagedrc.js`.
 
 ```js
 module.exports = {
-  '*.{md,markdown}': 'markdownlint --fix',
+  '*.md': 'markdownlint --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{css,less,scss,vue}': 'stylelint --fix',
 };
@@ -517,7 +517,7 @@ Experience has proven that automation is the best option. You may want to try pa
   "[markdown]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll.markdownlint": true
+      "source.fixAll.markdownlint": true,
     }
   },
   "[yaml]": {
