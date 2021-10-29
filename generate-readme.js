@@ -295,7 +295,7 @@ Set up \`.lintstagedrc.js\`.
 
 \`\`\`js
 module.exports = {
-  '*.{md,markdown}': 'markdownlint --fix',
+  '*.md': 'markdownlint --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
   '*.{css,less,scss,vue}': 'stylelint --fix',
 };

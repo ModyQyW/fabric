@@ -390,7 +390,7 @@ program
         );
         const lintStagedObject = {};
         if (config.includes('markdownlint')) {
-          lintStagedObject['*.{md,markdown}'] = 'markdownlint --fix';
+          lintStagedObject['*.md'] = 'markdownlint --fix';
         }
         if (config.includes('eslint')) {
           lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
