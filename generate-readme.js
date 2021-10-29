@@ -389,7 +389,6 @@ Experience has proven that automation is the best option. You may want to try pa
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    "markdown",
     "typescript",
     "typescriptreact",
     "vue"
@@ -415,8 +414,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue", "markdown"],
-  "stylelint.validate": ["css", "less", "scss", "vue", "markdown"],
+  "stylelint.snippet": ["css", "less", "scss", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
@@ -468,10 +467,9 @@ Experience has proven that automation is the best option. You may want to try pa
     "editor.formatOnSave": true
   },
   "[markdown]": {
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
       "source.fixAll.markdownlint": true,
-      "source.fixAll.stylelint": true
     }
   },
   "[yaml]": {
