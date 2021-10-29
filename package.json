@@ -82,8 +82,7 @@
     "release": "release-it"
   },
   "lint-staged": {
-    "*.json": "prettier --write",
-    "*.{md,markdown}": "markdownlint --fix",
+    "*.md": "markdownlint --fix",
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
   },
   "config": {
