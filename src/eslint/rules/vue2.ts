@@ -14,6 +14,12 @@ const rules: Partial<{
       tsx: 'never',
     },
   ],
+  'vue/multi-word-component-names': [
+    'warn',
+    {
+      ignores: ['[...all]'],
+    },
+  ],
   'vue/order-in-components': [
     'warn',
     {
