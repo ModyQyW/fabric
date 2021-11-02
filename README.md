@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-13
+npm i -D @modyqyw/fabric@~4.0.0-14
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-13
+npm i -g @modyqyw/fabric@~4.0.0-14
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -130,7 +130,7 @@ npm i -D eslint@~7.32.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.0
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.2.0 @typescript-eslint/parser@~5.2.0
+npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.3.0 @typescript-eslint/parser@~5.3.0
 ```
 
 Set up `.eslintrc.js`.
@@ -290,7 +290,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~13.2.1
+npm i -D @commitlint/cli@~14.1.0
 ```
 
 Set up `.commitlintrc.js`.
