@@ -6,7 +6,10 @@ const { Command } = require('commander');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const shell = require('shelljs');
+const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
+
+updateNotifier({ pkg }).notify();
 
 const program = new Command();
 
