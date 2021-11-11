@@ -3,25 +3,17 @@ import type { Linter } from 'eslint';
 const rules: Partial<{
   [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
 }> = {
-  'no-unused-vars': [
-    'warn',
-    {
-      varsIgnorePattern: 'React',
-      args: 'after-used',
-      ignoreRestSiblings: true,
-    },
-  ],
+  // recoil
   'react-hooks/exhaustive-deps': [
     'warn',
     {
-      additionalHooks: 'useRecoilCallback',
+      additionalHooks: '(useRecoilCallback|useRecoilTransaction|useRecoilTransaction_UNSTABLE)',
     },
   ],
-  'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
   'react/jsx-props-no-spreading': 'off',
-  'react/no-array-index-key': 'warn',
-  'react/prop-types': 'off',
+  // tsconfig jsx: "react-jsx"
   'react/react-in-jsx-scope': 'off',
+  // miniprogram
   'react/sort-comp': [
     'error',
     {

@@ -5,9 +5,7 @@ const rules: Partial<{
   [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
 }> = {
   ...vanilla,
-  'no-undef': 'off',
-  '@typescript-eslint/no-unused-vars': 'warn',
-  'no-unused-vars': 'off',
+  'no-undef': 'off', // unplugin-auto-import
 };
 
 export default rules;
