@@ -52,7 +52,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "main": "./dist/index.cjs.js",
@@ -126,7 +127,7 @@
     "postcss-scss": "~4.0.2",
     "shelljs": "~0.8.4",
     "stylelint-config-prettier": "~9.0.3",
-    "stylelint-config-recess-order": "~2.6.0",
+    "stylelint-config-recess-order": "~3.0.0",
     "stylelint-config-standard": "~23.0.0",
     "stylelint-config-standard-scss": "~2.0.1",
     "stylelint-order": "~5.0.0",
@@ -153,7 +154,7 @@
     "release-it": "~14.11.6",
     "rollup": "~2.59.0",
     "rollup-plugin-dts": "~4.0.1",
-    "sort-package-json": "~1.52.0",
+    "sort-package-json": "~1.53.0",
     "stylelint": "~14.0.1",
     "vite": "~2.6.14"
   },
