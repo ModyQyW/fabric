@@ -83,7 +83,20 @@ web_modules/
 .parcel-cache
 
 # Electron
+dist-electron
 dist_electron
+
+# Tauri
+dist-tauri
+dist_tauri
+
+# Cordova
+dist-cordova
+dist_cordova
+
+# Capacitor
+dist-capacitor
+dist_capacitor
 
 # Next.js build output
 .next
@@ -103,17 +116,19 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
 
 # vuepress build output
 .vuepress/dist
 .cache
 .temp
 
-# vite build output
+# ssr
 dist-ssr
+dist_ssr
+
+# ssg
+dist-ssg
+dist_ssg
 
 # Serverless
 .serverless/
@@ -124,9 +139,6 @@ dist-ssr
 
 # FuseBox cache
 .fusebox/
-
-# DynamoDB Local files
-.dynamodb/
 
 # TernJS port file
 .tern-port
