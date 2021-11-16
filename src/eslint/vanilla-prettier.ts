@@ -14,7 +14,7 @@ const config: Linter.Config = {
   extends: [
     'plugin:unicorn/recommended',
     'airbnb-base',
-    'plugin:functional/recommended',
+    'plugin:functional/lite',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
     'prettier',
@@ -43,7 +43,7 @@ const config: Linter.Config = {
         'plugin:unicorn/recommended',
         'airbnb-base',
         'airbnb-typescript/base',
-        'plugin:functional/recommended',
+        'plugin:functional/lite',
         'plugin:regexp/recommended',
         'plugin:eslint-comments/recommended',
         'prettier',
