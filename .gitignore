@@ -46,6 +46,10 @@ jspm_packages
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules
 
+# Temp directory
+.temp
+.tmp
+
 # TypeScript cache
 *.tsbuildinfo
 
@@ -116,7 +120,6 @@ dist
 
 # vuepress build output
 .vuepress/dist
-.temp
 
 # ssr
 dist-ssr
