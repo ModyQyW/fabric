@@ -490,6 +490,7 @@ Experience has proven that automation is the best option. You may want to try pa
 - Add css modules supports to stylelint configs.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
 - Update CLI to match above changes. Use \`mo-fabric\` instead of \`modyqyw-fabric\`.
+- No types.
 
 ### Migrate 3.x from 2.x
 

@@ -124,13 +124,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~7.32.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.0
+npm i -D eslint@~7.32.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.3.0 @typescript-eslint/parser@~5.3.0
+npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.4.0 @typescript-eslint/parser@~5.4.0
 ```
 
 Set up `.eslintrc.js`.
@@ -201,7 +201,7 @@ You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are usin
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-npm i -D stylelint@~14.0.1
+npm i -D stylelint@~14.1.0
 ```
 
 Set up `.stylelintrc.js`.
@@ -335,7 +335,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~11.2.6
+npm install -D lint-staged@~12.0.2
 
 ```
 
@@ -538,6 +538,7 @@ Experience has proven that automation is the best option. You may want to try pa
 - Add css modules supports to stylelint configs.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
 - Update CLI to match above changes. Use `mo-fabric` instead of `modyqyw-fabric`.
+- No types.
 
 ### Migrate 3.x from 2.x
 
