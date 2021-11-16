@@ -1,8 +1,6 @@
 import type { Linter } from 'eslint';
 
-const rules: Partial<{
-  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
-}> = {
+const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOptions>> = {
   // recoil
   'react-hooks/exhaustive-deps': [
     'warn',

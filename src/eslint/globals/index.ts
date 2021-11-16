@@ -1,6 +1,4 @@
-const globals: {
-  [name: string]: boolean | 'readonly' | 'readable' | 'writable' | 'writeable';
-} = {
+const globals: Record<string, boolean | 'readonly' | 'readable' | 'writable' | 'writeable'> = {
   // https://mp.jd.com/
   jd: 'readonly',
   // https://mp.kuaishou.com/

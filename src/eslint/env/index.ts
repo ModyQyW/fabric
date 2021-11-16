@@ -1,4 +1,4 @@
-const env: { [name: string]: boolean } = {
+const env: Record<string, boolean> = {
   browser: true,
   es2021: true,
   jest: true,

@@ -1,4 +1,4 @@
-const rules: Partial<{ [name: string]: any }> = {
+const rules: Partial<Record<string, any>> = {
   'at-rule-no-unknown': [
     true,
     {

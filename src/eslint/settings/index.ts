@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const settings: { [name: string]: any } = {
+const settings: Record<string, any> = {
   'import/extensions': ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
   'import/resolver': {
     node: {},
