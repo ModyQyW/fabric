@@ -10,11 +10,12 @@ const config: Linter.Config = {
   parserOptions: {
     requireConfigFile: false,
   },
-  plugins: ['regexp'],
+  plugins: ['functional', 'regexp'],
   extends: [
     'plugin:unicorn/recommended',
     'airbnb',
     'airbnb/hooks',
+    'plugin:functional/recommended',
     'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
   ],
@@ -39,12 +40,13 @@ const config: Linter.Config = {
         project: './tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: true,
       },
-      plugins: ['regexp'],
+      plugins: ['functional', 'regexp'],
       extends: [
         'plugin:unicorn/recommended',
         'airbnb',
         'airbnb-typescript',
         'airbnb/hooks',
+        'plugin:functional/recommended',
         'plugin:regexp/recommended',
         'plugin:eslint-comments/recommended',
       ],
