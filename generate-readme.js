@@ -204,7 +204,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
   "scripts": {
     ...,
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint \\"./**/*.{css,less,scss,vue}\\" --fix --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \\"./**/*.{css,less,scss,sass,vue}\\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -297,7 +297,7 @@ Set up \`.lintstagedrc.js\`.
 module.exports = {
   '*.md': 'markdownlint --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
-  '*.{css,less,scss,vue}': 'stylelint --fix',
+  '*.{css,less,scss,sass,vue}': 'stylelint --fix',
 };
 
 \`\`\`
@@ -414,8 +414,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue"],
-  "stylelint.validate": ["css", "less", "scss", "vue"],
+  "stylelint.snippet": ["css", "less", "scss", "sass", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "sass", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
@@ -450,6 +450,11 @@ Experience has proven that automation is the best option. You may want to try pa
     }
   },
   "[scss]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[sass]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": true
     }
@@ -489,8 +494,9 @@ Experience has proven that automation is the best option. You may want to try pa
 - Drop \`stylelint-config-twbs-bootstrap\`. Use \`stylelint-config-standard\` and \`stylelint-config-standard-scss\`.
 - Add css modules supports to stylelint configs.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
+- Add \`jsconfig.json\` and \`tsconfig.json\` support.
 - Update CLI to match above changes. Use \`mo-fabric\` instead of \`modyqyw-fabric\`.
-- No types.
+- Remove types.
 
 ### Migrate 3.x from 2.x
 

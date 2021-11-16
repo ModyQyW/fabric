@@ -22,7 +22,7 @@ const config: Config = {
   embeddedLanguageFormatting: 'auto',
   overrides: [
     {
-      files: ['*.css', '*.less', '*.sass', '*.scss'],
+      files: ['*.css', '*.less', '*.scss', '*.sass'],
       options: {
         singleQuote: false,
         trailingComma: 'none',

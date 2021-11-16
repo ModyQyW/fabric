@@ -189,7 +189,7 @@ program
           choices: [
             { name: 'CSS', value: 'css' },
             { name: 'LESS', value: 'less' },
-            { name: 'SCSS', value: 'scss' },
+            { name: 'SCSS / SASS', value: 'scss' },
           ],
         },
       ]);
@@ -298,7 +298,7 @@ program
           ...pkgObj.scripts,
           'lint:stylelint':
             // eslint-disable-next-line prettier/prettier, no-useless-escape
-            'stylelint \"./**/*.{css,less,scss,vue}\" --fix --allow-empty-input --ignore-path=.gitignore',
+            'stylelint \"./**/*.{css,less,scss,sass,vue}\" --fix --allow-empty-input --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:stylelint`);
         delete pkgObj.stylelint;
@@ -402,7 +402,7 @@ program
               : 'eslint --fix';
         }
         if (config.includes('stylelint')) {
-          lintStagedObject['*.{css,less,scss,vue}'] = 'stylelint --fix';
+          lintStagedObject['*.{css,less,scss,sass,vue}'] = 'stylelint --fix';
         }
         const lintStagedArray = Object.keys(lintStagedObject)
           .sort()

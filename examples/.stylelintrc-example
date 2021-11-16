@@ -13,9 +13,9 @@ module.exports = {
   // less + prettier
   // ...stylelint.lessPrettier,
 
-  // scss
+  // scss / sass
   // ...stylelint.scss,
 
-  // scss + prettier
+  // scss / sass + prettier
   // ...stylelint.scssPrettier,
 };
