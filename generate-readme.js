@@ -140,11 +140,16 @@ Override it when necessary.
 \`\`\`json
 {
   "extends": "@modyqyw/fabric/tsconfig.base.json",
-  "types": [
-    "vite/client",
-    "vite-plugin-pages/client",
-    "vite-plugin-vue-layouts/client"
-  ]
+  "compilerOptions": {
+    "types": [
+      "vite/client",
+      "vite-plugin-pages/client",
+      "vite-plugin-vue-layouts/client"
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }
 \`\`\`
 
