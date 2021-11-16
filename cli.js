@@ -108,6 +108,7 @@ program
       const {
         framework,
         config,
+        setUpTsconfig,
         useTailwindcssOrWindicss,
         useESLintWithPrettier,
         useStylelintWithPrettier,
@@ -155,6 +156,12 @@ program
             { name: 'LintStaged', value: 'lint-staged' },
             { name: 'Husky', value: 'husky' },
           ],
+        },
+        {
+          type: 'confirm',
+          name: 'setUpTsconfig',
+          message: 'Set up tsconfig.json?',
+          default: false,
         },
         {
           type: 'confirm',
@@ -222,6 +229,11 @@ program
       // Set editorconfig
       if (config.includes('editorconfig')) {
         fs.copyFileSync(getCliFilePath('.editorconfig'), path.resolve(directory, '.editorconfig'));
+      }
+
+      // Set up tsconfig.json
+      if (setUpTsconfig) {
+        fs.copyFileSync(getCliFilePath('tsconfig.json'), path.resolve(directory, 'tsconfig.json'));
       }
 
       // Set prettier

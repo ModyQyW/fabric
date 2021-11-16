@@ -122,6 +122,34 @@ Set up \`.editorconfig\`.
 ${editorconfig}
 \`\`\`
 
+### tsconfig.json (beta)
+
+Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
+
+Just \`extends\` in most time.
+
+\`\`\`json
+{
+  "extends": "@modyqyw/fabric/tsconfig.base.json"
+}
+
+\`\`\`
+
+Override it when necessary.
+
+\`\`\`json
+{
+  "extends": "@modyqyw/fabric/tsconfig.base.json",
+  "types": [
+    "vite/client",
+    "vite-plugin-pages/client",
+    "vite-plugin-vue-layouts/client"
+  ]
+}
+\`\`\`
+
+See [tsconfig.base.json](./tsconfig.base.json) for default configs.
+
 ### Prettier
 
 Learn about [Prettier](https://prettier.io/).

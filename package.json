@@ -70,7 +70,8 @@
     ".gitattributes",
     ".gitignore",
     ".markdownlint.json",
-    "cli.js"
+    "cli.js",
+    "tsconfig.base.json"
   ],
   "scripts": {
     "build": "tsc && vite build",
