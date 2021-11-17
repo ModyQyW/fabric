@@ -1,8 +1,6 @@
 import type { Linter } from 'eslint';
 
-const rules: Partial<{
-  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
-}> = {
+const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOptions>> = {
   'class-methods-use-this': 'off',
   'import/prefer-default-export': 'off',
   'import/no-extraneous-dependencies': [
@@ -21,17 +19,14 @@ const rules: Partial<{
         '**/__mocks__/**',
         '**/__test__/**',
         '**/__tests__/**',
-        '**/*.conf.js',
-        '**/*.conf.*.js',
-        '**/*.config.js',
-        '**/*.config.*.js',
-        '**/*.conf.ts',
-        '**/*.conf.*.ts',
-        '**/*.config.ts',
-        '**/*.config.*.ts',
+        '**/*.{conf,config,configs,setup}.{js,jsx,ts,tsx,vue}',
+        '**/*.{conf,config,configs,setup}.*.{js,jsx,ts,tsx,vue}',
+        '**/test.{js,jsx,ts,tsx,vue}',
+        '**/test-*.{js,jsx,ts,tsx,vue}',
+        '**/*{.,_}{test,spec}.{js,jsx,ts,tsx,vue}',
         '**/.*rc*',
-        '**/gulpfile.js',
-        '**/gulpfile.*.js',
+        '**/gulpfile.{js,ts}',
+        '**/gulpfile.*.{js,ts}',
       ],
       optionalDependencies: false,
     },
@@ -96,6 +91,7 @@ const rules: Partial<{
           directory: true,
         },
         dirs: {
+          directions: true,
           directories: true,
         },
         e: {
@@ -103,6 +99,7 @@ const rules: Partial<{
           event: true,
         },
         mod: {
+          modification: true,
           module: true,
         },
         rel: {

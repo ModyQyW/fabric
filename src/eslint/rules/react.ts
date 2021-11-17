@@ -1,8 +1,6 @@
 import type { Linter } from 'eslint';
 
-const rules: Partial<{
-  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
-}> = {
+const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOptions>> = {
   'no-unused-vars': [
     'warn',
     {
@@ -14,7 +12,7 @@ const rules: Partial<{
   'react-hooks/exhaustive-deps': [
     'warn',
     {
-      additionalHooks: 'useRecoilCallback',
+      additionalHooks: '(useRecoilCallback|useRecoilTransaction|useRecoilTransaction_UNSTABLE)',
     },
   ],
   'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],

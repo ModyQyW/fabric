@@ -1,8 +1,6 @@
 import type { Linter } from 'eslint';
 
-const rules: Partial<{
-  [name: string]: Linter.RuleLevel | Linter.RuleLevelAndOptions;
-}> = {
+const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOptions>> = {
   'import/extensions': [
     'error',
     'always',
@@ -12,6 +10,12 @@ const rules: Partial<{
       jsx: 'never',
       ts: 'never',
       tsx: 'never',
+    },
+  ],
+  'vue/multi-word-component-names': [
+    'warn',
+    {
+      ignores: ['[...all]'],
     },
   ],
   'vue/order-in-components': [

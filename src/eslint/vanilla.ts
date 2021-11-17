@@ -36,8 +36,15 @@ const config: Linter.Config = {
         project: './tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: true,
       },
-      plugins: ['prettier'],
-      extends: ['plugin:unicorn/recommended', 'airbnb-base', 'airbnb-typescript/base', 'prettier'],
+      plugins: ['regexp', 'prettier'],
+      extends: [
+        'plugin:unicorn/recommended',
+        'airbnb-base',
+        'airbnb-typescript/base',
+        'plugin:regexp/recommended',
+        'plugin:eslint-comments/recommended',
+        'prettier',
+      ],
       rules: {
         ...rules.vanillaTypescript,
       },
