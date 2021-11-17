@@ -6,7 +6,10 @@ const { Command } = require('commander');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const shell = require('shelljs');
+const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
+
+updateNotifier({ pkg }).notify();
 
 const program = new Command();
 
@@ -37,7 +40,7 @@ const getCliFilePath = (filename) => {
 };
 
 // Log hint
-console.log(chalk.cyan(`\nmodyqyw-fabric v${pkg.version} is running in ${process.cwd()} now.\n`));
+console.log(chalk.cyan(`\nmo-fabric v${pkg.version} is running in ${process.cwd()} now.\n`));
 
 // Verify node version
 const [nodeMajorVersion] = process.versions.node
@@ -45,10 +48,14 @@ const [nodeMajorVersion] = process.versions.node
   .map((item) => Number.parseInt(item, 10));
 if (nodeMajorVersion < 12 || nodeMajorVersion % 2 !== 0 || Number.isNaN(nodeMajorVersion)) {
   console.log('');
-  console.log(chalk.red('You are using a unsupported old node.js version.'));
-  console.log(chalk.red('Please upgrade your node.js version to LTS.'));
+  console.log(chalk.red('You are using a unsupported node.js version.'));
+  console.log(chalk.red('Please upgrade your node.js version to latest 12/14/16.'));
   console.log(chalk.red('See https://nodejs.org.'));
   console.log(chalk.red('You may need n, nvm or nvs.'));
+  console.log(chalk.red('n: https://github.com/tj/n'));
+  console.log(chalk.red('nvm: https://github.com/nvm-sh/nvm'));
+  console.log(chalk.red('nvm-windows: https://github.com/coreybutler/nvm-windows'));
+  console.log(chalk.red('nvs: https://github.com/jasongin/nvs'));
   console.log('');
   shell.exit(1);
 }
@@ -84,8 +91,10 @@ program
       if (!fs.existsSync(path.resolve(directory, 'package.json'))) {
         shell.exec('npm init -y');
       }
+
       // Lint items
       const lintItems = [];
+
       // Read project package.json
       const pkgObj = JSON.parse(
         fs.readFileSync(path.resolve(directory, 'package.json'), {
@@ -94,69 +103,90 @@ program
       );
       pkgObj.dependencies = pkgObj.dependencies || {};
       pkgObj.devDependencies = pkgObj.devDependencies || {};
+
       // Ask for information
-      const { framework, css, config } = await inquirer.prompt([
-        {
-          type: 'list',
-          name: 'framework',
-          message: 'Select framework',
-          default: 'vanilla',
-          choices: [
-            { name: 'Vanilla', value: 'vanilla' },
-            { name: 'Vue 2', value: 'vue2' },
-            { name: 'Vue 2 with TypeScript', value: 'vue2-typescript' },
-            { name: 'Vue 3', value: 'vue3' },
-            { name: 'Vue 3 With TypeScript', value: 'vue3-typescript' },
-            { name: 'React 17', value: 'react' },
-          ],
-        },
-        {
-          type: 'checkbox',
-          name: 'config',
-          message: 'Select configs',
-          default: [
-            'git',
-            'editorconfig',
-            'prettier',
-            'eslint',
-            'stylelint',
-            'markdownlint',
-            'commitlint',
-            'commitizen',
-            'lint-staged',
-            'husky',
-          ],
-          choices: [
-            { name: 'Git', value: 'git' },
-            { name: 'EditorConfig', value: 'editorconfig' },
-            { name: 'Prettier', value: 'prettier' },
-            { name: 'ESLint (needs Prettier)', value: 'eslint' },
-            { name: 'Stylelint (needs Prettier)', value: 'stylelint' },
-            { name: 'Markdownlint', value: 'markdownlint' },
-            { name: 'Commitlint', value: 'commitlint' },
-            { name: 'Commitizen', value: 'commitizen' },
-            { name: 'LintStaged', value: 'lint-staged' },
-            { name: 'Husky', value: 'husky' },
-          ],
-        },
-        {
-          type: 'list',
-          name: 'css',
-          message: 'Select css pre-processor',
-          when: (answers) => answers.config.includes('stylelint'),
-          default: 'css',
-          choices: [
-            { name: 'CSS', value: 'css' },
-            { name: 'LESS', value: 'less' },
-            { name: 'SCSS / SASS', value: 'scss' },
-          ],
-        },
-      ]);
+      const { framework, config, setTsconfig, useTailwindcssOrWindicss, css } =
+        await inquirer.prompt([
+          {
+            type: 'list',
+            name: 'framework',
+            message: 'Select framework',
+            default: 'vanilla',
+            choices: [
+              { name: 'Vanilla', value: 'vanilla' },
+              { name: 'Vue 2', value: 'vue2' },
+              { name: 'Vue 2 with TypeScript', value: 'vue2-typescript' },
+              { name: 'Vue 3', value: 'vue3' },
+              { name: 'Vue 3 With TypeScript', value: 'vue3-typescript' },
+              { name: 'React 17', value: 'react' },
+            ],
+          },
+          {
+            type: 'checkbox',
+            name: 'config',
+            message: 'Select configs',
+            default: [
+              'git',
+              'editorconfig',
+              'prettier',
+              'eslint',
+              'stylelint',
+              'markdownlint',
+              'commitlint',
+              'commitizen',
+              'lint-staged',
+              'husky',
+            ],
+            choices: [
+              { name: 'Git', value: 'git' },
+              { name: 'EditorConfig', value: 'editorconfig' },
+              { name: 'Prettier', value: 'prettier' },
+              { name: 'ESLint (needs Prettier)', value: 'eslint' },
+              { name: 'Stylelint (needs Prettier)', value: 'stylelint' },
+              { name: 'Markdownlint', value: 'markdownlint' },
+              { name: 'Commitlint', value: 'commitlint' },
+              { name: 'Commitizen', value: 'commitizen' },
+              { name: 'LintStaged', value: 'lint-staged' },
+              { name: 'Husky', value: 'husky' },
+            ],
+          },
+          {
+            type: 'confirm',
+            name: 'setTsconfig',
+            message: 'Set up tsconfig.json?',
+            default: false,
+          },
+          {
+            type: 'confirm',
+            name: 'useTailwindcssOrWindicss',
+            message:
+              'Are you using or going to use TailwindCSS or WindiCSS? Pin Prettier to 2.2.1 if yes. See https://github.com/prettier/prettier/issues/10918.',
+            when: (answers) =>
+              answers.config.includes('prettier') ||
+              answers.config.includes('eslint') ||
+              answers.config.includes('stylelint'),
+            default: true,
+          },
+          {
+            type: 'list',
+            name: 'css',
+            message: 'Select css pre-processor',
+            when: (answers) => answers.config.includes('stylelint'),
+            default: 'css',
+            choices: [
+              { name: 'CSS', value: 'css' },
+              { name: 'LESS', value: 'less' },
+              { name: 'SCSS / SASS', value: 'scss' },
+            ],
+          },
+        ]);
+
       // Set @modyqyw/fabric
       pkgObj.devDependencies = {
         ...pkgObj.devDependencies,
         '@modyqyw/fabric': `~${pkg.version}`,
       };
+
       // Set git
       if (config.includes('git')) {
         if (!shell.which('git')) {
@@ -175,10 +205,17 @@ program
         );
         fs.copyFileSync(getCliFilePath('.gitignore'), path.resolve(directory, '.gitignore'));
       }
+
       // Set editorconfig
       if (config.includes('editorconfig')) {
         fs.copyFileSync(getCliFilePath('.editorconfig'), path.resolve(directory, '.editorconfig'));
       }
+
+      // Set tsconfig.json
+      if (setTsconfig) {
+        fs.copyFileSync(getCliFilePath('tsconfig.json'), path.resolve(directory, 'tsconfig.json'));
+      }
+
       // Set prettier
       if (
         config.includes('prettier') ||
@@ -187,7 +224,7 @@ program
       ) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          prettier: getCliDependencyVersion('prettier'),
+          prettier: useTailwindcssOrWindicss ? '~2.2.1' : getCliDependencyVersion('prettier'),
         };
         delete pkgObj.prettier;
         shell.rm(
@@ -208,6 +245,7 @@ program
           path.resolve(directory, '.prettierrc.js'),
         );
       }
+
       // Set eslint
       if (config.includes('eslint')) {
         pkgObj.devDependencies = {
@@ -245,6 +283,7 @@ program
           path.resolve(directory, '.eslintrc.js'),
         );
       }
+
       // Set stylelint
       if (config.includes('stylelint')) {
         pkgObj.devDependencies = {
@@ -254,7 +293,8 @@ program
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:stylelint':
-            'stylelint ./**/*.{css,less,scss,vue} --fix --allow-empty-input --ignore-path=.gitignore',
+            // eslint-disable-next-line prettier/prettier, no-useless-escape
+            'stylelint \"./**/*.{css,less,scss,sass,vue}\" --fix --allow-empty-input --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:stylelint`);
         delete pkgObj.stylelint;
@@ -273,6 +313,7 @@ program
           path.resolve(directory, '.stylelintrc.js'),
         );
       }
+
       // Set markdownlint
       if (config.includes('markdownlint')) {
         pkgObj.devDependencies = {
@@ -296,6 +337,7 @@ program
           path.resolve(directory, '.markdownlint.json'),
         );
       }
+
       // Set commitlint
       if (config.includes('commitlint')) {
         pkgObj.devDependencies = {
@@ -314,6 +356,7 @@ program
           path.resolve(directory, '.commitlintrc.js'),
         );
       }
+
       // Set commitizen
       if (config.includes('commitizen')) {
         pkgObj.scripts = {
@@ -327,6 +370,7 @@ program
           },
         };
       }
+
       // Set lint-staged
       if (config.includes('lint-staged')) {
         pkgObj.devDependencies = {
@@ -345,7 +389,7 @@ program
         );
         const lintStagedObject = {};
         if (config.includes('markdownlint')) {
-          lintStagedObject['*.{md,markdown}'] = 'markdownlint --fix';
+          lintStagedObject['*.md'] = 'markdownlint --fix';
         }
         if (config.includes('eslint')) {
           lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
@@ -354,7 +398,7 @@ program
               : 'eslint --fix';
         }
         if (config.includes('stylelint')) {
-          lintStagedObject['*.{css,less,scss,vue}'] = 'stylelint --fix';
+          lintStagedObject['*.{css,less,scss,sass,vue}'] = 'stylelint --fix';
         }
         const lintStagedArray = Object.keys(lintStagedObject)
           .sort()
@@ -367,6 +411,7 @@ program
           `module.exports = {\n${lintStagedArray.join('')}};\n`,
         );
       }
+
       // Set husky
       if (config.includes('husky')) {
         pkgObj.scripts = {
@@ -397,25 +442,24 @@ program
         }
         shell.chmod('+x', path.resolve(directory, '.husky', '*'));
       }
+
       // Write package.json
       pkgObj.devDependencies = Object.fromEntries(
-        Object.keys(pkgObj.devDependencies)
-          .sort()
-          .map((cur) => [cur, pkgObj.devDependencies[cur]]),
+        Object.keys(pkgObj.devDependencies).map((cur) => [cur, pkgObj.devDependencies[cur]]),
       );
       pkgObj.scripts = {
         ...pkgObj.scripts,
-        lint: [...new Set(lintItems)].sort().join(' && '),
+        lint: [...new Set(lintItems.sort())].join(' && '),
       };
       pkgObj.scripts = Object.fromEntries(
-        Object.keys(pkgObj.scripts)
-          .sort()
-          .map((cur) => [cur, pkgObj.scripts[cur]]),
+        Object.keys(pkgObj.scripts).map((cur) => [cur, pkgObj.scripts[cur]]),
       );
       fs.writeFileSync(
         path.resolve(directory, 'package.json'),
         `${JSON.stringify(pkgObj, null, indent)}\n`,
       );
+      shell.exec(`npx sort-package-json`);
+
       // Install dependencies
       console.log(chalk.cyan('\nInstalling dependencies...\n'));
       shell.cd(path.resolve(directory));
