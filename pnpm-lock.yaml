@@ -48,6 +48,8 @@ specifiers:
   postcss-scss: ~4.0.2
   prettier: ~2.4.1
   release-it: ~14.11.7
+  rollup: ~2.60.0
+  rollup-plugin-dts: ~4.0.1
   shelljs: ~0.8.4
   sort-package-json: ~1.53.1
   stylelint: ~14.1.0
@@ -128,6 +130,8 @@ devDependencies:
   markdownlint-cli: 0.29.0
   prettier: 2.4.1
   release-it: 14.11.7
+  rollup: 2.60.0
+  rollup-plugin-dts: 4.0.1_rollup@2.60.0+typescript@4.4.4
   sort-package-json: 1.53.1
   stylelint: 14.1.0
   vite: 2.6.14
@@ -4448,6 +4452,12 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /magic-string/0.25.7:
+    resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
+    dependencies:
+      sourcemap-codec: 1.4.8
+    dev: true
+
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
@@ -5913,6 +5923,20 @@ packages:
       glob: 7.2.0
     dev: true
 
+  /rollup-plugin-dts/4.0.1_rollup@2.60.0+typescript@4.4.4:
+    resolution: {integrity: sha512-DNv5F8pro/r0Hkx3JWKRtJZocDnqXfgypoajeiaNq134rYaFcEIl/oas5PogD1qexMadVijsHyVko1Chig0OOQ==}
+    engines: {node: '>=v12.22.6'}
+    peerDependencies:
+      rollup: ^2.56.3
+      typescript: ^4.4.2
+    dependencies:
+      magic-string: 0.25.7
+      rollup: 2.60.0
+      typescript: 4.4.4
+    optionalDependencies:
+      '@babel/code-frame': 7.16.0
+    dev: true
+
   /rollup/2.60.0:
     resolution: {integrity: sha512-cHdv9GWd58v58rdseC8e8XIaPUo8a9cgZpnCMMDGZFDZKEODOiPPEQFXLriWr/TjXzhPPmG5bkAztPsOARIcGQ==}
     engines: {node: '>=10.0.0'}
@@ -6137,6 +6161,10 @@ packages:
   /source-map/0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /sourcemap-codec/1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
     dev: true
 
   /spdx-correct/3.1.1:
