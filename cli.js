@@ -108,7 +108,7 @@ program
       const {
         framework,
         config,
-        setUpTsconfig,
+        setTsconfig,
         useTailwindcssOrWindicss,
         useESLintWithPrettier,
         useStylelintWithPrettier,
@@ -159,7 +159,7 @@ program
         },
         {
           type: 'confirm',
-          name: 'setUpTsconfig',
+          name: 'setTsconfig',
           message: 'Set up tsconfig.json?',
           default: false,
         },
@@ -231,8 +231,8 @@ program
         fs.copyFileSync(getCliFilePath('.editorconfig'), path.resolve(directory, '.editorconfig'));
       }
 
-      // Set up tsconfig.json
-      if (setUpTsconfig) {
+      // Set tsconfig.json
+      if (setTsconfig) {
         fs.copyFileSync(getCliFilePath('tsconfig.json'), path.resolve(directory, 'tsconfig.json'));
       }
 
