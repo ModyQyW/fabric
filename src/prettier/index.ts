@@ -1,6 +1,6 @@
-import type { Options } from 'prettier';
+import type { Config } from 'prettier';
 
-const config: Options & Partial<{ overrides: { files: string | string[]; options: Options }[] }> = {
+const config: Config = {
   printWidth: 100,
   tabWidth: 2,
   useTabs: false,
@@ -10,7 +10,6 @@ const config: Options & Partial<{ overrides: { files: string | string[]; options
   jsxSingleQuote: false,
   trailingComma: 'all',
   bracketSpacing: true,
-  // @ts-ignore
   bracketSameLine: false,
   jsxBracketSameLine: false,
   arrowParens: 'always',
@@ -23,7 +22,7 @@ const config: Options & Partial<{ overrides: { files: string | string[]; options
   embeddedLanguageFormatting: 'auto',
   overrides: [
     {
-      files: ['*.css', '*.less', '*.scss'],
+      files: ['*.css', '*.less', '*.scss', '*.sass'],
       options: {
         singleQuote: false,
         trailingComma: 'none',
