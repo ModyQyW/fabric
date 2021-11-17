@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-16
+npm i -D @modyqyw/fabric@~4.0.0-17
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-16
+npm i -g @modyqyw/fabric@~4.0.0-17
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -323,7 +323,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~14.1.0
+npm i -D @commitlint/cli@~15.0.0
 ```
 
 Set up `.commitlintrc.js`.
@@ -454,7 +454,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
-  - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+  - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - 1.x version
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
