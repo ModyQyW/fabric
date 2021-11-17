@@ -243,6 +243,10 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`
 
+Check your Postcss version, which should be 7, if you are facing problems.
+
+Install Postcss by yourself / [npm overrides](https://github.com/npm/rfcs/blob/main/accepted/0036-overrides.md) / [yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) / [pnpm overrides](https://pnpm.io/package_json#pnpmoverrides) may help.
+
 ### Markdownlint
 
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
