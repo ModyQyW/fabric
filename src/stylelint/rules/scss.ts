@@ -3,8 +3,7 @@ const rules: Partial<{ [name: string]: any }> = {
   'scss/at-rule-no-unknown': [
     true,
     {
-      // for @tailwind
-      ignoreAtRules: ['tailwind'],
+      ignoreAtRules: ['tailwind', 'value'],
     },
   ],
 };
