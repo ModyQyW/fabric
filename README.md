@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-15
+npm i -D @modyqyw/fabric@~4.0.0-16
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-15
+npm i -g @modyqyw/fabric@~4.0.0-16
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
