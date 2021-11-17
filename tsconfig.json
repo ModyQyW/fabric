@@ -1,30 +1,6 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "checkJs": false,
     "types": ["vite/client"]
-  },
-  "include": [
-    "./**/*.js",
-    "./**/*.jsx",
-    "./**/*.ts",
-    "./**/*.tsx",
-    "./**/*.vue",
-    "./**/.*.js",
-    "./**/.*.ts"
-  ],
-  "exclude": ["dist", "node_modules"]
+  }
 }
