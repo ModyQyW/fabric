@@ -53,13 +53,15 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "main": "./dist/index.cjs.js",
   "jsdelivr": "./dist/index.cjs.js",
   "unpkg": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "mo-fabric": "./cli.js"
   },
@@ -74,7 +76,7 @@
     "tsconfig.base.json"
   ],
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && rollup -i ./src/index.ts -o ./dist/index.d.ts -f es -p dts",
     "dev": "vite",
     "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && sort-package-json",
     "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore",
