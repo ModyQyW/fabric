@@ -32,6 +32,7 @@
     "css",
     "less",
     "scss",
+    "sass",
     "git",
     "naming"
   ],
@@ -52,7 +53,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "main": "./dist/index.cjs.js",
@@ -61,6 +63,7 @@
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "bin": {
+    "mo-fabric": "./cli.js",
     "modyqyw-fabric": "./cli.js"
   },
   "files": [
@@ -70,7 +73,8 @@
     ".gitattributes",
     ".gitignore",
     ".markdownlint.json",
-    "cli.js"
+    "cli.js",
+    "tsconfig.base.json"
   ],
   "scripts": {
     "build": "tsc && vite build && rollup -i ./src/index.ts -o ./dist/index.d.ts -f es -p dts",
@@ -82,8 +86,7 @@
     "release": "release-it"
   },
   "lint-staged": {
-    "*.json": "prettier --write",
-    "*.{md,markdown}": "markdownlint --fix",
+    "*.md": "markdownlint --fix",
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
   },
   "config": {
