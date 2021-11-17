@@ -98,6 +98,39 @@ trim_trailing_whitespace = false
 
 ```
 
+### tsconfig.json (beta)
+
+Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
+
+Just `extends` in most time.
+
+```json
+{
+  "extends": "@modyqyw/fabric/tsconfig.base.json"
+}
+
+```
+
+Override it when necessary.
+
+```json
+{
+  "extends": "@modyqyw/fabric/tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "vite/client",
+      "vite-plugin-pages/client",
+      "vite-plugin-vue-layouts/client"
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```
+
+See [tsconfig.base.json](./tsconfig.base.json) for default configs.
+
 ### Prettier
 
 Learn about [Prettier](https://prettier.io/).
@@ -194,7 +227,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore` can be replaced with `vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore`.
 
-You should declare `paths` in `jsconfig.json` or `tsconfig.json` if you are using path aliases.
+You should declare `paths` in `tsconfig.json` if you are using path aliases.
 
 ### Stylelint
 
@@ -222,10 +255,10 @@ module.exports = {
   // less + prettier
   // ...stylelint.lessPrettier,
 
-  // scss
+  // scss / sass
   // ...stylelint.scss,
 
-  // scss + prettier
+  // scss / sass + prettier
   // ...stylelint.scssPrettier,
 };
 
@@ -239,7 +272,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
   "scripts": {
     ...,
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue}\" --fix --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,sass,vue}\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -345,7 +378,7 @@ Set up `.lintstagedrc.js`.
 module.exports = {
   '*.md': 'markdownlint --fix',
   '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
-  '*.{css,less,scss,vue}': 'stylelint --fix',
+  '*.{css,less,scss,sass,vue}': 'stylelint --fix',
 };
 
 ```
@@ -422,7 +455,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
 - Set up `Settings.json`.
@@ -462,8 +495,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue"],
-  "stylelint.validate": ["css", "less", "scss", "vue"],
+  "stylelint.snippet": ["css", "less", "scss", "sass", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "sass", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
@@ -502,7 +535,13 @@ Experience has proven that automation is the best option. You may want to try pa
       "source.fixAll.stylelint": true
     }
   },
+  "[sass]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
   "[vue]": {
+    "editor.defaultFormatter": "octref.vetur",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
@@ -526,6 +565,8 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 ```
 
+If you are using Volar, remember to remove `"editor.defaultFormatter": "octref.vetur",`.
+
 ## Migrate
 
 ### Migrate 4.x from 3.x
@@ -534,11 +575,10 @@ Experience has proven that automation is the best option. You may want to try pa
 - Upgrade your npm version to latest 6, 7 or 8.
 - Upgrade your eslint version to latest 7 or 8. (WIP)
 - Upgrade your stylelint version to latest 14.
-- Drop `stylelint-config-twbs-bootstrap`. Use `stylelint-config-standard` and `stylelint-config-standard-scss`.
-- Add css modules supports to stylelint configs.
+- Upgrade your postcss version to latest 8.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
+- Add `tsconfig.json` support.
 - Update CLI to match above changes. Use `mo-fabric` instead of `modyqyw-fabric`.
-- No types.
 
 ### Migrate 3.x from 2.x
 

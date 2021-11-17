@@ -213,7 +213,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 When using \`vue-cli-service\`, \`eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore\` can be replaced with \`vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore\`.
 
-You should declare \`paths\` in \`jsconfig.json\` or \`tsconfig.json\` if you are using path aliases.
+You should declare \`paths\` in \`tsconfig.json\` if you are using path aliases.
 
 ### Stylelint
 
@@ -407,7 +407,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
 - Set up \`Settings.json\`.
@@ -493,6 +493,7 @@ Experience has proven that automation is the best option. You may want to try pa
     }
   },
   "[vue]": {
+    "editor.defaultFormatter": "octref.vetur",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
@@ -516,6 +517,8 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 \`\`\`
 
+If you are using Volar, remember to remove \`"editor.defaultFormatter": "octref.vetur",\`.
+
 ## Migrate
 
 ### Migrate 4.x from 3.x
@@ -524,12 +527,10 @@ Experience has proven that automation is the best option. You may want to try pa
 - Upgrade your npm version to latest 6, 7 or 8.
 - Upgrade your eslint version to latest 7 or 8. (WIP)
 - Upgrade your stylelint version to latest 14.
-- Drop \`stylelint-config-twbs-bootstrap\`. Use \`stylelint-config-standard\` and \`stylelint-config-standard-scss\`.
-- Add css modules supports to stylelint configs.
+- Upgrade your postcss version to latest 8.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
-- Add \`jsconfig.json\` and \`tsconfig.json\` support.
+- Add \`tsconfig.json\` support.
 - Update CLI to match above changes. Use \`mo-fabric\` instead of \`modyqyw-fabric\`.
-- Remove types.
 
 ### Migrate 3.x from 2.x
 
