@@ -1,3 +1,5 @@
+const { commitlint } = require('./dist/index.cjs');
+
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
+  ...commitlint,
 };
