@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.10.2
+npm i -D @modyqyw/fabric@~3.11.0
 
 # globally
-npm i -g @modyqyw/fabric@~3.10.2
+npm i -g @modyqyw/fabric@~3.11.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -163,7 +163,7 @@ npm i -D eslint@~7.32.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.4.4 @typescript-eslint/eslint-plugin@~5.4.0 @typescript-eslint/parser@~5.4.0
+npm i -D typescript@~4.5.2 @typescript-eslint/eslint-plugin@~5.4.0 @typescript-eslint/parser@~5.4.0
 ```
 
 Set up `.eslintrc.js`.
