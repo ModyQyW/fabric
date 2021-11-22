@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~4.0.0-18
+npm i -D @modyqyw/fabric@~4.0.0
 
 # globally
-npm i -g @modyqyw/fabric@~4.0.0-18
+npm i -g @modyqyw/fabric@~4.0.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -157,7 +157,7 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm i -D eslint@~8.2.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
+npm i -D eslint@~8.3.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
 ```
 
 If you are using typescript, additional dependencies are needed.
@@ -287,7 +287,7 @@ Install Postcss by yourself / [npm overrides](https://github.com/npm/rfcs/blob/m
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
-npm i -D markdownlint-cli@~0.29.0
+npm i -D markdownlint-cli@~0.30.0
 ```
 
 Set up `.markdownlint.json`.
@@ -368,7 +368,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~12.0.2
+npm install -D lint-staged@~12.1.1
 
 ```
 
