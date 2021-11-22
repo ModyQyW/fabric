@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.11.0
+npm i -D @modyqyw/fabric@~3.12.0
 
 # globally
-npm i -g @modyqyw/fabric@~3.11.0
+npm i -g @modyqyw/fabric@~3.12.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -260,7 +260,7 @@ Install Postcss by yourself / [npm overrides](https://github.com/npm/rfcs/blob/m
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
-npm i -D markdownlint-cli@~0.29.0
+npm i -D markdownlint-cli@~0.30.0
 ```
 
 Set up `.markdownlint.json`.
@@ -341,7 +341,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~12.0.2
+npm install -D lint-staged@~12.1.1
 
 ```
 
