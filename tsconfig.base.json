@@ -2,34 +2,58 @@
   /* https://aka.ms/tsconfig.json */
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "target": "esnext",
-    "lib": ["ESNext", "DOM"],
-    "jsx": "preserve",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": true,
+    // Type Checking
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
 
-    "module": "esnext",
-    "moduleResolution": "Node",
+    // Modules
     "baseUrl": "./",
-    "typeRoots": ["./node_modules/@types", "./typings", "./src/typings", "./types", "./src/types"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
+    "typeRoots": ["./node_modules/@types", "./typings", "./src/typings", "./types", "./src/types"],
 
-    "allowJs": true,
-    "checkJs": false,
-    "sourceMap": true,
-    "noEmit": true,
+    // Emit
+    "declaration": true,
+    "declarationDir": "dist",
+    "downlevelIteration": true,
     "importHelpers": true,
+    "newLine": "lf",
+    "noEmit": true,
+    "outDir": "dist",
+    "removeComments": true,
+    "sourceMap": true,
 
-    "isolatedModules": true,
+    // JavaScript Support
+    "allowJs": true,
+
+    // Editor Support
+
+    // Interop Constraints
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
 
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
+    // Backwards Compatibility
 
+    // Language and Environment
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+
+    // Compiler Diagnostics
+
+    // Projects
+
+    // Output Formatting
+
+    // Completeness
     "skipLibCheck": true
   },
   "include": [
