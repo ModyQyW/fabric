@@ -46,7 +46,7 @@ Requires:
 - Set \`shamefully-hoist=true\` in \`.npmrc\` if using latest pnpm 6 instead of npm
 - Set \`nodeLinker: 'node-modules'\` in \`.yarnrc.yml\` if using latest yarn 2/3 instead of npm
 
-Using \`npm\` in examples below.
+Using \`pnpm\` in examples below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 [Github](${pkg.homepage}) | [Gitee](${pkg.homepage.replace('github', 'gitee')})
 
@@ -54,10 +54,10 @@ Using \`npm\` in examples below.
 
 \`\`\`sh
 # locally
-npm i -D ${pkg.name}@~${pkg.version}
+pnpm install -D ${pkg.name}@~${pkg.version}
 
 # globally
-npm i -g ${pkg.name}@~${pkg.version}
+pnpm install -g ${pkg.name}@~${pkg.version}
 \`\`\`
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -160,7 +160,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/).
 
 \`\`\`sh
-npm i -D prettier@${getDependencyVersion('prettier')}
+pnpm install -D prettier@${getDependencyVersion('prettier')}
 \`\`\`
 
 It it recommended to pin \`prettier@~2.2.1\`, if you are using TailwindCSS or WindiCSS without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
@@ -176,7 +176,7 @@ ${prettierrc}
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 \`\`\`sh
-npm i -D eslint@${getDependencyVersion('eslint')} @babel/core@${getDependencyVersion(
+pnpm install -D eslint@${getDependencyVersion('eslint')} @babel/core@${getDependencyVersion(
   '@babel/core',
 )} @babel/eslint-parser@${getDependencyVersion('@babel/eslint-parser')}
 \`\`\`
@@ -184,7 +184,7 @@ npm i -D eslint@${getDependencyVersion('eslint')} @babel/core@${getDependencyVer
 If you are using typescript, additional dependencies are needed.
 
 \`\`\`sh
-npm i -D typescript@${getDependencyVersion(
+pnpm install -D typescript@${getDependencyVersion(
   'typescript',
 )} @typescript-eslint/eslint-plugin@${getDependencyVersion(
   '@typescript-eslint/eslint-plugin',
@@ -204,7 +204,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:eslint",
+    "lint": "pnpm run lint:eslint",
     "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore"
   }
 }
@@ -220,7 +220,7 @@ You should declare \`paths\` in \`tsconfig.json\` if you are using path aliases.
 Learn about [Stylelint](https://stylelint.io/). Prettier is required.
 
 \`\`\`sh
-npm i -D stylelint@${getDependencyVersion('stylelint')}
+pnpm install -D stylelint@${getDependencyVersion('stylelint')}
 \`\`\`
 
 Set up \`.stylelintrc.js\`.
@@ -236,7 +236,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:stylelint",
+    "lint": "pnpm run lint:stylelint",
     "lint:stylelint": "stylelint \\"./**/*.{css,less,scss,sass,vue}\\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
@@ -252,7 +252,7 @@ Install Postcss by yourself / [npm overrides](https://github.com/npm/rfcs/blob/m
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 \`\`\`sh
-npm i -D markdownlint-cli@${getDependencyVersion('markdownlint-cli')}
+pnpm install -D markdownlint-cli@${getDependencyVersion('markdownlint-cli')}
 \`\`\`
 
 Set up \`.markdownlint.json\`.
@@ -268,7 +268,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:markdownlint",
+    "lint": "pnpm run lint:markdownlint",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
@@ -280,7 +280,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 \`\`\`sh
-npm i -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
+pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
 \`\`\`
 
 Set up \`.commitlintrc.js\`.
@@ -294,7 +294,7 @@ ${commitlintrc}
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 \`\`\`sh
-npm i -D commitizen@${getDependencyVersion('commitizen')}
+pnpm install -D commitizen@${getDependencyVersion('commitizen')}
 \`\`\`
 
 Set up \`package.json\`.
@@ -320,7 +320,7 @@ Set up \`package.json\`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 \`\`\`sh
-npm install -D lint-staged@${getDependencyVersion('lint-staged')}
+pnpm install -D lint-staged@${getDependencyVersion('lint-staged')}
 
 \`\`\`
 
@@ -342,7 +342,7 @@ When using \`vue-cli-service\`, \`eslint --fix\` can be replaced with \`vue-cli-
 Learn about [Husky](https://github.com/typicode/husky).
 
 \`\`\`sh
-npm install -D is-ci@${getDependencyVersion('is-ci')} husky@${getDependencyVersion('husky')}
+pnpm install -D is-ci@${getDependencyVersion('is-ci')} husky@${getDependencyVersion('husky')}
 
 npx husky install
 
