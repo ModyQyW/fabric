@@ -460,6 +460,16 @@ program
       );
       shell.exec(`npx sort-package-json`);
 
+      // Set .npmrc / .yarnrc.yml
+      if (pkgManager === 'pnpm') {
+        fs.writeFileSync(path.resolve(directory, '.npmrc'), `shamefully-hoist=true\n`);
+      } else if (
+        pkgManager === 'yarn' &&
+        ['2', '3'].includes(shell.exec('yarn -v', { silent: true }).stdout[0])
+      ) {
+        fs.writeFileSync(path.resolve(directory, '.yarnrc.yml'), `nodeLinker: 'node-modules'\n`);
+      }
+
       // Install dependencies
       console.log(chalk.cyan('\nInstalling dependencies...\n'));
       shell.cd(path.resolve(directory));
