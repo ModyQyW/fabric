@@ -463,7 +463,14 @@ program
       // Install dependencies
       console.log(chalk.cyan('\nInstalling dependencies...\n'));
       shell.cd(path.resolve(directory));
-      shell.exec(`${pkgManager} install`);
+      if (
+        pkgManager === 'npm' &&
+        ['7', '8'].includes(shell.exec('npm -v', { silent: true }).stdout[0])
+      ) {
+        shell.exec(`${pkgManager} install --legacy-peer-deps`);
+      } else {
+        shell.exec(`${pkgManager} install`);
+      }
       shell.chmod('+x', path.resolve(directory, '.git', 'hooks', '*'));
       if (shell.cd('-').code === 0) {
         console.log(
