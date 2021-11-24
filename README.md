@@ -9,7 +9,7 @@ Requires:
 - Set `shamefully-hoist=true` in `.npmrc` if using latest pnpm 6 instead of npm
 - Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` if using latest yarn 2/3 instead of npm
 
-Using `npm` in examples below.
+Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 [Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
@@ -17,10 +17,10 @@ Using `npm` in examples below.
 
 ```sh
 # locally
-npm i -D @modyqyw/fabric@~3.12.0
+pnpm install -D @modyqyw/fabric@~3.12.1
 
 # globally
-npm i -g @modyqyw/fabric@~3.12.0
+pnpm install -g @modyqyw/fabric@~3.12.1
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -136,7 +136,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-npm i -D prettier@~2.4.1
+pnpm install -D prettier@~2.4.1
 ```
 
 It it recommended to pin `prettier@~2.2.1`, if you are using TailwindCSS or WindiCSS without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
@@ -157,13 +157,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 ```sh
-npm i -D eslint@~7.32.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
+pnpm install -D eslint@~7.32.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-npm i -D typescript@~4.5.2 @typescript-eslint/eslint-plugin@~5.4.0 @typescript-eslint/parser@~5.4.0
+pnpm install -D typescript@~4.5.2 @typescript-eslint/eslint-plugin@~5.4.0 @typescript-eslint/parser@~5.4.0
 ```
 
 Set up `.eslintrc.js`.
@@ -200,7 +200,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:eslint",
+    "lint": "pnpm run lint:eslint",
     "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore"
   }
 }
@@ -216,7 +216,7 @@ You should declare `paths` in `tsconfig.json` if you are using path aliases.
 Learn about [Stylelint](https://stylelint.io/). Prettier is required.
 
 ```sh
-npm i -D stylelint@~13.13.1
+pnpm install -D stylelint@~13.13.1
 ```
 
 Set up `.stylelintrc.js`.
@@ -244,7 +244,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:stylelint",
+    "lint": "pnpm run lint:stylelint",
     "lint:stylelint": "stylelint \"./**/*.{css,less,scss,sass,vue}\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
@@ -260,7 +260,7 @@ Install Postcss by yourself / [npm overrides](https://github.com/npm/rfcs/blob/m
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
-npm i -D markdownlint-cli@~0.30.0
+pnpm install -D markdownlint-cli@~0.30.0
 ```
 
 Set up `.markdownlint.json`.
@@ -284,7 +284,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
   ...,
   "scripts": {
     ...,
-    "lint": "npm run lint:markdownlint",
+    "lint": "pnpm run lint:markdownlint",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
@@ -296,7 +296,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/).
 
 ```sh
-npm i -D @commitlint/cli@~15.0.0
+pnpm install -D @commitlint/cli@~15.0.0
 ```
 
 Set up `.commitlintrc.js`.
@@ -315,7 +315,7 @@ module.exports = {
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
-npm i -D commitizen@~4.2.4
+pnpm install -D commitizen@~4.2.4
 ```
 
 Set up `package.json`.
@@ -341,7 +341,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@~12.1.1
+pnpm install -D lint-staged@~12.1.2
 
 ```
 
@@ -363,7 +363,7 @@ When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-servi
 Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
-npm install -D is-ci@~3.0.1 husky@~7.0.4
+pnpm install -D is-ci@~3.0.1 husky@~7.0.4
 
 npx husky install
 
