@@ -150,7 +150,7 @@
     "is-ci": "~3.0.1",
     "lint-staged": "~12.1.2",
     "markdownlint-cli": "~0.30.0",
-    "prettier": "~2.4.1",
+    "prettier": "~2.5.0",
     "release-it": "~14.11.8",
     "rollup": "~2.60.1",
     "rollup-plugin-dts": "~4.0.1",
