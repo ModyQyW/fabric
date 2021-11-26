@@ -163,8 +163,6 @@ Learn about [Prettier](https://prettier.io/).
 pnpm install -D prettier@${getDependencyVersion('prettier')}
 \`\`\`
 
-It is recommended to pin \`prettier@~2.2.1\`, if you are using tailwindcss or windicss without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
-
 Set up \`.prettierrc.js\`.
 
 \`\`\`js

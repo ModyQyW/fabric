@@ -109,7 +109,6 @@ program
         framework,
         config,
         setTsconfig,
-        useTailwindcssOrWindicss,
         useESLintWithPrettier,
         useStylelintWithPrettier,
         css,
@@ -162,14 +161,6 @@ program
           name: 'setTsconfig',
           message: 'Set up tsconfig.json?',
           default: false,
-        },
-        {
-          type: 'confirm',
-          name: 'useTailwindcssOrWindicss',
-          message:
-            'Are you using or going to use TailwindCSS or WindiCSS? Pin Prettier to 2.2.1 if yes. See https://github.com/prettier/prettier/issues/10918.',
-          when: (answers) => answers.config.includes('prettier'),
-          default: true,
         },
         {
           type: 'confirm',
@@ -240,7 +231,7 @@ program
       if (config.includes('prettier')) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          prettier: useTailwindcssOrWindicss ? '~2.2.1' : getCliDependencyVersion('prettier'),
+          prettier: getCliDependencyVersion('prettier'),
         };
         delete pkgObj.prettier;
         shell.rm(
