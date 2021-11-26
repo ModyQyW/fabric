@@ -17,10 +17,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.12.1
+pnpm install -D @modyqyw/fabric@~3.13.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.12.1
+pnpm install -g @modyqyw/fabric@~3.13.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -136,10 +136,8 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-pnpm install -D prettier@~2.4.1
+pnpm install -D prettier@~2.5.0
 ```
-
-It it recommended to pin `prettier@~2.2.1`, if you are using TailwindCSS or WindiCSS without attributify mode. See [Prettier#10918](https://github.com/prettier/prettier/issues/10918).
 
 Set up `.prettierrc.js`.
 
