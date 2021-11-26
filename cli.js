@@ -105,81 +105,69 @@ program
       pkgObj.devDependencies = pkgObj.devDependencies || {};
 
       // Ask for information
-      const { framework, config, setTsconfig, useTailwindcssOrWindicss, css } =
-        await inquirer.prompt([
-          {
-            type: 'list',
-            name: 'framework',
-            message: 'Select framework',
-            default: 'vanilla',
-            choices: [
-              { name: 'Vanilla', value: 'vanilla' },
-              { name: 'Vue 2', value: 'vue2' },
-              { name: 'Vue 2 with TypeScript', value: 'vue2-typescript' },
-              { name: 'Vue 3', value: 'vue3' },
-              { name: 'Vue 3 With TypeScript', value: 'vue3-typescript' },
-              { name: 'React 17', value: 'react' },
-            ],
-          },
-          {
-            type: 'checkbox',
-            name: 'config',
-            message: 'Select configs',
-            default: [
-              'git',
-              'editorconfig',
-              'prettier',
-              'eslint',
-              'stylelint',
-              'markdownlint',
-              'commitlint',
-              'commitizen',
-              'lint-staged',
-              'husky',
-            ],
-            choices: [
-              { name: 'Git', value: 'git' },
-              { name: 'EditorConfig', value: 'editorconfig' },
-              { name: 'Prettier', value: 'prettier' },
-              { name: 'ESLint (needs Prettier)', value: 'eslint' },
-              { name: 'Stylelint (needs Prettier)', value: 'stylelint' },
-              { name: 'Markdownlint', value: 'markdownlint' },
-              { name: 'Commitlint', value: 'commitlint' },
-              { name: 'Commitizen', value: 'commitizen' },
-              { name: 'LintStaged', value: 'lint-staged' },
-              { name: 'Husky', value: 'husky' },
-            ],
-          },
-          {
-            type: 'confirm',
-            name: 'setTsconfig',
-            message: 'Set up tsconfig.json?',
-            default: false,
-          },
-          {
-            type: 'confirm',
-            name: 'useTailwindcssOrWindicss',
-            message:
-              'Are you using or going to use TailwindCSS or WindiCSS? Pin Prettier to 2.2.1 if yes. See https://github.com/prettier/prettier/issues/10918.',
-            when: (answers) =>
-              answers.config.includes('prettier') ||
-              answers.config.includes('eslint') ||
-              answers.config.includes('stylelint'),
-            default: true,
-          },
-          {
-            type: 'list',
-            name: 'css',
-            message: 'Select css pre-processor',
-            when: (answers) => answers.config.includes('stylelint'),
-            default: 'css',
-            choices: [
-              { name: 'CSS', value: 'css' },
-              { name: 'LESS', value: 'less' },
-              { name: 'SCSS / SASS', value: 'scss' },
-            ],
-          },
-        ]);
+      const { framework, config, setTsconfig, css } = await inquirer.prompt([
+        {
+          type: 'list',
+          name: 'framework',
+          message: 'Select framework',
+          default: 'vanilla',
+          choices: [
+            { name: 'Vanilla', value: 'vanilla' },
+            { name: 'Vue 2', value: 'vue2' },
+            { name: 'Vue 2 with TypeScript', value: 'vue2-typescript' },
+            { name: 'Vue 3', value: 'vue3' },
+            { name: 'Vue 3 With TypeScript', value: 'vue3-typescript' },
+            { name: 'React 17', value: 'react' },
+          ],
+        },
+        {
+          type: 'checkbox',
+          name: 'config',
+          message: 'Select configs',
+          default: [
+            'git',
+            'editorconfig',
+            'prettier',
+            'eslint',
+            'stylelint',
+            'markdownlint',
+            'commitlint',
+            'commitizen',
+            'lint-staged',
+            'husky',
+          ],
+          choices: [
+            { name: 'Git', value: 'git' },
+            { name: 'EditorConfig', value: 'editorconfig' },
+            { name: 'Prettier', value: 'prettier' },
+            { name: 'ESLint (needs Prettier)', value: 'eslint' },
+            { name: 'Stylelint (needs Prettier)', value: 'stylelint' },
+            { name: 'Markdownlint', value: 'markdownlint' },
+            { name: 'Commitlint', value: 'commitlint' },
+            { name: 'Commitizen', value: 'commitizen' },
+            { name: 'LintStaged', value: 'lint-staged' },
+            { name: 'Husky', value: 'husky' },
+          ],
+        },
+        {
+          type: 'confirm',
+          name: 'setTsconfig',
+          message: 'Set up tsconfig.json?',
+          default: false,
+        },
+        {
+          type: 'list',
+          name: 'css',
+          message: 'Select css pre-processor',
+          when: (answers) => answers.config.includes('stylelint'),
+          default: 'css',
+          choices: [
+            { name: 'CSS', value: 'css' },
+            { name: 'LESS', value: 'less' },
+            { name: 'SCSS / SASS', value: 'scss' },
+          ],
+        },
+      ]);
 
       // Set @modyqyw/fabric
       pkgObj.devDependencies = {
@@ -224,7 +212,7 @@ program
       ) {
         pkgObj.devDependencies = {
           ...pkgObj.devDependencies,
-          prettier: useTailwindcssOrWindicss ? '~2.2.1' : getCliDependencyVersion('prettier'),
+          prettier: getCliDependencyVersion('prettier'),
         };
         delete pkgObj.prettier;
         shell.rm(
