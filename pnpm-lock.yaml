@@ -19,7 +19,7 @@ specifiers:
   commander: ~8.3.0
   commitizen: ~4.2.4
   eslint: ~7.32.0
-  eslint-config-airbnb: ~19.0.1
+  eslint-config-airbnb: ~19.0.2
   eslint-config-airbnb-base: ~15.0.0
   eslint-config-airbnb-typescript: ~16.1.0
   eslint-config-next: ~12.0.4
@@ -42,6 +42,7 @@ specifiers:
   is-ci: ~3.0.1
   lint-staged: ~12.1.2
   markdownlint-cli: ~0.30.0
+  postcss: ~7.0.39
   prettier: ~2.5.0
   release-it: ~14.11.8
   rollup: ~2.60.2
@@ -74,7 +75,7 @@ dependencies:
   '@typescript-eslint/parser': 5.5.0_eslint@7.32.0+typescript@4.5.2
   chalk: 4.1.2
   commander: 8.3.0
-  eslint-config-airbnb: 19.0.1_2d33ffcf24016cc67a13c49436fdf97f
+  eslint-config-airbnb: 19.0.2_2d33ffcf24016cc67a13c49436fdf97f
   eslint-config-airbnb-base: 15.0.0_a820dc868cc8cd66d8297be6779b9035
   eslint-config-airbnb-typescript: 16.1.0_65cebf72044d3da2ab9dd58fe483a77d
   eslint-config-next: 12.0.4_eslint@7.32.0+typescript@4.5.2
@@ -93,6 +94,7 @@ dependencies:
   eslint-plugin-vue: 8.1.1_eslint@7.32.0
   eslint-plugin-vuejs-accessibility: 1.1.0_eslint@7.32.0
   inquirer: 8.2.0
+  postcss: 7.0.39
   shelljs: 0.8.4
   stylelint-config-prettier: 9.0.3_stylelint@13.13.1
   stylelint-config-recess-order: 2.6.0_stylelint@13.13.1
@@ -1499,7 +1501,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001283
-      electron-to-chromium: 1.4.8
+      electron-to-chromium: 1.4.9
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -2298,8 +2300,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium/1.4.8:
-    resolution: {integrity: sha512-Cu5+dbg55+1E3ohlsa8HT0s4b8D0gBewXEGG8s5wBl8ynWv60VuvYW25GpsOeTVXpulhyU/U8JYZH+yxASSJBQ==}
+  /electron-to-chromium/1.4.9:
+    resolution: {integrity: sha512-7AyB4SiLtGJbLACXezs8BDjDbZizuoiyHTQxbcvzfi5LYWRXVSFdmPvuDjtlWQmsVSONRicZfSBj3xgft0Wvrg==}
 
   /emoji-regex/10.0.0:
     resolution: {integrity: sha512-KmJa8l6uHi1HrBI34udwlzZY1jOEuID/ft4d8BSSEdRyap7PwBEt910453PJa5MuGvxkLqlt4Uvhu7tttFHViw==}
@@ -2624,8 +2626,8 @@ packages:
       - eslint-plugin-import
     dev: false
 
-  /eslint-config-airbnb/19.0.1_2d33ffcf24016cc67a13c49436fdf97f:
-    resolution: {integrity: sha512-ooV8Vdt3gmV6hCSJutRw5beArd56Cd++vvy7j0Y7DBhUKqcTyI7cWNcJpCJlcftGPRLtzdU0hNMtquOUSSm8nA==}
+  /eslint-config-airbnb/19.0.2_2d33ffcf24016cc67a13c49436fdf97f:
+    resolution: {integrity: sha512-4v5DEMVSl043LaCT+gsxPcoiIk0iYG5zxJKKjIy80H/D//2E0vtuOBWkb0CBDxjF+y26yQzspIXYuY6wMmt9Cw==}
     engines: {node: ^10.12.0 || ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^7.32.0 || ^8.2.0
