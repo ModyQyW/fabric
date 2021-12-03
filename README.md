@@ -17,10 +17,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~4.1.1
+pnpm install -D @modyqyw/fabric@~4.2.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~4.1.1
+pnpm install -g @modyqyw/fabric@~4.2.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -161,7 +161,7 @@ pnpm install -D eslint@~8.3.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.2 @typescript-eslint/eslint-plugin@~5.4.0 @typescript-eslint/parser@~5.4.0
+pnpm install -D typescript@~4.5.2 @typescript-eslint/eslint-plugin@~5.5.0 @typescript-eslint/parser@~5.5.0
 ```
 
 Set up `.eslintrc.js`.
