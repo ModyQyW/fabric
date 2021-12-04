@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { Command } = require('commander');
 const inquirer = require('inquirer');
-const chalk = require('chalk');
+const picocolors = require('picocolors');
 const shell = require('shelljs');
 const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
@@ -40,7 +40,7 @@ const getCliFilePath = (filename) => {
 };
 
 // Log hint
-console.log(chalk.cyan(`\nmo-fabric v${pkg.version} is running in ${process.cwd()}.\n`));
+console.log(picocolors.cyan(`\nmo-fabric v${pkg.version} is running in ${process.cwd()}.\n`));
 
 // Verify node version
 const [nodeMajorVersion] = process.versions.node
@@ -48,14 +48,14 @@ const [nodeMajorVersion] = process.versions.node
   .map((item) => Number.parseInt(item, 10));
 if (nodeMajorVersion < 12 || nodeMajorVersion % 2 !== 0 || Number.isNaN(nodeMajorVersion)) {
   console.log('');
-  console.log(chalk.red('You are using a unsupported node.js version.'));
-  console.log(chalk.red('Please upgrade your node.js version to latest 12/14/16.'));
-  console.log(chalk.red('See https://nodejs.org.'));
-  console.log(chalk.red('You may need n, nvm or nvs.'));
-  console.log(chalk.red('n: https://github.com/tj/n'));
-  console.log(chalk.red('nvm: https://github.com/nvm-sh/nvm'));
-  console.log(chalk.red('nvm-windows: https://github.com/coreybutler/nvm-windows'));
-  console.log(chalk.red('nvs: https://github.com/jasongin/nvs'));
+  console.log(picocolors.red('You are using a unsupported node.js version.'));
+  console.log(picocolors.red('Please upgrade your node.js version to latest 12/14/16.'));
+  console.log(picocolors.red('See https://nodejs.org.'));
+  console.log(picocolors.red('You may need nvm, nvs or fnm.'));
+  console.log(picocolors.red('nvm: https://github.com/nvm-sh/nvm'));
+  console.log(picocolors.red('nvm-windows: https://github.com/coreybutler/nvm-windows'));
+  console.log(picocolors.red('nvs: https://github.com/jasongin/nvs'));
+  console.log(picocolors.red('fnm: https://github.com/Schniz/fnm'));
   console.log('');
   shell.exit(1);
 }
@@ -202,7 +202,7 @@ program
       if (config.includes('git')) {
         if (!shell.which('git')) {
           console.log('');
-          console.log(chalk.red('Please install Git in your system first.'));
+          console.log(picocolors.red('Please install Git in your system first.'));
           shell.exit(1);
         }
         shell.exec('git config --global core.autocrlf false');
@@ -478,7 +478,7 @@ program
       }
 
       // Install dependencies
-      console.log(chalk.cyan('\nInstalling dependencies...\n'));
+      console.log(picocolors.cyan('\nInstalling dependencies...\n'));
       shell.cd(path.resolve(directory));
       if (
         pkgManager === 'npm' &&
@@ -491,7 +491,7 @@ program
       shell.chmod('+x', path.resolve(directory, '.git', 'hooks', '*'));
       if (shell.cd('-').code === 0) {
         console.log(
-          chalk.cyan(
+          picocolors.cyan(
             '\nDone! 🎉 Please confirm there are no bugs. Or, you can add an issue here: https://github.com/ModyQyW/fabric/issues/new. Thank you! :D\n',
           ),
         );
