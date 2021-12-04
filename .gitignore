@@ -142,17 +142,19 @@ dist_ssg
 # TernJS port file
 .tern-port
 
-# VSCode
+# Editor
 .vscode-test
 .vscode
+!.vscode/extensions.json
 *.vsix
-
-# Jetbrains
 .idea
-
-# DCloud
 .hbuilder
 .hbuilderx
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # yarn v2
 .yarn/cache
