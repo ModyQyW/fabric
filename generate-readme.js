@@ -275,7 +275,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 ### Commitlint
 
-Learn about [Commitlint](https://commitlint.js.org/).
+Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 \`\`\`sh
 pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
