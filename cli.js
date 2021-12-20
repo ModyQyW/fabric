@@ -376,6 +376,10 @@ program
             path: './node_modules/cz-conventional-changelog',
           },
         };
+        pkgObj.devDependencies = {
+          ...pkgObj.devDependencies,
+          commitizen: getCliDependencyVersion('commitizen'),
+        };
       }
 
       // Set lint-staged
