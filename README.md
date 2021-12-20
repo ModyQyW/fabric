@@ -17,10 +17,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.15.0
+pnpm install -D @modyqyw/fabric@~3.16.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.15.0
+pnpm install -g @modyqyw/fabric@~3.16.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -155,13 +155,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 ```sh
-pnpm install -D eslint@~7.32.0 @babel/core@~7.16.0 @babel/eslint-parser@~7.16.3
+pnpm install -D eslint@~7.32.0 @babel/core@~7.16.5 @babel/eslint-parser@~7.16.5
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.3 @typescript-eslint/eslint-plugin@~5.6.0 @typescript-eslint/parser@~5.6.0
+pnpm install -D typescript@~4.5.4 @typescript-eslint/eslint-plugin@~5.7.0 @typescript-eslint/parser@~5.7.0
 ```
 
 Set up `.eslintrc.js`.
@@ -291,7 +291,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ### Commitlint
 
-Learn about [Commitlint](https://commitlint.js.org/).
+Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
 pnpm install -D @commitlint/cli@~15.0.0
@@ -339,7 +339,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@~12.1.2
+pnpm install -D lint-staged@~12.1.3
 
 ```
 
