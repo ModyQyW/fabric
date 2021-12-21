@@ -17,10 +17,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~4.4.3
+pnpm install -D @modyqyw/fabric@~4.4.4
 
 # globally
-pnpm install -g @modyqyw/fabric@~4.4.3
+pnpm install -g @modyqyw/fabric@~4.4.4
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -112,7 +112,11 @@ Just extends, then customize.
     "baseUrl": "./",
     // on-demand set jsx, default preserve
     "jsx": "react-jsx",
-    // on-demand set types
+    // on-demand set paths, default {}
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    // on-demand set types, default []
     "types": [
       // uni-app
       "@dcloudio/types",
@@ -138,10 +142,8 @@ Just extends, then customize.
       // webpack
       "webpack-env",
     ],
-    // on-demand set paths
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    // on-demand set types, default ESNext
+    "target": "ES5"
   },
   // on-demand set include
   "include": [
