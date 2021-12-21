@@ -136,7 +136,11 @@ Just extends, then customize.
     "baseUrl": "./",
     // on-demand set jsx, default preserve
     "jsx": "react-jsx",
-    // on-demand set types
+    // on-demand set paths, default {}
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    // on-demand set types, default []
     "types": [
       // uni-app
       "@dcloudio/types",
@@ -162,10 +166,8 @@ Just extends, then customize.
       // webpack
       "webpack-env",
     ],
-    // on-demand set paths
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    // on-demand set types, default ESNext
+    "target": "ES5"
   },
   // on-demand set include
   "include": [
