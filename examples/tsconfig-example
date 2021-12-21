@@ -3,8 +3,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "jsx": "preserve",
+    "paths": {},
     "types": [],
-    "paths": {}
+    "target": "ES5"
   },
   "include": [
     "./**/.*.js",
