@@ -5,7 +5,7 @@
     "jsx": "preserve",
     "paths": {},
     "types": [],
-    "target": "ES5"
+    "target": "ESNext"
   },
   "include": [
     "./**/.*.js",
