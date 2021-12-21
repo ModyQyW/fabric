@@ -50,7 +50,6 @@
     // Compiler Diagnostics
 
     // Projects
-    "incremental": true,
 
     // Output Formatting
 
