@@ -1,6 +1,17 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": "./",
     "types": ["vite/client"]
-  }
+  },
+  "include": [
+    "./**/.*.js",
+    "./**/*.js",
+    "./**/*.jsx",
+    "./**/.*.ts",
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.vue"
+  ],
+  "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
 }
