@@ -17,10 +17,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~4.4.2
+pnpm install -D @modyqyw/fabric@~4.4.3
 
 # globally
-pnpm install -g @modyqyw/fabric@~4.4.2
+pnpm install -g @modyqyw/fabric@~4.4.3
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -50,7 +50,7 @@ Naming is very hard and hardly be checked by linters. However, there are still r
 - JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
 - CSS/LESS/SCSS/SASS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/), [CSS Modules](https://github.com/css-modules/css-modules)
 
-Besides, you can learn naming from some open-source projects, such as [tailwindcss](https://tailwindcss.com/), [windicss](https://windicss.org/), [mui](https://mui.com/), [antd](https://ant.design/), [vuetify](https://vuetifyjs.com/) and [element-plus](https://element-plus.org/).
+Besides, you can learn naming from some open-source projects, such as [bootstrap](https://getbootstrap.com/), [tailwindcss](https://tailwindcss.com/), [primer css](https://primer.style/css/), [bulma](https://bulma.io/), [mui](https://mui.com/), [antd](https://ant.design/), [vuetify](https://vuetifyjs.com/) and [element-plus](https://element-plus.org/).
 
 In my opinion, simplicity and clarity are the highest priority for naming.
 
@@ -102,31 +102,61 @@ trim_trailing_whitespace = false
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-Just `extends` in most time.
+Just extends, then customize.
 
 ```json
 {
-  "extends": "@modyqyw/fabric/tsconfig.base.json"
-}
-
-```
-
-Override it when necessary.
-
-```json
-{
-  "extends": "@modyqyw/fabric/tsconfig.base.json",
+  "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
+    // set baseUrl
+    "baseUrl": "./",
+    // on-demand set jsx, default preserve
+    "jsx": "react-jsx",
+    // on-demand set types
     "types": [
-      "vite/client",
+      // uni-app
+      "@dcloudio/types",
+      // element-plus
+      "element-plus/global",
+      // alipay miniprogram
+      "mini-types",
+      // wechat miniprogram
+      "miniprogram-api-typings",
+      // unplugin-icons
+      "unplugin-icons/types/react",
+      "unplugin-icons/types/vue",
+      // unplugin-vue2-script-setup
+      "unplugin-vue2-script-setup/ref-macros",
+      "unplugin-vue2-script-setup/types",
+      // vite-plugin-pages
       "vite-plugin-pages/client",
-      "vite-plugin-vue-layouts/client"
+      "vite-plugin-pages/client-react",
+      // vite-plugin-vue-layouts
+      "vite-plugin-vue-layouts/client",
+      // vite
+      "vite/client",
+      // webpack
+      "webpack-env",
     ],
+    // on-demand set paths
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  // on-demand set include
+  "include": [
+    "./**/.*.js",
+    "./**/*.js",
+    "./**/*.jsx",
+    "./**/.*.ts",
+    "./**/*.ts",
+    "./**/*.tsx",
+    "./**/*.vue"
+  ],
+  // on-demand set exclude
+  "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
 }
+
 ```
 
 See [tsconfig.base.json](./tsconfig.base.json) for default configs.
