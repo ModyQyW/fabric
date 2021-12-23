@@ -163,6 +163,8 @@ Just extends, then customize.
       "vite-plugin-vue-layouts/client",
       // vite
       "vite/client",
+      // vue3 setup
+      "vue/macros-global",
       // webpack
       "webpack-env",
     ],
