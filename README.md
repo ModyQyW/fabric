@@ -8,6 +8,11 @@ Requires:
 - Latest npm 6/7/8
 - Set `shamefully-hoist=true` in `.npmrc` if using latest pnpm 6 instead of npm
 - Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` if using latest yarn 2/3 instead of npm
+- ESLint 7
+- Stylelint 13
+- Postcss 7
+
+Check @modyqyw/fabric@4 For ESLint 8, Stylelint 14 and Postcss 8.
 
 Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
@@ -17,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.16.4
+pnpm install -D @modyqyw/fabric@~3.17.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.16.4
+pnpm install -g @modyqyw/fabric@~3.17.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -126,6 +131,8 @@ Just extends, then customize.
       "mini-types",
       // wechat miniprogram
       "miniprogram-api-typings",
+      // type-fest
+      "type-fest",
       // unplugin-icons
       "unplugin-icons/types/react",
       "unplugin-icons/types/vue",
@@ -139,6 +146,8 @@ Just extends, then customize.
       "vite-plugin-vue-layouts/client",
       // vite
       "vite/client",
+      // vue3 setup
+      "vue/macros-global",
       // webpack
       "webpack-env",
     ],
@@ -153,7 +162,8 @@ Just extends, then customize.
     "./**/.*.ts",
     "./**/*.ts",
     "./**/*.tsx",
-    "./**/*.vue"
+    "./**/*.vue",
+    "./**/*.svelte"
   ],
   // on-demand set exclude
   "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
@@ -193,7 +203,7 @@ pnpm install -D eslint@~7.32.0 @babel/core@~7.16.5 @babel/eslint-parser@~7.16.5
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.4 @typescript-eslint/eslint-plugin@~5.7.0 @typescript-eslint/parser@~5.7.0
+pnpm install -D typescript@~4.5.4 @typescript-eslint/eslint-plugin@~5.8.0 @typescript-eslint/parser@~5.8.0
 ```
 
 Set up `.eslintrc.js`.
@@ -208,17 +218,23 @@ module.exports = {
   // react17
   // ...eslint.react,
 
-  // vue2 typescript
-  // ...eslint.vue2Typescript,
-
   // vue2
   // ...eslint.vue2,
 
-  // vue3 typescript
-  // ...eslint.vue3Typescript,
+  // vue2 + typescript
+  // ...eslint.vue2Typescript,
 
   // vue3
   // ...eslint.vue3,
+
+  // vue3 + typescript
+  // ...eslint.vue3Typescript,
+
+  // svelte
+  // ...eslint.svelte,
+
+  // svelte + typescript
+  // ...eslint.svelteTypescript,
 };
 
 ```
@@ -231,13 +247,11 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
   "scripts": {
     ...,
     "lint": "pnpm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.svelte --ignore-path=.gitignore"
   }
 }
 
 ```
-
-When using `vue-cli-service`, `eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore` can be replaced with `vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore`.
 
 You should declare `paths` in `tsconfig.json` if you are using path aliases.
 
@@ -280,10 +294,6 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 }
 
 ```
-
-Check your Postcss version, which should be 7, if you are facing problems.
-
-Install Postcss by yourself / [npm overrides](https://github.com/npm/rfcs/blob/main/accepted/0036-overrides.md) / [yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/) / [pnpm overrides](https://pnpm.io/package_json#pnpmoverrides) may help.
 
 ### Markdownlint
 
@@ -458,6 +468,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - 0.x version
+  - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
@@ -537,6 +548,12 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "[sass]": {
     "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[svelte]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
     }
   },
