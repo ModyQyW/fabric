@@ -7,15 +7,21 @@ module.exports = {
   // react17
   // ...eslint.react,
 
-  // vue2 typescript
-  // ...eslint.vue2Typescript,
-
   // vue2
   // ...eslint.vue2,
 
-  // vue3 typescript
-  // ...eslint.vue3Typescript,
+  // vue2 + typescript
+  // ...eslint.vue2Typescript,
 
   // vue3
   // ...eslint.vue3,
+
+  // vue3 + typescript
+  // ...eslint.vue3Typescript,
+
+  // svelte
+  // ...eslint.svelte,
+
+  // svelte + typescript
+  // ...eslint.svelteTypescript,
 };

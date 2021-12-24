@@ -11,7 +11,8 @@
     "./**/.*.ts",
     "./**/*.ts",
     "./**/*.tsx",
-    "./**/*.vue"
+    "./**/*.vue",
+    "./**/*.svelte"
   ],
   "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
 }
