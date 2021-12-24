@@ -13,17 +13,23 @@ module.exports = {
   // react17 + prettier
   // ...eslint.reactPrettier,
 
+  // vue2
+  // ...eslint.vue2,
+
+  // vue2 + prettier
+  // ...eslint.vue2Prettier,
+
   // vue2 + typescript
   // ...eslint.vue2Typescript,
 
   // vue2 + typescript + prettier
   // ...eslint.vue2TypescriptPrettier,
 
-  // vue2
-  // ...eslint.vue2,
+  // vue3
+  // ...eslint.vue3,
 
-  // vue2 + prettier
-  // ...eslint.vue2Prettier,
+  // vue3 + prettier
+  // ...eslint.vue3Prettier,
 
   // vue3 + typescript
   // ...eslint.vue3Typescript,
@@ -31,9 +37,15 @@ module.exports = {
   // vue3 + typescript + prettier
   // ...eslint.vue3TypescriptPrettier,
 
-  // vue3
-  // ...eslint.vue3,
+  // svelte
+  // ...eslint.svelte,
 
-  // vue3 + prettier
-  // ...eslint.vue3Prettier,
+  // svelte + prettier
+  // ...eslint.sveltePrettier,
+
+  // svelte + typescript
+  // ...eslint.svelteTypescript,
+
+  // svelte + typescript + prettier
+  // ...eslint.svelteTypescriptPrettier,
 };

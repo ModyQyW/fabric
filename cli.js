@@ -120,11 +120,13 @@ program
           default: 'vanilla',
           choices: [
             { name: 'Vanilla', value: 'vanilla' },
+            { name: 'React 17', value: 'react' },
             { name: 'Vue 2', value: 'vue2' },
             { name: 'Vue 2 with TypeScript', value: 'vue2-typescript' },
             { name: 'Vue 3', value: 'vue3' },
             { name: 'Vue 3 With TypeScript', value: 'vue3-typescript' },
-            { name: 'React 17', value: 'react' },
+            { name: 'Svelte', value: 'svelte' },
+            { name: 'Svelte with TypeScript', value: 'svelte-typescript' },
           ],
         },
         {

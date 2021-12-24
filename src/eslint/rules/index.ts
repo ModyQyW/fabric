@@ -1,5 +1,7 @@
 import reactTypescript from './react-typescript';
 import react from './react';
+import svelteTypescript from './svelte-typescript';
+import svelte from './svelte';
 import vanillaTypescript from './vanilla-typescript';
 import vanilla from './vanilla';
 import vue2Typescript from './vue2-typescript';
@@ -10,6 +12,8 @@ import vue3 from './vue3';
 export default {
   reactTypescript,
   react,
+  svelteTypescript,
+  svelte,
   vanillaTypescript,
   vanilla,
   vue2Typescript,
