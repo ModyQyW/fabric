@@ -1,15 +1,15 @@
-import css from './css';
 import cssPrettier from './css-prettier';
-import less from './less';
+import css from './css';
 import lessPrettier from './less-prettier';
-import scss from './scss';
+import less from './less';
 import scssPrettier from './scss-prettier';
+import scss from './scss';
 
 export default {
-  css,
   cssPrettier,
-  less,
+  css,
   lessPrettier,
-  scss,
+  less,
   scssPrettier,
+  scss,
 };
