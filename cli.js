@@ -252,9 +252,7 @@ program
         pkgObj.scripts = {
           ...pkgObj.scripts,
           'lint:eslint':
-            pkgObj.dependencies['@vue/cli-service'] || pkgObj.devDependencies['@vue/cli-service']
-              ? 'vue-cli-service lint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore'
-              : 'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue --ignore-path=.gitignore',
+            'eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.svelte --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:eslint`);
         delete pkgObj.eslintConfig;
@@ -284,7 +282,7 @@ program
           ...pkgObj.scripts,
           'lint:stylelint':
             // eslint-disable-next-line prettier/prettier, no-useless-escape
-            'stylelint \"./**/*.{css,less,scss,sass,vue}\" --fix --allow-empty-input --ignore-path=.gitignore',
+            'stylelint \"./**/*.{css,less,scss,sass,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:stylelint`);
         delete pkgObj.stylelint;
@@ -386,13 +384,10 @@ program
           lintStagedObject['*.md'] = 'markdownlint --fix';
         }
         if (config.includes('eslint')) {
-          lintStagedObject['*.{js,jsx,ts,tsx,vue}'] =
-            pkgObj.dependencies['@vue/cli-service'] || pkgObj.devDependencies['@vue/cli-service']
-              ? 'vue-cli-service lint --fix'
-              : 'eslint --fix';
+          lintStagedObject['*.{js,jsx,ts,tsx,vue,svelte}'] = 'eslint --fix';
         }
         if (config.includes('stylelint')) {
-          lintStagedObject['*.{css,less,scss,sass,vue}'] = 'stylelint --fix';
+          lintStagedObject['*.{css,less,scss,sass,vue,svelte}'] = 'stylelint --fix';
         }
         const lintStagedArray = Object.keys(lintStagedObject)
           .sort()
