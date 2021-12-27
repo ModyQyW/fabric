@@ -22,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.18.0
+pnpm install -D @modyqyw/fabric@~3.18.1
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.18.0
+pnpm install -g @modyqyw/fabric@~3.18.1
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -289,7 +289,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
   "scripts": {
     ...,
     "lint": "pnpm run lint:stylelint",
-    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,sass,vue}\" --fix --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,sass,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -390,13 +390,11 @@ Set up `.lintstagedrc.js`.
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,jsx,ts,tsx,vue}': 'eslint --fix',
-  '*.{css,less,scss,sass,vue}': 'stylelint --fix',
+  '*.{js,jsx,ts,tsx,vue,svelte}': 'eslint --fix',
+  '*.{css,less,scss,sass,vue,svelte}': 'stylelint --fix',
 };
 
 ```
-
-When using `vue-cli-service`, `eslint --fix` can be replaced with `vue-cli-service lint --fix`.
 
 ### Husky
 
@@ -484,6 +482,7 @@ Experience has proven that automation is the best option. You may want to try pa
   "eslint.validate": [
     "javascript",
     "javascriptreact",
+    "svelte",
     "typescript",
     "typescriptreact",
     "vue"
