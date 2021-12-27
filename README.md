@@ -22,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.17.0
+pnpm install -D @modyqyw/fabric@~3.18.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.17.0
+pnpm install -g @modyqyw/fabric@~3.18.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -336,7 +336,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@~15.0.0
+pnpm install -D @commitlint/cli@~16.0.0
 ```
 
 Set up `.commitlintrc.js`.
@@ -365,11 +365,11 @@ Set up `package.json`.
   ...,
   "scripts": {
     ...,
-    "commit": "cz"
+    "commit": "git-cz"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/@commitlint/cz-commitlint"
     }
   }
 }
@@ -381,7 +381,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@~12.1.3
+pnpm install -D lint-staged@~12.1.4
 
 ```
 
