@@ -370,12 +370,12 @@ program
       if (config.includes('commitizen')) {
         pkgObj.scripts = {
           ...pkgObj.scripts,
-          commit: 'cz',
+          commit: 'git-cz',
         };
         pkgObj.config = {
           ...pkgObj.config,
           commitizen: {
-            path: './node_modules/cz-conventional-changelog',
+            path: './node_modules/@commitlint/cz-commitlint',
           },
         };
         pkgObj.devDependencies = {
