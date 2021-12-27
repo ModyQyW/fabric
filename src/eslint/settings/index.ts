@@ -5,12 +5,6 @@ const settings: { [name: string]: any } = {
   'import/extensions': ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
   'import/resolver': {
     node: {},
-    // eslint-disable-next-line no-nested-ternary
-    // webpack: fs.existsSync(path.resolve('node_modules', '@vue', 'cli-service'))
-    //   ? { config: require.resolve('@vue/cli-service/webpack.config.js') }
-    //   : fs.existsSync(path.resolve('node_modules', '@nuxt', 'webpack'))
-    //   ? { config: require.resolve('@nuxt/webpack/dist/webpack.js') }
-    //   : {},
     webpack: {},
   },
 };
