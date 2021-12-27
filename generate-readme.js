@@ -338,11 +338,11 @@ Set up \`package.json\`.
   ...,
   "scripts": {
     ...,
-    "commit": "cz"
+    "commit": "git-cz"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/@commitlint/cz-commitlint"
     }
   }
 }
