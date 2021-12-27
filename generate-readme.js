@@ -178,6 +178,13 @@ Just extends, then customize.
     // on-demand set types, default ESNext
     "target": "ES5"
   },
+  // volar, @vue/runtime-dom and vue2
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2,
+    "experimentalTemplateCompilerOptions": {
+      "compatConfig": { "MODE": 2 }
+    }
+  },
   // on-demand set include
   "include": [
     "./**/.*.js",
