@@ -115,6 +115,7 @@ program
       const {
         framework,
         config,
+        setTypeModule,
         setTsconfig,
         useESLintWithPrettier,
         useStylelintWithPrettier,
@@ -164,6 +165,12 @@ program
             { name: 'LintStaged', value: 'lint-staged' },
             { name: 'Husky', value: 'husky' },
           ],
+        },
+        {
+          type: 'confirm',
+          name: 'setTypeModule',
+          message: 'Set up "type": "module"?',
+          default: false,
         },
         {
           type: 'confirm',
