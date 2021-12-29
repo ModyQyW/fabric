@@ -82,10 +82,6 @@
     "prepare": "is-ci || husky install",
     "release": "release-it"
   },
-  "lint-staged": {
-    "*.md": "markdownlint --fix",
-    "*.{js,jsx,ts,tsx,vue,svelte}": "eslint --fix"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/@commitlint/cz-commitlint"
