@@ -47,16 +47,19 @@ const [nodeMajorVersion] = process.versions.node
   .split('.')
   .map((item) => Number.parseInt(item, 10));
 if (nodeMajorVersion < 12 || nodeMajorVersion % 2 !== 0 || Number.isNaN(nodeMajorVersion)) {
-  console.log('');
-  console.log(picocolors.red('You are using a unsupported node.js version.'));
-  console.log(picocolors.red('Please upgrade your node.js version to latest 12/14/16.'));
-  console.log(picocolors.red('See https://nodejs.org.'));
-  console.log(picocolors.red('You may need nvm, nvs or fnm.'));
-  console.log(picocolors.red('nvm: https://github.com/nvm-sh/nvm'));
-  console.log(picocolors.red('nvm-windows: https://github.com/coreybutler/nvm-windows'));
-  console.log(picocolors.red('nvs: https://github.com/jasongin/nvs'));
-  console.log(picocolors.red('fnm: https://github.com/Schniz/fnm'));
-  console.log('');
+  console.log(
+    picocolors.red(`
+You are using a unsupported node.js version.
+Please upgrade your node.js version to latest 12/14/16.
+See https://nodejs.org.
+
+You may need nvm, nvs or fnm.
+nvm: https://github.com/nvm-sh/nvm
+nvm-windows: https://github.com/coreybutler/nvm-windows
+nvs: https://github.com/jasongin/nvs
+fnm: https://github.com/Schniz/fnm
+`),
+  );
   shell.exit(1);
 }
 
@@ -184,8 +187,7 @@ program
       // Set git
       if (config.includes('git')) {
         if (!shell.which('git')) {
-          console.log('');
-          console.log(picocolors.red('Please install Git in your system first.'));
+          console.log(picocolors.red(`\nPlease install Git first.\n`));
           shell.exit(1);
         }
         shell.exec('git config --global core.autocrlf false');
