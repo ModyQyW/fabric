@@ -1,8 +1,11 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "types": ["vite/client"]
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "paths": {},
+    "types": ["vite/client"],
+    "target": "ESNext"
   },
   "include": [
     "./**/.*.js",
