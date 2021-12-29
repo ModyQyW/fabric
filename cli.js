@@ -383,7 +383,6 @@ dist_ssg
 
 # Android
 *.keystore
-
 `,
         );
       }
