@@ -112,7 +112,7 @@ program
       pkgObj.devDependencies = pkgObj.devDependencies || {};
 
       // Ask for information
-      const { framework, config, setTsconfig, css } = await inquirer.prompt([
+      const { framework, config, setTypeModule, setTsconfig, css } = await inquirer.prompt([
         {
           type: 'list',
           name: 'framework',
@@ -157,6 +157,12 @@ program
             { name: 'LintStaged', value: 'lint-staged' },
             { name: 'Husky', value: 'husky' },
           ],
+        },
+        {
+          type: 'confirm',
+          name: 'setTypeModule',
+          message: 'Set up "type": "module"?',
+          default: false,
         },
         {
           type: 'confirm',
