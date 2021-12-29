@@ -74,8 +74,12 @@ if (fs.existsSync('pnpm-lock.yaml')) {
   }
 } else if (fs.existsSync('package-lock.json')) {
   pkgManager = 'npm';
+} else if (shell.which('pnpm')) {
+  pkgManager = 'pnpm';
 } else if (shell.which('yarn')) {
   pkgManager = 'yarn';
+} else {
+  pkgManager = 'npm';
 }
 
 // Version
