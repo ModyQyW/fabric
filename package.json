@@ -69,11 +69,6 @@
   },
   "files": [
     "dist",
-    "examples",
-    ".editorconfig",
-    ".gitattributes",
-    ".gitignore",
-    ".markdownlint.json",
     "cli.js",
     "tsconfig.base.json"
   ],
