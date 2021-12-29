@@ -76,7 +76,7 @@
     "commit": "git-cz",
     "dev": "vite",
     "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && sort-package-json",
-    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.svelte --ignore-path=.gitignore",
+    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
     "release": "release-it"
