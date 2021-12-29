@@ -589,6 +589,11 @@ If you are using Volar, remember to remove \`"editor.defaultFormatter": "octref.
 \`\`\`js
 const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
 
+import fabric from '@modyqyw/fabric';
+// fabric.prettier
+// fabric.eslint
+// fabric.stylelint
+// fabric.commitlint
 ...
 
 \`\`\`
