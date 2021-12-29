@@ -1,34 +1,4 @@
 const fs = require('fs');
-const path = require('path');
-
-const getFilePath = (filename) => {
-  const shortFilename = filename.slice(
-    0,
-    filename.lastIndexOf('.') === 0 ? undefined : filename.lastIndexOf('.'),
-  );
-  const shortFilenameExamplePath = path.join(__dirname, 'examples', `${shortFilename}-example`);
-  const filenameExamplePath = path.join(__dirname, 'examples', `${shortFilename}-example`);
-  const shortFilenamePath = path.join(__dirname, shortFilename);
-  const filenamePath = path.join(__dirname, filename);
-  if (fs.existsSync(shortFilenameExamplePath)) {
-    return shortFilenameExamplePath;
-  }
-  if (fs.existsSync(filenameExamplePath)) {
-    return filenameExamplePath;
-  }
-  if (fs.existsSync(shortFilenamePath)) {
-    return shortFilenamePath;
-  }
-  return filenamePath;
-};
-
-const gitattributes = fs.readFileSync(getFilePath('.gitattributes'));
-const editorconfig = fs.readFileSync(getFilePath('.editorconfig'));
-const prettierrc = fs.readFileSync(getFilePath('.prettierrc.js'));
-const eslintrc = fs.readFileSync(getFilePath('.eslintrc.js'));
-const stylelintrc = fs.readFileSync(getFilePath('.stylelintrc.js'));
-const markdownlint = fs.readFileSync(getFilePath('.markdownlint.json'));
-const commitlintrc = fs.readFileSync(getFilePath('.commitlintrc.js'));
 
 const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
@@ -110,7 +80,8 @@ For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/g
 Set up \`.gitattributes\`.
 
 \`\`\`sh
-${gitattributes}
+* text=auto
+
 \`\`\`
 
 A better \`.gitattributes\` example [here](https://stackoverflow.com/a/32278635).
@@ -124,7 +95,19 @@ Learn about [EditorConfig](https://editorconfig.org/).
 Set up \`.editorconfig\`.
 
 \`\`\`sh
-${editorconfig}
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
 \`\`\`
 
 ### tsconfig.json (beta)
@@ -138,7 +121,7 @@ Just extends, then customize.
   "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
     // set baseUrl
-    "baseUrl": "./",
+    "baseUrl": ".",
     // on-demand set jsx, default preserve
     "jsx": "react-jsx",
     // on-demand set paths, default {}
@@ -173,7 +156,7 @@ Just extends, then customize.
       // vue3 setup
       "vue/macros-global",
       // webpack
-      "webpack-env",
+      "webpack-env"
     ],
     // on-demand set types, default ESNext
     "target": "ES5"
@@ -212,10 +195,15 @@ Learn about [Prettier](https://prettier.io/).
 pnpm install -D prettier@${getDependencyVersion('prettier')}
 \`\`\`
 
-Set up \`.prettierrc.js\`.
+Set up \`.prettierrc.js\`, or \`.prettierrc.cjs\` for \`"type": "module"\`.
 
 \`\`\`js
-${prettierrc}
+const { prettier } = require('@modyqyw/fabric');
+
+module.exports = {
+  ...prettier,
+};
+
 \`\`\`
 
 ### ESLint
@@ -238,10 +226,37 @@ pnpm install -D typescript@${getDependencyVersion(
 )} @typescript-eslint/parser@${getDependencyVersion('@typescript-eslint/parser')}
 \`\`\`
 
-Set up \`.eslintrc.js\`.
+Set up \`.eslintrc.js\`, or \`.eslintrc.cjs\` for \`"type": "module"\`.
 
 \`\`\`js
-${eslintrc}
+const { eslint } = require('@modyqyw/fabric');
+
+module.exports = {
+  // vanilla
+  ...eslint.vanilla,
+
+  // react17
+  // ...eslint.react,
+
+  // vue2
+  // ...eslint.vue2,
+
+  // vue2 + typescript
+  // ...eslint.vue2Typescript,
+
+  // vue3
+  // ...eslint.vue3,
+
+  // vue3 + typescript
+  // ...eslint.vue3Typescript,
+
+  // svelte
+  // ...eslint.svelte,
+
+  // svelte + typescript
+  // ...eslint.svelteTypescript,
+};
+
 \`\`\`
 
 Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
@@ -252,7 +267,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
   "scripts": {
     ...,
     "lint": "pnpm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.svelte --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore"
   }
 }
 
@@ -268,10 +283,22 @@ Learn about [Stylelint](https://stylelint.io/). Prettier is required.
 pnpm install -D stylelint@${getDependencyVersion('stylelint')}
 \`\`\`
 
-Set up \`.stylelintrc.js\`.
+Set up \`.stylelintrc.js\`, or \`.stylelintrc.cjs\` for \`"type": "module"\`.
 
 \`\`\`js
-${stylelintrc}
+const { stylelint } = require('@modyqyw/fabric');
+
+module.exports = {
+  // css
+  ...stylelint.css,
+
+  // less
+  // ...stylelint.less,
+
+  // scss / sass
+  // ...stylelint.scss,
+};
+
 \`\`\`
 
 Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
@@ -299,7 +326,15 @@ pnpm install -D markdownlint-cli@${getDependencyVersion('markdownlint-cli')}
 Set up \`.markdownlint.json\`.
 
 \`\`\`json
-${markdownlint}
+{
+  "MD003": false,
+  "MD013": false,
+  "MD022": false,
+  "MD024": false,
+  "MD025": false,
+  "MD033": false
+}
+
 \`\`\`
 
 Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
@@ -324,10 +359,15 @@ Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](
 pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
 \`\`\`
 
-Set up \`.commitlintrc.js\`.
+Set up \`.commitlintrc.js\`, or \`.commitlintrc.cjs\` for \`"type": "module"\`.
 
 \`\`\`js
-${commitlintrc}
+const { commitlint } = require('@modyqyw/fabric');
+
+module.exports = {
+  ...commitlint,
+};
+
 \`\`\`
 
 ### Commitizen
@@ -370,7 +410,7 @@ Set up \`.lintstagedrc.js\`.
 \`\`\`js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,jsx,ts,tsx,vue,svelte}': 'eslint --fix',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
   '*.{css,less,scss,sass,vue,svelte}': 'stylelint --fix',
 };
 
@@ -552,7 +592,7 @@ Experience has proven that automation is the best option. You may want to try pa
   "[markdown]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll.markdownlint": true,
+      "source.fixAll.markdownlint": true
     }
   },
   "[yaml]": {
@@ -575,11 +615,7 @@ If you are using Volar, remember to remove \`"editor.defaultFormatter": "octref.
 \`\`\`js
 const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
 
-import fabric from '@modyqyw/fabric';
-// fabric.prettier
-// fabric.eslint
-// fabric.stylelint
-// fabric.commitlint
+import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 ...
 
 \`\`\`
