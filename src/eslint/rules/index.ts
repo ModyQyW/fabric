@@ -1,3 +1,4 @@
+import prettier from './prettier';
 import reactTypescript from './react-typescript';
 import react from './react';
 import svelteTypescript from './svelte-typescript';
@@ -10,6 +11,7 @@ import vue3Typescript from './vue3-typescript';
 import vue3 from './vue3';
 
 export default {
+  prettier,
   reactTypescript,
   react,
   svelteTypescript,
