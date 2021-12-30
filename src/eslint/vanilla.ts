@@ -10,13 +10,14 @@ const config: Linter.Config = {
   parserOptions: {
     requireConfigFile: false,
   },
-  plugins: ['regexp', 'prettier'],
   extends: [
-    'plugin:unicorn/recommended',
     'airbnb-base',
-    'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
-    'prettier',
+    'plugin:jsdoc/recommended',
+    'plugin:you-dont-need-lodash-underscore/compatible',
+    'plugin:regexp/recommended',
+    'plugin:unicorn/recommended',
+    'plugin:prettier/recommended',
   ],
   env: {
     ...env,
@@ -27,6 +28,7 @@ const config: Linter.Config = {
   },
   rules: {
     ...rules.vanilla,
+    ...rules.prettier,
   },
   overrides: [
     {
@@ -36,17 +38,19 @@ const config: Linter.Config = {
         project: './tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: true,
       },
-      plugins: ['regexp', 'prettier'],
       extends: [
-        'plugin:unicorn/recommended',
         'airbnb-base',
         'airbnb-typescript/base',
-        'plugin:regexp/recommended',
         'plugin:eslint-comments/recommended',
-        'prettier',
+        'plugin:jsdoc/recommended',
+        'plugin:you-dont-need-lodash-underscore/compatible',
+        'plugin:regexp/recommended',
+        'plugin:unicorn/recommended',
+        'plugin:prettier/recommended',
       ],
       rules: {
         ...rules.vanillaTypescript,
+        ...rules.prettier,
       },
     },
   ],

@@ -69,7 +69,6 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
   'no-template-curly-in-string': 'warn',
   'no-undef': 'warn',
   'no-unused-vars': 'warn',
-  'prettier/prettier': 'warn',
   'unicorn/filename-case': 'off',
   'unicorn/no-array-for-each': 'off',
   'unicorn/no-array-reduce': 'off',
