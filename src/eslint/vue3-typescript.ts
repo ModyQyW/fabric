@@ -16,15 +16,16 @@ const config: Linter.Config = {
     extraFileExtensions: ['.vue'],
     warnOnUnsupportedTypeScriptVersion: true,
   },
-  plugins: ['regexp'],
   extends: [
-    'plugin:unicorn/recommended',
     'airbnb-base',
     'airbnb-typescript/base',
+    'plugin:eslint-comments/recommended',
+    'plugin:jsdoc/recommended',
+    'plugin:you-dont-need-lodash-underscore/compatible',
+    'plugin:regexp/recommended',
+    'plugin:unicorn/recommended',
     'plugin:vuejs-accessibility/recommended',
     'plugin:vue/vue3-recommended',
-    'plugin:regexp/recommended',
-    'plugin:eslint-comments/recommended',
   ],
   env: {
     ...env,
@@ -38,7 +39,7 @@ const config: Linter.Config = {
   },
   overrides: [
     {
-      files: ['shims-tsx.d.ts'],
+      files: ['shims-jsx.d.ts', 'shims-tsx.d.ts'],
       rules: {
         '@typescript-eslint/no-empty-interface': 'off',
         '@typescript-eslint/no-explicit-any': 'off',

@@ -11,13 +11,14 @@ const config: Linter.Config = {
     parser: '@babel/eslint-parser',
     requireConfigFile: false,
   },
-  plugins: ['regexp'],
   extends: [
-    'plugin:unicorn/recommended',
     'airbnb-base',
-    'plugin:@ota-meshi/svelte/recommended',
-    'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
+    'plugin:jsdoc/recommended',
+    'plugin:you-dont-need-lodash-underscore/compatible',
+    'plugin:regexp/recommended',
+    'plugin:unicorn/recommended',
+    'plugin:@ota-meshi/svelte/recommended',
   ],
   env: {
     ...env,

@@ -10,14 +10,16 @@ const config: Linter.Config = {
   parserOptions: {
     requireConfigFile: false,
   },
-  plugins: ['regexp', 'prettier'],
   extends: [
-    'plugin:unicorn/recommended',
     'airbnb',
     'airbnb/hooks',
-    'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
-    'prettier',
+    'plugin:jsdoc/recommended',
+    'plugin:you-dont-need-lodash-underscore/compatible',
+    'plugin:regexp/recommended',
+    'plugin:unicorn/recommended',
+    'plugin:functional/lite',
+    'plugin:prettier/recommended',
   ],
   env: {
     ...env,
@@ -28,7 +30,7 @@ const config: Linter.Config = {
   rules: {
     ...rules.vanilla,
     ...rules.react,
-    'prettier/prettier': 'warn',
+    ...rules.prettier,
   },
   overrides: [
     {
@@ -41,19 +43,22 @@ const config: Linter.Config = {
         project: './tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: true,
       },
-      plugins: ['regexp', 'prettier'],
       extends: [
-        'plugin:unicorn/recommended',
         'airbnb',
         'airbnb-typescript',
         'airbnb/hooks',
-        'plugin:regexp/recommended',
         'plugin:eslint-comments/recommended',
-        'prettier',
+        'plugin:jsdoc/recommended',
+        'plugin:you-dont-need-lodash-underscore/compatible',
+        'plugin:regexp/recommended',
+        'plugin:unicorn/recommended',
+        'plugin:functional/lite',
+        'plugin:prettier/recommended',
       ],
       rules: {
         ...rules.vanillaTypescript,
         ...rules.reactTypescript,
+        ...rules.prettier,
       },
     },
   ],

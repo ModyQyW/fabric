@@ -16,15 +16,16 @@ const config: Linter.Config = {
     extraFileExtensions: ['.svelte'],
     warnOnUnsupportedTypeScriptVersion: true,
   },
-  plugins: ['regexp', 'prettier'],
   extends: [
-    'plugin:unicorn/recommended',
     'airbnb-base',
     'airbnb-typescript/base',
-    'plugin:@ota-meshi/svelte/recommended',
-    'plugin:regexp/recommended',
     'plugin:eslint-comments/recommended',
-    'prettier',
+    'plugin:jsdoc/recommended',
+    'plugin:you-dont-need-lodash-underscore/compatible',
+    'plugin:regexp/recommended',
+    'plugin:unicorn/recommended',
+    'plugin:@ota-meshi/svelte/recommended',
+    'plugin:prettier/recommended',
   ],
   env: {
     ...env,
@@ -35,7 +36,7 @@ const config: Linter.Config = {
   rules: {
     ...rules.vanillaTypescript,
     ...rules.svelteTypescript,
-    'prettier/prettier': 'warn',
+    ...rules.prettier,
   },
   settings: {
     ...settings,
