@@ -88,7 +88,7 @@
     }
   },
   "dependencies": {
-    "@babel/core": "~7.16.5",
+    "@babel/core": "~7.16.7",
     "@babel/eslint-parser": "~7.16.5",
     "@commitlint/config-conventional": "~16.0.0",
     "@commitlint/cz-commitlint": "~16.0.0",
@@ -158,7 +158,7 @@
     "rollup-plugin-dts": "~4.1.0",
     "sort-package-json": "~1.53.1",
     "stylelint": "~13.13.1",
-    "vite": "~2.7.9"
+    "vite": "~2.7.10"
   },
   "engines": {
     "node": "^12.22.6 || ^14.17.6 || ^16.8.0"
