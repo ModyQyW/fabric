@@ -22,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.18.1
+pnpm install -D @modyqyw/fabric@~3.19.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.18.1
+pnpm install -g @modyqyw/fabric@~3.19.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -114,7 +114,7 @@ Just extends, then customize.
   "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
     // set baseUrl
-    "baseUrl": "./",
+    "baseUrl": ".",
     // on-demand set jsx, default preserve
     "jsx": "react-jsx",
     // on-demand set paths, default {}
@@ -149,7 +149,7 @@ Just extends, then customize.
       // vue3 setup
       "vue/macros-global",
       // webpack
-      "webpack-env",
+      "webpack-env"
     ],
     // on-demand set types, default ESNext
     "target": "ES5"
@@ -188,7 +188,7 @@ Learn about [Prettier](https://prettier.io/).
 pnpm install -D prettier@~2.5.1
 ```
 
-Set up `.prettierrc.js`.
+Set up `.prettierrc.js`, or `.prettierrc.cjs` for `"type": "module"`.
 
 ```js
 const { prettier } = require('@modyqyw/fabric');
@@ -204,16 +204,16 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 ```sh
-pnpm install -D eslint@~7.32.0 @babel/core@~7.16.5 @babel/eslint-parser@~7.16.5
+pnpm install -D eslint@~7.32.0 @babel/core@~7.16.7 @babel/eslint-parser@~7.16.5
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.4 @typescript-eslint/eslint-plugin@~5.8.0 @typescript-eslint/parser@~5.8.0
+pnpm install -D typescript@~4.5.4 @typescript-eslint/eslint-plugin@~5.8.1 @typescript-eslint/parser@~5.8.1
 ```
 
-Set up `.eslintrc.js`.
+Set up `.eslintrc.js`, or `.eslintrc.cjs` for `"type": "module"`.
 
 ```js
 const { eslint } = require('@modyqyw/fabric');
@@ -254,7 +254,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
   "scripts": {
     ...,
     "lint": "pnpm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.jsx,.ts,.tsx,.vue,.svelte --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore"
   }
 }
 
@@ -270,7 +270,7 @@ Learn about [Stylelint](https://stylelint.io/). Prettier is required.
 pnpm install -D stylelint@~13.13.1
 ```
 
-Set up `.stylelintrc.js`.
+Set up `.stylelintrc.js`, or `.stylelintrc.cjs` for `"type": "module"`.
 
 ```js
 const { stylelint } = require('@modyqyw/fabric');
@@ -343,10 +343,10 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@~16.0.0
+pnpm install -D @commitlint/cli@~16.0.1
 ```
 
-Set up `.commitlintrc.js`.
+Set up `.commitlintrc.js`, or `.commitlintrc.cjs` for `"type": "module"`.
 
 ```js
 const { commitlint } = require('@modyqyw/fabric');
@@ -397,7 +397,7 @@ Set up `.lintstagedrc.js`.
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,jsx,ts,tsx,vue,svelte}': 'eslint --fix',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
   '*.{css,less,scss,sass,vue,svelte}': 'stylelint --fix',
 };
 
@@ -579,7 +579,7 @@ Experience has proven that automation is the best option. You may want to try pa
   "[markdown]": {
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll.markdownlint": true,
+      "source.fixAll.markdownlint": true
     }
   },
   "[yaml]": {
@@ -602,6 +602,7 @@ If you are using Volar, remember to remove `"editor.defaultFormatter": "octref.v
 ```js
 const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
 
+import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 ...
 
 ```
