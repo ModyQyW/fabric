@@ -10,6 +10,7 @@ const config: Linter.Config = {
   parserOptions: {
     requireConfigFile: false,
   },
+  plugins: ['functional'],
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -40,6 +41,7 @@ const config: Linter.Config = {
         project: './tsconfig.json',
         warnOnUnsupportedTypeScriptVersion: true,
       },
+      plugins: ['functional'],
       extends: [
         'airbnb',
         'airbnb-typescript',
