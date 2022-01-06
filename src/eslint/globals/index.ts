@@ -1,25 +1,28 @@
 const globals: Record<string, boolean | 'readonly' | 'readable' | 'writable' | 'writeable'> = {
-  // https://mp.jd.com/
+  // 钉钉小程序 https://open.dingtalk.com/
+  dd: 'readonly',
+  // 京东小程序 https://mp.jd.com/
   jd: 'readonly',
-  // https://mp.kuaishou.com/
+  // 快手小程序 https://mp.kuaishou.com/
   ks: 'readonly',
-  // https://opendocs.alipay.com/mini/
+  // 支付宝小程序 https://opendocs.alipay.com/mini/
   my: 'readonly',
-  // http://www.html5plus.org/doc/h5p.html
+  // uni-app http://www.html5plus.org/doc/h5p.html
   plus: 'readonly',
-  // https://mp.360.cn/
+  // 360 小程序 https://mp.360.cn/
   qh: 'readonly',
-  // https://q.qq.com/
+  // QQ 小程序 https://q.qq.com/
   qq: 'readonly',
-  // https://smartprogram.baidu.com/docs
+  // 百度小程序 https://smartprogram.baidu.com/docs
   swan: 'readonly',
-  // https://microapp.bytedance.com/
+  // 字节小程序 https://microapp.bytedance.com/
+  // 飞书小程序 https://open.feishu.cn/
   tt: 'readonly',
-  // https://uniapp.dcloud.io/
+  // uni-app https://uniapp.dcloud.io/
   uni: 'readonly',
-  // https://weex.apache.org/
+  // weex https://weex.apache.org/
   weex: 'readonly',
-  // https://developers.weixin.qq.com/miniprogram/dev/framework/
+  // 微信小程序 https://developers.weixin.qq.com/miniprogram/dev/framework/
   wx: 'readonly',
 };
 
