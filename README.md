@@ -22,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.19.2
+pnpm install -D @modyqyw/fabric@~3.20.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.19.2
+pnpm install -g @modyqyw/fabric@~3.20.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -103,7 +103,7 @@ trim_trailing_whitespace = false
 
 ```
 
-### tsconfig.json (beta)
+### tsconfig.json
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
@@ -121,6 +121,8 @@ Just extends, then customize.
     "paths": {
       "@/*": ["./src/*"]
     },
+    // if you are facing a infer problem
+    "preserveSymlinks": true,
     // on-demand set types, default []
     "types": [
       // uni-app
@@ -160,6 +162,11 @@ Just extends, then customize.
     "experimentalTemplateCompilerOptions": {
       "compatConfig": { "MODE": 2 }
     }
+  },
+  // ts-node
+  // pnpm install -D tsconfig-paths
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   },
   // on-demand set include
   "include": [
@@ -210,7 +217,7 @@ pnpm install -D eslint@~7.32.0 @babel/core@~7.16.7 @babel/eslint-parser@~7.16.5
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.4 @typescript-eslint/eslint-plugin@~5.8.1 @typescript-eslint/parser@~5.8.1
+pnpm install -D typescript@~4.5.4 @typescript-eslint/eslint-plugin@~5.9.1 @typescript-eslint/parser@~5.9.1
 ```
 
 Set up `.eslintrc.js`, or `.eslintrc.cjs` for `"type": "module"`.
@@ -343,7 +350,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@~16.0.1
+pnpm install -D @commitlint/cli@~16.0.2
 ```
 
 Set up `.commitlintrc.js`, or `.commitlintrc.cjs` for `"type": "module"`.
@@ -388,7 +395,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@~12.1.4
+pnpm install -D lint-staged@~12.1.7
 
 ```
 
