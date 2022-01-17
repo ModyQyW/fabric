@@ -128,6 +128,8 @@ Just extends, then customize.
     "paths": {
       "@/*": ["./src/*"]
     },
+    // if you are facing a infer problem
+    "preserveSymlinks": true,
     // on-demand set types, default []
     "types": [
       // uni-app
@@ -167,6 +169,11 @@ Just extends, then customize.
     "experimentalTemplateCompilerOptions": {
       "compatConfig": { "MODE": 2 }
     }
+  },
+  // ts-node
+  // pnpm install -D tsconfig-paths
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   },
   // on-demand set include
   "include": [
