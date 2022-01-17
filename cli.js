@@ -82,11 +82,7 @@ program
       const lintItems = [];
 
       // Read project package.json
-      const pkgObj = JSON.parse(
-        fs.readFileSync(path.resolve(directory, 'package.json'), {
-          encoding: 'utf8',
-        }),
-      );
+      const pkgObj = JSON.parse(fs.readFileSync(path.resolve(directory, 'package.json')));
       pkgObj.dependencies = pkgObj.dependencies || {};
       pkgObj.devDependencies = pkgObj.devDependencies || {};
 
