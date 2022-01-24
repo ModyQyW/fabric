@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@babel/core': ~7.16.10
+  '@babel/core': ~7.16.12
   '@babel/eslint-parser': ~7.16.5
   '@commitlint/cli': ~16.1.0
   '@commitlint/config-conventional': ~16.0.0
@@ -43,7 +43,7 @@ specifiers:
   husky: ~7.0.4
   inquirer: ~8.2.0
   is-ci: ~3.0.1
-  lint-staged: ~12.2.2
+  lint-staged: ~12.3.1
   markdownlint-cli: ~0.30.0
   picocolors: ~1.0.0
   postcss: ~7.0.39
@@ -51,8 +51,8 @@ specifiers:
   prettier-plugin-jsdoc: ~0.3.30
   prettier-plugin-packagejson: ~2.2.15
   prettier-plugin-svelte: ~2.6.0
-  release-it: ~14.12.3
-  rollup: ~2.65.0
+  release-it: ~14.12.4
+  rollup: ~2.66.0
   rollup-plugin-dts: ~4.1.0
   shelljs: ~0.8.5
   sort-package-json: ~1.53.1
@@ -72,8 +72,8 @@ specifiers:
   vue-property-decorator: ~9.1.2
 
 dependencies:
-  '@babel/core': 7.16.10
-  '@babel/eslint-parser': 7.16.5_fca75e4937e162a48b3cedb9bbb02a73
+  '@babel/core': 7.16.12
+  '@babel/eslint-parser': 7.16.5_63d7ce6f05e4f545045a1a196305e767
   '@commitlint/config-conventional': 16.0.0
   '@commitlint/cz-commitlint': 16.1.0_0f2e3dfdc1540ce058e7076bdbe1b079
   '@commitlint/types': 16.0.0
@@ -134,12 +134,12 @@ devDependencies:
   eslint: 7.32.0
   husky: 7.0.4
   is-ci: 3.0.1
-  lint-staged: 12.2.2
+  lint-staged: 12.3.1
   markdownlint-cli: 0.30.0
   prettier: 2.5.1
-  release-it: 14.12.3
-  rollup: 2.65.0
-  rollup-plugin-dts: 4.1.0_rollup@2.65.0+typescript@4.5.5
+  release-it: 14.12.4
+  rollup: 2.66.0
+  rollup-plugin-dts: 4.1.0_rollup@2.66.0+typescript@4.5.5
   sort-package-json: 1.53.1
   stylelint: 13.13.1
   vite: 2.7.13
@@ -162,16 +162,16 @@ packages:
     resolution: {integrity: sha512-m7OkX0IdKLKPpBlJtF561YJal5y/jyI5fNfWbPxh2D/nbzzGI4qRyrD8xO2jB24u7l+5I2a43scCG2IrfjC50Q==}
     engines: {node: '>=6.9.0'}
 
-  /@babel/core/7.16.10:
-    resolution: {integrity: sha512-pbiIdZbCiMx/MM6toR+OfXarYix3uz0oVsnNtfdAGTcCTu3w/JGF8JhirevXLBJUu0WguSZI12qpKnx7EeMyLA==}
+  /@babel/core/7.16.12:
+    resolution: {integrity: sha512-dK5PtG1uiN2ikk++5OzSYsitZKny4wOCD0nrO4TqnW4BVBTQ2NGS3NgilvT/TEyxTST7LNyWV/T4tXDoD3fOgg==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.16.7
       '@babel/generator': 7.16.8
-      '@babel/helper-compilation-targets': 7.16.7_@babel+core@7.16.10
+      '@babel/helper-compilation-targets': 7.16.7_@babel+core@7.16.12
       '@babel/helper-module-transforms': 7.16.7
       '@babel/helpers': 7.16.7
-      '@babel/parser': 7.16.10
+      '@babel/parser': 7.16.12
       '@babel/template': 7.16.7
       '@babel/traverse': 7.16.10
       '@babel/types': 7.16.8
@@ -184,14 +184,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@babel/eslint-parser/7.16.5_fca75e4937e162a48b3cedb9bbb02a73:
+  /@babel/eslint-parser/7.16.5_63d7ce6f05e4f545045a1a196305e767:
     resolution: {integrity: sha512-mUqYa46lgWqHKQ33Q6LNCGp/wPR3eqOYTUixHFsfrSQqRxH0+WOzca75iEjFr5RDGH1dDz622LaHhLOzOuQRUA==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': '>=7.11.0'
       eslint: ^7.5.0 || ^8.0.0
     dependencies:
-      '@babel/core': 7.16.10
+      '@babel/core': 7.16.12
       eslint: 7.32.0
       eslint-scope: 5.1.1
       eslint-visitor-keys: 2.1.0
@@ -206,14 +206,14 @@ packages:
       jsesc: 2.5.2
       source-map: 0.5.7
 
-  /@babel/helper-compilation-targets/7.16.7_@babel+core@7.16.10:
+  /@babel/helper-compilation-targets/7.16.7_@babel+core@7.16.12:
     resolution: {integrity: sha512-mGojBwIWcwGD6rfqgRXVlVYmPAv7eOpIemUG3dGnDdCY4Pae70ROij3XmfrH6Fa1h1aiDylpglbZyktfzyo/hA==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0
     dependencies:
       '@babel/compat-data': 7.16.8
-      '@babel/core': 7.16.10
+      '@babel/core': 7.16.12
       '@babel/helper-validator-option': 7.16.7
       browserslist: 4.19.1
       semver: 6.3.0
@@ -303,8 +303,8 @@ packages:
       chalk: 2.4.2
       js-tokens: 4.0.0
 
-  /@babel/parser/7.16.10:
-    resolution: {integrity: sha512-Sm/S9Or6nN8uiFsQU1yodyDW3MWXQhFeqzMPM+t8MJjM+pLsnFVxFZzkpXKvUXh+Gz9cbMoYYs484+Jw/NTEFQ==}
+  /@babel/parser/7.16.12:
+    resolution: {integrity: sha512-VfaV15po8RiZssrkPweyvbGVSe4x2y+aciFCgn0n0/SJMR22cwofRV1mtnJQYcSB1wUTaA/X1LnA3es66MCO5A==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -328,7 +328,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.16.7
-      '@babel/parser': 7.16.10
+      '@babel/parser': 7.16.12
       '@babel/types': 7.16.8
 
   /@babel/traverse/7.16.10:
@@ -341,7 +341,7 @@ packages:
       '@babel/helper-function-name': 7.16.7
       '@babel/helper-hoist-variables': 7.16.7
       '@babel/helper-split-export-declaration': 7.16.7
-      '@babel/parser': 7.16.10
+      '@babel/parser': 7.16.12
       '@babel/types': 7.16.8
       debug: 4.3.3
       globals: 11.12.0
@@ -809,7 +809,7 @@ packages:
       postcss: '>=7.0.0'
       postcss-syntax: '>=0.36.2'
     dependencies:
-      '@babel/core': 7.16.10
+      '@babel/core': 7.16.12
       postcss: 7.0.39
       postcss-syntax: 0.36.2_postcss@7.0.39
     transitivePeerDependencies:
@@ -2215,14 +2215,6 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /deprecated-obj/2.0.0:
-    resolution: {integrity: sha512-CkdywZC2rJ8RGh+y3MM1fw1EJ4oO/oNExGbRFv0AQoMS+faTd3nO7slYjkj/6t8OnIMUE+wxh6G97YHhK1ytrw==}
-    engines: {node: '>=10'}
-    dependencies:
-      flat: 5.0.2
-      lodash: 4.17.21
-    dev: true
-
   /deprecation/2.3.1:
     resolution: {integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==}
     dev: true
@@ -3272,11 +3264,6 @@ packages:
     dependencies:
       flatted: 3.2.4
       rimraf: 3.0.2
-    dev: true
-
-  /flat/5.0.2:
-    resolution: {integrity: sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==}
-    hasBin: true
     dev: true
 
   /flatted/3.2.4:
@@ -4487,8 +4474,8 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /lint-staged/12.2.2:
-    resolution: {integrity: sha512-bcHEoM1M/f+K1BYdHcEuIn8K+zMOSJR3mkny6PAuQiTgcSUcRbUWaUD6porAYypxF4k1vYZZ2HutZt1p94Z1jQ==}
+  /lint-staged/12.3.1:
+    resolution: {integrity: sha512-Ocht/eT+4/siWOZDJpNUKcKX2UeWW/pDbohJ4gRsrafAjBi79JK8kiNVk2ciIVNKdw0Q4ABptl2nr6uQAlRImw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -4498,7 +4485,7 @@ packages:
       debug: 4.3.3_supports-color@9.2.1
       execa: 5.1.1
       lilconfig: 2.0.4
-      listr2: 3.14.0
+      listr2: 4.0.1
       micromatch: 4.0.4
       normalize-path: 3.0.0
       object-inspect: 1.12.0
@@ -4509,9 +4496,9 @@ packages:
       - enquirer
     dev: true
 
-  /listr2/3.14.0:
-    resolution: {integrity: sha512-TyWI8G99GX9GjE54cJ+RrNMcIFBfwMPxc3XTFiAYGN4s10hWROGtOg7+O6u6LE3mNkyld7RSLE6nrKBvTfcs3g==}
-    engines: {node: '>=10.0.0'}
+  /listr2/4.0.1:
+    resolution: {integrity: sha512-D65Nl+zyYHL2jQBGmxtH/pU8koPZo5C8iCNE8EoB04RwPgQG1wuaKwVbeZv9LJpiH4Nxs0FCp+nNcG8OqpniiA==}
+    engines: {node: '>=12'}
     peerDependencies:
       enquirer: '>= 2.3.0 < 3'
     peerDependenciesMeta:
@@ -6260,8 +6247,8 @@ packages:
     dependencies:
       rc: 1.2.8
 
-  /release-it/14.12.3:
-    resolution: {integrity: sha512-qek7ml9WaxpXSjLpU4UGCF9nWpDgOODL1gZTuydafs1HdQPAeYOd2od8I8lUL4NlEKW2TirDhH4aFTVIpP3/cQ==}
+  /release-it/14.12.4:
+    resolution: {integrity: sha512-lqf9PMsj7ycCqFHGag8Uv7cE1hNsKa+yKUMe+Fkh9fdOfxu2F01On+YUefRCP0DuQthmr/WyLCYdrjThMEkWFQ==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -6271,7 +6258,6 @@ packages:
       chalk: 4.1.2
       cosmiconfig: 7.0.1
       debug: 4.3.3
-      deprecated-obj: 2.0.0
       execa: 5.1.1
       form-data: 4.0.0
       git-url-parse: 11.6.0
@@ -6464,7 +6450,7 @@ packages:
       glob: 7.2.0
     dev: true
 
-  /rollup-plugin-dts/4.1.0_rollup@2.65.0+typescript@4.5.5:
+  /rollup-plugin-dts/4.1.0_rollup@2.66.0+typescript@4.5.5:
     resolution: {integrity: sha512-rriXIm3jdUiYeiAAd1Fv+x2AxK6Kq6IybB2Z/IdoAW95fb4uRUurYsEYKa8L1seedezDeJhy8cfo8FEL9aZzqg==}
     engines: {node: '>=v12.22.7'}
     peerDependencies:
@@ -6472,14 +6458,14 @@ packages:
       typescript: ~4.1 || ~4.2 || ~4.3 || ~4.4 || ~4.5
     dependencies:
       magic-string: 0.25.7
-      rollup: 2.65.0
+      rollup: 2.66.0
       typescript: 4.5.5
     optionalDependencies:
       '@babel/code-frame': 7.16.7
     dev: true
 
-  /rollup/2.65.0:
-    resolution: {integrity: sha512-ohZVYrhtVMTqqeqH26sngfMiyGDg6gCUReOsoflXvYpzUkDHp8sVG8F9FQxjs72OfnLWpXP2nNNqQ9I0vkRovA==}
+  /rollup/2.66.0:
+    resolution: {integrity: sha512-L6mKOkdyP8HK5kKJXaiWG7KZDumPJjuo1P+cfyHOJPNNTK3Moe7zCH5+fy7v8pVmHXtlxorzaBjvkBMB23s98g==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -7601,7 +7587,7 @@ packages:
       esbuild: 0.13.15
       postcss: 8.4.5
       resolve: 1.21.0
-      rollup: 2.65.0
+      rollup: 2.66.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true

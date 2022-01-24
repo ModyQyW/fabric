@@ -88,7 +88,7 @@
     }
   },
   "dependencies": {
-    "@babel/core": "~7.16.10",
+    "@babel/core": "~7.16.12",
     "@babel/eslint-parser": "~7.16.5",
     "@commitlint/config-conventional": "~16.0.0",
     "@commitlint/cz-commitlint": "~16.1.0",
@@ -150,11 +150,11 @@
     "eslint": "~7.32.0",
     "husky": "~7.0.4",
     "is-ci": "~3.0.1",
-    "lint-staged": "~12.2.2",
+    "lint-staged": "~12.3.1",
     "markdownlint-cli": "~0.30.0",
     "prettier": "~2.5.1",
-    "release-it": "~14.12.3",
-    "rollup": "~2.65.0",
+    "release-it": "~14.12.4",
+    "rollup": "~2.66.0",
     "rollup-plugin-dts": "~4.1.0",
     "sort-package-json": "~1.53.1",
     "stylelint": "~13.13.1",
