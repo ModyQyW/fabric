@@ -34,6 +34,7 @@ const rules: Partial<Record<string, any>> = {
   'value-keyword-case': [
     'lower',
     {
+      ignoreFunctions: ['v-bind'],
       ignoreProperties: ['font-family'],
     },
   ],
