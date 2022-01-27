@@ -20,6 +20,11 @@ const config: Config = {
   vueIndentScriptAndStyle: false,
   endOfLine: 'lf',
   embeddedLanguageFormatting: 'auto',
+  plugins: [
+    './node_modules/prettier-plugin-jsdoc',
+    './node_modules/prettier-plugin-packagejson',
+    './node_modules/prettier-plugin-tailwindcss',
+  ],
   overrides: [
     {
       files: ['*.css', '*.less', '*.scss', '*.sass'],
