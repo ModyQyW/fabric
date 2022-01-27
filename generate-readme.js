@@ -494,9 +494,11 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - 0.x version
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
+  - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
+  - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
 - Set up \`Settings.json\`.
 
 \`\`\`json
