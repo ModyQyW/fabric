@@ -22,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.21.0
+pnpm install -D @modyqyw/fabric@~3.22.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.21.0
+pnpm install -g @modyqyw/fabric@~3.22.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -211,13 +211,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 ```sh
-pnpm install -D eslint@~7.32.0 @babel/core@~7.16.10 @babel/eslint-parser@~7.16.5
+pnpm install -D eslint@~7.32.0 @babel/core@~7.16.12 @babel/eslint-parser@~7.16.5
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.5 @typescript-eslint/eslint-plugin@~5.10.0 @typescript-eslint/parser@~5.10.0
+pnpm install -D typescript@~4.5.5 @typescript-eslint/eslint-plugin@~5.10.1 @typescript-eslint/parser@~5.10.1
 ```
 
 Set up `.eslintrc.js`, or `.eslintrc.cjs` for `"type": "module"`.
@@ -395,7 +395,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@~12.2.2
+pnpm install -D lint-staged@~12.3.2
 
 ```
 
@@ -481,9 +481,11 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - 0.x version
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
+  - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
+  - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
 - Set up `Settings.json`.
 
 ```json
@@ -595,7 +597,9 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 ```
 
-If you are using Volar, remember to remove `"editor.defaultFormatter": "octref.vetur",`.
+If you are using Volar, remember to disable / remove Vetur and `"editor.defaultFormatter": "octref.vetur"`.
+
+If you are using TailwindCSS / WindiCSS, `"editor.formatOnSave": true` may be a better choice.
 
 ## Migrate
 
