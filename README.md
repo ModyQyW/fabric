@@ -182,7 +182,6 @@ Just extends, then customize.
   // on-demand set exclude
   "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
 }
-
 ```
 
 See [tsconfig.base.json](./tsconfig.base.json) for default configs.
@@ -203,7 +202,6 @@ const { prettier } = require('@modyqyw/fabric');
 module.exports = {
   ...prettier,
 };
-
 ```
 
 ### ESLint
@@ -274,7 +272,6 @@ module.exports = {
   // svelte + typescript + prettier
   // ...eslint.svelteTypescriptPrettier,
 };
-
 ```
 
 Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -325,7 +322,6 @@ module.exports = {
   // scss / sass + prettier
   // ...stylelint.scssPrettier,
 };
-
 ```
 
 Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -361,7 +357,6 @@ Set up `.markdownlint.json`.
   "MD025": false,
   "MD033": false
 }
-
 ```
 
 Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -394,7 +389,6 @@ const { commitlint } = require('@modyqyw/fabric');
 module.exports = {
   ...commitlint,
 };
-
 ```
 
 ### Commitizen
@@ -440,7 +434,6 @@ module.exports = {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
   '*.{css,less,scss,sass,vue,svelte}': 'stylelint --fix',
 };
-
 ```
 
 ### Husky
@@ -517,7 +510,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
   - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-\*
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
 - Set up `Settings.json`.
 
@@ -643,7 +636,7 @@ If you are using TailwindCSS / WindiCSS, `"editor.formatOnSave": true` may be a 
 
 - Upgrade your node version to latest 12, 14 or 16.
 - Upgrade your npm version to latest 6, 7 or 8.
-- Upgrade your eslint version to latest 7 or 8. (WIP)
+- Upgrade your eslint version to latest 7 or 8.
 - Upgrade your stylelint version to latest 14.
 - Upgrade your postcss version to latest 8.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
