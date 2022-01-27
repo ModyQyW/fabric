@@ -646,7 +646,9 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 \`\`\`
 
-If you are using Volar, remember to remove \`"editor.defaultFormatter": "octref.vetur",\`.
+If you are using Volar, remember to disable / remove Vetur and \`"editor.defaultFormatter": "octref.vetur"\`.
+
+If you are using TailwindCSS / WindiCSS, \`"editor.formatOnSave": true\` may be a better choice.
 
 ## Migrate
 
