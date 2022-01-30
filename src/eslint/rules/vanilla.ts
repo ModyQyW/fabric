@@ -64,7 +64,8 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
       ignorePropertyModificationsForRegex: ['^draft'], // immer
     },
   ],
-  'no-template-curly-in-string': 'warn', // release-it git commitMessage
+  'no-template-curly-in-string': 'off',
+  'no-underscore-dangle': 'off', // mongodb
   'unicorn/filename-case': 'off',
   'unicorn/no-array-for-each': 'off',
   'unicorn/no-array-reduce': 'off',
