@@ -56,6 +56,8 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
         'error',
         'event',
         'r',
+        'req',
+        'request',
         'res',
         'result',
         'response',
