@@ -74,6 +74,7 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
   'unicorn/no-array-for-each': 'off',
   'unicorn/no-array-reduce': 'off',
   'unicorn/no-null': 'off',
+  'unicorn/no-process-exit': 'off',
   'unicorn/prefer-module': 'off',
   'unicorn/prefer-node-protocol': 'off',
   'unicorn/prefer-object-from-entries': 'off',
