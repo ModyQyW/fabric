@@ -65,7 +65,7 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
         'response',
         'state',
       ],
-      ignorePropertyModificationsForRegex: ['^draft'],
+      ignorePropertyModificationsForRegex: ['^(d|D)raft', '(d|D)raft$'], // immer
     },
   ],
   'no-template-curly-in-string': 'off',
