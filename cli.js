@@ -507,7 +507,7 @@ module.exports = {
           ...pkgObj.scripts,
           'lint:stylelint':
             // eslint-disable-next-line prettier/prettier, no-useless-escape
-            'stylelint \"./**/*.{css,less,scss,sass,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore',
+            'stylelint "./**/*.{css,less,scss,sass,vue,svelte}" --fix --allow-empty-input --ignore-path=.gitignore',
         };
         lintItems.push(`${pkgManager} run lint:stylelint`);
         delete pkgObj.stylelint;
@@ -563,7 +563,8 @@ module.exports = {
   "MD022": false,
   "MD024": false,
   "MD025": false,
-  "MD033": false
+  "MD033": false,
+  "MD050": false
 }
 `,
         );
