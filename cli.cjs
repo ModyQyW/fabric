@@ -70,7 +70,7 @@ program.version(pkg.version, '-v, --version');
 // Command config
 program
   .command('config [directory]')
-  .description('Config different packages for formatting and linting.')
+  .description('config different packages for formatting and linting')
   .action(async (directory = '.') => {
     try {
       // If the project has no package.json, init one
@@ -87,7 +87,7 @@ program
       pkgObj.devDependencies = pkgObj.devDependencies || {};
 
       // Ask for information
-      const { framework, config, setTypeModule, setTsconfig, css } = await inquirer.prompt([
+      const { framework, config, setTsconfig, css } = await inquirer.prompt([
         {
           type: 'list',
           name: 'framework',
@@ -132,12 +132,6 @@ program
             { name: 'LintStaged', value: 'lint-staged' },
             { name: 'Husky', value: 'husky' },
           ],
-        },
-        {
-          type: 'confirm',
-          name: 'setTypeModule',
-          message: 'Set up "type": "module"?',
-          default: false,
         },
         {
           type: 'confirm',
@@ -443,13 +437,15 @@ trim_trailing_whitespace = false
           path.resolve(directory, '.prettierrc.json5'),
           path.resolve(directory, '.prettierrc.js'),
           path.resolve(directory, '.prettierrc.cjs'),
+          path.resolve(directory, '.prettierrc.mjs'),
           path.resolve(directory, 'prettier.config.js'),
           path.resolve(directory, 'prettier.config.cjs'),
+          path.resolve(directory, 'prettier.config.mjs'),
           path.resolve(directory, '.prettierrc.toml'),
           path.resolve(directory, '.prettierignore'),
         );
         fs.writeFileSync(
-          path.resolve(directory, `.prettierrc.${setTypeModule ? 'cjs' : 'js'}`),
+          path.resolve(directory, '.prettierrc.cjs'),
           `const { prettier } = require('@modyqyw/fabric');
 
 module.exports = {
@@ -486,13 +482,14 @@ module.exports = {
           path.resolve(directory, '.eslintrc'),
           path.resolve(directory, '.eslintrc.js'),
           path.resolve(directory, '.eslintrc.cjs'),
+          path.resolve(directory, '.eslintrc.mjs'),
           path.resolve(directory, '.eslintrc.yaml'),
           path.resolve(directory, '.eslintrc.yml'),
           path.resolve(directory, '.eslintrc.json'),
           path.resolve(directory, '.eslintignore'),
         );
         fs.writeFileSync(
-          path.resolve(directory, `.eslintrc.${setTypeModule ? 'cjs' : 'js'}`),
+          path.resolve(directory, '.eslintrc.cjs'),
           `const { eslint } = require('@modyqyw/fabric');
 
 module.exports = {
@@ -523,15 +520,17 @@ module.exports = {
           path.resolve(directory, '.stylelintrc'),
           path.resolve(directory, '.stylelintrc.js'),
           path.resolve(directory, '.stylelintrc.cjs'),
+          path.resolve(directory, '.stylelintrc.mjs'),
           path.resolve(directory, 'stylelint.config.js'),
           path.resolve(directory, 'stylelint.config.cjs'),
+          path.resolve(directory, 'stylelint.config.mjs'),
           path.resolve(directory, '.stylelintrc.json'),
           path.resolve(directory, '.stylelintrc.yaml'),
           path.resolve(directory, '.stylelintrc.yml'),
           path.resolve(directory, '.stylelintignore'),
         );
         fs.writeFileSync(
-          path.resolve(directory, `.stylelintrc.${setTypeModule ? 'cjs' : 'js'}`),
+          path.resolve(directory, '.stylelintrc.cjs'),
           `const { stylelint } = require('@modyqyw/fabric');
 
 module.exports = {
@@ -587,13 +586,15 @@ module.exports = {
           path.resolve(directory, '.commitlintrc'),
           path.resolve(directory, '.commitlintrc.js'),
           path.resolve(directory, '.commitlintrc.cjs'),
+          path.resolve(directory, '.commitlintrc.mjs'),
           path.resolve(directory, '.commitlintrc.json'),
           path.resolve(directory, '.commitlintrc.yml'),
           path.resolve(directory, 'commitlint.config.js'),
           path.resolve(directory, 'commitlint.config.cjs'),
+          path.resolve(directory, 'commitlint.config.mjs'),
         );
         fs.writeFileSync(
-          path.resolve(directory, `.commitlintrc.${setTypeModule ? 'cjs' : 'js'}`),
+          path.resolve(directory, '.commitlintrc.cjs'),
           `const { commitlint } = require('@modyqyw/fabric');
 
 module.exports = {
@@ -636,8 +637,10 @@ module.exports = {
           path.resolve(directory, '.lintstagedrc.yml'),
           path.resolve(directory, 'lint-staged.config.js'),
           path.resolve(directory, 'lint-staged.config.cjs'),
+          path.resolve(directory, 'lint-staged.config.mjs'),
           path.resolve(directory, '.lintstagedrc.js'),
           path.resolve(directory, '.lintstagedrc.cjs'),
+          path.resolve(directory, '.lintstagedrc.mjs'),
         );
         const lintStagedObject = {};
         if (config.includes('markdownlint')) {
@@ -656,7 +659,7 @@ module.exports = {
             return acc;
           }, []);
         fs.writeFileSync(
-          path.resolve(directory, `.lintstagedrc.${setTypeModule ? 'cjs' : 'js'}`),
+          path.resolve(directory, '.lintstagedrc.cjs'),
           `module.exports = {\n${lintStagedArray.join('')}};\n`,
         );
       }

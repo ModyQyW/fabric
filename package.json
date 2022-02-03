@@ -53,23 +53,23 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     }
   },
-  "main": "./dist/index.cjs.js",
-  "jsdelivr": "./dist/index.cjs.js",
-  "unpkg": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
+  "main": "./dist/index.cjs",
+  "jsdelivr": "./dist/index.cjs",
+  "unpkg": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "bin": {
-    "mo-fabric": "./cli.js",
-    "modyqyw-fabric": "./cli.js"
+    "mo-fabric": "./cli.cjs",
+    "modyqyw-fabric": "./cli.cjs"
   },
   "files": [
     "dist",
-    "cli.js",
+    "cli.cjs",
     "tsconfig.base.json"
   ],
   "scripts": {
