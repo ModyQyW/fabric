@@ -303,14 +303,14 @@ dist
 # Rax.js build
 .rax
 
-# vuepress build output
+# Vuepress build output
 .vuepress/dist
 
-# ssr
+# SSR
 dist-ssr
 dist_ssr
 
-# ssg
+# SSG
 dist-ssg
 dist_ssg
 
@@ -326,6 +326,10 @@ dist_ssg
 
 # TernJS port file
 .tern-port
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
 
 # Editor
 .vscode-test
