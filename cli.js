@@ -142,7 +142,7 @@ program
         {
           type: 'confirm',
           name: 'setTsconfig',
-          message: 'Set up tsconfig.json?',
+          message: 'Set up tsconfig.json? Should be false in a project with tsconfig.json.',
           default: false,
         },
         {
