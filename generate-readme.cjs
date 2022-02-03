@@ -191,10 +191,18 @@ You should ONLY use this in a new project without \`tsconfig.json\`. Extends, th
   // on-demand set include
   "include": [
     "./**/.*.js",
+    "./**/.*.cjs",
+    "./**/.*.mjs",
     "./**/*.js",
+    "./**/*.cjs",
+    "./**/*.mjs",
     "./**/*.jsx",
     "./**/.*.ts",
+    "./**/.*.cts",
+    "./**/.*.mts",
     "./**/*.ts",
+    "./**/*.cts",
+    "./**/*.mts",
     "./**/*.tsx",
     "./**/*.vue",
     "./**/*.svelte"
@@ -215,7 +223,7 @@ Learn about [Prettier](https://prettier.io/).
 pnpm install -D prettier@${getDependencyVersion('prettier')}
 \`\`\`
 
-Set up \`.prettierrc.js\`, or \`.prettierrc.cjs\` for \`"type": "module"\`.
+Set up \`.prettierrc.cjs\`.
 
 \`\`\`js
 const { prettier } = require('@modyqyw/fabric');
@@ -246,7 +254,7 @@ pnpm install -D typescript@${getDependencyVersion(
 )} @typescript-eslint/parser@${getDependencyVersion('@typescript-eslint/parser')}
 \`\`\`
 
-Set up \`.eslintrc.js\`, or \`.eslintrc.cjs\` for \`"type": "module"\`.
+Set up \`.eslintrc.cjs\`.
 
 \`\`\`js
 const { eslint } = require('@modyqyw/fabric');
@@ -327,7 +335,7 @@ Learn about [Stylelint](https://stylelint.io/).
 pnpm install -D stylelint@${getDependencyVersion('stylelint')}
 \`\`\`
 
-Set up \`.stylelintrc.js\`, or \`.stylelintrc.cjs\` for \`"type": "module"\`.
+Set up \`.stylelintrc.cjs\`.
 
 \`\`\`js
 const { stylelint } = require('@modyqyw/fabric');
@@ -412,7 +420,7 @@ Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](
 pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
 \`\`\`
 
-Set up \`.commitlintrc.js\`, or \`.commitlintrc.cjs\` for \`"type": "module"\`.
+Set up \`.commitlintrc.cjs\`.
 
 \`\`\`js
 const { commitlint } = require('@modyqyw/fabric');
@@ -458,7 +466,7 @@ pnpm install -D lint-staged@${getDependencyVersion('lint-staged')}
 
 \`\`\`
 
-Set up \`.lintstagedrc.js\`.
+Set up \`.lintstagedrc.cjs\`.
 
 \`\`\`js
 module.exports = {
