@@ -114,7 +114,7 @@ trim_trailing_whitespace = false
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-Just extends, then customize.
+You should ONLY use this in a new project without \`tsconfig.json\`. Extends, then customize.
 
 \`\`\`json
 {
