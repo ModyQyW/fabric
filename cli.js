@@ -415,13 +415,14 @@ trim_trailing_whitespace = false
         fs.writeFileSync(
           path.resolve(directory, 'tsconfig.json'),
           `{
-  "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
+  "extends": "@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "lib": ["ESNext"],
+    "target": "ESNext",
     "jsx": "preserve",
     "paths": {},
-    "types": [],
-    "target": "ESNext"
+    "types": []
   },
   "include": [
     "./**/.*.js",
