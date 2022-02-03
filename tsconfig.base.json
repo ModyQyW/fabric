@@ -10,8 +10,8 @@
 
     // Modules
     "baseUrl": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"],
 
@@ -20,9 +20,11 @@
     "declarationDir": "dist",
     "downlevelIteration": true,
     "importHelpers": true,
+    "importsNotUsedAsValues": "error",
     "newLine": "lf",
     "noEmit": true,
     "outDir": "dist",
+    "preserveValueImports": true,
     "removeComments": true,
     "sourceMap": true,
 
@@ -43,7 +45,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext"],
     "target": "ESNext",
     "useDefineForClassFields": true,
 

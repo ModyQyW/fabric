@@ -122,6 +122,10 @@ Just extends, then customize.
   "compilerOptions": {
     // set baseUrl
     "baseUrl": ".",
+    // on-demand set lib, default ["ESNext"]
+    "lib": ["ESNext", "DOM", "DOM.iterable"],
+    // on-demand set target, default ESNext
+    "target": "ESNext",
     // on-demand set jsx, default preserve
     "jsx": "react-jsx",
     // on-demand set paths, default {}
@@ -136,10 +140,16 @@ Just extends, then customize.
       "@dcloudio/types",
       // element-plus
       "element-plus/global",
+      // jest
+      "jest",
+      // jsdom
+      "jsdom",
       // alipay miniprogram
       "mini-types",
       // wechat miniprogram
       "miniprogram-api-typings",
+      // node
+      "node",
       // type-fest
       "type-fest",
       // unplugin-icons
@@ -148,6 +158,9 @@ Just extends, then customize.
       // unplugin-vue2-script-setup
       "unplugin-vue2-script-setup/ref-macros",
       "unplugin-vue2-script-setup/types",
+      // vitest
+      "vitest",
+      "vitest/global",
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
