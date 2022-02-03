@@ -22,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~3.22.5
+pnpm install -D @modyqyw/fabric@~3.23.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~3.22.5
+pnpm install -g @modyqyw/fabric@~3.23.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -107,7 +107,7 @@ trim_trailing_whitespace = false
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-Just extends, then customize.
+You should ONLY use this in a new project without `tsconfig.json`. Extends, then customize.
 
 ```json
 {
@@ -115,6 +115,10 @@ Just extends, then customize.
   "compilerOptions": {
     // set baseUrl
     "baseUrl": ".",
+    // on-demand set lib, default ["ESNext"]
+    "lib": ["ESNext", "DOM", "DOM.iterable"],
+    // on-demand set target, default ESNext
+    "target": "ESNext",
     // on-demand set jsx, default preserve
     "jsx": "react-jsx",
     // on-demand set paths, default {}
@@ -129,10 +133,16 @@ Just extends, then customize.
       "@dcloudio/types",
       // element-plus
       "element-plus/global",
+      // jest
+      "jest",
+      // jsdom
+      "jsdom",
       // alipay miniprogram
       "mini-types",
       // wechat miniprogram
       "miniprogram-api-typings",
+      // node
+      "node",
       // type-fest
       "type-fest",
       // unplugin-icons
@@ -141,6 +151,9 @@ Just extends, then customize.
       // unplugin-vue2-script-setup
       "unplugin-vue2-script-setup/ref-macros",
       "unplugin-vue2-script-setup/types",
+      // vitest
+      "vitest",
+      "vitest/global",
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
@@ -171,10 +184,18 @@ Just extends, then customize.
   // on-demand set include
   "include": [
     "./**/.*.js",
+    "./**/.*.cjs",
+    "./**/.*.mjs",
     "./**/*.js",
+    "./**/*.cjs",
+    "./**/*.mjs",
     "./**/*.jsx",
     "./**/.*.ts",
+    "./**/.*.cts",
+    "./**/.*.mts",
     "./**/*.ts",
+    "./**/*.cts",
+    "./**/*.mts",
     "./**/*.tsx",
     "./**/*.vue",
     "./**/*.svelte"
@@ -195,7 +216,7 @@ Learn about [Prettier](https://prettier.io/).
 pnpm install -D prettier@~2.5.1
 ```
 
-Set up `.prettierrc.js`, or `.prettierrc.cjs` for `"type": "module"`.
+Set up `.prettierrc.cjs`.
 
 ```js
 const { prettier } = require('@modyqyw/fabric');
@@ -211,16 +232,16 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/). Prettier is required.
 
 ```sh
-pnpm install -D eslint@~7.32.0 @babel/core@~7.16.12 @babel/eslint-parser@~7.16.5
+pnpm install -D eslint@~7.32.0 @babel/core@~7.17.0 @babel/eslint-parser@~7.17.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.5 @typescript-eslint/eslint-plugin@~5.10.1 @typescript-eslint/parser@~5.10.1
+pnpm install -D typescript@~4.5.5 @typescript-eslint/eslint-plugin@~5.10.2 @typescript-eslint/parser@~5.10.2
 ```
 
-Set up `.eslintrc.js`, or `.eslintrc.cjs` for `"type": "module"`.
+Set up `.eslintrc.cjs`.
 
 ```js
 const { eslint } = require('@modyqyw/fabric');
@@ -277,7 +298,7 @@ Learn about [Stylelint](https://stylelint.io/). Prettier is required.
 pnpm install -D stylelint@~13.13.1
 ```
 
-Set up `.stylelintrc.js`, or `.stylelintrc.cjs` for `"type": "module"`.
+Set up `.stylelintrc.cjs`.
 
 ```js
 const { stylelint } = require('@modyqyw/fabric');
@@ -353,7 +374,7 @@ Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](
 pnpm install -D @commitlint/cli@~16.1.0
 ```
 
-Set up `.commitlintrc.js`, or `.commitlintrc.cjs` for `"type": "module"`.
+Set up `.commitlintrc.cjs`.
 
 ```js
 const { commitlint } = require('@modyqyw/fabric');
@@ -395,11 +416,11 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@~12.3.2
+pnpm install -D lint-staged@~12.3.3
 
 ```
 
-Set up `.lintstagedrc.js`.
+Set up `.lintstagedrc.cjs`.
 
 ```js
 module.exports = {
