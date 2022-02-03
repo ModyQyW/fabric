@@ -23,6 +23,7 @@ const config: Linter.Config = {
   ],
   env: {
     ...env,
+    'vue/setup-compiler-macros': true,
   },
   globals: {
     ...globals,
