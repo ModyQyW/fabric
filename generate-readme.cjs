@@ -19,7 +19,7 @@ Requires:
 - Stylelint 14
 - Postcss 8
 
-Check @modyqyw/fabric@3 For ESLint 7, Stylelint 13 and Postcss 7.
+Check @modyqyw/fabric@3 (deprecated) For ESLint 7, Stylelint 13 and Postcss 7.
 
 Using \`pnpm\` in examples below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
