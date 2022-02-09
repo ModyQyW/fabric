@@ -679,6 +679,7 @@ If you are using TailwindCSS / WindiCSS, \`"editor.formatOnSave": true\` may be 
 - Upgrade your npm version to latest 6, 7 or 8.
 - Upgrade your eslint version to latest 7 or 8.
 - Upgrade your stylelint version to latest 14.
+- Upgrade your prettier version to latest 2.
 - Upgrade your postcss version to latest 8.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
 - Add \`tsconfig.json\` support.
