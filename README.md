@@ -12,7 +12,7 @@ Requires:
 - Stylelint 14
 - Postcss 8
 
-Check @modyqyw/fabric@3 For ESLint 7, Stylelint 13 and Postcss 7.
+Check @modyqyw/fabric@3 (deprecated) For ESLint 7, Stylelint 13 and Postcss 7.
 
 Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
@@ -22,10 +22,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@~4.11.2
+pnpm install -D @modyqyw/fabric@~4.12.0
 
 # globally
-pnpm install -g @modyqyw/fabric@~4.11.2
+pnpm install -g @modyqyw/fabric@~4.12.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -232,13 +232,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-pnpm install -D eslint@~8.8.0 @babel/core@~7.17.0 @babel/eslint-parser@~7.17.0
+pnpm install -D eslint@~8.8.0 @babel/core@~7.17.2 @babel/eslint-parser@~7.17.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@~4.5.5 @typescript-eslint/eslint-plugin@~5.10.2 @typescript-eslint/parser@~5.10.2
+pnpm install -D typescript@~4.5.5 @typescript-eslint/eslint-plugin@~5.11.0 @typescript-eslint/parser@~5.11.0
 ```
 
 Set up `.eslintrc.cjs`.
@@ -319,7 +319,7 @@ You should declare `paths` in `tsconfig.json` if you are using path aliases.
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-pnpm install -D stylelint@~14.3.0
+pnpm install -D stylelint@~14.4.0
 ```
 
 Set up `.stylelintrc.cjs`.
@@ -368,7 +368,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
-pnpm install -D markdownlint-cli@~0.30.0
+pnpm install -D markdownlint-cli@~0.31.1
 ```
 
 Set up `.markdownlint.json`.
@@ -666,6 +666,7 @@ If you are using TailwindCSS / WindiCSS, `"editor.formatOnSave": true` may be a 
 - Upgrade your npm version to latest 6, 7 or 8.
 - Upgrade your eslint version to latest 7 or 8.
 - Upgrade your stylelint version to latest 14.
+- Upgrade your prettier version to latest 2.
 - Upgrade your postcss version to latest 8.
 - Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
 - Add `tsconfig.json` support.
