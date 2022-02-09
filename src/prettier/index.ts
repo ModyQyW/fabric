@@ -11,7 +11,6 @@ const config: Config = {
   trailingComma: 'all',
   bracketSpacing: true,
   bracketSameLine: false,
-  jsxBracketSameLine: false,
   arrowParens: 'always',
   requirePragma: false,
   insertPragma: false,
