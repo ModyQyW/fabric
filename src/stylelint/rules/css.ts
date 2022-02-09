@@ -14,6 +14,7 @@ const rules: Partial<Record<string, any>> = {
       ignoreComments: [/^#ifdef/, /^#ifndef/, /^#endif/],
     },
   ],
+  'function-no-unknown': null,
   'property-no-unknown': [
     true,
     {
