@@ -80,6 +80,7 @@
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
+    "prepublishOnly": "node generate-readme.cjs && pnpm run build",
     "release": "release-it"
   },
   "config": {
