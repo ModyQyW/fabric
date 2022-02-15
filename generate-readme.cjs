@@ -436,7 +436,9 @@ module.exports = {
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 \`\`\`sh
-pnpm install -D commitizen@${getDependencyVersion('commitizen')}
+pnpm install -D commitizen@${getDependencyVersion(
+  'commitizen',
+)} @commitlint/prompt@${getDependencyVersion('@commitlint/prompt')}
 \`\`\`
 
 Set up \`package.json\`.
@@ -450,7 +452,7 @@ Set up \`package.json\`.
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/@commitlint/cz-commitlint"
+      "path": "@commitlint/prompt"
     }
   }
 }

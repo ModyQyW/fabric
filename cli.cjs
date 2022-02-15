@@ -632,7 +632,7 @@ module.exports = {
         pkgObj.config = {
           ...pkgObj.config,
           commitizen: {
-            path: './node_modules/@commitlint/cz-commitlint',
+            path: '@commitlint/prompt',
           },
         };
         pkgObj.devDependencies = {
