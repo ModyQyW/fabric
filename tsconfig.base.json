@@ -22,7 +22,7 @@
     "importHelpers": true,
     "importsNotUsedAsValues": "error",
     "newLine": "lf",
-    "noEmit": true,
+    // "noEmit": true,
     "outDir": "dist",
     "preserveValueImports": true,
     "removeComments": true,
@@ -42,8 +42,8 @@
     // Backwards Compatibility
 
     // Language and Environment
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
     "jsx": "preserve",
     "lib": ["ESNext"],
     "target": "ESNext",

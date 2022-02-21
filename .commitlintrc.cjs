@@ -1,4 +1,4 @@
-const { commitlint } = require('./dist/index.cjs');
+const { commitlint } = require('./dist/index.js');
 
 module.exports = {
   ...commitlint,

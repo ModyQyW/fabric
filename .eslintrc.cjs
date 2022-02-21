@@ -1,4 +1,4 @@
-const { eslint } = require('./dist/index.cjs');
+const { eslint } = require('./dist/index.js');
 
 module.exports = {
   ...eslint.vanillaPrettier,
