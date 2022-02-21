@@ -5,6 +5,5 @@ module.exports = {
   },
   hooks: {
     'before:init': 'pnpm install && pnpm run build && pnpm run lint',
-    'after:release': 'cnpm sync @modyqyw/fabric',
   },
 };

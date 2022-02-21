@@ -150,7 +150,6 @@
     "@types/inquirer": "^8.2.0",
     "@types/shelljs": "^0.8.11",
     "@types/update-notifier": "^5.1.0",
-    "cnpm": "^7.1.1",
     "commitizen": "^4.2.4",
     "eslint": "^8.9.0",
     "husky": "^7.0.4",
