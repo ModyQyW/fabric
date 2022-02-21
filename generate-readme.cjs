@@ -29,10 +29,10 @@ Using \`pnpm\` in examples below. Check [nrm](https://github.com/Pana/nrm) for m
 
 \`\`\`sh
 # locally
-pnpm install -D ${pkg.name}@~${pkg.version}
+pnpm install -D ${pkg.name}@^${pkg.version}
 
 # globally
-pnpm install -g ${pkg.name}@~${pkg.version}
+pnpm install -g ${pkg.name}@^${pkg.version}
 \`\`\`
 
 See more about version [here](https://github.com/npm/node-semver).

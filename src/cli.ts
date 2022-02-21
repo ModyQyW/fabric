@@ -84,9 +84,11 @@ program
       const lintItems = [];
 
       // Read project package.json
-      const pkgObj = JSON.parse(fs.readFileSync(path.resolve(directory, 'package.json')));
-      pkgObj.dependencies = pkgObj.dependencies || {};
-      pkgObj.devDependencies = pkgObj.devDependencies || {};
+      const pkgObj = JSON.parse(
+        fs.readFileSync(path.resolve(directory, 'package.json')).toString(),
+      );
+      pkgObj.dependencies = pkgObj.dependencies ?? {};
+      pkgObj.devDependencies = pkgObj.devDependencies ?? {};
 
       // Ask for information
       const {
@@ -181,7 +183,7 @@ program
       // Set @modyqyw/fabric
       pkgObj.devDependencies = {
         ...pkgObj.devDependencies,
-        '@modyqyw/fabric': `~${pkg.version}`,
+        '@modyqyw/fabric': `^${pkg.version}`,
       };
 
       // Set git

@@ -179,7 +179,7 @@ program
       // Set @modyqyw/fabric
       pkgObj.devDependencies = {
         ...pkgObj.devDependencies,
-        '@modyqyw/fabric': `~${pkg.version}`,
+        '@modyqyw/fabric': `^${pkg.version}`,
       };
 
       // Set git
