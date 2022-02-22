@@ -13,6 +13,7 @@ Requires:
 
 - Latest Node 12/14/16
 - Latest npm 6/7/8
+- Use \`--legacy-peer-deps\` when using npm 7/8 to install
 - Set \`shamefully-hoist=true\` in \`.npmrc\` if using latest pnpm 6 instead of npm
 - Set \`nodeLinker: 'node-modules'\` in \`.yarnrc.yml\` if using latest yarn 2/3 instead of npm
 - ESLint 8
