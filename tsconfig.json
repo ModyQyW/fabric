@@ -5,8 +5,7 @@
     "lib": ["ESNext"],
     "target": "ESNext",
     "jsx": "preserve",
-    "paths": {},
-    "types": ["vite/client"]
+    "paths": {}
   },
   "include": [
     "./**/.*.js",
