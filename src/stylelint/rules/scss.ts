@@ -3,7 +3,7 @@ const rules: Partial<Record<string, any>> = {
   'scss/at-rule-no-unknown': [
     true,
     {
-      ignoreAtRules: ['tailwind', 'value'],
+      ignoreAtRules: ['tailwind', 'value', 'layer'],
     },
   ],
 };

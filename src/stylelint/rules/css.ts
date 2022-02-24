@@ -2,7 +2,7 @@ const rules: Partial<Record<string, any>> = {
   'at-rule-no-unknown': [
     true,
     {
-      ignoreAtRules: ['tailwind', 'value'],
+      ignoreAtRules: ['tailwind', 'value', 'layer'],
     },
   ],
   'color-function-notation': null,
