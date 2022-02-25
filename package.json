@@ -77,7 +77,7 @@
     "build": "tsc --noEmit && tsup-node src/index.ts --dts --format esm,cjs --minify && tsup-node src/cli.ts --minify",
     "commit": "git-cz",
     "dev": "vite",
-    "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && tsc && sort-package-json",
+    "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && tsc --noEmit && sort-package-json",
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
