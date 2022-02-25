@@ -19,6 +19,7 @@ const config: Linter.Config = {
     'plugin:unicorn/recommended',
     'plugin:vuejs-accessibility/recommended',
     'plugin:vue/vue3-recommended',
+    'plugin:vue-scoped-css/vue3-recommended',
     'plugin:prettier/recommended',
   ],
   env: {
