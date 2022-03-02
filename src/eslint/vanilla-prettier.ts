@@ -13,7 +13,6 @@ const config: Linter.Config = {
   extends: [
     'airbnb-base',
     'plugin:eslint-comments/recommended',
-    'plugin:you-dont-need-lodash-underscore/compatible',
     'plugin:regexp/recommended',
     'plugin:unicorn/recommended',
     'plugin:prettier/recommended',
@@ -41,7 +40,6 @@ const config: Linter.Config = {
         'airbnb-base',
         'airbnb-typescript/base',
         'plugin:eslint-comments/recommended',
-        'plugin:you-dont-need-lodash-underscore/compatible',
         'plugin:regexp/recommended',
         'plugin:unicorn/recommended',
         'plugin:prettier/recommended',
