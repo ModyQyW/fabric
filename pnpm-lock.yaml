@@ -38,7 +38,6 @@ specifiers:
   eslint-plugin-vue: ^8.5.0
   eslint-plugin-vue-scoped-css: ^2.2.0
   eslint-plugin-vuejs-accessibility: ^1.1.1
-  eslint-plugin-you-dont-need-lodash-underscore: ^6.12.0
   husky: ^7.0.4
   inquirer: ^8.2.0
   is-ci: ^3.0.1
@@ -104,7 +103,6 @@ dependencies:
   eslint-plugin-vue: 8.5.0_eslint@8.10.0
   eslint-plugin-vue-scoped-css: 2.2.0_c851ca2c1411772f1d196e4d330d05e2
   eslint-plugin-vuejs-accessibility: 1.1.1_eslint@8.10.0
-  eslint-plugin-you-dont-need-lodash-underscore: 6.12.0
   inquirer: 8.2.0
   picocolors: 1.0.0
   postcss: 8.4.7
@@ -2601,13 +2599,6 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-you-dont-need-lodash-underscore/6.12.0:
-    resolution: {integrity: sha512-WF4mNp+k2532iswT6iUd1BX6qjd3AV4cFy/09VC82GY9SsRtvkxhUIx7JNGSe0/bLyd57oTr4inPFiIaENXhGw==}
-    engines: {node: '>=4.0'}
-    dependencies:
-      kebab-case: 1.0.1
-    dev: false
-
   /eslint-scope/5.1.1:
     resolution: {integrity: sha512-2NxwbF/hZ0KpepYN0cNbo+FN6XoK7GaHlQhgx/hIZl6Va0bF45RQOOwhLIy8lQDbuCiadSLCBnH2CFYquit5bw==}
     engines: {node: '>=8.0.0'}
@@ -3763,10 +3754,6 @@ packages:
     dependencies:
       array-includes: 3.1.4
       object.assign: 4.1.2
-    dev: false
-
-  /kebab-case/1.0.1:
-    resolution: {integrity: sha512-txPHx6nVLhv8PHGXIlAk0nYoh894SpAqGPXNvbg2hh8spvHXIah3+vT87DLoa59nKgC6scD3u3xAuRIgiMqbfQ==}
     dev: false
 
   /keyv/3.1.0:

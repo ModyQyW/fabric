@@ -120,7 +120,6 @@
     "eslint-plugin-vue": "^8.5.0",
     "eslint-plugin-vue-scoped-css": "^2.2.0",
     "eslint-plugin-vuejs-accessibility": "^1.1.1",
-    "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0",
     "inquirer": "^8.2.0",
     "picocolors": "^1.0.0",
     "postcss": "^8.4.7",
