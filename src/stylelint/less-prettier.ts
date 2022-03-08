@@ -1,5 +1,5 @@
-import type { Config } from 'stylelint';
 import rules from './rules';
+import type { Config } from 'stylelint';
 
 const config: Partial<Config> = {
   customSyntax: 'postcss-less',

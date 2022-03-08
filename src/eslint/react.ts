@@ -1,8 +1,8 @@
-import type { Linter } from 'eslint';
 import env from './env';
 import globals from './globals';
 import rules from './rules';
 import settings from './settings';
+import type { Linter } from 'eslint';
 
 const config: Linter.Config = {
   root: true,
