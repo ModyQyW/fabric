@@ -2,6 +2,30 @@ import type { Linter } from 'eslint';
 
 const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOptions>> = {
   'class-methods-use-this': 'off',
+  'import/order': [
+    'error',
+    {
+      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+      pathGroups: [
+        {
+          pattern: '@/**',
+          group: 'internal',
+        },
+        {
+          pattern: '@@/**',
+          group: 'internal',
+        },
+        {
+          pattern: '~/**',
+          group: 'internal',
+        },
+        {
+          pattern: '~~/**',
+          group: 'internal',
+        },
+      ],
+    },
+  ],
   'import/prefer-default-export': 'off',
   'import/no-extraneous-dependencies': [
     'error',
