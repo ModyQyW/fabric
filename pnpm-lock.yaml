@@ -21,7 +21,7 @@ specifiers:
   eslint: ^8.10.0
   eslint-config-airbnb: ^19.0.4
   eslint-config-airbnb-base: ^15.0.0
-  eslint-config-airbnb-typescript: ^16.1.0
+  eslint-config-airbnb-typescript: ^16.1.1
   eslint-config-next: ^12.1.0
   eslint-config-prettier: ^8.5.0
   eslint-import-resolver-node: ^0.3.6
@@ -39,7 +39,7 @@ specifiers:
   eslint-plugin-vue-scoped-css: ^2.2.0
   eslint-plugin-vuejs-accessibility: ^1.1.1
   husky: ^7.0.4
-  inquirer: ^8.2.0
+  inquirer: ^8.2.1
   is-ci: ^3.0.1
   lint-staged: ^12.3.5
   markdownlint-cli: ^0.31.1
@@ -50,7 +50,7 @@ specifiers:
   postcss-scss: ^4.0.3
   prettier: ^2.5.1
   prettier-plugin-jsdoc: ^0.3.30
-  prettier-plugin-packagejson: ^2.2.15
+  prettier-plugin-packagejson: ^2.2.16
   prettier-plugin-tailwindcss: ^0.1.8
   release-it: ^14.12.5
   shelljs: ^0.8.5
@@ -63,7 +63,7 @@ specifiers:
   stylelint-order: ^5.0.0
   stylelint-prettier: ^2.0.0
   svelte-eslint-parser: ^0.15.0
-  tsup: ^5.12.0
+  tsup: ^5.12.1
   tsutils: ^3.21.0
   typescript: ^4.6.2
   update-notifier: ^5.1.0
@@ -86,7 +86,7 @@ dependencies:
   commander: 9.0.0
   eslint-config-airbnb: 19.0.4_c7d04ecf5eaa64250a4220a14895c52e
   eslint-config-airbnb-base: 15.0.0_8b406960a2a06af75ddac353adbd0cfd
-  eslint-config-airbnb-typescript: 16.1.0_5578455438cb4944d91b2778c0d4593e
+  eslint-config-airbnb-typescript: 16.1.1_5578455438cb4944d91b2778c0d4593e
   eslint-config-next: 12.1.0_eslint@8.10.0+typescript@4.6.2
   eslint-config-prettier: 8.5.0_eslint@8.10.0
   eslint-import-resolver-node: 0.3.6
@@ -103,14 +103,14 @@ dependencies:
   eslint-plugin-vue: 8.5.0_eslint@8.10.0
   eslint-plugin-vue-scoped-css: 2.2.0_c851ca2c1411772f1d196e4d330d05e2
   eslint-plugin-vuejs-accessibility: 1.1.1_eslint@8.10.0
-  inquirer: 8.2.0
+  inquirer: 8.2.1
   picocolors: 1.0.0
   postcss: 8.4.8
   postcss-html: 1.3.0
   postcss-less: 6.0.0_postcss@8.4.8
   postcss-scss: 4.0.3_postcss@8.4.8
   prettier-plugin-jsdoc: 0.3.30_prettier@2.5.1
-  prettier-plugin-packagejson: 2.2.15_prettier@2.5.1
+  prettier-plugin-packagejson: 2.2.16_prettier@2.5.1
   prettier-plugin-tailwindcss: 0.1.8_prettier@2.5.1
   shelljs: 0.8.5
   stylelint-config-prettier: 9.0.3_stylelint@14.5.3
@@ -142,7 +142,7 @@ devDependencies:
   release-it: 14.12.5
   sort-package-json: 1.54.0
   stylelint: 14.5.3
-  tsup: 5.12.0_typescript@4.6.2
+  tsup: 5.12.1_typescript@4.6.2
 
 packages:
 
@@ -2286,8 +2286,8 @@ packages:
       semver: 6.3.0
     dev: false
 
-  /eslint-config-airbnb-typescript/16.1.0_5578455438cb4944d91b2778c0d4593e:
-    resolution: {integrity: sha512-W5Cq20KpEx5ZLC54bnVrC37zq2+WD956Kp/Ma3nYFRjT1v9KM63v+DPkrrmmrVqrlDKaD0ivm/qeYmyHV6qKlw==}
+  /eslint-config-airbnb-typescript/16.1.1_5578455438cb4944d91b2778c0d4593e:
+    resolution: {integrity: sha512-E02SYIDMAEx6PB6Mi/twWNYwgK9yYd19vQzGASBUejWtdCSAuEcC3cSH8A6VZJjPITxaPRqbd00BKihSInFvbA==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^5.0.0
       '@typescript-eslint/parser': ^5.0.0
@@ -3401,6 +3401,27 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       through: 2.3.8
+    dev: true
+
+  /inquirer/8.2.1:
+    resolution: {integrity: sha512-pxhBaw9cyTFMjwKtkjePWDhvwzvrNGAw7En4hottzlPvz80GZaMZthdDU35aA6/f5FRZf3uhE057q8w1DE3V2g==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      cli-cursor: 3.1.0
+      cli-width: 3.0.0
+      external-editor: 3.1.0
+      figures: 3.2.0
+      lodash: 4.17.21
+      mute-stream: 0.0.8
+      ora: 5.4.1
+      run-async: 2.4.1
+      rxjs: 7.5.5
+      string-width: 4.2.3
+      strip-ansi: 6.0.1
+      through: 2.3.8
+    dev: false
 
   /internal-slot/1.0.3:
     resolution: {integrity: sha512-O0DB1JC/sPyZl7cIo78n5dR7eUSwwpYPiXRhTzNxZVAMUuB8vlnRFyLxdrVToks6XPLVnFfbzaVd5WLjhgg+vA==}
@@ -4670,13 +4691,13 @@ packages:
       - supports-color
     dev: false
 
-  /prettier-plugin-packagejson/2.2.15_prettier@2.5.1:
-    resolution: {integrity: sha512-r3WKxw0ALyD3gr3RlIFK3o7mUejCVkqwVKtUuPQaB3+aNiZYKxmad+GpZ6WFWTm6Zq2jX0wvSdlkGccQ2pEnCg==}
+  /prettier-plugin-packagejson/2.2.16_prettier@2.5.1:
+    resolution: {integrity: sha512-nlLXAcw0xz3X1a8qSWSG9CEcAJXq5djdbpHq5lYRM8K50+s+xvLwUa0gvzqyJ80VjdtLLLgB+Pqp8hoN0Y+cEQ==}
     peerDependencies:
       prettier: '>= 1.16.0'
     dependencies:
       prettier: 2.5.1
-      sort-package-json: 1.53.1
+      sort-package-json: 1.54.0
     dev: false
 
   /prettier-plugin-tailwindcss/0.1.8_prettier@2.5.1:
@@ -5039,6 +5060,13 @@ packages:
     resolution: {integrity: sha512-h5M3Hk78r6wAheJF0a5YahB1yRQKCsZ4MsGdZ5O9ETbVtjPcScGfrMmoOq7EBsCRzd4BDkvDJ7ogP8Sz5tTFiQ==}
     dependencies:
       tslib: 2.3.1
+    dev: true
+
+  /rxjs/7.5.5:
+    resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
+    dependencies:
+      tslib: 2.3.1
+    dev: false
 
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
@@ -5153,18 +5181,6 @@ packages:
   /sort-object-keys/1.1.3:
     resolution: {integrity: sha512-855pvK+VkU7PaKYPc+Jjnmt4EzejQHyhhF33q31qG8x7maDzkeFhAAThdCYay11CISO+qAMwjOBP+fPZe0IPyg==}
 
-  /sort-package-json/1.53.1:
-    resolution: {integrity: sha512-ltLORrQuuPMpy23YkWCA8fO7zBOxM4P1j9LcGxci4K2Fk8jmSyCA/ATU6CFyy8qR2HQRx4RBYWzoi78FU/Anuw==}
-    hasBin: true
-    dependencies:
-      detect-indent: 6.1.0
-      detect-newline: 3.1.0
-      git-hooks-list: 1.0.3
-      globby: 10.0.0
-      is-plain-obj: 2.1.0
-      sort-object-keys: 1.1.3
-    dev: false
-
   /sort-package-json/1.54.0:
     resolution: {integrity: sha512-MA0nRiSfZ4/CNM/9rz70Hwq4PpvtBc3v532tzQSmoaLSdeBB3cCd488xmNruLL0fb/ZdbKlcaDDudwnrObbjBw==}
     hasBin: true
@@ -5175,7 +5191,6 @@ packages:
       globby: 10.0.0
       is-plain-obj: 2.1.0
       sort-object-keys: 1.1.3
-    dev: true
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
@@ -5741,8 +5756,8 @@ packages:
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
 
-  /tsup/5.12.0_typescript@4.6.2:
-    resolution: {integrity: sha512-FGZZNikQYGlEPtKEnz04hEniEO9ctP0rfWOdDeJCpFY4sqQe+TE90YNsv/1g0FshXoGYAOTFDYAVHg6Ovh003Q==}
+  /tsup/5.12.1_typescript@4.6.2:
+    resolution: {integrity: sha512-vI7E4T6+6n5guQ9UKUOkQmzd1n4V9abGK71lbnzJMLJspbkNby5zlwWvgvHafLdYCb1WXpjFuqqmNLjBA0Wz3g==}
     hasBin: true
     peerDependencies:
       typescript: ^4.1.0
