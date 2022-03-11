@@ -23,10 +23,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^4.13.1
+pnpm install -D @modyqyw/fabric@^4.14.0
 
 # globally
-pnpm install -g @modyqyw/fabric@^4.13.1
+pnpm install -g @modyqyw/fabric@^4.14.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -233,13 +233,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-pnpm install -D eslint@^8.9.0 @babel/core@^7.17.5 @babel/eslint-parser@^7.17.0
+pnpm install -D eslint@^8.10.0 @babel/core@^7.17.5 @babel/eslint-parser@^7.17.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@^4.5.5 @typescript-eslint/eslint-plugin@^5.12.1 @typescript-eslint/parser@^5.12.1
+pnpm install -D typescript@^4.6.2 @typescript-eslint/eslint-plugin@^5.14.0 @typescript-eslint/parser@^5.14.0
 ```
 
 Set up `.eslintrc.cjs`.
@@ -450,7 +450,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@^12.3.4
+pnpm install -D lint-staged@^12.3.5
 
 ```
 
