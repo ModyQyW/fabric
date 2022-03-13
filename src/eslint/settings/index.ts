@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 const settings: Record<string, any> = {
-  'import/extensions': ['.mjs', '.js', '.jsx', '.ts', '.tsx'],
+  'import/extensions': ['.mjs', '.js', '.jsx', '.mts', '.ts', '.tsx'],
   'import/resolver': {
     node: {},
     webpack: {},

@@ -8,6 +8,7 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
       mjs: 'never',
       js: 'never',
       jsx: 'never',
+      mts: 'never',
       ts: 'never',
       tsx: 'never',
     },
