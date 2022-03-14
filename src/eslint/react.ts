@@ -15,7 +15,6 @@ const config: Linter.Config = {
     'airbnb/hooks',
     'plugin:eslint-comments/recommended',
     'plugin:regexp/recommended',
-    'plugin:unicorn/recommended',
   ],
   env: {
     ...env,
@@ -44,7 +43,6 @@ const config: Linter.Config = {
         'airbnb/hooks',
         'plugin:eslint-comments/recommended',
         'plugin:regexp/recommended',
-        'plugin:unicorn/recommended',
       ],
       rules: {
         ...rules.vanillaTypescript,

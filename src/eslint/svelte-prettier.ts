@@ -15,7 +15,6 @@ const config: Linter.Config = {
     'airbnb-base',
     'plugin:eslint-comments/recommended',
     'plugin:regexp/recommended',
-    'plugin:unicorn/recommended',
     'plugin:@ota-meshi/svelte/recommended',
     'plugin:prettier/recommended',
   ],

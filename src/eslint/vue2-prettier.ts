@@ -15,7 +15,6 @@ const config: Linter.Config = {
     'airbnb-base',
     'plugin:eslint-comments/recommended',
     'plugin:regexp/recommended',
-    'plugin:unicorn/recommended',
     'plugin:vuejs-accessibility/recommended',
     'plugin:vue/recommended',
     'plugin:vue-scoped-css/recommended',
