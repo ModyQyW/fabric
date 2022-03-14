@@ -1,6 +1,6 @@
 {
   "name": "@modyqyw/fabric",
-  "version": "4.14.0",
+  "version": "4.15.0",
   "description": "Opinionated shareable specification for different JavaScript/TypeScript projects.",
   "keywords": [
     "fabric",
