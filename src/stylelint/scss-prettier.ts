@@ -13,7 +13,7 @@ const config: Partial<Config> = {
   },
   overrides: [
     {
-      files: ['*.vue', '**/*.vue'],
+      files: ['*.svelte', '**/*.svelte', '*.vue', '**/*.vue'],
       customSyntax: 'postcss-html',
       extends: [
         'stylelint-config-standard-scss',
