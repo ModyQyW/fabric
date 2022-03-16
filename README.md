@@ -23,10 +23,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^4.15.0
+pnpm install -D @modyqyw/fabric@^4.16.0
 
 # globally
-pnpm install -g @modyqyw/fabric@^4.15.0
+pnpm install -g @modyqyw/fabric@^4.16.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -214,7 +214,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-pnpm install -D prettier@^2.5.1
+pnpm install -D prettier@^2.6.0
 ```
 
 Set up `.prettierrc.cjs`.
@@ -233,13 +233,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-pnpm install -D eslint@^8.11.0 @babel/core@^7.17.5 @babel/eslint-parser@^7.17.0
+pnpm install -D eslint@^8.11.0 @babel/core@^7.17.7 @babel/eslint-parser@^7.17.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@^4.6.2 @typescript-eslint/eslint-plugin@^5.14.0 @typescript-eslint/parser@^5.14.0
+pnpm install -D typescript@^4.6.2 @typescript-eslint/eslint-plugin@^5.15.0 @typescript-eslint/parser@^5.15.0
 ```
 
 Set up `.eslintrc.cjs`.
@@ -405,7 +405,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@^16.2.1
+pnpm install -D @commitlint/cli@^16.2.3
 ```
 
 Set up `.commitlintrc.cjs`.
@@ -424,7 +424,7 @@ module.exports = {
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
-pnpm install -D commitizen@^4.2.4 @commitlint/prompt@^16.2.1
+pnpm install -D commitizen@^4.2.4 @commitlint/prompt@^16.2.3
 ```
 
 Set up `package.json`.
@@ -450,7 +450,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@^12.3.5
+pnpm install -D lint-staged@^12.3.6
 
 ```
 
