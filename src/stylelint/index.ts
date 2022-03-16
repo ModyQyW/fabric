@@ -1,9 +1,9 @@
-import cssPrettier from './css-prettier';
 import css from './css';
-import lessPrettier from './less-prettier';
+import cssPrettier from './css-prettier';
 import less from './less';
-import scssPrettier from './scss-prettier';
+import lessPrettier from './less-prettier';
 import scss from './scss';
+import scssPrettier from './scss-prettier';
 
 export default {
   cssPrettier,

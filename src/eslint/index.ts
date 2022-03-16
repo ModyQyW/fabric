@@ -1,19 +1,19 @@
-import reactPrettier from './react-prettier';
 import react from './react';
-import sveltePrettier from './svelte-prettier';
-import svelteTypescriptPrettier from './svelte-typescript-prettier';
-import svelteTypescript from './svelte-typescript';
+import reactPrettier from './react-prettier';
 import svelte from './svelte';
-import vanillaPrettier from './vanilla-prettier';
+import sveltePrettier from './svelte-prettier';
+import svelteTypescript from './svelte-typescript';
+import svelteTypescriptPrettier from './svelte-typescript-prettier';
 import vanilla from './vanilla';
-import vue2Prettier from './vue2-prettier';
-import vue2TypescriptPrettier from './vue2-typescript-prettier';
-import vue2Typescript from './vue2-typescript';
+import vanillaPrettier from './vanilla-prettier';
 import vue2 from './vue2';
-import vue3Prettier from './vue3-prettier';
-import vue3TypescriptPrettier from './vue3-typescript-prettier';
-import vue3Typescript from './vue3-typescript';
+import vue2Prettier from './vue2-prettier';
+import vue2Typescript from './vue2-typescript';
+import vue2TypescriptPrettier from './vue2-typescript-prettier';
 import vue3 from './vue3';
+import vue3Prettier from './vue3-prettier';
+import vue3Typescript from './vue3-typescript';
+import vue3TypescriptPrettier from './vue3-typescript-prettier';
 
 export default {
   reactPrettier,
