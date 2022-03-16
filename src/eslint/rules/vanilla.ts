@@ -24,6 +24,9 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
           group: 'internal',
         },
       ],
+      alphabetize: {
+        order: 'asc',
+      },
     },
   ],
   'import/prefer-default-export': 'off',
