@@ -1,10 +1,9 @@
 import type { Config } from 'prettier';
 
-const config: Config & { singleAttributePerLine?: boolean } = {
+const config: Config = {
   printWidth: 100,
   singleQuote: true,
   trailingComma: 'all',
-  singleAttributePerLine: true,
   plugins: [
     './node_modules/prettier-plugin-jsdoc',
     './node_modules/prettier-plugin-packagejson',
