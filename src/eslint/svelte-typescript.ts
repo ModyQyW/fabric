@@ -34,7 +34,7 @@ const config: Linter.Config = {
     ...rules.svelteTypescript,
   },
   settings: {
-    ...settings,
+    ...settings.typescript,
   },
 };
 

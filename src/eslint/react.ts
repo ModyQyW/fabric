@@ -26,6 +26,9 @@ const config: Linter.Config = {
     ...rules.vanilla,
     ...rules.react,
   },
+  settings: {
+    ...settings.javascript,
+  },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -48,11 +51,11 @@ const config: Linter.Config = {
         ...rules.vanillaTypescript,
         ...rules.reactTypescript,
       },
+      settings: {
+        ...settings.typescript,
+      },
     },
   ],
-  settings: {
-    ...settings,
-  },
 };
 
 export default config;

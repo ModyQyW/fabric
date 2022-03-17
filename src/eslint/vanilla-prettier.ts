@@ -27,6 +27,9 @@ const config: Linter.Config = {
     ...rules.vanilla,
     ...rules.prettier,
   },
+  settings: {
+    ...settings.javascript,
+  },
   overrides: [
     {
       files: ['*.ts'],
@@ -46,11 +49,11 @@ const config: Linter.Config = {
         ...rules.vanillaTypescript,
         ...rules.prettier,
       },
+      settings: {
+        ...settings.typescript,
+      },
     },
   ],
-  settings: {
-    ...settings,
-  },
 };
 
 export default config;

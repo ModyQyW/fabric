@@ -2,34 +2,16 @@ import type { Linter } from 'eslint';
 
 const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOptions>> = {
   'class-methods-use-this': 'off',
-  'import/order': [
+  'import/extensions': [
     'error',
+    'always',
     {
-      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
-      pathGroups: [
-        {
-          pattern: '@/**',
-          group: 'internal',
-        },
-        {
-          pattern: '@@/**',
-          group: 'internal',
-        },
-        {
-          pattern: '~/**',
-          group: 'internal',
-        },
-        {
-          pattern: '~~/**',
-          group: 'internal',
-        },
-      ],
-      alphabetize: {
-        order: 'asc',
-      },
+      js: 'never',
+      cjs: 'never',
+      mjs: 'never',
+      jsx: 'never',
     },
   ],
-  'import/prefer-default-export': 'off',
   'import/no-extraneous-dependencies': [
     'error',
     {
@@ -58,6 +40,13 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
       optionalDependencies: false,
     },
   ],
+  'import/order': [
+    'error',
+    {
+      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+    },
+  ],
+  'import/prefer-default-export': 'off',
   'no-param-reassign': [
     'error',
     {

@@ -31,7 +31,7 @@ const config: Linter.Config = {
     ...rules.vue3,
   },
   settings: {
-    ...settings,
+    ...settings.javascript,
   },
 };
 
