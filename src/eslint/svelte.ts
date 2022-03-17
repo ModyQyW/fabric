@@ -25,10 +25,9 @@ const config: Linter.Config = {
   },
   rules: {
     ...rules.vanilla,
-    ...rules.svelte,
   },
   settings: {
-    ...settings.javascript,
+    ...settings,
   },
 };
 

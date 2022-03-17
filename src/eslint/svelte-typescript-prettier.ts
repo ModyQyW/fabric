@@ -32,11 +32,10 @@ const config: Linter.Config = {
   },
   rules: {
     ...rules.vanillaTypescript,
-    ...rules.svelteTypescript,
     ...rules.prettier,
   },
   settings: {
-    ...settings.typescript,
+    ...settings,
   },
 };
 

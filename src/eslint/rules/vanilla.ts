@@ -4,12 +4,14 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
   'class-methods-use-this': 'off',
   'import/extensions': [
     'error',
-    'always',
+    'ignorePackages',
     {
       js: 'never',
-      cjs: 'never',
       mjs: 'never',
       jsx: 'never',
+      ts: 'never',
+      mts: 'never',
+      tsx: 'never',
     },
   ],
   'import/no-extraneous-dependencies': [

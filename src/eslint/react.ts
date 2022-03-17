@@ -27,7 +27,7 @@ const config: Linter.Config = {
     ...rules.react,
   },
   settings: {
-    ...settings.javascript,
+    ...settings,
   },
   overrides: [
     {
@@ -50,9 +50,6 @@ const config: Linter.Config = {
       rules: {
         ...rules.vanillaTypescript,
         ...rules.reactTypescript,
-      },
-      settings: {
-        ...settings.typescript,
       },
     },
   ],

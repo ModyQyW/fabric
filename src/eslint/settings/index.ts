@@ -1,7 +1,30 @@
-import javascript from './javascript';
-import typescript from './typescript';
+import fs from 'fs';
+import path from 'path';
 
-export default {
-  javascript,
-  typescript,
+const settings: Record<string, any> = {
+  'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx'],
+  'import/resolver': {
+    node: {},
+    webpack: {},
+  },
 };
+
+if (fs.existsSync(path.resolve('tsconfig.json'))) {
+  settings['import/resolver'].typescript = {};
+} else if (fs.existsSync(path.resolve('jsconfig.json'))) {
+  settings['import/resolver'].typescript = {
+    project: './jsconfig.json',
+  };
+}
+
+// rax
+// https://github.com/alibaba/f2e-spec/blob/main/packages/eslint-config-ali/rules/rax.js
+if (fs.existsSync(path.resolve('node_modules', 'rax'))) {
+  settings.react = {
+    version: '999.999.999',
+    pragma: 'createElement',
+    pragmaFrag: 'Fragment',
+  };
+}
+
+export default settings;

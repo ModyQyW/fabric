@@ -48,7 +48,7 @@ const config: Linter.Config = {
     },
   ],
   settings: {
-    ...settings.typescript,
+    ...settings,
   },
 };
 

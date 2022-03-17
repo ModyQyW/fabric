@@ -28,7 +28,7 @@ const config: Linter.Config = {
     ...rules.prettier,
   },
   settings: {
-    ...settings.javascript,
+    ...settings,
   },
   overrides: [
     {
@@ -48,9 +48,6 @@ const config: Linter.Config = {
       rules: {
         ...rules.vanillaTypescript,
         ...rules.prettier,
-      },
-      settings: {
-        ...settings.typescript,
       },
     },
   ],

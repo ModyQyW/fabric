@@ -22,7 +22,7 @@ const config: Linter.Config = {
     ...rules.vanilla,
   },
   settings: {
-    ...settings.javascript,
+    ...settings,
   },
   overrides: [
     {
@@ -40,9 +40,6 @@ const config: Linter.Config = {
       ],
       rules: {
         ...rules.vanillaTypescript,
-      },
-      settings: {
-        ...settings.typescript,
       },
     },
   ],

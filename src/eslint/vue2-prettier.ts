@@ -32,7 +32,7 @@ const config: Linter.Config = {
     ...rules.prettier,
   },
   settings: {
-    ...settings.javascript,
+    ...settings,
   },
 };
 

@@ -26,11 +26,10 @@ const config: Linter.Config = {
   },
   rules: {
     ...rules.vanilla,
-    ...rules.svelte,
     ...rules.prettier,
   },
   settings: {
-    ...settings.javascript,
+    ...settings,
   },
 };
 
