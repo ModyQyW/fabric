@@ -3,7 +3,6 @@ import type { Linter } from 'eslint';
 
 const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOptions>> = {
   ...vanilla,
-  'no-undef': 'off', // unplugin-auto-import
 };
 
 export default rules;
