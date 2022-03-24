@@ -25,6 +25,8 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
         '**/mocks/**',
         '**/test/**',
         '**/tests/**',
+        '**/script/**',
+        '**/scripts/**',
         '**/spec/**',
         '**/__mock__/**',
         '**/__mocks__/**',
