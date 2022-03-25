@@ -23,10 +23,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^4.17.1
+pnpm install -D @modyqyw/fabric@^4.18.0
 
 # globally
-pnpm install -g @modyqyw/fabric@^4.17.1
+pnpm install -g @modyqyw/fabric@^4.18.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
@@ -214,7 +214,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-pnpm install -D prettier@^2.6.0
+pnpm install -D prettier@^2.6.1
 ```
 
 Set up `.prettierrc.cjs`.
@@ -233,13 +233,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-pnpm install -D eslint@^8.11.0 @babel/core@^7.17.7 @babel/eslint-parser@^7.17.0
+pnpm install -D eslint@^8.11.0 @babel/core@^7.17.8 @babel/eslint-parser@^7.17.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@^4.6.2 @typescript-eslint/eslint-plugin@^5.15.0 @typescript-eslint/parser@^5.15.0
+pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.16.0 @typescript-eslint/parser@^5.16.0
 ```
 
 Set up `.eslintrc.cjs`.
@@ -450,7 +450,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@^12.3.6
+pnpm install -D lint-staged@^12.3.7
 
 ```
 
