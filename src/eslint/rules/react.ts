@@ -8,6 +8,7 @@ const rules: Partial<Record<string, Linter.RuleLevel | Linter.RuleLevelAndOption
       additionalHooks: '(useRecoilCallback|useRecoilTransaction|useRecoilTransaction_UNSTABLE)',
     },
   ],
+  'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
   'react/jsx-props-no-spreading': 'off',
   // tsconfig jsx: "react-jsx"
   'react/react-in-jsx-scope': 'off',
