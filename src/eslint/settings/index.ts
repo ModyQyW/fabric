@@ -2,9 +2,15 @@ import fs from 'fs';
 import path from 'path';
 
 const settings: Record<string, any> = {
-  'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx'],
+  'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts'],
+  'import/external-module-folders': ['node_modules', 'node_modules/@types'],
+  'import/parsers': {
+    '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
+  },
   'import/resolver': {
-    node: {},
+    node: {
+      extensions: ['.js', '.mjs', '.jsx', '.json', '.ts', '.mts', '.tsx', '.d.ts'],
+    },
     webpack: {},
   },
 };
