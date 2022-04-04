@@ -1,7 +1,7 @@
 const env: Record<string, boolean> = {
   browser: true,
   commonjs: true,
-  es2021: true,
+  es2022: true,
   jasmine: true,
   jest: true,
   mocha: true,
