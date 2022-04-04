@@ -3,7 +3,7 @@ import type { Config } from 'stylelint';
 
 const config: Partial<Config> = {
   extends: [
-    'stylelint-config-standard-scss',
+    'stylelint-config-recommended-scss',
     'stylelint-config-recess-order',
     'stylelint-prettier/recommended',
   ],
@@ -16,7 +16,7 @@ const config: Partial<Config> = {
       files: ['*.svelte', '**/*.svelte', '*.vue', '**/*.vue'],
       customSyntax: 'postcss-html',
       extends: [
-        'stylelint-config-standard-scss',
+        'stylelint-config-recommended-scss',
         'stylelint-config-recess-order',
         'stylelint-prettier/recommended',
       ],

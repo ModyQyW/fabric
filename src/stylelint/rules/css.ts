@@ -5,15 +5,6 @@ const rules: Partial<Record<string, any>> = {
       ignoreAtRules: ['tailwind', 'value', 'layer'],
     },
   ],
-  'color-function-notation': null,
-  'comment-empty-line-before': [
-    'always',
-    {
-      except: ['first-nested'],
-      ignore: ['stylelint-commands'],
-      ignoreComments: [/^#ifdef/, /^#ifndef/, /^#endif/],
-    },
-  ],
   'function-no-unknown': null,
   'property-no-unknown': [
     true,
@@ -30,15 +21,7 @@ const rules: Partial<Record<string, any>> = {
     true,
     { ignorePseudoElements: ['v-deep', 'v-slotted', 'v-global'] },
   ],
-  'selector-type-no-unknown': null,
   'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
-  'value-keyword-case': [
-    'lower',
-    {
-      ignoreFunctions: ['v-bind'],
-      ignoreProperties: ['font-family'],
-    },
-  ],
 };
 
 export default rules;
