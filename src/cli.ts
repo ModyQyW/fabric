@@ -6,40 +6,33 @@ import { Command } from 'commander';
 import inquirer from 'inquirer';
 import picocolors from 'picocolors';
 import shell from 'shelljs';
-import pkg from '../package.json';
+import packageJson from '../package.json';
+import type { PackageJson } from 'type-fest';
+
+const pkg = { ...packageJson } as PackageJson;
 
 const program = new Command();
 
 const indent = '  ';
 
 const getCliDependencyVersion = (dependency: string): string =>
-  (pkg.dependencies as Record<string, string>)[dependency] ??
-  (pkg.devDependencies as Record<string, string>)[dependency] ??
-  'latest';
+  pkg?.dependencies?.[dependency] ?? pkg?.devDependencies?.[dependency] ?? 'latest';
 
 // Log hint
-console.log(picocolors.cyan(`\nmo-fabric v${pkg.version} is running in ${process.cwd()}.\n`));
+console.log(
+  picocolors.cyan(`
+mo-fabric v${pkg.version} is running in ${process.cwd()}.
 
-// Verify node version
-const [nodeMajorVersion] = process.versions.node
-  .split('.')
-  .map((item) => Number.parseInt(item, 10));
-if (nodeMajorVersion < 12 || nodeMajorVersion % 2 !== 0 || Number.isNaN(nodeMajorVersion)) {
-  console.log(
-    picocolors.red(`
-You are using a unsupported node.js version.
-Please upgrade your node.js version to latest 12/14/16.
-See https://nodejs.org.
+Please make sure you are using latest Node.js.
 
 You may need nvm, nvs or fnm.
+
 nvm: https://github.com/nvm-sh/nvm
 nvm-windows: https://github.com/coreybutler/nvm-windows
 nvs: https://github.com/jasongin/nvs
 fnm: https://github.com/Schniz/fnm
 `),
-  );
-  shell.exit(1);
-}
+);
 
 // Confirm package manager
 let pkgManager = 'npm';
@@ -64,7 +57,7 @@ if (fs.existsSync('pnpm-lock.yaml')) {
 }
 
 // Version
-program.version(pkg.version, '-v, --version');
+program.version(pkg?.version ?? '1.0.0', '-v, --version');
 
 // Command config
 program
