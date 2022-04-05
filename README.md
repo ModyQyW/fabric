@@ -4,20 +4,12 @@ Opinionated shareable specification for different JavaScript/TypeScript projects
 
 Requires:
 
-- Latest Node 12/14/16
-- Latest npm 6/7/8
+- Latest Node LTS and matching pnpm / npm / yarn
+- Set `shamefully-hoist=true` in `.npmrc` if using latest pnpm 6/7 instead of npm
 - Use `--legacy-peer-deps` when using npm 7/8 to install
-- Set `shamefully-hoist=true` in `.npmrc` if using latest pnpm 6 instead of npm
 - Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` if using latest yarn 2/3 instead of npm
-- ESLint 8
-- Stylelint 14
-- Postcss 8
-
-Check @modyqyw/fabric@3 (deprecated) For ESLint 7, Stylelint 13 and Postcss 7.
 
 Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
-
-[Github](https://github.com/ModyQyW/fabric#readme) | [Gitee](https://gitee.com/ModyQyW/fabric#readme)
 
 ## Usage
 
@@ -33,32 +25,48 @@ See more about version [here](https://github.com/npm/node-semver).
 
 ### CLI
 
-CLI is used to config your new projects easier.
+CLI is used to config your **NEW** projects easier.
 
 ```sh
 # if you install globally
 # in current dir
 mo-fabric config
-# specify PROJECT_DIR
+# specify dir
 mo-fabric config ./
 
 # if you install locally
 # in current dir
 ./node_modules/.bin/mo-fabric config
+# export first and use it like install globally
+export PATH=$PWD/node_modules/.bin:$PATH
+mo-fabric config
 ```
 
-**CLI will not keep your original configs. Use CLI in old projects on your own risk.**
+**Original configs will NOT be kept. Use it in old projects on your own risk.**
 
 ### Naming
 
 Naming is very hard and hardly be checked by linters. However, there are still relevant naming suggestions available.
 
-- JavaScript/TypeScript - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-- CSS/LESS/SCSS/SASS - [BEM](http://getbem.com/), [OOCSS](https://github.com/stubbornella/oocss/wiki), [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/), [SMACSS](http://smacss.com/), [CSS Modules](https://github.com/css-modules/css-modules)
+- JavaScript/TypeScript
+  - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+- CSS/LESS/SCSS/SASS
+  - [BEM](http://getbem.com/)
+  - [OOCSS](https://github.com/stubbornella/oocss/wiki)
+  - [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
+  - [SMACSS](http://smacss.com/)
+  - [CSS Modules](https://github.com/css-modules/css-modules)
 
-Besides, you can learn naming from some open-source projects, such as [bootstrap](https://getbootstrap.com/), [tailwindcss](https://tailwindcss.com/), [primer css](https://primer.style/css/), [bulma](https://bulma.io/), [mui](https://mui.com/), [antd](https://ant.design/), [vuetify](https://vuetifyjs.com/) and [element-plus](https://element-plus.org/).
+Besides, you can learn naming from some open-source projects.
 
-In my opinion, simplicity and clarity are the highest priority for naming.
+- [bootstrap](https://getbootstrap.com/)
+- [tailwindcss](https://tailwindcss.com/)
+- [mui](https://mui.com/)
+- [antd](https://ant.design/)
+- [vuetify](https://vuetifyjs.com/)
+- [element-plus](https://element-plus.org/)
+
+**IMO simplicity and clarity are the highest priority for naming.**
 
 ### Git
 
@@ -70,15 +78,6 @@ git config --global init.defaultBranch main
 ```
 
 For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitlab](https://gitlab.com/) and [Gitee](https://gitee.com/).
-
-Set up `.gitattributes`.
-
-```sh
-* text=auto
-
-```
-
-A better `.gitattributes` example [here](https://stackoverflow.com/a/32278635).
 
 A `.gitignore` example [here](./.gitignore).
 
@@ -108,7 +107,7 @@ trim_trailing_whitespace = false
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-You should ONLY use this in a new project without `tsconfig.json`. Extends, then customize.
+**You should only use this in a new project without `tsconfig.json`.** Extends, then customize.
 
 ```json
 {
@@ -122,7 +121,7 @@ You should ONLY use this in a new project without `tsconfig.json`. Extends, then
     "target": "ESNext",
     // on-demand set jsx, default preserve
     "jsx": "react-jsx",
-    // on-demand set paths, default {}
+    // on-demand set paths for path aliases, default {}
     "paths": {
       "@/*": ["./src/*"]
     },
@@ -214,7 +213,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-pnpm install -D prettier@^2.6.1
+pnpm install -D prettier@^2.6.2
 ```
 
 Set up `.prettierrc.cjs`.
@@ -233,13 +232,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-pnpm install -D eslint@^8.11.0 @babel/core@^7.17.8 @babel/eslint-parser@^7.17.0
+pnpm install -D eslint@^8.12.0 @babel/core@^7.17.8 @babel/eslint-parser@^7.17.0
 ```
 
 If you are using typescript, additional dependencies are needed.
 
 ```sh
-pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.16.0 @typescript-eslint/parser@^5.16.0
+pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.18.0 @typescript-eslint/parser@^5.18.0
 ```
 
 Set up `.eslintrc.cjs`.
@@ -313,14 +312,12 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```
 
-You should declare `paths` in `tsconfig.json` if you are using path aliases.
-
 ### Stylelint
 
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-pnpm install -D stylelint@^14.6.0
+pnpm install -D stylelint@^14.6.1
 ```
 
 Set up `.stylelintrc.cjs`.
@@ -381,7 +378,8 @@ Set up `.markdownlint.json`.
   "MD022": false,
   "MD024": false,
   "MD025": false,
-  "MD033": false
+  "MD033": false,
+  "MD050": false
 }
 
 ```
@@ -520,10 +518,12 @@ chmod +x .husky/*
 
 Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
 
+- [auto-changelog](https://github.com/CookPete/auto-changelog)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [keep a changelog](https://keepachangelog.com/)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
-- [release-it](https://github.com/release-it/release-it)
+- [release-it](https://github.com/release-it/release-it) - We are using it.
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 - [standard-version](https://github.com/conventional-changelog/standard-version)
 
@@ -534,12 +534,13 @@ Experience has proven that automation is the best option. You may want to try pa
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
-  - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - 1.x version
+  - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For vue3 and vue2, extra configs required if for vue2
-  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For vue2
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2
+  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For Vue 3 and Vue 2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
+  - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
 - Set up `Settings.json`.
 
@@ -547,6 +548,7 @@ Experience has proven that automation is the best option. You may want to try pa
 {
   "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
   "editor.rulers": [{ "column": 100 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -655,9 +657,19 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 ```
 
-If you are using Volar, remember to disable / remove Vetur and `"editor.defaultFormatter": "octref.vetur"`.
+If you are using Vetur, better set `editor.defaultFormatter` under `[vue]`.
 
-If you are using TailwindCSS / WindiCSS, `"editor.formatOnSave": true` may be a better choice.
+```json
+{
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    }
+  }
+}
+```
 
 ## Migrate
 
@@ -703,17 +715,15 @@ See [dependency graph](https://github.com/ModyQyW/fabric/network/dependents?pack
 
 Sorted according to alphabetical order.
 
-- [AlloyTeam - eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
-- [antfu - eslint-config](https://github.com/antfu/eslint-config)
-- [Airbnb CSS/SASS Style Guide](https://github.com/airbnb/css)
-- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
-- [Airbnb React Style Guide](https://github.com/airbnb/javascript/tree/master/react)
-- [Code Guide](https://codeguide.co/)
-- [Google HTML/CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html)
-- [Google JavaScript Style Guide](https://google.github.io/styleguide/jsguide.html)
-- [Google TypeScript Style Guide](https://google.github.io/styleguide/tsguide.html)
-- [standardjs](https://standardjs.com/)
-- [TypeScript Deep Dive - TypeScript Style Guide](https://basarat.gitbook.io/typescript/styleguide)
+- [airbnb/css](https://github.com/airbnb/css)
+- [airbnb/javascript](https://github.com/airbnb/javascript)
+- [AlloyTeam/eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
+- [antfu/eslint-config](https://github.com/antfu/eslint-config)
+- [basarat/typescript-book](https://github.com/basarat/typescript-book)
+- [google/styleguide](https://google.github.io/styleguide)
+- [mdo/code-guide](https://github.com/mdo/code-guide)
+- [standard/standard](https://github.com/standard/standard)
+- [vercel/style-guide](https://github.com/vercel/style-guide)
 
 ## License
 
