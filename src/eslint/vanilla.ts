@@ -26,7 +26,7 @@ const config: Linter.Config = {
   },
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['*.ts', '*.cts', '*.mts'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.json',

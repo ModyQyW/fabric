@@ -33,7 +33,7 @@ const config: Linter.Config = {
   },
   overrides: [
     {
-      files: ['*.ts', '*.tsx'],
+      files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaFeatures: {
