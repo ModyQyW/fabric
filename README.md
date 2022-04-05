@@ -15,10 +15,10 @@ Using `pnpm` in examples below. Check [nrm](https://github.com/Pana/nrm) for mir
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^4.18.1
+pnpm install -D @modyqyw/fabric@^4.19.0
 
 # globally
-pnpm install -g @modyqyw/fabric@^4.18.1
+pnpm install -g @modyqyw/fabric@^4.19.0
 ```
 
 See more about version [here](https://github.com/npm/node-semver).
