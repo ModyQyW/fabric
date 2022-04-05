@@ -195,11 +195,6 @@ program
           shell.exec('git init');
         }
         fs.writeFileSync(
-          path.resolve(directory, '.gitattributes'),
-          `* text=auto
-`,
-        );
-        fs.writeFileSync(
           path.resolve(directory, '.gitignore'),
           `# Logs
 logs
