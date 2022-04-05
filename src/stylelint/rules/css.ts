@@ -21,6 +21,7 @@ const rules: Partial<Record<string, any>> = {
     true,
     { ignorePseudoElements: ['v-deep', 'v-slotted', 'v-global'] },
   ],
+  'selector-type-no-unknown': null,
   'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
 };
 
