@@ -6,10 +6,7 @@ import { Command } from 'commander';
 import inquirer from 'inquirer';
 import picocolors from 'picocolors';
 import shell from 'shelljs';
-import updateNotifier from 'update-notifier';
 import pkg from '../package.json';
-
-updateNotifier({ pkg }).notify();
 
 const program = new Command();
 
