@@ -8,9 +8,7 @@ const settings: Record<string, any> = {
     '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
   },
   'import/resolver': {
-    node: {
-      extensions: ['.js', '.mjs', '.jsx', '.json', '.ts', '.mts', '.tsx', '.d.ts'],
-    },
+    node: {},
     webpack: {},
   },
 };
