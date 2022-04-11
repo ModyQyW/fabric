@@ -68,16 +68,14 @@
     "./stylelint/less": "./stylelint/less.js",
     "./stylelint/scss": "./stylelint/scss.js",
     "./package.json": "./package.json",
-    "./tsconfig.base.json": "./tsconfig.base.json",
-    "./*": "./*"
+    "./tsconfig.base.json": "./tsconfig.base.json"
   },
   "main": "./dist/index.js",
-  "jsdelivr": "./dist/index.js",
-  "unpkg": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "files": [
-    "dist",
+    "commitlint",
+    "eslint",
+    "prettier",
+    "stylelint",
     "tsconfig.base.json",
     "package.json"
   ],
