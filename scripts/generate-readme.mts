@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import packageJson from '../package.json';
 import type { PackageJson } from 'type-fest';
 
@@ -7,51 +7,32 @@ const pkg = { ...packageJson } as PackageJson;
 const getDependencyVersion = (dependency: string): string =>
   pkg?.dependencies?.[dependency] ?? pkg?.devDependencies?.[dependency] ?? 'latest';
 
-const readme = `# ${pkg.name}
+const readme = `# ${pkg?.name ?? ''}
 
 Opinionated shareable specification for different JavaScript/TypeScript projects.
 
 Requires:
 
 - Latest Node LTS and matching pnpm / npm / yarn
-- Set \`shamefully-hoist=true\` in \`.npmrc\` if using latest pnpm 6/7 instead of npm
-- Use \`--legacy-peer-deps\` when using npm 7/8 to install
-- Set \`nodeLinker: 'node-modules'\` in \`.yarnrc.yml\` if using latest yarn 2/3 instead of npm
+- Set \`shamefully-hoist=true\` in \`.npmrc\` if using latest pnpm 6 / 7 instead of npm
+- Use \`--legacy-peer-deps\` when using npm 7 / 8 to install
+- Set \`nodeLinker: 'node-modules'\` in \`.yarnrc.yml\` if using latest yarn 2 / 3 instead of npm
+- Use new JSX transform and hooks for React projects
+- Use Composition API for Vue projects
 
-Using \`pnpm\` in examples below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
+Using \`pnpm\` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 ## Usage
 
 \`\`\`sh
 # locally
-pnpm install -D ${pkg.name}@^${pkg.version}
+pnpm install -D ${pkg?.name ?? ''}@^${pkg?.version ?? ''}
 
 # globally
-pnpm install -g ${pkg.name}@^${pkg.version}
+pnpm install -g ${pkg?.name ?? ''}@^${pkg?.version ?? ''}
 \`\`\`
 
-See more about version [here](https://github.com/npm/node-semver).
-
-### CLI
-
-CLI is used to config your **NEW** projects easier.
-
-\`\`\`sh
-# if you install globally
-# in current dir
-mo-fabric config
-# specify dir
-mo-fabric config ./
-
-# if you install locally
-# in current dir
-./node_modules/.bin/mo-fabric config
-# export first and use it like install globally
-export PATH=$PWD/node_modules/.bin:$PATH
-mo-fabric config
-\`\`\`
-
-**Original configs will NOT be kept. Use it in old projects on your own risk.**
+See more about version in [node-semver](https://github.com/npm/node-semver).
 
 ### Naming
 
@@ -59,7 +40,7 @@ Naming is very hard and hardly be checked by linters. However, there are still r
 
 - JavaScript/TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-- CSS/LESS/SCSS/SASS
+- CSS/LESS/SCSS
   - [BEM](http://getbem.com/)
   - [OOCSS](https://github.com/stubbornella/oocss/wiki)
   - [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
@@ -122,7 +103,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 {
   "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
-    // set baseUrl
+    // on-demand set baseUrl
     "baseUrl": ".",
     // on-demand set lib, default ["ESNext"]
     "lib": ["ESNext", "DOM", "DOM.iterable"],
@@ -174,9 +155,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       "vue/macros-global",
       // webpack
       "webpack-env"
-    ],
-    // on-demand set types, default ESNext
-    "target": "ES5"
+    ]
   },
   // volar, @vue/runtime-dom and vue2
   "vueCompilerOptions": {
@@ -192,25 +171,19 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   },
   // on-demand set include
   "include": [
-    "./**/.*.js",
-    "./**/.*.cjs",
-    "./**/.*.mjs",
-    "./**/*.js",
-    "./**/*.cjs",
-    "./**/*.mjs",
-    "./**/*.jsx",
-    "./**/.*.ts",
-    "./**/.*.cts",
-    "./**/.*.mts",
-    "./**/*.ts",
-    "./**/*.cts",
-    "./**/*.mts",
-    "./**/*.tsx",
-    "./**/*.vue",
-    "./**/*.svelte"
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.cts",
+    "**/*.mts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte"
   ],
   // on-demand set exclude
-  "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
+  "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
 
 \`\`\`
@@ -219,7 +192,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 
 ### Prettier
 
-Learn about [Prettier](https://prettier.io/).
+Learn about [Prettier](https://prettier.io/). Prettier is always required to handle code styles.
 
 \`\`\`sh
 pnpm install -D prettier@${getDependencyVersion('prettier')}
@@ -228,10 +201,16 @@ pnpm install -D prettier@${getDependencyVersion('prettier')}
 Set up \`.prettierrc.cjs\`.
 
 \`\`\`js
+// Config 1
 const { prettier } = require('@modyqyw/fabric');
 
 module.exports = {
   ...prettier,
+};
+
+// Config 2
+module.exports = {
+  ...require('@modyqyw/fabric/prettier'),
 };
 
 \`\`\`
@@ -246,7 +225,7 @@ pnpm install -D eslint@${getDependencyVersion('eslint')} @babel/core@${getDepend
 )} @babel/eslint-parser@${getDependencyVersion('@babel/eslint-parser')}
 \`\`\`
 
-If you are using typescript, additional dependencies are needed.
+Additional dependencies are needed if you are using TypeScript.
 
 \`\`\`sh
 pnpm install -D typescript@${getDependencyVersion(
@@ -259,56 +238,62 @@ pnpm install -D typescript@${getDependencyVersion(
 Set up \`.eslintrc.cjs\`.
 
 \`\`\`js
+// Config 1
 const { eslint } = require('@modyqyw/fabric');
 
 module.exports = {
-  // vanilla
+  // vanilla is always required
   ...eslint.vanilla,
 
-  // vanilla + prettier
-  // ...eslint.vanillaPrettier,
-
-  // react17
+  // react
   // ...eslint.react,
-
-  // react17 + prettier
-  // ...eslint.reactPrettier,
 
   // vue2
   // ...eslint.vue2,
 
-  // vue2 + prettier
-  // ...eslint.vue2Prettier,
-
   // vue2 + typescript
   // ...eslint.vue2Typescript,
-
-  // vue2 + typescript + prettier
-  // ...eslint.vue2TypescriptPrettier,
 
   // vue3
   // ...eslint.vue3,
 
-  // vue3 + prettier
-  // ...eslint.vue3Prettier,
-
   // vue3 + typescript
   // ...eslint.vue3Typescript,
-
-  // vue3 + typescript + prettier
-  // ...eslint.vue3TypescriptPrettier,
 
   // svelte
   // ...eslint.svelte,
 
-  // svelte + prettier
-  // ...eslint.sveltePrettier,
-
   // svelte + typescript
   // ...eslint.svelteTypescript,
+};
 
-  // svelte + typescript + prettier
-  // ...eslint.svelteTypescriptPrettier,
+// Config 2
+module.exports = {
+  extends: [
+    // vanilla is always required
+    '@modyqyw/fabric/eslint/vanilla',
+
+    // react
+    // '@modyqyw/fabric/eslint/react',
+
+    // vue2
+    // '@modyqyw/fabric/eslint/vue2',
+
+    // vue2 + typescript
+    // '@modyqyw/fabric/eslint/vue2Typescript',
+
+    // vue3
+    // '@modyqyw/fabric/eslint/vue',
+
+    // vue3 + typescript
+    // '@modyqyw/fabric/eslint/vueTypescript',
+
+    // svelte
+    // '@modyqyw/fabric/eslint/svelte',
+
+    // svelte + typescript
+    // '@modyqyw/fabric/eslint/svelteTypescript',
+  ],
 };
 
 \`\`\`
@@ -317,9 +302,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`json
 {
-  ...,
   "scripts": {
-    ...,
     "lint": "pnpm run lint:eslint",
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore"
   }
@@ -338,26 +321,28 @@ pnpm install -D stylelint@${getDependencyVersion('stylelint')}
 Set up \`.stylelintrc.cjs\`.
 
 \`\`\`js
+// Config 1
 const { stylelint } = require('@modyqyw/fabric');
 
 module.exports = {
-  // css
+  // css is always required
   ...stylelint.css,
-
-  // css + prettier
-  // ...stylelint.cssPrettier,
-
   // less
   // ...stylelint.less,
-
-  // less + prettier
-  // ...stylelint.lessPrettier,
-
-  // scss / sass
+  // scss
   // ...stylelint.scss,
+};
 
-  // scss / sass + prettier
-  // ...stylelint.scssPrettier,
+// Config 2
+module.exports = {
+  extends: [
+    // css is always required
+    '@modyqyw/fabric/stylelint/css',
+    // less
+    // '@modyqyw/fabric/stylelint/less',
+    // scss
+    // '@modyqyw/fabric/stylelint/scss',
+  ],
 };
 
 \`\`\`
@@ -366,11 +351,9 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`json
 {
-  ...,
   "scripts": {
-    ...,
     "lint": "pnpm run lint:stylelint",
-    "lint:stylelint": "stylelint \\"./**/*.{css,less,scss,sass,vue,svelte}\\" --fix --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \\"./**/*.{css,less,scss,vue,svelte}\\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
 
@@ -403,9 +386,7 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 
 \`\`\`json
 {
-  ...,
   "scripts": {
-    ...,
     "lint": "pnpm run lint:markdownlint",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
@@ -424,10 +405,16 @@ pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
 Set up \`.commitlintrc.cjs\`.
 
 \`\`\`js
+// Config 1
 const { commitlint } = require('@modyqyw/fabric');
 
 module.exports = {
   ...commitlint,
+};
+
+// Config 2
+module.exports = {
+  extends: ['@modyqyw/fabric/commitlint'],
 };
 
 \`\`\`
@@ -446,9 +433,7 @@ Set up \`package.json\`.
 
 \`\`\`json
 {
-  ...,
   "scripts": {
-    ...,
     "commit": "git-cz"
   },
   "config": {
@@ -466,7 +451,6 @@ Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 \`\`\`sh
 pnpm install -D lint-staged@${getDependencyVersion('lint-staged')}
-
 \`\`\`
 
 Set up \`.lintstagedrc.cjs\`.
@@ -475,7 +459,7 @@ Set up \`.lintstagedrc.cjs\`.
 module.exports = {
   '*.md': 'markdownlint --fix',
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
-  '*.{css,less,scss,sass,vue,svelte}': 'stylelint --fix',
+  '*.{css,less,scss,vue,svelte}': 'stylelint --fix',
 };
 
 \`\`\`
@@ -495,9 +479,7 @@ Set up \`package.json\`.
 
 \`\`\`json
 {
-  ...,
   "scripts": {
-    ...,
     "prepare": "is-ci || husky install"
   }
 }
@@ -555,7 +537,6 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2
-  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - For Vue 3 and Vue 2
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
@@ -598,8 +579,8 @@ Experience has proven that automation is the best option. You may want to try pa
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "sass", "vue", "svelte"],
-  "stylelint.validate": ["css", "less", "scss", "sass", "vue", "svelte"],
+  "stylelint.snippet": ["css", "less", "scss", "vue", "svelte"],
+  "stylelint.validate": ["css", "less", "scss", "vue", "svelte"],
   "[html]": {
     "editor.formatOnSave": true
   },
@@ -638,11 +619,6 @@ Experience has proven that automation is the best option. You may want to try pa
       "source.fixAll.stylelint": true
     }
   },
-  "[sass]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
-    }
-  },
   "[svelte]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true,
@@ -674,21 +650,18 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 \`\`\`
 
-If you are using Vetur, better set \`editor.defaultFormatter\` under \`[vue]\`.
-
-\`\`\`json
-{
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
-      "source.fixAll.stylelint": true
-    }
-  }
-}
-\`\`\`
-
 ## Migrate
+
+### Migrate 5.x from 4.x
+
+- Upgrade your node version to latest LTS.
+- Upgrade your pnpm / npm / yarn version to match your node version.
+- Upgrade your eslint / stylelint / prettier / postcss version to latest.
+- Prettier is always required.
+- CLI is removed. It is not needed in most cases, and not a necessity in other cases. You can always follow README to config your project, or just use your own config.
+- SASS support is removed. SCSS is more popular.
+- Update your React projects with new JSX transform and hooks.
+- Update your Vue projects with Composition API.
 
 ### Migrate 4.x from 3.x
 
@@ -749,4 +722,4 @@ Sorted according to alphabetical order.
 Copyright (c) 2020-present ModyQyW
 `;
 
-fs.writeFileSync('README.md', readme, { encoding: 'utf-8' });
+fs.writeFileSync('README.md', readme, { encoding: 'utf8' });
