@@ -1,5 +1,3 @@
-const { prettier } = require('./dist');
-
 module.exports = {
-  ...prettier,
+  ...require('./prettier'),
 };
