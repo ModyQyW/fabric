@@ -1,29 +1,16 @@
 {
   "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "lib": ["ESNext"],
-    "target": "ESNext",
-    "jsx": "preserve",
-    "paths": {}
-  },
   "include": [
-    "./**/.*.js",
-    "./**/.*.cjs",
-    "./**/.*.mjs",
-    "./**/*.js",
-    "./**/*.cjs",
-    "./**/*.mjs",
-    "./**/*.jsx",
-    "./**/.*.ts",
-    "./**/.*.cts",
-    "./**/.*.mts",
-    "./**/*.ts",
-    "./**/*.cts",
-    "./**/*.mts",
-    "./**/*.tsx",
-    "./**/*.vue",
-    "./**/*.svelte"
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.cts",
+    "**/*.mts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte"
   ],
   "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
 }

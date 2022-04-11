@@ -9,7 +9,7 @@
     "strict": true,
 
     // Modules
-    "baseUrl": ".",
+    // "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
