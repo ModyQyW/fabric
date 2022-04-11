@@ -201,14 +201,6 @@ pnpm install -D prettier@${getDependencyVersion('prettier')}
 Set up \`.prettierrc.cjs\`.
 
 \`\`\`js
-// Config 1
-const { prettier } = require('@modyqyw/fabric');
-
-module.exports = {
-  ...prettier,
-};
-
-// Config 2
 module.exports = {
   ...require('@modyqyw/fabric/prettier'),
 };
@@ -238,36 +230,6 @@ pnpm install -D typescript@${getDependencyVersion(
 Set up \`.eslintrc.cjs\`.
 
 \`\`\`js
-// Config 1
-const { eslint } = require('@modyqyw/fabric');
-
-module.exports = {
-  // vanilla is always required
-  ...eslint.vanilla,
-
-  // react
-  // ...eslint.react,
-
-  // vue2
-  // ...eslint.vue2,
-
-  // vue2 + typescript
-  // ...eslint.vue2Typescript,
-
-  // vue3
-  // ...eslint.vue3,
-
-  // vue3 + typescript
-  // ...eslint.vue3Typescript,
-
-  // svelte
-  // ...eslint.svelte,
-
-  // svelte + typescript
-  // ...eslint.svelteTypescript,
-};
-
-// Config 2
 module.exports = {
   extends: [
     // vanilla is always required
@@ -321,25 +283,14 @@ pnpm install -D stylelint@${getDependencyVersion('stylelint')}
 Set up \`.stylelintrc.cjs\`.
 
 \`\`\`js
-// Config 1
-const { stylelint } = require('@modyqyw/fabric');
-
-module.exports = {
-  // css is always required
-  ...stylelint.css,
-  // less
-  // ...stylelint.less,
-  // scss
-  // ...stylelint.scss,
-};
-
-// Config 2
 module.exports = {
   extends: [
     // css is always required
     '@modyqyw/fabric/stylelint/css',
+
     // less
     // '@modyqyw/fabric/stylelint/less',
+
     // scss
     // '@modyqyw/fabric/stylelint/scss',
   ],
@@ -405,14 +356,6 @@ pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
 Set up \`.commitlintrc.cjs\`.
 
 \`\`\`js
-// Config 1
-const { commitlint } = require('@modyqyw/fabric');
-
-module.exports = {
-  ...commitlint,
-};
-
-// Config 2
 module.exports = {
   extends: ['@modyqyw/fabric/commitlint'],
 };
