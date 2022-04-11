@@ -4,7 +4,7 @@ module.exports = {
     tagName: 'v${version}',
   },
   hooks: {
-    'before:init': 'pnpm install && pnpm run build && pnpm run lint',
-    'after:bump': 'esmo ./scripts/generate-readme.mts && pnpm run build',
+    'before:init': 'pnpm install && pnpm run lint',
+    'after:bump': 'esmo ./scripts/generate-readme.mts',
   },
 };
