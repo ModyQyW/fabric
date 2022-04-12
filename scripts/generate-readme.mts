@@ -238,6 +238,9 @@ module.exports = {
     // react
     // '@modyqyw/fabric/eslint/react',
 
+    // react + miniprogram
+    // '@modyqyw/fabric/eslint/reactMiniprogram',
+
     // vue2
     // '@modyqyw/fabric/eslint/vue2',
 
@@ -249,6 +252,9 @@ module.exports = {
 
     // vue3 + typescript
     // '@modyqyw/fabric/eslint/vueTypescript',
+
+    // vue 2 / vue3 + miniprogram
+    // '@modyqyw/fabric/eslint/vueMiniprogram',
 
     // svelte
     // '@modyqyw/fabric/eslint/svelte',
