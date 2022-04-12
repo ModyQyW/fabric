@@ -9,6 +9,8 @@ const getDependencyVersion = (dependency: string): string =>
 
 const readme = `# ${pkg?.name ?? ''}
 
+English | [简体中文](./README.zh-hans.md)
+
 Opinionated shareable specification for different JavaScript/TypeScript projects.
 
 Requires:
@@ -486,7 +488,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - If you are dealing with uni-*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - For uni-*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
 - Set up \`Settings.json\`.
@@ -605,7 +607,10 @@ Experience has proven that automation is the best option. You may want to try pa
 
 - Upgrade your node version to latest LTS.
 - Upgrade your pnpm / npm / yarn version to match your node version.
-- Upgrade your eslint / stylelint / prettier / postcss version to latest.
+- Upgrade your eslint version to latest 8.
+- Upgrade your stylelint version to latest 14.
+- Upgrade your prettier version to latest 2.
+- Upgrade your postcss version to latest 8.
 - Prettier is always required.
 - CLI is removed. It is not needed in most cases, and not a necessity in other cases. You can always follow README to config your project, or just use your own config.
 - SASS support is removed. SCSS is more popular.
@@ -620,7 +625,7 @@ Experience has proven that automation is the best option. You may want to try pa
 - Upgrade your stylelint version to latest 14.
 - Upgrade your prettier version to latest 2.
 - Upgrade your postcss version to latest 8.
-- Split Prettier. You can use ESLint/Stylelint with/without Prettier now. Default without Prettier.
+- Split prettier.
 - Add \`tsconfig.json\` support.
 - Update CLI to match above changes. Use \`mo-fabric\` instead of \`modyqyw-fabric\`.
 
