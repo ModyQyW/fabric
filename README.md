@@ -505,7 +505,7 @@ Experience has proven that automation is the best option. You may want to try pa
     "*.jxss": "css",
     "*.wpy": "vue",
     "*.json": "jsonc",
-    "*.json5: "jsonc",
+    "*.json5": "jsonc",
     "*.nvue": "vue",
     "*.ux": "vue"
   },
