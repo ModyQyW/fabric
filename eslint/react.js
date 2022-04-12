@@ -87,17 +87,8 @@ module.exports = {
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:import/react',
-        'plugin:import/react-native',
         'plugin:import/typescript',
         'plugin:functional/external-recommended',
-        'plugin:functional/recommended',
-        'plugin:functional/stylistic',
-        'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
-        'plugin:react-native/all',
-        'plugin:react-hooks/recommended',
-        'plugin:jsx-a11y/recommended',
         'plugin:prettier/recommended',
       ],
       rules: {
