@@ -17,10 +17,10 @@ Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^5.0.0-alpha.0
+pnpm install -D @modyqyw/fabric@^5.0.0-alpha.1
 
 # globally
-pnpm install -g @modyqyw/fabric@^5.0.0-alpha.0
+pnpm install -g @modyqyw/fabric@^5.0.0-alpha.1
 ```
 
 See more about version in [node-semver](https://github.com/npm/node-semver).
@@ -223,6 +223,9 @@ module.exports = {
     // react
     // '@modyqyw/fabric/eslint/react',
 
+    // react + miniprogram
+    // '@modyqyw/fabric/eslint/reactMiniprogram',
+
     // vue2
     // '@modyqyw/fabric/eslint/vue2',
 
@@ -234,6 +237,9 @@ module.exports = {
 
     // vue3 + typescript
     // '@modyqyw/fabric/eslint/vueTypescript',
+
+    // vue 2 / vue3 + miniprogram
+    // '@modyqyw/fabric/eslint/vueMiniprogram',
 
     // svelte
     // '@modyqyw/fabric/eslint/svelte',
