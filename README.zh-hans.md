@@ -19,10 +19,10 @@
 
 ```sh
 # 本地
-pnpm install -D @modyqyw/fabric@^5.0.0-alpha.1
+pnpm install -D @modyqyw/fabric@^5.0.0-alpha.2
 
 # 全局
-pnpm install -g @modyqyw/fabric@^5.0.0-alpha.1
+pnpm install -g @modyqyw/fabric@^5.0.0-alpha.2
 ```
 
 [node-semver](https://github.com/npm/node-semver) 有更多版本信息供你查看。
@@ -212,7 +212,7 @@ pnpm install -D eslint@^8.13.0 @babel/core@^7.17.9 @babel/eslint-parser@^7.17.0
 如果你正在使用 TypeScript，你需要安装额外的依赖。
 
 ```sh
-pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.18.0 @typescript-eslint/parser@^5.18.0
+pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.19.0 @typescript-eslint/parser@^5.19.0
 ```
 
 设置 `.eslintrc.cjs`。
@@ -271,7 +271,7 @@ module.exports = {
 看看 [Stylelint](https://stylelint.io/)。
 
 ```sh
-pnpm install -D stylelint@^14.6.1
+pnpm install -D stylelint@^14.7.0
 ```
 
 设置 `.stylelintrc.cjs`。
@@ -385,7 +385,7 @@ pnpm install -D commitizen@^4.2.4 @commitlint/prompt@^16.2.3
 看看 [LintStaged](https://github.com/okonet/lint-staged)。
 
 ```sh
-pnpm install -D lint-staged@^12.3.7
+pnpm install -D lint-staged@^12.3.8
 ```
 
 设置 `.lintstagedrc.cjs`。

@@ -19,10 +19,10 @@ Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^5.0.0-alpha.1
+pnpm install -D @modyqyw/fabric@^5.0.0-alpha.2
 
 # globally
-pnpm install -g @modyqyw/fabric@^5.0.0-alpha.1
+pnpm install -g @modyqyw/fabric@^5.0.0-alpha.2
 ```
 
 See more about version in [node-semver](https://github.com/npm/node-semver).
@@ -211,7 +211,7 @@ pnpm install -D eslint@^8.13.0 @babel/core@^7.17.9 @babel/eslint-parser@^7.17.0
 Additional dependencies are needed if you are using TypeScript.
 
 ```sh
-pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.18.0 @typescript-eslint/parser@^5.18.0
+pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.19.0 @typescript-eslint/parser@^5.19.0
 ```
 
 Set up `.eslintrc.cjs`.
@@ -270,7 +270,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-pnpm install -D stylelint@^14.6.1
+pnpm install -D stylelint@^14.7.0
 ```
 
 Set up `.stylelintrc.cjs`.
@@ -384,7 +384,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@^12.3.7
+pnpm install -D lint-staged@^12.3.8
 ```
 
 Set up `.lintstagedrc.cjs`.
