@@ -12,7 +12,7 @@ module.exports = {
         requireConfigFile: false,
       },
       extends: [
-        'plugin:vue3/recommended',
+        'plugin:vue/vue3-recommended',
         'plugin:vue-scoped-css/vue3-recommended',
         'plugin:@intlify/vue-i18n/recommended',
         'plugin:vuejs-accessibility/recommended',

@@ -16,7 +16,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:import/typescript',
-        'plugin:vue3/recommended',
+        'plugin:vue/vue3-recommended',
         'plugin:vue-scoped-css/vue3-recommended',
         'plugin:@intlify/vue-i18n/recommended',
         'plugin:vuejs-accessibility/recommended',
