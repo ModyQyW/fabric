@@ -2,11 +2,10 @@ module.exports = {
   printWidth: 100,
   singleQuote: true,
   trailingComma: 'all',
-  // https://github.com/prettier/prettier/issues/8056
   plugins: [
-    './node_modules/prettier-plugin-jsdoc',
-    './node_modules/prettier-plugin-packagejson',
-    './node_modules/prettier-plugin-tailwindcss',
+    require.resolve('prettier-plugin-jsdoc'),
+    require.resolve('prettier-plugin-packagejson'),
+    require.resolve('prettier-plugin-tailwindcss'),
   ],
   overrides: [
     {
