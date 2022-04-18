@@ -9,12 +9,12 @@ module.exports = {
         ecmaFeatures: {
           jsx: true,
         },
-        project: './tsconfig.json',
         extraFileExtensions: ['.vue'],
+        project: './tsconfig.json',
       },
       extends: [
         'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:import/typescript',
         'plugin:vue/recommended',
         'plugin:vue-scoped-css/recommended',
@@ -24,6 +24,10 @@ module.exports = {
       ],
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',
+        'import/default': 'off',
+        'import/named': 'off',
+        'import/namespace': 'off',
+        'import/no-named-as-default-member': 'off',
         'vue/multi-word-component-names': [
           'warn',
           {
@@ -96,6 +100,16 @@ module.exports = {
         ],
       },
       settings: {
+        'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx'],
+        'import/parsers': {
+          '@typescript-eslint/parser': ['.mts', '.ts', '.tsx'],
+        },
+        'import/resolver': {
+          node: {
+            extensions: ['.mjs', '.js', '.json', '.mts', '.ts'],
+          },
+          typescript: {},
+        },
         'vue-i18n': {
           localeDir: 'src/locales/*.{json,json5,yaml,yml}',
           messageSyntaxVersion: '^8.0.0',
@@ -103,7 +117,7 @@ module.exports = {
       },
     },
     {
-      files: ['shims-tsx.d.ts'],
+      files: ['shims-jsx.d.ts', 'shims-tsx.d.ts', 'shims-vue.d.ts', 'env.d.ts'],
       rules: {
         '@typescript-eslint/no-empty-interface': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
