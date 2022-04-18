@@ -19,10 +19,10 @@ Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^5.0.0-alpha.2
+pnpm install -D @modyqyw/fabric@^5.0.0-alpha.3
 
 # globally
-pnpm install -g @modyqyw/fabric@^5.0.0-alpha.2
+pnpm install -g @modyqyw/fabric@^5.0.0-alpha.3
 ```
 
 See more about version in [node-semver](https://github.com/npm/node-semver).
@@ -211,43 +211,45 @@ pnpm install -D eslint@^8.13.0 @babel/core@^7.17.9 @babel/eslint-parser@^7.17.0
 Additional dependencies are needed if you are using TypeScript.
 
 ```sh
-pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.19.0 @typescript-eslint/parser@^5.19.0
+pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.19.0 @typescript-eslint/parser@^5.19.0 @rushstack/eslint-patch@^1.1.3
 ```
 
 Set up `.eslintrc.cjs`.
 
 ```js
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   extends: [
     // vanilla is always required
-    '@modyqyw/fabric/eslint/vanilla',
+    './node_modules/@modyqyw/fabric/eslint/vanilla',
 
     // react
-    // '@modyqyw/fabric/eslint/react',
+    // './node_modules/@modyqyw/fabric/eslint/react',
 
     // react + miniprogram
-    // '@modyqyw/fabric/eslint/reactMiniprogram',
+    // './node_modules/@modyqyw/fabric/eslint/react-miniprogram',
 
     // vue2
-    // '@modyqyw/fabric/eslint/vue2',
+    // './node_modules/@modyqyw/fabric/eslint/vue2',
 
     // vue2 + typescript
-    // '@modyqyw/fabric/eslint/vue2Typescript',
+    // './node_modules/@modyqyw/fabric/eslint/vue2-typescript',
 
     // vue3
-    // '@modyqyw/fabric/eslint/vue',
+    // './node_modules/@modyqyw/fabric/eslint/vue',
 
     // vue3 + typescript
-    // '@modyqyw/fabric/eslint/vueTypescript',
+    // './node_modules/@modyqyw/fabric/eslint/vue-typescript',
 
     // vue 2 / vue3 + miniprogram
-    // '@modyqyw/fabric/eslint/vueMiniprogram',
+    // './node_modules/@modyqyw/fabric/eslint/vue-miniprogram',
 
     // svelte
-    // '@modyqyw/fabric/eslint/svelte',
+    // './node_modules/@modyqyw/fabric/eslint/svelte',
 
     // svelte + typescript
-    // '@modyqyw/fabric/eslint/svelteTypescript',
+    // './node_modules/@modyqyw/fabric/eslint/svelte-typescript',
   ],
 };
 
@@ -279,13 +281,13 @@ Set up `.stylelintrc.cjs`.
 module.exports = {
   extends: [
     // css is always required
-    '@modyqyw/fabric/stylelint/css',
+    './node_modules/@modyqyw/fabric/stylelint/css',
 
     // less
-    // '@modyqyw/fabric/stylelint/less',
+    // './node_modules/@modyqyw/fabric/stylelint/less',
 
     // scss
-    // '@modyqyw/fabric/stylelint/scss',
+    // './node_modules/@modyqyw/fabric/stylelint/scss',
   ],
 };
 
@@ -350,7 +352,7 @@ Set up `.commitlintrc.cjs`.
 
 ```js
 module.exports = {
-  extends: ['@modyqyw/fabric/commitlint'],
+  extends: ['./node_modules/@modyqyw/fabric/commitlint'],
 };
 
 ```
