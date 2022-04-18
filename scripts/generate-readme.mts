@@ -298,13 +298,16 @@ Set up \`.stylelintrc.cjs\`.
 module.exports = {
   extends: [
     // css is always required
-    './node_modules/@modyqyw/fabric/stylelint/css',
+    '@modyqyw/fabric/stylelint/css',
 
     // less
-    // './node_modules/@modyqyw/fabric/stylelint/less',
+    // '@modyqyw/fabric/stylelint/less',
 
     // scss
-    // './node_modules/@modyqyw/fabric/stylelint/scss',
+    // '@modyqyw/fabric/stylelint/scss',
+
+    // miniprogram
+    // '@modyqyw/fabric/stylelint/miniprogram',
   ],
 };
 

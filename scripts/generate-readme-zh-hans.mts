@@ -299,13 +299,16 @@ pnpm install -D stylelint@${getDependencyVersion('stylelint')}
 module.exports = {
   extends: [
     // css 总是需要的
-    './node_modules/@modyqyw/fabric/stylelint/css',
+    '@modyqyw/fabric/stylelint/css',
 
     // less
-    // './node_modules/@modyqyw/fabric/stylelint/less',
+    // '@modyqyw/fabric/stylelint/less',
 
     // scss
-    // './node_modules/@modyqyw/fabric/stylelint/scss',
+    // '@modyqyw/fabric/stylelint/scss',
+
+    // 小程序
+    // '@modyqyw/fabric/stylelint/miniprogram',
   ],
 };
 

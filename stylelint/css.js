@@ -28,10 +28,6 @@ module.exports = {
         ignorePseudoClasses: ['export', 'import', 'deep', 'slotted', 'global', 'local', 'external'],
       },
     ],
-    // miniprogram
-    'selector-type-no-unknown': null,
-    // miniprogram
-    'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
     // prettier
     'prettier/prettier': true,
   },
