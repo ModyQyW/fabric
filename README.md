@@ -19,37 +19,35 @@ Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@^5.0.0-alpha.3
+pnpm install -D @modyqyw/fabric
 
 # globally
-pnpm install -g @modyqyw/fabric@^5.0.0-alpha.3
+pnpm install -g @modyqyw/fabric
 ```
 
 See more about version in [node-semver](https://github.com/npm/node-semver).
 
 ### Naming
 
-Naming is very hard and hardly be checked by linters. However, there are still relevant naming suggestions available.
+Naming is very hard and hardly be checked by linters. Simplicity and clarity should be the highest priority for naming.
 
-- JavaScript/TypeScript
+Following an existing specification is a good choice.
+
+- For JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-- CSS/LESS/SCSS
+- For CSS / LESS / SCSS
   - [BEM](http://getbem.com/)
+  - [CSS Modules](https://github.com/css-modules/css-modules)
   - [OOCSS](https://github.com/stubbornella/oocss/wiki)
   - [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
   - [SMACSS](http://smacss.com/)
-  - [CSS Modules](https://github.com/css-modules/css-modules)
-
-Besides, you can learn naming from some open-source projects.
-
-- [bootstrap](https://getbootstrap.com/)
-- [tailwindcss](https://tailwindcss.com/)
-- [mui](https://mui.com/)
-- [antd](https://ant.design/)
-- [vuetify](https://vuetifyjs.com/)
-- [element-plus](https://element-plus.org/)
-
-**IMO simplicity and clarity are the highest priority for naming.**
+- Helpful Open Source Projects
+  - [bootstrap](https://getbootstrap.com/)
+  - [tailwindcss](https://tailwindcss.com/)
+  - [mui](https://mui.com/)
+  - [antd](https://ant.design/)
+  - [vuetify](https://vuetifyjs.com/)
+  - [element-plus](https://element-plus.org/)
 
 ### Git
 
@@ -94,7 +92,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
 ```json
 {
-  "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
+  "extends": "@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
     // on-demand set baseUrl
     "baseUrl": ".",
@@ -178,7 +176,6 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   // on-demand set exclude
   "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
-
 ```
 
 See [tsconfig.base.json](./tsconfig.base.json) for default configs.
@@ -188,7 +185,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/). Prettier is always required to handle code styles.
 
 ```sh
-pnpm install -D prettier@^2.6.2
+pnpm install -D prettier@2
 ```
 
 Set up `.prettierrc.cjs`.
@@ -197,7 +194,6 @@ Set up `.prettierrc.cjs`.
 module.exports = {
   ...require('@modyqyw/fabric/prettier'),
 };
-
 ```
 
 ### ESLint
@@ -205,54 +201,51 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-pnpm install -D eslint@^8.13.0 @babel/core@^7.17.9 @babel/eslint-parser@^7.17.0
+pnpm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 ```
 
 Additional dependencies are needed if you are using TypeScript.
 
 ```sh
-pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.19.0 @typescript-eslint/parser@^5.19.0 @rushstack/eslint-patch@^1.1.3
+pnpm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
 ```
 
 Set up `.eslintrc.cjs`.
 
 ```js
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 module.exports = {
   extends: [
     // vanilla is always required
-    './node_modules/@modyqyw/fabric/eslint/vanilla',
+    require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // react
-    // './node_modules/@modyqyw/fabric/eslint/react',
+    // require.resolve('@modyqyw/fabric/eslint/react'),
 
     // react + miniprogram
-    // './node_modules/@modyqyw/fabric/eslint/react-miniprogram',
+    // require.resolve('@modyqyw/fabric/eslint/react-miniprogram'),
 
     // vue2
-    // './node_modules/@modyqyw/fabric/eslint/vue2',
+    // require.resolve('@modyqyw/fabric/eslint/vue2'),
 
     // vue2 + typescript
-    // './node_modules/@modyqyw/fabric/eslint/vue2-typescript',
+    // require.resolve('@modyqyw/fabric/eslint/vue2-typescript'),
 
     // vue3
-    // './node_modules/@modyqyw/fabric/eslint/vue',
+    // require.resolve('@modyqyw/fabric/eslint/vue'),
 
     // vue3 + typescript
-    // './node_modules/@modyqyw/fabric/eslint/vue-typescript',
+    // require.resolve('@modyqyw/fabric/eslint/vue-typescript'),
 
     // vue 2 / vue3 + miniprogram
-    // './node_modules/@modyqyw/fabric/eslint/vue-miniprogram',
+    // require.resolve('@modyqyw/fabric/eslint/vue-miniprogram'),
 
     // svelte
-    // './node_modules/@modyqyw/fabric/eslint/svelte',
+    // require.resolve('@modyqyw/fabric/eslint/svelte'),
 
     // svelte + typescript
-    // './node_modules/@modyqyw/fabric/eslint/svelte-typescript',
+    // require.resolve('@modyqyw/fabric/eslint/svelte-typescript'),
   ],
 };
-
 ```
 
 Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -264,7 +257,6 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore"
   }
 }
-
 ```
 
 ### Stylelint
@@ -272,7 +264,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-pnpm install -D stylelint@^14.7.0
+pnpm install -D stylelint@14
 ```
 
 Set up `.stylelintrc.cjs`.
@@ -281,16 +273,18 @@ Set up `.stylelintrc.cjs`.
 module.exports = {
   extends: [
     // css is always required
-    './node_modules/@modyqyw/fabric/stylelint/css',
+    '@modyqyw/fabric/stylelint/css',
 
     // less
-    // './node_modules/@modyqyw/fabric/stylelint/less',
+    // '@modyqyw/fabric/stylelint/less',
 
     // scss
-    // './node_modules/@modyqyw/fabric/stylelint/scss',
+    // '@modyqyw/fabric/stylelint/scss',
+
+    // miniprogram
+    // '@modyqyw/fabric/stylelint/miniprogram',
   ],
 };
-
 ```
 
 Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -302,7 +296,6 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
     "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
-
 ```
 
 ### Markdownlint
@@ -310,7 +303,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
-pnpm install -D markdownlint-cli@^0.31.1
+pnpm install -D markdownlint-cli
 ```
 
 Set up `.markdownlint.json`.
@@ -325,7 +318,6 @@ Set up `.markdownlint.json`.
   "MD033": false,
   "MD050": false
 }
-
 ```
 
 Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
@@ -337,7 +329,6 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
-
 ```
 
 ### Commitlint
@@ -345,16 +336,15 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@^16.2.3
+pnpm install -D @commitlint/cli@16 @commitlint/prompt@16
 ```
 
 Set up `.commitlintrc.cjs`.
 
 ```js
 module.exports = {
-  extends: ['./node_modules/@modyqyw/fabric/commitlint'],
+  extends: ['@commitlint/config-conventional'],
 };
-
 ```
 
 ### Commitizen
@@ -362,7 +352,7 @@ module.exports = {
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
-pnpm install -D commitizen@^4.2.4 @commitlint/prompt@^16.2.3
+pnpm install -D commitizen@4 @commitlint/prompt@16
 ```
 
 Set up `package.json`.
@@ -378,7 +368,6 @@ Set up `package.json`.
     }
   }
 }
-
 ```
 
 ### LintStaged
@@ -386,7 +375,7 @@ Set up `package.json`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@^12.3.8
+pnpm install -D lint-staged@12
 ```
 
 Set up `.lintstagedrc.cjs`.
@@ -397,7 +386,6 @@ module.exports = {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
   '*.{css,less,scss,vue,svelte}': 'stylelint --fix',
 };
-
 ```
 
 ### Husky
@@ -405,7 +393,7 @@ module.exports = {
 Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
-pnpm install -D is-ci@^3.0.1 husky@^7.0.4
+pnpm install -D is-ci@3 husky@7
 
 npx husky install
 
@@ -419,7 +407,6 @@ Set up `package.json`.
     "prepare": "is-ci || husky install"
   }
 }
-
 ```
 
 Set up `.husky/commit-msg` hook.
@@ -473,7 +460,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - For uni-*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - For uni-\*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
 - Set up `Settings.json`.
@@ -598,6 +585,7 @@ Experience has proven that automation is the best option. You may want to try pa
 - Upgrade your postcss version to latest 8.
 - Prettier is always required.
 - CLI is removed. It is not needed in most cases, and not a necessity in other cases. You can always follow README to config your project, or just use your own config.
+- Commitlint config is removed. Use `@commitlint/config-conventional` directly.
 - SASS support is removed. SCSS is more popular.
 - Update your React projects with new JSX transform and hooks.
 - Update your Vue projects with Composition API.

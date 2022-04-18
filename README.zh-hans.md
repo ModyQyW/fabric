@@ -19,38 +19,35 @@
 
 ```sh
 # 本地
-pnpm install -D @modyqyw/fabric@^5.0.0-alpha.3
+pnpm install -D @modyqyw/fabric
 
 # 全局
-pnpm install -g @modyqyw/fabric@^5.0.0-alpha.3
+pnpm install -g @modyqyw/fabric
 ```
 
 [node-semver](https://github.com/npm/node-semver) 有更多版本信息供你查看。
 
 ### 命名
 
-命名非常困难，而且很难被 linter 检查。但是，仍然有一些相关的命名建议。
+命名非常困难，而且很难被 linter 检查。命名应该要简洁明了。
 
-- JavaScript/TypeScript
+跟随已有的规范是一个好选择。
+
+- 对于 JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-  - [ModyQyW/naming-cheatsheet](https://github.com/ModyQyW/naming-cheatsheet) - 中文版本
-- CSS/LESS/SCSS
+- 对于 CSS / LESS / SCSS
   - [BEM](http://getbem.com/)
+  - [CSS Modules](https://github.com/css-modules/css-modules)
   - [OOCSS](https://github.com/stubbornella/oocss/wiki)
   - [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
   - [SMACSS](http://smacss.com/)
-  - [CSS Modules](https://github.com/css-modules/css-modules)
-
-除此之外，你也可以在一些开源项目里学习命名。
-
-- [bootstrap](https://getbootstrap.com/)
-- [tailwindcss](https://tailwindcss.com/)
-- [mui](https://mui.com/)
-- [antd](https://ant.design/)
-- [vuetify](https://vuetifyjs.com/)
-- [element-plus](https://element-plus.org/)
-
-**在我看来，命名最重要的是简洁明了。**
+- 有帮助的开源项目
+  - [bootstrap](https://getbootstrap.com/)
+  - [tailwindcss](https://tailwindcss.com/)
+  - [mui](https://mui.com/)
+  - [antd](https://ant.design/)
+  - [vuetify](https://vuetifyjs.com/)
+  - [element-plus](https://element-plus.org/)
 
 ### Git
 
@@ -95,7 +92,7 @@ trim_trailing_whitespace = false
 
 ```json
 {
-  "extends": "./node_modules/@modyqyw/fabric/tsconfig.base.json",
+  "extends": "@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
     // 视情况设置 baseUrl
     "baseUrl": ".",
@@ -121,9 +118,9 @@ trim_trailing_whitespace = false
       "jest",
       // jsdom
       "jsdom",
-      // alipay miniprogram
+      // 支付宝小程序
       "mini-types",
-      // wechat miniprogram
+      // 微信小程序
       "miniprogram-api-typings",
       // node
       "node",
@@ -179,7 +176,6 @@ trim_trailing_whitespace = false
   // 视情况设置 exclude
   "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
-
 ```
 
 查看 [tsconfig.base.json](./tsconfig.base.json) 了解所有的默认设置.
@@ -189,7 +185,7 @@ trim_trailing_whitespace = false
 看看 [Prettier](https://prettier.io/)。Prettier 用于处理代码样式，所以它总是需要的。
 
 ```sh
-pnpm install -D prettier@^2.6.2
+pnpm install -D prettier@2
 ```
 
 设置 `.prettierrc.cjs`。
@@ -198,7 +194,6 @@ pnpm install -D prettier@^2.6.2
 module.exports = {
   ...require('@modyqyw/fabric/prettier'),
 };
-
 ```
 
 ### ESLint
@@ -206,54 +201,51 @@ module.exports = {
 看看 [ESLint](https://eslint.org/)。
 
 ```sh
-pnpm install -D eslint@^8.13.0 @babel/core@^7.17.9 @babel/eslint-parser@^7.17.0 @rushstack/eslint-patch@^1.1.3
+pnpm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 ```
 
 如果你正在使用 TypeScript，你需要安装额外的依赖。
 
 ```sh
-pnpm install -D typescript@^4.6.3 @typescript-eslint/eslint-plugin@^5.19.0 @typescript-eslint/parser@^5.19.0
+pnpm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
 ```
 
 设置 `.eslintrc.cjs`。
 
 ```js
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 module.exports = {
   extends: [
     // vanilla 总是需要的
-    './node_modules/@modyqyw/fabric/eslint/vanilla',
+    require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // react
-    // './node_modules/@modyqyw/fabric/eslint/react',
+    // require.resolve('@modyqyw/fabric/eslint/react'),
 
     // react + 小程序
-    // './node_modules/@modyqyw/fabric/eslint/react-miniprogram',
+    // require.resolve('@modyqyw/fabric/eslint/react-miniprogram'),
 
     // vue2
-    // './node_modules/@modyqyw/fabric/eslint/vue2',
+    // require.resolve('@modyqyw/fabric/eslint/vue2'),
 
     // vue2 + typescript
-    // './node_modules/@modyqyw/fabric/eslint/vue2-typescript',
+    // require.resolve('@modyqyw/fabric/eslint/vue2-typescript'),
 
     // vue3
-    // './node_modules/@modyqyw/fabric/eslint/vue',
+    // require.resolve('@modyqyw/fabric/eslint/vue'),
 
     // vue3 + typescript
-    // './node_modules/@modyqyw/fabric/eslint/vue-typescript',
+    // require.resolve('@modyqyw/fabric/eslint/vue-typescript'),
 
     // vue 2 / vue3 + 小程序
-    // './node_modules/@modyqyw/fabric/eslint/vue-miniprogram',
+    // require.resolve('@modyqyw/fabric/eslint/vue-miniprogram'),
 
     // svelte
-    // './node_modules/@modyqyw/fabric/eslint/svelte',
+    // require.resolve('@modyqyw/fabric/eslint/svelte'),
 
     // svelte + typescript
-    // './node_modules/@modyqyw/fabric/eslint/svelte-typescript',
+    // require.resolve('@modyqyw/fabric/eslint/svelte-typescript'),
   ],
 };
-
 ```
 
 设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
@@ -265,7 +257,6 @@ module.exports = {
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore"
   }
 }
-
 ```
 
 ### Stylelint
@@ -273,7 +264,7 @@ module.exports = {
 看看 [Stylelint](https://stylelint.io/)。
 
 ```sh
-pnpm install -D stylelint@^14.7.0
+pnpm install -D stylelint@14
 ```
 
 设置 `.stylelintrc.cjs`。
@@ -282,16 +273,18 @@ pnpm install -D stylelint@^14.7.0
 module.exports = {
   extends: [
     // css 总是需要的
-    './node_modules/@modyqyw/fabric/stylelint/css',
+    '@modyqyw/fabric/stylelint/css',
 
     // less
-    // './node_modules/@modyqyw/fabric/stylelint/less',
+    // '@modyqyw/fabric/stylelint/less',
 
     // scss
-    // './node_modules/@modyqyw/fabric/stylelint/scss',
+    // '@modyqyw/fabric/stylelint/scss',
+
+    // 小程序
+    // '@modyqyw/fabric/stylelint/miniprogram',
   ],
 };
-
 ```
 
 设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
@@ -303,7 +296,6 @@ module.exports = {
     "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
-
 ```
 
 ### Markdownlint
@@ -311,7 +303,7 @@ module.exports = {
 看看 [Markdown](https://commonmark.org/) 和 [Markdownlint](https://github.com/DavidAnson/markdownlint)。
 
 ```sh
-pnpm install -D markdownlint-cli@^0.31.1
+pnpm install -D markdownlint-cli
 ```
 
 设置 `.markdownlint.json`。
@@ -326,7 +318,6 @@ pnpm install -D markdownlint-cli@^0.31.1
   "MD033": false,
   "MD050": false
 }
-
 ```
 
 设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
@@ -338,7 +329,6 @@ pnpm install -D markdownlint-cli@^0.31.1
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
-
 ```
 
 ### Commitlint
@@ -346,16 +336,15 @@ pnpm install -D markdownlint-cli@^0.31.1
 看看 [Commitlint](https://commitlint.js.org/) 和 [Conventional Commits](https://www.conventionalcommits.org/)。
 
 ```sh
-pnpm install -D @commitlint/cli@^16.2.3
+pnpm install -D @commitlint/cli@16 @commitlint/config-conventional@16
 ```
 
 设置 `.commitlintrc.cjs`。
 
 ```js
 module.exports = {
-  extends: ['./node_modules/@modyqyw/fabric/commitlint'],
+  extends: ['@commitlint/config-conventional'],
 };
-
 ```
 
 ### Commitizen
@@ -363,7 +352,7 @@ module.exports = {
 看看 [Commitizen](https://commitizen-tools.github.io/commitizen/)。
 
 ```sh
-pnpm install -D commitizen@^4.2.4 @commitlint/prompt@^16.2.3
+pnpm install -D commitizen@4 @commitlint/prompt@16
 ```
 
 设置 `package.json`。
@@ -379,7 +368,6 @@ pnpm install -D commitizen@^4.2.4 @commitlint/prompt@^16.2.3
     }
   }
 }
-
 ```
 
 ### LintStaged
@@ -387,7 +375,7 @@ pnpm install -D commitizen@^4.2.4 @commitlint/prompt@^16.2.3
 看看 [LintStaged](https://github.com/okonet/lint-staged)。
 
 ```sh
-pnpm install -D lint-staged@^12.3.8
+pnpm install -D lint-staged@12
 ```
 
 设置 `.lintstagedrc.cjs`。
@@ -398,7 +386,6 @@ module.exports = {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
   '*.{css,less,scss,vue,svelte}': 'stylelint --fix',
 };
-
 ```
 
 ### Husky
@@ -406,7 +393,7 @@ module.exports = {
 看看 [Husky](https://github.com/typicode/husky)。
 
 ```sh
-pnpm install -D is-ci@^3.0.1 husky@^7.0.4
+pnpm install -D is-ci@3 husky@7
 
 npx husky install
 
@@ -420,7 +407,6 @@ npx husky install
     "prepare": "is-ci || husky install"
   }
 }
-
 ```
 
 设置 `.husky/commit-msg` 钩子。
@@ -474,7 +460,7 @@ chmod +x .husky/*
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - 支持 svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - 支持 TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - 支持 uni-*
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - 支持 uni-\*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - 支持 UnoCSS
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - 支持 TailwindCSS / WindiCSS
 - 设置 `Settings.json`。
@@ -599,6 +585,7 @@ chmod +x .husky/*
 - 升级 postcss 版本到最新的 8。
 - Prettier 总是需要的。
 - 移除 CLI。在大部分情况下不需要使用它，在小部分情况下它不是个必需项。你总是可以跟随 README 来配置你的项目，或者直接使用你原本的配置。
+- 移除 commitlint 配置。直接使用 `@commitlint/config-conventional` 即可。
 - 移除 SASS 支持。SCSS 更通用。
 - 升级 React 项目，使用新的 JSX 转换和 hooks。
 - 升级 Vue 项目，使用组合式 API，即 Composition API。

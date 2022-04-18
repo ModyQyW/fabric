@@ -5,7 +5,5 @@ module.exports = {
   },
   hooks: {
     'before:init': 'pnpm install && pnpm run lint',
-    'after:bump':
-      'esmo ./scripts/generate-readme.mts && esmo ./scripts/generate-readme-zh-hans.mts',
   },
 };
