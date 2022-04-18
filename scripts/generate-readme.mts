@@ -226,43 +226,47 @@ pnpm install -D typescript@${getDependencyVersion(
   'typescript',
 )} @typescript-eslint/eslint-plugin@${getDependencyVersion(
   '@typescript-eslint/eslint-plugin',
-)} @typescript-eslint/parser@${getDependencyVersion('@typescript-eslint/parser')}
+)} @typescript-eslint/parser@${getDependencyVersion(
+  '@typescript-eslint/parser',
+)} @rushstack/eslint-patch@${getDependencyVersion('@rushstack/eslint-patch')}
 \`\`\`
 
 Set up \`.eslintrc.cjs\`.
 
 \`\`\`js
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   extends: [
     // vanilla is always required
-    '@modyqyw/fabric/eslint/vanilla',
+    './node_modules/@modyqyw/fabric/eslint/vanilla',
 
     // react
-    // '@modyqyw/fabric/eslint/react',
+    // './node_modules/@modyqyw/fabric/eslint/react',
 
     // react + miniprogram
-    // '@modyqyw/fabric/eslint/reactMiniprogram',
+    // './node_modules/@modyqyw/fabric/eslint/react-miniprogram',
 
     // vue2
-    // '@modyqyw/fabric/eslint/vue2',
+    // './node_modules/@modyqyw/fabric/eslint/vue2',
 
     // vue2 + typescript
-    // '@modyqyw/fabric/eslint/vue2Typescript',
+    // './node_modules/@modyqyw/fabric/eslint/vue2-typescript',
 
     // vue3
-    // '@modyqyw/fabric/eslint/vue',
+    // './node_modules/@modyqyw/fabric/eslint/vue',
 
     // vue3 + typescript
-    // '@modyqyw/fabric/eslint/vueTypescript',
+    // './node_modules/@modyqyw/fabric/eslint/vue-typescript',
 
     // vue 2 / vue3 + miniprogram
-    // '@modyqyw/fabric/eslint/vueMiniprogram',
+    // './node_modules/@modyqyw/fabric/eslint/vue-miniprogram',
 
     // svelte
-    // '@modyqyw/fabric/eslint/svelte',
+    // './node_modules/@modyqyw/fabric/eslint/svelte',
 
     // svelte + typescript
-    // '@modyqyw/fabric/eslint/svelteTypescript',
+    // './node_modules/@modyqyw/fabric/eslint/svelte-typescript',
   ],
 };
 
@@ -294,13 +298,13 @@ Set up \`.stylelintrc.cjs\`.
 module.exports = {
   extends: [
     // css is always required
-    '@modyqyw/fabric/stylelint/css',
+    './node_modules/@modyqyw/fabric/stylelint/css',
 
     // less
-    // '@modyqyw/fabric/stylelint/less',
+    // './node_modules/@modyqyw/fabric/stylelint/less',
 
     // scss
-    // '@modyqyw/fabric/stylelint/scss',
+    // './node_modules/@modyqyw/fabric/stylelint/scss',
   ],
 };
 
@@ -365,7 +369,7 @@ Set up \`.commitlintrc.cjs\`.
 
 \`\`\`js
 module.exports = {
-  extends: ['@modyqyw/fabric/commitlint'],
+  extends: ['./node_modules/@modyqyw/fabric/commitlint'],
 };
 
 \`\`\`

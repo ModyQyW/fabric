@@ -217,7 +217,9 @@ module.exports = {
 \`\`\`sh
 pnpm install -D eslint@${getDependencyVersion('eslint')} @babel/core@${getDependencyVersion(
   '@babel/core',
-)} @babel/eslint-parser@${getDependencyVersion('@babel/eslint-parser')}
+)} @babel/eslint-parser@${getDependencyVersion(
+  '@babel/eslint-parser',
+)} @rushstack/eslint-patch@${getDependencyVersion('@rushstack/eslint-patch')}
 \`\`\`
 
 如果你正在使用 TypeScript，你需要安装额外的依赖。
@@ -233,37 +235,39 @@ pnpm install -D typescript@${getDependencyVersion(
 设置 \`.eslintrc.cjs\`。
 
 \`\`\`js
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
   extends: [
     // vanilla 总是需要的
-    '@modyqyw/fabric/eslint/vanilla',
+    './node_modules/@modyqyw/fabric/eslint/vanilla',
 
     // react
-    // '@modyqyw/fabric/eslint/react',
+    // './node_modules/@modyqyw/fabric/eslint/react',
 
     // react + 小程序
-    // '@modyqyw/fabric/eslint/reactMiniprogram',
+    // './node_modules/@modyqyw/fabric/eslint/react-miniprogram',
 
     // vue2
-    // '@modyqyw/fabric/eslint/vue2',
+    // './node_modules/@modyqyw/fabric/eslint/vue2',
 
     // vue2 + typescript
-    // '@modyqyw/fabric/eslint/vue2Typescript',
+    // './node_modules/@modyqyw/fabric/eslint/vue2-typescript',
 
     // vue3
-    // '@modyqyw/fabric/eslint/vue',
+    // './node_modules/@modyqyw/fabric/eslint/vue',
 
     // vue3 + typescript
-    // '@modyqyw/fabric/eslint/vueTypescript',
+    // './node_modules/@modyqyw/fabric/eslint/vue-typescript',
 
     // vue 2 / vue3 + 小程序
-    // '@modyqyw/fabric/eslint/vueMiniprogram',
+    // './node_modules/@modyqyw/fabric/eslint/vue-miniprogram',
 
     // svelte
-    // '@modyqyw/fabric/eslint/svelte',
+    // './node_modules/@modyqyw/fabric/eslint/svelte',
 
     // svelte + typescript
-    // '@modyqyw/fabric/eslint/svelteTypescript',
+    // './node_modules/@modyqyw/fabric/eslint/svelte-typescript',
   ],
 };
 
@@ -295,13 +299,13 @@ pnpm install -D stylelint@${getDependencyVersion('stylelint')}
 module.exports = {
   extends: [
     // css 总是需要的
-    '@modyqyw/fabric/stylelint/css',
+    './node_modules/@modyqyw/fabric/stylelint/css',
 
     // less
-    // '@modyqyw/fabric/stylelint/less',
+    // './node_modules/@modyqyw/fabric/stylelint/less',
 
     // scss
-    // '@modyqyw/fabric/stylelint/scss',
+    // './node_modules/@modyqyw/fabric/stylelint/scss',
   ],
 };
 
@@ -366,7 +370,7 @@ pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
 
 \`\`\`js
 module.exports = {
-  extends: ['@modyqyw/fabric/commitlint'],
+  extends: ['./node_modules/@modyqyw/fabric/commitlint'],
 };
 
 \`\`\`
