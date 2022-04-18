@@ -363,14 +363,16 @@ pnpm install -D markdownlint-cli@${getDependencyVersion('markdownlint-cli')}
 看看 [Commitlint](https://commitlint.js.org/) 和 [Conventional Commits](https://www.conventionalcommits.org/)。
 
 \`\`\`sh
-pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
+pnpm install -D @commitlint/cli@${getDependencyVersion(
+  '@commitlint/cli',
+)} @commitlint/config-conventional@${getDependencyVersion('@commitlint/config-conventional')}
 \`\`\`
 
 设置 \`.commitlintrc.cjs\`。
 
 \`\`\`js
 module.exports = {
-  extends: ['./node_modules/@modyqyw/fabric/commitlint'],
+  extends: ['@commitlint/config-conventional'],
 };
 
 \`\`\`
@@ -618,6 +620,7 @@ chmod +x .husky/*
 - 升级 postcss 版本到最新的 8。
 - Prettier 总是需要的。
 - 移除 CLI。在大部分情况下不需要使用它，在小部分情况下它不是个必需项。你总是可以跟随 README 来配置你的项目，或者直接使用你原本的配置。
+- 移除 commitlint 配置。直接使用 \`@commitlint/config-conventional\` 即可。
 - 移除 SASS 支持。SCSS 更通用。
 - 升级 React 项目，使用新的 JSX 转换和 hooks。
 - 升级 Vue 项目，使用组合式 API，即 Composition API。

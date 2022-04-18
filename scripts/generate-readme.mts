@@ -362,14 +362,16 @@ Set up \`package.json\`. Use \`.gitignore\` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 \`\`\`sh
-pnpm install -D @commitlint/cli@${getDependencyVersion('@commitlint/cli')}
+pnpm install -D @commitlint/cli@${getDependencyVersion(
+  '@commitlint/cli',
+)} @commitlint/prompt@${getDependencyVersion('@commitlint/prompt')}
 \`\`\`
 
 Set up \`.commitlintrc.cjs\`.
 
 \`\`\`js
 module.exports = {
-  extends: ['./node_modules/@modyqyw/fabric/commitlint'],
+  extends: ['@commitlint/config-conventional'],
 };
 
 \`\`\`
@@ -617,6 +619,7 @@ Experience has proven that automation is the best option. You may want to try pa
 - Upgrade your postcss version to latest 8.
 - Prettier is always required.
 - CLI is removed. It is not needed in most cases, and not a necessity in other cases. You can always follow README to config your project, or just use your own config.
+- Commitlint config is removed. Use \`@commitlint/config-conventional\` directly.
 - SASS support is removed. SCSS is more popular.
 - Update your React projects with new JSX transform and hooks.
 - Update your Vue projects with Composition API.

@@ -52,7 +52,6 @@
   },
   "exports": {
     ".": "./index.js",
-    "./commitlint": "./commitlint/index.js",
     "./eslint": "./eslint/index.js",
     "./eslint/*": "./eslint/*.js",
     "./prettier": "./prettier/index.js",
@@ -63,7 +62,6 @@
   },
   "main": "./index.js",
   "files": [
-    "commitlint",
     "eslint",
     "prettier",
     "stylelint",
