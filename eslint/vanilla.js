@@ -93,6 +93,9 @@ module.exports = {
       files: ['*.yaml', '*.yml', '**/*.yaml', '**/*.yml'],
       parser: 'yaml-eslint-parser',
       extends: ['plugin:yml/standard', 'plugin:yml/prettier', 'plugin:prettier/recommended'],
+      rules: {
+        'unicorn/numeric-separators-style': 'off',
+      },
     },
     {
       files: ['*.json', '*.jsonc', '*.json5', '**/*.json', '**/*.jsonc', '**/*.json5'],
@@ -105,6 +108,9 @@ module.exports = {
         'plugin:jsonc/prettier',
         'plugin:prettier/recommended',
       ],
+      rules: {
+        'unicorn/numeric-separators-style': 'off',
+      },
     },
   ],
 };
