@@ -1,14 +1,13 @@
 module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
-    // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/typescript',
     'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    project: './tsconfig.json',
+    extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts'],
   },
   rules: {
     'constructor-super': 'off',
@@ -35,17 +34,29 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     'import/named': 'off',
     'import/no-named-as-default-member': 'off',
   },
   settings: {
-    'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx'],
+    'import/extensions': ['.js', '.cjs', '.mjs', '.jsx', '.ts', '.cts', '.mts', '.tsx', '.d.ts'],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.mts', '.ts', '.tsx'],
+      '@typescript-eslint/parser': ['.cts', '.mts', '.ts', '.tsx', '.d.ts'],
     },
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.json', '.mts', '.ts'],
+        extensions: [
+          '.mjs',
+          '.js',
+          '.cjs',
+          '.jsx',
+          '.json',
+          '.mts',
+          '.ts',
+          '.cts',
+          '.tsx',
+          '.d.ts',
+        ],
       },
       typescript: {},
     },

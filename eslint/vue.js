@@ -4,7 +4,7 @@ module.exports = {
       files: ['*.vue', '**/*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
-        extraFileExtensions: ['.vue'],
+        extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts', '.vue'],
       },
       extends: [
         'plugin:vue/vue3-recommended',
@@ -17,7 +17,7 @@ module.exports = {
         'vue/multi-word-component-names': [
           'warn',
           {
-            ignores: ['[...all]'],
+            ignores: ['[...all]', 'index'],
           },
         ],
         'vue/order-in-components': [
@@ -84,6 +84,7 @@ module.exports = {
             ],
           },
         ],
+        '@intlify/vue-i18n/no-raw-text': 'off',
       },
       settings: {
         'vue-i18n': {
