@@ -259,14 +259,14 @@ module.exports = {
     // scss
     // '@modyqyw/fabric/stylelint/scss',
 
-    // miniprogram
-    // '@modyqyw/fabric/stylelint/miniprogram',
-
     // vue
     // '@modyqyw/fabric/stylelint/vue',
 
     // svelte
     // '@modyqyw/fabric/stylelint/svelte',
+
+    // miniprogram
+    // '@modyqyw/fabric/stylelint/miniprogram',
   ],
 };
 ```
