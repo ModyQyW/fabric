@@ -4,12 +4,7 @@ module.exports = {
       files: ['*.svelte', '**/*.svelte'],
       parser: 'svelte-eslint-parser',
       parserOptions: {
-        parser: '@babel/eslint-parser',
-        ecmaVersion: 'latest',
-        ecmaFeatures: {
-          jsx: true,
-        },
-        requireConfigFile: false,
+        extraFileExtensions: ['.svelte'],
       },
       extends: ['plugin:@ota-meshi/svelte/recommended', 'plugin:prettier/recommended'],
     },

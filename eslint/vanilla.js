@@ -47,7 +47,7 @@ module.exports = {
   },
   parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 'latest',
+    parser: '@babel/eslint-parser',
     ecmaFeatures: {
       jsx: true,
     },
@@ -84,61 +84,6 @@ module.exports = {
   },
   ignorePatterns: ['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'],
   overrides: [
-    {
-      files: ['*.ts', '*.cts', '*.mts', '**/*.ts', '**/*.cts', '**/*.mts'],
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: {
-          jsx: true,
-        },
-        project: './tsconfig.json',
-      },
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        // 'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:import/typescript',
-        'plugin:prettier/recommended',
-      ],
-      rules: {
-        'constructor-super': 'off',
-        'getter-return': 'off',
-        'no-const-assign': 'off',
-        'no-dupe-args': 'off',
-        'no-dupe-class-members': 'off',
-        'no-dupe-keys': 'off',
-        'no-func-assign': 'off',
-        'no-import-assign': 'off',
-        'no-new-symbol': 'off',
-        'no-obj-calls': 'off',
-        'no-redeclare': 'off',
-        'no-setter-return': 'off',
-        'no-this-before-super': 'off',
-        'no-undef': 'off',
-        'no-unreachable': 'off',
-        'no-unsafe-negation': 'off',
-        'no-var': 'error',
-        'prefer-const': 'error',
-        'prefer-rest-params': 'error',
-        'prefer-spread': 'error',
-        'valid-typeof': 'off',
-        '@typescript-eslint/ban-ts-comment': 'off',
-        'import/named': 'off',
-        'import/no-named-as-default-member': 'off',
-      },
-      settings: {
-        'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx'],
-        'import/parsers': {
-          '@typescript-eslint/parser': ['.mts', '.ts', '.tsx'],
-        },
-        'import/resolver': {
-          node: {
-            extensions: ['.mjs', '.js', '.json', '.mts', '.ts'],
-          },
-          typescript: {},
-        },
-      },
-    },
     {
       files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
       extends: ['plugin:jest/recommended', 'plugin:cypress/recommended'],

@@ -4,12 +4,7 @@ module.exports = {
       files: ['*.vue', '**/*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
-        parser: '@babel/eslint-parser',
-        ecmaVersion: 'latest',
-        ecmaFeatures: {
-          jsx: true,
-        },
-        requireConfigFile: false,
+        extraFileExtensions: ['.vue'],
       },
       extends: [
         'plugin:vue/recommended',
