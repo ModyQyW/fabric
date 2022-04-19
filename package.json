@@ -93,8 +93,8 @@
     "@types/eslint": "^8.4.1",
     "@types/node": "latest",
     "@types/prettier": "^2.6.0",
-    "@typescript-eslint/eslint-plugin": "^5.19.0",
-    "@typescript-eslint/parser": "^5.19.0",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
     "eslint-config-next": "^12.1.5",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-node": "^0.3.6",
@@ -131,7 +131,7 @@
     "stylelint-config-recommended-scss": "^6.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
-    "svelte-eslint-parser": "^0.16.1",
+    "svelte-eslint-parser": "^0.16.2",
     "tsutils": "^3.21.0",
     "typescript": "^4.6.3",
     "vue-eslint-parser": "^8.3.0"
@@ -148,7 +148,7 @@
     "prettier": "^2.6.2",
     "release-it": "^14.14.2",
     "sort-package-json": "^1.55.0",
-    "stylelint": "^14.7.0",
+    "stylelint": "^14.7.1",
     "tsup": "^5.12.5",
     "type-fest": "^2.12.2"
   },
