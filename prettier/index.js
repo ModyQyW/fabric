@@ -9,7 +9,7 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['*.css', '*.less', '*.scss'],
+      files: ['*.css', '*.less', '*.scss', '**/*.css', '**/*.less', '**/*.scss'],
       options: {
         singleQuote: false,
         trailingComma: 'none',
