@@ -84,6 +84,7 @@ module.exports = {
             ],
           },
         ],
+        'vue-scoped-css/enforce-style-type': 'off',
         '@intlify/vue-i18n/no-raw-text': 'off',
       },
       settings: {
