@@ -215,35 +215,26 @@ pnpm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-esli
 ```js
 module.exports = {
   extends: [
-    // vanilla 总是需要的
+    // vanilla is always required
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
+
+    // typescript
+    // require.resolve('@modyqyw/fabric/eslint/typescript'),
 
     // react
     // require.resolve('@modyqyw/fabric/eslint/react'),
 
-    // react + 小程序
-    // require.resolve('@modyqyw/fabric/eslint/react-miniprogram'),
-
     // vue2
     // require.resolve('@modyqyw/fabric/eslint/vue2'),
-
-    // vue2 + typescript
-    // require.resolve('@modyqyw/fabric/eslint/vue2-typescript'),
 
     // vue3
     // require.resolve('@modyqyw/fabric/eslint/vue'),
 
-    // vue3 + typescript
-    // require.resolve('@modyqyw/fabric/eslint/vue-typescript'),
-
-    // vue 2 / vue3 + 小程序
-    // require.resolve('@modyqyw/fabric/eslint/vue-miniprogram'),
-
     // svelte
     // require.resolve('@modyqyw/fabric/eslint/svelte'),
 
-    // svelte + typescript
-    // require.resolve('@modyqyw/fabric/eslint/svelte-typescript'),
+    // miniprogram
+    // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
   ],
 };
 ```
