@@ -85,7 +85,7 @@ module.exports = {
   ignorePatterns: ['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'],
   overrides: [
     {
-      files: ['*.ts', '*.cts', '*.mts'],
+      files: ['*.ts', '*.cts', '*.mts', '**/*.ts', '**/*.cts', '**/*.mts'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 'latest',
@@ -93,7 +93,6 @@ module.exports = {
           jsx: true,
         },
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
       },
       extends: [
         'plugin:@typescript-eslint/recommended',

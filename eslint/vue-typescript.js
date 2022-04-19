@@ -1,7 +1,7 @@
 module.exports = {
   overrides: [
     {
-      files: ['*.vue'],
+      files: ['*.vue', '**/*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
@@ -11,7 +11,6 @@ module.exports = {
         },
         extraFileExtensions: ['.vue'],
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
       },
       extends: [
         'plugin:@typescript-eslint/recommended',

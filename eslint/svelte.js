@@ -1,7 +1,7 @@
 module.exports = {
   overrides: [
     {
-      files: ['*.svelte'],
+      files: ['*.svelte', '**/*.svelte'],
       parser: 'svelte-eslint-parser',
       parserOptions: {
         parser: '@babel/eslint-parser',

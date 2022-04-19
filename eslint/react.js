@@ -80,7 +80,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.ts', '*.cts', '*.mts', '*.tsx'],
+      files: ['*.ts', '*.cts', '*.mts', '*.tsx', '**/*.ts', '**/*.cts', '**/*.mts', '**/*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         ecmaVersion: 'latest',
@@ -88,7 +88,6 @@ module.exports = {
           jsx: true,
         },
         project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
       },
       extends: [
         'plugin:@typescript-eslint/recommended',

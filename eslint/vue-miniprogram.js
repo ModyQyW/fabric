@@ -1,7 +1,7 @@
 module.exports = {
   overrides: [
     {
-      files: ['*.vue'],
+      files: ['*.vue', '**/*.vue'],
       rules: {
         'vuejs-accessibility/alt-text': 'off',
         'vuejs-accessibility/anchor-has-content': 'off',

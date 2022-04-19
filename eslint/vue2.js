@@ -1,7 +1,7 @@
 module.exports = {
   overrides: [
     {
-      files: ['*.vue'],
+      files: ['*.vue', '**/*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: '@babel/eslint-parser',
