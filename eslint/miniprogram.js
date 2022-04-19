@@ -1,5 +1,11 @@
 module.exports = {
   rules: {
+    'css/no-unknown-unit': [
+      'error',
+      {
+        ignoreUnits: ['rpx'],
+      },
+    ],
     'jsx-a11y/alt-text': 'off',
     'jsx-a11y/anchor-has-content': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
