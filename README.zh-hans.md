@@ -283,6 +283,12 @@ module.exports = {
 
     // 小程序
     // '@modyqyw/fabric/stylelint/miniprogram',
+
+    // vue
+    // '@modyqyw/fabric/stylelint/vue',
+
+    // svelte
+    // '@modyqyw/fabric/stylelint/svelte',
   ],
 };
 ```

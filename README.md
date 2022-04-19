@@ -283,6 +283,12 @@ module.exports = {
 
     // miniprogram
     // '@modyqyw/fabric/stylelint/miniprogram',
+
+    // vue
+    // '@modyqyw/fabric/stylelint/vue',
+
+    // svelte
+    // '@modyqyw/fabric/stylelint/svelte',
   ],
 };
 ```
