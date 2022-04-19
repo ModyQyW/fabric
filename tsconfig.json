@@ -1,16 +1,4 @@
 {
   "extends": "./tsconfig.base.json",
-  "include": [
-    "**/*.js",
-    "**/*.cjs",
-    "**/*.mjs",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.cts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte"
-  ],
-  "exclude": [".cache", ".temp", ".tmp", "dist*", "node_modules"]
+  "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
