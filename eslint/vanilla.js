@@ -54,6 +54,9 @@ module.exports = {
     requireConfigFile: false,
   },
   rules: {
+    'import/default': 'off',
+    'import/namespace': 'off',
+    'import/no-unresolved': 'off',
     'unicorn/filename-case': [
       'error',
       {
@@ -71,6 +74,7 @@ module.exports = {
     'import/core-modules': ['electron'],
     'import/extensions': ['.js', '.mjs', '.jsx'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types'],
+    'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
     'import/resolver': {
       node: {
         extensions: ['.mjs', '.js', '.json'],
@@ -89,6 +93,7 @@ module.exports = {
           jsx: true,
         },
         project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
       },
       extends: [
         'plugin:@typescript-eslint/recommended',
@@ -98,9 +103,7 @@ module.exports = {
       ],
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',
-        'import/default': 'off',
         'import/named': 'off',
-        'import/namespace': 'off',
         'import/no-named-as-default-member': 'off',
       },
       settings: {

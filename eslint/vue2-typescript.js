@@ -11,6 +11,7 @@ module.exports = {
         },
         extraFileExtensions: ['.vue'],
         project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
       },
       extends: [
         'plugin:@typescript-eslint/recommended',
@@ -24,9 +25,7 @@ module.exports = {
       ],
       rules: {
         '@typescript-eslint/ban-ts-comment': 'off',
-        'import/default': 'off',
         'import/named': 'off',
-        'import/namespace': 'off',
         'import/no-named-as-default-member': 'off',
         'vue/multi-word-component-names': [
           'warn',
