@@ -1,6 +1,8 @@
-module.exports = [
-  {
-    files: ['*.svelte', '**/*.svelte'],
-    customSyntax: 'postcss-html',
-  },
-];
+module.exports = {
+  overrides: [
+    {
+      files: ['*.svelte', '**/*.svelte'],
+      customSyntax: 'postcss-html',
+    },
+  ],
+};
