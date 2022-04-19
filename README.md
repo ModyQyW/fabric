@@ -160,19 +160,6 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
-  // on-demand set include
-  "include": [
-    "**/*.js",
-    "**/*.cjs",
-    "**/*.mjs",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.cts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte"
-  ],
   // on-demand set exclude
   "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
@@ -245,7 +232,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 {
   "scripts": {
     "lint": "pnpm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --ignore-path=.gitignore"
   }
 }
 ```
@@ -380,7 +367,7 @@ Set up `.lintstagedrc.cjs`.
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte,yaml,yml,json,jsonc,json5}': 'eslint --fix',
   '*.{css,less,scss,vue,svelte}': 'stylelint --fix',
 };
 ```
@@ -476,7 +463,11 @@ Experience has proven that automation is the best option. You may want to try pa
     "svelte",
     "typescript",
     "typescriptreact",
-    "vue"
+    "vue",
+    "yaml",
+    "json",
+    "jsonc",
+    "json5"
   ],
   "files.eol": "\n",
   "files.associations": {

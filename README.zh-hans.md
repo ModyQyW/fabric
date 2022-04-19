@@ -160,19 +160,6 @@ trim_trailing_whitespace = false
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
-  // 视情况设置 include
-  "include": [
-    "**/*.js",
-    "**/*.cjs",
-    "**/*.mjs",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.cts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte"
-  ],
   // 视情况设置 exclude
   "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
@@ -245,7 +232,7 @@ module.exports = {
 {
   "scripts": {
     "lint": "pnpm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --ignore-path=.gitignore"
   }
 }
 ```
@@ -380,7 +367,7 @@ pnpm install -D lint-staged@12
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte}': 'eslint --fix',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte,yaml,yml,json,jsonc,json5}': 'eslint --fix',
   '*.{css,less,scss,vue,svelte}': 'stylelint --fix',
 };
 ```
@@ -476,7 +463,11 @@ chmod +x .husky/*
     "svelte",
     "typescript",
     "typescriptreact",
-    "vue"
+    "vue",
+    "yaml",
+    "json",
+    "jsonc",
+    "json5"
   ],
   "files.eol": "\n",
   "files.associations": {
