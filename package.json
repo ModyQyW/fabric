@@ -108,6 +108,7 @@
     "eslint-plugin-jest": "^26.1.4",
     "eslint-plugin-jsonc": "^2.2.1",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.29.4",
@@ -145,7 +146,6 @@
     "@commitlint/cli": "^16.2.3",
     "commitizen": "^4.2.4",
     "eslint": "^8.13.0",
-    "esno": "^0.14.1",
     "husky": "^7.0.4",
     "is-ci": "^3.0.1",
     "lint-staged": "^12.3.8",
@@ -154,7 +154,6 @@
     "release-it": "^14.14.2",
     "sort-package-json": "^1.55.0",
     "stylelint": "^14.7.1",
-    "tsup": "^5.12.5",
     "type-fest": "^2.12.2"
   },
   "publishConfig": {
