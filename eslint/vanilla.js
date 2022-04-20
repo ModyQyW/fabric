@@ -62,6 +62,7 @@ module.exports = {
       'error',
       {
         cases: {
+          camelCase: true,
           kebabCase: true,
           pascalCase: true,
         },
@@ -83,7 +84,19 @@ module.exports = {
       webpack: {},
     },
   },
-  ignorePatterns: ['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'androidPrivacy.json'],
+  ignorePatterns: [
+    'package-lock.json',
+    'yarn.lock',
+    'pnpm-lock.yaml',
+    'androidPrivacy.json',
+    'public',
+    'dist*',
+    'out',
+    'cache',
+    'temp',
+    'tmp',
+    'node_modules',
+  ],
   overrides: [
     {
       files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
