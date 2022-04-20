@@ -211,11 +211,17 @@ module.exports = {
     // react
     // require.resolve('@modyqyw/fabric/eslint/react'),
 
-    // vue2
-    // require.resolve('@modyqyw/fabric/eslint/vue2'),
+    // next
+    // require.resolve('@modyqyw/fabric/eslint/next'),
 
     // vue3
     // require.resolve('@modyqyw/fabric/eslint/vue'),
+
+    // vue2
+    // require.resolve('@modyqyw/fabric/eslint/vue2'),
+
+    // nuxt
+    // require.resolve('@modyqyw/fabric/eslint/nuxt'),
 
     // svelte
     // require.resolve('@modyqyw/fabric/eslint/svelte'),
