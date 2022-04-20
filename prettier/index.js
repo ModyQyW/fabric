@@ -9,9 +9,28 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['*.css', '*.less', '*.scss', '**/*.css', '**/*.less', '**/*.scss'],
+      files: [
+        '*.css',
+        '*.less',
+        '*.scss',
+        '*.json',
+        '*.jsonc',
+        '*.json5',
+        '**/*.css',
+        '**/*.less',
+        '**/*.scss',
+        '**/*.json',
+        '**/*.jsonc',
+        '**/*.json5',
+      ],
       options: {
         singleQuote: false,
+        trailingComma: 'none',
+      },
+    },
+    {
+      files: ['*.yaml', '*.yml', '**/*.yaml', '**/*.yml'],
+      options: {
         trailingComma: 'none',
       },
     },
