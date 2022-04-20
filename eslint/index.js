@@ -1,21 +1,21 @@
-const react = require('./react');
 const vanilla = require('./vanilla');
-const svelteTypescript = require('./svelte-typescript');
-const svelte = require('./svelte');
-const vueTypescript = require('./vue-typescript');
+const typescript = require('./typescript');
+const react = require('./react');
+const next = require('./next');
 const vue = require('./vue');
-const vue2Typescript = require('./vue2-typescript');
 const vue2 = require('./vue2');
+const nuxt = require('./nuxt');
+const svelte = require('./svelte');
 const miniprogram = require('./miniprogram');
 
 module.exports = {
-  react,
   vanilla,
-  svelteTypescript,
-  svelte,
-  vueTypescript,
+  typescript,
+  react,
+  next,
   vue,
-  vue2Typescript,
   vue2,
+  nuxt,
+  svelte,
   miniprogram,
 };
