@@ -83,7 +83,7 @@ module.exports = {
       webpack: {},
     },
   },
-  ignorePatterns: ['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml'],
+  ignorePatterns: ['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'androidPrivacy.json'],
   overrides: [
     {
       files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
