@@ -44,7 +44,7 @@ specifiers:
   husky: ^7.0.4
   is-ci: ^3.0.1
   jsonc-eslint-parser: ^2.1.0
-  lint-staged: ^12.3.8
+  lint-staged: ^12.4.0
   markdownlint-cli: ^0.31.1
   picocolors: ^1.0.0
   postcss: ^8.4.12
@@ -54,7 +54,7 @@ specifiers:
   prettier: ^2.6.2
   prettier-plugin-jsdoc: ^0.3.38
   prettier-plugin-packagejson: ^2.2.17
-  prettier-plugin-tailwindcss: ^0.1.9
+  prettier-plugin-tailwindcss: ^0.1.10
   release-it: ^14.14.2
   sort-package-json: ^1.55.0
   stylelint: ^14.7.1
@@ -118,7 +118,7 @@ dependencies:
   postcss-scss: 4.0.3_postcss@8.4.12
   prettier-plugin-jsdoc: 0.3.38_prettier@2.6.2
   prettier-plugin-packagejson: 2.2.17_prettier@2.6.2
-  prettier-plugin-tailwindcss: 0.1.9_prettier@2.6.2
+  prettier-plugin-tailwindcss: 0.1.10_prettier@2.6.2
   stylelint-config-prettier: 9.0.3_stylelint@14.7.1
   stylelint-config-prettier-scss: 0.0.1_stylelint@14.7.1
   stylelint-config-recess-order: 3.0.0_stylelint@14.7.1
@@ -138,7 +138,7 @@ devDependencies:
   eslint: 8.13.0
   husky: 7.0.4
   is-ci: 3.0.1
-  lint-staged: 12.3.8
+  lint-staged: 12.4.0
   markdownlint-cli: 0.31.1
   prettier: 2.6.2
   release-it: 14.14.2
@@ -3838,8 +3838,8 @@ packages:
       uc.micro: 1.0.6
     dev: true
 
-  /lint-staged/12.3.8:
-    resolution: {integrity: sha512-0+UpNaqIwKRSGAFOCcpuYNIv/j5QGVC+xUVvmSdxHO+IfIGoHbFLo3XcPmV/LLnsVj5EAncNHVtlITSoY5qWGQ==}
+  /lint-staged/12.4.0:
+    resolution: {integrity: sha512-3X7MR0h9b7qf4iXf/1n7RlVAx+EzpAZXoCEMhVSpaBlgKDfH2ewf+QUm7BddFyq29v4dgPP+8+uYpWuSWx035A==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -4856,8 +4856,8 @@ packages:
       sort-package-json: 1.55.0
     dev: false
 
-  /prettier-plugin-tailwindcss/0.1.9_prettier@2.6.2:
-    resolution: {integrity: sha512-xqoDNnFfYhz3PxaptKO5lXwVU/MAfT6PTZPxiKKutKTgaLeQBjxts6j7BLbkI0FezDrGDUZQjDZpmnF9dv2hdg==}
+  /prettier-plugin-tailwindcss/0.1.10_prettier@2.6.2:
+    resolution: {integrity: sha512-ooDGNuXUjgCXfShliVYQ6+0iXqUFXn+zdNInPe0WZN9qINt9srbLGFGY5jeVL4MXtY20/4S8JaBcd8l6N6NfCQ==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
       prettier: '>=2.2.0'
