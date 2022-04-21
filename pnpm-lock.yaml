@@ -31,7 +31,6 @@ specifiers:
   eslint-plugin-jsx-a11y: ^6.5.1
   eslint-plugin-nuxt: ^3.2.0
   eslint-plugin-prettier: ^4.0.0
-  eslint-plugin-promise: ^6.0.0
   eslint-plugin-react: ^7.29.4
   eslint-plugin-react-hooks: ^4.4.0
   eslint-plugin-regexp: ^1.6.0
@@ -100,7 +99,6 @@ dependencies:
   eslint-plugin-jsx-a11y: 6.5.1_eslint@8.13.0
   eslint-plugin-nuxt: 3.2.0_eslint@8.13.0
   eslint-plugin-prettier: 4.0.0_1815ac95b7fb26c13c7d48a8eef62d0f
-  eslint-plugin-promise: 6.0.0_eslint@8.13.0
   eslint-plugin-react: 7.29.4_eslint@8.13.0
   eslint-plugin-react-hooks: 4.4.0_eslint@8.13.0
   eslint-plugin-regexp: 1.6.0_eslint@8.13.0
@@ -2465,15 +2463,6 @@ packages:
       eslint-config-prettier: 8.5.0_eslint@8.13.0
       prettier: 2.6.2
       prettier-linter-helpers: 1.0.0
-    dev: false
-
-  /eslint-plugin-promise/6.0.0_eslint@8.13.0:
-    resolution: {integrity: sha512-7GPezalm5Bfi/E22PnQxDWH2iW9GTvAlUNTztemeHb6c1BniSyoeTrM87JkC0wYdi6aQrZX9p2qEiAno8aTcbw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
-    dependencies:
-      eslint: 8.13.0
     dev: false
 
   /eslint-plugin-react-hooks/4.3.0_eslint@8.13.0:
