@@ -57,6 +57,22 @@ module.exports = {
     'import/default': 'off',
     'import/namespace': 'off',
     'import/no-unresolved': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'unknown',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type',
+        ],
+      },
+    ],
     'unicorn/filename-case': [
       'error',
       {
