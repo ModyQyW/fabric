@@ -572,10 +572,19 @@ Experience has proven that automation is the best option. You may want to try pa
     }
   },
   "[json]": {
-    "editor.formatOnSave": true
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   "[jsonc]": {
-    "editor.formatOnSave": true
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[json5]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   },
   "[markdown]": {
     "editor.formatOnSave": true,
@@ -584,7 +593,14 @@ Experience has proven that automation is the best option. You may want to try pa
     }
   },
   "[yaml]": {
-    "editor.formatOnSave": true
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[yml]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
   }
 }
 ```
