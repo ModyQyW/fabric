@@ -3,15 +3,15 @@ module.exports = {
     {
       files: ['*.vue', '**/*.vue'],
       parser: 'vue-eslint-parser',
-      parserOptions: {
-        extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts', '.vue'],
-      },
     },
     {
       files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
       extends: ['plugin:testing-library/vue'],
     },
   ],
+  parserOptions: {
+    extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts', '.vue'],
+  },
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:vue-scoped-css/vue3-recommended',
