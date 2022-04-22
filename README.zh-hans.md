@@ -1,47 +1,47 @@
 # @modyqyw/fabric
 
-English | [简体中文](./README.zh-hans.md)
+[English](./README.md) | 简体中文
 
-Opinionated shareable specification for different JavaScript/TypeScript projects.
+开箱即用的共享规范，适用于不同的 JavaScript / TypeScript 项目。
 
-Requires:
+需要：
 
-- Latest Node LTS and matching pnpm / npm / yarn
-- Set `shamefully-hoist=true` in `.npmrc` if using latest pnpm 6 / 7 instead of npm
-- Use `--legacy-peer-deps` when using npm 7 / 8 to install
-- Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` if using latest yarn 2 / 3 instead of npm
-- Use new JSX transform and hooks for React projects
-- Use Composition API for Vue projects
+- 最新的 Node LTS 和相应的 pnpm / npm / yarn
+- 如果在使用 pnpm 6 / 7，在 `.npmrc` 里设置 `shamefully-hoist=true`
+- 如果在使用 npm 7 / 8，在安装依赖时使用 `--legacy-peer-deps`
+- 如果在使用 yarn 2 / 3，在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
+- 对于 React 项目，使用新的 JSX 转换和 hooks
+- 对于 Vue 项目，使用组合式 API，即 Composition API
 
-Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
+下面使用 `pnpm`。如果需要镜像支持，不妨看看 [nrm](https://github.com/Pana/nrm)。
 
-## Usage
+## 使用
 
 ```sh
-# locally
+# 本地
 pnpm install -D @modyqyw/fabric@5
 
-# globally
+# 全局
 pnpm install -g @modyqyw/fabric@5
 ```
 
-See more about version in [node-semver](https://github.com/npm/node-semver).
+[node-semver](https://github.com/npm/node-semver) 有更多版本信息供你查看。
 
-### Naming
+### 命名
 
-Naming is very hard and hardly be checked by linters. Simplicity and clarity should be the highest priority for naming.
+命名非常困难，而且很难被 linter 检查。命名应该要简洁明了。
 
-Following an existing specification is a good choice.
+跟随已有的规范是一个好选择。
 
-- For JavaScript / TypeScript
+- 对于 JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-- For CSS / LESS / SCSS
+- 对于 CSS / LESS / SCSS
   - [BEM](http://getbem.com/)
   - [CSS Modules](https://github.com/css-modules/css-modules)
   - [OOCSS](https://github.com/stubbornella/oocss/wiki)
   - [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
   - [SMACSS](http://smacss.com/)
-- Helpful Open Source Projects
+- 有帮助的开源项目
   - [bootstrap](https://getbootstrap.com/)
   - [tailwindcss](https://tailwindcss.com/)
   - [mui](https://mui.com/)
@@ -51,22 +51,22 @@ Following an existing specification is a good choice.
 
 ### Git
 
-Learn about [Git](https://git-scm.com/doc), [Git flow](https://nvie.com/posts/a-successful-git-branching-model/), [Github flow](https://guides.github.com/introduction/flow/), [Gitlab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) and [Gif LFS](https://git-lfs.github.com/).
+看看 [Git](https://git-scm.com/doc)、[Git flow](https://nvie.com/posts/a-successful-git-branching-model/)、[Github flow](https://guides.github.com/introduction/flow/)、[Gitlab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) 和 [Gif LFS](https://git-lfs.github.com/)。
 
 ```sh
 git config --global core.autocrlf false
 git config --global init.defaultBranch main
 ```
 
-For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitlab](https://gitlab.com/) and [Gitee](https://gitee.com/).
+对于 SSH 密钥，可以看看 [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)，它也适用于其它 git 系统，比如 [Gitlab](https://gitlab.com/) 和 [Gitee](https://gitee.com/)。
 
-A `.gitignore` example [here](./.gitignore).
+`.gitignore` 例子可以看 [这里](./.gitignore)。
 
 ### EditorConfig
 
-Learn about [EditorConfig](https://editorconfig.org/).
+看看 [EditorConfig](https://editorconfig.org/)。
 
-Set up `.editorconfig`.
+设置 `.editorconfig`。
 
 ```sh
 root = true
@@ -86,29 +86,29 @@ trim_trailing_whitespace = false
 
 ### tsconfig.json
 
-Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
+看看 [tsconfig.json](https://aka.ms/tsconfig.json)。
 
-**You should only use this in a new project without `tsconfig.json`.** Extends, then customize.
+**你只应该在一个没有 `tsconfig.json` 的新项目里使用这个。**扩展，然后自定义。
 
 ```json
 {
   "extends": "@modyqyw/fabric/tsconfig.base.json",
   "compilerOptions": {
-    // on-demand set baseUrl
+    // 视情况设置 baseUrl
     "baseUrl": ".",
-    // on-demand set lib, default ["ESNext"]
+    // 视情况设置 lib，默认 ["ESNext"]
     "lib": ["ESNext", "DOM", "DOM.iterable"],
-    // on-demand set target, default ESNext
+    // 视情况设置 target，设置 ESNext
     "target": "ESNext",
-    // on-demand set jsx, default preserve
+    // 视情况设置 jsx，默认 preserve
     "jsx": "react-jsx",
-    // on-demand set paths for path aliases, default {}
+    // 视情况设置 paths 以配置路径别名，默认 {}
     "paths": {
       "@/*": ["./src/*"]
     },
-    // if you are facing a infer problem
+    // 如果出现了推断问题
     "preserveSymlinks": true,
-    // on-demand set types, default []
+    // 视情况设置 types，默认 []
     "types": [
       // uni-app
       "@dcloudio/types",
@@ -118,9 +118,9 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       "jest",
       // jsdom
       "jsdom",
-      // alipay miniprogram
+      // 支付宝小程序
       "mini-types",
-      // wechat miniprogram
+      // 微信小程序
       "miniprogram-api-typings",
       // node
       "node",
@@ -148,7 +148,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       "webpack-env"
     ]
   },
-  // volar, @vue/runtime-dom and vue2
+  // volar、@vue/runtime-dom 和 vue2
   "vueCompilerOptions": {
     "experimentalCompatMode": 2,
     "experimentalTemplateCompilerOptions": {
@@ -160,7 +160,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
-  // on-demand set include
+  // 视情况设置 include
   "include": [
     "**/.*.js",
     "**/.*.cjs",
@@ -179,22 +179,22 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
     "**/*.vue",
     "**/*.svelte"
   ],
-  // on-demand set exclude
+  // 视情况设置 exclude
   "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
 ```
 
-See [tsconfig.base.json](./tsconfig.base.json) for default configs.
+查看 [tsconfig.base.json](./tsconfig.base.json) 了解所有的默认设置.
 
 ### Prettier
 
-Learn about [Prettier](https://prettier.io/). Prettier is always required to handle code styles.
+看看 [Prettier](https://prettier.io/)。Prettier 用于处理代码样式，所以它总是需要的。
 
 ```sh
 pnpm install -D prettier@2
 ```
 
-Set up `.prettierrc.cjs`.
+设置 `.prettierrc.cjs`。
 
 ```js
 module.exports = {
@@ -204,19 +204,19 @@ module.exports = {
 
 ### ESLint
 
-Learn about [ESLint](https://eslint.org/).
+看看 [ESLint](https://eslint.org/)。
 
 ```sh
 pnpm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 ```
 
-Additional dependencies are needed if you are using TypeScript.
+如果你正在使用 TypeScript，你需要安装额外的依赖。
 
 ```sh
 pnpm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
 ```
 
-Set up `.eslintrc.cjs`.
+设置 `.eslintrc.cjs`。
 
 ```js
 module.exports = {
@@ -254,7 +254,7 @@ module.exports = {
 };
 ```
 
-Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
+设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
 
 ```json
 {
@@ -267,18 +267,18 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ### Stylelint
 
-Learn about [Stylelint](https://stylelint.io/).
+看看 [Stylelint](https://stylelint.io/)。
 
 ```sh
 pnpm install -D stylelint@14
 ```
 
-Set up `.stylelintrc.cjs`.
+设置 `.stylelintrc.cjs`。
 
 ```js
 module.exports = {
   extends: [
-    // css is always required
+    // css 总是需要的
     '@modyqyw/fabric/stylelint/css',
 
     // less
@@ -293,13 +293,13 @@ module.exports = {
     // svelte
     // '@modyqyw/fabric/stylelint/svelte',
 
-    // miniprogram
+    // 小程序
     // '@modyqyw/fabric/stylelint/miniprogram',
   ],
 };
 ```
 
-Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
+设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
 
 ```json
 {
@@ -312,13 +312,13 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ### Markdownlint
 
-Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
+看看 [Markdown](https://commonmark.org/) 和 [Markdownlint](https://github.com/DavidAnson/markdownlint)。
 
 ```sh
 pnpm install -D markdownlint-cli
 ```
 
-Set up `.markdownlint.json`.
+设置 `.markdownlint.json`。
 
 ```json
 {
@@ -332,7 +332,7 @@ Set up `.markdownlint.json`.
 }
 ```
 
-Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
+设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
 
 ```json
 {
@@ -345,13 +345,13 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ### Commitlint
 
-Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
+看看 [Commitlint](https://commitlint.js.org/) 和 [Conventional Commits](https://www.conventionalcommits.org/)。
 
 ```sh
-pnpm install -D @commitlint/cli@16 @commitlint/prompt@16
+pnpm install -D @commitlint/cli@16 @commitlint/config-conventional@16
 ```
 
-Set up `.commitlintrc.cjs`.
+设置 `.commitlintrc.cjs`。
 
 ```js
 module.exports = {
@@ -361,13 +361,13 @@ module.exports = {
 
 ### Commitizen
 
-Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
+看看 [Commitizen](https://commitizen-tools.github.io/commitizen/)。
 
 ```sh
 pnpm install -D commitizen@4 @commitlint/prompt@16
 ```
 
-Set up `package.json`.
+设置 `package.json`。
 
 ```json
 {
@@ -384,13 +384,13 @@ Set up `package.json`.
 
 ### LintStaged
 
-Learn about [LintStaged](https://github.com/okonet/lint-staged).
+看看 [LintStaged](https://github.com/okonet/lint-staged)。
 
 ```sh
 pnpm install -D lint-staged@12
 ```
 
-Set up `.lintstagedrc.cjs`.
+设置 `.lintstagedrc.cjs`。
 
 ```js
 module.exports = {
@@ -402,7 +402,7 @@ module.exports = {
 
 ### Husky
 
-Learn about [Husky](https://github.com/typicode/husky).
+看看 [Husky](https://github.com/typicode/husky)。
 
 ```sh
 pnpm install -D is-ci@3 husky@7
@@ -411,7 +411,7 @@ npx husky install
 
 ```
 
-Set up `package.json`.
+设置 `package.json`。
 
 ```json
 {
@@ -421,7 +421,7 @@ Set up `package.json`.
 }
 ```
 
-Set up `.husky/commit-msg` hook.
+设置 `.husky/commit-msg` 钩子。
 
 ```sh
 #!/bin/sh
@@ -431,7 +431,7 @@ npx --no-install commitlint --edit $1
 
 ```
 
-Set up `.husky/pre-commit` hook.
+设置 `.husky/pre-commit` 钩子。
 
 ```sh
 #!/bin/sh
@@ -441,41 +441,41 @@ npx --no-install lint-staged
 
 ```
 
-Finally use `chmod`.
+最后使用 `chmod`。
 
 ```sh
 chmod +x .git/hooks/*
 chmod +x .husky/*
 ```
 
-### Deploy
+### 部署
 
-Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
+经验证明，自动化是最佳选择。你可能想要尝试下面的包，它们根据字母顺序排序。
 
 - [auto-changelog](https://github.com/CookPete/auto-changelog)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [keep a changelog](https://keepachangelog.com/)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
-- [release-it](https://github.com/release-it/release-it) - We are using it.
+- [release-it](https://github.com/release-it/release-it) - 我们在使用这个。
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 - [standard-version](https://github.com/conventional-changelog/standard-version)
 
 ## VSCode
 
-- Install plugins.
+- 安装插件。
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
-  - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - For uni-\*
-  - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
-  - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
-- Set up `Settings.json`.
+  - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - 支持 svelte
+  - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - 支持 TailwindCSS
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - 支持 uni-\*
+  - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - 支持 UnoCSS
+  - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - 支持 TailwindCSS / WindiCSS
+- 设置 `Settings.json`。
 
 ```json
 {
@@ -605,41 +605,41 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 ```
 
-## Migrate
+## 迁移
 
-### Migrate 5.x from 4.x
+### 从 4.x 迁移到 5.x
 
-- Upgrade your node version to latest LTS.
-- Upgrade your pnpm / npm / yarn version to match your node version.
-- Upgrade your eslint version to latest 8.
-- Upgrade your stylelint version to latest 14.
-- Upgrade your prettier version to latest 2.
-- Upgrade your postcss version to latest 8.
-- Prettier is always required.
-- CLI is removed. It is not needed in most cases, and not a necessity in other cases. You can always follow README to config your project, or just use your own config.
-- Commitlint config is removed. Use `@commitlint/config-conventional` directly.
-- SASS support is removed. SCSS is more popular.
-- Update your React projects with new JSX transform and hooks.
-- Update your Vue projects with Composition API.
+- 升级 node 版本到最新的 LTS。
+- 升级 pnpm / npm / yarn 版本以匹配 node 版本。
+- 升级 eslint 版本到最新的 8。
+- 升级 stylelint 版本到最新的 14。
+- 升级 prettier 版本到最新的 2。
+- 升级 postcss 版本到最新的 8。
+- Prettier 总是需要的。
+- 移除 CLI。在大部分情况下不需要使用它，在小部分情况下它不是个必需项。你总是可以跟随 README 来配置你的项目，或者直接使用你原本的配置。
+- 移除 commitlint 配置。直接使用 `@commitlint/config-conventional` 即可。
+- 移除 SASS 支持。SCSS 更通用。
+- 升级 React 项目，使用新的 JSX 转换和 hooks。
+- 升级 Vue 项目，使用组合式 API，即 Composition API。
 
-### Migrate 4.x from 3.x
+### 从 3.x 迁移到 4.x
 
-- Upgrade your node version to latest 12, 14 or 16.
-- Upgrade your npm version to latest 6, 7 or 8.
-- Upgrade your eslint version to latest 7 or 8.
-- Upgrade your stylelint version to latest 14.
-- Upgrade your prettier version to latest 2.
-- Upgrade your postcss version to latest 8.
-- Split prettier.
-- Add `tsconfig.json` support.
-- Update CLI to match above changes. Use `mo-fabric` instead of `modyqyw-fabric`.
+- 升级 node 版本到最新的 12、14 或 16。
+- 升级 npm 版本到 6、7 或 8。
+- 升级 eslint 版本到最新的 7 或 8。
+- 升级 stylelint 版本到最新的 14。
+- 升级 prettier 版本到最新的 2。
+- 升级 postcss 版本到最新的 8。
+- 分离 Prettier。
+- 增加 `tsconfig.json` 支持。
+- 升级 CLI 以匹配以上改动。现在 CLI 使用 `mo-fabric` 而不是 `modyqyw-fabric`。
 
-### Migrate 3.x from 2.x
+### 从 2.x 迁移到 3.x
 
-- Upgrade your node version to ^12.22.6, ^14.17.6 or ^16.8.0.
-- Upgrade your npm version to ^6.14.15 or ^7.21.0.
-- Support CommonJS require and ESM import.
-- Prettier/ESLint/Stylelint/Commitlint config changed.
+- 升级 node 版本到 ^12.22.6, ^14.17.6 或 ^16.8.0。
+- 升级 npm 版本到 ^6.14.15 或 ^7.21.0。
+- 支持 CommonJS require 和 ESM import。
+- 改变 Prettier/ESLint/Stylelint/Commitlint 配置。
 
 ```js
 const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
@@ -649,20 +649,20 @@ import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 
 ```
 
-- Use `eslint.vanilla` instead of `eslint.native`.
-- Use `stylelint.scss` instead of `stylelint.sass`.
+- 使用 `eslint.vanilla` 而不是 `eslint.native`。
+- 使用 `stylelint.scss` 而不是 `stylelint.sass`。
 
-### Migrate 2.x from 1.x
+### 从 1.x 迁移到 2.x
 
-Just upgrade your node and dependencies versions.
+升级 node 和依赖版本即可。
 
-## Examples
+## 例子
 
-See [dependency graph](https://github.com/ModyQyW/fabric/network/dependents?package_id=UGFja2FnZS0xNTg3ODMzNDM2).
+看看 [dependency graph](https://github.com/ModyQyW/fabric/network/dependents?package_id=UGFja2FnZS0xNTg3ODMzNDM2)。
 
-## Acknowledge
+## 致谢
 
-Sorted according to alphabetical order.
+根据字母顺序排序。
 
 - [airbnb/css](https://github.com/airbnb/css)
 - [airbnb/javascript](https://github.com/airbnb/javascript)
