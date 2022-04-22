@@ -6,6 +6,7 @@ const vue = require('./vue');
 const vue2 = require('./vue2');
 const nuxt = require('./nuxt');
 const svelte = require('./svelte');
+const functional = require('./functional');
 const miniprogram = require('./miniprogram');
 
 module.exports = {
@@ -17,5 +18,6 @@ module.exports = {
   vue2,
   nuxt,
   svelte,
+  functional,
   miniprogram,
 };

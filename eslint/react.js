@@ -1,8 +1,5 @@
 module.exports = {
   extends: [
-    'plugin:functional/external-recommended',
-    'plugin:functional/recommended',
-    'plugin:functional/stylistic',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-native/all',
