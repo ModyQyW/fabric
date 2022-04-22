@@ -19,10 +19,10 @@
 
 ```sh
 # 本地
-pnpm install -D @modyqyw/fabric
+pnpm install -D @modyqyw/fabric@5
 
 # 全局
-pnpm install -g @modyqyw/fabric
+pnpm install -g @modyqyw/fabric@5
 ```
 
 [node-semver](https://github.com/npm/node-semver) 有更多版本信息供你查看。
@@ -225,7 +225,6 @@ module.exports = {
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // typescript
-    // 确保 tsconfig.json 里设置了 "allowJs": true
     // require.resolve('@modyqyw/fabric/eslint/typescript'),
 
     // react

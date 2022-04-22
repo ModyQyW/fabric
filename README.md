@@ -19,10 +19,10 @@ Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric
+pnpm install -D @modyqyw/fabric@5
 
 # globally
-pnpm install -g @modyqyw/fabric
+pnpm install -g @modyqyw/fabric@5
 ```
 
 See more about version in [node-semver](https://github.com/npm/node-semver).
@@ -225,7 +225,6 @@ module.exports = {
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // typescript
-    // make sure you have "allowJs": true in tsconfig.json
     // require.resolve('@modyqyw/fabric/eslint/typescript'),
 
     // react
