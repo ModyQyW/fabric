@@ -226,6 +226,9 @@ module.exports = {
     // svelte
     // require.resolve('@modyqyw/fabric/eslint/svelte'),
 
+    // functional
+    // require.resolve('@modyqyw/fabric/eslint/functional'),
+
     // miniprogram
     // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
   ],
