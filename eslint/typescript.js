@@ -8,6 +8,7 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser',
     extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts'],
+    project: './tsconfig.json',
   },
   rules: {
     'constructor-super': 'off',
