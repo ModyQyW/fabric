@@ -160,6 +160,25 @@ trim_trailing_whitespace = false
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
+  // 视情况设置 include
+  "include": [
+    "**/.*.js",
+    "**/.*.cjs",
+    "**/.*.mjs",
+    "**/.*.ts",
+    "**/.*.cts",
+    "**/.*.mts",
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.cts",
+    "**/*.mts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte"
+  ],
   // 视情况设置 exclude
   "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
@@ -206,6 +225,7 @@ module.exports = {
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // typescript
+    // 确保 tsconfig.json 里设置了 "allowJs": true
     // require.resolve('@modyqyw/fabric/eslint/typescript'),
 
     // react

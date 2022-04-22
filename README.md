@@ -160,6 +160,25 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
+  // on-demand set include
+  "include": [
+    "**/.*.js",
+    "**/.*.cjs",
+    "**/.*.mjs",
+    "**/.*.ts",
+    "**/.*.cts",
+    "**/.*.mts",
+    "**/*.js",
+    "**/*.cjs",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.cts",
+    "**/*.mts",
+    "**/*.tsx",
+    "**/*.vue",
+    "**/*.svelte"
+  ],
   // on-demand set exclude
   "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
 }
@@ -206,6 +225,7 @@ module.exports = {
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // typescript
+    // make sure you have "allowJs": true in tsconfig.json
     // require.resolve('@modyqyw/fabric/eslint/typescript'),
 
     // react
