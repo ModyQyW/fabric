@@ -322,6 +322,7 @@ pnpm install -D markdownlint-cli
 
 ```json
 {
+  "MD001": false,
   "MD003": false,
   "MD013": false,
   "MD022": false,
