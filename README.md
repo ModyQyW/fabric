@@ -328,6 +328,7 @@ Set up `.markdownlint.json`.
   "MD024": false,
   "MD025": false,
   "MD033": false,
+  "MD036": false,
   "MD050": false
 }
 ```
