@@ -20,12 +20,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'vue/multi-word-component-names': [
-      'warn',
-      {
-        ignores: ['[...all]', 'index'],
-      },
-    ],
+    'vue/multi-word-component-names': 'off',
     'vue/order-in-components': [
       'warn',
       {
