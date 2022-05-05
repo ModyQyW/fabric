@@ -8,6 +8,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    'react/display-name': 'off',
     'react/sort-comp': [
       'error',
       {
