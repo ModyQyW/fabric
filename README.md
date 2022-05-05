@@ -112,14 +112,16 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
     "types": [
       // uni-app
       "@dcloudio/types",
+      // alipay miniprogram
+      "@mini-types/alipay",
       // element-plus
       "element-plus/global",
+      // element-pro-components
+      "element-pro-components/types/components",
       // jest
       "jest",
       // jsdom
       "jsdom",
-      // alipay miniprogram
-      "mini-types",
       // wechat miniprogram
       "miniprogram-api-typings",
       // node
@@ -130,11 +132,10 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       "unplugin-icons/types/react",
       "unplugin-icons/types/vue",
       // unplugin-vue2-script-setup
-      "unplugin-vue2-script-setup/ref-macros",
       "unplugin-vue2-script-setup/types",
+      "unplugin-vue2-script-setup/ref-macros",
       // vitest
       "vitest",
-      "vitest/global",
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
@@ -142,7 +143,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       "vite-plugin-vue-layouts/client",
       // vite
       "vite/client",
-      // vue3 setup
+      // vue3 script setup
       "vue/macros-global",
       // webpack
       "webpack-env"
@@ -673,6 +674,7 @@ Sorted according to alphabetical order.
 - [basarat/typescript-book](https://github.com/basarat/typescript-book)
 - [google/styleguide](https://google.github.io/styleguide)
 - [mdo/code-guide](https://github.com/mdo/code-guide)
+- [remix-run/remix/remix-eslint-config](https://github.com/remix-run/remix/tree/main/packages/remix-eslint-config)
 - [standard/standard](https://github.com/standard/standard)
 - [vercel/style-guide](https://github.com/vercel/style-guide)
 

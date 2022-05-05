@@ -112,14 +112,16 @@ trim_trailing_whitespace = false
     "types": [
       // uni-app
       "@dcloudio/types",
+      // 支付宝小程序
+      "@mini-types/alipay",
       // element-plus
       "element-plus/global",
+      // element-pro-components
+      "element-pro-components/types/components",
       // jest
       "jest",
       // jsdom
       "jsdom",
-      // 支付宝小程序
-      "mini-types",
       // 微信小程序
       "miniprogram-api-typings",
       // node
@@ -130,11 +132,10 @@ trim_trailing_whitespace = false
       "unplugin-icons/types/react",
       "unplugin-icons/types/vue",
       // unplugin-vue2-script-setup
-      "unplugin-vue2-script-setup/ref-macros",
       "unplugin-vue2-script-setup/types",
+      "unplugin-vue2-script-setup/ref-macros",
       // vitest
       "vitest",
-      "vitest/global",
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
@@ -142,7 +143,7 @@ trim_trailing_whitespace = false
       "vite-plugin-vue-layouts/client",
       // vite
       "vite/client",
-      // vue3 setup
+      // vue3 script setup
       "vue/macros-global",
       // webpack
       "webpack-env"
@@ -221,7 +222,7 @@ pnpm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-esli
 ```js
 module.exports = {
   extends: [
-    // vanilla is always required
+    // vanilla 总是需要的
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // typescript
@@ -673,6 +674,7 @@ import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 - [basarat/typescript-book](https://github.com/basarat/typescript-book)
 - [google/styleguide](https://google.github.io/styleguide)
 - [mdo/code-guide](https://github.com/mdo/code-guide)
+- [remix-run/remix/remix-eslint-config](https://github.com/remix-run/remix/tree/main/packages/remix-eslint-config)
 - [standard/standard](https://github.com/standard/standard)
 - [vercel/style-guide](https://github.com/vercel/style-guide)
 
