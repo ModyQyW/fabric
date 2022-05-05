@@ -1,3 +1,4 @@
+/** @type {import('stylelint').Config} */
 module.exports = {
   overrides: [
     {
