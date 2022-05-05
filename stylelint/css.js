@@ -31,4 +31,20 @@ module.exports = {
     // prettier
     'prettier/prettier': true,
   },
+  ignoreFiles: [
+    'package-lock.json',
+    'yarn.lock',
+    'pnpm-lock.yaml',
+    'androidPrivacy.json',
+    'public',
+    'dist*',
+    'out',
+    '.cache',
+    '.temp',
+    '.tmp',
+    'cache',
+    'temp',
+    'tmp',
+    'node_modules',
+  ],
 };
