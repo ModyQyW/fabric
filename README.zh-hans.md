@@ -96,6 +96,10 @@ trim_trailing_whitespace = false
   "compilerOptions": {
     // 视情况设置 baseUrl
     "baseUrl": ".",
+    // 视情况设置 module，默认 ESNext
+    "module": "CommonJS",
+    // 视情况设置 preserveValueImports，默认 true
+    "preserveValueImports": false,
     // 视情况设置 lib，默认 ["ESNext"]
     "lib": ["ESNext", "DOM", "DOM.iterable"],
     // 视情况设置 target，设置 ESNext

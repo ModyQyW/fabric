@@ -96,6 +96,10 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   "compilerOptions": {
     // on-demand set baseUrl
     "baseUrl": ".",
+    // on-demand set module, default ESNext
+    "module": "CommonJS",
+    // on-demand set preserveValueImports, default true
+    "preserveValueImports": false,
     // on-demand set lib, default ["ESNext"]
     "lib": ["ESNext", "DOM", "DOM.iterable"],
     // on-demand set target, default ESNext
