@@ -157,26 +157,6 @@
     "stylelint": "^14.8.2",
     "type-fest": "^2.12.2"
   },
-  "peerDependenciesMeta": {
-    "next": {
-      "optional": true
-    },
-    "nuxt": {
-      "optional": true
-    },
-    "react": {
-      "optional": true
-    },
-    "svelte": {
-      "optional": true
-    },
-    "vue": {
-      "optional": true
-    },
-    "webpack": {
-      "optional": true
-    }
-  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
