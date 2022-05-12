@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@babel/core': ^7.17.10
   '@babel/eslint-parser': ^7.17.0
+  '@babel/traverse': 7.17.9
   '@commitlint/cli': ^16.2.4
   '@commitlint/config-conventional': ^16.2.4
   '@commitlint/prompt': ^16.2.4
@@ -76,6 +77,7 @@ specifiers:
 dependencies:
   '@babel/core': 7.17.10
   '@babel/eslint-parser': 7.17.0_annt2i75qyqp7sfsklqkwkfeaa
+  '@babel/traverse': 7.17.9
   '@commitlint/config-conventional': 16.2.4
   '@commitlint/prompt': 16.2.4
   '@commitlint/types': 16.2.1
@@ -349,6 +351,24 @@ packages:
 
   /@babel/traverse/7.17.10:
     resolution: {integrity: sha512-VmbrTHQteIdUUQNTb+zE12SHS/xQVIShmBPhlNP12hD5poF2pbITW1Z4172d03HegaQWhLffdkRJYtAzp0AGcw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/code-frame': 7.16.7
+      '@babel/generator': 7.17.10
+      '@babel/helper-environment-visitor': 7.16.7
+      '@babel/helper-function-name': 7.17.9
+      '@babel/helper-hoist-variables': 7.16.7
+      '@babel/helper-split-export-declaration': 7.16.7
+      '@babel/parser': 7.17.10
+      '@babel/types': 7.17.10
+      debug: 4.3.4
+      globals: 11.12.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  /@babel/traverse/7.17.9:
+    resolution: {integrity: sha512-PQO8sDIJ8SIwipTPiR71kJQCKQYB5NGImbOviK8K+kg5xkNSYXLBupuX9QhatFowrsvo9Hj8WgArg3W7ijNAQw==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.16.7
