@@ -355,7 +355,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@16 @commitlint/prompt@16
+pnpm install -D @commitlint/cli@16 @commitlint/config-conventional@16
 ```
 
 Set up `.commitlintrc.cjs`.
