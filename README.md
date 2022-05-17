@@ -355,7 +355,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@16 @commitlint/config-conventional@16
+pnpm install -D @commitlint/cli@17 @commitlint/config-conventional@17
 ```
 
 Set up `.commitlintrc.cjs`.
@@ -371,7 +371,7 @@ module.exports = {
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
-pnpm install -D commitizen@4 @commitlint/prompt@16
+pnpm install -D commitizen@4 @commitlint/prompt@17
 ```
 
 Set up `package.json`.

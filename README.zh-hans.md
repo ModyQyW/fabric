@@ -355,7 +355,7 @@ pnpm install -D markdownlint-cli
 看看 [Commitlint](https://commitlint.js.org/) 和 [Conventional Commits](https://www.conventionalcommits.org/)。
 
 ```sh
-pnpm install -D @commitlint/cli@16 @commitlint/config-conventional@16
+pnpm install -D @commitlint/cli@17 @commitlint/config-conventional@17
 ```
 
 设置 `.commitlintrc.cjs`。
@@ -371,7 +371,7 @@ module.exports = {
 看看 [Commitizen](https://commitizen-tools.github.io/commitizen/)。
 
 ```sh
-pnpm install -D commitizen@4 @commitlint/prompt@16
+pnpm install -D commitizen@4 @commitlint/prompt@17
 ```
 
 设置 `package.json`。
