@@ -7,13 +7,13 @@ Opinionated shareable specification for different JavaScript/TypeScript projects
 Requires:
 
 - Latest Node LTS and matching pnpm / npm / yarn
-- Set `shamefully-hoist=true` in `.npmrc` if using latest pnpm 6 / 7 instead of npm
-- Use `--legacy-peer-deps` when using npm 7 / 8 to install
-- Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` if using latest yarn 2 / 3 instead of npm
+- Set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 6 / 7
+- Set `legacy-peer-deps=true` in `.npmrc` or use `--legacy-peer-deps` when using npm 7 / 8
+- Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn 2 / 3
 - Use new JSX transform and hooks for React projects
 - Use Composition API for Vue projects
 
-Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) for mirror support.
+Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) and [npmmirror](https://npmmirror.com/) for mirror support.
 
 ## Usage
 
@@ -25,7 +25,7 @@ pnpm install -D @modyqyw/fabric@5
 pnpm install -g @modyqyw/fabric@5
 ```
 
-See more about version in [node-semver](https://github.com/npm/node-semver).
+See more about versions in [node-semver](https://github.com/npm/node-semver).
 
 ### Naming
 
@@ -51,14 +51,14 @@ Following an existing specification is a good choice.
 
 ### Git
 
-Learn about [Git](https://git-scm.com/doc), [Git flow](https://nvie.com/posts/a-successful-git-branching-model/), [Github flow](https://guides.github.com/introduction/flow/), [Gitlab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) and [Gif LFS](https://git-lfs.github.com/).
+Learn about [Git](https://git-scm.com/doc), [Git flow](https://nvie.com/posts/a-successful-git-branching-model/), [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow), [GitLab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) and [Gif LFS](https://git-lfs.github.com/).
 
 ```sh
 git config --global core.autocrlf false
 git config --global init.defaultBranch main
 ```
 
-For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [Gitlab](https://gitlab.com/) and [Gitee](https://gitee.com/).
+For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [GitLab](https://gitlab.com/) and [Gitee](https://gitee.com/).
 
 A `.gitignore` example [here](./.gitignore).
 
@@ -88,7 +88,7 @@ trim_trailing_whitespace = false
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-**You should only use this in a new project without `tsconfig.json`.** Extends, then customize.
+**You should only use this in a new project that doesn't have `tsconfig.json` and is using a bundler like Webpack, Vite, etc..**
 
 ```json
 {
@@ -572,7 +572,6 @@ Experience has proven that automation is the best option. You may want to try pa
     }
   },
   "[vue]": {
-    "editor.defaultFormatter": "octref.vetur",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
