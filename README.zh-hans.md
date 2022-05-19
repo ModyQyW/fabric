@@ -7,13 +7,13 @@
 需要：
 
 - 最新的 Node LTS 和相应的 pnpm / npm / yarn
-- 如果在使用 pnpm 6 / 7，在 `.npmrc` 里设置 `shamefully-hoist=true`
-- 如果在使用 npm 7 / 8，在安装依赖时使用 `--legacy-peer-deps`
+- 如果在使用 pnpm 6 / 7，在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
+- 如果在使用 npm 7 / 8，在 `.npmrc` 里设置 `legacy-peer-deps=true` 或使用 `--legacy-peer-deps`
 - 如果在使用 yarn 2 / 3，在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
 - 对于 React 项目，使用新的 JSX 转换和 hooks
 - 对于 Vue 项目，使用组合式 API，即 Composition API
 
-下面使用 `pnpm`。如果需要镜像支持，不妨看看 [nrm](https://github.com/Pana/nrm)。
+下面使用 `pnpm`。如果需要镜像支持，不妨看看 [nrm](https://github.com/Pana/nrm) 和 [npmmirror](https://npmmirror.com/)。
 
 ## 使用
 
@@ -25,7 +25,7 @@ pnpm install -D @modyqyw/fabric@5
 pnpm install -g @modyqyw/fabric@5
 ```
 
-[node-semver](https://github.com/npm/node-semver) 有更多版本信息供你查看。
+[node-semver](https://github.com/npm/node-semver) 有更多版本说明。
 
 ### 命名
 
@@ -35,13 +35,14 @@ pnpm install -g @modyqyw/fabric@5
 
 - 对于 JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
+  - [ModyQyW/naming-cheatsheet](https://github.com/ModyQyW/naming-cheatsheet) - 简体中文版
 - 对于 CSS / LESS / SCSS
   - [BEM](http://getbem.com/)
   - [CSS Modules](https://github.com/css-modules/css-modules)
   - [OOCSS](https://github.com/stubbornella/oocss/wiki)
   - [ACSS](https://css-tricks.com/lets-define-exactly-atomic-css/)
   - [SMACSS](http://smacss.com/)
-- 有帮助的开源项目
+- 可供参考的开源项目
   - [bootstrap](https://getbootstrap.com/)
   - [tailwindcss](https://tailwindcss.com/)
   - [mui](https://mui.com/)
@@ -51,14 +52,14 @@ pnpm install -g @modyqyw/fabric@5
 
 ### Git
 
-看看 [Git](https://git-scm.com/doc)、[Git flow](https://nvie.com/posts/a-successful-git-branching-model/)、[Github flow](https://guides.github.com/introduction/flow/)、[Gitlab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) 和 [Gif LFS](https://git-lfs.github.com/)。
+看看 [Git](https://git-scm.com/doc)、[Git flow](https://nvie.com/posts/a-successful-git-branching-model/)、[GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)、[GitLab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) 和 [Gif LFS](https://git-lfs.github.com/)。
 
 ```sh
 git config --global core.autocrlf false
 git config --global init.defaultBranch main
 ```
 
-对于 SSH 密钥，可以看看 [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)，它也适用于其它 git 系统，比如 [Gitlab](https://gitlab.com/) 和 [Gitee](https://gitee.com/)。
+对于 SSH 密钥，可以看看 [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)，它也适用于其它 git 系统，比如 [GitLab](https://gitlab.com/) 和 [Gitee](https://gitee.com/)。
 
 `.gitignore` 例子可以看 [这里](./.gitignore)。
 
@@ -88,7 +89,7 @@ trim_trailing_whitespace = false
 
 看看 [tsconfig.json](https://aka.ms/tsconfig.json)。
 
-**你只应该在一个没有 `tsconfig.json` 的新项目里使用这个。**扩展，然后自定义。
+**你只应该在一个没有 `tsconfig.json` 且使用了 Webpack、Vite 之类的打包工具的新项目里使用这个。**
 
 ```json
 {
@@ -572,7 +573,6 @@ chmod +x .husky/*
     }
   },
   "[vue]": {
-    "editor.defaultFormatter": "octref.vetur",
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
