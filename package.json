@@ -72,7 +72,7 @@
   "scripts": {
     "commit": "git-cz",
     "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && tsc --noEmit && sort-package-json",
-    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --ignore-path=.gitignore",
+    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
     "release": "release-it"
