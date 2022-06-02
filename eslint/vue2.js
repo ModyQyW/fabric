@@ -93,7 +93,7 @@ module.exports = {
   },
   settings: {
     'vue-i18n': {
-      localeDir: 'src/locales/*.{json,json5,yaml,yml}',
+      localeDir: 'src/locales/**/*.{json,jsonc,json5,yaml,yml}',
       messageSyntaxVersion: '^8.0.0',
     },
   },
