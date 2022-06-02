@@ -123,28 +123,5 @@ module.exports = {
       files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
       extends: ['plugin:jest/recommended', 'plugin:cypress/recommended'],
     },
-    {
-      files: ['*.yaml', '*.yml', '**/*.yaml', '**/*.yml'],
-      parser: 'yaml-eslint-parser',
-      extends: ['plugin:yml/standard', 'plugin:yml/prettier', 'plugin:prettier/recommended'],
-      rules: {
-        'unicorn/numeric-separators-style': 'off',
-      },
-    },
-    {
-      files: ['*.json', '*.jsonc', '*.json5', '**/*.json', '**/*.jsonc', '**/*.json5'],
-      parser: 'jsonc-eslint-parser',
-      parserOptions: {
-        jsonSyntax: 'JSONC',
-      },
-      extends: [
-        'plugin:jsonc/recommended-with-jsonc',
-        'plugin:jsonc/prettier',
-        'plugin:prettier/recommended',
-      ],
-      rules: {
-        'unicorn/numeric-separators-style': 'off',
-      },
-    },
   ],
 };
