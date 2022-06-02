@@ -250,6 +250,12 @@ module.exports = {
     // svelte
     // require.resolve('@modyqyw/fabric/eslint/svelte'),
 
+    // json, jsonc, json5
+    // require.resolve('@modyqyw/fabric/eslint/json'),
+
+    // yaml, yml
+    // require.resolve('@modyqyw/fabric/eslint/yaml'),
+
     // functional
     // require.resolve('@modyqyw/fabric/eslint/functional'),
 
