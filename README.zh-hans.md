@@ -91,6 +91,8 @@ trim_trailing_whitespace = false
 
 **你只应该在一个没有 `tsconfig.json` 且使用了 Webpack、Vite 之类的打包工具的新项目里使用这个。**
 
+[tsconfig/bases](https://github.com/tsconfig/bases) 和 [@vue/tsconfig](https://github.com/vuejs/tsconfig) 有更多的例子供查看。
+
 ```json
 {
   "extends": "@modyqyw/fabric/tsconfig.base.json",

@@ -88,7 +88,9 @@ trim_trailing_whitespace = false
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-**You should only use this in a new project that doesn't have `tsconfig.json` and is using a bundler like Webpack, Vite, etc..**
+**You should only use this in a new project that doesn't have `tsconfig.json` and is using a bundler like Webpack, Vite, etc.**
+
+See [tsconfig/bases](https://github.com/tsconfig/bases) and [@vue/tsconfig](https://github.com/vuejs/tsconfig) for more examples.
 
 ```json
 {
