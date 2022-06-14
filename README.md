@@ -670,6 +670,10 @@ import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 
 Just upgrade your node and dependencies versions.
 
+## Performance
+
+Sometimes you may find `Prettier` requires too much time. Check [this comment](https://github.com/prettier/eslint-plugin-prettier/issues/445#issuecomment-1013713942) and see if it helps.
+
 ## Examples
 
 See [dependency graph](https://github.com/ModyQyW/fabric/network/dependents?package_id=UGFja2FnZS0xNTg3ODMzNDM2).

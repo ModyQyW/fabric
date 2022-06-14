@@ -671,6 +671,10 @@ import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 
 升级 node 和依赖版本即可。
 
+## 性能
+
+有时候你会发现 `Prettier` 需要的时间比预期多得多。跟着 [这个评论](https://github.com/prettier/eslint-plugin-prettier/issues/445#issuecomment-1013713942) 做看看是否有所帮助。
+
 ## 例子
 
 看看 [dependency graph](https://github.com/ModyQyW/fabric/network/dependents?package_id=UGFja2FnZS0xNTg3ODMzNDM2)。
