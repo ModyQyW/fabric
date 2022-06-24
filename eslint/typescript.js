@@ -43,24 +43,13 @@ module.exports = {
     'import/no-named-as-default-member': 'off',
   },
   settings: {
-    'import/extensions': ['.js', '.cjs', '.mjs', '.jsx', '.ts', '.cts', '.mts', '.tsx', '.d.ts'],
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.cts', '.mts', '.ts', '.tsx', '.d.ts'],
+      '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
     },
     'import/resolver': {
       node: {
-        extensions: [
-          '.mjs',
-          '.js',
-          '.cjs',
-          '.jsx',
-          '.json',
-          '.mts',
-          '.ts',
-          '.cts',
-          '.tsx',
-          '.d.ts',
-        ],
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.d.ts'],
       },
       typescript: {},
     },

@@ -92,12 +92,12 @@ module.exports = {
   },
   settings: {
     'import/core-modules': ['electron'],
-    'import/extensions': ['.js', '.cjs', '.mjs', '.jsx'],
+    'import/extensions': ['.js', '.jsx'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types'],
     'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
     'import/resolver': {
       node: {
-        extensions: ['.mjs', '.js', '.cjs', '.json'],
+        extensions: ['.js', '.jsx', '.json'],
       },
       webpack: {},
     },
