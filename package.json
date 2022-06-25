@@ -99,7 +99,7 @@
     "eslint-config-next": "^12.1.6",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-node": "^0.3.6",
-    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-import-resolver-typescript": "^3.0.0",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-css": "^0.6.0",
     "eslint-plugin-cypress": "^2.12.1",
