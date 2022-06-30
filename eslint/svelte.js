@@ -9,6 +9,12 @@ module.exports = {
     },
   ],
   parserOptions: {
+    parser: {
+      js: '@babel/eslint-parser',
+      javascript: '@babel/eslint-parser',
+      ts: '@typescript-eslint/parser',
+      typescript: '@typescript-eslint/parser',
+    },
     extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts', '.svelte'],
   },
   extends: ['plugin:svelte/recommended', 'plugin:prettier/recommended'],
