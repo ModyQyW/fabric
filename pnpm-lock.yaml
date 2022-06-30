@@ -8,7 +8,6 @@ specifiers:
   '@commitlint/prompt': ^17.0.3
   '@commitlint/types': ^17.0.0
   '@intlify/eslint-plugin-vue-i18n': ^2.0.0
-  '@ota-meshi/eslint-plugin-svelte': ^0.34.1
   '@release-it/conventional-changelog': ^5.0.0
   '@rushstack/eslint-patch': ^1.1.4
   '@types/eslint': ^8.4.3
@@ -37,6 +36,7 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-regexp: ^1.7.0
   eslint-plugin-solid: ^0.7.0
+  eslint-plugin-svelte: ^2.0.0
   eslint-plugin-testing-library: ^5.5.1
   eslint-plugin-unicorn: ^42.0.0
   eslint-plugin-vue: ^9.1.1
@@ -81,7 +81,6 @@ dependencies:
   '@commitlint/prompt': 17.0.3
   '@commitlint/types': 17.0.0
   '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.18.0
-  '@ota-meshi/eslint-plugin-svelte': 0.34.1_eslint@8.18.0
   '@rushstack/eslint-patch': 1.1.4
   '@types/eslint': 8.4.3
   '@types/node': 18.0.0
@@ -107,6 +106,7 @@ dependencies:
   eslint-plugin-react-hooks: 4.6.0_eslint@8.18.0
   eslint-plugin-regexp: 1.7.0_eslint@8.18.0
   eslint-plugin-solid: 0.7.0_b5e7v2qnwxfo6hmiq56u52mz3e
+  eslint-plugin-svelte: 2.0.0_eslint@8.18.0
   eslint-plugin-testing-library: 5.5.1_b5e7v2qnwxfo6hmiq56u52mz3e
   eslint-plugin-unicorn: 42.0.0_eslint@8.18.0
   eslint-plugin-vue: 9.1.1_eslint@8.18.0
@@ -879,30 +879,6 @@ packages:
     dependencies:
       '@octokit/openapi-types': 11.2.0
     dev: true
-
-  /@ota-meshi/eslint-plugin-svelte/0.34.1_eslint@8.18.0:
-    resolution: {integrity: sha512-ZJd/vzcwtP3vnSzS6K7feOF0dziuT7ede6g9IVT3i/yHg9g0gsJbooDuoxA9hPrZJbp0kEt/DoNjVRLlQFsy7Q==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0-0
-      svelte: ^3.37.0
-    peerDependenciesMeta:
-      svelte:
-        optional: true
-    dependencies:
-      debug: 4.3.4
-      eslint: 8.18.0
-      eslint-utils: 3.0.0_eslint@8.18.0
-      known-css-properties: 0.25.0
-      postcss: 8.4.14
-      postcss-load-config: 3.1.4_postcss@8.4.14
-      postcss-safe-parser: 6.0.0_postcss@8.4.14
-      sourcemap-codec: 1.4.8
-      svelte-eslint-parser: 0.16.4
-    transitivePeerDependencies:
-      - supports-color
-      - ts-node
-    dev: false
 
   /@pkgr/utils/2.2.0:
     resolution: {integrity: sha512-/+EeY/T/NLCfF4rvgUetl7ERNwoPz5q/p+8CYeAIFblsKSQbVJjmMccs/Y7CsOPv47hXcBrhk5IqOf9AqRNfhg==}
@@ -3091,6 +3067,30 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
+    dev: false
+
+  /eslint-plugin-svelte/2.0.0_eslint@8.18.0:
+    resolution: {integrity: sha512-s7uyRqbRtQ+7q9anee4OmDJVXmNriPvk2iAxxFjlk5j1THq/6pVGn5SKtD7rXu989WkQ+fsymMHCZmOMpx+FpQ==}
+    engines: {node: ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0-0
+      svelte: ^3.37.0
+    peerDependenciesMeta:
+      svelte:
+        optional: true
+    dependencies:
+      debug: 4.3.4
+      eslint: 8.18.0
+      eslint-utils: 3.0.0_eslint@8.18.0
+      known-css-properties: 0.25.0
+      postcss: 8.4.14
+      postcss-load-config: 3.1.4_postcss@8.4.14
+      postcss-safe-parser: 6.0.0_postcss@8.4.14
+      sourcemap-codec: 1.4.8
+      svelte-eslint-parser: 0.16.4
+    transitivePeerDependencies:
+      - supports-color
+      - ts-node
     dev: false
 
   /eslint-plugin-testing-library/5.5.1_b5e7v2qnwxfo6hmiq56u52mz3e:
