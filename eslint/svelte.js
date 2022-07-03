@@ -15,7 +15,7 @@ module.exports = {
       ts: '@typescript-eslint/parser',
       typescript: '@typescript-eslint/parser',
     },
-    extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts', '.svelte'],
+    extraFileExtensions: ['.svelte'],
   },
   extends: ['plugin:svelte/recommended', 'plugin:prettier/recommended'],
 };

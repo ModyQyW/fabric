@@ -19,7 +19,7 @@ module.exports = {
       ts: '@typescript-eslint/parser',
       typescript: '@typescript-eslint/parser',
     },
-    extraFileExtensions: ['.cjs', '.mjs', '.cts', '.mts', '.vue'],
+    extraFileExtensions: ['.vue'],
   },
   extends: [
     'plugin:vue/vue3-recommended',
