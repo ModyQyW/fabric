@@ -17,5 +17,5 @@ module.exports = {
     },
     extraFileExtensions: ['.svelte'],
   },
-  extends: ['plugin:svelte/recommended', 'plugin:prettier/recommended'],
+  extends: ['plugin:svelte/recommended', 'plugin:svelte/prettier', 'plugin:prettier/recommended'],
 };
