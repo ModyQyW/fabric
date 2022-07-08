@@ -15,10 +15,6 @@ module.exports = {
     node: true,
     commonjs: true,
     es2022: true,
-    jest: true,
-    mocha: true,
-    shelljs: true,
-    mongo: true,
   },
   globals: {
     // https://open.dingtalk.com/
