@@ -72,10 +72,10 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
-      extends: ['plugin:testing-library/react'],
-    },
-  ],
+  // overrides: [
+  //   {
+  //     files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
+  //     extends: ['plugin:testing-library/react'],
+  //   },
+  // ],
 };

@@ -104,10 +104,10 @@ module.exports = {
     'tmp',
     'node_modules',
   ],
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
-      extends: ['plugin:jest/recommended', 'plugin:cypress/recommended'],
-    },
-  ],
+  // overrides: [
+  //   {
+  //     files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
+  //     extends: ['plugin:jest/recommended', 'plugin:cypress/recommended'],
+  //   },
+  // ],
 };

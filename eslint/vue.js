@@ -7,10 +7,10 @@ module.exports = {
       files: ['*.vue', '**/*.vue'],
       parser: 'vue-eslint-parser',
     },
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
-      extends: ['plugin:testing-library/vue'],
-    },
+    // {
+    //   files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
+    //   extends: ['plugin:testing-library/vue'],
+    // },
   ],
   parserOptions: {
     parser: {
