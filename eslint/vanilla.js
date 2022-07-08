@@ -7,7 +7,6 @@ module.exports = {
     'plugin:eslint-comments/recommended',
     'plugin:import/recommended',
     'plugin:regexp/recommended',
-    'plugin:unicorn/recommended',
     'plugin:css/recommended',
     'plugin:prettier/recommended',
   ],
@@ -76,19 +75,6 @@ module.exports = {
         ],
       },
     ],
-    'unicorn/filename-case': [
-      'error',
-      {
-        cases: {
-          camelCase: true,
-          kebabCase: true,
-          pascalCase: true,
-        },
-      },
-    ],
-    'unicorn/no-null': 'off',
-    'unicorn/prefer-module': 'off',
-    'unicorn/prevent-abbreviations': 'off',
   },
   settings: {
     'import/core-modules': ['electron'],
