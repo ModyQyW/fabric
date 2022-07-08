@@ -89,9 +89,7 @@ trim_trailing_whitespace = false
 
 看看 [tsconfig.json](https://aka.ms/tsconfig.json)。
 
-**你只应该在一个没有 `tsconfig.json` 且使用了 Webpack、Vite 之类的打包工具的新项目里使用这个。**
-
-[tsconfig/bases](https://github.com/tsconfig/bases) 和 [@vue/tsconfig](https://github.com/vuejs/tsconfig) 有更多的例子供查看。
+**你只应该在一个没有 `tsconfig.json` 且使用了 Webpack、Vite 之类的打包工具的新项目里使用这个。请优先使用项目附带的 `tsconfig.json`，或考虑使用 [tsconfig/bases](https://github.com/tsconfig/bases) 提供的配置。**
 
 ```json
 {
@@ -138,14 +136,19 @@ trim_trailing_whitespace = false
       // unplugin-icons
       "unplugin-icons/types/react",
       "unplugin-icons/types/vue",
+      "unplugin-icons/types/svelte",
+      "unplugin-icons/types/solid",
+      // unplugin-vue-router
+      "typed-router.d.ts",
       // unplugin-vue2-script-setup
       "unplugin-vue2-script-setup/types",
       "unplugin-vue2-script-setup/ref-macros",
       // vitest
-      "vitest",
+      "vitest/globals",
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
+      "vite-plugin-pages/client-solid",
       // vite-plugin-vue-layouts
       "vite-plugin-vue-layouts/client",
       // vite
@@ -156,9 +159,11 @@ trim_trailing_whitespace = false
       "webpack-env"
     ]
   },
-  // volar、@vue/runtime-dom 和 vue2
+  // volar 配置
+  // https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/schemas/vue-tsconfig.schema.json
   "vueCompilerOptions": {
-    "experimentalCompatMode": 2,
+    "target": 2, // 2, 2.7, 3
+    "experimentalRuntimeMode": "runtime-dom", // "runtime-dom", "runtime-uni-app"
     "experimentalTemplateCompilerOptions": {
       "compatConfig": { "MODE": 2 }
     }
@@ -264,6 +269,9 @@ module.exports = {
 
     // functional
     // require.resolve('@modyqyw/fabric/eslint/functional'),
+
+    // unicorn
+    // require.resolve('@modyqyw/fabric/eslint/unicorn'),
 
     // miniprogram
     // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
