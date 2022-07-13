@@ -7,7 +7,6 @@ module.exports = {
     'plugin:eslint-comments/recommended',
     'plugin:import/recommended',
     'plugin:regexp/recommended',
-    'plugin:css/recommended',
     'plugin:prettier/recommended',
   ],
   env: {
