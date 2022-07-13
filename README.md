@@ -260,6 +260,9 @@ module.exports = {
     // solid
     // require.resolve('@modyqyw/fabric/eslint/solid'),
 
+    // css
+    // require.resolve('@modyqyw/fabric/eslint/css'),
+
     // json, jsonc, json5
     // require.resolve('@modyqyw/fabric/eslint/json'),
 
