@@ -10,7 +10,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    project: './tsconfig.json',
+    // project: './tsconfig.json',
   },
   rules: {
     'constructor-super': 'off',
