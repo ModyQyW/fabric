@@ -88,6 +88,8 @@ module.exports = {
     'yarn.lock',
     'pnpm-lock.yaml',
     'androidPrivacy.json',
+    'auto-imports.d.ts',
+    'components.d.ts',
     'public',
     'dist*',
     'out',
