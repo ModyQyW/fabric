@@ -6,21 +6,21 @@ module.exports = {
     {
       files: ['*.vue', '**/*.vue'],
       parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: {
+          js: '@babel/eslint-parser',
+          jsx: '@babel/eslint-parser',
+          ts: '@typescript-eslint/parser',
+          tsx: '@typescript-eslint/parser',
+        },
+        extraFileExtensions: ['.vue'],
+      },
     },
     // {
     //   files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
     //   extends: ['plugin:testing-library/vue'],
     // },
   ],
-  parserOptions: {
-    parser: {
-      js: '@babel/eslint-parser',
-      javascript: '@babel/eslint-parser',
-      ts: '@typescript-eslint/parser',
-      typescript: '@typescript-eslint/parser',
-    },
-    extraFileExtensions: ['.vue'],
-  },
   extends: [
     'plugin:vue/recommended',
     'plugin:vue-scoped-css/recommended',
