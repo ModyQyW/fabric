@@ -404,14 +404,18 @@ Set up `package.json`.
 ```json
 {
   "scripts": {
-    "commit": "git-cz"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/prompt"
-    }
+    "commit": "cz"
   }
 }
+```
+
+Set up `.czrc`.
+
+```json
+{
+  "path": "@commitlint/prompt"
+}
+
 ```
 
 ### LintStaged

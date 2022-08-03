@@ -405,13 +405,16 @@ pnpm install -D commitizen@4 @commitlint/prompt@17
 ```json
 {
   "scripts": {
-    "commit": "git-cz"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/prompt"
-    }
+    "commit": "cz"
   }
+}
+```
+
+设置 `.czrc`。
+
+```json
+{
+  "path": "@commitlint/prompt"
 }
 ```
 
