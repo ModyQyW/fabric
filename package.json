@@ -71,9 +71,11 @@
   ],
   "scripts": {
     "commit": "cz",
-    "lint": "pnpm run lint:eslint && pnpm run lint:markdownlint && tsc --noEmit && sort-package-json",
-    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore",
+    "check:types": "tsc --noEmit",
+    "lint": "run-p lint:eslint lint:markdownlint check:types sort-package-json",
+    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte --ignore-path=.gitignore --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
+    "sort-package-json": "sort-package-json",
     "prepare": "is-ci || husky install",
     "release": "release-it"
   },
@@ -147,6 +149,7 @@
     "is-ci": "^3.0.1",
     "lint-staged": "^13.0.3",
     "markdownlint-cli": "^0.32.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
     "release-it": "^15.2.0",
     "sort-package-json": "^1.57.0",
