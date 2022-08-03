@@ -296,6 +296,58 @@ module.exports = {
 }
 ```
 
+#### jest 支持
+
+个人更推荐使用 `vitest`（无需额外配置）。
+
+```javascript
+// .eslintrc.cjs
+module.exports = {
+  env: {
+    jest: true,
+  },
+  overrides: [
+    {
+      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
+      extends: ['plugin:jest/recommended'],
+    },
+  ],
+};
+```
+
+#### testing-library 支持
+
+```javascript
+// .eslintrc.cjs
+module.exports = {
+  overrides: [
+    {
+      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
+      extends: [
+        // react
+        // 'plugin:testing-library/react',
+        // vue
+        // 'plugin:testing-library/vue',
+      ],
+    },
+  ],
+};
+```
+
+#### cypress 支持
+
+```javascript
+// .eslintrc.cjs
+module.exports = {
+  overrides: [
+    {
+      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
+      extends: ['plugin:cypress/recommended'],
+    },
+  ],
+};
+```
+
 ### Stylelint
 
 看看 [Stylelint](https://stylelint.io/)。

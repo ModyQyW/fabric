@@ -295,6 +295,58 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 }
 ```
 
+#### jest support
+
+I recommend `vitest` personally (no extra configs needed.)
+
+```javascript
+// .eslintrc.cjs
+module.exports = {
+  env: {
+    jest: true,
+  },
+  overrides: [
+    {
+      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
+      extends: ['plugin:jest/recommended'],
+    },
+  ],
+};
+```
+
+#### testing-library support
+
+```javascript
+// .eslintrc.cjs
+module.exports = {
+  overrides: [
+    {
+      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
+      extends: [
+        // react
+        // 'plugin:testing-library/react',
+        // vue
+        // 'plugin:testing-library/vue',
+      ],
+    },
+  ],
+};
+```
+
+#### cypress support
+
+```javascript
+// .eslintrc.cjs
+module.exports = {
+  overrides: [
+    {
+      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
+      extends: ['plugin:cypress/recommended'],
+    },
+  ],
+};
+```
+
 ### Stylelint
 
 Learn about [Stylelint](https://stylelint.io/).
@@ -415,7 +467,6 @@ Set up `.czrc`.
 {
   "path": "@commitlint/prompt"
 }
-
 ```
 
 ### LintStaged
