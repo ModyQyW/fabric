@@ -34,6 +34,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-react: ^7.30.1
   eslint-plugin-react-hooks: ^4.6.0
+  eslint-plugin-react-native: ^4.0.0
   eslint-plugin-regexp: ^1.8.0
   eslint-plugin-solid: ^0.7.1
   eslint-plugin-svelte: ^2.4.1
@@ -105,6 +106,7 @@ dependencies:
   eslint-plugin-prettier: 4.2.1_h62lvancfh4b7r6zn2dgodrh5e
   eslint-plugin-react: 7.30.1_eslint@8.21.0
   eslint-plugin-react-hooks: 4.6.0_eslint@8.21.0
+  eslint-plugin-react-native: 4.0.0_eslint@8.21.0
   eslint-plugin-regexp: 1.8.0_eslint@8.21.0
   eslint-plugin-solid: 0.7.1_qugx7qdu5zevzvxaiqyxfiwquq
   eslint-plugin-svelte: 2.4.1_eslint@8.21.0
@@ -2827,6 +2829,22 @@ packages:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
     dependencies:
       eslint: 8.21.0
+    dev: false
+
+  /eslint-plugin-react-native-globals/0.1.2:
+    resolution: {integrity: sha512-9aEPf1JEpiTjcFAmmyw8eiIXmcNZOqaZyHO77wgm0/dWfT/oxC1SrIq8ET38pMxHYrcB6Uew+TzUVsBeczF88g==}
+    dev: false
+
+  /eslint-plugin-react-native/4.0.0_eslint@8.21.0:
+    resolution: {integrity: sha512-kMmdxrSY7A1WgdqaGC+rY/28rh7kBGNBRsk48ovqkQmdg5j4K+DaFmegENDzMrdLkoufKGRNkKX6bgSwQTCAxQ==}
+    peerDependencies:
+      eslint: ^3.17.0 || ^4 || ^5 || ^6 || ^7 || ^8
+    dependencies:
+      '@babel/traverse': 7.18.10
+      eslint: 8.21.0
+      eslint-plugin-react-native-globals: 0.1.2
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /eslint-plugin-react/7.30.1_eslint@8.21.0:
