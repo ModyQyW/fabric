@@ -246,6 +246,9 @@ module.exports = {
     // react
     // require.resolve('@modyqyw/fabric/eslint/react'),
 
+    // react-native
+    // require.resolve('@modyqyw/fabric/eslint/react-native'),
+
     // next
     // require.resolve('@modyqyw/fabric/eslint/next'),
 
