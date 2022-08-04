@@ -5,7 +5,6 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:react-native/all',
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
