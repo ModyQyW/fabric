@@ -9,8 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@master
+      - uses: wearerequired/git-mirror-action@master
         with:
           source-repo: git@github.com:ModyQyW/fabric.git
           destination-repo: git@gitee.com:ModyQyW/fabric.git
