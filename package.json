@@ -125,7 +125,7 @@
     "postcss-html": "^1.5.0",
     "postcss-less": "^6.0.0",
     "postcss-scss": "^4.0.4",
-    "prettier-plugin-jsdoc": "^0.3.38",
+    "prettier-plugin-jsdoc": "^0.4.0",
     "prettier-plugin-packagejson": "^2.2.18",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "stylelint-config-prettier": "^9.0.3",
