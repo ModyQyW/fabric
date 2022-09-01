@@ -1,5 +1,6 @@
-/** @type {import('prettier').Config} */
-module.exports = {
+import type * as Prettier from 'prettier';
+
+export const config: Prettier.Config = {
   printWidth: 100,
   singleQuote: true,
   trailingComma: 'all',
@@ -9,3 +10,5 @@ module.exports = {
     require.resolve('prettier-plugin-tailwindcss'),
   ],
 };
+
+export default config;

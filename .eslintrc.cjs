@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['./eslint/vanilla'],
+  extends: ['./dist/eslint/vanilla', './dist/eslint/typescript'],
 };

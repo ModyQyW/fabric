@@ -1,5 +1,6 @@
-/** @type {import('stylelint').Config} */
-module.exports = {
+import type * as Stylelint from 'stylelint';
+
+export const config: Stylelint.Config = {
   overrides: [
     {
       files: ['*.vue', '**/*.vue'],
@@ -14,3 +15,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

@@ -1,5 +1,6 @@
-/** @type {import('stylelint').Config} */
-module.exports = {
+import type * as Stylelint from 'stylelint';
+
+export const config: Stylelint.Config = {
   extends: ['stylelint-config-recommended-scss', 'stylelint-config-prettier-scss'],
   rules: {
     // tailwindcss
@@ -12,3 +13,5 @@ module.exports = {
     ],
   },
 };
+
+export default config;

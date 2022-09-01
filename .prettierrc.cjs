@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('./prettier'),
+  ...require('./dist/prettier'),
 };

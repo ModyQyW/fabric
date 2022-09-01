@@ -1,7 +1,7 @@
-require('@rushstack/eslint-patch/modern-module-resolution');
+import '@rushstack/eslint-patch/modern-module-resolution';
+import type * as ESLint from 'eslint';
 
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
+export const config: ESLint.Linter.Config = {
   rules: {
     'css/no-unknown-unit': 'off',
     'jsx-a11y/alt-text': 'off',
@@ -57,3 +57,5 @@ module.exports = {
     'vuejs-accessibility/tabindex-no-positive': 'off',
   },
 };
+
+export default config;

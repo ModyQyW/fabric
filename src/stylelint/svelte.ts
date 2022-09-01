@@ -1,5 +1,6 @@
-/** @type {import('stylelint').Config} */
-module.exports = {
+import type * as Stylelint from 'stylelint';
+
+export const config: Stylelint.Config = {
   overrides: [
     {
       files: ['*.svelte', '**/*.svelte'],
@@ -7,3 +8,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

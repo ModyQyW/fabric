@@ -51,25 +51,48 @@
     "url": "https://modyqyw.github.io"
   },
   "exports": {
-    ".": "./index.js",
-    "./eslint": "./eslint/index.js",
-    "./eslint/*": "./eslint/*.js",
-    "./prettier": "./prettier/index.js",
-    "./stylelint": "./stylelint/index.js",
-    "./stylelint/*": "./stylelint/*.js",
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./eslint": {
+      "import": "./dist/eslint/index.mjs",
+      "require": "./dist/eslint/index.js",
+      "types": "./dist/eslint/index.d.ts"
+    },
+    "./eslint/*": {
+      "import": "./dist/eslint/*.mjs",
+      "require": "./dist/eslint/*.js",
+      "types": "./dist/eslint/*.d.ts"
+    },
+    "./prettier": {
+      "import": "./dist/prettier/index.mjs",
+      "require": "./dist/prettier/index.js",
+      "types": "./dist/prettier/index.d.ts"
+    },
+    "./stylelint": {
+      "import": "./dist/stylelint/index.mjs",
+      "require": "./dist/stylelint/index.js",
+      "types": "./dist/stylelint/index.d.ts"
+    },
+    "./stylelint/*": {
+      "import": "./dist/stylelint/*.mjs",
+      "require": "./dist/stylelint/*.js",
+      "types": "./dist/stylelint/*.d.ts"
+    },
     "./package.json": "./package.json",
-    "./tsconfig.base.json": "./tsconfig.base.json"
+    "./tsconfig.base.json": "./tsconfig.base.json",
+    "./*": "./*"
   },
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "files": [
-    "eslint",
-    "prettier",
-    "stylelint",
-    "index.js",
+    "dist",
     "package.json",
     "tsconfig.base.json"
   ],
   "scripts": {
+    "build": "tsup-node",
     "commit": "cz",
     "check:types": "tsc --noEmit",
     "lint": "run-p lint:eslint lint:markdownlint check:types sort-package-json",
@@ -146,6 +169,7 @@
     "@release-it/conventional-changelog": "^5.1.0",
     "commitizen": "^4.2.5",
     "eslint": "^8.22.0",
+    "eslint-define-config": "^1.7.0",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.0.3",
@@ -155,6 +179,7 @@
     "release-it": "^15.3.0",
     "sort-package-json": "^1.57.0",
     "stylelint": "^14.10.0",
+    "tsup": "^6.2.3",
     "type-fest": "^2.18.1"
   },
   "publishConfig": {

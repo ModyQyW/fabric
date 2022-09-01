@@ -1,7 +1,7 @@
-require('@rushstack/eslint-patch/modern-module-resolution');
+import '@rushstack/eslint-patch/modern-module-resolution';
+import type * as ESLint from 'eslint';
 
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
+export const config: ESLint.Linter.Config = {
   extends: [
     'plugin:functional/external-recommended',
     'plugin:functional/recommended',
@@ -9,3 +9,5 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
 };
+
+export default config;

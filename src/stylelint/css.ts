@@ -1,5 +1,6 @@
-/** @type {import('stylelint').Config} */
-module.exports = {
+import type * as Stylelint from 'stylelint';
+
+export const config: Stylelint.Config = {
   plugins: ['stylelint-prettier'],
   extends: [
     'stylelint-config-recess-order',
@@ -51,3 +52,5 @@ module.exports = {
     'node_modules',
   ],
 };
+
+export default config;
