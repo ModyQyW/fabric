@@ -9,10 +9,10 @@
 
 需要：
 
-- 最新的 Node LTS 和相应的 pnpm / npm / yarn
-- 如果在使用 pnpm 6 / 7，在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
-- 如果在使用 npm 7 / 8，在 `.npmrc` 里设置 `legacy-peer-deps=true` 或使用 `--legacy-peer-deps`
-- 如果在使用 yarn 2 / 3，在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
+- 最新的 Node LTS 和包管理器（pnpm / npm / yarn）
+- 如果在使用 pnpm 7，在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
+- 如果在使用 npm 8，在 `.npmrc` 里设置 `legacy-peer-deps=true` 或使用 `--legacy-peer-deps`
+- 如果在使用 yarn 3，在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
 - 对于 React 项目，使用新的 JSX 转换和 hooks
 - 对于 Vue 项目，使用组合式 API，即 Composition API
 
@@ -22,10 +22,10 @@
 
 ```sh
 # 本地
-pnpm install -D @modyqyw/fabric@5
+npm install -D @modyqyw/fabric@5
 
 # 全局
-pnpm install -g @modyqyw/fabric@5
+npm install --location=global @modyqyw/fabric@5
 ```
 
 [node-semver](https://github.com/npm/node-semver) 有更多版本说明。
@@ -172,7 +172,7 @@ trim_trailing_whitespace = false
     }
   },
   // ts-node
-  // pnpm install -D tsconfig-paths
+  // npm install -D tsconfig-paths
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
@@ -207,7 +207,7 @@ trim_trailing_whitespace = false
 看看 [Prettier](https://prettier.io/)。Prettier 用于处理代码样式，所以它总是需要的。
 
 ```sh
-pnpm install -D prettier@2
+npm install -D prettier@2
 ```
 
 设置 `.prettierrc.cjs`。
@@ -223,13 +223,13 @@ module.exports = {
 看看 [ESLint](https://eslint.org/)。
 
 ```sh
-pnpm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
+npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 ```
 
 如果你正在使用 TypeScript，你需要安装额外的依赖。
 
 ```sh
-pnpm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
+npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
 ```
 
 设置 `.eslintrc.cjs`。
@@ -293,15 +293,13 @@ module.exports = {
 ```json
 {
   "scripts": {
-    "lint": "pnpm run lint:eslint",
+    "lint": "npm run lint:eslint",
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --ignore-path=.gitignore"
   }
 }
 ```
 
 #### jest 支持
-
-个人更推荐使用 `vitest`（无需额外配置）。
 
 ```javascript
 // .eslintrc.cjs
@@ -317,6 +315,8 @@ module.exports = {
   ],
 };
 ```
+
+个人更倾向于使用 `vitest`。
 
 #### testing-library 支持
 
@@ -356,7 +356,7 @@ module.exports = {
 看看 [Stylelint](https://stylelint.io/)。
 
 ```sh
-pnpm install -D stylelint@14
+npm install -D stylelint@14
 ```
 
 设置 `.stylelintrc.cjs`。
@@ -390,7 +390,7 @@ module.exports = {
 ```json
 {
   "scripts": {
-    "lint": "pnpm run lint:stylelint",
+    "lint": "npm run lint:stylelint",
     "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
@@ -401,7 +401,7 @@ module.exports = {
 看看 [Markdown](https://commonmark.org/) 和 [Markdownlint](https://github.com/DavidAnson/markdownlint)。
 
 ```sh
-pnpm install -D markdownlint-cli
+npm install -D markdownlint-cli
 ```
 
 设置 `.markdownlint.json`。
@@ -425,7 +425,7 @@ pnpm install -D markdownlint-cli
 ```json
 {
   "scripts": {
-    "lint": "pnpm run lint:markdownlint",
+    "lint": "npm run lint:markdownlint",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
@@ -436,7 +436,7 @@ pnpm install -D markdownlint-cli
 看看 [Commitlint](https://commitlint.js.org/) 和 [Conventional Commits](https://www.conventionalcommits.org/)。
 
 ```sh
-pnpm install -D @commitlint/cli@17 @commitlint/config-conventional@17
+npm install -D @commitlint/cli@17 @commitlint/config-conventional@17 ts-node@10
 ```
 
 设置 `.commitlintrc.cjs`。
@@ -452,7 +452,7 @@ module.exports = {
 看看 [Commitizen](https://commitizen-tools.github.io/commitizen/)。
 
 ```sh
-pnpm install -D commitizen@4 @commitlint/prompt@17
+npm install -D commitizen@4 @commitlint/prompt@17
 ```
 
 设置 `package.json`。
@@ -478,7 +478,7 @@ pnpm install -D commitizen@4 @commitlint/prompt@17
 看看 [LintStaged](https://github.com/okonet/lint-staged)。
 
 ```sh
-pnpm install -D lint-staged@12
+npm install -D lint-staged@12
 ```
 
 设置 `.lintstagedrc.cjs`。
@@ -496,7 +496,7 @@ module.exports = {
 看看 [Husky](https://github.com/typicode/husky)。
 
 ```sh
-pnpm install -D is-ci@3 husky@7
+npm install -D is-ci@3 husky@7
 
 npx husky install
 
@@ -562,7 +562,7 @@ chmod +x .husky/*
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - 支持 svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - 支持 TailwindCSS
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置。推荐使用 [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471)。
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - 支持 uni-\*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - 支持 UnoCSS
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - 支持 TailwindCSS / WindiCSS

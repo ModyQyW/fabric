@@ -9,23 +9,23 @@ Opinionated shareable specification for different JavaScript/TypeScript projects
 
 Requires:
 
-- Latest Node LTS and matching pnpm / npm / yarn
-- Set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 6 / 7
-- Set `legacy-peer-deps=true` in `.npmrc` or use `--legacy-peer-deps` when using npm 7 / 8
-- Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn 2 / 3
+- Latest Node LTS and package manager (pnpm / npm / yarn)
+- Set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 7
+- Set `legacy-peer-deps=true` in `.npmrc` or use `--legacy-peer-deps` when using npm 8
+- Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn 3
 - Use new JSX transform and hooks for React projects
 - Use Composition API for Vue projects
 
-Using `pnpm` below. Check [nrm](https://github.com/Pana/nrm) and [npmmirror](https://npmmirror.com/) for mirror support.
+Using `npm` below. Check [nrm](https://github.com/Pana/nrm) and [npmmirror](https://npmmirror.com/) for mirror support.
 
 ## Usage
 
 ```sh
 # locally
-pnpm install -D @modyqyw/fabric@5
+npm install -D @modyqyw/fabric@5
 
 # globally
-pnpm install -g @modyqyw/fabric@5
+npm install --location=global @modyqyw/fabric@5
 ```
 
 See more about versions in [node-semver](https://github.com/npm/node-semver).
@@ -171,7 +171,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
     }
   },
   // ts-node
-  // pnpm install -D tsconfig-paths
+  // npm install -D tsconfig-paths
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   },
@@ -206,7 +206,7 @@ See [tsconfig.base.json](./tsconfig.base.json) for default configs.
 Learn about [Prettier](https://prettier.io/). Prettier is always required to handle code styles.
 
 ```sh
-pnpm install -D prettier@2
+npm install -D prettier@2
 ```
 
 Set up `.prettierrc.cjs`.
@@ -222,13 +222,13 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-pnpm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
+npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 ```
 
 Additional dependencies are needed if you are using TypeScript.
 
 ```sh
-pnpm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
+npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
 ```
 
 Set up `.eslintrc.cjs`.
@@ -292,15 +292,13 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 ```json
 {
   "scripts": {
-    "lint": "pnpm run lint:eslint",
+    "lint": "npm run lint:eslint",
     "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --ignore-path=.gitignore"
   }
 }
 ```
 
 #### jest support
-
-I recommend `vitest` personally (no extra configs needed.)
 
 ```javascript
 // .eslintrc.cjs
@@ -316,6 +314,8 @@ module.exports = {
   ],
 };
 ```
+
+I prefer `vitest` personally.
 
 #### testing-library support
 
@@ -355,7 +355,7 @@ module.exports = {
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-pnpm install -D stylelint@14
+npm install -D stylelint@14
 ```
 
 Set up `.stylelintrc.cjs`.
@@ -389,7 +389,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 ```json
 {
   "scripts": {
-    "lint": "pnpm run lint:stylelint",
+    "lint": "npm run lint:stylelint",
     "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore"
   }
 }
@@ -400,7 +400,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
-pnpm install -D markdownlint-cli
+npm install -D markdownlint-cli
 ```
 
 Set up `.markdownlint.json`.
@@ -424,7 +424,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 ```json
 {
   "scripts": {
-    "lint": "pnpm run lint:markdownlint",
+    "lint": "npm run lint:markdownlint",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
   }
 }
@@ -435,7 +435,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 Learn about [Commitlint](https://commitlint.js.org/) and [Conventional Commits](https://www.conventionalcommits.org/).
 
 ```sh
-pnpm install -D @commitlint/cli@17 @commitlint/config-conventional@17
+npm install -D @commitlint/cli@17 @commitlint/config-conventional@17 ts-node@10
 ```
 
 Set up `.commitlintrc.cjs`.
@@ -451,7 +451,7 @@ module.exports = {
 Learn about [Commitizen](https://commitizen-tools.github.io/commitizen/).
 
 ```sh
-pnpm install -D commitizen@4 @commitlint/prompt@17
+npm install -D commitizen@4 @commitlint/prompt@17
 ```
 
 Set up `package.json`.
@@ -477,7 +477,7 @@ Set up `.czrc`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-pnpm install -D lint-staged@12
+npm install -D lint-staged@12
 ```
 
 Set up `.lintstagedrc.cjs`.
@@ -495,7 +495,7 @@ module.exports = {
 Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
-pnpm install -D is-ci@3 husky@7
+npm install -D is-ci@3 husky@7
 
 npx husky install
 
@@ -561,7 +561,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2. [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471) is recommended.
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - For uni-\*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
   - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
