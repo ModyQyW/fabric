@@ -124,6 +124,9 @@ dist
 # Vuepress build output
 .vuepress/dist
 
+# Vitepress build output
+.vitepress/dist
+
 # SSR
 dist-ssr
 dist_ssr
