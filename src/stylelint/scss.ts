@@ -11,6 +11,8 @@ export const config: Stylelint.Config = {
         ignoreAtRules: ['tailwind', 'value', 'layer'],
       },
     ],
+    // scss
+    'annotation-no-unknown': [true, { ignoreAnnotations: 'default' }],
   },
 };
 
