@@ -12,7 +12,7 @@ export const config: Stylelint.Config = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['tailwind', 'value', 'layer'],
+        ignoreAtRules: ['tailwind', 'value', 'layer', 'config'],
       },
     ],
     // css modules

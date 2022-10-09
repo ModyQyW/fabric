@@ -8,7 +8,7 @@ export const config: Stylelint.Config = {
     'scss/at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['tailwind', 'value', 'layer'],
+        ignoreAtRules: ['tailwind', 'value', 'layer', 'config'],
       },
     ],
     // scss
