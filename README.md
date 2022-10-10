@@ -235,6 +235,7 @@ Set up `.eslintrc.cjs`.
 
 ```js
 module.exports = {
+  root: true,
   extends: [
     // vanilla is always required
     require.resolve('@modyqyw/fabric/eslint/vanilla'),

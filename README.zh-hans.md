@@ -236,6 +236,7 @@ npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslin
 
 ```js
 module.exports = {
+  root: true,
   extends: [
     // vanilla 总是需要的
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
