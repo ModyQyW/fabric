@@ -53,7 +53,6 @@ export const config: ESLint.Linter.Config = {
   rules: {
     'import/default': 'off',
     'import/namespace': 'off',
-    'import/no-unresolved': 'off',
     'import/order': [
       'error',
       {
@@ -80,7 +79,6 @@ export const config: ESLint.Linter.Config = {
       node: {
         extensions: ['.js', '.jsx', '.json'],
       },
-      webpack: {},
     },
   },
   ignorePatterns: [
