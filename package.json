@@ -139,7 +139,7 @@
     "eslint-plugin-unicorn": "^44.0.2",
     "eslint-plugin-vue": "^9.6.0",
     "eslint-plugin-vue-scoped-css": "^2.2.0",
-    "eslint-plugin-vuejs-accessibility": "^1.2.0",
+    "eslint-plugin-vuejs-accessibility": "^2.0.0",
     "eslint-plugin-yml": "^1.2.0",
     "jsonc-eslint-parser": "^2.1.0",
     "picocolors": "^1.0.0",
