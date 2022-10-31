@@ -53,6 +53,23 @@ export const config: ESLint.Linter.Config = {
   rules: {
     'import/default': 'off',
     'import/namespace': 'off',
+    'import/no-unresolved': [
+      'error',
+      {
+        ignore: [
+          // virtual modules
+          '^virtual\\:',
+          // vite-plugin-pages
+          '^\\~',
+          // windicss
+          '^windi\\:',
+          'windi\\.css',
+          // unocss
+          '^uno\\:',
+          'uno\\.css',
+        ],
+      },
+    ],
     'import/order': [
       'error',
       {
