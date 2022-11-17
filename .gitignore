@@ -116,6 +116,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
+.nitro
+.output
 dist
 
 # Rax.js build
@@ -123,9 +125,6 @@ dist
 
 # Vuepress build output
 .vuepress/dist
-
-# Vitepress build output
-.vitepress/dist
 
 # SSR
 dist-ssr
