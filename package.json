@@ -136,7 +136,7 @@
     "eslint-plugin-solid": "^0.7.4",
     "eslint-plugin-svelte": "^2.11.0",
     "eslint-plugin-testing-library": "^5.9.1",
-    "eslint-plugin-unicorn": "^44.0.2",
+    "eslint-plugin-unicorn": "^45.0.0",
     "eslint-plugin-vue": "^9.7.0",
     "eslint-plugin-vue-scoped-css": "^2.2.0",
     "eslint-plugin-vuejs-accessibility": "^2.0.0",
