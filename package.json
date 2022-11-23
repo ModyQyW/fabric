@@ -1,6 +1,5 @@
 {
   "name": "@modyqyw/fabric",
-  "packageManager": "pnpm@7.17.0",
   "version": "5.12.0",
   "description": "Opinionated shareable specification for different JavaScript/TypeScript projects.",
   "keywords": [
@@ -183,6 +182,7 @@
     "tsup": "^6.5.0",
     "type-fest": "^3.2.0"
   },
+  "packageManager": "pnpm@7.17.0",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
