@@ -37,6 +37,7 @@ specifiers:
   eslint-plugin-react-native: ^4.0.0
   eslint-plugin-regexp: ^1.11.0
   eslint-plugin-solid: ^0.8.0
+  eslint-plugin-sonarjs: ^0.16.0
   eslint-plugin-svelte: ^2.13.0
   eslint-plugin-testing-library: ^5.9.1
   eslint-plugin-unicorn: ^45.0.0
@@ -146,6 +147,7 @@ devDependencies:
   commitizen: 4.2.5
   eslint: 8.28.0
   eslint-define-config: 1.12.0
+  eslint-plugin-sonarjs: 0.16.0_eslint@8.28.0
   husky: 8.0.2
   is-ci: 3.0.1
   lint-staged: 13.0.3
@@ -3357,6 +3359,15 @@ packages:
       - supports-color
       - typescript
     dev: false
+
+  /eslint-plugin-sonarjs/0.16.0_eslint@8.28.0:
+    resolution: {integrity: sha512-al8ojAzcQW8Eu0tWn841ldhPpPcjrJ59TzzTfAVWR45bWvdAASCmrGl8vK0MWHyKVDdC0i17IGbtQQ1KgxLlVA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      eslint: 8.28.0
+    dev: true
 
   /eslint-plugin-svelte/2.13.0_z3mef3vkwhao5o32j32mumt5i4:
     resolution: {integrity: sha512-/lNRny2zZmvCqm5DPE7Yt7WaP6ESCcPhiUdeBA57r1SOaCgBGUk6eUX1LtnmV/L3dXMs5ammVG5iX0UpjWF0Kg==}
