@@ -283,6 +283,9 @@ module.exports = {
     // unicorn
     // require.resolve('@modyqyw/fabric/eslint/unicorn'),
 
+    // sonar
+    // require.resolve('@modyqyw/fabric/eslint/sonar'),
+
     // miniprogram
     // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
   ],
