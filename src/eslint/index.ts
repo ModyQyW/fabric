@@ -19,6 +19,7 @@ import yaml from './yaml';
 
 import functional from './functional';
 import unicorn from './unicorn';
+import sonar from './sonar';
 
 import miniprogram from './miniprogram';
 
@@ -38,6 +39,7 @@ export default {
   yaml,
   functional,
   unicorn,
+  sonar,
   miniprogram,
 };
 
@@ -56,4 +58,5 @@ export { json };
 export { yaml };
 export { functional };
 export { unicorn };
+export { sonar };
 export { miniprogram };
