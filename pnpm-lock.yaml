@@ -59,7 +59,7 @@ specifiers:
   prettier: ^2.8.0
   prettier-plugin-jsdoc: ^0.4.2
   prettier-plugin-packagejson: ^2.3.0
-  prettier-plugin-tailwindcss: ^0.1.13
+  prettier-plugin-tailwindcss: ^0.2.0
   release-it: ^15.5.0
   sort-package-json: ^2.1.0
   stylelint: ^14.15.0
@@ -126,7 +126,7 @@ dependencies:
   postcss-scss: 4.0.5_postcss@8.4.19
   prettier-plugin-jsdoc: 0.4.2_prettier@2.8.0
   prettier-plugin-packagejson: 2.3.0_prettier@2.8.0
-  prettier-plugin-tailwindcss: 0.1.13_prettier@2.8.0
+  prettier-plugin-tailwindcss: 0.2.0_prettier@2.8.0
   stylelint-config-prettier: 9.0.4_stylelint@14.15.0
   stylelint-config-prettier-scss: 0.0.1_stylelint@14.15.0
   stylelint-config-recess-order: 3.0.0_stylelint@14.15.0
@@ -6239,8 +6239,8 @@ packages:
       sort-package-json: 1.57.0
     dev: false
 
-  /prettier-plugin-tailwindcss/0.1.13_prettier@2.8.0:
-    resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
+  /prettier-plugin-tailwindcss/0.2.0_prettier@2.8.0:
+    resolution: {integrity: sha512-Ruqig/mdWCSpqdq9WK44nrmqM4BFWTzBPhPGwC5NK3coV9eZntEQPB84MGZbjAg0XQU02jVRHXNRPREBzxvM+A==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
       prettier: '>=2.2.0'
