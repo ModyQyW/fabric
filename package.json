@@ -183,7 +183,7 @@
     "tsup": "^6.5.0",
     "type-fest": "^3.5.0"
   },
-  "packageManager": "pnpm@7.18.2",
+  "packageManager": "pnpm@7.21.0",
   "engines": {
     "node": ">=12"
   },
