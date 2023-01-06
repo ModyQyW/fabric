@@ -100,12 +100,12 @@
     "release": "release-it"
   },
   "dependencies": {
-    "@babel/core": "^7.20.7",
+    "@babel/core": "^7.20.12",
     "@babel/eslint-parser": "^7.19.1",
-    "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-conventional": "^17.3.0",
-    "@commitlint/prompt": "^17.3.0",
-    "@commitlint/types": "^17.0.0",
+    "@commitlint/cli": "^17.4.0",
+    "@commitlint/config-conventional": "^17.4.0",
+    "@commitlint/prompt": "^17.4.0",
+    "@commitlint/types": "^17.4.0",
     "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/eslint": "^8.4.10",
@@ -123,7 +123,7 @@
     "eslint-plugin-functional": "^4.4.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^27.2.0",
-    "eslint-plugin-jsonc": "^2.5.0",
+    "eslint-plugin-jsonc": "^2.6.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -178,7 +178,7 @@
     "sort-package-json": "^2.1.0",
     "stylelint": "^14.16.1",
     "tsup": "^6.5.0",
-    "type-fest": "^3.5.0"
+    "type-fest": "^3.5.1"
   },
   "packageManager": "pnpm@7.21.0",
   "engines": {
