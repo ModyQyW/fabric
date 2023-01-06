@@ -486,7 +486,7 @@ Set up `.lintstagedrc.cjs`.
 module.exports = {
   '*.md': 'markdownlint --fix',
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte,yaml,yml,json,jsonc,json5}':
-    ' --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore',
+    'eslint --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore',
   '*.{css,less,scss,vue,svelte}':
     'stylelint --fix --cache --allow-empty-input --ignore-path=.gitignore',
 };
