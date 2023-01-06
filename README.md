@@ -164,11 +164,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   // volar configs
   // https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/schemas/vue-tsconfig.schema.json
   "vueCompilerOptions": {
-    "target": 2, // 2, 2.7, 3
-    "experimentalRuntimeMode": "runtime-dom", // "runtime-dom", "runtime-uni-app"
-    "experimentalTemplateCompilerOptions": {
-      "compatConfig": { "MODE": 2 }
-    }
+    ...
   },
   // ts-node
   // npm install -D tsconfig-paths
@@ -297,7 +293,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 {
   "scripts": {
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --fix --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore"
   }
 }
 ```
@@ -394,7 +390,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 {
   "scripts": {
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --cache --allow-empty-input --ignore-path=.gitignore"
   }
 }
 ```
@@ -481,7 +477,7 @@ Set up `.czrc`.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@12
+npm install -D lint-staged@13
 ```
 
 Set up `.lintstagedrc.cjs`.
@@ -489,8 +485,10 @@ Set up `.lintstagedrc.cjs`.
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte,yaml,yml,json,jsonc,json5}': 'eslint --fix',
-  '*.{css,less,scss,vue,svelte}': 'stylelint --fix',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte,yaml,yml,json,jsonc,json5}':
+    ' --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore',
+  '*.{css,less,scss,vue,svelte}':
+    'stylelint --fix --cache --allow-empty-input --ignore-path=.gitignore',
 };
 ```
 
