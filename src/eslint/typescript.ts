@@ -1,57 +1,36 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
-import type * as ESLint from 'eslint';
+import type { Linter } from 'eslint';
 
-export const config: ESLint.Linter.Config = {
+const config: Linter.Config = {
   extends: [
-    'plugin:@typescript-eslint/recommended',
     'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    parser: '@typescript-eslint/parser',
-    // project: './tsconfig.json',
-  },
-  rules: {
-    'constructor-super': 'off',
-    'getter-return': 'off',
-    'no-const-assign': 'off',
-    'no-dupe-args': 'off',
-    'no-dupe-class-members': 'off',
-    'no-dupe-keys': 'off',
-    'no-func-assign': 'off',
-    'no-import-assign': 'off',
-    'no-new-symbol': 'off',
-    'no-obj-calls': 'off',
-    'no-redeclare': 'off',
-    'no-setter-return': 'off',
-    'no-this-before-super': 'off',
-    'no-undef': 'off',
-    'no-unreachable': 'off',
-    'no-unsafe-negation': 'off',
-    'no-var': 'error',
-    'prefer-const': 'error',
-    'prefer-rest-params': 'error',
-    'prefer-spread': 'error',
-    'valid-typeof': 'off',
-    '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/no-empty-interface': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    'import/named': 'off',
-    'import/no-named-as-default-member': 'off',
-  },
   settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+    'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts'],
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts'],
+      '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
     },
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx', '.d.ts'],
+        extensions: ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts', '.json'],
       },
-      typescript: {},
+      typescript: {
+        extensions: ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts', '.json'],
+      },
     },
+  },
+  rules: {
+    // better not to use any
+    // but the truth is, you have no way to get rid of it
+    '@typescript-eslint/no-explicit-any': 'warn',
+    // TypeScript provides the same checks as part of standard type checking
+    'import/named': 'off',
+    'import/namespace': 'off',
+    'import/default': 'off',
+    'import/no-named-as-default-member': 'off',
   },
 };
 

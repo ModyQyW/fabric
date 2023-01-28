@@ -1,7 +1,7 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
-import type * as ESLint from 'eslint';
+import type { Linter } from 'eslint';
 
-export const config: ESLint.Linter.Config = {
+const config: Linter.Config = {
   extends: ['next/core-web-vitals', 'plugin:prettier/recommended'],
 };
 

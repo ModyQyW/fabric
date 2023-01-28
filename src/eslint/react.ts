@@ -1,7 +1,7 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
-import type * as ESLint from 'eslint';
+import type { Linter } from 'eslint';
 
-export const config: ESLint.Linter.Config = {
+const config: Linter.Config = {
   extends: [
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
@@ -10,7 +10,7 @@ export const config: ESLint.Linter.Config = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'react/display-name': 'off',
+    // add miniprogram support
     'react/sort-comp': [
       'error',
       {
@@ -46,7 +46,6 @@ export const config: ESLint.Linter.Config = {
             'componentWillMount',
             'UNSAFE_componentWillMount',
             'componentDidMount',
-            'componentDidShow',
             'componentWillReceiveProps',
             'UNSAFE_componentWillReceiveProps',
             'shouldComponentUpdate',
@@ -55,10 +54,26 @@ export const config: ESLint.Linter.Config = {
             'getSnapshotBeforeUpdate',
             'componentDidUpdate',
             'componentDidCatch',
-            'componentDidCatchError',
-            'componentDidNotFound',
-            'componentDidHide',
             'componentWillUnmount',
+            'onLaunch',
+            'onLoad',
+            'onUnload',
+            'onReady',
+            'componentDidShow',
+            'componentDidHide',
+            'onPullDownRefresh',
+            'onReachBottom',
+            'onPageScroll',
+            'onAddToFavorites',
+            'onShareAppMessage',
+            'onShareTimeline',
+            'onResize',
+            'onTabItemTap',
+            'onSaveExitState',
+            'onTitleClick',
+            'onOptionMenuClick',
+            'onPopMenuClick',
+            'onPullIntercept',
           ],
           rendering: ['/^render.+$/', 'render'],
         },
@@ -67,16 +82,11 @@ export const config: ESLint.Linter.Config = {
     'react-hooks/exhaustive-deps': [
       'warn',
       {
+        // recoil
         additionalHooks: '(useRecoilCallback|useRecoilTransaction|useRecoilTransaction_UNSTABLE)',
       },
     ],
   },
-  // overrides: [
-  //   {
-  //     files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
-  //     extends: ['plugin:testing-library/react'],
-  //   },
-  // ],
 };
 
 export default config;

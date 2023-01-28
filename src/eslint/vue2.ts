@@ -1,25 +1,20 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
-import type * as ESLint from 'eslint';
+import type { Linter } from 'eslint';
+import vueConfig from './vue';
 
-export const config: ESLint.Linter.Config = {
+const config: Linter.Config = {
   overrides: [
     {
-      files: ['*.vue', '**/*.vue'],
+      files: ['*.vue'],
       parser: 'vue-eslint-parser',
       parserOptions: {
         parser: {
-          js: '@babel/eslint-parser',
-          jsx: '@babel/eslint-parser',
+          js: 'espree',
           ts: '@typescript-eslint/parser',
-          tsx: '@typescript-eslint/parser',
         },
-        extraFileExtensions: ['.vue'],
+        extraFileExtensions: ['.json', '.jsonc', '.json5', '.yml', '.yaml'],
       },
     },
-    // {
-    //   files: ['**/__tests__/**/*', '**/*.{spec,test}.*'],
-    //   extends: ['plugin:testing-library/vue'],
-    // },
   ],
   extends: [
     'plugin:vue/recommended',
@@ -29,73 +24,7 @@ export const config: ESLint.Linter.Config = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'vue/multi-word-component-names': 'off',
-    'vue/order-in-components': [
-      'warn',
-      {
-        order: [
-          'el',
-          'name',
-          'key',
-          'parent',
-          'functional',
-          ['delimiters', 'comments'],
-          ['components', 'directives', 'filters'],
-          'extends',
-          'mixins',
-          ['provide', 'inject'],
-          'ROUTER_GUARDS',
-          'layout',
-          'middleware',
-          'validate',
-          'scrollToTop',
-          'transition',
-          'loading',
-          'inheritAttrs',
-          'model',
-          ['props', 'propsData'],
-          'emits',
-          'setup',
-          'asyncData',
-          'data',
-          'fetch',
-          'head',
-          'computed',
-          'watch',
-          'watchQuery',
-          'LIFECYCLE_HOOKS',
-          'onLaunch',
-          'onLoad',
-          'onShow',
-          'onReady',
-          'onHide',
-          'onUnload',
-          'onError',
-          'onUniNViewMessage',
-          'onUnhandledRejection',
-          'onPageNotFound',
-          'onThemeChange',
-          'onResize',
-          'onPullDownRefresh',
-          'onReachBottom',
-          'onTabItemTap',
-          'onShareAppMessage',
-          'onPageScroll',
-          'onNavigationBarButtonTap',
-          'onBackPress',
-          'onNavigationBarSearchInputChanged',
-          'onNavigationBarSearchInputConfirmed',
-          'onNavigationBarSearchInputClicked',
-          'onShareTimeline',
-          'onAddToFavorites',
-          'methods',
-          ['template', 'render'],
-          'renderError',
-        ],
-      },
-    ],
-    'vue-scoped-css/enforce-style-type': 'off',
-    '@intlify/vue-i18n/no-raw-text': 'off',
+    ...vueConfig.rules,
   },
   settings: {
     'vue-i18n': {

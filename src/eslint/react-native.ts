@@ -1,8 +1,12 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
-import type * as ESLint from 'eslint';
+import type { Linter } from 'eslint';
 
-export const config: ESLint.Linter.Config = {
-  extends: ['plugin:react-native/all', 'plugin:prettier/recommended'],
+const config: Linter.Config = {
+  extends: [
+    'plugin:react-native/all',
+    'plugin:react-native-a11y/all',
+    'plugin:prettier/recommended',
+  ],
 };
 
 export default config;
