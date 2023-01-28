@@ -1,4 +1,17 @@
 {
   "extends": "./tsconfig.base.json",
-  "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "exclude": [
+    ".cache",
+    ".temp",
+    ".tmp",
+    "cache",
+    "temp",
+    "tmp",
+    "dist*",
+    "node_modules",
+    "playground"
+  ]
 }
