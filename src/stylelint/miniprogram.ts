@@ -1,6 +1,6 @@
-import type * as Stylelint from 'stylelint';
+import type { Config } from 'stylelint';
 
-export const config: Stylelint.Config = {
+const config: Config = {
   rules: {
     'selector-type-no-unknown': null,
     'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],

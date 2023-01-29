@@ -1,6 +1,6 @@
-import type * as Stylelint from 'stylelint';
+import type { Config } from 'stylelint';
 
-export const config: Stylelint.Config = {
+const config: Config = {
   extends: ['stylelint-config-recommended-scss', 'stylelint-config-prettier-scss'],
   rules: {
     // tailwindcss
