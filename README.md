@@ -284,7 +284,7 @@ Set up `package.json`.
 {
   "scripts": {
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --allow-empty-input"
+    "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --allow-empty-input --ignore-path=.gitignore"
   }
 }
 ```
