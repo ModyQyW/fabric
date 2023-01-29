@@ -7,7 +7,3 @@ export default {
   prettier,
   stylelint,
 };
-
-export { eslint };
-export { prettier };
-export { stylelint };
