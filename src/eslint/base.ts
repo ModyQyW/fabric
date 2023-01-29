@@ -91,7 +91,7 @@ const config: Linter.Config = {
     'import/core-modules': ['electron'],
     'import/extensions': ['.js', '.mjs', '.jsx'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types'],
-    'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
+    'import/ignore': ['node_modules', '\\.(scss|css|hbs|svg|json)$'],
     'import/resolver': {
       node: {
         extensions: ['.js', '.mjs', '.jsx', '.json'],
