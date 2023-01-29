@@ -1,3 +1,4 @@
 module.exports = {
-  extends: ['./dist/eslint/vanilla', './dist/eslint/typescript'],
+  root: true,
+  extends: ['./dist/eslint/base', './dist/eslint/typescript'],
 };
