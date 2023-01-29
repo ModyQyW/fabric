@@ -199,6 +199,7 @@ const config: Linter.Config = {
             result: true,
           },
         },
+        ignore: ['^e[A-Z]', 'r[A-Z]'],
       },
     ],
     // too strict
