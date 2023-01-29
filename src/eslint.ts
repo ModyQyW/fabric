@@ -1,6 +1,7 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
 import type { Linter } from 'eslint';
 import {
+  hasTypescript,
   hasNuxt,
   hasVue,
   hasVue3,
@@ -20,6 +21,62 @@ if (hasReactNative) console.info('[ESLint] @modyqyw/fabric react-native config e
 if (hasNext) console.info('[ESLint] @modyqyw/fabric next config enabled.');
 if (hasMiniprogram) console.info('[ESLint] @modyqyw/fabric miniprogram config enabled.');
 
+const baseParser = 'espree';
+const baseParserOptions: Linter.ParserOptions = {
+  ecmaVersion: 'latest',
+  sourceType: 'module',
+  ecmaFeatures: { jsx: true },
+};
+const typescriptSettings = {
+  'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts'],
+  'import/parsers': {
+    '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
+  },
+  'import/resolver': {
+    node: {
+      extensions: ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts', '.json'],
+    },
+    typescript: {
+      extensions: ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts', '.json'],
+    },
+  },
+};
+const typescriptParser = '@typescript-eslint/parser';
+// common typescript rules
+const typescriptRules: Linter.RulesRecord = {
+  // https://github.com/typescript-eslint/typescript-eslint/blob/v5.49.0/packages/eslint-plugin/src/configs/eslint-recommended.ts
+  'constructor-super': 'off', // ts(2335) & ts(2377)
+  'getter-return': 'off', // ts(2378)
+  'no-const-assign': 'off', // ts(2588)
+  'no-dupe-args': 'off', // ts(2300)
+  'no-dupe-class-members': 'off', // ts(2393) & ts(2300)
+  'no-dupe-keys': 'off', // ts(1117)
+  'no-func-assign': 'off', // ts(2539)
+  'no-import-assign': 'off', // ts(2539) & ts(2540)
+  'no-new-symbol': 'off', // ts(7009)
+  'no-obj-calls': 'off', // ts(2349)
+  'no-redeclare': 'off', // ts(2451)
+  'no-setter-return': 'off', // ts(2408)
+  'no-this-before-super': 'off', // ts(2376)
+  'no-undef': 'off', // ts(2304)
+  'no-unreachable': 'off', // ts(7027)
+  'no-unsafe-negation': 'off', // ts(2365) & ts(2360) & ts(2358)
+  'no-var': 'error', // ts transpiles let/const to var, so no need for vars any more
+  'prefer-const': 'error', // ts provides better types with const
+  'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
+  'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
+  'valid-typeof': 'off', // ts(2367)
+  // allow for usage
+  '@typescript-eslint/no-empty-interface': 'off',
+  // better not to use any
+  // but the truth is, you have no way to get rid of it
+  '@typescript-eslint/no-explicit-any': 'off',
+  // TypeScript provides the same checks as part of standard type checking
+  'import/named': 'off',
+  'import/namespace': 'off',
+  'import/default': 'off',
+  'import/no-named-as-default-member': 'off',
+};
 // disable a11y for miniprogram
 const miniprogramRules: Linter.RulesRecord = {
   'jsx-a11y/accessible-emoji': 'off',
@@ -104,12 +161,8 @@ const config: Linter.Config = {
       node: { extensions: ['.js', '.mjs', '.jsx', '.json'] },
     },
   },
-  parser: 'espree',
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    ecmaFeatures: { jsx: true },
-  },
+  parser: baseParser,
+  parserOptions: { ...baseParserOptions },
   rules: {
     // should ignore virtual modules
     'import/no-unresolved': [
@@ -163,37 +216,10 @@ const config: Linter.Config = {
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',
       ],
-      settings: {
-        'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts'],
-        'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
-        },
-        'import/resolver': {
-          node: {
-            extensions: ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts', '.json'],
-          },
-          typescript: {
-            extensions: ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts', '.json'],
-          },
-        },
-      },
-      parser: '@typescript-eslint/parser',
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: { jsx: true },
-      },
-      rules: {
-        '@typescript-eslint/no-empty-interface': 'off',
-        // better not to use any
-        // but the truth is, you have no way to get rid of it
-        '@typescript-eslint/no-explicit-any': 'off',
-        // TypeScript provides the same checks as part of standard type checking
-        'import/named': 'off',
-        'import/namespace': 'off',
-        'import/default': 'off',
-        'import/no-named-as-default-member': 'off',
-      },
+      settings: { ...typescriptSettings },
+      parser: typescriptParser,
+      parserOptions: { ...baseParserOptions },
+      rules: { ...typescriptRules },
     },
     {
       files: ['scripts/**/*', 'cli.*'],
@@ -303,6 +329,8 @@ const config: Linter.Config = {
     {
       files: ['*.vue'],
       extends: [
+        hasTypescript ? 'plugin:@typescript-eslint/recommended' : '',
+        hasTypescript ? 'plugin:import/typescript' : '',
         hasVue3 ? 'plugin:vue/vue3-recommended' : 'plugin:vue/recommended',
         hasVue3 ? 'plugin:vue-scoped-css/vue3-recommended' : 'plugin:vue-scoped-css/recommended',
         'plugin:@intlify/vue-i18n/recommended',
@@ -311,6 +339,7 @@ const config: Linter.Config = {
         'plugin:prettier/recommended',
       ].filter((item) => !!item),
       settings: {
+        ...(hasTypescript ? typescriptSettings : {}),
         'vue-i18n': {
           localeDir: 'src/locales/**/*.{json,jsonc,json5,yaml,yml}',
           messageSyntaxVersion: hasVue3 ? '^9.0.0' : '^8.0.0',
@@ -318,17 +347,16 @@ const config: Linter.Config = {
       },
       parser: 'vue-eslint-parser',
       parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: { jsx: true },
+        ...baseParserOptions,
         parser: {
-          js: 'espree',
-          javascript: 'espree',
-          ts: '@typescript-eslint/parser',
-          typescript: '@typescript-eslint/parser',
+          js: baseParser,
+          javascript: baseParser,
+          ts: typescriptParser,
+          typescript: typescriptParser,
         },
       },
       rules: {
+        ...(hasTypescript ? typescriptRules : {}),
         ...(hasMiniprogram ? miniprogramRules : {}),
         'vue/multi-word-component-names': 'off',
         'vue/order-in-components': [

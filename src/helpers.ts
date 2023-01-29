@@ -1,5 +1,8 @@
 import { isPackageExists, getPackageInfoSync } from 'local-pkg';
 
+export const hasTypescript =
+  isPackageExists('typescript') || Boolean(process.env.ENABLE_TYPESCRIPT);
+
 export const hasNuxt = isPackageExists('nuxt') || Boolean(process.env.ENABLE_NUXT);
 
 export const hasVue = isPackageExists('vue') || Boolean(process.env.ENABLE_VUE) || hasNuxt;
