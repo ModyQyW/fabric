@@ -3,16 +3,23 @@
 [![npm](https://img.shields.io/npm/v/@modyqyw/fabric)](https://www.npmjs.com/package/@modyqyw/fabric)
 [![GitHub license](https://img.shields.io/github/license/ModyQyW/fabric)](https://github.com/ModyQyW/fabric/blob/main/LICENSE)
 
-English | [简体中文](./README.zh-hans.md)
+English | [简体中文](./README.zh-CN.md)
 
 Opinionated shareable specification for different JavaScript/TypeScript projects.
 
 Requires:
 
-- Latest Node LTS and package manager (pnpm / npm / yarn)
-- Set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 7
-- Set `legacy-peer-deps=true` in `.npmrc` or use `--legacy-peer-deps` when using npm 8
-- Set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn 3
+- Latest Node LTS
+- Latest package manager (npm / yarn / pnpm)
+- Recommend to set `legacy-peer-deps=true` in `.npmrc` or use `--legacy-peer-deps` when using npm 9
+  - See [npm v9 - legacy-peer-deps](https://docs.npmjs.com/cli/v9/using-npm/config#legacy-peer-deps)
+  - Use this to avoid the automatic installation of `peerDependencies` for NPM packages
+- Recommend to set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 7
+  - See [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
+  - Use this to avoid phantom dependencies caused by the lack of specification of some NPM packages (using packages that are not defined in `package.json`)
+- Recommend to set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn 3
+  - See [yarn - nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker)
+  - Use this to avoid breaking existing projects
 - Use new JSX transform and hooks for React projects
 - Use Composition API for Vue projects
 
@@ -22,23 +29,23 @@ Using `npm` below. Check [nrm](https://github.com/Pana/nrm) and [npmmirror](http
 
 ```sh
 # locally
-npm install -D @modyqyw/fabric@5
+npm install -D @modyqyw/fabric@6
 
 # globally
-npm install --location=global @modyqyw/fabric@5
+npm install --location=global @modyqyw/fabric@6
 ```
 
 See more about versions in [node-semver](https://github.com/npm/node-semver).
 
 ### Naming
 
-Naming is very hard and hardly be checked by linters. Simplicity and clarity should be the highest priority for naming.
+Naming should be simple and clear but it is hardly be checked by linters.
 
 Following an existing specification is a good choice.
 
 - For JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
-- For CSS / LESS / SCSS
+- For CSS / SCSS
   - [BEM](http://getbem.com/)
   - [CSS Modules](https://github.com/css-modules/css-modules)
   - [OOCSS](https://github.com/stubbornella/oocss/wiki)
@@ -61,7 +68,7 @@ git config --global core.autocrlf false
 git config --global init.defaultBranch main
 ```
 
-For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [GitLab](https://gitlab.com/) and [Gitee](https://gitee.com/).
+For SSH keys, check [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh), which also works for other git systems like [GitLab](https://gitlab.com/).
 
 A `.gitignore` example [here](./.gitignore).
 
@@ -104,7 +111,7 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
     // on-demand set preserveValueImports, default true
     "preserveValueImports": false,
     // on-demand set lib, default ["ESNext"]
-    "lib": ["ESNext", "DOM", "DOM.iterable"],
+    "lib": ["ESNext", "DOM"],
     // on-demand set target, default ESNext
     "target": "ESNext",
     // on-demand set jsx, default preserve
@@ -115,22 +122,24 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
     },
     // if you are facing a infer problem
     "preserveSymlinks": true,
+    // on-demand set typeRoots, default ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"]
+    "typeRoots": ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"],
     // on-demand set types, default []
     "types": [
       // uni-app
       "@dcloudio/types",
+      // uni-helper
+      "@uni-helper/uni-app-types",
+      "@uni-helper/uni-cloud-types",
+      "@uni-helper/uni-ui-types",
       // alipay miniprogram
       "@mini-types/alipay",
+      // wechat miniprogram
+      "miniprogram-api-typings",
       // element-plus
       "element-plus/global",
       // element-pro-components
       "element-pro-components/types/components",
-      // jest
-      "jest",
-      // jsdom
-      "jsdom",
-      // wechat miniprogram
-      "miniprogram-api-typings",
       // node
       "node",
       // type-fest
@@ -138,8 +147,6 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       // unplugin-icons
       "unplugin-icons/types/react",
       "unplugin-icons/types/vue",
-      "unplugin-icons/types/svelte",
-      "unplugin-icons/types/solid",
       // unplugin-vue-router
       "typed-router.d.ts",
       // unplugin-vue2-script-setup
@@ -150,21 +157,25 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
-      "vite-plugin-pages/client-solid",
       // vite-plugin-vue-layouts
       "vite-plugin-vue-layouts/client",
       // vite
       "vite/client",
       // vue3 script setup
-      "vue/macros-global",
-      // webpack
-      "webpack-env"
+      "vue/macros-global"
     ]
   },
   // volar configs
-  // https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/schemas/vue-tsconfig.schema.json
+  // https://github.com/johnsoncodehk/volar/blob/master/vue-language-tools/vue-language-core/schemas/vue-tsconfig.schema.json
   "vueCompilerOptions": {
-    ...
+    // uni-app
+    "nativeTags": ["block", "component", "template", "slot"],
+    "experimentalRuntimeMode": "runtime-uni-app",
+    // legacy support
+    "target": 2, // 2, 2.7, 3
+    "experimentalTemplateCompilerOptions": {
+      "compatConfig": { "MODE": 2 }
+    }
   },
   // ts-node
   // npm install -D tsconfig-paths
@@ -173,12 +184,6 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   },
   // on-demand set include
   "include": [
-    "**/.*.js",
-    "**/.*.cjs",
-    "**/.*.mjs",
-    "**/.*.ts",
-    "**/.*.cts",
-    "**/.*.mts",
     "**/*.js",
     "**/*.cjs",
     "**/*.mjs",
@@ -187,11 +192,20 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
     "**/*.cts",
     "**/*.mts",
     "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte"
+    "**/*.vue"
   ],
   // on-demand set exclude
-  "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
+  "exclude": [
+    ".cache",
+    ".temp",
+    ".tmp",
+    "cache",
+    "temp",
+    "tmp",
+    "dist*",
+    "node_modules",
+    "playground"
+  ]
 }
 ```
 
@@ -218,7 +232,7 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
+npm install -D eslint@8
 ```
 
 Additional dependencies are needed if you are using TypeScript.
@@ -233,7 +247,7 @@ Set up `.eslintrc.cjs`.
 module.exports = {
   root: true,
   extends: [
-    // vanilla is always required
+    // base is always required
     require.resolve('@modyqyw/fabric/eslint/vanilla'),
 
     // typescript
@@ -257,97 +271,21 @@ module.exports = {
     // nuxt
     // require.resolve('@modyqyw/fabric/eslint/nuxt'),
 
-    // svelte
-    // require.resolve('@modyqyw/fabric/eslint/svelte'),
-
-    // solid
-    // require.resolve('@modyqyw/fabric/eslint/solid'),
-
-    // css
-    // require.resolve('@modyqyw/fabric/eslint/css'),
-
-    // json, jsonc, json5
-    // require.resolve('@modyqyw/fabric/eslint/json'),
-
-    // yaml, yml
-    // require.resolve('@modyqyw/fabric/eslint/yaml'),
-
-    // functional
-    // require.resolve('@modyqyw/fabric/eslint/functional'),
-
-    // unicorn
-    // require.resolve('@modyqyw/fabric/eslint/unicorn'),
-
-    // sonar
-    // require.resolve('@modyqyw/fabric/eslint/sonar'),
-
     // miniprogram
     // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
   ],
 };
 ```
 
-Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
+Set up `package.json`.
 
 ```json
 {
   "scripts": {
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --cache --no-error-on-unmatched-pattern"
   }
 }
-```
-
-#### jest support
-
-```javascript
-// .eslintrc.cjs
-module.exports = {
-  env: {
-    jest: true,
-  },
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
-      extends: ['plugin:jest/recommended'],
-    },
-  ],
-};
-```
-
-I prefer `vitest` personally.
-
-#### testing-library support
-
-```javascript
-// .eslintrc.cjs
-module.exports = {
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
-      extends: [
-        // react
-        // 'plugin:testing-library/react',
-        // vue
-        // 'plugin:testing-library/vue',
-      ],
-    },
-  ],
-};
-```
-
-#### cypress support
-
-```javascript
-// .eslintrc.cjs
-module.exports = {
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
-      extends: ['plugin:cypress/recommended'],
-    },
-  ],
-};
 ```
 
 ### Stylelint
@@ -366,17 +304,11 @@ module.exports = {
     // css is always required
     '@modyqyw/fabric/stylelint/css',
 
-    // less
-    // '@modyqyw/fabric/stylelint/less',
-
     // scss
     // '@modyqyw/fabric/stylelint/scss',
 
     // vue
     // '@modyqyw/fabric/stylelint/vue',
-
-    // svelte
-    // '@modyqyw/fabric/stylelint/svelte',
 
     // miniprogram
     // '@modyqyw/fabric/stylelint/miniprogram',
@@ -384,13 +316,13 @@ module.exports = {
 };
 ```
 
-Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
+Set up `package.json`.
 
 ```json
 {
   "scripts": {
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --cache --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --allow-empty-input"
   }
 }
 ```
@@ -459,7 +391,7 @@ Set up `package.json`.
 ```json
 {
   "scripts": {
-    "commit": "cz"
+    "commit": "git-cz"
   }
 }
 ```
@@ -485,10 +417,9 @@ Set up `.lintstagedrc.cjs`.
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte,yaml,yml,json,jsonc,json5}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore',
-  '*.{css,less,scss,vue,svelte}':
-    'stylelint --fix --cache --allow-empty-input --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,yaml,yml,json,jsonc,json5}':
+    'eslint --fix --cache --no-error-on-unmatched-pattern',
+  '*.{css,scss,vue}': 'stylelint --fix --cache --allow-empty-input',
 };
 ```
 
@@ -497,7 +428,7 @@ module.exports = {
 Learn about [Husky](https://github.com/typicode/husky).
 
 ```sh
-npm install -D is-ci@3 husky@7
+npm install -D is-ci@3 husky@8
 
 npx husky install
 
@@ -561,12 +492,10 @@ Experience has proven that automation is the best option. You may want to try pa
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - For svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2. [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471) is recommended.
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - For uni-\*
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2. [Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode) is recommended.
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode) - For uni-\*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
-  - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - For TailwindCSS / WindiCSS
 - Set up `Settings.json`.
 
 ```json
@@ -580,7 +509,6 @@ Experience has proven that automation is the best option. You may want to try pa
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    "svelte",
     "typescript",
     "typescriptreact",
     "vue",
@@ -606,12 +534,13 @@ Experience has proven that automation is the best option. You may want to try pa
     "*.json": "jsonc",
     "*.json5": "jsonc",
     "*.nvue": "vue",
+    "*.uvue": "vue",
     "*.ux": "vue"
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue", "svelte"],
-  "stylelint.validate": ["css", "less", "scss", "vue", "svelte"],
+  "stylelint.snippet": ["css", "less", "scss", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
@@ -640,19 +569,8 @@ Experience has proven that automation is the best option. You may want to try pa
       "source.fixAll.stylelint": true
     }
   },
-  "[less]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
-    }
-  },
   "[scss]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
-    }
-  },
-  "[svelte]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
     }
   },
@@ -697,6 +615,15 @@ Experience has proven that automation is the best option. You may want to try pa
 ```
 
 ## Migrate
+
+### Migrate 6.x from 5.x
+
+- Upgrade your node version to latest LTS.
+- Upgrade your package manager version to latest.
+- Remove eslint `vanilla`, `svelte`, `solid`, `css`, `json`, `yaml`, `functional`, `unicorn` and `sonar` configs and add `base` config, which includes `vanilla`, `json`, `yaml`, `unicorn` and `sonar` configs. So `svelte`, `solid` and `css` configs are removed actually because we are not using them.
+- Remove stylelint `less`, `svelte` config because we are not using them.
+- Remove named exports. You should import the file directly as shown in README.
+- Switch bundler to `rollup`.
 
 ### Migrate 5.x from 4.x
 

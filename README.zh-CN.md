@@ -7,39 +7,46 @@
 
 开箱即用的共享规范，适用于不同的 JavaScript / TypeScript 项目。
 
-需要：
+要求：
 
-- 最新的 Node LTS 和包管理器（pnpm / npm / yarn）
-- 如果在使用 pnpm 7，在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
-- 如果在使用 npm 8，在 `.npmrc` 里设置 `legacy-peer-deps=true` 或使用 `--legacy-peer-deps`
-- 如果在使用 yarn 3，在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
+- 最新的 Node LTS
+- 最新的依赖管理工具（npm / yarn / pnpm）
+- 如果在使用 npm 9，建议在 `.npmrc` 里设置 `legacy-peer-deps=true` 或使用 `--legacy-peer-deps`
+  - 详见 [npm v9 - legacy-peer-deps](https://docs.npmjs.com/cli/v9/using-npm/config#legacy-peer-deps)
+  - 使用该选项能有效避免自动安装 NPM 包的 `peerDependencies`
+- 如果在使用 pnpm 7，建议在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
+  - 详见 [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
+  - 使用该选项能有效避免部分 NPM 包不够规范而导致的幽灵依赖问题（使用了一些没有定义在 `package.json` 中的包）
+- 如果在使用 yarn 3，建议在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
+  - 详见 [yarn - nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker)
+  - 使用该选项能有效避免破坏现有项目
 - 对于 React 项目，使用新的 JSX 转换和 hooks
 - 对于 Vue 项目，使用组合式 API，即 Composition API
 
-下面使用 `pnpm`。如果需要镜像支持，不妨看看 [nrm](https://github.com/Pana/nrm) 和 [npmmirror](https://npmmirror.com/)。
+下面使用 `npm`。如果需要镜像支持，不妨看看 [nrm](https://github.com/Pana/nrm) 和 [npmmirror](https://npmmirror.com/)。
 
 ## 使用
 
 ```sh
 # 本地
-npm install -D @modyqyw/fabric@5
+npm install -D @modyqyw/fabric@6
 
 # 全局
-npm install --location=global @modyqyw/fabric@5
+npm install --location=global @modyqyw/fabric@6
 ```
 
 [node-semver](https://github.com/npm/node-semver) 有更多版本说明。
 
 ### 命名
 
-命名非常困难，而且很难被 linter 检查。命名应该要简洁明了。
+命名应该要简洁明了，但它很难被 linter 检查。
 
 跟随已有的规范是一个好选择。
 
 - 对于 JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
   - [ModyQyW/naming-cheatsheet](https://github.com/ModyQyW/naming-cheatsheet) - 简体中文版
-- 对于 CSS / LESS / SCSS
+- 对于 CSS / SCSS
   - [BEM](http://getbem.com/)
   - [CSS Modules](https://github.com/css-modules/css-modules)
   - [OOCSS](https://github.com/stubbornella/oocss/wiki)
@@ -62,7 +69,7 @@ git config --global core.autocrlf false
 git config --global init.defaultBranch main
 ```
 
-对于 SSH 密钥，可以看看 [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)，它也适用于其它 git 系统，比如 [GitLab](https://gitlab.com/) 和 [Gitee](https://gitee.com/)。
+对于 SSH 密钥，可以看看 [Connecting to GitHub with SSH](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)，它也适用于其它 git 系统，比如 [GitLab](https://gitlab.com/)。
 
 `.gitignore` 例子可以看 [这里](./.gitignore)。
 
@@ -105,8 +112,8 @@ trim_trailing_whitespace = false
     // 视情况设置 preserveValueImports，默认 true
     "preserveValueImports": false,
     // 视情况设置 lib，默认 ["ESNext"]
-    "lib": ["ESNext", "DOM", "DOM.iterable"],
-    // 视情况设置 target，设置 ESNext
+    "lib": ["ESNext", "DOM"],
+    // 视情况设置 target，默认 ESNext
     "target": "ESNext",
     // 视情况设置 jsx，默认 preserve
     "jsx": "react-jsx",
@@ -116,22 +123,24 @@ trim_trailing_whitespace = false
     },
     // 如果出现了推断问题
     "preserveSymlinks": true,
+    // 视情况设置 typeRoots，默认 ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"]
+    "typeRoots": ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"],
     // 视情况设置 types，默认 []
     "types": [
       // uni-app
       "@dcloudio/types",
+      // uni-helper
+      "@uni-helper/uni-app-types",
+      "@uni-helper/uni-cloud-types",
+      "@uni-helper/uni-ui-types",
       // 支付宝小程序
       "@mini-types/alipay",
+      // 微信小程序
+      "miniprogram-api-typings",
       // element-plus
       "element-plus/global",
       // element-pro-components
       "element-pro-components/types/components",
-      // jest
-      "jest",
-      // jsdom
-      "jsdom",
-      // 微信小程序
-      "miniprogram-api-typings",
       // node
       "node",
       // type-fest
@@ -139,33 +148,33 @@ trim_trailing_whitespace = false
       // unplugin-icons
       "unplugin-icons/types/react",
       "unplugin-icons/types/vue",
-      "unplugin-icons/types/svelte",
-      "unplugin-icons/types/solid",
       // unplugin-vue-router
       "typed-router.d.ts",
       // unplugin-vue2-script-setup
       "unplugin-vue2-script-setup/types",
       "unplugin-vue2-script-setup/ref-macros",
-      // vitest
-      "vitest/globals",
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
-      "vite-plugin-pages/client-solid",
       // vite-plugin-vue-layouts
       "vite-plugin-vue-layouts/client",
       // vite
       "vite/client",
       // vue3 script setup
-      "vue/macros-global",
-      // webpack
-      "webpack-env"
+      "vue/macros-global"
     ]
   },
   // volar 配置
-  // https://github.com/johnsoncodehk/volar/blob/master/extensions/vscode-vue-language-features/schemas/vue-tsconfig.schema.json
+  // https://github.com/johnsoncodehk/volar/blob/master/vue-language-tools/vue-language-core/schemas/vue-tsconfig.schema.json
   "vueCompilerOptions": {
-    ...
+    // uni-app
+    "nativeTags": ["block", "component", "template", "slot"],
+    "experimentalRuntimeMode": "runtime-uni-app",
+    // legacy support
+    "target": 2, // 2, 2.7, 3
+    "experimentalTemplateCompilerOptions": {
+      "compatConfig": { "MODE": 2 }
+    }
   },
   // ts-node
   // npm install -D tsconfig-paths
@@ -174,12 +183,6 @@ trim_trailing_whitespace = false
   },
   // 视情况设置 include
   "include": [
-    "**/.*.js",
-    "**/.*.cjs",
-    "**/.*.mjs",
-    "**/.*.ts",
-    "**/.*.cts",
-    "**/.*.mts",
     "**/*.js",
     "**/*.cjs",
     "**/*.mjs",
@@ -188,11 +191,20 @@ trim_trailing_whitespace = false
     "**/*.cts",
     "**/*.mts",
     "**/*.tsx",
-    "**/*.vue",
-    "**/*.svelte"
+    "**/*.vue"
   ],
   // 视情况设置 exclude
-  "exclude": [".cache", ".temp", ".tmp", "cache", "temp", "tmp", "dist*", "node_modules"]
+  "exclude": [
+    ".cache",
+    ".temp",
+    ".tmp",
+    "cache",
+    "temp",
+    "tmp",
+    "dist*",
+    "node_modules",
+    "playground"
+  ]
 }
 ```
 
@@ -219,7 +231,7 @@ module.exports = {
 看看 [ESLint](https://eslint.org/)。
 
 ```sh
-npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
+npm install -D eslint@8
 ```
 
 如果你正在使用 TypeScript，你需要安装额外的依赖。
@@ -234,8 +246,8 @@ npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslin
 module.exports = {
   root: true,
   extends: [
-    // vanilla 总是需要的
-    require.resolve('@modyqyw/fabric/eslint/vanilla'),
+    // base 总是需要的
+    require.resolve('@modyqyw/fabric/eslint/base'),
 
     // typescript
     // require.resolve('@modyqyw/fabric/eslint/typescript'),
@@ -258,97 +270,21 @@ module.exports = {
     // nuxt
     // require.resolve('@modyqyw/fabric/eslint/nuxt'),
 
-    // svelte
-    // require.resolve('@modyqyw/fabric/eslint/svelte'),
-
-    // solid
-    // require.resolve('@modyqyw/fabric/eslint/solid'),
-
-    // css
-    // require.resolve('@modyqyw/fabric/eslint/css'),
-
-    // json, jsonc, json5
-    // require.resolve('@modyqyw/fabric/eslint/json'),
-
-    // yaml, yml
-    // require.resolve('@modyqyw/fabric/eslint/yaml'),
-
-    // functional
-    // require.resolve('@modyqyw/fabric/eslint/functional'),
-
-    // unicorn
-    // require.resolve('@modyqyw/fabric/eslint/unicorn'),
-
-    // sonar
-    // require.resolve('@modyqyw/fabric/eslint/sonar'),
-
     // miniprogram
     // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
   ],
 };
 ```
 
-设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
+设置 `package.json`。
 
 ```json
 {
   "scripts": {
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --ext=.js,.cjs,.mjs,.jsx,.ts,.cts,.mts,.tsx,.vue,.svelte,.yaml,.yml,.json,.jsonc,.json5 --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore"
+    "lint:eslint": "eslint . --fix --cache --no-error-on-unmatched-pattern"
   }
 }
-```
-
-#### jest 支持
-
-```javascript
-// .eslintrc.cjs
-module.exports = {
-  env: {
-    jest: true,
-  },
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
-      extends: ['plugin:jest/recommended'],
-    },
-  ],
-};
-```
-
-个人更倾向于使用 `vitest`。
-
-#### testing-library 支持
-
-```javascript
-// .eslintrc.cjs
-module.exports = {
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
-      extends: [
-        // react
-        // 'plugin:testing-library/react',
-        // vue
-        // 'plugin:testing-library/vue',
-      ],
-    },
-  ],
-};
-```
-
-#### cypress 支持
-
-```javascript
-// .eslintrc.cjs
-module.exports = {
-  overrides: [
-    {
-      files: ['**/__tests__/**/*', '**/*.{spec.test}.*'],
-      extends: ['plugin:cypress/recommended'],
-    },
-  ],
-};
 ```
 
 ### Stylelint
@@ -367,17 +303,11 @@ module.exports = {
     // css 总是需要的
     '@modyqyw/fabric/stylelint/css',
 
-    // less
-    // '@modyqyw/fabric/stylelint/less',
-
     // scss
     // '@modyqyw/fabric/stylelint/scss',
 
     // vue
     // '@modyqyw/fabric/stylelint/vue',
-
-    // svelte
-    // '@modyqyw/fabric/stylelint/svelte',
 
     // 小程序
     // '@modyqyw/fabric/stylelint/miniprogram',
@@ -385,13 +315,13 @@ module.exports = {
 };
 ```
 
-设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
+设置 `package.json`。
 
 ```json
 {
   "scripts": {
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint \"./**/*.{css,less,scss,vue,svelte}\" --fix --cache --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --allow-empty-input"
   }
 }
 ```
@@ -460,7 +390,7 @@ npm install -D commitizen@4 @commitlint/prompt@17
 ```json
 {
   "scripts": {
-    "commit": "cz"
+    "commit": "git-cz"
   }
 }
 ```
@@ -486,10 +416,9 @@ npm install -D lint-staged@13
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,svelte,yaml,yml,json,jsonc,json5}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern --ignore-path=.gitignore',
-  '*.{css,less,scss,vue,svelte}':
-    'stylelint --fix --cache --allow-empty-input --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,yaml,yml,json,jsonc,json5}':
+    'eslint --fix --cache --no-error-on-unmatched-pattern',
+  '*.{css,scss,vue}': 'stylelint --fix --cache --allow-empty-input',
 };
 ```
 
@@ -498,7 +427,7 @@ module.exports = {
 看看 [Husky](https://github.com/typicode/husky)。
 
 ```sh
-npm install -D is-ci@3 husky@7
+npm install -D is-ci@3 husky@8
 
 npx husky install
 
@@ -562,12 +491,10 @@ chmod +x .husky/*
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) - 支持 svelte
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - 支持 TailwindCSS
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置。推荐使用 [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471)。
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=ModyQyW.vscode-uni-helper) - 支持 uni-\*
+  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置。推荐使用 [Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。
+  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode) - 支持 uni-\*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - 支持 UnoCSS
-  - [WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - 支持 TailwindCSS / WindiCSS
 - 设置 `Settings.json`。
 
 ```json
@@ -581,7 +508,6 @@ chmod +x .husky/*
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    "svelte",
     "typescript",
     "typescriptreact",
     "vue",
@@ -607,12 +533,13 @@ chmod +x .husky/*
     "*.json": "jsonc",
     "*.json5": "jsonc",
     "*.nvue": "vue",
+    "*.uvue": "vue",
     "*.ux": "vue"
   },
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue", "svelte"],
-  "stylelint.validate": ["css", "less", "scss", "vue", "svelte"],
+  "stylelint.snippet": ["css", "less", "scss", "vue"],
+  "stylelint.validate": ["css", "less", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
@@ -641,19 +568,8 @@ chmod +x .husky/*
       "source.fixAll.stylelint": true
     }
   },
-  "[less]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
-    }
-  },
   "[scss]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": true
-    }
-  },
-  "[svelte]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true,
       "source.fixAll.stylelint": true
     }
   },
@@ -698,6 +614,14 @@ chmod +x .husky/*
 ```
 
 ## 迁移
+
+### 从 5.x 迁移到 6.x
+
+- 升级 node 版本到最新的 LTS。
+- 移除 eslint `vanilla`、`svelte`、`solid`、`css`、`json`、`yaml`、`functional`、`unicorn`、`sonar` 配置，新增 `base` 配置。`base` 配置包含了 `vanilla`、`json`、`yaml`、`unicorn` 和 `sonar` 配置。所以实际上 `svelte`、`solid` 和 `css` 被移除了，因为我们不再使用它们。
+- 移除 stylelint `less` 和 `svelte` 配置，因为我们不再使用它们。
+- 移除具名导出。你应该直接导入对应的文件，请参考 README。
+- 构建工具切换成 `rollup`。
 
 ### 从 4.x 迁移到 5.x
 
