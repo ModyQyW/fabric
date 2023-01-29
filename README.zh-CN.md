@@ -245,34 +245,7 @@ npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslin
 ```js
 module.exports = {
   root: true,
-  extends: [
-    // base 总是需要的
-    require.resolve('@modyqyw/fabric/eslint/base'),
-
-    // typescript
-    // require.resolve('@modyqyw/fabric/eslint/typescript'),
-
-    // react
-    // require.resolve('@modyqyw/fabric/eslint/react'),
-
-    // react-native
-    // require.resolve('@modyqyw/fabric/eslint/react-native'),
-
-    // next
-    // require.resolve('@modyqyw/fabric/eslint/next'),
-
-    // vue3
-    // require.resolve('@modyqyw/fabric/eslint/vue'),
-
-    // vue2
-    // require.resolve('@modyqyw/fabric/eslint/vue2'),
-
-    // nuxt
-    // require.resolve('@modyqyw/fabric/eslint/nuxt'),
-
-    // miniprogram
-    // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
-  ],
+  extends: [require.resolve('@modyqyw/fabric/eslint')],
 };
 ```
 
@@ -299,19 +272,7 @@ npm install -D stylelint@14
 
 ```js
 module.exports = {
-  extends: [
-    // css 总是需要的
-    '@modyqyw/fabric/stylelint/css',
-
-    // scss
-    // '@modyqyw/fabric/stylelint/scss',
-
-    // vue
-    // '@modyqyw/fabric/stylelint/vue',
-
-    // 小程序
-    // '@modyqyw/fabric/stylelint/miniprogram',
-  ],
+  extends: ['@modyqyw/fabric/stylelint'],
 };
 ```
 
@@ -490,6 +451,7 @@ chmod +x .husky/*
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
+  - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - 支持 TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置。推荐使用 [Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。

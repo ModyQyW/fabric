@@ -246,34 +246,7 @@ Set up `.eslintrc.cjs`.
 ```js
 module.exports = {
   root: true,
-  extends: [
-    // base is always required
-    require.resolve('@modyqyw/fabric/eslint/vanilla'),
-
-    // typescript
-    // require.resolve('@modyqyw/fabric/eslint/typescript'),
-
-    // react
-    // require.resolve('@modyqyw/fabric/eslint/react'),
-
-    // react-native
-    // require.resolve('@modyqyw/fabric/eslint/react-native'),
-
-    // next
-    // require.resolve('@modyqyw/fabric/eslint/next'),
-
-    // vue3
-    // require.resolve('@modyqyw/fabric/eslint/vue'),
-
-    // vue2
-    // require.resolve('@modyqyw/fabric/eslint/vue2'),
-
-    // nuxt
-    // require.resolve('@modyqyw/fabric/eslint/nuxt'),
-
-    // miniprogram
-    // require.resolve('@modyqyw/fabric/eslint/miniprogram'),
-  ],
+  extends: [require.resolve('@modyqyw/fabric/eslint')],
 };
 ```
 
@@ -300,19 +273,7 @@ Set up `.stylelintrc.cjs`.
 
 ```js
 module.exports = {
-  extends: [
-    // css is always required
-    '@modyqyw/fabric/stylelint/css',
-
-    // scss
-    // '@modyqyw/fabric/stylelint/scss',
-
-    // vue
-    // '@modyqyw/fabric/stylelint/vue',
-
-    // miniprogram
-    // '@modyqyw/fabric/stylelint/miniprogram',
-  ],
+  extends: ['@modyqyw/fabric/stylelint'],
 };
 ```
 
@@ -491,6 +452,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Sass](https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented)
+  - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2. [Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode) is recommended.
@@ -537,10 +499,9 @@ Experience has proven that automation is the best option. You may want to try pa
     "*.uvue": "vue",
     "*.ux": "vue"
   },
-  "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue"],
-  "stylelint.validate": ["css", "less", "scss", "vue"],
+  "stylelint.snippet": ["css", "scss", "vue"],
+  "stylelint.validate": ["css", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
@@ -620,8 +581,8 @@ Experience has proven that automation is the best option. You may want to try pa
 
 - Upgrade your node version to latest LTS.
 - Upgrade your package manager version to latest.
-- Remove eslint `vanilla`, `svelte`, `solid`, `css`, `json`, `yaml`, `functional`, `unicorn` and `sonar` configs and add `base` config, which includes `vanilla`, `json`, `yaml`, `unicorn` and `sonar` configs. So `svelte`, `solid` and `css` configs are removed actually because we are not using them.
-- Remove stylelint `less`, `svelte` config because we are not using them.
+- Merge all eslint configs into one.
+- Merge all stylelint configs into one.
 - Remove named exports. You should import the file directly as shown in README.
 - Switch bundler to `rollup`.
 
