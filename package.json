@@ -54,29 +54,19 @@
       "require": "./dist/index.js"
     },
     "./eslint": {
-      "types": "./dist/eslint/index.d.ts",
-      "import": "./dist/eslint/index.mjs",
-      "require": "./dist/eslint/index.js"
-    },
-    "./eslint/*": {
-      "types": "./dist/eslint/*.d.ts",
-      "import": "./dist/eslint/*.mjs",
-      "require": "./dist/eslint/*.js"
+      "types": "./dist/eslint.d.ts",
+      "import": "./dist/eslint.mjs",
+      "require": "./dist/eslint.js"
     },
     "./prettier": {
-      "types": "./dist/prettier/index.d.ts",
-      "import": "./dist/prettier/index.mjs",
-      "require": "./dist/prettier/index.js"
+      "types": "./dist/prettier.d.ts",
+      "import": "./dist/prettier.mjs",
+      "require": "./dist/prettier.js"
     },
     "./stylelint": {
-      "types": "./dist/stylelint/index.d.ts",
-      "import": "./dist/stylelint/index.mjs",
-      "require": "./dist/stylelint/index.js"
-    },
-    "./stylelint/*": {
-      "types": "./dist/stylelint/*.d.ts",
-      "import": "./dist/stylelint/*.mjs",
-      "require": "./dist/stylelint/*.js"
+      "types": "./dist/stylelint.d.ts",
+      "import": "./dist/stylelint.mjs",
+      "require": "./dist/stylelint.js"
     },
     "./package.json": "./package.json",
     "./tsconfig.base.json": "./tsconfig.base.json"
