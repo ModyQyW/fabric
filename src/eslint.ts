@@ -129,6 +129,7 @@ const config: Linter.Config = {
     'unicorn/prevent-abbreviations': [
       'error',
       {
+        extendDefaultReplacements: false,
         replacements: {
           e: {
             err: true,
