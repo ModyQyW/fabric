@@ -184,9 +184,10 @@ const config: Linter.Config = {
         ecmaFeatures: { jsx: true },
       },
       rules: {
+        '@typescript-eslint/no-empty-interface': 'off',
         // better not to use any
         // but the truth is, you have no way to get rid of it
-        '@typescript-eslint/no-explicit-any': 'warn',
+        '@typescript-eslint/no-explicit-any': 'off',
         // TypeScript provides the same checks as part of standard type checking
         'import/named': 'off',
         'import/namespace': 'off',
