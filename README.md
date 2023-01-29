@@ -196,15 +196,16 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
   ],
   // on-demand set exclude
   "exclude": [
-    ".cache",
-    ".temp",
-    ".tmp",
-    "cache",
-    "temp",
-    "tmp",
-    "dist*",
-    "node_modules",
-    "playground"
+    "**/.cache",
+    "**/.temp",
+    "**/.tmp",
+    "**/cache",
+    "**/temp",
+    "**/tmp",
+    "**/dist*",
+    "**/node_modules",
+    "**/playground",
+    "**/examples"
   ]
 }
 ```

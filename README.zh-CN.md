@@ -195,15 +195,16 @@ trim_trailing_whitespace = false
   ],
   // 视情况设置 exclude
   "exclude": [
-    ".cache",
-    ".temp",
-    ".tmp",
-    "cache",
-    "temp",
-    "tmp",
-    "dist*",
-    "node_modules",
-    "playground"
+    "**/.cache",
+    "**/.temp",
+    "**/.tmp",
+    "**/cache",
+    "**/temp",
+    "**/tmp",
+    "**/dist*",
+    "**/node_modules",
+    "**/playground",
+    "**/examples"
   ]
 }
 ```
