@@ -33,6 +33,7 @@ export const hasMiniprogram =
 export const hasScss = isPackageExists('sass') || Boolean(process.env.ENABLE_SCSS);
 
 export const miniprogramElements = [
+  'page',
   'cover-image',
   'cover-view',
   'grid-view',
