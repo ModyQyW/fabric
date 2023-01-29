@@ -1,6 +1,25 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
 import type { Linter } from 'eslint';
-import { hasNuxt, hasVue3, hasNext, hasReactNative, hasReact, hasMiniprogram } from './helpers';
+import {
+  hasNuxt,
+  hasVue,
+  hasVue3,
+  hasNext,
+  hasReactNative,
+  hasReact,
+  hasMiniprogram,
+} from './helpers';
+
+if (hasVue) {
+  console.info('[ESLint] @modyqyw/fabric vue config enabled.');
+  if (hasVue3) console.info('[ESLint] @modyqyw/fabric vue3 config enabled.');
+  else console.info('[ESLint] @modyqyw/fabric vue2 config enabled.');
+}
+if (hasNuxt) console.info('[ESLint] @modyqyw/fabric nuxt config enabled.');
+if (hasReact) console.info('[ESLint] @modyqyw/fabric react config enabled.');
+if (hasReactNative) console.info('[ESLint] @modyqyw/fabric react-native config enabled.');
+if (hasNext) console.info('[ESLint] @modyqyw/fabric next config enabled.');
+if (hasMiniprogram) console.info('[ESLint] @modyqyw/fabric miniprogram config enabled.');
 
 // disable a11y for miniprogram
 const miniprogramRules: Linter.RulesRecord = {

@@ -1,6 +1,9 @@
 import type { Config } from 'stylelint';
 import { hasMiniprogram, hasScss, miniprogramElements } from './helpers';
 
+if (hasScss) console.info('[Stylelint] @modyqyw/fabric scss config enabled.');
+if (hasMiniprogram) console.info('[Stylelint] @modyqyw/fabric miniprogram config enabled.');
+
 const config: Config = {
   plugins: ['stylelint-prettier'],
   extends: [
