@@ -11,7 +11,6 @@ import {
 } from './helpers';
 
 if (hasVue) {
-  console.info('[ESLint] @modyqyw/fabric vue config enabled.');
   if (hasVue3) console.info('[ESLint] @modyqyw/fabric vue3 config enabled.');
   else console.info('[ESLint] @modyqyw/fabric vue2 config enabled.');
 }
@@ -323,7 +322,9 @@ const config: Linter.Config = {
         ecmaFeatures: { jsx: true },
         parser: {
           js: 'espree',
+          javascript: 'espree',
           ts: '@typescript-eslint/parser',
+          typescript: '@typescript-eslint/parser',
         },
       },
       rules: {
