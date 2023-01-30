@@ -246,7 +246,6 @@ Set up `.eslintrc.cjs`.
 
 ```js
 module.exports = {
-  root: true,
   extends: [require.resolve('@modyqyw/fabric/eslint')],
 };
 ```
@@ -379,8 +378,7 @@ Set up `.lintstagedrc.cjs`.
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,yaml,yml,json,jsonc,json5}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
   '*.{css,scss,vue}': 'stylelint --fix --cache --allow-empty-input',
 };
 ```
@@ -576,25 +574,29 @@ Experience has proven that automation is the best option. You may want to try pa
 }
 ```
 
-## Migrate
+## Migration
 
-### Migrate 6.x from 5.x
+### Migrate to 6.x from 5.x
 
-- Upgrade your node version to latest LTS.
-- Upgrade your package manager version to latest.
-- Merge all eslint configs into one.
-- Merge all stylelint configs into one.
+- Upgrade your Node version to latest LTS.
+- Upgrade your package manager version to latest stable.
+- Upgrade your ESLint version to latest 8.
+- Upgrade your Stylelint version to latest 14.
+- Upgrade your Prettier version to latest 2.
+- Upgrade your Postcss version to latest 8.
+- Now only one ESLint config is provided, which automatically detects the package and enables the corresponding config. ESLint calls should also be adjusted appropriately. Please check [ESLint](#eslint) and [LintStaged](#lintstaged).
+- Now only one Stylelint config is provided, which automatically detects the package and enables the corresponding config. Stylelint calls should also be adjusted appropriately. Please check [Stylelint](#stylelint) and [LintStaged](#lintstaged).
 - Remove named exports. You should import the file directly as shown in README.
 - Switch bundler to `rollup`.
 
-### Migrate 5.x from 4.x
+### Migrate to 5.x from 4.x
 
-- Upgrade your node version to latest LTS.
-- Upgrade your pnpm / npm / yarn version to match your node version.
-- Upgrade your eslint version to latest 8.
-- Upgrade your stylelint version to latest 14.
-- Upgrade your prettier version to latest 2.
-- Upgrade your postcss version to latest 8.
+- Upgrade your Node version to latest LTS.
+- Upgrade your pnpm / npm / yarn version to match your Node version.
+- Upgrade your ESLint version to latest 8.
+- Upgrade your Stylelint version to latest 14.
+- Upgrade your Prettier version to latest 2.
+- Upgrade your Postcss version to latest 8.
 - Prettier is always required.
 - CLI is removed. It is not needed in most cases, and not a necessity in other cases. You can always follow README to config your project, or just use your own config.
 - Commitlint config is removed. Use `@commitlint/config-conventional` directly.
@@ -602,21 +604,21 @@ Experience has proven that automation is the best option. You may want to try pa
 - Update your React projects with new JSX transform and hooks.
 - Update your Vue projects with Composition API.
 
-### Migrate 4.x from 3.x
+### Migrate to 4.x from 3.x
 
-- Upgrade your node version to latest 12, 14 or 16.
+- Upgrade your Node version to latest 12, 14 or 16.
 - Upgrade your npm version to latest 6, 7 or 8.
-- Upgrade your eslint version to latest 7 or 8.
-- Upgrade your stylelint version to latest 14.
-- Upgrade your prettier version to latest 2.
-- Upgrade your postcss version to latest 8.
-- Split prettier.
+- Upgrade your ESLint version to latest 7 or 8.
+- Upgrade your Stylelint version to latest 14.
+- Upgrade your Prettier version to latest 2.
+- Upgrade your Postcss version to latest 8.
+- Split Prettier.
 - Add `tsconfig.json` support.
 - Update CLI to match above changes. Use `mo-fabric` instead of `modyqyw-fabric`.
 
-### Migrate 3.x from 2.x
+### Migrate to 3.x from 2.x
 
-- Upgrade your node version to ^12.22.6, ^14.17.6 or ^16.8.0.
+- Upgrade your Node version to ^12.22.6, ^14.17.6 or ^16.8.0.
 - Upgrade your npm version to ^6.14.15 or ^7.21.0.
 - Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
@@ -632,9 +634,9 @@ import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 - Use `eslint.vanilla` instead of `eslint.native`.
 - Use `stylelint.scss` instead of `stylelint.sass`.
 
-### Migrate 2.x from 1.x
+### Migrate to 2.x from 1.x
 
-Just upgrade your node and dependencies versions.
+Just upgrade your Node and dependencies versions.
 
 ## Performance
 

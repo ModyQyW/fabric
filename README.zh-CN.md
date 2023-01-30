@@ -245,7 +245,6 @@ npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslin
 
 ```js
 module.exports = {
-  root: true,
   extends: [require.resolve('@modyqyw/fabric/eslint')],
 };
 ```
@@ -378,8 +377,7 @@ npm install -D lint-staged@13
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,yaml,yml,json,jsonc,json5}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
   '*.{css,scss,vue}': 'stylelint --fix --cache --allow-empty-input',
 };
 ```
@@ -580,20 +578,25 @@ chmod +x .husky/*
 
 ### 从 5.x 迁移到 6.x
 
-- 升级 node 版本到最新的 LTS。
-- 移除 eslint `vanilla`、`svelte`、`solid`、`css`、`json`、`yaml`、`functional`、`unicorn`、`sonar` 配置，新增 `base` 配置。`base` 配置包含了 `vanilla`、`json`、`yaml`、`unicorn` 和 `sonar` 配置。所以实际上 `svelte`、`solid` 和 `css` 被移除了，因为我们不再使用它们。
-- 移除 stylelint `less` 和 `svelte` 配置，因为我们不再使用它们。
+- 升级 Node 版本到最新 LTS。
+- 升级包管理工具版本到最新稳定版。
+- 升级 ESLint 版本到最新的 8。
+- 升级 Stylelint 版本到最新的 14。
+- 升级 Prettier 版本到最新的 2。
+- 升级 Postcss 版本到最新的 8。
+- 现在只提供一个 ESLint 配置，该配置会自动探测包并启用对应配置。ESLint 调用也应该适当调整，参见 [ESLint](#eslint) 和 [LintStaged](#lintstaged) 两个部分。
+- 现在只提供一个 Stylelint 配置，该配置会自动探测包并启用对应配置。Stylelint 调用也应该适当调整，参见 [Stylelint](#stylelint) 和 [LintStaged](#lintstaged) 两个部分。
 - 移除具名导出。你应该直接导入对应的文件，请参考 README。
 - 构建工具切换成 `rollup`。
 
 ### 从 4.x 迁移到 5.x
 
-- 升级 node 版本到最新的 LTS。
-- 升级 pnpm / npm / yarn 版本以匹配 node 版本。
-- 升级 eslint 版本到最新的 8。
-- 升级 stylelint 版本到最新的 14。
-- 升级 prettier 版本到最新的 2。
-- 升级 postcss 版本到最新的 8。
+- 升级 Node 版本到最新的 LTS。
+- 升级 pnpm / npm / yarn 版本以匹配 Node 版本。
+- 升级 ESLint 版本到最新的 8。
+- 升级 Stylelint 版本到最新的 14。
+- 升级 Prettier 版本到最新的 2。
+- 升级 Postcss 版本到最新的 8。
 - Prettier 总是需要的。
 - 移除 CLI。在大部分情况下不需要使用它，在小部分情况下它不是个必需项。你总是可以跟随 README 来配置你的项目，或者直接使用你原本的配置。
 - 移除 commitlint 配置。直接使用 `@commitlint/config-conventional` 即可。
@@ -603,19 +606,19 @@ chmod +x .husky/*
 
 ### 从 3.x 迁移到 4.x
 
-- 升级 node 版本到最新的 12、14 或 16。
+- 升级 Node 版本到最新的 12、14 或 16。
 - 升级 npm 版本到 6、7 或 8。
-- 升级 eslint 版本到最新的 7 或 8。
-- 升级 stylelint 版本到最新的 14。
-- 升级 prettier 版本到最新的 2。
-- 升级 postcss 版本到最新的 8。
+- 升级 ESLint 版本到最新的 7 或 8。
+- 升级 Stylelint 版本到最新的 14。
+- 升级 Prettier 版本到最新的 2。
+- 升级 Postcss 版本到最新的 8。
 - 分离 Prettier。
 - 增加 `tsconfig.json` 支持。
 - 升级 CLI 以匹配以上改动。现在 CLI 使用 `mo-fabric` 而不是 `modyqyw-fabric`。
 
 ### 从 2.x 迁移到 3.x
 
-- 升级 node 版本到 ^12.22.6, ^14.17.6 或 ^16.8.0。
+- 升级 Node 版本到 ^12.22.6, ^14.17.6 或 ^16.8.0。
 - 升级 npm 版本到 ^6.14.15 或 ^7.21.0。
 - 支持 CommonJS require 和 ESM import。
 - 改变 Prettier/ESLint/Stylelint/Commitlint 配置。
@@ -633,7 +636,7 @@ import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
 
 ### 从 1.x 迁移到 2.x
 
-升级 node 和依赖版本即可。
+升级 Node 和依赖版本即可。
 
 ## 性能
 
