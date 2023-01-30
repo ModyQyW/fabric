@@ -585,6 +585,7 @@ Experience has proven that automation is the best option. You may want to try pa
 - Upgrade your Prettier version to latest 2.
 - Upgrade your Postcss version to latest 8.
 - Now only one ESLint config is provided, which automatically detects the package and enables the corresponding config. ESLint calls should also be adjusted appropriately. Please check [ESLint](#eslint) and [LintStaged](#lintstaged).
+- Remove Babel need.
 - Remove Svelte and Solid supports.
 - Now only one Stylelint config is provided, which automatically detects the package and enables the corresponding config. Stylelint calls should also be adjusted appropriately. Please check [Stylelint](#stylelint) and [LintStaged](#lintstaged).
 - Remove Svelte and LESS supports.

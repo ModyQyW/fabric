@@ -585,6 +585,7 @@ chmod +x .husky/*
 - 升级 Prettier 版本到最新的 2。
 - 升级 Postcss 版本到最新的 8。
 - 现在只提供一个 ESLint 配置，该配置会自动探测包并启用对应配置。ESLint 调用也应该适当调整，参见 [ESLint](#eslint) 和 [LintStaged](#lintstaged) 两个部分。
+- 移除 Babel 需求。
 - 移除 Svelte 和 Solid 支持。
 - 现在只提供一个 Stylelint 配置，该配置会自动探测包并启用对应配置。Stylelint 调用也应该适当调整，参见 [Stylelint](#stylelint) 和 [LintStaged](#lintstaged) 两个部分。
 - 移除 Svelte 和 LESS 支持。
