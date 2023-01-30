@@ -1,31 +1,36 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
 import type { Linter } from 'eslint';
 import {
-  hasTypescript,
-  hasNuxt,
-  hasVue,
-  hasVue3,
-  hasNext,
-  hasReactNative,
-  hasReact,
-  hasMiniprogram,
+  enableTypescript,
+  enableNuxt,
+  enableVue,
+  enableVue3,
+  enableVueI18n,
+  enableNext,
+  enableReactNative,
+  enableReact,
+  enableMiniprogram,
 } from './helpers';
 
-if (hasVue) {
-  if (hasVue3) console.info('[ESLint] @modyqyw/fabric vue3 config enabled.');
-  else console.info('[ESLint] @modyqyw/fabric vue2 config enabled.');
+console.info('[ESLint] [@modyqyw/fabric] JavaScript config enabled.');
+if (enableTypescript) console.info('[ESLint] [@modyqyw/fabric] TypeScript config enabled.');
+console.info('[ESLint] [@modyqyw/fabric] JSON config enabled.');
+console.info('[ESLint] [@modyqyw/fabric] YAML config enabled.');
+if (enableVue) {
+  if (enableVue3) console.info('[ESLint] [@modyqyw/fabric] Vue3 config enabled.');
+  else console.info('[ESLint] [@modyqyw/fabric] Vue2 config enabled.');
 }
-if (hasNuxt) console.info('[ESLint] @modyqyw/fabric nuxt config enabled.');
-if (hasReact) console.info('[ESLint] @modyqyw/fabric react config enabled.');
-if (hasReactNative) console.info('[ESLint] @modyqyw/fabric react-native config enabled.');
-if (hasNext) console.info('[ESLint] @modyqyw/fabric next config enabled.');
-if (hasMiniprogram) console.info('[ESLint] @modyqyw/fabric miniprogram config enabled.');
+if (enableNuxt) console.info('[ESLint] [@modyqyw/fabric] Nuxt config enabled.');
+if (enableReact) console.info('[ESLint] [@modyqyw/fabric] React config enabled.');
+if (enableReactNative) console.info('[ESLint] [@modyqyw/fabric] ReactNative config enabled.');
+if (enableNext) console.info('[ESLint] [@modyqyw/fabric] Next config enabled.');
+if (enableMiniprogram) console.info('[ESLint] [@modyqyw/fabric] miniprogram config enabled.');
 
 const baseParser = 'espree';
 const baseParserOptions: Linter.ParserOptions = {
   ecmaVersion: 'latest',
   sourceType: 'module',
-  ecmaFeatures: { jsx: true },
+  ecmaFeatures: { globalReturn: false, jsx: true },
 };
 const typescriptSettings = {
   'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts'],
@@ -42,7 +47,6 @@ const typescriptSettings = {
   },
 };
 const typescriptParser = '@typescript-eslint/parser';
-// common typescript rules
 const typescriptRules: Linter.RulesRecord = {
   // https://github.com/typescript-eslint/typescript-eslint/blob/v5.49.0/packages/eslint-plugin/src/configs/eslint-recommended.ts
   'constructor-super': 'off', // ts(2335) & ts(2377)
@@ -76,69 +80,6 @@ const typescriptRules: Linter.RulesRecord = {
   'import/namespace': 'off',
   'import/default': 'off',
   'import/no-named-as-default-member': 'off',
-};
-// disable a11y for miniprogram
-const miniprogramRules: Linter.RulesRecord = {
-  'jsx-a11y/accessible-emoji': 'off',
-  'jsx-a11y/alt-text': 'off',
-  'jsx-a11y/anchor-ambiguous-text': 'off',
-  'jsx-a11y/anchor-has-content': 'off',
-  'jsx-a11y/anchor-is-valid': 'off',
-  'jsx-a11y/aria-activedescendant-has-tabindex': 'off',
-  'jsx-a11y/aria-props': 'off',
-  'jsx-a11y/aria-proptypes': 'off',
-  'jsx-a11y/aria-role': 'off',
-  'jsx-a11y/aria-unsupported-elements': 'off',
-  'jsx-a11y/autocomplete-valid': 'off',
-  'jsx-a11y/click-events-have-key-events': 'off',
-  'jsx-a11y/control-has-associated-label': 'off',
-  'jsx-a11y/heading-has-content': 'off',
-  'jsx-a11y/html-has-lang': 'off',
-  'jsx-a11y/iframe-has-title': 'off',
-  'jsx-a11y/img-redundant-alt': 'off',
-  'jsx-a11y/interactive-supports-focus': 'off',
-  'jsx-a11y/label-has-associated-control': 'off',
-  'jsx-a11y/label-has-for': 'off',
-  'jsx-a11y/lang': 'off',
-  'jsx-a11y/media-has-caption': 'off',
-  'jsx-a11y/mouse-events-have-key-events': 'off',
-  'jsx-a11y/no-access-key': 'off',
-  'jsx-a11y/no-aria-hidden-on-focusable': 'off',
-  'jsx-a11y/no-autofocus': 'off',
-  'jsx-a11y/no-distracting-elements': 'off',
-  'jsx-a11y/no-interactive-element-to-noninteractive-role': 'off',
-  'jsx-a11y/no-noninteractive-element-interactions': 'off',
-  'jsx-a11y/no-noninteractive-element-to-interactive-role': 'off',
-  'jsx-a11y/no-noninteractive-tabindex': 'off',
-  'jsx-a11y/no-onchange': 'off',
-  'jsx-a11y/no-redundant-roles': 'off',
-  'jsx-a11y/no-static-element-interactions': 'off',
-  'jsx-a11y/prefer-tag-over-role': 'off',
-  'jsx-a11y/role-has-required-aria-props': 'off',
-  'jsx-a11y/role-supports-aria-props': 'off',
-  'jsx-a11y/scope': 'off',
-  'jsx-a11y/tabindex-no-positive': 'off',
-  'vuejs-accessibility/alt-text': 'off',
-  'vuejs-accessibility/anchor-has-content': 'off',
-  'vuejs-accessibility/aria-props': 'off',
-  'vuejs-accessibility/aria-role': 'off',
-  'vuejs-accessibility/aria-unsupported-elements': 'off',
-  'vuejs-accessibility/click-events-have-key-events': 'off',
-  'vuejs-accessibility/form-control-has-label': 'off',
-  'vuejs-accessibility/heading-has-content': 'off',
-  'vuejs-accessibility/iframe-has-title': 'off',
-  'vuejs-accessibility/interactive-supports-focus': 'off',
-  'vuejs-accessibility/label-has-for': 'off',
-  'vuejs-accessibility/media-has-caption': 'off',
-  'vuejs-accessibility/mouse-events-have-key-events': 'off',
-  'vuejs-accessibility/no-access-key': 'off',
-  'vuejs-accessibility/no-autofocus': 'off',
-  'vuejs-accessibility/no-distracting-elements': 'off',
-  'vuejs-accessibility/no-onchange': 'off',
-  'vuejs-accessibility/no-redundant-roles': 'off',
-  'vuejs-accessibility/no-static-element-interactions': 'off',
-  'vuejs-accessibility/role-has-required-aria-props': 'off',
-  'vuejs-accessibility/tabindex-no-positive': 'off',
 };
 
 const config: Linter.Config = {
@@ -199,10 +140,10 @@ const config: Linter.Config = {
             result: true,
           },
         },
-        ignore: ['^e[A-Z]', 'r[A-Z]'],
+        ignore: ['^e[A-Z]', '^e-'],
       },
     ],
-    // too strict
+    // too ideal
     'sonarjs/no-duplicate-string': 'off',
   },
   overrides: [
@@ -233,18 +174,17 @@ const config: Linter.Config = {
     {
       files: ['*.jsx', '*.tsx'],
       extends: [
-        hasReact ? 'plugin:react/recommended' : '',
-        hasReact ? 'plugin:react/jsx-runtime' : '',
-        hasReact ? 'plugin:react-hooks/recommended' : '',
-        hasReact ? 'plugin:jsx-a11y/recommended' : '',
-        hasReactNative ? 'plugin:react-native/all' : '',
-        hasReactNative ? 'plugin:react-native-a11y/all' : '',
-        hasNext ? 'next/core-web-vitals' : '',
+        enableReact ? 'plugin:react/recommended' : '',
+        enableReact ? 'plugin:react/jsx-runtime' : '',
+        enableReact ? 'plugin:react-hooks/recommended' : '',
+        enableReact && !enableMiniprogram ? 'plugin:jsx-a11y/recommended' : '',
+        enableReactNative ? 'plugin:react-native/all' : '',
+        enableReactNative ? 'plugin:react-native-a11y/all' : '',
+        enableNext ? 'next/core-web-vitals' : '',
         'plugin:prettier/recommended',
       ].filter((item) => !!item),
       rules: {
-        ...(hasMiniprogram ? { ...miniprogramRules } : {}),
-        ...(hasReact
+        ...(enableReact
           ? {
               'react/sort-comp': [
                 'error',
@@ -330,35 +270,39 @@ const config: Linter.Config = {
     {
       files: ['*.vue'],
       extends: [
-        hasTypescript ? 'plugin:@typescript-eslint/recommended' : '',
-        hasTypescript ? 'plugin:import/typescript' : '',
-        hasVue3 ? 'plugin:vue/vue3-recommended' : 'plugin:vue/recommended',
-        hasVue3 ? 'plugin:vue-scoped-css/vue3-recommended' : 'plugin:vue-scoped-css/recommended',
-        'plugin:@intlify/vue-i18n/recommended',
-        'plugin:vuejs-accessibility/recommended',
-        hasNuxt ? 'plugin:nuxt/recommended' : '',
+        enableTypescript ? 'plugin:@typescript-eslint/recommended' : '',
+        enableTypescript ? 'plugin:import/typescript' : '',
+        enableVue3 ? 'plugin:vue/vue3-recommended' : 'plugin:vue/recommended',
+        enableVue3 ? 'plugin:vue-scoped-css/vue3-recommended' : 'plugin:vue-scoped-css/recommended',
+        enableVueI18n ? 'plugin:@intlify/vue-i18n/recommended' : '',
+        enableMiniprogram ? '' : 'plugin:vuejs-accessibility/recommended',
+        enableNuxt ? 'plugin:nuxt/recommended' : '',
         'plugin:prettier/recommended',
       ].filter((item) => !!item),
       settings: {
-        ...(hasTypescript ? typescriptSettings : {}),
-        'vue-i18n': {
-          localeDir: 'src/locales/**/*.{json,jsonc,json5,yaml,yml}',
-          messageSyntaxVersion: hasVue3 ? '^9.0.0' : '^8.0.0',
-        },
+        ...(enableTypescript ? typescriptSettings : {}),
+        ...(enableVueI18n
+          ? {
+              'vue-i18n': {
+                localeDir: 'src/locales/**/*.{json,jsonc,json5,yaml,yml}',
+                messageSyntaxVersion: enableVue3 ? '^9.0.0' : '^8.0.0',
+              },
+            }
+          : {}),
       },
       parser: 'vue-eslint-parser',
       parserOptions: {
         ...baseParserOptions,
         parser: {
           js: baseParser,
-          javascript: baseParser,
+          jsx: baseParser,
           ts: typescriptParser,
-          typescript: typescriptParser,
+          tsx: typescriptParser,
         },
       },
       rules: {
-        ...(hasTypescript ? typescriptRules : {}),
-        ...(hasMiniprogram ? miniprogramRules : {}),
+        ...(enableTypescript ? typescriptRules : {}),
+        // too ideal
         'vue/multi-word-component-names': 'off',
         'vue/order-in-components': [
           'warn',
@@ -426,7 +370,9 @@ const config: Linter.Config = {
             ],
           },
         ],
+        // too ideal
         'vue-scoped-css/enforce-style-type': 'off',
+        // for uni-app
         '@intlify/vue-i18n/no-raw-text': 'off',
       },
     },
@@ -518,6 +464,7 @@ const config: Linter.Config = {
     node: true,
   },
   reportUnusedDisableDirectives: true,
+  root: true,
 };
 
 export default config;

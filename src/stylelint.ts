@@ -1,8 +1,78 @@
 import type { Config } from 'stylelint';
-import { hasMiniprogram, hasScss, miniprogramElements } from './helpers';
+import { enableMiniprogram, enableScss } from './helpers';
 
-if (hasScss) console.info('[Stylelint] @modyqyw/fabric scss config enabled.');
-if (hasMiniprogram) console.info('[Stylelint] @modyqyw/fabric miniprogram config enabled.');
+console.info('[Stylelint] [@modyqyw/fabric] CSS config enabled.');
+if (enableScss) console.info('[Stylelint] [@modyqyw/fabric] SCSS config enabled.');
+if (enableMiniprogram) console.info('[Stylelint] [@modyqyw/fabric] miniprogram config enabled.');
+
+const miniprogramElements = [
+  'page',
+  'cover-image',
+  'cover-view',
+  'grid-view',
+  'list-view',
+  'match-media',
+  'movable-area',
+  'movable-view',
+  'page-container',
+  'root-portal',
+  'scroll-view',
+  'share-element',
+  'sticky-header',
+  'sticky-section',
+  'swiper',
+  'swiper-item',
+  'view',
+  'icon',
+  'progress',
+  'rich-text',
+  'text',
+  'button',
+  'checkbox',
+  'checkbox-group',
+  'editor',
+  'form',
+  'input',
+  'keyboard-accessory',
+  'label',
+  'picker',
+  'picker-view',
+  'picker-view-column',
+  'radio',
+  'radio-group',
+  'slider',
+  'switch',
+  'textarea',
+  'functional-page-navigator',
+  'navigator',
+  'audio',
+  'camera',
+  'channel-live',
+  'channel-video',
+  'image',
+  'live-player',
+  'live-pusher',
+  'video',
+  'voip-room',
+  'map',
+  'canvas',
+  'web-view',
+  'ad',
+  'ad-rewarded-video',
+  'ad-fullscreen-video',
+  'ad-interstitial',
+  'ad-draw',
+  'ad-content-page',
+  'ad-interactive',
+  'ad-custom',
+  'official-account',
+  'open-data',
+  'native-component',
+  'aria-component',
+  'navigation-bar',
+  'page-meta',
+  'unicloud-db',
+];
 
 const config: Config = {
   plugins: ['stylelint-prettier'],
@@ -10,8 +80,8 @@ const config: Config = {
     'stylelint-config-recess-order',
     'stylelint-config-recommended',
     'stylelint-config-prettier',
-    hasScss ? 'stylelint-config-recommended-scss' : '',
-    hasScss ? 'stylelint-config-prettier-scss' : '',
+    enableScss ? 'stylelint-config-recommended-scss' : '',
+    enableScss ? 'stylelint-config-prettier-scss' : '',
   ].filter((item) => !!item),
   rules: {
     // https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown/
@@ -46,7 +116,7 @@ const config: Config = {
       { ignorePseudoElements: ['v-global', 'v-deep', 'v-slotted'] },
     ],
     // https://stylelint.io/user-guide/rules/selector-type-no-unknown/
-    ...(hasMiniprogram
+    ...(enableMiniprogram
       ? {
           'selector-type-no-unknown': [
             true,
@@ -72,7 +142,7 @@ const config: Config = {
       },
     ],
     // https://stylelint.io/user-guide/rules/function-no-unknown/
-    ...(hasScss
+    ...(enableScss
       ? {
           'function-no-unknown': null,
           'scss/function-no-unknown': [
@@ -100,7 +170,7 @@ const config: Config = {
           ],
         }),
     // https://stylelint.io/user-guide/rules/at-rule-no-unknown/
-    ...(hasScss
+    ...(enableScss
       ? {
           'at-rule-no-unknown': null,
           'scss/at-rule-no-unknown': [
@@ -127,7 +197,7 @@ const config: Config = {
           ],
         }),
     // https://stylelint.io/user-guide/rules/unit-no-unknown/
-    ...(hasMiniprogram ? { 'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }] } : {}),
+    ...(enableMiniprogram ? { 'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }] } : {}),
     'prettier/prettier': true,
   },
   overrides: [
