@@ -172,7 +172,9 @@
     "@types/prettier": "^2.0.0",
     "eslint": "^8.0.0",
     "prettier": "^2.0.0",
-    "stylelint": "^14.16.1"
+    "react": "^18.0.0",
+    "stylelint": "^14.16.1",
+    "vue": "^3.2.0 || ^2.7.0 || ^2.6.0"
   },
   "peerDependenciesMeta": {
     "@types/eslint": {
@@ -187,7 +189,13 @@
     "prettier": {
       "optional": true
     },
+    "react": {
+      "optional": true
+    },
     "stylelint": {
+      "optional": true
+    },
+    "vue": {
       "optional": true
     }
   },
