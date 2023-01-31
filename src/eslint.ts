@@ -3,7 +3,7 @@ import type { Linter } from 'eslint';
 import {
   enableTypescript,
   enableNuxt,
-  enableVue,
+  // enableVue,
   enableVue3,
   enableVueI18n,
   enableNext,
@@ -12,19 +12,19 @@ import {
   enableMiniprogram,
 } from './helpers';
 
-console.info('[ESLint] [@modyqyw/fabric] JavaScript config enabled.');
-if (enableTypescript) console.info('[ESLint] [@modyqyw/fabric] TypeScript config enabled.');
-console.info('[ESLint] [@modyqyw/fabric] JSON config enabled.');
-console.info('[ESLint] [@modyqyw/fabric] YAML config enabled.');
-if (enableVue) {
-  if (enableVue3) console.info('[ESLint] [@modyqyw/fabric] Vue3 config enabled.');
-  else console.info('[ESLint] [@modyqyw/fabric] Vue2 config enabled.');
-}
-if (enableNuxt) console.info('[ESLint] [@modyqyw/fabric] Nuxt config enabled.');
-if (enableReact) console.info('[ESLint] [@modyqyw/fabric] React config enabled.');
-if (enableReactNative) console.info('[ESLint] [@modyqyw/fabric] ReactNative config enabled.');
-if (enableNext) console.info('[ESLint] [@modyqyw/fabric] Next config enabled.');
-if (enableMiniprogram) console.info('[ESLint] [@modyqyw/fabric] miniprogram config enabled.');
+// console.info('[ESLint] [@modyqyw/fabric] JavaScript config enabled.');
+// if (enableTypescript) console.info('[ESLint] [@modyqyw/fabric] TypeScript config enabled.');
+// console.info('[ESLint] [@modyqyw/fabric] JSON config enabled.');
+// console.info('[ESLint] [@modyqyw/fabric] YAML config enabled.');
+// if (enableVue) {
+//   if (enableVue3) console.info('[ESLint] [@modyqyw/fabric] Vue3 config enabled.');
+//   else console.info('[ESLint] [@modyqyw/fabric] Vue2 config enabled.');
+// }
+// if (enableNuxt) console.info('[ESLint] [@modyqyw/fabric] Nuxt config enabled.');
+// if (enableReact) console.info('[ESLint] [@modyqyw/fabric] React config enabled.');
+// if (enableReactNative) console.info('[ESLint] [@modyqyw/fabric] ReactNative config enabled.');
+// if (enableNext) console.info('[ESLint] [@modyqyw/fabric] Next config enabled.');
+// if (enableMiniprogram) console.info('[ESLint] [@modyqyw/fabric] miniprogram config enabled.');
 
 const baseParser = 'espree';
 const baseParserOptions: Linter.ParserOptions = {
