@@ -497,10 +497,9 @@ chmod +x .husky/*
     "*.uvue": "vue",
     "*.ux": "vue"
   },
-  "less.validate": false,
   "scss.validate": false,
-  "stylelint.snippet": ["css", "less", "scss", "vue"],
-  "stylelint.validate": ["css", "less", "scss", "vue"],
+  "stylelint.snippet": ["css", "scss", "vue"],
+  "stylelint.validate": ["css", "scss", "vue"],
   "[html]": {
     "editor.formatOnSave": true
   },
