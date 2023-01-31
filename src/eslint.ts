@@ -134,6 +134,8 @@ const config: Linter.Config = {
           r: {
             response: true,
             result: true,
+            resolve: true,
+            reject: true,
           },
           res: {
             response: true,
