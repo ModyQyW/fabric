@@ -432,6 +432,7 @@ const config: Linter.Config = {
     'coverage',
     'dist',
     'dist*',
+    'generated',
     'node_modules',
     'out',
     'output',

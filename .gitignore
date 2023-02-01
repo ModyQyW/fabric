@@ -118,6 +118,7 @@ out
 .nuxt
 .nitro
 .output
+generated
 dist
 
 # Rax.js build
