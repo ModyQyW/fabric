@@ -86,6 +86,7 @@
     "lint:eslint": "eslint . --fix --cache --no-error-on-unmatched-pattern",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
+    "prepublishOnly": "pnpm run build",
     "release": "release-it"
   },
   "dependencies": {
