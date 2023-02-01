@@ -140,6 +140,7 @@ const config: Linter.Config = {
           res: {
             response: true,
             result: true,
+            resolve: true,
           },
         },
         ignore: ['^e[A-Z]', '^e-'],
