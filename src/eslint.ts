@@ -119,6 +119,8 @@ const config: Linter.Config = {
     'n/no-missing-import': 'off',
     // preserve
     'unicorn/filename-case': 'off',
+    // handle by other rules
+    'unicorn/no-abusive-eslint-disable': 'off',
     // not agree
     'unicorn/no-null': 'off',
     // consider confusing abbreviations
