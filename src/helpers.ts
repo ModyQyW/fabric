@@ -25,7 +25,8 @@ export const enableReact =
   isPackageExists('react') || Boolean(process.env.ENABLE_REACT) || enableNext || enableReactNative;
 
 export const enableMiniprogram =
-  isPackageExists('@dcloudio/uni-app') ||
+  isPackageExists('@dcloudio/vite-plugin-uni') ||
+  isPackageExists('@dcloudio/vue-cli-plugin-uni') ||
   Boolean(process.env.ENABLE_UNI_APP) ||
   isPackageExists('@tarojs/taro') ||
   Boolean(process.env.ENABLE_TARO) ||
