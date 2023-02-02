@@ -1,9 +1,11 @@
 import type { Config } from 'stylelint';
-import { enableMiniprogram, enableScss } from './helpers';
+import { enableDebug, enableMiniprogram, enableScss } from './helpers';
 
-// console.info('[Stylelint] [@modyqyw/fabric] CSS config enabled.');
-// if (enableScss) console.info('[Stylelint] [@modyqyw/fabric] SCSS config enabled.');
-// if (enableMiniprogram) console.info('[Stylelint] [@modyqyw/fabric] miniprogram config enabled.');
+if (enableDebug) {
+  console.info('[Stylelint] [@modyqyw/fabric] CSS config enabled.');
+  if (enableScss) console.info('[Stylelint] [@modyqyw/fabric] SCSS config enabled.');
+  if (enableMiniprogram) console.info('[Stylelint] [@modyqyw/fabric] miniprogram config enabled.');
+}
 
 const miniprogramElements = [
   'page',
