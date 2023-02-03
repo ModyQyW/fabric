@@ -127,6 +127,11 @@ const config: Linter.Config = {
     'unicorn/prevent-abbreviations': 'off',
     // too ideal
     'sonarjs/no-duplicate-string': 'off',
+    ...(enableMiniprogram
+      ? {
+          'unicorn/prefer-optional-catch-binding': 'off',
+        }
+      : {}),
   },
   overrides: [
     {
