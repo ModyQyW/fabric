@@ -29,6 +29,7 @@ export const enableReact =
 export const enableMiniprogram =
   isPackageExists('@dcloudio/vite-plugin-uni') ||
   isPackageExists('@dcloudio/vue-cli-plugin-uni') ||
+  isPackageExists('@dcloudio/types') ||
   Boolean(process.env.ENABLE_UNI_APP) ||
   isPackageExists('@tarojs/taro') ||
   Boolean(process.env.ENABLE_TARO) ||
