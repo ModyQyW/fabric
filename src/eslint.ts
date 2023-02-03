@@ -123,34 +123,8 @@ const config: Linter.Config = {
     'unicorn/no-abusive-eslint-disable': 'off',
     // not agree
     'unicorn/no-null': 'off',
-    // consider confusing abbreviations
-    'unicorn/prevent-abbreviations': [
-      'error',
-      {
-        extendDefaultReplacements: false,
-        replacements: {
-          e: {
-            err: true,
-            error: true,
-            ev: true,
-            evt: true,
-            event: true,
-          },
-          r: {
-            response: true,
-            result: true,
-            resolve: true,
-            reject: true,
-          },
-          res: {
-            response: true,
-            result: true,
-            resolve: true,
-          },
-        },
-        ignore: ['^e[A-Z]', '^e-'],
-      },
-    ],
+    // too ideal
+    'unicorn/prevent-abbreviations': 'off',
     // too ideal
     'sonarjs/no-duplicate-string': 'off',
   },
