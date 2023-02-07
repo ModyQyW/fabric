@@ -8,7 +8,6 @@ import esbuild from 'rollup-plugin-esbuild';
 import commonjs from '@rollup/plugin-commonjs';
 import dts from 'rollup-plugin-dts';
 import clean from 'rollup-plugin-delete';
-import type { RollupOptions } from 'rollup';
 import type { PackageJson } from 'type-fest';
 
 const getPackageJson = () =>
@@ -25,53 +24,54 @@ const external = [
   ...builtinModules.map((m) => `node:${m}`),
 ];
 
-export default defineConfig(
-  ['./src/index.ts', './src/eslint.ts', './src/prettier.ts', './src/stylelint.ts'].flatMap(
-    (file) => {
-      const baseOutput = file.replace('src', 'dist');
-      const cjsOutput = baseOutput.replace('.ts', '.js');
-      const esmOutput = baseOutput.replace('.ts', '.mjs');
-      const dtsOutput = baseOutput.replace('.ts', '.d.ts');
-      const options: RollupOptions[] = [
-        {
-          input: file,
-          output: [
-            { file: cjsOutput, format: 'cjs' },
-            { file: esmOutput, format: 'esm' },
-          ],
-          plugins: [
-            json({ preferConst: true }),
-            nodeResolve({ preferBuiltins: true }),
-            esbuild({ target: 'node14.18' }),
-            commonjs(),
-            clean({
-              targets: [cjsOutput, esmOutput],
-              runOnce: isDevelopment,
-            }),
-          ],
-          external,
-        },
-        {
-          input: file,
-          output: {
-            file: dtsOutput,
-            format: 'esm',
-          },
-          plugins: [
-            dts({
-              // https://github.com/Swatinem/rollup-plugin-dts/issues/143
-              compilerOptions: { preserveSymlinks: false },
-              respectExternal: true,
-            }),
-            clean({
-              targets: [dtsOutput],
-              runOnce: isDevelopment,
-            }),
-          ],
-          external,
-        },
-      ];
-      return options;
+const input = {
+  index: './src/index.ts',
+  eslint: './src/eslint.ts',
+  prettier: './src/prettier.ts',
+  stylelint: './src/stylelint.ts',
+};
+
+export default defineConfig([
+  {
+    input,
+    output: [
+      {
+        dir: 'dist',
+        format: 'cjs',
+      },
+      {
+        dir: 'dist',
+        entryFileNames: '[name].mjs',
+        format: 'esm',
+        chunkFileNames: '[name]-[hash].mjs',
+      },
+    ],
+    plugins: [
+      json(),
+      nodeResolve({ preferBuiltins: true }),
+      esbuild({ target: 'node14.18' }),
+      commonjs(),
+      clean({
+        targets: ['./dist/**/*'],
+        runOnce: isDevelopment,
+      }),
+    ],
+    external,
+  },
+  {
+    input,
+    output: {
+      dir: 'dist',
+      entryFileNames: '[name].d.ts',
+      format: 'esm',
     },
-  ),
-);
+    plugins: [
+      dts({
+        // https://github.com/Swatinem/rollup-plugin-dts/issues/143
+        compilerOptions: { preserveSymlinks: false },
+        respectExternal: true,
+      }),
+    ],
+    external,
+  },
+]);
