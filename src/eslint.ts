@@ -124,6 +124,8 @@ const config: Linter.Config = {
     // not agree
     'unicorn/no-null': 'off',
     // too ideal
+    'unicorn/no-thenable': 'off',
+    // too ideal
     'unicorn/prevent-abbreviations': 'off',
     // too ideal
     'sonarjs/no-duplicate-string': 'off',
@@ -359,7 +361,7 @@ const config: Linter.Config = {
         ],
         // too ideal
         'vue-scoped-css/enforce-style-type': 'off',
-        // for uni-app
+        // too ideal
         '@intlify/vue-i18n/no-raw-text': 'off',
       },
     },
