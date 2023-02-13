@@ -77,13 +77,10 @@ const miniprogramElements = [
 ];
 
 const config: Config = {
-  plugins: ['stylelint-prettier'],
   extends: [
-    'stylelint-config-recess-order',
+    'stylelint-config-clean-order',
     'stylelint-config-recommended',
-    'stylelint-config-prettier',
     enableScss ? 'stylelint-config-recommended-scss' : '',
-    enableScss ? 'stylelint-config-prettier-scss' : '',
   ].filter((item) => !!item),
   rules: {
     // https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown/
@@ -200,7 +197,14 @@ const config: Config = {
         }),
     // https://stylelint.io/user-guide/rules/unit-no-unknown/
     ...(enableMiniprogram ? { 'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }] } : {}),
-    'prettier/prettier': true,
+    // disable stylistic rules
+    ...(enableScss
+      ? {
+          'scss/operator-no-newline-after': null,
+          'scss/operator-no-newline-before': null,
+          'scss/operator-no-unspaced': null,
+        }
+      : {}),
   },
   overrides: [
     {
