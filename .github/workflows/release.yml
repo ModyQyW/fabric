@@ -21,3 +21,9 @@ jobs:
       - run: pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: wearerequired/git-mirror-action@master
+        with:
+          source-repo: git@github.com:ModyQyW/fabric.git
+          destination-repo: git@gitee.com:ModyQyW/fabric.git
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
