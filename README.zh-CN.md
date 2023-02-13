@@ -265,7 +265,7 @@ module.exports = {
 看看 [Stylelint](https://stylelint.io/)。
 
 ```sh
-npm install -D stylelint@14
+npm install -D stylelint@15
 ```
 
 设置 `.stylelintrc.cjs`。
@@ -574,6 +574,15 @@ chmod +x .husky/*
 ```
 
 ## 迁移
+
+### 从 6.x 迁移到 7.x
+
+- 升级 Node 版本到最新 LTS。
+- 升级包管理工具版本到最新稳定版。
+- 升级 ESLint 版本到最新的 8。
+- 升级 Stylelint 版本到最新的 15。
+- 升级 Prettier 版本到最新的 2。
+- 升级 Postcss 版本到最新的 8。
 
 ### 从 5.x 迁移到 6.x
 

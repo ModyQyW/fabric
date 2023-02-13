@@ -266,7 +266,7 @@ Set up `package.json`.
 Learn about [Stylelint](https://stylelint.io/).
 
 ```sh
-npm install -D stylelint@14
+npm install -D stylelint@15
 ```
 
 Set up `.stylelintrc.cjs`.
@@ -575,6 +575,15 @@ Experience has proven that automation is the best option. You may want to try pa
 ```
 
 ## Migration
+
+### Migrate to 7.x from 6.x
+
+- Upgrade your Node version to latest LTS.
+- Upgrade your package manager version to latest stable.
+- Upgrade your ESLint version to latest 8.
+- Upgrade your Stylelint version to latest 15.
+- Upgrade your Prettier version to latest 2.
+- Upgrade your Postcss version to latest 8.
 
 ### Migrate to 6.x from 5.x
 
