@@ -3,12 +3,6 @@ module.exports = {
     commitMessage: 'chore(release): v${version}',
     tagName: 'v${version}',
   },
-  plugins: {
-    '@release-it/conventional-changelog': {
-      header: '# Changelog',
-      preset: 'conventionalcommits',
-    },
-  },
   npm: {
     publish: false,
   },
