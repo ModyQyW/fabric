@@ -436,6 +436,9 @@ chmod +x .husky/*
 Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
 
 - [auto-changelog](https://github.com/CookPete/auto-changelog)
+- [bumpp](https://github.com/antfu/bumpp)
+- [changelogen](https://github.com/unjs/changelogen)
+- [changelogithub](https://github.com/antfu/changelogithub)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [keep a changelog](https://keepachangelog.com/)
 - [np](https://github.com/sindresorhus/np)

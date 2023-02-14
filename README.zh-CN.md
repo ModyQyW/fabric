@@ -435,6 +435,9 @@ chmod +x .husky/*
 经验证明，自动化是最佳选择。你可能想要尝试下面的包，它们根据字母顺序排序。
 
 - [auto-changelog](https://github.com/CookPete/auto-changelog)
+- [bumpp](https://github.com/antfu/bumpp)
+- [changelogen](https://github.com/unjs/changelogen)
+- [changelogithub](https://github.com/antfu/changelogithub)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [keep a changelog](https://keepachangelog.com/)
 - [np](https://github.com/sindresorhus/np)
