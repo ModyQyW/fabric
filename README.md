@@ -256,7 +256,7 @@ Set up `package.json`.
 {
   "scripts": {
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --fix --cache --no-error-on-unmatched-pattern"
+    "lint:eslint": "eslint . --fix --cache"
   }
 }
 ```
@@ -283,7 +283,7 @@ Set up `package.json`.
 {
   "scripts": {
     "lint": "npm run lint:stylelint",
-    "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --allow-empty-input --ignore-path=.gitignore"
+    "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --ignore-path=.gitignore"
   }
 }
 ```
@@ -378,8 +378,8 @@ Set up `.lintstagedrc.cjs`.
 ```js
 module.exports = {
   '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
-  '*.{css,scss,vue}': 'stylelint --fix --cache --allow-empty-input',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache',
+  '*.{css,scss,vue}': 'stylelint --fix --cache',
 };
 ```
 
