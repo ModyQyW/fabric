@@ -255,6 +255,7 @@ const config: Config = {
   //   'public',
   //   'temp',
   //   'tmp',
+  //   'unpackage',
   //   'yarn.lock',
   // ],
   reportDescriptionlessDisables: true,

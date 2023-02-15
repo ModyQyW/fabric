@@ -123,15 +123,23 @@ const config: Linter.Config = {
     'unicorn/no-abusive-eslint-disable': 'off',
     // not agree
     'unicorn/no-null': 'off',
-    // too ideal
+    // too ideal for library
     'unicorn/no-thenable': 'off',
-    // too ideal
+    // too ideal for library
+    'unicorn/prefer-top-level-await': 'off',
+    // too ideal for business
     'unicorn/prevent-abbreviations': 'off',
     // too ideal
     'sonarjs/no-duplicate-string': 'off',
     ...(enableMiniprogram
       ? {
+          'unicorn/prefer-array-flat-map': 'off',
+          'unicorn/prefer-array-flat': 'off',
+          'unicorn/prefer-at': 'off',
+          'unicorn/prefer-object-from-entries': 'off',
           'unicorn/prefer-optional-catch-binding': 'off',
+          'unicorn/prefer-string-replace-all': 'off',
+          'unicorn/prefer-string-trim-start-end': 'off',
         }
       : {}),
   },
@@ -291,7 +299,7 @@ const config: Linter.Config = {
       },
       rules: {
         ...(enableTypescript ? typescriptRules : {}),
-        // too ideal
+        // too ideal for business
         'vue/multi-word-component-names': 'off',
         'vue/order-in-components': [
           'warn',
@@ -359,9 +367,9 @@ const config: Linter.Config = {
             ],
           },
         ],
-        // too ideal
+        // too ideal for business
         'vue-scoped-css/enforce-style-type': 'off',
-        // too ideal
+        // too ideal for business
         '@intlify/vue-i18n/no-raw-text': 'off',
       },
     },
@@ -427,6 +435,7 @@ const config: Linter.Config = {
     'public',
     'temp',
     'tmp',
+    'unpackage',
     'yarn.lock',
   ],
   globals: {
