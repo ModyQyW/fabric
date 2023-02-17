@@ -79,7 +79,7 @@ const miniprogramElements = [
 
 const config: Config = {
   extends: [
-    'stylelint-config-clean-order',
+    'stylelint-config-recess-order',
     'stylelint-config-recommended',
     enableScss ? 'stylelint-config-recommended-scss' : '',
   ].filter((item) => !!item),
