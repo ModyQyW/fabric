@@ -5,6 +5,8 @@ import { enableTailwindIcons } from './helpers';
 
 const debug = getDebug('@modyqyw/fabric/prettier');
 
+debug('JSDoc plugin enabled.');
+debug('PackageJson Plugin enabled.');
 if (!enableTailwindIcons) {
   debug('TailwindCSS plugin enabled.');
 }
