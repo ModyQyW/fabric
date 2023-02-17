@@ -457,7 +457,7 @@ Experience has proven that automation is the best option. You may want to try pa
   - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
-  - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2. [Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode) is recommended.
+  - [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2. [Takeover Mode](https://vuejs.org/guide/typescript/overview.html#volar-takeover-mode) is recommended.
   - [uni-helper](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode) - For uni-\*
   - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS
 - Set up `Settings.json`.
