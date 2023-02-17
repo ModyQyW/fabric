@@ -9,6 +9,7 @@ specifiers:
   '@rollup/plugin-json': ^6.0.0
   '@rollup/plugin-node-resolve': ^15.0.1
   '@rushstack/eslint-patch': ^1.2.0
+  '@types/debug': ^4.1.7
   '@types/eslint': ^8.21.1
   '@types/node': latest
   '@types/prettier': ^2.7.2
@@ -17,6 +18,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.52.0
   bumpp: ^8.2.1
   commitizen: ^4.3.0
+  debug: ^4.3.4
   esbuild: ^0.17.8
   eslint: ^8.34.0
   eslint-config-next: ^13.1.6
@@ -83,6 +85,7 @@ dependencies:
   '@types/prettier': 2.7.2
   '@typescript-eslint/eslint-plugin': 5.52.0_6cfvjsbua5ptj65675bqcn6oza
   '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
+  debug: 4.3.4
   eslint-config-next: 13.1.6_7kw3g6rralp5ps6mg3uyzz6azm
   eslint-config-prettier: 8.6.0_eslint@8.34.0
   eslint-import-resolver-node: 0.3.7
@@ -126,6 +129,7 @@ devDependencies:
   '@rollup/plugin-commonjs': 24.0.1_rollup@3.15.0
   '@rollup/plugin-json': 6.0.0_rollup@3.15.0
   '@rollup/plugin-node-resolve': 15.0.1_rollup@3.15.0
+  '@types/debug': 4.1.7
   '@types/shelljs': 0.8.11
   bumpp: 8.2.1
   commitizen: 4.3.0
@@ -942,7 +946,6 @@ packages:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
       '@types/ms': 0.7.31
-    dev: false
 
   /@types/eslint/8.21.1:
     resolution: {integrity: sha512-rc9K8ZpVjNcLs8Fp0dkozd5Pt2Apk1glO4Vgz8ix1u6yFByxfqo5Yavpy65o+93TAe24jr7v+eSBtFLvOQtCRQ==}
@@ -984,7 +987,6 @@ packages:
 
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
-    dev: false
 
   /@types/node/18.13.0:
     resolution: {integrity: sha512-gC3TazRzGoOnoKAhUx+Q0t8S9Tzs74z7m0ipwGpSqQrleP14hKxP4/JUeEQcD3W1/aIpnWl8pHowI7WokuZpXg==}
