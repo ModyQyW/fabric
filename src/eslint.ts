@@ -1,7 +1,7 @@
 import '@rushstack/eslint-patch/modern-module-resolution';
 import type { Linter } from 'eslint';
+import getDebug from 'debug';
 import {
-  enableDebug,
   enableTypescript,
   enableNuxt,
   enableVue,
@@ -13,21 +13,21 @@ import {
   enableMiniprogram,
 } from './helpers';
 
-if (enableDebug) {
-  console.info('[ESLint] [@modyqyw/fabric] JavaScript config enabled.');
-  if (enableTypescript) console.info('[ESLint] [@modyqyw/fabric] TypeScript config enabled.');
-  console.info('[ESLint] [@modyqyw/fabric] JSON config enabled.');
-  console.info('[ESLint] [@modyqyw/fabric] YAML config enabled.');
-  if (enableVue) {
-    if (enableVue3) console.info('[ESLint] [@modyqyw/fabric] Vue3 config enabled.');
-    else console.info('[ESLint] [@modyqyw/fabric] Vue2 config enabled.');
-  }
-  if (enableNuxt) console.info('[ESLint] [@modyqyw/fabric] Nuxt config enabled.');
-  if (enableReact) console.info('[ESLint] [@modyqyw/fabric] React config enabled.');
-  if (enableReactNative) console.info('[ESLint] [@modyqyw/fabric] ReactNative config enabled.');
-  if (enableNext) console.info('[ESLint] [@modyqyw/fabric] Next config enabled.');
-  if (enableMiniprogram) console.info('[ESLint] [@modyqyw/fabric] miniprogram config enabled.');
+const debug = getDebug('@modyqyw/fabric/eslint');
+
+debug('JavaScript config enabled.');
+if (enableTypescript) debug('TypeScript config enabled.');
+debug('JSON config enabled.');
+debug('YAML config enabled.');
+if (enableVue) {
+  if (enableVue3) debug('Vue3 config enabled.');
+  else debug('Vue2 config enabled.');
 }
+if (enableNuxt) debug('Nuxt config enabled.');
+if (enableReact) debug('React config enabled.');
+if (enableReactNative) debug('ReactNative config enabled.');
+if (enableNext) debug('Next config enabled.');
+if (enableMiniprogram) debug('miniprogram config enabled.');
 
 const baseParser = 'espree';
 const baseParserOptions: Linter.ParserOptions = {

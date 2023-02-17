@@ -1,7 +1,5 @@
 import { isPackageExists, getPackageInfoSync } from 'local-pkg';
 
-export const enableDebug = Boolean(process.env.ENABLE_DEBUG);
-
 export const enableTypescript =
   isPackageExists('typescript') || Boolean(process.env.ENABLE_TYPESCRIPT);
 

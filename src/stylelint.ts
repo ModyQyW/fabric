@@ -1,11 +1,12 @@
 import type { Config } from 'stylelint';
-import { enableDebug, enableMiniprogram, enableScss } from './helpers';
+import getDebug from 'debug';
+import { enableMiniprogram, enableScss } from './helpers';
 
-if (enableDebug) {
-  console.info('[Stylelint] [@modyqyw/fabric] CSS config enabled.');
-  if (enableScss) console.info('[Stylelint] [@modyqyw/fabric] SCSS config enabled.');
-  if (enableMiniprogram) console.info('[Stylelint] [@modyqyw/fabric] miniprogram config enabled.');
-}
+const debug = getDebug('@modyqyw/fabric/stylelint');
+
+debug('CSS config enabled.');
+if (enableScss) debug('SCSS config enabled.');
+if (enableMiniprogram) debug('miniprogram config enabled.');
 
 const miniprogramElements = [
   'page',
