@@ -1,5 +1,13 @@
 /* eslint-disable unicorn/prefer-module */
 import type { Config } from 'prettier';
+import getDebug from 'debug';
+import { enableTailwindIcons } from './helpers';
+
+const debug = getDebug('@modyqyw/fabric/prettier');
+
+if (!enableTailwindIcons) {
+  debug('TailwindCSS plugin enabled.');
+}
 
 const config: Config & { [key: string]: any } = {
   printWidth: 100,
@@ -10,8 +18,8 @@ const config: Config & { [key: string]: any } = {
   plugins: [
     require.resolve('prettier-plugin-jsdoc'),
     require.resolve('prettier-plugin-packagejson'),
-    require.resolve('prettier-plugin-tailwindcss'),
-  ],
+    enableTailwindIcons ? require.resolve('prettier-plugin-tailwindcss') : null,
+  ].filter((item) => !!item) as string[],
   overrides: [
     {
       files: ['*.json5'],

@@ -35,3 +35,8 @@ export const enableMiniprogram =
   Boolean(process.env.ENABLE_MINI_PROGRAM);
 
 export const enableScss = isPackageExists('sass') || Boolean(process.env.ENABLE_SCSS);
+
+export const enableTailwindIcons =
+  isPackageExists('@egoist/tailwindcss-icons') ||
+  isPackageExists('tailwindcss-plugin-icons') ||
+  Boolean(process.env.ENABLE_TAILWIND_ICONS);
