@@ -80,6 +80,7 @@
     "build": "rollup -c rollup.config.ts --configPlugin esbuild",
     "check:deps": "ncu --dep dev,optional,prod,packageManager",
     "check:types": "tsc --noEmit",
+    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -u -r 0 && tsx ./scripts/prepend-changelog.ts",
     "commit": "git-cz",
     "dev": "pnpm run build --watch",
     "lint": "run-p lint:eslint lint:markdownlint check:types",
@@ -87,12 +88,12 @@
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
     "prepublishOnly": "pnpm run build",
-    "release": "pnpm install && pnpm run build && pnpm run lint && bumpp"
+    "release": "pnpm install && pnpm run build && pnpm run lint && bumpp --all -x \"pnpm run changelog\""
   },
   "dependencies": {
-    "@commitlint/cli": "^17.4.3",
-    "@commitlint/config-conventional": "^17.4.3",
-    "@commitlint/prompt": "^17.4.3",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/prompt": "^17.4.4",
     "@intlify/eslint-plugin-vue-i18n": "^2.0.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/eslint": "^8.21.1",
@@ -148,7 +149,8 @@
     "@types/shelljs": "^0.8.11",
     "bumpp": "^8.2.1",
     "commitizen": "^4.3.0",
-    "esbuild": "^0.17.8",
+    "conventional-changelog-cli": "^2.2.2",
+    "esbuild": "^0.17.9",
     "eslint": "^8.34.0",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
@@ -156,13 +158,13 @@
     "markdownlint-cli": "^0.33.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
-    "rollup": "^3.15.0",
+    "rollup": "^3.17.2",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^5.2.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "shelljs": "^0.8.5",
     "sort-package-json": "^2.4.1",
-    "stylelint": "^15.1.0",
+    "stylelint": "^15.2.0",
     "type-fest": "^3.6.0"
   },
   "peerDependencies": {
@@ -201,7 +203,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@7.27.0",
+  "packageManager": "pnpm@7.27.1",
   "engines": {
     "node": ">=14.18"
   },
