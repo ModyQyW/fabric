@@ -1,6 +1,6 @@
 {
   "name": "@modyqyw/fabric",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "description": "Opinionated shareable specification for different JavaScript/TypeScript projects",
   "keywords": [
     "fabric",
