@@ -435,6 +435,7 @@ const config: Linter.Config = {
     'public',
     'temp',
     'tmp',
+    'typed-router.d.ts',
     'unpackage',
     'yarn.lock',
   ],
