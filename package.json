@@ -80,7 +80,7 @@
     "build": "rollup -c rollup.config.ts --configPlugin esbuild",
     "check:deps": "ncu --dep dev,optional,prod,packageManager",
     "check:types": "tsc --noEmit",
-    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -u -r 0 && tsx ./scripts/prepend-changelog.ts",
+    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -u -r 0 && tsx ./scripts/handle-changelog.ts",
     "commit": "git-cz",
     "dev": "pnpm run build --watch",
     "lint": "run-p lint:eslint lint:markdownlint check:types",
@@ -163,6 +163,7 @@
     "rollup-plugin-dts": "^5.2.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "shelljs": "^0.8.5",
+    "simple-git": "^3.16.1",
     "sort-package-json": "^2.4.1",
     "stylelint": "^15.2.0",
     "type-fest": "^3.6.0"
