@@ -20,7 +20,7 @@ const config: Config & { [key: string]: any } = {
   plugins: [
     require.resolve('prettier-plugin-jsdoc'),
     require.resolve('prettier-plugin-packagejson'),
-    enableTailwindIcons ? require.resolve('prettier-plugin-tailwindcss') : null,
+    enableTailwindIcons ? null : require.resolve('prettier-plugin-tailwindcss'),
   ].filter((item) => !!item) as string[],
   overrides: [
     {
