@@ -1,3 +1,11 @@
+## [7.3.0](https://github.com/ModyQyW/fabric/compare/v7.2.0...v7.3.0) (2023-03-01)
+
+
+### Features
+
+* disable more globals ([73256e7](https://github.com/ModyQyW/fabric/commit/73256e7a6b78c656a6af37bf89afd1179c817c76))
+* support markdown sciprts ([57b30d7](https://github.com/ModyQyW/fabric/commit/57b30d7f4c2a4259eb957143f403be88c3044f75))
+
 ## [7.2.0](https://github.com/ModyQyW/fabric/compare/v7.1.2...v7.2.0) (2023-03-01)
 
 
