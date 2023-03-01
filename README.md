@@ -29,10 +29,10 @@ Using `npm` below. Check [nrm](https://github.com/Pana/nrm) and [npmmirror](http
 
 ```sh
 # locally
-npm install -D @modyqyw/fabric@6
+npm install -D @modyqyw/fabric@7
 
 # globally
-npm install --location=global @modyqyw/fabric@6
+npm install --location=global @modyqyw/fabric@7
 ```
 
 See more about versions in [node-semver](https://github.com/npm/node-semver).
@@ -151,7 +151,6 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       "typed-router.d.ts",
       // unplugin-vue2-script-setup
       "unplugin-vue2-script-setup/types",
-      "unplugin-vue2-script-setup/ref-macros",
       // vitest
       "vitest/globals",
       // vite-plugin-pages
@@ -160,13 +159,11 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
       // vite-plugin-vue-layouts
       "vite-plugin-vue-layouts/client",
       // vite
-      "vite/client",
-      // vue3 script setup
-      "vue/macros-global"
+      "vite/client"
     ]
   },
   // volar configs
-  // https://github.com/johnsoncodehk/volar/blob/master/vue-language-tools/vue-language-core/schemas/vue-tsconfig.schema.json
+  // https://github.com/vuejs/language-tools/blob/master/packages/vue-language-core/schemas/vue-tsconfig.schema.json
   "vueCompilerOptions": {
     // uni-app
     "nativeTags": ["block", "component", "template", "slot"],
@@ -250,13 +247,13 @@ module.exports = {
 };
 ```
 
-Set up `package.json`.
+Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
   "scripts": {
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --fix --cache"
+    "lint:eslint": "eslint . --fix --cache --ignore-path=.gitignore"
   }
 }
 ```
@@ -277,7 +274,7 @@ module.exports = {
 };
 ```
 
-Set up `package.json`.
+Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 
 ```json
 {
@@ -318,7 +315,7 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 {
   "scripts": {
     "lint": "npm run lint:markdownlint",
-    "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
+    "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore"
   }
 }
 ```
@@ -377,9 +374,9 @@ Set up `.lintstagedrc.cjs`.
 
 ```js
 module.exports = {
-  '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache',
-  '*.{css,scss,vue}': 'stylelint --fix --cache',
+  '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
 };
 ```
 
@@ -436,14 +433,14 @@ chmod +x .husky/*
 Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
 
 - [auto-changelog](https://github.com/CookPete/auto-changelog)
-- [bumpp](https://github.com/antfu/bumpp)
+- [bumpp](https://github.com/antfu/bumpp) - We are using it.
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
-- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - We are using it.
 - [keep a changelog](https://keepachangelog.com/)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
-- [release-it](https://github.com/release-it/release-it) - We are using it.
+- [release-it](https://github.com/release-it/release-it)
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 - [standard-version](https://github.com/conventional-changelog/standard-version)
 
@@ -466,7 +463,7 @@ Experience has proven that automation is the best option. You may want to try pa
 {
   "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true, // enable if you need this
   "editor.rulers": [{ "column": 100 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -504,9 +501,10 @@ Experience has proven that automation is the best option. You may want to try pa
   "scss.validate": false,
   "stylelint.snippet": ["css", "scss", "vue"],
   "stylelint.validate": ["css", "scss", "vue"],
-  "[html]": {
-    "editor.formatOnSave": true
-  },
+  // enable this if you need
+  // "[html]": {
+  //   "editor.formatOnSave": true
+  // },
   "[javascript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
@@ -559,7 +557,7 @@ Experience has proven that automation is the best option. You may want to try pa
     }
   },
   "[markdown]": {
-    "editor.formatOnSave": true,
+    // "editor.formatOnSave": true, // enable this if you need
     "editor.codeActionsOnSave": {
       "source.fixAll.markdownlint": true
     }

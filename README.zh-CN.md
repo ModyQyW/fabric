@@ -29,10 +29,10 @@
 
 ```sh
 # 本地
-npm install -D @modyqyw/fabric@6
+npm install -D @modyqyw/fabric@7
 
 # 全局
-npm install --location=global @modyqyw/fabric@6
+npm install --location=global @modyqyw/fabric@7
 ```
 
 [node-semver](https://github.com/npm/node-semver) 有更多版本说明。
@@ -152,20 +152,17 @@ trim_trailing_whitespace = false
       "typed-router.d.ts",
       // unplugin-vue2-script-setup
       "unplugin-vue2-script-setup/types",
-      "unplugin-vue2-script-setup/ref-macros",
       // vite-plugin-pages
       "vite-plugin-pages/client",
       "vite-plugin-pages/client-react",
       // vite-plugin-vue-layouts
       "vite-plugin-vue-layouts/client",
       // vite
-      "vite/client",
-      // vue3 script setup
-      "vue/macros-global"
+      "vite/client"
     ]
   },
   // volar 配置
-  // https://github.com/johnsoncodehk/volar/blob/master/vue-language-tools/vue-language-core/schemas/vue-tsconfig.schema.json
+  // https://github.com/vuejs/language-tools/blob/master/packages/vue-language-core/schemas/vue-tsconfig.schema.json
   "vueCompilerOptions": {
     // uni-app
     "nativeTags": ["block", "component", "template", "slot"],
@@ -249,13 +246,13 @@ module.exports = {
 };
 ```
 
-设置 `package.json`。
+设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
 
 ```json
 {
   "scripts": {
     "lint": "npm run lint:eslint",
-    "lint:eslint": "eslint . --fix --cache"
+    "lint:eslint": "eslint . --fix --cache --ignore-path=.gitignore"
   }
 }
 ```
@@ -276,7 +273,7 @@ module.exports = {
 };
 ```
 
-设置 `package.json`。
+设置 `package.json`。这里使用 `.gitignore` 作为忽略模式文件。
 
 ```json
 {
@@ -317,7 +314,7 @@ npm install -D markdownlint-cli
 {
   "scripts": {
     "lint": "npm run lint:markdownlint",
-    "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
+    "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore"
   }
 }
 ```
@@ -376,9 +373,9 @@ npm install -D lint-staged@13
 
 ```js
 module.exports = {
-  '*.md': 'markdownlint --fix',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache',
-  '*.{css,scss,vue}': 'stylelint --fix --cache',
+  '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
 };
 ```
 
@@ -435,14 +432,14 @@ chmod +x .husky/*
 经验证明，自动化是最佳选择。你可能想要尝试下面的包，它们根据字母顺序排序。
 
 - [auto-changelog](https://github.com/CookPete/auto-changelog)
-- [bumpp](https://github.com/antfu/bumpp)
+- [bumpp](https://github.com/antfu/bumpp) - 我们在使用这个
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
-- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - 我们在使用这个
 - [keep a changelog](https://keepachangelog.com/)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
-- [release-it](https://github.com/release-it/release-it) - 我们在使用这个。
+- [release-it](https://github.com/release-it/release-it)
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
 - [standard-version](https://github.com/conventional-changelog/standard-version)
 
@@ -465,7 +462,7 @@ chmod +x .husky/*
 {
   "css.validate": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true, // 需要的话启用它
   "editor.rulers": [{ "column": 100 }],
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -503,9 +500,10 @@ chmod +x .husky/*
   "scss.validate": false,
   "stylelint.snippet": ["css", "scss", "vue"],
   "stylelint.validate": ["css", "scss", "vue"],
-  "[html]": {
-    "editor.formatOnSave": true
-  },
+  // 需要的话启用它
+  // "[html]": {
+  //   "editor.formatOnSave": true
+  // },
   "[javascript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": true
@@ -558,7 +556,7 @@ chmod +x .husky/*
     }
   },
   "[markdown]": {
-    "editor.formatOnSave": true,
+    // "editor.formatOnSave": true, // 需要的话启用它
     "editor.codeActionsOnSave": {
       "source.fixAll.markdownlint": true
     }
