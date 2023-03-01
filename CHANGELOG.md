@@ -1,8 +1,19 @@
-# Changelog
+## [7.2.0](https://github.com/ModyQyW/fabric/compare/v7.1.2...v7.2.0) (2023-03-01)
+
+
+### Features
+
+* eslint without prettier ([0d675a1](https://github.com/ModyQyW/fabric/commit/0d675a1e429459cfcc1049bed5d458fe5c27dc44))
+
+
+### Bug Fixes
+
+* wrong prettier config ([36ef6d8](https://github.com/ModyQyW/fabric/commit/36ef6d8ce731644bd543a4fe6f0c06d7ce3f0e18))
 
 ## [7.1.2](https://github.com/ModyQyW/fabric/compare/v7.1.1...v7.1.2) (2023-02-20)
 
 ## [7.1.1](https://github.com/ModyQyW/fabric/compare/v7.1.0...v7.1.1) (2023-02-20)
+
 
 ### Bug Fixes
 
@@ -10,15 +21,18 @@
 
 ## [7.1.0](https://github.com/ModyQyW/fabric/compare/v7.0.3...v7.1.0) (2023-02-17)
 
+
 ### Features
 
 * use stylelint-config-recess-order ([32ce395](https://github.com/ModyQyW/fabric/commit/32ce395b13570be4196b0983b2d353d09b9d1051))
+
 
 ### Bug Fixes
 
 * disable prettier-plugin-tailwindcss when using tailwindcss icons to improve performance ([12b7952](https://github.com/ModyQyW/fabric/commit/12b79524833e1b873a0d70c3e1776d75770e4147))
 
 ## [7.0.3](https://github.com/ModyQyW/fabric/compare/v7.0.2...v7.0.3) (2023-02-15)
+
 
 ### Bug Fixes
 
@@ -28,11 +42,13 @@
 
 ## [7.0.1](https://github.com/ModyQyW/fabric/compare/v7.0.0...v7.0.1) (2023-02-13)
 
+
 ### Bug Fixes
 
 * fix peerDeps ([ac365ff](https://github.com/ModyQyW/fabric/commit/ac365ff6e05240f8f9c6e26c9ce71afa4d54a2cf))
 
 ## [7.0.0](https://github.com/ModyQyW/fabric/compare/v6.0.7...v7.0.0) (2023-02-13)
+
 
 ### ⚠ BREAKING CHANGES
 
@@ -44,11 +60,13 @@
 
 ## [6.0.7](https://github.com/ModyQyW/fabric/compare/v6.0.6...v6.0.7) (2023-02-09)
 
+
 ### Bug Fixes
 
 * fix eslint rules ([9a1be89](https://github.com/ModyQyW/fabric/commit/9a1be8998318318e637acfd9062eb064155d1107))
 
 ## [6.0.6](https://github.com/ModyQyW/fabric/compare/v6.0.5...v6.0.6) (2023-02-03)
+
 
 ### Bug Fixes
 
@@ -58,21 +76,25 @@
 
 ## [6.0.5](https://github.com/ModyQyW/fabric/compare/v6.0.4...v6.0.5) (2023-02-02)
 
+
 ### Bug Fixes
 
 * disable unicorn/no-abusive-eslint-disable ([e3220d9](https://github.com/ModyQyW/fabric/commit/e3220d9760e8725106e3bd5cfbcb2c4e93414eae))
 
 ## [6.0.4](https://github.com/ModyQyW/fabric/compare/v6.0.3...v6.0.4) (2023-02-02)
 
+
 ### Bug Fixes
 
 * fix enableMiniprogram judgemennt ([b91d7e1](https://github.com/ModyQyW/fabric/commit/b91d7e17d5b41107084079518a099a2d2f46049e))
+
 
 ### Performance Improvements
 
 * allow debug ([f217afa](https://github.com/ModyQyW/fabric/commit/f217afa06d7e7e5409da31ff063395840a40d89f))
 
 ## [6.0.3](https://github.com/ModyQyW/fabric/compare/v6.0.2...v6.0.3) (2023-02-01)
+
 
 ### Bug Fixes
 
@@ -81,6 +103,7 @@
 
 ## [6.0.2](https://github.com/ModyQyW/fabric/compare/v6.0.1...v6.0.2) (2023-01-31)
 
+
 ### Bug Fixes
 
 * consider r for resolve or reject ([2954919](https://github.com/ModyQyW/fabric/commit/2954919775859b3265ddbb844f812f64b0f983eb))
@@ -88,11 +111,13 @@
 
 ## [6.0.1](https://github.com/ModyQyW/fabric/compare/v6.0.0...v6.0.1) (2023-01-31)
 
+
 ### Bug Fixes
 
 * fix prettier config ([6b30c28](https://github.com/ModyQyW/fabric/commit/6b30c288af1600e4b86a69a7a23a2b1d9038c8cc))
 
 ## [6.0.0](https://github.com/ModyQyW/fabric/compare/v6.0.0-5...v6.0.0) (2023-01-30)
+
 
 ### Bug Fixes
 
@@ -101,6 +126,7 @@
 
 ## [6.0.0-5](https://github.com/ModyQyW/fabric/compare/v6.0.0-4...v6.0.0-5) (2023-01-29)
 
+
 ### Bug Fixes
 
 * fix eslint config ([ca6e100](https://github.com/ModyQyW/fabric/commit/ca6e1005934fd3ccc2988077283ea1e512aa4c08))
@@ -108,17 +134,20 @@
 
 ## [6.0.0-4](https://github.com/ModyQyW/fabric/compare/v6.0.0-3...v6.0.0-4) (2023-01-29)
 
+
 ### Bug Fixes
 
 * fix eslint config ([d7615e7](https://github.com/ModyQyW/fabric/commit/d7615e78aab5ce6333411eb6b6b0762fe7d4e922))
 
 ## [6.0.0-3](https://github.com/ModyQyW/fabric/compare/v6.0.0-2...v6.0.0-3) (2023-01-29)
 
+
 ### Bug Fixes
 
 * loose eslint config ([fbdfbd1](https://github.com/ModyQyW/fabric/commit/fbdfbd104b6769e0b81c407daaba208cd0e0a2a2))
 
 ## [6.0.0-2](https://github.com/ModyQyW/fabric/compare/v6.0.0-1...v6.0.0-2) (2023-01-29)
+
 
 ### Bug Fixes
 
@@ -127,11 +156,13 @@
 
 ## [6.0.0-1](https://github.com/ModyQyW/fabric/compare/v6.0.0-0...v6.0.0-1) (2023-01-29)
 
+
 ### Bug Fixes
 
 * fix exports ([0944dbd](https://github.com/ModyQyW/fabric/commit/0944dbdb8b45c297f11f846ff8ba39f8d5846467))
 
 ## [6.0.0-0](https://github.com/ModyQyW/fabric/compare/v5.16.0...v6.0.0-0) (2023-01-29)
+
 
 ### ⚠ BREAKING CHANGES
 
@@ -154,6 +185,7 @@
 
 ## [5.13.0](https://github.com/ModyQyW/fabric/compare/v5.12.1...v5.13.0) (2022-11-24)
 
+
 ### Features
 
 * add eslint sonar ([1b15297](https://github.com/ModyQyW/fabric/commit/1b1529751235a66f6ef671dbf0ed66802be8ae84))
@@ -162,15 +194,18 @@
 
 ## [5.12.0](https://github.com/ModyQyW/fabric/compare/v5.11.0...v5.12.0) (2022-11-22)
 
+
 ### Performance Improvements
 
 * remove useless file ([3900ebb](https://github.com/ModyQyW/fabric/commit/3900ebb2d06757ccd31a1251e7462a508da38a59))
 
 ## [5.11.0](https://github.com/ModyQyW/fabric/compare/v5.10.1...v5.11.0) (2022-10-31)
 
+
 ### Bug Fixes
 
 * specify import/no-unresolved ignore ([1327d5c](https://github.com/ModyQyW/fabric/commit/1327d5c1d5a3254b28a314ddf7c939abaed60f3c))
+
 
 ### Performance Improvements
 
@@ -178,11 +213,13 @@
 
 ## [5.10.1](https://github.com/ModyQyW/fabric/compare/v5.10.0...v5.10.1) (2022-10-30)
 
+
 ### Bug Fixes
 
 * enable import/no-unresolved for more info ([5d8339e](https://github.com/ModyQyW/fabric/commit/5d8339eeb8a78e4bb20e1f4255b78f36f9422a59))
 
 ## [5.10.0](https://github.com/ModyQyW/fabric/compare/v5.9.1...v5.10.0) (2022-10-09)
+
 
 ### Features
 
@@ -190,17 +227,20 @@
 
 ## [5.9.1](https://github.com/ModyQyW/fabric/compare/v5.9.0...v5.9.1) (2022-09-09)
 
+
 ### Bug Fixes
 
 * allow !default in scss ([4632ae4](https://github.com/ModyQyW/fabric/commit/4632ae4dee639c6c68be055607edf62873191890))
 
 ## [5.9.0](https://github.com/ModyQyW/fabric/compare/v5.8.0...v5.9.0) (2022-09-01)
 
+
 ### Features
 
 * migrate ts, support esm and types ([83e3318](https://github.com/ModyQyW/fabric/commit/83e33183c72d37a16fa6a31b34061eb6b55e2ba7))
 
 ## [5.8.0](https://github.com/ModyQyW/fabric/compare/v5.7.0...v5.8.0) (2022-08-21)
+
 
 ### Performance Improvements
 
@@ -210,6 +250,7 @@
 
 ## [5.6.0](https://github.com/ModyQyW/fabric/compare/v5.5.7...v5.6.0) (2022-08-04)
 
+
 ### Features
 
 * split react-native rules ([0b8dbb1](https://github.com/ModyQyW/fabric/commit/0b8dbb105f71f48424956a19b1be9bc726776a22))
@@ -217,6 +258,7 @@
 ## [5.5.7](https://github.com/ModyQyW/fabric/compare/v5.5.6...v5.5.7) (2022-08-04)
 
 ## [5.5.6](https://github.com/ModyQyW/fabric/compare/v5.5.5...v5.5.6) (2022-08-03)
+
 
 ### Performance Improvements
 
@@ -226,11 +268,13 @@
 
 ## [5.5.4](https://github.com/ModyQyW/fabric/compare/v5.5.3...v5.5.4) (2022-07-15)
 
+
 ### Bug Fixes
 
 * ignore auto genrated files ([096f3cf](https://github.com/ModyQyW/fabric/commit/096f3cfe7ecf4fa8495b81e40f04b0ad5472179e))
 
 ## [5.5.3](https://github.com/ModyQyW/fabric/compare/v5.5.2...v5.5.3) (2022-07-15)
+
 
 ### Bug Fixes
 
@@ -238,9 +282,11 @@
 
 ## [5.5.2](https://github.com/ModyQyW/fabric/compare/v5.5.1...v5.5.2) (2022-07-15)
 
+
 ### Bug Fixes
 
 * fix parser options ([dd6a1bc](https://github.com/ModyQyW/fabric/commit/dd6a1bcce9815347d48e2165193bed97fad2deb5))
+
 
 ### Performance Improvements
 
@@ -248,11 +294,13 @@
 
 ## [5.5.1](https://github.com/ModyQyW/fabric/compare/v5.5.0...v5.5.1) (2022-07-13)
 
+
 ### Bug Fixes
 
 * fix eslint rules ([3a697fe](https://github.com/ModyQyW/fabric/commit/3a697fea5b708d7682b7efc06093dd5829397a78))
 
 ## [5.5.0](https://github.com/ModyQyW/fabric/compare/v5.4.1...v5.5.0) (2022-07-13)
+
 
 ### Features
 
@@ -260,11 +308,13 @@
 
 ## [5.4.1](https://github.com/ModyQyW/fabric/compare/v5.4.0...v5.4.1) (2022-07-08)
 
+
 ### Bug Fixes
 
 * fix eslint env ([dd13f74](https://github.com/ModyQyW/fabric/commit/dd13f7431a80c828265d8f00d7338dc73853a913))
 
 ## [5.4.0](https://github.com/ModyQyW/fabric/compare/v5.3.2...v5.4.0) (2022-07-08)
+
 
 ### Features
 
@@ -273,17 +323,20 @@
 
 ## [5.3.2](https://github.com/ModyQyW/fabric/compare/v5.3.1...v5.3.2) (2022-07-07)
 
+
 ### Bug Fixes
 
 * fix eslint svelte config ([7fc44af](https://github.com/ModyQyW/fabric/commit/7fc44af8e56be3e7b7a004dc0ba30b61ef4839f4))
 
 ## [5.3.1](https://github.com/ModyQyW/fabric/compare/v5.3.0...v5.3.1) (2022-07-03)
 
+
 ### Bug Fixes
 
 * remove extraFileExtensions ([322a049](https://github.com/ModyQyW/fabric/commit/322a0495ee169ecc82db1e2869ab8c78bde4d85a))
 
 ## [5.3.0](https://github.com/ModyQyW/fabric/compare/v5.2.3...v5.3.0) (2022-06-30)
+
 
 ### Features
 
@@ -297,6 +350,7 @@
 
 ## [5.2.1](https://github.com/ModyQyW/fabric/compare/v5.2.0...v5.2.1) (2022-06-24)
 
+
 ### Bug Fixes
 
 * fix extensions ([e7eb581](https://github.com/ModyQyW/fabric/commit/e7eb581d6a1e0dff0ecc78e6189830b5a2533a33))
@@ -305,6 +359,7 @@
 
 ## [5.1.0](https://github.com/ModyQyW/fabric/compare/v5.0.14...v5.1.0) (2022-06-02)
 
+
 ### ⚠ BREAKING CHANGES
 
 * split json and yaml config
@@ -312,6 +367,7 @@
 ### Features
 
 * split json and yaml config ([4d45579](https://github.com/ModyQyW/fabric/commit/4d455796e1e4572c4be250d5104fee2cac2254a4))
+
 
 ### Bug Fixes
 
@@ -329,6 +385,7 @@
 
 ## [5.0.9](https://github.com/ModyQyW/fabric/compare/v5.0.8...v5.0.9) (2022-05-05)
 
+
 ### Bug Fixes
 
 * add types ([ddd6a2a](https://github.com/ModyQyW/fabric/commit/ddd6a2a622171574b434bf4de81b0c9904c2294c))
@@ -338,6 +395,7 @@
 
 ## [5.0.8](https://github.com/ModyQyW/fabric/compare/v5.0.7...v5.0.8) (2022-04-28)
 
+
 ### Bug Fixes
 
 * disable vue/multi-word-component-names for edge cases ([71f8386](https://github.com/ModyQyW/fabric/commit/71f8386f2ea8149d8ea92378b159ce1c41fdb10d))
@@ -346,11 +404,13 @@
 
 ## [5.0.6](https://github.com/ModyQyW/fabric/compare/v5.0.5...v5.0.6) (2022-04-22)
 
+
 ### Bug Fixes
 
 * fix eslint typescript parsing error ([d19e6ad](https://github.com/ModyQyW/fabric/commit/d19e6ad86441c1b6de2806495758c747865a92a5))
 
 ## [5.0.5](https://github.com/ModyQyW/fabric/compare/v5.0.4...v5.0.5) (2022-04-22)
+
 
 ### Bug Fixes
 
@@ -360,6 +420,7 @@
 
 ## [5.0.4](https://github.com/ModyQyW/fabric/compare/v5.0.3...v5.0.4) (2022-04-22)
 
+
 ### Bug Fixes
 
 * fix eslint config ([b7c7432](https://github.com/ModyQyW/fabric/commit/b7c74323623e845b79cb204b9326c68dd8ebebf5))
@@ -367,11 +428,13 @@
 
 ## [5.0.3](https://github.com/ModyQyW/fabric/compare/v5.0.2...v5.0.3) (2022-04-21)
 
+
 ### Bug Fixes
 
 * remove eslint-plugin-promise ([c6fefc4](https://github.com/ModyQyW/fabric/commit/c6fefc4c966468536b86b6846b10ea8ea8752cf1))
 
 ## [5.0.2](https://github.com/ModyQyW/fabric/compare/v5.0.1...v5.0.2) (2022-04-20)
+
 
 ### Bug Fixes
 
@@ -379,11 +442,13 @@
 
 ## [5.0.1](https://github.com/ModyQyW/fabric/compare/v5.0.0...v5.0.1) (2022-04-20)
 
+
 ### Bug Fixes
 
 * ignore androidPrivacy.json ([43af73e](https://github.com/ModyQyW/fabric/commit/43af73eb337643eb73fae20eaff6d02672ac351a))
 
 ## [5.0.0](https://github.com/ModyQyW/fabric/compare/v5.0.0-beta.1...v5.0.0) (2022-04-20)
+
 
 ### Features
 
@@ -391,11 +456,13 @@
 * add nuxt config ([2a66e4b](https://github.com/ModyQyW/fabric/commit/2a66e4bf3ed4afcf76239626c0feba11ae8f32f2))
 * update prettier config ([b13de0b](https://github.com/ModyQyW/fabric/commit/b13de0be243dc9c86bf8975a14dd9b7ec2e0e41b))
 
+
 ### Bug Fixes
 
 * fix eslint export ([b4bbe79](https://github.com/ModyQyW/fabric/commit/b4bbe79b29b92218649fc9b6ecfdcc641f14ca97))
 
 ## [5.0.0-beta.1](https://github.com/ModyQyW/fabric/compare/v5.0.0-beta.0...v5.0.0-beta.1) (2022-04-19)
+
 
 ### Features
 
@@ -404,6 +471,7 @@
 
 ## [5.0.0-beta.0](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.9...v5.0.0-beta.0) (2022-04-19)
 
+
 ### Features
 
 * update eslint config ([6dc99fe](https://github.com/ModyQyW/fabric/commit/6dc99fe616baa199c93ebc70beb47b17cb3197e6))
@@ -411,11 +479,13 @@
 
 ## [5.0.0-alpha.9](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.8...v5.0.0-alpha.9) (2022-04-19)
 
+
 ### Features
 
 * update eslint config ([2a38d93](https://github.com/ModyQyW/fabric/commit/2a38d93550a5674382dfd2ee3eb960342bb2cfbe))
 
 ## [5.0.0-alpha.8](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.7...v5.0.0-alpha.8) (2022-04-19)
+
 
 ### Bug Fixes
 
@@ -423,9 +493,11 @@
 
 ## [5.0.0-alpha.7](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.6...v5.0.0-alpha.7) (2022-04-19)
 
+
 ### Features
 
 * split stylelint config ([5c664a8](https://github.com/ModyQyW/fabric/commit/5c664a88feaf993c327dbc87d061b09794264dee))
+
 
 ### Bug Fixes
 
@@ -436,17 +508,20 @@
 
 ## [5.0.0-alpha.6](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.5...v5.0.0-alpha.6) (2022-04-19)
 
+
 ### Features
 
 * update eslint config ([b327c09](https://github.com/ModyQyW/fabric/commit/b327c09dcb9cac085c773881a26ca86a27cb30dd))
 
 ## [5.0.0-alpha.5](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.4...v5.0.0-alpha.5) (2022-04-18)
 
+
 ### Features
 
 * update eslint config ([cbfc9a3](https://github.com/ModyQyW/fabric/commit/cbfc9a38c89ee822c1db8e114c03f577cad70ca8))
 
 ## [5.0.0-alpha.4](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.3...v5.0.0-alpha.4) (2022-04-18)
+
 
 ### ⚠ BREAKING CHANGES
 
@@ -457,6 +532,7 @@
 * remove commitlint config ([e16c2da](https://github.com/ModyQyW/fabric/commit/e16c2dab48f6da06562b654c6b9fc105019e216f))
 * split stylelint miniprogram config ([69360e6](https://github.com/ModyQyW/fabric/commit/69360e6270d6e9aff0f63a90b9b9d9c150a5831f))
 
+
 ### Bug Fixes
 
 * use require.resolve in prettier config ([2e0aaaa](https://github.com/ModyQyW/fabric/commit/2e0aaaa1a92dfb1ebe347e01173feec60ac620db))
@@ -465,22 +541,26 @@
 
 ## [5.0.0-alpha.2](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.1...v5.0.0-alpha.2) (2022-04-17)
 
+
 ### Bug Fixes
 
 * fix vue3 config ([c5d4c94](https://github.com/ModyQyW/fabric/commit/c5d4c940332c75195fc50320096038207478b264))
 
 ## [5.0.0-alpha.1](https://github.com/ModyQyW/fabric/compare/v5.0.0-alpha.0...v5.0.0-alpha.1) (2022-04-12)
 
+
 ### Features
 
 * add eslint react/vue mininprogram config ([d351566](https://github.com/ModyQyW/fabric/commit/d351566d42a84067ef1baaaabc5f07bce7096840))
 * update eslint config export ([da963a6](https://github.com/ModyQyW/fabric/commit/da963a6d03249cca98545c4d901147d6f357b2cb))
+
 
 ### Performance Improvements
 
 * simplify eslint react config ([1b297d3](https://github.com/ModyQyW/fabric/commit/1b297d3bddfdc4751dde7f325053bf94d7e46003))
 
 ## [5.0.0-alpha.0](https://github.com/ModyQyW/fabric/compare/v4.20.1...v5.0.0-alpha.0) (2022-04-11)
+
 
 ### ⚠ BREAKING CHANGES
 
@@ -492,6 +572,7 @@
 * remove cli ([2e95db1](https://github.com/ModyQyW/fabric/commit/2e95db1bde066d2b96cf5de84d7ef8d6b9cf135b))
 * update configs ([7ae35ca](https://github.com/ModyQyW/fabric/commit/7ae35cab035c3c6bc681db82a52f63bf47a3bc77))
 
+
 ### Bug Fixes
 
 * fix package.json ([8bce626](https://github.com/ModyQyW/fabric/commit/8bce626f1a7b0a6386269c43f9c8f1306e479527))
@@ -499,11 +580,13 @@
 
 ## [4.20.1](https://github.com/ModyQyW/fabric/compare/v4.20.0...v4.20.1) (2022-04-08)
 
+
 ### Bug Fixes
 
 * fix settings ([d765b63](https://github.com/ModyQyW/fabric/commit/d765b63bb12cf05d51b03f92560170edd7b888f2))
 
 ## [4.20.0](https://github.com/ModyQyW/fabric/compare/v4.19.1...v4.20.0) (2022-04-08)
+
 
 ### Bug Fixes
 
@@ -511,12 +594,14 @@
 
 ## [4.19.1](https://github.com/ModyQyW/fabric/compare/v4.19.0...v4.19.1) (2022-04-05)
 
+
 ### Bug Fixes
 
 * fix miniprogram support ([7667d11](https://github.com/ModyQyW/fabric/commit/7667d117cb3f2106235986ff1714dee14f2a6352))
 * fix resolved ([8916947](https://github.com/ModyQyW/fabric/commit/8916947122b45b85f24c2e5128a924627d33a2de))
 
 ## [4.19.0](https://github.com/ModyQyW/fabric/compare/v4.18.1...v4.19.0) (2022-04-05)
+
 
 ### Features
 
@@ -530,6 +615,7 @@
 * remove react/jsx-filename-extension ([6efa81a](https://github.com/ModyQyW/fabric/commit/6efa81af1b6c3712af5e79289ff4ec19f821d51c))
 * remove update-notifier ([1959d65](https://github.com/ModyQyW/fabric/commit/1959d658494cdcf934e67874f46b27f13fd4c625))
 
+
 ### Bug Fixes
 
 * fix eslint cts mts support ([fc42fed](https://github.com/ModyQyW/fabric/commit/fc42fed1085ea6898917e85801548f57280e7ff8))
@@ -538,16 +624,19 @@
 
 ## [4.18.1](https://github.com/ModyQyW/fabric/compare/v4.18.0...v4.18.1) (2022-03-25)
 
+
 ### Bug Fixes
 
 * bring back no-undef ([a793c97](https://github.com/ModyQyW/fabric/commit/a793c97e7c0a90e40687a87a8793696d37db3bb6))
 
 ## [4.18.0](https://github.com/ModyQyW/fabric/compare/v4.17.1...v4.18.0) (2022-03-25)
 
+
 ### Features
 
 * import/no-extraneous-dependencies exclude script/scripts ([4ec33f8](https://github.com/ModyQyW/fabric/commit/4ec33f87c9a50964baf2e92a0e955998c23ac749))
 * remove no-undef eslint rule ([1660f6d](https://github.com/ModyQyW/fabric/commit/1660f6de16b004c3bbd2701c727ec30f53c8eb15))
+
 
 ### Bug Fixes
 
@@ -555,21 +644,25 @@
 
 ## [4.17.1](https://github.com/ModyQyW/fabric/compare/v4.17.0...v4.17.1) (2022-03-17)
 
+
 ### Bug Fixes
 
 * fix eslint config ([022f0e0](https://github.com/ModyQyW/fabric/commit/022f0e056e228c81bf8b644dfa515eeb28731545))
 
 ## [4.17.0](https://github.com/ModyQyW/fabric/compare/v4.16.0...v4.17.0) (2022-03-17)
 
+
 ### Features
 
 * update eslint config ([3798891](https://github.com/ModyQyW/fabric/commit/379889187cb2b66825daf97ddeebb4295c765ea1))
+
 
 ### Bug Fixes
 
 * remove prettier singleAttributePerLine ([53a117e](https://github.com/ModyQyW/fabric/commit/53a117e44f97476445bbc05cc6ee0acde14c7af2))
 
 ## [4.16.0](https://github.com/ModyQyW/fabric/compare/v4.15.0...v4.16.0) (2022-03-16)
+
 
 ### Features
 
@@ -579,6 +672,7 @@
 
 ## [4.15.0](https://github.com/ModyQyW/fabric/compare/v4.14.0...v4.15.0) (2022-03-14)
 
+
 ### Features
 
 * import/extensions add mts ([928d2ff](https://github.com/ModyQyW/fabric/commit/928d2ff4e171ed89dd839de27328ea56cce9b59f))
@@ -586,10 +680,12 @@
 
 ## [4.14.0](https://github.com/ModyQyW/fabric/compare/v4.13.1...v4.14.0) (2022-03-11)
 
+
 ### Features
 
 * import/order ([60ae746](https://github.com/ModyQyW/fabric/commit/60ae746c2f3b08965de83e7860fd7ac10052d90e))
 * remove eslint-plugin-you-dont-need-lodash-underscore ([f8618b9](https://github.com/ModyQyW/fabric/commit/f8618b96c5d9726b1e224dfcbd000c8553668293))
+
 
 ### Bug Fixes
 
@@ -597,11 +693,13 @@
 
 ## [4.13.1](https://github.com/ModyQyW/fabric/compare/v4.13.0...v4.13.1) (2022-02-25)
 
+
 ### Bug Fixes
 
 * fix script ([a4e8daa](https://github.com/ModyQyW/fabric/commit/a4e8daaceebe80437c585864dba1d3ddecd63416))
 
 ## [4.13.0](https://github.com/ModyQyW/fabric/compare/v4.12.0...v4.13.0) (2022-02-25)
+
 
 ### Features
 
@@ -609,11 +707,13 @@
 * add layer ignoreAtRules for tailwindcss ([df7845f](https://github.com/ModyQyW/fabric/commit/df7845f509aa799cda338ddf69ab1275cf82761d))
 * recommend @commitlint/prompt ([5f5a725](https://github.com/ModyQyW/fabric/commit/5f5a7255216e3dde0a11eaa096d892c745108c27))
 
+
 ### Performance Improvements
 
 * remove cli.cjs ([cab55f3](https://github.com/ModyQyW/fabric/commit/cab55f38b9193a717eae2f3867d720aae36d91a1))
 
 ## [4.12.0](https://github.com/ModyQyW/fabric/compare/v4.11.2...v4.12.0) (2022-02-09)
+
 
 ### Features
 
@@ -622,17 +722,20 @@
 
 ## [4.11.2](https://github.com/ModyQyW/fabric/compare/v4.11.1...v4.11.2) (2022-02-05)
 
+
 ### Bug Fixes
 
 * update exports ([d2a0561](https://github.com/ModyQyW/fabric/commit/d2a056156efe05c78e1815279272e30770573725))
 
 ## [4.11.1](https://github.com/ModyQyW/fabric/compare/v4.11.0...v4.11.1) (2022-02-05)
 
+
 ### Bug Fixes
 
 * fix tsconfig extends ([12102e4](https://github.com/ModyQyW/fabric/commit/12102e4ee5353d7b55f24ae6d4f3e0d1d2c38b5d))
 
 ## [4.11.0](https://github.com/ModyQyW/fabric/compare/v4.10.5...v4.11.0) (2022-02-03)
+
 
 ### Features
 
@@ -641,17 +744,20 @@
 * update markdownlint config ([7d6efb1](https://github.com/ModyQyW/fabric/commit/7d6efb1e8e2d95ff018092ee9d00ce28022d23a8))
 * update tsconfig ([797fded](https://github.com/ModyQyW/fabric/commit/797fded06f1751f19bdb2c2a7ebde8d288ea632b))
 
+
 ### Bug Fixes
 
 * fix vue3 script-setup support ([313c7d2](https://github.com/ModyQyW/fabric/commit/313c7d2cc5767924da3dc6cc362e6d92559bd2c8))
 
 ## [4.10.5](https://github.com/ModyQyW/fabric/compare/v4.10.4...v4.10.5) (2022-02-01)
 
+
 ### Bug Fixes
 
 * fix import/no-extraneous-dependencies options ([b73985f](https://github.com/ModyQyW/fabric/commit/b73985f018f1fff3f9e468e4b2a25cfb05e66505))
 
 ## [4.10.4](https://github.com/ModyQyW/fabric/compare/v4.10.3...v4.10.4) (2022-02-01)
+
 
 ### Bug Fixes
 
@@ -660,6 +766,7 @@
 
 ## [4.10.3](https://github.com/ModyQyW/fabric/compare/v4.10.2...v4.10.3) (2022-02-01)
 
+
 ### Bug Fixes
 
 * allow to reassign param req and request ([2d70182](https://github.com/ModyQyW/fabric/commit/2d70182b327f0e4141a34591c38e1b0f5822228d))
@@ -667,17 +774,20 @@
 
 ## [4.10.2](https://github.com/ModyQyW/fabric/compare/v4.10.1...v4.10.2) (2022-01-30)
 
+
 ### Bug Fixes
 
 * mongodb support ([db47c3c](https://github.com/ModyQyW/fabric/commit/db47c3cd3c695138b2d54bcd298f6eb21a1cb853))
 
 ## [4.10.1](https://github.com/ModyQyW/fabric/compare/v4.10.0...v4.10.1) (2022-01-27)
 
+
 ### Bug Fixes
 
 * fix prettier plugins ([d6ce6c5](https://github.com/ModyQyW/fabric/commit/d6ce6c5b8402e789dbbac97e7e4080bdcc0351a4))
 
 ## [4.10.0](https://github.com/ModyQyW/fabric/compare/v4.9.0...v4.10.0) (2022-01-27)
+
 
 ### Bug Fixes
 
@@ -687,9 +797,11 @@
 
 ## [4.8.0](https://github.com/ModyQyW/fabric/compare/v4.7.3...v4.8.0) (2022-01-17)
 
+
 ### Features
 
 * update eslint globals, add dd ([d3bd2db](https://github.com/ModyQyW/fabric/commit/d3bd2db2015a79aa55fb0c0c0a94fa1097d058d4))
+
 
 ### Bug Fixes
 
@@ -697,11 +809,13 @@
 
 ## [4.7.3](https://github.com/ModyQyW/fabric/compare/v4.7.2...v4.7.3) (2022-01-04)
 
+
 ### Bug Fixes
 
 * remove eslint-plugin-functional cause adding it looks like a breaking changes for many projects ([6c36c76](https://github.com/ModyQyW/fabric/commit/6c36c764c7557764f963b613175743c32dcf9ac2))
 
 ## [4.7.2](https://github.com/ModyQyW/fabric/compare/v4.7.1...v4.7.2) (2022-01-04)
+
 
 ### Bug Fixes
 
@@ -709,11 +823,13 @@
 
 ## [4.7.1](https://github.com/ModyQyW/fabric/compare/v4.7.0...v4.7.1) (2021-12-31)
 
+
 ### Bug Fixes
 
 * better remove jsdoc ([d7ce95b](https://github.com/ModyQyW/fabric/commit/d7ce95bc1f09b4a1353c017ba1c99664c477e330))
 
 ## [4.7.0](https://github.com/ModyQyW/fabric/compare/v4.6.1...v4.7.0) (2021-12-31)
+
 
 ### Features
 
@@ -722,17 +838,20 @@
 * no more examples folder ([80add9b](https://github.com/ModyQyW/fabric/commit/80add9bfcce464120934eeab7876b250b8a7ecd8))
 * update eslint config ([c9dd720](https://github.com/ModyQyW/fabric/commit/c9dd7208450ed4c500051910146fd6fc23f0b47f))
 
+
 ### Bug Fixes
 
 * add named exports ([c4147cf](https://github.com/ModyQyW/fabric/commit/c4147cf2d772ff951a5d88db309028f5637b2cea))
 * better choose pkgManager ([375f64a](https://github.com/ModyQyW/fabric/commit/375f64a3147ac91adebb1e81d15a7ac8ef232d05))
 * try fix export ([fb833f2](https://github.com/ModyQyW/fabric/commit/fb833f223afaca1e25fb245e02de58b9f510096e))
 
+
 ### Reverts
 
 * revert try fix export ([c0e2130](https://github.com/ModyQyW/fabric/commit/c0e213059eefb6343159c6f81e26fcc4c328535f))
 
 ## [4.6.1](https://github.com/ModyQyW/fabric/compare/v4.6.0...v4.6.1) (2021-12-27)
+
 
 ### Bug Fixes
 
@@ -741,11 +860,13 @@
 
 ## [4.6.0](https://github.com/ModyQyW/fabric/compare/v4.5.0...v4.6.0) (2021-12-27)
 
+
 ### Features
 
 * recommend @commitlint/cz-commitlint instead of cz-conventioal-changelog ([9776bd4](https://github.com/ModyQyW/fabric/commit/9776bd4385623224542f6f3361cff2b833c33223))
 
 ## [4.5.0](https://github.com/ModyQyW/fabric/compare/v4.4.5...v4.5.0) (2021-12-24)
+
 
 ### Features
 
@@ -759,17 +880,20 @@
 
 ## [4.4.2](https://github.com/ModyQyW/fabric/compare/v4.4.1...v4.4.2) (2021-12-20)
 
+
 ### Bug Fixes
 
 * fix cli devDependencies ([3683566](https://github.com/ModyQyW/fabric/commit/368356620165ca63e8c19a86b21bb326a571e0d0))
 
 ## [4.4.1](https://github.com/ModyQyW/fabric/compare/v4.4.0...v4.4.1) (2021-12-20)
 
+
 ### Bug Fixes
 
 * fix example file ([ab7fa0e](https://github.com/ModyQyW/fabric/commit/ab7fa0e77b6845ed1a0a44891e9b52d95fa3be59))
 
 ## [4.4.0](https://github.com/ModyQyW/fabric/compare/v4.3.0...v4.4.0) (2021-12-20)
+
 
 ### Bug Fixes
 
@@ -779,6 +903,7 @@
 
 ## [4.2.1](https://github.com/ModyQyW/fabric/compare/v4.2.0...v4.2.1) (2021-12-04)
 
+
 ### Features
 
 * replace chalk with picocolors ([6f56665](https://github.com/ModyQyW/fabric/commit/6f56665589896ec5cc25f018f2371713effd7ca7))
@@ -787,15 +912,18 @@
 
 ## [4.1.1](https://github.com/ModyQyW/fabric/compare/v4.0.1...v4.1.1) (2021-11-26)
 
+
 ### Features
 
 * remove prettier@2.2.1 related text ([52d7497](https://github.com/ModyQyW/fabric/commit/52d7497205b13974a299bb08c3c46e8dc3265d1b))
 
 ## [4.0.1](https://github.com/ModyQyW/fabric/compare/v4.0.0...v4.0.1) (2021-11-24)
 
+
 ### Features
 
 * set .npmrc and .yarnrc.yml if necessary ([a0cded8](https://github.com/ModyQyW/fabric/commit/a0cded87ed10f7e1afd51afbb494303e20552354))
+
 
 ### Bug Fixes
 
@@ -809,6 +937,7 @@
 
 ## [4.0.0-16](https://github.com/ModyQyW/fabric/compare/v4.0.0-15...v4.0.0-16) (2021-11-17)
 
+
 ### Features
 
 * add eslint-plugin-functional to react and vanilla ([5f05544](https://github.com/ModyQyW/fabric/commit/5f05544d985882e978c33487a3a860b32b976b7d))
@@ -820,6 +949,7 @@
 * tsconfig ([45e6602](https://github.com/ModyQyW/fabric/commit/45e66022eb060d92949967882a44501bb31e8053))
 * use functional/lite ([2de6ed2](https://github.com/ModyQyW/fabric/commit/2de6ed263f2fee1ab4e09045f74a7ebf977c81cd))
 
+
 ### Bug Fixes
 
 * fix example ([8d5433c](https://github.com/ModyQyW/fabric/commit/8d5433c5d201ce2a4f8dc3e885a1503cca4bcdd0))
@@ -828,11 +958,13 @@
 
 ## [4.0.0-14](https://github.com/ModyQyW/fabric/compare/v4.0.0-13...v4.0.0-14) (2021-11-02)
 
+
 ### Features
 
 * add updateNotifier to cli ([a1f44aa](https://github.com/ModyQyW/fabric/commit/a1f44aa9011a462b46c402a63ec332457eebd83c))
 
 ## [4.0.0-13](https://github.com/ModyQyW/fabric/compare/v4.0.0-12...v4.0.0-13) (2021-11-01)
+
 
 ### Bug Fixes
 
@@ -844,6 +976,7 @@
 
 ## [4.0.0-10](https://github.com/ModyQyW/fabric/compare/v4.0.0-9...v4.0.0-10) (2021-10-27)
 
+
 ### Bug Fixes
 
 * fix wrong script ([3cfe00e](https://github.com/ModyQyW/fabric/commit/3cfe00e49107174bb8bfd373636706a56f80997b))
@@ -851,11 +984,13 @@
 
 ## [4.0.0-9](https://github.com/ModyQyW/fabric/compare/v4.0.0-8...v4.0.0-9) (2021-10-27)
 
+
 ### Bug Fixes
 
 * fix stylelint extends ([a19939e](https://github.com/ModyQyW/fabric/commit/a19939ecf3d366fa66ff623381ce4f087c570810))
 
 ## [4.0.0-8](https://github.com/ModyQyW/fabric/compare/v4.0.0-7...v4.0.0-8) (2021-10-27)
+
 
 ### Bug Fixes
 
@@ -863,11 +998,13 @@
 
 ## [4.0.0-7](https://github.com/ModyQyW/fabric/compare/v4.0.0-6...v4.0.0-7) (2021-10-26)
 
+
 ### Bug Fixes
 
 * fix stylelint script ([370754f](https://github.com/ModyQyW/fabric/commit/370754ff6a56640843ffd5d61a6cae0fec83fb4b))
 
 ## [4.0.0-6](https://github.com/ModyQyW/fabric/compare/v4.0.0-5...v4.0.0-6) (2021-10-26)
+
 
 ### Bug Fixes
 
@@ -876,6 +1013,7 @@
 ## [4.0.0-5](https://github.com/ModyQyW/fabric/compare/v4.0.0-4...v4.0.0-5) (2021-10-26)
 
 ## [4.0.0-4](https://github.com/ModyQyW/fabric/compare/v4.0.0-3...v4.0.0-4) (2021-10-25)
+
 
 ### Bug Fixes
 
@@ -889,6 +1027,7 @@
 
 ## [4.0.0-0](https://github.com/ModyQyW/fabric/compare/v3.9.0...v4.0.0-0) (2021-10-22)
 
+
 ### Features
 
 * drop stylelint-config-twbs-bootstrap ([69d2103](https://github.com/ModyQyW/fabric/commit/69d21038ab7fae18e64cfb8e8d15fcea534824c6))
@@ -896,6 +1035,7 @@
 * support stylelint@14, drop stylelint@13 and lower ([31aea7b](https://github.com/ModyQyW/fabric/commit/31aea7bd3fff4dc08e85218e4eaf4587fd7f7429))
 * update cli ([b4d0c95](https://github.com/ModyQyW/fabric/commit/b4d0c95cab5233c388557255cbc5205879a82251))
 * update stylelint config ([76dde5b](https://github.com/ModyQyW/fabric/commit/76dde5b3e47d4d3f023997dd6f9904e027c808ac))
+
 
 ### Bug Fixes
 
@@ -909,11 +1049,13 @@
 
 ## [3.6.0](https://github.com/ModyQyW/fabric/compare/v3.5.1...v3.6.0) (2021-09-21)
 
+
 ### Features
 
 * remove eslint-import-resolver-webpack-config ([bbbcca6](https://github.com/ModyQyW/fabric/commit/bbbcca639fc3b3e7eaf63d1b9ea51a4e334da84d))
 
 ## [3.5.1](https://github.com/ModyQyW/fabric/compare/v3.5.0...v3.5.1) (2021-09-15)
+
 
 ### Bug Fixes
 
@@ -923,6 +1065,7 @@
 
 ## [3.4.3](https://github.com/ModyQyW/fabric/compare/v3.4.2...v3.4.3) (2021-09-10)
 
+
 ### Features
 
 * add prettier@2.4.0 config ([3eb0bca](https://github.com/ModyQyW/fabric/commit/3eb0bca3b4d64650e911f7247378734abbe9cffe))
@@ -930,17 +1073,20 @@
 
 ## [3.4.2](https://github.com/ModyQyW/fabric/compare/v3.4.1...v3.4.2) (2021-09-10)
 
+
 ### Bug Fixes
 
 * fix wrong script ([b792333](https://github.com/ModyQyW/fabric/commit/b792333d3e61a096ca6af5afc2778549228437ca))
 
 ## [3.4.1](https://github.com/ModyQyW/fabric/compare/v3.4.0...v3.4.1) (2021-09-10)
 
+
 ### Bug Fixes
 
 * ignore toml and yaml by default, for pnpm-lock.yaml and other large files ([3b75f3e](https://github.com/ModyQyW/fabric/commit/3b75f3eca6386705bfbc34b4704eb505b2377da5))
 
 ## [3.4.0](https://github.com/ModyQyW/fabric/compare/v3.3.2...v3.4.0) (2021-09-09)
+
 
 ### Features
 
@@ -958,11 +1104,13 @@
 
 ## [3.2.2](https://github.com/ModyQyW/fabric/compare/v3.2.1...v3.2.2) (2021-08-30)
 
+
 ### Bug Fixes
 
 * update less config ([12b3714](https://github.com/ModyQyW/fabric/commit/12b3714367f7d2db500c82698aaece329c59eccd))
 
 ## [3.2.1](https://github.com/ModyQyW/fabric/compare/v3.2.0...v3.2.1) (2021-08-28)
+
 
 ### Bug Fixes
 
@@ -971,17 +1119,20 @@
 
 ## [3.2.0](https://github.com/ModyQyW/fabric/compare/v3.1.1...v3.2.0) (2021-08-27)
 
+
 ### Performance Improvements
 
 * update definition ([1e18def](https://github.com/ModyQyW/fabric/commit/1e18deff12c0f112238922705773e1da6be0c8f5))
 
 ## [3.1.1](https://github.com/ModyQyW/fabric/compare/v3.1.0...v3.1.1) (2021-08-24)
 
+
 ### Bug Fixes
 
 * add eslint-import-resolver-typescript ([92a0b7a](https://github.com/ModyQyW/fabric/commit/92a0b7a542dab09109998e61cbd76cf44f5646b7))
 
 ## [3.1.0](https://github.com/ModyQyW/fabric/compare/v3.0.3...v3.1.0) (2021-08-24)
+
 
 ### Features
 
@@ -991,6 +1142,7 @@
 ## [3.0.3](https://github.com/ModyQyW/fabric/compare/v3.0.2...v3.0.3) (2021-08-19)
 
 ## [3.0.2](https://github.com/ModyQyW/fabric/compare/v3.0.1...v3.0.2) (2021-08-17)
+
 
 ### Bug Fixes
 
@@ -1002,17 +1154,20 @@
 
 ## [3.0.0-10](https://github.com/ModyQyW/fabric/compare/v3.0.0-9...v3.0.0-10) (2021-08-12)
 
+
 ### Bug Fixes
 
 * fix wrong scss extends ([ca06434](https://github.com/ModyQyW/fabric/commit/ca06434b0a8114851d3861beda53eb853e3dd002))
 
 ## [3.0.0-9](https://github.com/ModyQyW/fabric/compare/v3.0.0-8...v3.0.0-9) (2021-08-12)
 
+
 ### Features
 
 * use stylelint-config-recess-order ([ecbef39](https://github.com/ModyQyW/fabric/commit/ecbef3958a4fde958d7cef2572162f40110b3140))
 
 ## [3.0.0-8](https://github.com/ModyQyW/fabric/compare/v3.0.0-7...v3.0.0-8) (2021-08-12)
+
 
 ### Bug Fixes
 
@@ -1021,6 +1176,7 @@
 ## [3.0.0-7](https://github.com/ModyQyW/fabric/compare/v3.0.0-6...v3.0.0-7) (2021-08-10)
 
 ## [3.0.0-6](https://github.com/ModyQyW/fabric/compare/v3.0.0-5...v3.0.0-6) (2021-08-10)
+
 
 ### Bug Fixes
 
@@ -1032,11 +1188,13 @@
 
 ## [3.0.0-3](https://github.com/ModyQyW/fabric/compare/v3.0.0-2...v3.0.0-3) (2021-08-09)
 
+
 ### Features
 
 * disable unicorn/prefer-object-from-entries ([efe0e21](https://github.com/ModyQyW/fabric/commit/efe0e21c943ceaa89ac703334c72c21f3fdc6d6d))
 
 ## [3.0.0-2](https://github.com/ModyQyW/fabric/compare/v3.0.0-1...v3.0.0-2) (2021-08-09)
+
 
 ### Performance Improvements
 
@@ -1048,11 +1206,13 @@
 
 ## [2.9.0-4](https://github.com/ModyQyW/fabric/compare/v2.9.0-3...v2.9.0-4) (2021-07-29)
 
+
 ### Features
 
 * disable class-methods-use-this ([93d189d](https://github.com/ModyQyW/fabric/commit/93d189df25e6d0832e7b112e41031c69dba89ad5))
 
 ## [2.9.0-3](https://github.com/ModyQyW/fabric/compare/v2.9.0-2...v2.9.0-3) (2021-07-27)
+
 
 ### Features
 
@@ -1060,17 +1220,20 @@
 
 ## [2.9.0-2](https://github.com/ModyQyW/fabric/compare/v2.9.0-1...v2.9.0-2) (2021-07-27)
 
+
 ### Bug Fixes
 
 * consider no tsconfig and jsconfig ([b134fe2](https://github.com/ModyQyW/fabric/commit/b134fe20a75053cc5c50f879e077ad07e5e33306))
 
 ## [2.9.0-1](https://github.com/ModyQyW/fabric/compare/v2.9.0-0...v2.9.0-1) (2021-07-27)
 
+
 ### Bug Fixes
 
 * fix judgement ([6e8f922](https://github.com/ModyQyW/fabric/commit/6e8f922f635e6cba808004bfd675c7d3083c6585))
 
 ## [2.9.0-0](https://github.com/ModyQyW/fabric/compare/v2.8.1...v2.9.0-0) (2021-07-27)
+
 
 ### Bug Fixes
 
@@ -1080,11 +1243,13 @@
 
 ## [2.8.0](https://github.com/ModyQyW/fabric/compare/v2.7.0...v2.8.0) (2021-07-26)
 
+
 ### Features
 
 * opinionated ([da9ac55](https://github.com/ModyQyW/fabric/commit/da9ac5516b85a93a98189abbb169af8c16474d85))
 
 ## [2.7.0](https://github.com/ModyQyW/fabric/compare/v2.6.1...v2.7.0) (2021-07-20)
+
 
 ### Features
 
@@ -1092,11 +1257,13 @@
 
 ## [2.6.1](https://github.com/ModyQyW/fabric/compare/v2.6.0...v2.6.1) (2021-07-08)
 
+
 ### Bug Fixes
 
 * fix at-rule-no-unknown error in sass and scss ([b332e6d](https://github.com/ModyQyW/fabric/commit/b332e6d38ae0d5e8acf293e66bfe722e250601fe))
 
 ## [2.6.0](https://github.com/ModyQyW/fabric/compare/v2.5.2...v2.6.0) (2021-07-08)
+
 
 ### Features
 
@@ -1104,11 +1271,13 @@
 * update cli ([4d9a0af](https://github.com/ModyQyW/fabric/commit/4d9a0af359a3e11348ff17ed392d52b5ba897246))
 * update rules ([01ca79a](https://github.com/ModyQyW/fabric/commit/01ca79a22f3aa2ee61129a3d805dcb0322de18c2))
 
+
 ### Bug Fixes
 
 * allow stylelint empty input ([7388df5](https://github.com/ModyQyW/fabric/commit/7388df5c79827d4d6c6cdeb423047b729eeed300))
 
 ## [2.5.2](https://github.com/ModyQyW/fabric/compare/v2.5.1...v2.5.2) (2021-06-30)
+
 
 ### Bug Fixes
 
@@ -1117,11 +1286,13 @@
 
 ## [2.5.1](https://github.com/ModyQyW/fabric/compare/v2.5.0...v2.5.1) (2021-06-29)
 
+
 ### Bug Fixes
 
 * miss ts files ([2f8558a](https://github.com/ModyQyW/fabric/commit/2f8558a79fdbff29107ed84bf934dd9a7219f3ac))
 
 ## [2.5.0](https://github.com/ModyQyW/fabric/compare/v2.4.3...v2.5.0) (2021-06-28)
+
 
 ### Features
 
@@ -1129,11 +1300,13 @@
 
 ## [2.4.3](https://github.com/ModyQyW/fabric/compare/v2.4.2...v2.4.3) (2021-06-13)
 
+
 ### Features
 
 * disable unicorn/numberic-separators-style ([19a559b](https://github.com/ModyQyW/fabric/commit/19a559bbe79636415ec4640e41c8ef8131564490))
 
 ## [2.4.2](https://github.com/ModyQyW/fabric/compare/v2.4.1...v2.4.2) (2021-06-13)
+
 
 ### Features
 
@@ -1141,11 +1314,13 @@
 
 ## [2.4.1](https://github.com/ModyQyW/fabric/compare/v2.4.0...v2.4.1) (2021-06-13)
 
+
 ### Features
 
 * disable unicorn/prefer-node-protocol ([94b2d76](https://github.com/ModyQyW/fabric/commit/94b2d7696e91c6d9d1471db02fdee1d927cf506d))
 
 ## [2.4.0](https://github.com/ModyQyW/fabric/compare/v2.3.0...v2.4.0) (2021-06-13)
+
 
 ### Features
 
@@ -1158,16 +1333,19 @@
 
 ## [2.3.0](https://github.com/ModyQyW/fabric/compare/v2.2.0...v2.3.0) (2021-06-10)
 
+
 ### Features
 
 * disable unicorn/no-array-reduce ([7996e38](https://github.com/ModyQyW/fabric/commit/7996e3861d249daf30525c2053483abc362ca964))
 * unicorn🦄️ again ([101b207](https://github.com/ModyQyW/fabric/commit/101b207cf6085d1e90773a6ecb3b6018f401e40d))
+
 
 ### Bug Fixes
 
 * fix script ([2f1237b](https://github.com/ModyQyW/fabric/commit/2f1237b90498d4dff2b7259fbf41c8c2791c4afd))
 
 ## [2.2.0](https://github.com/ModyQyW/fabric/compare/v2.1.0...v2.2.0) (2021-06-03)
+
 
 ### Features
 
@@ -1176,11 +1354,13 @@
 
 ## [2.1.0](https://github.com/ModyQyW/fabric/compare/v2.0.5...v2.1.0) (2021-05-23)
 
+
 ### Features
 
 * **cli:** consider .eslintrc ([8330cd2](https://github.com/ModyQyW/fabric/commit/8330cd223e164fcb294cf72c0f65fcc2be580066))
 
 ## [2.0.5](https://github.com/ModyQyW/fabric/compare/v2.0.4...v2.0.5) (2021-05-18)
+
 
 ### Bug Fixes
 
@@ -1188,11 +1368,13 @@
 
 ## [2.0.4](https://github.com/ModyQyW/fabric/compare/v2.0.3...v2.0.4) (2021-05-16)
 
+
 ### Bug Fixes
 
 * fix spelling ([85ddcb4](https://github.com/ModyQyW/fabric/commit/85ddcb4b15f5cc79f113b2102cf8e3a16e334e70))
 
 ## [2.0.3](https://github.com/ModyQyW/fabric/compare/v2.0.2...v2.0.3) (2021-05-16)
+
 
 ### Bug Fixes
 
@@ -1208,6 +1390,7 @@
 
 ## [1.31.3](https://github.com/ModyQyW/fabric/compare/v1.31.2...v1.31.3) (2021-05-09)
 
+
 ### Features
 
 * remove config/.gitignore, use .eslintignore in cli ([92e9789](https://github.com/ModyQyW/fabric/commit/92e9789855ba7ce013a9caa157601d73ac672d74))
@@ -1215,6 +1398,7 @@
 ## [1.31.2](https://github.com/ModyQyW/fabric/compare/v1.31.1...v1.31.2) (2021-05-09)
 
 ## [1.31.1](https://github.com/ModyQyW/fabric/compare/v1.30.1...v1.31.1) (2021-05-09)
+
 
 ### Features
 
@@ -1226,11 +1410,13 @@
 
 ## [1.30.0](https://github.com/ModyQyW/fabric/compare/v1.29.0...v1.30.0) (2021-04-30)
 
+
 ### Features
 
 * move cli ([0a27e38](https://github.com/ModyQyW/fabric/commit/0a27e38dd3d862dbbfda3b1e17541afa9731fa7d))
 
 ## [1.29.0](https://github.com/ModyQyW/fabric/compare/v1.28.1...v1.29.0) (2021-04-29)
+
 
 ### Features
 
@@ -1240,9 +1426,11 @@
 
 ## [1.28.1](https://github.com/ModyQyW/fabric/compare/v1.28.0...v1.28.1) (2021-04-21)
 
+
 ### Features
 
 * off vuejs-accessibility/click-events-have-key-events ([5a392c0](https://github.com/ModyQyW/fabric/commit/5a392c07e69df1d46dacf821fc70eb7680a64e0f))
+
 
 ### Bug Fixes
 
@@ -1250,11 +1438,13 @@
 
 ## [1.28.0](https://github.com/ModyQyW/fabric/compare/v1.27.0...v1.28.0) (2021-04-21)
 
+
 ### Features
 
 * ignorePropertyModificationsFor add draft for immer ([4f13aaf](https://github.com/ModyQyW/fabric/commit/4f13aafd142b738fc6cf87923515652e61b95e3d))
 
 ## [1.27.0](https://github.com/ModyQyW/fabric/compare/v1.26.0...v1.27.0) (2021-04-14)
+
 
 ### Features
 
@@ -1262,21 +1452,25 @@
 
 ## [1.26.0](https://github.com/ModyQyW/fabric/compare/v1.25.4...v1.26.0) (2021-04-08)
 
+
 ### Features
 
 * disable react/react-in-jsx-scope in taro3 ([de17897](https://github.com/ModyQyW/fabric/commit/de17897e76ffdd835f82fb2aa8dde92b4dcf1542))
 
 ## [1.25.4](https://github.com/ModyQyW/fabric/compare/v1.25.3...v1.25.4) (2021-04-03)
 
+
 ### Features
 
 * add no-param-reassign ignore properties ([0803259](https://github.com/ModyQyW/fabric/commit/080325906461c3fd49718a2d00124e52159e81d0))
+
 
 ### Bug Fixes
 
 * fix wrong import ([6ede283](https://github.com/ModyQyW/fabric/commit/6ede2833bcb74e323817a238bd7aec2e09ff3c17))
 
 ## [1.25.3](https://github.com/ModyQyW/fabric/compare/v1.25.2...v1.25.3) (2021-04-03)
+
 
 ### Features
 
@@ -1287,6 +1481,7 @@
 ## [1.25.1](https://github.com/ModyQyW/fabric/compare/v1.25.0...v1.25.1) (2021-03-30)
 
 ## [1.25.0](https://github.com/ModyQyW/fabric/compare/v1.24.2...v1.25.0) (2021-03-30)
+
 
 ### Features
 
@@ -1302,6 +1497,7 @@
 
 ## [1.23.0](https://github.com/ModyQyW/fabric/compare/v1.22.1...v1.23.0) (2021-03-19)
 
+
 ### Features
 
 * support :import and :export in property-no-unknown ignoreSelectors ([6a855df](https://github.com/ModyQyW/fabric/commit/6a855dfd3fa1869dd0174e312825812a1801b683))
@@ -1312,11 +1508,13 @@
 
 ## [1.21.0](https://github.com/ModyQyW/fabric/compare/v1.20.1...v1.21.0) (2021-03-15)
 
+
 ### Features
 
 * add eslint-plugin-vuejs-accessibility ([e335f9c](https://github.com/ModyQyW/fabric/commit/e335f9c114f5803a9215df8b372d576e91f27825))
 
 ## [1.20.1](https://github.com/ModyQyW/fabric/compare/v1.20.0...v1.20.1) (2021-03-11)
+
 
 ### Bug Fixes
 
@@ -1325,6 +1523,7 @@
 ## [1.20.0](https://github.com/ModyQyW/fabric/compare/v1.19.0...v1.20.0) (2021-03-10)
 
 ## [1.19.0](https://github.com/ModyQyW/fabric/compare/v1.18.0...v1.19.0) (2021-03-09)
+
 
 ### Bug Fixes
 
@@ -1336,11 +1535,13 @@
 
 ## [1.17.0](https://github.com/ModyQyW/fabric/compare/v1.16.1...v1.17.0) (2021-02-25)
 
+
 ### Features
 
 * remove prettier plugin in extends ([62c799d](https://github.com/ModyQyW/fabric/commit/62c799dd987925e2e2febdd92df43152906a4590))
 
 ## [1.16.1](https://github.com/ModyQyW/fabric/compare/v1.16.0...v1.16.1) (2021-02-17)
+
 
 ### Bug Fixes
 
@@ -1350,11 +1551,13 @@
 
 ## [1.15.4](https://github.com/ModyQyW/fabric/compare/v1.15.3...v1.15.4) (2021-02-14)
 
+
 ### Bug Fixes
 
 * add missing ignorePseudoClasses ([02c1928](https://github.com/ModyQyW/fabric/commit/02c1928736034a1b57165c78ca318c833d7ca86e))
 
 ## [1.15.3](https://github.com/ModyQyW/fabric/compare/v1.15.2...v1.15.3) (2021-02-14)
+
 
 ### Bug Fixes
 
@@ -1364,11 +1567,13 @@
 
 ## [1.15.1](https://github.com/ModyQyW/fabric/compare/v1.15.0...v1.15.1) (2021-02-13)
 
+
 ### Bug Fixes
 
 * fix eslint vue-typescript config ([7b718da](https://github.com/ModyQyW/fabric/commit/7b718da05421f0946c6736c2a1acfd758ec4f43b))
 
 ## [1.15.0](https://github.com/ModyQyW/fabric/compare/v1.14.0...v1.15.0) (2021-02-11)
+
 
 ### Features
 
@@ -1378,6 +1583,7 @@
 
 ## [1.13.4](https://github.com/ModyQyW/fabric/compare/v1.13.3...v1.13.4) (2021-02-04)
 
+
 ### Features
 
 * split stylelint rules and ignore some font-family values ([d1f78e8](https://github.com/ModyQyW/fabric/commit/d1f78e8c803f4cee90b5f1324a9b2c47a2263a7a))
@@ -1385,6 +1591,7 @@
 ## [1.13.3](https://github.com/ModyQyW/fabric/compare/v1.13.2...v1.13.3) (2021-02-02)
 
 ## [1.13.2](https://github.com/ModyQyW/fabric/compare/v1.13.1...v1.13.2) (2021-02-02)
+
 
 ### Features
 
@@ -1394,11 +1601,13 @@
 
 ## [1.13.1](https://github.com/ModyQyW/fabric/compare/v1.13.0...v1.13.1) (2021-01-29)
 
+
 ### Features
 
 * add reassign params for long-term considerations ([0d2c1e7](https://github.com/ModyQyW/fabric/commit/0d2c1e77f3f5c26c3f9db62fddbe172f182a5dd6))
 
 ## [1.13.0](https://github.com/ModyQyW/fabric/compare/v1.12.1...v1.13.0) (2021-01-26)
+
 
 ### Features
 
@@ -1488,3 +1697,4 @@
 ## [0.0.2](https://github.com/ModyQyW/fabric/compare/v0.0.1...v0.0.2) (2020-11-10)
 
 ## 0.0.1 (2020-11-10)
+
