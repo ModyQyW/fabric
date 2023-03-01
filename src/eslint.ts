@@ -481,6 +481,9 @@ const config: Linter.Config = {
   globals: {
     __dirname: false,
     __filename: false,
+    exports: false,
+    module: false,
+    require: false,
     document: 'readonly',
     navigator: 'readonly',
     window: 'readonly',
