@@ -8,4 +8,4 @@ if (!content.startsWith('# Changelog')) {
   writeFileSync(filePath, `# Changelog\n\n${content}`);
 }
 
-simpleGit().add(filePath);
+await simpleGit().add(filePath);
