@@ -40,3 +40,5 @@ export const enableTailwindIcons =
   isPackageExists('@egoist/tailwindcss-icons') ||
   isPackageExists('tailwindcss-plugin-icons') ||
   Boolean(process.env.ENABLE_TAILWIND_ICONS);
+
+export const enablePrettier = isPackageExists('prettier') || Boolean(process.env.ENABLE_PRETTIER);

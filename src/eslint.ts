@@ -11,6 +11,7 @@ import {
   enableReactNative,
   enableReact,
   enableMiniprogram,
+  enablePrettier,
 } from './helpers';
 
 const debug = getDebug('@modyqyw/fabric/eslint');
@@ -28,6 +29,7 @@ if (enableReact) debug('React config enabled.');
 if (enableReactNative) debug('ReactNative config enabled.');
 if (enableNext) debug('Next config enabled.');
 if (enableMiniprogram) debug('miniprogram config enabled.');
+if (enablePrettier) debug('prettier config enabled.');
 
 const baseParser = 'espree';
 const baseParserOptions: Linter.ParserOptions = {
@@ -94,8 +96,8 @@ const config: Linter.Config = {
     'plugin:regexp/recommended',
     'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
-    'plugin:prettier/recommended',
-  ],
+    enablePrettier ? 'plugin:prettier/recommended' : '',
+  ].filter((item) => !!item),
   settings: {
     'import/core-modules': ['electron'],
     'import/extensions': ['.js', '.mjs', '.jsx'],
@@ -153,8 +155,8 @@ const config: Linter.Config = {
       extends: [
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
-        'plugin:prettier/recommended',
-      ],
+        enablePrettier ? 'plugin:prettier/recommended' : '',
+      ].filter((item) => !!item),
       settings: { ...typescriptSettings },
       parser: typescriptParser,
       parserOptions: { ...baseParserOptions },
@@ -178,7 +180,7 @@ const config: Linter.Config = {
         enableReactNative ? 'plugin:react-native/all' : '',
         enableReactNative ? 'plugin:react-native-a11y/all' : '',
         enableNext ? 'next/core-web-vitals' : '',
-        'plugin:prettier/recommended',
+        enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       rules: {
         ...(enableReact
@@ -274,7 +276,7 @@ const config: Linter.Config = {
         enableVueI18n ? 'plugin:@intlify/vue-i18n/recommended' : '',
         enableMiniprogram ? '' : 'plugin:vuejs-accessibility/recommended',
         enableNuxt ? 'plugin:nuxt/recommended' : '',
-        'plugin:prettier/recommended',
+        enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       settings: {
         ...(enableTypescript ? typescriptSettings : {}),
@@ -377,9 +379,9 @@ const config: Linter.Config = {
       files: ['*.json', '*.jsonc', '*.json5'],
       extends: [
         'plugin:jsonc/recommended-with-jsonc',
-        'plugin:jsonc/prettier',
-        'plugin:prettier/recommended',
-      ],
+        enablePrettier ? 'plugin:jsonc/prettier' : '',
+        enablePrettier ? 'plugin:prettier/recommended' : '',
+      ].filter((item) => !!item),
       parser: 'jsonc-eslint-parser',
       rules: {
         // not supported
@@ -388,7 +390,11 @@ const config: Linter.Config = {
     },
     {
       files: ['*.yml', '*.yaml'],
-      extends: ['plugin:yml/standard', 'plugin:yml/prettier', 'plugin:prettier/recommended'],
+      extends: [
+        'plugin:yml/standard',
+        enablePrettier ? 'plugin:yml/prettier' : '',
+        enablePrettier ? 'plugin:prettier/recommended' : '',
+      ].filter((item) => !!item),
       parser: 'yaml-eslint-parser',
       rules: {
         // not supported
