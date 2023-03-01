@@ -85,7 +85,7 @@
     "dev": "pnpm run build --watch",
     "lint": "run-p lint:eslint lint:markdownlint check:types",
     "lint:eslint": "eslint . --fix --cache",
-    "lint:markdownlint": "markdownlint . --fix --ignore CHANGELOG.md --ignore-path=.gitignore",
+    "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore",
     "prepare": "is-ci || husky install",
     "prepublishOnly": "pnpm run build",
     "release": "pnpm install && pnpm run build && pnpm run lint && bumpp --all -x \"pnpm run changelog\""
