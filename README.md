@@ -636,12 +636,12 @@ Experience has proven that automation is the best option. You may want to try pa
 - Support CommonJS require and ESM import.
 - Prettier/ESLint/Stylelint/Commitlint config changed.
 
-```js
+```cjs
 const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
+```
 
+```mjs
 import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
-...
-
 ```
 
 - Use `eslint.vanilla` instead of `eslint.native`.

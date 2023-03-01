@@ -635,12 +635,12 @@ chmod +x .husky/*
 - 支持 CommonJS require 和 ESM import。
 - 改变 Prettier/ESLint/Stylelint/Commitlint 配置。
 
-```js
+```cjs
 const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
+```
 
+```mjs
 import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
-...
-
 ```
 
 - 使用 `eslint.vanilla` 而不是 `eslint.native`。
