@@ -80,7 +80,7 @@
     "build": "rollup -c rollup.config.ts --configPlugin esbuild",
     "check:deps": "ncu --dep dev,optional,prod,packageManager",
     "check:types": "tsc --noEmit",
-    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -u -r 0 && tsx ./scripts/handle-changelog.ts",
+    "changelog": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s -u -r 0 && git add CHANGELOG.md",
     "commit": "git-cz",
     "dev": "pnpm run build --watch",
     "lint": "run-p lint:eslint lint:markdownlint check:types",
