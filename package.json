@@ -99,10 +99,10 @@
     "@types/eslint": "^8.21.1",
     "@types/node": "latest",
     "@types/prettier": "^2.7.2",
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "@typescript-eslint/parser": "^5.52.0",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "debug": "^4.3.4",
-    "eslint-config-next": "^13.1.6",
+    "eslint-config-next": "^13.2.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-node": "^0.3.7",
     "eslint-import-resolver-typescript": "^3.5.3",
@@ -147,18 +147,18 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/debug": "^4.1.7",
     "@types/shelljs": "^0.8.11",
-    "bumpp": "^8.2.1",
+    "bumpp": "^9.0.0",
     "commitizen": "^4.3.0",
     "conventional-changelog-cli": "^2.2.2",
-    "esbuild": "^0.17.9",
-    "eslint": "^8.34.0",
+    "esbuild": "^0.17.10",
+    "eslint": "^8.35.0",
     "husky": "^8.0.3",
     "is-ci": "^3.0.1",
     "lint-staged": "^13.1.2",
     "markdownlint-cli": "^0.33.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
-    "rollup": "^3.17.2",
+    "rollup": "^3.17.3",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^5.2.0",
     "rollup-plugin-esbuild": "^5.0.0",
@@ -166,7 +166,7 @@
     "simple-git": "^3.16.1",
     "sort-package-json": "^2.4.1",
     "stylelint": "^15.2.0",
-    "type-fest": "^3.6.0"
+    "type-fest": "^3.6.1"
   },
   "peerDependencies": {
     "@types/eslint": "^8.0.0",
@@ -204,7 +204,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@7.27.1",
+  "packageManager": "pnpm@7.28.0",
   "engines": {
     "node": ">=14.18"
   },
