@@ -147,7 +147,7 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/debug": "^4.1.7",
     "@types/shelljs": "^0.8.11",
-    "bumpp": "^8.2.1",
+    "bumpp": "^9.0.0",
     "commitizen": "^4.3.0",
     "conventional-changelog-cli": "^2.2.2",
     "esbuild": "^0.17.9",
