@@ -1,11 +1,11 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { simpleGit } from 'simple-git';
 
-const filePath = 'CHANGELOG.md';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const changelogPath = resolve(__dirname, '..', 'CHANGELOG.md');
 
-const content = readFileSync(filePath, { encoding: 'utf8' });
-if (!content.startsWith('# Changelog')) {
-  writeFileSync(filePath, `# Changelog\n\n${content}`);
-}
-
-await simpleGit().add(filePath);
+(async () => {
+  await simpleGit().add(changelogPath);
+})();
