@@ -411,6 +411,7 @@ const config: Linter.Config = {
     {
       files: ['**/*.md/*.*'],
       rules: {
+        '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/no-redeclare': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
