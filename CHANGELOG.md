@@ -1,3 +1,10 @@
+## [7.3.1](https://github.com/ModyQyW/fabric/compare/v7.3.0...v7.3.1) (2023-03-02)
+
+
+### Bug Fixes
+
+* disable @typescript-eslint/ban-types in md ts ([290b896](https://github.com/ModyQyW/fabric/commit/290b896b15b007531aba24cc6d8463f3932f07ba))
+
 ## [7.3.0](https://github.com/ModyQyW/fabric/compare/v7.2.0...v7.3.0) (2023-03-01)
 
 
