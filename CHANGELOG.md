@@ -1,3 +1,5 @@
+## [7.3.2](https://github.com/ModyQyW/fabric/compare/v7.3.1...v7.3.2) (2023-03-02)
+
 ## [7.3.1](https://github.com/ModyQyW/fabric/compare/v7.3.0...v7.3.1) (2023-03-02)
 
 
