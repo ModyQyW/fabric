@@ -362,6 +362,16 @@ Set up `.czrc`.
 }
 ```
 
+### Publint
+
+Learn about [Publint](https://publint.dev/).
+
+```sh
+npm install -D publint@0.1
+```
+
+Just run `publint` to check your library.
+
 ### LintStaged
 
 Learn about [LintStaged](https://github.com/okonet/lint-staged).

@@ -361,6 +361,16 @@ npm install -D commitizen@4 @commitlint/prompt@17
 }
 ```
 
+### Publint
+
+看看 [Publint](https://publint.dev/)。
+
+```sh
+npm install -D publint@0.1
+```
+
+运行 `publint` 检查你的库即可。
+
 ### LintStaged
 
 看看 [LintStaged](https://github.com/okonet/lint-staged)。
