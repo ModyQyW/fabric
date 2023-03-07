@@ -1,3 +1,10 @@
+## [7.4.0](https://github.com/ModyQyW/fabric/compare/v7.3.2...v7.4.0) (2023-03-07)
+
+
+### Features
+
+* tailwindcss and unocss support ([c49fa78](https://github.com/ModyQyW/fabric/commit/c49fa7876adffff804b47aaf315fbdcc569681e5))
+
 ## [7.3.2](https://github.com/ModyQyW/fabric/compare/v7.3.1...v7.3.2) (2023-03-02)
 
 ## [7.3.1](https://github.com/ModyQyW/fabric/compare/v7.3.0...v7.3.1) (2023-03-02)
