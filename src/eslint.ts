@@ -12,6 +12,7 @@ import {
   enableReact,
   enableMiniprogram,
   enablePrettier,
+  enableUnoCss,
 } from './helpers';
 
 const debug = getDebug('@modyqyw/fabric/eslint');
@@ -29,7 +30,8 @@ if (enableReact) debug('React config enabled.');
 if (enableReactNative) debug('ReactNative config enabled.');
 if (enableNext) debug('Next config enabled.');
 if (enableMiniprogram) debug('miniprogram config enabled.');
-if (enablePrettier) debug('prettier config enabled.');
+if (enablePrettier) debug('Prettier config enabled.');
+if (enableUnoCss) debug('UnoCSS config enabled.');
 
 const baseParser = 'espree';
 const baseParserOptions: Linter.ParserOptions = {
@@ -96,6 +98,7 @@ const config: Linter.Config = {
     'plugin:regexp/recommended',
     'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
+    enableUnoCss ? 'plugin:@unocss/recommended' : '',
     enablePrettier ? 'plugin:prettier/recommended' : '',
   ].filter((item) => !!item),
   settings: {
