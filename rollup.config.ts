@@ -47,7 +47,7 @@ export default defineConfig([
       },
     ],
     plugins: [
-      json(),
+      json({ preferConst: true }),
       nodeResolve({ preferBuiltins: true }),
       esbuild({ target: 'node14.18' }),
       commonjs(),
