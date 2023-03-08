@@ -1,3 +1,10 @@
+## [7.4.1](https://github.com/ModyQyW/fabric/compare/v7.4.0...v7.4.1) (2023-03-08)
+
+
+### Bug Fixes
+
+* disable unocss rules when using tailwindcss ([aa36c74](https://github.com/ModyQyW/fabric/commit/aa36c74e9fba2ea31268161dba175ececedc72db))
+
 ## [7.4.0](https://github.com/ModyQyW/fabric/compare/v7.3.2...v7.4.0) (2023-03-07)
 
 
