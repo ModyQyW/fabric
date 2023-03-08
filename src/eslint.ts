@@ -12,6 +12,7 @@ import {
   enableReact,
   enableMiniprogram,
   enablePrettier,
+  enableTailwindCss,
   enableUnoCss,
 } from './helpers';
 
@@ -98,7 +99,7 @@ const config: Linter.Config = {
     'plugin:regexp/recommended',
     'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
-    enableUnoCss ? 'plugin:@unocss/recommended' : '',
+    !enableTailwindCss && enableUnoCss ? 'plugin:@unocss/recommended' : '',
     enablePrettier ? 'plugin:prettier/recommended' : '',
   ].filter((item) => !!item),
   settings: {
