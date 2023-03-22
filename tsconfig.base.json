@@ -20,11 +20,10 @@
     "declarationDir": "dist",
     "downlevelIteration": true,
     "importHelpers": true,
-    "importsNotUsedAsValues": "error",
+    "verbatimModuleSyntax": true,
     "newLine": "lf",
     // "noEmit": true,
     "outDir": "dist",
-    "preserveValueImports": true,
     "removeComments": true,
     "sourceMap": true,
 
@@ -37,7 +36,6 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
 
     // Backwards Compatibility
 
