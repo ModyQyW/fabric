@@ -98,7 +98,6 @@ const config: Linter.Config = {
     'plugin:n/recommended',
     'plugin:regexp/recommended',
     'plugin:unicorn/recommended',
-    'plugin:sonarjs/recommended',
     !enableTailwindCss && enableUnoCss ? 'plugin:@unocss/recommended' : '',
     enablePrettier ? 'plugin:prettier/recommended' : '',
   ].filter((item) => !!item),
@@ -135,8 +134,6 @@ const config: Linter.Config = {
     'unicorn/prefer-top-level-await': 'off',
     // too ideal for business
     'unicorn/prevent-abbreviations': 'off',
-    // too ideal
-    'sonarjs/no-duplicate-string': 'off',
     ...(enableMiniprogram
       ? {
           'unicorn/prefer-array-flat-map': 'off',
