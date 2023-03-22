@@ -108,8 +108,6 @@ Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
     "baseUrl": ".",
     // on-demand set module, default ESNext
     "module": "CommonJS",
-    // on-demand set preserveValueImports, default true
-    "preserveValueImports": false,
     // on-demand set lib, default ["ESNext"]
     "lib": ["ESNext", "DOM"],
     // on-demand set target, default ESNext
