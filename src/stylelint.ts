@@ -5,8 +5,8 @@ import { enableMiniprogram, enableScss } from './helpers';
 const debug = getDebug('@modyqyw/fabric/stylelint');
 
 debug('CSS config enabled.');
-if (enableScss) debug('SCSS config enabled.');
-if (enableMiniprogram) debug('miniprogram config enabled.');
+debug(`SCSS config ${enableScss ? 'enabled' : 'disabled'}.`);
+debug(`miniprogram config ${enableMiniprogram ? 'enabled' : 'disabled'}.`);
 
 const miniprogramElements = [
   'page',

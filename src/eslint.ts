@@ -19,20 +19,17 @@ import {
 const debug = getDebug('@modyqyw/fabric/eslint');
 
 debug('JavaScript config enabled.');
-if (enableTypescript) debug('TypeScript config enabled.');
+debug(`TypeScript config ${enableTypescript ? 'enabled' : 'disabled'}.`);
 debug('JSON config enabled.');
 debug('YAML config enabled.');
-if (enableVue) {
-  if (enableVue3) debug('Vue3 config enabled.');
-  else debug('Vue2 config enabled.');
-}
-if (enableNuxt) debug('Nuxt config enabled.');
-if (enableReact) debug('React config enabled.');
-if (enableReactNative) debug('ReactNative config enabled.');
-if (enableNext) debug('Next config enabled.');
-if (enableMiniprogram) debug('miniprogram config enabled.');
-if (enablePrettier) debug('Prettier config enabled.');
-if (enableUnoCss) debug('UnoCSS config enabled.');
+debug(`Vue3 config ${enableVue && enableVue3 ? 'enabled' : 'disabled'}.`);
+debug(`Vue2 config ${enableVue && !enableVue3 ? 'enabled' : 'disabled'}.`);
+debug(`Nuxt config ${enableNuxt ? 'enabled' : 'disabled'}.`);
+debug(`React config ${enableReact ? 'enabled' : 'disabled'}.`);
+debug(`ReactNative config ${enableReactNative ? 'enabled' : 'disabled'}.`);
+debug(`Next config ${enableNext ? 'enabled' : 'disabled'}.`);
+debug(`miniprogram config ${enableMiniprogram ? 'enabled' : 'disabled'}.`);
+debug(`Prettier config ${enablePrettier ? 'enabled' : 'disabled'}.`);
 
 const baseParser = 'espree';
 const baseParserOptions: Linter.ParserOptions = {

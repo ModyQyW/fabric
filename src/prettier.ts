@@ -7,9 +7,9 @@ const debug = getDebug('@modyqyw/fabric/prettier');
 
 debug('JSDoc plugin enabled.');
 debug('PackageJson Plugin enabled.');
-if (enableTailwindCss && !enableTailwindCssIcons) {
-  debug('TailwindCSS plugin enabled.');
-}
+debug(
+  `TailwindCSS plugin ${enableTailwindCss && !enableTailwindCssIcons ? 'enabled' : 'disabled'}.`,
+);
 
 const config: Config & { [key: string]: any } = {
   printWidth: 100,
