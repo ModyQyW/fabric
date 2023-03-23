@@ -120,6 +120,7 @@
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-plugin-react-native-a11y": "^3.3.0",
     "eslint-plugin-regexp": "^1.13.0",
+    "eslint-plugin-unicorn": "^46.0.0",
     "eslint-plugin-vue": "^9.9.0",
     "eslint-plugin-vue-scoped-css": "^2.4.0",
     "eslint-plugin-vuejs-accessibility": "^2.1.0",
