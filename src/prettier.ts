@@ -15,6 +15,7 @@ const config: Config & { [key: string]: any } = {
   printWidth: 100,
   singleQuote: true,
   trailingComma: 'all',
+  pluginSearchDirs: false,
   jsdocCapitalizeDescription: false,
   tsdoc: true,
   plugins: [
