@@ -1,3 +1,21 @@
+## [7.5.0](https://github.com/ModyQyW/fabric/compare/v7.4.1...v7.5.0) (2023-03-23)
+
+
+### Features
+
+* remove unocss support since it is not ready ([6d4662a](https://github.com/ModyQyW/fabric/commit/6d4662aac55659a0c346ce93eb1195c5c9b7528d))
+
+
+### Bug Fixes
+
+* disallow plugin search ([b049d82](https://github.com/ModyQyW/fabric/commit/b049d82817db3cef51d9643a3fd7b0621000dcd9))
+* ts 5 ([1b0704f](https://github.com/ModyQyW/fabric/commit/1b0704f759a324393f022f6d1d305b39ca93d860))
+
+
+### Performance Improvements
+
+* remove eslint-plugin-sonar ([a3fd580](https://github.com/ModyQyW/fabric/commit/a3fd5801020692f94387ddcfa179282c4261a4cf))
+
 ## [7.4.1](https://github.com/ModyQyW/fabric/compare/v7.4.0...v7.4.1) (2023-03-08)
 
 
