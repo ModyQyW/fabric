@@ -90,7 +90,7 @@ const config: Config = {
       {
         ignorePseudoClasses: [
           // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.1.0/index.js
+          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.2.0/index.js
           'export',
           'import',
           'local',
@@ -124,7 +124,7 @@ const config: Config = {
               ignoreTypes: [
                 ...miniprogramElements,
                 // css modules
-                // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.1.0/index.js
+                // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.2.0/index.js
                 'from',
               ],
             },
@@ -136,7 +136,7 @@ const config: Config = {
       true,
       {
         // css modules
-        // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.1.0/index.js
+        // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.2.0/index.js
         ignoreProperties: ['composes', 'compose-with'],
         ignoreSelectors: [':export', /^:import/],
       },
@@ -150,7 +150,7 @@ const config: Config = {
             {
               ignoreFunctions: [
                 // css modules
-                // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.1.0/index.js
+                // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.2.0/index.js
                 'global',
                 // tailwindcss
                 // https://tailwindcss.com/docs/functions-and-directives#functions
@@ -178,7 +178,7 @@ const config: Config = {
             {
               ignoreAtRules: [
                 // css modules
-                // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.1.0/index.js
+                // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.2.0/index.js
                 'value',
                 // tailwindcss
                 // https://tailwindcss.com/docs/functions-and-directives#directives
