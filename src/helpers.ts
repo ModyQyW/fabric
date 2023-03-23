@@ -44,6 +44,4 @@ export const enableTailwindCssIcons =
   isPackageExists('tailwindcss-plugin-icons') ||
   Boolean(process.env.ENABLE_TAILWIND_CSS_ICONS);
 
-export const enableUnoCss = isPackageExists('unocss') || Boolean(process.env.ENABLE_UNO_CSS);
-
 export const enablePrettier = isPackageExists('prettier') || Boolean(process.env.ENABLE_PRETTIER);

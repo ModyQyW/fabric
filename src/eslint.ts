@@ -12,8 +12,6 @@ import {
   enableReact,
   enableMiniprogram,
   enablePrettier,
-  enableTailwindCss,
-  enableUnoCss,
 } from './helpers';
 
 const debug = getDebug('@modyqyw/fabric/eslint');
@@ -53,7 +51,7 @@ const typescriptSettings = {
 };
 const typescriptParser = '@typescript-eslint/parser';
 const typescriptRules: Linter.RulesRecord = {
-  // https://github.com/typescript-eslint/typescript-eslint/blob/v5.49.0/packages/eslint-plugin/src/configs/eslint-recommended.ts
+  // https://github.com/typescript-eslint/typescript-eslint/blob/v5.56.0/packages/eslint-plugin/src/configs/eslint-recommended.ts
   'constructor-super': 'off', // ts(2335) & ts(2377)
   'getter-return': 'off', // ts(2378)
   'no-const-assign': 'off', // ts(2588)
@@ -90,12 +88,11 @@ const typescriptRules: Linter.RulesRecord = {
 const config: Linter.Config = {
   extends: [
     'eslint:recommended',
-    'plugin:eslint-comments/recommended',
+    'plugin:@eslint-community/eslint-comments/recommended',
     'plugin:import/recommended',
     'plugin:n/recommended',
     'plugin:regexp/recommended',
     'plugin:unicorn/recommended',
-    !enableTailwindCss && enableUnoCss ? 'plugin:@unocss/recommended' : '',
     enablePrettier ? 'plugin:prettier/recommended' : '',
   ].filter((item) => !!item),
   settings: {
