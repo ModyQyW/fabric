@@ -1,5 +1,5 @@
 module.exports = {
-  'package.json': "sort-package-json",
+  'package.json': 'sort-package-json',
   '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
-  '*.{js,cjs,mjs,ts,cts,mts}': 'eslint --fix --cache',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
 };
