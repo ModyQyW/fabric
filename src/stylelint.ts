@@ -1,6 +1,6 @@
 import type { Config } from 'stylelint';
 import getDebug from 'debug';
-import { enableMiniprogram, enableScss } from './helpers';
+import { enableMiniprogram, enablePrettier, enableScss } from './helpers';
 
 const debug = getDebug('@modyqyw/fabric/stylelint');
 
@@ -82,6 +82,7 @@ const config: Config = {
     'stylelint-config-recess-order',
     'stylelint-config-recommended',
     enableScss ? 'stylelint-config-recommended-scss' : '',
+    enablePrettier ? '' : 'stylelint-stylistic/config',
   ].filter((item) => !!item),
   rules: {
     // https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown/
