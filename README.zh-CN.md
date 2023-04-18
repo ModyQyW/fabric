@@ -14,7 +14,7 @@
 - 如果在使用 npm 9，建议在 `.npmrc` 里设置 `legacy-peer-deps=true` 或使用 `--legacy-peer-deps`
   - 详见 [npm v9 - legacy-peer-deps](https://docs.npmjs.com/cli/v9/using-npm/config#legacy-peer-deps)
   - 使用该选项能有效避免自动安装 NPM 包的 `peerDependencies`
-- 如果在使用 pnpm 7，建议在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
+- 如果在使用 pnpm 8，建议在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
   - 详见 [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
   - 使用该选项能有效避免部分 NPM 包不够规范而导致的幽灵依赖问题（使用了一些没有定义在 `package.json` 中的包）
 - 如果在使用 yarn 3，建议在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
@@ -233,7 +233,7 @@ npm install -D eslint@8
 如果你正在使用 TypeScript，你需要安装额外的依赖。
 
 ```sh
-npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
+npm install -D typescript@5 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
 ```
 
 设置 `.eslintrc.cjs`。
@@ -443,13 +443,13 @@ chmod +x .husky/*
 - [bumpp](https://github.com/antfu/bumpp) - 我们在使用这个
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
+- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - 我们在使用这个
-- [keep a changelog](https://keepachangelog.com/)
+- [keep-a-changelog](https://github.com/oscarotero/keep-a-changelog)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
 - [release-it](https://github.com/release-it/release-it)
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
-- [standard-version](https://github.com/conventional-changelog/standard-version)
 
 ## VSCode
 
@@ -457,11 +457,9 @@ chmod +x .husky/*
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - 支持 TailwindCSS
   - [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - 支持 Vue 3 和 Vue 2，对于 Vue 2 需要额外配置。推荐使用 [Takeover Mode](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode) - 支持 uni-\*
+  - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - 支持 UnoCSS。如果你更喜欢 TailwindCSS，可以使用 [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)。
 - 设置 `Settings.json`。
 
 ```json

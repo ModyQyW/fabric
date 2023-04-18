@@ -14,7 +14,7 @@ Requires:
 - Recommend to set `legacy-peer-deps=true` in `.npmrc` or use `--legacy-peer-deps` when using npm 9
   - See [npm v9 - legacy-peer-deps](https://docs.npmjs.com/cli/v9/using-npm/config#legacy-peer-deps)
   - Use this to avoid the automatic installation of `peerDependencies` for NPM packages
-- Recommend to set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 7
+- Recommend to set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 8
   - See [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
   - Use this to avoid phantom dependencies caused by the lack of specification of some NPM packages (using packages that are not defined in `package.json`)
 - Recommend to set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn 3
@@ -234,7 +234,7 @@ npm install -D eslint@8
 Additional dependencies are needed if you are using TypeScript.
 
 ```sh
-npm install -D typescript@4 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
+npm install -D typescript@5 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
 ```
 
 Set up `.eslintrc.cjs`.
@@ -444,13 +444,13 @@ Experience has proven that automation is the best option. You may want to try pa
 - [bumpp](https://github.com/antfu/bumpp) - We are using it.
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
+- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - We are using it.
-- [keep a changelog](https://keepachangelog.com/)
+- [keep-a-changelog](https://github.com/oscarotero/keep-a-changelog)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
 - [release-it](https://github.com/release-it/release-it)
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
-- [standard-version](https://github.com/conventional-changelog/standard-version)
 
 ## VSCode
 
@@ -458,11 +458,9 @@ Experience has proven that automation is the best option. You may want to try pa
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode)
   - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-  - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - For TailwindCSS
   - [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - For Vue 3 and Vue 2, extra configs required if for Vue 2. [Takeover Mode](https://vuejs.org/guide/typescript/overview.html#volar-takeover-mode) is recommended.
-  - [uni-helper](https://marketplace.visualstudio.com/items?itemName=uni-helper.uni-helper-vscode) - For uni-\*
+  - [UnoCSS](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - For UnoCSS. Use [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) if you prefer TailwindCSS.
 - Set up `Settings.json`.
 
 ```json
