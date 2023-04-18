@@ -11,6 +11,7 @@ import {
   enableReactNative,
   enableReact,
   enableMiniprogram,
+  enableUnoCss,
   enablePrettier,
 } from './helpers';
 
@@ -93,6 +94,7 @@ const config: Linter.Config = {
     'plugin:n/recommended',
     'plugin:regexp/recommended',
     'plugin:unicorn/recommended',
+    enableUnoCss ? 'plugin:@unocss/recommended' : '',
     enablePrettier ? 'plugin:prettier/recommended' : '',
   ].filter((item) => !!item),
   settings: {
