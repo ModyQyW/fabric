@@ -51,27 +51,27 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs"
     },
     "./eslint": {
       "types": "./dist/eslint.d.ts",
       "import": "./dist/eslint.mjs",
-      "require": "./dist/eslint.js"
+      "require": "./dist/eslint.cjs"
     },
     "./prettier": {
       "types": "./dist/prettier.d.ts",
       "import": "./dist/prettier.mjs",
-      "require": "./dist/prettier.js"
+      "require": "./dist/prettier.cjs"
     },
     "./stylelint": {
       "types": "./dist/stylelint.d.ts",
       "import": "./dist/stylelint.mjs",
-      "require": "./dist/stylelint.js"
+      "require": "./dist/stylelint.cjs"
     },
     "./package.json": "./package.json",
     "./tsconfig.base.json": "./tsconfig.base.json"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "files": [
     "dist",
     "tsconfig.base.json"

@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['./dist/eslint'],
+  extends: ['./dist/eslint.cjs'],
 };
