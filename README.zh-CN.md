@@ -11,9 +11,6 @@
 
 - 最新的 Node LTS
 - 最新的依赖管理工具（npm / yarn / pnpm）
-- 如果在使用 npm 9，建议在 `.npmrc` 里设置 `legacy-peer-deps=true` 或使用 `--legacy-peer-deps`
-  - 详见 [npm v9 - legacy-peer-deps](https://docs.npmjs.com/cli/v9/using-npm/config#legacy-peer-deps)
-  - 使用该选项能有效避免自动安装 NPM 包的 `peerDependencies`
 - 如果在使用 pnpm 8，建议在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
   - 详见 [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
   - 使用该选项能有效避免部分 NPM 包不够规范而导致的幽灵依赖问题（使用了一些没有定义在 `package.json` 中的包）
@@ -29,19 +26,17 @@
 
 ```sh
 # 本地
-npm install -D @modyqyw/fabric@7
+npm install -D @modyqyw/fabric@8
 
 # 全局
-npm install --location=global @modyqyw/fabric@7
+npm install --location=global @modyqyw/fabric@8
 ```
 
 [node-semver](https://github.com/npm/node-semver) 有更多版本说明。
 
 ### 命名
 
-命名应该要简洁明了，但它很难被 linter 检查。
-
-跟随已有的规范是一个好选择。
+命名应该要简洁明了，但它很难被 linter 检查。所以跟随已有的规范是一个好选择。
 
 - 对于 JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
@@ -99,116 +94,11 @@ trim_trailing_whitespace = false
 
 看看 [tsconfig.json](https://aka.ms/tsconfig.json)。
 
-**你只应该在一个没有 `tsconfig.json` 且使用了 Webpack、Vite 之类的打包工具的新项目里使用这个。请优先使用项目附带的 `tsconfig.json`，或考虑使用 [tsconfig/bases](https://github.com/tsconfig/bases) 提供的配置。**
-
-```json
-{
-  "extends": "@modyqyw/fabric/tsconfig.base.json",
-  "compilerOptions": {
-    // 视情况设置 baseUrl
-    "baseUrl": ".",
-    // 视情况设置 module，默认 ESNext
-    "module": "CommonJS",
-    // 视情况设置 lib，默认 ["ESNext"]
-    "lib": ["ESNext", "DOM"],
-    // 视情况设置 target，默认 ESNext
-    "target": "ESNext",
-    // 视情况设置 jsx，默认 preserve
-    "jsx": "react-jsx",
-    // 视情况设置 paths 以配置路径别名，默认 {}
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    // 如果出现了推断问题
-    "preserveSymlinks": true,
-    // 视情况设置 typeRoots，默认 ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"]
-    "typeRoots": ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"],
-    // 视情况设置 types，默认 []
-    "types": [
-      // uni-app
-      "@dcloudio/types",
-      // uni-helper
-      "@uni-helper/uni-app-types",
-      "@uni-helper/uni-cloud-types",
-      "@uni-helper/uni-ui-types",
-      // 支付宝小程序
-      "@mini-types/alipay",
-      // 微信小程序
-      "miniprogram-api-typings",
-      // element-plus
-      "element-plus/global",
-      // element-pro-components
-      "element-pro-components/types/components",
-      // node
-      "node",
-      // type-fest
-      "type-fest",
-      // unplugin-icons
-      "unplugin-icons/types/react",
-      "unplugin-icons/types/vue",
-      // unplugin-vue-router
-      "typed-router.d.ts",
-      // unplugin-vue2-script-setup
-      "unplugin-vue2-script-setup/types",
-      // vite-plugin-pages
-      "vite-plugin-pages/client",
-      "vite-plugin-pages/client-react",
-      // vite-plugin-vue-layouts
-      "vite-plugin-vue-layouts/client",
-      // vite
-      "vite/client"
-    ]
-  },
-  // volar 配置
-  // https://github.com/vuejs/language-tools/blob/master/packages/vue-language-core/schemas/vue-tsconfig.schema.json
-  "vueCompilerOptions": {
-    // uni-app
-    "nativeTags": ["block", "component", "template", "slot"],
-    "experimentalRuntimeMode": "runtime-uni-app",
-    // legacy support
-    "target": 2, // 2, 2.7, 3
-    "experimentalTemplateCompilerOptions": {
-      "compatConfig": { "MODE": 2 }
-    }
-  },
-  // ts-node
-  // npm install -D tsconfig-paths
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
-  // 视情况设置 include
-  "include": [
-    "**/*.js",
-    "**/*.cjs",
-    "**/*.mjs",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.cts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue"
-  ],
-  // 视情况设置 exclude
-  "exclude": [
-    "**/.cache",
-    "**/.temp",
-    "**/.tmp",
-    "**/cache",
-    "**/temp",
-    "**/tmp",
-    "**/dist*",
-    "**/node_modules",
-    "**/playground",
-    "**/examples"
-  ]
-}
-```
-
-查看 [tsconfig.base.json](./tsconfig.base.json) 了解所有的默认设置.
+在大部分情况下你都应该考虑使用框架或库附带的 `tsconfig.json`。如果它们没有提供，[tsconfig/bases](https://github.com/tsconfig/bases) 是一个不错的选择。
 
 ### Prettier
 
-看看 [Prettier](https://prettier.io/)。Prettier 用于处理代码样式，所以它总是需要的。
+看看 [Prettier](https://prettier.io/)。
 
 ```sh
 npm install -D prettier@2
@@ -227,7 +117,7 @@ module.exports = {
 看看 [ESLint](https://eslint.org/)。
 
 ```sh
-npm install -D eslint@8
+npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 ```
 
 如果你正在使用 TypeScript，你需要安装额外的依赖。
@@ -312,6 +202,17 @@ npm install -D markdownlint-cli
 {
   "scripts": {
     "lint": "npm run lint:markdownlint",
+    "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
+  }
+}
+```
+
+如果你在通过工具生成 `CHANGELOG.md`，你可能想要忽略它。
+
+```json
+{
+  "scripts": {
+    "lint": "npm run lint:markdownlint",
     "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore"
   }
 }
@@ -381,15 +282,53 @@ npm install -D lint-staged@13
 
 ```js
 module.exports = {
+  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
+};
+```
+
+如果你在通过工具生成 `CHANGELOG.md`，你可能想要忽略它。
+
+```js
+module.exports = {
   '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
 };
 ```
 
+### SimpleGitHooks
+
+看看 [SimpleGitHooks](https://github.com/toplenboren/simple-git-hooks)。`Husky` 和 `SimpleGitHooks` 你只需要一个。
+
+```sh
+npm install -D is-ci@3 simple-git-hooks@2
+```
+
+设置 `package.json`.
+
+```json
+{
+  "scripts": {
+    "prepare": "is-ci || simple-git-hooks"
+  }
+}
+```
+
+设置 `.simple-git-hooks.cjs`.
+
+```js
+module.exports = {
+  "pre-commit": "npx lint-staged",
+  "commit-msg": "npx commitlint --edit ${1}",
+};
+
+```
+
 ### Husky
 
-看看 [Husky](https://github.com/typicode/husky)。
+看看 [Husky](https://github.com/typicode/husky)。`Husky` 和 `SimpleGitHooks` 你只需要一个。
 
 ```sh
 npm install -D is-ci@3 husky@8
@@ -440,11 +379,11 @@ chmod +x .husky/*
 经验证明，自动化是最佳选择。你可能想要尝试下面的包，它们根据字母顺序排序。
 
 - [auto-changelog](https://github.com/CookPete/auto-changelog)
-- [bumpp](https://github.com/antfu/bumpp) - 我们在使用这个
+- [bumpp](https://github.com/antfu/bumpp)
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
-- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version)
-- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - 我们在使用这个
+- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) - 我们在使用这个
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [keep-a-changelog](https://github.com/oscarotero/keep-a-changelog)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
@@ -577,86 +516,6 @@ chmod +x .husky/*
   }
 }
 ```
-
-## 迁移
-
-### 从 6.x 迁移到 7.x
-
-- 升级 Node 版本到最新 LTS。
-- 升级包管理工具版本到最新稳定版。
-- 升级 ESLint 版本到最新的 8。
-- 升级 Stylelint 版本到最新的 15。
-- 升级 Prettier 版本到最新的 2。
-- 升级 Postcss 版本到最新的 8。
-
-### 从 5.x 迁移到 6.x
-
-- 升级 Node 版本到最新 LTS。
-- 升级包管理工具版本到最新稳定版。
-- 升级 ESLint 版本到最新的 8。
-- 升级 Stylelint 版本到最新的 14。
-- 升级 Prettier 版本到最新的 2。
-- 升级 Postcss 版本到最新的 8。
-- 现在只提供一个 ESLint 配置，该配置会自动探测包并启用对应配置。ESLint 调用也应该适当调整，参见 [ESLint](#eslint) 和 [LintStaged](#lintstaged) 两个部分。
-- 移除 Babel 需求。
-- 移除 Svelte 和 Solid 支持。
-- 现在只提供一个 Stylelint 配置，该配置会自动探测包并启用对应配置。Stylelint 调用也应该适当调整，参见 [Stylelint](#stylelint) 和 [LintStaged](#lintstaged) 两个部分。
-- 移除 Svelte 和 LESS 支持。
-- 移除具名导出。你应该直接导入对应的文件，请参考 README。
-- 构建工具切换成 `rollup`。
-
-### 从 4.x 迁移到 5.x
-
-- 升级 Node 版本到最新的 LTS。
-- 升级 pnpm / npm / yarn 版本以匹配 Node 版本。
-- 升级 ESLint 版本到最新的 8。
-- 升级 Stylelint 版本到最新的 14。
-- 升级 Prettier 版本到最新的 2。
-- 升级 Postcss 版本到最新的 8。
-- Prettier 总是需要的。
-- 移除 CLI。在大部分情况下不需要使用它，在小部分情况下它不是个必需项。你总是可以跟随 README 来配置你的项目，或者直接使用你原本的配置。
-- 移除 commitlint 配置。直接使用 `@commitlint/config-conventional` 即可。
-- 移除 SASS 支持。SCSS 更通用。
-- 升级 React 项目，使用新的 JSX 转换和 hooks。
-- 升级 Vue 项目，使用组合式 API，即 Composition API。
-
-### 从 3.x 迁移到 4.x
-
-- 升级 Node 版本到最新的 12、14 或 16。
-- 升级 npm 版本到 6、7 或 8。
-- 升级 ESLint 版本到最新的 7 或 8。
-- 升级 Stylelint 版本到最新的 14。
-- 升级 Prettier 版本到最新的 2。
-- 升级 Postcss 版本到最新的 8。
-- 分离 Prettier。
-- 增加 `tsconfig.json` 支持。
-- 升级 CLI 以匹配以上改动。现在 CLI 使用 `mo-fabric` 而不是 `modyqyw-fabric`。
-
-### 从 2.x 迁移到 3.x
-
-- 升级 Node 版本到 ^12.22.6, ^14.17.6 或 ^16.8.0。
-- 升级 npm 版本到 ^6.14.15 或 ^7.21.0。
-- 支持 CommonJS require 和 ESM import。
-- 改变 Prettier/ESLint/Stylelint/Commitlint 配置。
-
-```cjs
-const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
-```
-
-```mjs
-import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
-```
-
-- 使用 `eslint.vanilla` 而不是 `eslint.native`。
-- 使用 `stylelint.scss` 而不是 `stylelint.sass`。
-
-### 从 1.x 迁移到 2.x
-
-升级 Node 和依赖版本即可。
-
-## 性能
-
-有时候你会发现 `Prettier` 需要的时间比预期多得多。跟着 [这个评论](https://github.com/prettier/eslint-plugin-prettier/issues/445#issuecomment-1013713942) 做看看是否有所帮助。
 
 ## 例子
 

@@ -11,9 +11,6 @@ Requires:
 
 - Latest Node LTS
 - Latest package manager (npm / yarn / pnpm)
-- Recommend to set `legacy-peer-deps=true` in `.npmrc` or use `--legacy-peer-deps` when using npm 9
-  - See [npm v9 - legacy-peer-deps](https://docs.npmjs.com/cli/v9/using-npm/config#legacy-peer-deps)
-  - Use this to avoid the automatic installation of `peerDependencies` for NPM packages
 - Recommend to set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 8
   - See [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
   - Use this to avoid phantom dependencies caused by the lack of specification of some NPM packages (using packages that are not defined in `package.json`)
@@ -29,19 +26,17 @@ Using `npm` below. Check [nrm](https://github.com/Pana/nrm) and [npmmirror](http
 
 ```sh
 # locally
-npm install -D @modyqyw/fabric@7
+npm install -D @modyqyw/fabric@8
 
 # globally
-npm install --location=global @modyqyw/fabric@7
+npm install --location=global @modyqyw/fabric@8
 ```
 
 See more about versions in [node-semver](https://github.com/npm/node-semver).
 
 ### Naming
 
-Naming should be simple and clear but it is hardly be checked by linters.
-
-Following an existing specification is a good choice.
+Naming should be simple and clear but it is hardly be checked by linters. So following an existing specification is a good choice.
 
 - For JavaScript / TypeScript
   - [kettannaito/naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet)
@@ -98,118 +93,11 @@ trim_trailing_whitespace = false
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-**You should only use this in a new project that doesn't have `tsconfig.json` and is using a bundler like Webpack, Vite, etc. Please prefer to use the `tsconfig.json` that comes with the project, or consider using the configuration provided by [tsconfig/bases](https://github.com/tsconfig/bases).**
-
-```json
-{
-  "extends": "@modyqyw/fabric/tsconfig.base.json",
-  "compilerOptions": {
-    // on-demand set baseUrl
-    "baseUrl": ".",
-    // on-demand set module, default ESNext
-    "module": "CommonJS",
-    // on-demand set lib, default ["ESNext"]
-    "lib": ["ESNext", "DOM"],
-    // on-demand set target, default ESNext
-    "target": "ESNext",
-    // on-demand set jsx, default preserve
-    "jsx": "react-jsx",
-    // on-demand set paths for path aliases, default {}
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    // if you are facing a infer problem
-    "preserveSymlinks": true,
-    // on-demand set typeRoots, default ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"]
-    "typeRoots": ["./node_modules/@types", "./src/types", "./src/typings", "./types", "./typings"],
-    // on-demand set types, default []
-    "types": [
-      // uni-app
-      "@dcloudio/types",
-      // uni-helper
-      "@uni-helper/uni-app-types",
-      "@uni-helper/uni-cloud-types",
-      "@uni-helper/uni-ui-types",
-      // alipay miniprogram
-      "@mini-types/alipay",
-      // wechat miniprogram
-      "miniprogram-api-typings",
-      // element-plus
-      "element-plus/global",
-      // element-pro-components
-      "element-pro-components/types/components",
-      // node
-      "node",
-      // type-fest
-      "type-fest",
-      // unplugin-icons
-      "unplugin-icons/types/react",
-      "unplugin-icons/types/vue",
-      // unplugin-vue-router
-      "typed-router.d.ts",
-      // unplugin-vue2-script-setup
-      "unplugin-vue2-script-setup/types",
-      // vitest
-      "vitest/globals",
-      // vite-plugin-pages
-      "vite-plugin-pages/client",
-      "vite-plugin-pages/client-react",
-      // vite-plugin-vue-layouts
-      "vite-plugin-vue-layouts/client",
-      // vite
-      "vite/client"
-    ]
-  },
-  // volar configs
-  // https://github.com/vuejs/language-tools/blob/master/packages/vue-language-core/schemas/vue-tsconfig.schema.json
-  "vueCompilerOptions": {
-    // uni-app
-    "nativeTags": ["block", "component", "template", "slot"],
-    "experimentalRuntimeMode": "runtime-uni-app",
-    // legacy support
-    "target": 2, // 2, 2.7, 3
-    "experimentalTemplateCompilerOptions": {
-      "compatConfig": { "MODE": 2 }
-    }
-  },
-  // ts-node
-  // npm install -D tsconfig-paths
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
-  // on-demand set include
-  "include": [
-    "**/*.js",
-    "**/*.cjs",
-    "**/*.mjs",
-    "**/*.jsx",
-    "**/*.ts",
-    "**/*.cts",
-    "**/*.mts",
-    "**/*.tsx",
-    "**/*.vue"
-  ],
-  // on-demand set exclude
-  "exclude": [
-    "**/.cache",
-    "**/.temp",
-    "**/.tmp",
-    "**/cache",
-    "**/temp",
-    "**/tmp",
-    "**/dist*",
-    "**/node_modules",
-    "**/playground",
-    "**/examples"
-  ]
-}
-```
-
-See [tsconfig.base.json](./tsconfig.base.json) for default configs.
+In most cases you should consider using the `tsconfig.json` that comes with the framework or library. if they don't provide it, [tsconfig/bases](https://github.com/tsconfig/bases) is a good choice.
 
 ### Prettier
 
-Learn about [Prettier](https://prettier.io/). Prettier is always required to handle code styles.
+Learn about [Prettier](https://prettier.io/).
 
 ```sh
 npm install -D prettier@2
@@ -228,7 +116,7 @@ module.exports = {
 Learn about [ESLint](https://eslint.org/).
 
 ```sh
-npm install -D eslint@8
+npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 ```
 
 Additional dependencies are needed if you are using TypeScript.
@@ -313,6 +201,17 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 {
   "scripts": {
     "lint": "npm run lint:markdownlint",
+    "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore"
+  }
+}
+```
+
+You may want to ignore `CHANGELOG.md` if it is generated by some tools.
+
+```json
+{
+  "scripts": {
+    "lint": "npm run lint:markdownlint",
     "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore"
   }
 }
@@ -382,15 +281,53 @@ Set up `.lintstagedrc.cjs`.
 
 ```js
 module.exports = {
+  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
+};
+```
+
+You may want to ignore `CHANGELOG.md` if it is generated by some tools.
+
+```js
+module.exports = {
   '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
 };
 ```
 
+### SimpleGitHooks
+
+Learn about [SimpleGitHooks](https://github.com/toplenboren/simple-git-hooks). `Husky` and `SimpleGitHooks` you only need one.
+
+```sh
+npm install -D is-ci@3 simple-git-hooks@2
+```
+
+Set up `package.json`.
+
+```json
+{
+  "scripts": {
+    "prepare": "is-ci || simple-git-hooks"
+  }
+}
+```
+
+Set up `.simple-git-hooks.cjs`.
+
+```js
+module.exports = {
+  "pre-commit": "npx lint-staged",
+  "commit-msg": "npx commitlint --edit ${1}",
+};
+
+```
+
 ### Husky
 
-Learn about [Husky](https://github.com/typicode/husky).
+Learn about [Husky](https://github.com/typicode/husky). `Husky` and `SimpleGitHooks` you only need one.
 
 ```sh
 npm install -D is-ci@3 husky@8
@@ -444,7 +381,7 @@ Experience has proven that automation is the best option. You may want to try pa
 - [bumpp](https://github.com/antfu/bumpp) - We are using it.
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
-- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version)
+- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) - 我们在使用这个
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - We are using it.
 - [keep-a-changelog](https://github.com/oscarotero/keep-a-changelog)
 - [np](https://github.com/sindresorhus/np)
@@ -578,86 +515,6 @@ Experience has proven that automation is the best option. You may want to try pa
   }
 }
 ```
-
-## Migration
-
-### Migrate to 7.x from 6.x
-
-- Upgrade your Node version to latest LTS.
-- Upgrade your package manager version to latest stable.
-- Upgrade your ESLint version to latest 8.
-- Upgrade your Stylelint version to latest 15.
-- Upgrade your Prettier version to latest 2.
-- Upgrade your Postcss version to latest 8.
-
-### Migrate to 6.x from 5.x
-
-- Upgrade your Node version to latest LTS.
-- Upgrade your package manager version to latest stable.
-- Upgrade your ESLint version to latest 8.
-- Upgrade your Stylelint version to latest 14.
-- Upgrade your Prettier version to latest 2.
-- Upgrade your Postcss version to latest 8.
-- Now only one ESLint config is provided, which automatically detects the package and enables the corresponding config. ESLint calls should also be adjusted appropriately. Please check [ESLint](#eslint) and [LintStaged](#lintstaged).
-- Remove Babel need.
-- Remove Svelte and Solid supports.
-- Now only one Stylelint config is provided, which automatically detects the package and enables the corresponding config. Stylelint calls should also be adjusted appropriately. Please check [Stylelint](#stylelint) and [LintStaged](#lintstaged).
-- Remove Svelte and LESS supports.
-- Remove named exports. You should import the file directly as shown in README.
-- Switch bundler to `rollup`.
-
-### Migrate to 5.x from 4.x
-
-- Upgrade your Node version to latest LTS.
-- Upgrade your pnpm / npm / yarn version to match your Node version.
-- Upgrade your ESLint version to latest 8.
-- Upgrade your Stylelint version to latest 14.
-- Upgrade your Prettier version to latest 2.
-- Upgrade your Postcss version to latest 8.
-- Prettier is always required.
-- CLI is removed. It is not needed in most cases, and not a necessity in other cases. You can always follow README to config your project, or just use your own config.
-- Commitlint config is removed. Use `@commitlint/config-conventional` directly.
-- SASS support is removed. SCSS is more popular.
-- Update your React projects with new JSX transform and hooks.
-- Update your Vue projects with Composition API.
-
-### Migrate to 4.x from 3.x
-
-- Upgrade your Node version to latest 12, 14 or 16.
-- Upgrade your npm version to latest 6, 7 or 8.
-- Upgrade your ESLint version to latest 7 or 8.
-- Upgrade your Stylelint version to latest 14.
-- Upgrade your Prettier version to latest 2.
-- Upgrade your Postcss version to latest 8.
-- Split Prettier.
-- Add `tsconfig.json` support.
-- Update CLI to match above changes. Use `mo-fabric` instead of `modyqyw-fabric`.
-
-### Migrate to 3.x from 2.x
-
-- Upgrade your Node version to ^12.22.6, ^14.17.6 or ^16.8.0.
-- Upgrade your npm version to ^6.14.15 or ^7.21.0.
-- Support CommonJS require and ESM import.
-- Prettier/ESLint/Stylelint/Commitlint config changed.
-
-```cjs
-const { prettier, eslint, stylelint, commitlint } = require('@modyqyw/fabric');
-```
-
-```mjs
-import { prettier, eslint, stylelint, commitlint } from '@modyqyw/fabric';
-```
-
-- Use `eslint.vanilla` instead of `eslint.native`.
-- Use `stylelint.scss` instead of `stylelint.sass`.
-
-### Migrate to 2.x from 1.x
-
-Just upgrade your Node and dependencies versions.
-
-## Performance
-
-Sometimes you may find `Prettier` requires too much time. Check [this comment](https://github.com/prettier/eslint-plugin-prettier/issues/445#issuecomment-1013713942) and see if it helps.
 
 ## Examples
 
