@@ -199,8 +199,8 @@ const config: Config = {
         }),
     // https://stylelint.io/user-guide/rules/unit-no-unknown/
     ...(enableMiniprogram ? { 'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }] } : {}),
-    // disable stylistic rules
-    ...(enableScss
+    // disable stylistic rules when using prettier
+    ...(enablePrettier && enableScss
       ? {
           'scss/operator-no-newline-after': null,
           'scss/operator-no-newline-before': null,
