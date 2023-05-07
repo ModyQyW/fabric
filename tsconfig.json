@@ -1,16 +1,12 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "@tsconfig/node18",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "lib": ["ESNext"],
+    "resolveJsonModule": true
   },
   "exclude": [
-    ".cache",
-    ".temp",
-    ".tmp",
-    "cache",
-    "temp",
-    "tmp",
-    "dist*",
+    "dist",
     "node_modules",
     "playground"
   ]
