@@ -48,4 +48,5 @@ export const enableUnoCss = isPackageExists('unocss') || Boolean(process.env.ENA
 
 export const enablePrettier = isPackageExists('prettier') || Boolean(process.env.ENABLE_PRETTIER);
 
-export const enablePrettierPluginTailwindCss = enableTailwindCss && !enableTailwindCssIcons;
+export const enablePrettierPluginTailwindCss =
+  enableTailwindCss && !enableTailwindCssIcons && !enableUnoCss;
