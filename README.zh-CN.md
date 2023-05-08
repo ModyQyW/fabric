@@ -275,15 +275,16 @@ npm install -D publint@0.1
 看看 [LintStaged](https://github.com/okonet/lint-staged)。
 
 ```sh
-npm install -D lint-staged@13
+npm install -D lint-staged@13 sort-package-json@2
 ```
 
 设置 `.lintstagedrc.cjs`。
 
 ```js
 module.exports = {
+  'package.json': 'sort-package-json',
   '*.md': 'markdownlint --fix --ignore-path=.gitignore',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml}': 'eslint --fix --cache --ignore-path=.gitignore',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
 };
 ```
@@ -292,8 +293,9 @@ module.exports = {
 
 ```js
 module.exports = {
+  'package.json': 'sort-package-json',
   '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml': 'eslint --fix --cache --ignore-path=.gitignore',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
 };
 ```
