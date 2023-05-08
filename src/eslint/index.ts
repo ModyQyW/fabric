@@ -141,7 +141,9 @@ const config: Linter.Config = {
         enableNext ? 'next/core-web-vitals' : '',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
-      rules: reactRules,
+      rules: {
+        ...(enableReact ? reactRules : {}),
+      },
     },
     {
       files: ['*.vue'],
