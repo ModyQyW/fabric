@@ -5,9 +5,5 @@
     "lib": ["ESNext"],
     "resolveJsonModule": true
   },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "playground"
-  ]
+  "exclude": ["dist", "node_modules", "playground"]
 }
