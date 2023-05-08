@@ -9,6 +9,7 @@ debug('JSDoc plugin enabled.');
 debug('PackageJson Plugin enabled.');
 debug(`TailwindCSS plugin ${enablePrettierPluginTailwindCss ? 'enabled' : 'disabled'}.`);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const config: Config & { [key: string]: any } = {
   printWidth: 100,
   singleQuote: true,
