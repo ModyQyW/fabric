@@ -1,6 +1,6 @@
 import { isPackageExists, getPackageInfoSync } from 'local-pkg';
 
-export const enableTypescript =
+export const enableTypeScript =
   isPackageExists('typescript') || Boolean(process.env.ENABLE_TYPESCRIPT);
 
 export const enableNuxt = isPackageExists('nuxt') || Boolean(process.env.ENABLE_NUXT);
