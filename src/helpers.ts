@@ -36,17 +36,6 @@ export const enableMiniprogram =
 
 export const enableScss = isPackageExists('sass') || Boolean(process.env.ENABLE_SCSS);
 
-export const enableTailwindCss =
-  isPackageExists('tailwindcss') || Boolean(process.env.ENABLE_TAILWIND_CSS);
-
-export const enableTailwindCssIcons =
-  isPackageExists('@egoist/tailwindcss-icons') ||
-  isPackageExists('tailwindcss-plugin-icons') ||
-  Boolean(process.env.ENABLE_TAILWIND_CSS_ICONS);
-
 export const enableUnoCss = isPackageExists('unocss') || Boolean(process.env.ENABLE_UNO_CSS);
 
 export const enablePrettier = isPackageExists('prettier') || Boolean(process.env.ENABLE_PRETTIER);
-
-export const enablePrettierPluginTailwindCss =
-  enableTailwindCss && !enableTailwindCssIcons && !enableUnoCss;
