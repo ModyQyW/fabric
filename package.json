@@ -122,10 +122,10 @@
     "eslint-plugin-react-native-a11y": "^3.3.0",
     "eslint-plugin-regexp": "^1.14.0",
     "eslint-plugin-unicorn": "^47.0.0",
-    "eslint-plugin-vue": "^9.11.0",
+    "eslint-plugin-vue": "^9.11.1",
     "eslint-plugin-vue-scoped-css": "^2.4.0",
     "eslint-plugin-vuejs-accessibility": "^2.1.0",
-    "eslint-plugin-yml": "^1.5.0",
+    "eslint-plugin-yml": "^1.6.0",
     "jsonc-eslint-parser": "^2.2.0",
     "local-pkg": "^0.4.3",
     "postcss": "^8.4.23",
@@ -133,7 +133,6 @@
     "postcss-scss": "^4.0.6",
     "prettier-plugin-jsdoc": "^0.4.2",
     "prettier-plugin-packagejson": "^2.4.3",
-    "prettier-plugin-tailwindcss": "^0.2.8",
     "stylelint-config-recess-order": "^4.0.0",
     "stylelint-config-recommended": "^12.0.0",
     "stylelint-config-recommended-scss": "^11.0.0",
@@ -142,7 +141,7 @@
     "tsutils": "^3.21.0",
     "typescript": "^5.0.4",
     "vue-eslint-parser": "^9.2.1",
-    "yaml-eslint-parser": "^1.2.0"
+    "yaml-eslint-parser": "^1.2.1"
   },
   "devDependencies": {
     "@tsconfig/node18": "^2.0.0",

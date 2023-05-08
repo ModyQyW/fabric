@@ -98,8 +98,8 @@ dependencies:
     specifier: ^47.0.0
     version: 47.0.0(eslint@8.40.0)
   eslint-plugin-vue:
-    specifier: ^9.11.0
-    version: 9.11.0(eslint@8.40.0)
+    specifier: ^9.11.1
+    version: 9.11.1(eslint@8.40.0)
   eslint-plugin-vue-scoped-css:
     specifier: ^2.4.0
     version: 2.4.0(eslint@8.40.0)(vue-eslint-parser@9.2.1)
@@ -107,8 +107,8 @@ dependencies:
     specifier: ^2.1.0
     version: 2.1.0(eslint@8.40.0)
   eslint-plugin-yml:
-    specifier: ^1.5.0
-    version: 1.5.0(eslint@8.40.0)
+    specifier: ^1.6.0
+    version: 1.6.0(eslint@8.40.0)
   jsonc-eslint-parser:
     specifier: ^2.2.0
     version: 2.2.0
@@ -130,9 +130,6 @@ dependencies:
   prettier-plugin-packagejson:
     specifier: ^2.4.3
     version: 2.4.3(prettier@2.8.8)
-  prettier-plugin-tailwindcss:
-    specifier: ^0.2.8
-    version: 0.2.8(prettier-plugin-jsdoc@0.4.2)(prettier@2.8.8)
   react:
     specifier: ^18.0.0
     version: 18.0.0
@@ -164,8 +161,8 @@ dependencies:
     specifier: ^9.2.1
     version: 9.2.1(eslint@8.40.0)
   yaml-eslint-parser:
-    specifier: ^1.2.0
-    version: 1.2.0
+    specifier: ^1.2.1
+    version: 1.2.1
 
 devDependencies:
   '@tsconfig/node18':
@@ -1034,7 +1031,7 @@ packages:
       parse5: 7.1.2
       semver: 7.5.0
       vue-eslint-parser: 9.2.1(eslint@8.40.0)
-      yaml-eslint-parser: 1.2.0
+      yaml-eslint-parser: 1.2.1
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -3234,7 +3231,7 @@ packages:
   /eslint-plugin-nuxt@4.0.0(eslint@8.40.0):
     resolution: {integrity: sha512-v3Vwdk8YKe52bAz8eSIDqQuTtfL/T1r9dSl1uhC5SyR5pgLxgKkQdxXVf/Bf6Ax7uyd9rHqiAuYVdqqDb7ILdA==}
     dependencies:
-      eslint-plugin-vue: 9.11.0(eslint@8.40.0)
+      eslint-plugin-vue: 9.11.1(eslint@8.40.0)
       semver: 7.5.0
       vue-eslint-parser: 9.2.1(eslint@8.40.0)
     transitivePeerDependencies:
@@ -3382,8 +3379,8 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-vue@9.11.0(eslint@8.40.0):
-    resolution: {integrity: sha512-bBCJAZnkBV7ATH4Z1E7CvN3nmtS4H7QUU3UBxPdo8WohRU+yHjnQRALpTbxMVcz0e4Mx3IyxIdP5HYODMxK9cQ==}
+  /eslint-plugin-vue@9.11.1(eslint@8.40.0):
+    resolution: {integrity: sha512-SNtBGDrRkPUFsREswPceqdvZ7YVdWY+iCYiDC+RoxwVieeQ7GJU1FLDlkcaYTOD2os/YuVgI1Fdu8YGM7fmoow==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
@@ -3392,7 +3389,7 @@ packages:
       eslint: 8.40.0
       natural-compare: 1.4.0
       nth-check: 2.1.1
-      postcss-selector-parser: 6.0.11
+      postcss-selector-parser: 6.0.12
       semver: 7.5.0
       vue-eslint-parser: 9.2.1(eslint@8.40.0)
       xml-name-validator: 4.0.0
@@ -3413,8 +3410,8 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-plugin-yml@1.5.0(eslint@8.40.0):
-    resolution: {integrity: sha512-iygN054g+ZrnYmtOXMnT+sx9iDNXt89/m0+506cQHeG0+5jJN8hY5iOPQLd3yfd50AfK/mSasajBWruf1SoHpQ==}
+  /eslint-plugin-yml@1.6.0(eslint@8.40.0):
+    resolution: {integrity: sha512-KK3tu8notai2l6BgMvK1yay6RW7FwVRqL48PlKI1AGEpQNwvq/OfNwPMmNWb4/Eu2X22FHUjCnCfCP+bc0pzLw==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
@@ -3423,7 +3420,7 @@ packages:
       eslint: 8.40.0
       lodash: 4.17.21
       natural-compare: 1.4.0
-      yaml-eslint-parser: 1.2.0
+      yaml-eslint-parser: 1.2.1
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -6277,59 +6274,6 @@ packages:
       synckit: 0.8.5
     dev: false
 
-  /prettier-plugin-tailwindcss@0.2.8(prettier-plugin-jsdoc@0.4.2)(prettier@2.8.8):
-    resolution: {integrity: sha512-KgPcEnJeIijlMjsA6WwYgRs5rh3/q76oInqtMXBA/EMcamrcYJpyhtRhyX1ayT9hnHlHTuO8sIifHF10WuSDKg==}
-    engines: {node: '>=12.17.0'}
-    peerDependencies:
-      '@ianvs/prettier-plugin-sort-imports': '*'
-      '@prettier/plugin-pug': '*'
-      '@shopify/prettier-plugin-liquid': '*'
-      '@shufo/prettier-plugin-blade': '*'
-      '@trivago/prettier-plugin-sort-imports': '*'
-      prettier: '>=2.2.0'
-      prettier-plugin-astro: '*'
-      prettier-plugin-css-order: '*'
-      prettier-plugin-import-sort: '*'
-      prettier-plugin-jsdoc: '*'
-      prettier-plugin-organize-attributes: '*'
-      prettier-plugin-organize-imports: '*'
-      prettier-plugin-style-order: '*'
-      prettier-plugin-svelte: '*'
-      prettier-plugin-twig-melody: '*'
-    peerDependenciesMeta:
-      '@ianvs/prettier-plugin-sort-imports':
-        optional: true
-      '@prettier/plugin-pug':
-        optional: true
-      '@shopify/prettier-plugin-liquid':
-        optional: true
-      '@shufo/prettier-plugin-blade':
-        optional: true
-      '@trivago/prettier-plugin-sort-imports':
-        optional: true
-      prettier-plugin-astro:
-        optional: true
-      prettier-plugin-css-order:
-        optional: true
-      prettier-plugin-import-sort:
-        optional: true
-      prettier-plugin-jsdoc:
-        optional: true
-      prettier-plugin-organize-attributes:
-        optional: true
-      prettier-plugin-organize-imports:
-        optional: true
-      prettier-plugin-style-order:
-        optional: true
-      prettier-plugin-svelte:
-        optional: true
-      prettier-plugin-twig-melody:
-        optional: true
-    dependencies:
-      prettier: 2.8.8
-      prettier-plugin-jsdoc: 0.4.2(prettier@2.8.8)
-    dev: false
-
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
@@ -7830,24 +7774,18 @@ packages:
   /yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  /yaml-eslint-parser@1.2.0:
-    resolution: {integrity: sha512-OmuvQd5lyIJWfFALc39K5fGqp0aWNc+EtyhVgcQIPZaUKMnTb7An3RMp+QJizJ/x0F4kpgTNe6BL/ctdvoIwIg==}
+  /yaml-eslint-parser@1.2.1:
+    resolution: {integrity: sha512-XxLosxcDd0lBF1OEANOod8I/gn+VrYdSbUFAgfoYntY/vktK2V38Nknu4ZbQELTt38CJfxRlYOWYQC2kTytX8Q==}
     engines: {node: ^14.17.0 || >=16.0.0}
     dependencies:
-      eslint-visitor-keys: 3.4.0
+      eslint-visitor-keys: 3.4.1
       lodash: 4.17.21
-      yaml: 2.2.1
-    dev: false
-
-  /yaml@2.2.1:
-    resolution: {integrity: sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==}
-    engines: {node: '>= 14'}
+      yaml: 2.2.2
     dev: false
 
   /yaml@2.2.2:
     resolution: {integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==}
     engines: {node: '>= 14'}
-    dev: true
 
   /yargs-parser@20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
