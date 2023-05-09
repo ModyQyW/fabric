@@ -7,7 +7,6 @@ const debug = getDebug('@modyqyw/fabric/prettier');
 debug('JSDoc plugin enabled.');
 debug('PackageJson Plugin enabled.');
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const config: Config & { [key: string]: any } = {
   printWidth: 100,
   singleQuote: true,
