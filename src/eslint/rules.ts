@@ -21,8 +21,12 @@ export const javascriptRules: Linter.RulesRecord = {
         '\\.md$',
         // index.jsx, Index.jsx, .etc
         '^[Ii]ndex',
-        // index.jsx, Index.jsx
+        // app.jsx, App.jsx, .etc
+        '^[Aa]pp',
+        // index.jsx, Index.jsx, .etc
         '\\.[jt]sx$',
+        // useCssVar, useDark, .etc
+        '^use',
         // [...all].jsx, [...slug].jsx, users-[group].jsx, [[...slug]].jsx, .etc
         '\\[.*\\]',
       ],
@@ -53,6 +57,16 @@ export const javascriptRules: Linter.RulesRecord = {
 
 export const typescriptRules: Linter.RulesRecord = {
   ...javascriptRules,
+  // allow for usage
+  '@typescript-eslint/no-empty-interface': 'off',
+  // better not to use any
+  // but the truth is, you have no way to get rid of it
+  '@typescript-eslint/no-explicit-any': 'off',
+  // TypeScript provides the same checks as part of standard type checking
+  'import/named': 'off',
+  'import/namespace': 'off',
+  'import/default': 'off',
+  'import/no-named-as-default-member': 'off',
   // https://github.com/typescript-eslint/typescript-eslint/blob/v5.59.5/packages/eslint-plugin/src/configs/eslint-recommended.ts
   'constructor-super': 'off', // ts(2335) & ts(2377)
   'getter-return': 'off', // ts(2378)
