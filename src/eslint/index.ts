@@ -14,10 +14,10 @@ import {
   enableUnoCss,
   enablePrettier,
 } from '../helpers';
-import { baseSettings, typescriptSettings, vueSettings } from './settings';
+import { javascriptSettings, typescriptSettings, vueSettings } from './settings';
 import {
-  baseParser,
-  baseParserOptions,
+  javascriptParser,
+  javascriptParserOptions,
   jsonParser,
   typescriptParser,
   typescriptParserOptions,
@@ -25,7 +25,7 @@ import {
   vueParserOptions,
   yamlParser,
 } from './parser';
-import { reactRules, vueRules } from './rules';
+import { javascriptRules, typescriptRules, reactRules, vueRules } from './rules';
 
 const debug = getDebug('@modyqyw/fabric/eslint');
 
@@ -43,83 +43,43 @@ debug(`miniprogram config ${enableMiniprogram ? 'enabled' : 'disabled'}.`);
 debug(`Prettier config ${enablePrettier ? 'enabled' : 'disabled'}.`);
 
 const config: Linter.Config = {
-  extends: [
-    'eslint:recommended',
-    'plugin:@eslint-community/eslint-comments/recommended',
-    'plugin:import/recommended',
-    'plugin:n/recommended',
-    'plugin:regexp/recommended',
-    'plugin:unicorn/recommended',
-    enableUnoCss ? 'plugin:@unocss/recommended' : '',
-    enablePrettier ? 'plugin:prettier/recommended' : '',
-  ].filter((item) => !!item),
-  settings: baseSettings,
-  parser: baseParser,
-  parserOptions: baseParserOptions,
-  rules: {
-    // should ignore virtual modules
-    'import/no-unresolved': [
-      'error',
-      { ignore: ['^virtual\\:', '^\\~', '^windi\\:', 'windi\\.css', '^uno\\:', 'uno\\.css'] },
-    ],
-    // organize imports order
-    'import/order': 'error',
-    // handle by other rules and typescript
-    'n/no-missing-import': 'off',
-    // ignore some files only
-    'unicorn/filename-case': [
-      'error',
-      {
-        case: 'kebabCase',
-        ignore: [
-          // README.md, CHANGELOG.md, README.zh-CN.md
-          '\\.md$',
-          // index.jsx, Index.jsx, .etc
-          '^[Ii]ndex',
-          // index.jsx, Index.jsx
-          '\\.[jt]sx$',
-          // [...all].jsx, [...slug].jsx, users-[group].jsx, [[...slug]].jsx, .etc
-          '\\[.*\\]',
-        ],
-      },
-    ],
-    // handle by other rules
-    'unicorn/no-abusive-eslint-disable': 'off',
-    // not agree
-    'unicorn/no-null': 'off',
-    // too ideal for library
-    'unicorn/no-thenable': 'off',
-    // too ideal for library
-    'unicorn/prefer-top-level-await': 'off',
-    // too ideal for business
-    'unicorn/prevent-abbreviations': 'off',
-    ...(enableMiniprogram
-      ? {
-          'unicorn/prefer-array-flat-map': 'off',
-          'unicorn/prefer-array-flat': 'off',
-          'unicorn/prefer-at': 'off',
-          'unicorn/prefer-object-from-entries': 'off',
-          'unicorn/prefer-optional-catch-binding': 'off',
-          'unicorn/prefer-string-replace-all': 'off',
-          'unicorn/prefer-string-trim-start-end': 'off',
-        }
-      : {}),
-  },
   overrides: [
     {
       // just let eslint check these files
       files: ['*.js', '*.mjs', '*.cjs', '*.jsx'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@eslint-community/eslint-comments/recommended',
+        'plugin:import/recommended',
+        'plugin:n/recommended',
+        'plugin:regexp/recommended',
+        'plugin:unicorn/recommended',
+        enableUnoCss ? 'plugin:@unocss/recommended' : '',
+        enablePrettier ? 'plugin:prettier/recommended' : '',
+      ],
+      settings: javascriptSettings,
+      parser: javascriptParser,
+      parserOptions: javascriptParserOptions,
+      rules: javascriptRules,
     },
     {
       files: ['*.ts', '*.mts', '*.cts', '*.tsx', '*.d.ts'],
       extends: [
-        'plugin:import/typescript',
+        'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
+        'plugin:@eslint-community/eslint-comments/recommended',
+        'plugin:import/recommended',
+        'plugin:import/typescript',
+        'plugin:n/recommended',
+        'plugin:regexp/recommended',
+        'plugin:unicorn/recommended',
+        enableUnoCss ? 'plugin:@unocss/recommended' : '',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       settings: typescriptSettings,
       parser: typescriptParser,
       parserOptions: typescriptParserOptions,
+      rules: typescriptRules,
     },
     {
       files: ['scripts/**/*', 'cli.*'],
@@ -141,20 +101,25 @@ const config: Linter.Config = {
         enableNext ? 'next/core-web-vitals' : '',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
-      rules: {
-        ...(enableReact ? reactRules : {}),
-      },
+      rules: reactRules,
     },
     {
       files: ['*.vue'],
       extends: [
+        'eslint:recommended',
         enableTypeScript ? 'plugin:@typescript-eslint/recommended' : '',
+        'plugin:@eslint-community/eslint-comments/recommended',
+        'plugin:import/recommended',
         enableTypeScript ? 'plugin:import/typescript' : '',
+        'plugin:n/recommended',
+        'plugin:regexp/recommended',
+        'plugin:unicorn/recommended',
         enableVue3 ? 'plugin:vue/vue3-recommended' : 'plugin:vue/recommended',
         enableVue3 ? 'plugin:vue-scoped-css/vue3-recommended' : 'plugin:vue-scoped-css/recommended',
         enableVueI18n ? 'plugin:@intlify/vue-i18n/recommended' : '',
         enableMiniprogram ? '' : 'plugin:vuejs-accessibility/recommended',
         enableNuxt ? 'plugin:nuxt/recommended' : '',
+        enableUnoCss ? 'plugin:@unocss/recommended' : '',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       settings: vueSettings,
@@ -170,10 +135,6 @@ const config: Linter.Config = {
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       parser: jsonParser,
-      rules: {
-        // not supported
-        'unicorn/numeric-separators-style': 'off',
-      },
     },
     {
       files: ['*.yml', '*.yaml'],
@@ -183,10 +144,6 @@ const config: Linter.Config = {
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       parser: yamlParser,
-      rules: {
-        // not supported
-        'unicorn/numeric-separators-style': 'off',
-      },
     },
     {
       files: ['**/*.md'],

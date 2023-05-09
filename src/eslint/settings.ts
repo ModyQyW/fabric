@@ -1,6 +1,6 @@
 import { enableVueI18n, enableVue3, enableTypeScript } from '../helpers';
 
-export const baseSettings = {
+export const javascriptSettings = {
   'import/core-modules': ['electron'],
   'import/extensions': ['.js', '.mjs', '.jsx'],
   'import/external-module-folders': ['node_modules', 'node_modules/@types'],
@@ -11,6 +11,7 @@ export const baseSettings = {
 };
 
 export const typescriptSettings = {
+  ...javascriptSettings,
   'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.mts', '.tsx', '.d.ts'],
   'import/parsers': {
     '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
@@ -39,6 +40,6 @@ export const vueSettings = enableTypeScript
       ...vueSpecificSettings,
     }
   : {
-      ...baseSettings,
+      ...javascriptSettings,
       ...vueSpecificSettings,
     };

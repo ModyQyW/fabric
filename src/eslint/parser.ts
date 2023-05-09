@@ -1,7 +1,7 @@
 import type { Linter } from 'eslint';
 
-export const baseParser = '@babel/eslint-parser';
-export const baseParserOptions: Linter.ParserOptions = {
+export const javascriptParser = '@babel/eslint-parser';
+export const javascriptParserOptions: Linter.ParserOptions = {
   ecmaVersion: 'latest',
   sourceType: 'module',
   ecmaFeatures: { globalReturn: false, jsx: true },
@@ -10,15 +10,15 @@ export const baseParserOptions: Linter.ParserOptions = {
 
 export const typescriptParser = '@typescript-eslint/parser';
 export const typescriptParserOptions: Linter.ParserOptions = {
-  ...baseParserOptions,
+  ...javascriptParserOptions,
 };
 
 export const vueParser = 'vue-eslint-parser';
 export const vueParserOptions: Linter.ParserOptions = {
-  ...baseParserOptions,
+  ...javascriptParserOptions,
   parser: {
-    js: baseParser,
-    jsx: baseParser,
+    js: javascriptParser,
+    jsx: javascriptParser,
     ts: typescriptParser,
     tsx: typescriptParser,
   },
