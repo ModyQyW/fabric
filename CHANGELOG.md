@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.0.2](https://github.com/ModyQyW/fabric/compare/v8.0.1...v8.0.2) (2023-05-09)
+
+### Bug Fixes
+
+* fix typescript rules ([d74fddd](https://github.com/ModyQyW/fabric/commit/d74fddd6c598f3821945ccd99e682efbc5d5006d))
+
 ## [8.0.1](https://github.com/ModyQyW/fabric/compare/v8.0.0...v8.0.1) (2023-05-09)
 
 ### Bug Fixes
