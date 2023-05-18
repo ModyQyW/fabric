@@ -60,6 +60,7 @@ Learn about [Git](https://git-scm.com/doc), [Git flow](https://nvie.com/posts/a-
 
 ```sh
 git config --global core.autocrlf false
+git config --global core.ignorecase false
 git config --global init.defaultBranch main
 ```
 

@@ -61,6 +61,7 @@ npm install --location=global @modyqyw/fabric@8
 
 ```sh
 git config --global core.autocrlf false
+git config --global core.ignorecase false
 git config --global init.defaultBranch main
 ```
 
