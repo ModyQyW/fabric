@@ -5,7 +5,17 @@ export const javascriptRules: Linter.RulesRecord = {
   // should ignore virtual modules
   'import/no-unresolved': [
     'error',
-    { ignore: ['^virtual\\:', '^\\~', '^windi\\:', 'windi\\.css', '^uno\\:', 'uno\\.css'] },
+    {
+      ignore: [
+        '^virtual\\:',
+        '^\\~',
+        '^windi\\:',
+        'windi\\.css',
+        '^uno\\:',
+        'uno\\.css',
+        'vue-router/auto',
+      ],
+    },
   ],
   // organize imports order
   'import/order': 'error',
