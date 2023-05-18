@@ -11,7 +11,6 @@ import {
   enableReactNative,
   enableReact,
   enableMiniprogram,
-  enableUnoCss,
   enablePrettier,
 } from '../helpers';
 import { javascriptSettings, typescriptSettings, vueSettings } from './settings';
@@ -45,7 +44,6 @@ debug(`Prettier config ${enablePrettier ? 'enabled' : 'disabled'}.`);
 const config: Linter.Config = {
   overrides: [
     {
-      // just let eslint check these files
       files: ['*.js', '*.mjs', '*.cjs', '*.jsx'],
       extends: [
         'eslint:recommended',
@@ -54,7 +52,7 @@ const config: Linter.Config = {
         'plugin:n/recommended',
         'plugin:regexp/recommended',
         'plugin:unicorn/recommended',
-        enableUnoCss ? 'plugin:@unocss/recommended' : '',
+        'plugin:@unocss/recommended',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ],
       settings: javascriptSettings,
@@ -73,7 +71,7 @@ const config: Linter.Config = {
         'plugin:n/recommended',
         'plugin:regexp/recommended',
         'plugin:unicorn/recommended',
-        enableUnoCss ? 'plugin:@unocss/recommended' : '',
+        'plugin:@unocss/recommended',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       settings: typescriptSettings,
@@ -119,7 +117,7 @@ const config: Linter.Config = {
         enableVueI18n ? 'plugin:@intlify/vue-i18n/recommended' : '',
         enableMiniprogram ? '' : 'plugin:vuejs-accessibility/recommended',
         enableNuxt ? 'plugin:nuxt/recommended' : '',
-        enableUnoCss ? 'plugin:@unocss/recommended' : '',
+        'plugin:@unocss/recommended',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       settings: vueSettings,

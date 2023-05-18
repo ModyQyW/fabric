@@ -36,6 +36,4 @@ export const enableMiniprogram =
 
 export const enableScss = isPackageExists('sass') || Boolean(process.env.ENABLE_SCSS);
 
-export const enableUnoCss = isPackageExists('unocss') || Boolean(process.env.ENABLE_UNO_CSS);
-
 export const enablePrettier = isPackageExists('prettier') || Boolean(process.env.ENABLE_PRETTIER);
