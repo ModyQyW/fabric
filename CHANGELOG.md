@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.1.0](https://github.com/ModyQyW/fabric/compare/v8.0.3...v8.1.0) (2023-05-18)
+
+### Features
+
+* enable unocss for eslint by default ([8341316](https://github.com/ModyQyW/fabric/commit/8341316ac83430db93e86001fdcfe673a1be1f95))
+
+### Bug Fixes
+
+* ignore virtual module ([3a0d50d](https://github.com/ModyQyW/fabric/commit/3a0d50d0bbc83c3d7388bb648f72f0c1f6e30d05))
+
 ## [8.0.3](https://github.com/ModyQyW/fabric/compare/v8.0.2...v8.0.3) (2023-05-09)
 
 ### Bug Fixes
