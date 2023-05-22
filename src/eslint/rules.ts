@@ -14,6 +14,7 @@ export const javascriptRules: Linter.RulesRecord = {
         '^uno\\:',
         'uno\\.css',
         'vue-router/auto',
+        '@intlify/unplugin-vue-i18n',
       ],
     },
   ],
