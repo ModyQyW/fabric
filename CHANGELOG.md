@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.2.0](https://github.com/ModyQyW/fabric/compare/v8.1.0...v8.2.0) (2023-05-30)
+
+### Features
+
+* support solid ([d5bc9e1](https://github.com/ModyQyW/fabric/commit/d5bc9e1aa4c1c4fb6666521e34e24e401d40c162))
+
+### Bug Fixes
+
+* ignore vue-i18n virtual modules ([d03e37e](https://github.com/ModyQyW/fabric/commit/d03e37e6d50990e26e55bdc6616dd358d3e421ce))
+
 ## [8.1.0](https://github.com/ModyQyW/fabric/compare/v8.0.3...v8.1.0) (2023-05-18)
 
 ### Features
