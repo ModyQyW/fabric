@@ -24,6 +24,8 @@ export const enableReactNative =
 export const enableReact =
   isPackageExists('react') || Boolean(process.env.ENABLE_REACT) || enableNext || enableReactNative;
 
+export const enableSolid = isPackageExists('solid-js') || Boolean(process.env.ENABLE_SOLID);
+
 export const enableMiniprogram =
   isPackageExists('@dcloudio/vite-plugin-uni') ||
   isPackageExists('@dcloudio/vue-cli-plugin-uni') ||

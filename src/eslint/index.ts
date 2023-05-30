@@ -10,6 +10,7 @@ import {
   enableNext,
   enableReactNative,
   enableReact,
+  enableSolid,
   enableMiniprogram,
   enablePrettier,
 } from '../helpers';
@@ -97,6 +98,11 @@ const config: Linter.Config = {
         enableReactNative ? 'plugin:react-native/all' : '',
         enableReactNative ? 'plugin:react-native-a11y/all' : '',
         enableNext ? 'next/core-web-vitals' : '',
+        enableSolid
+          ? enableTypeScript
+            ? 'plugin:solid/typescript'
+            : 'plugin:solid/recommended'
+          : '',
         enablePrettier ? 'plugin:prettier/recommended' : '',
       ].filter((item) => !!item),
       rules: reactRules,
