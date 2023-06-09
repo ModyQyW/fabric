@@ -24,7 +24,17 @@ export const enableReactNative =
 export const enableReact =
   isPackageExists('react') || Boolean(process.env.ENABLE_REACT) || enableNext || enableReactNative;
 
-export const enableSolid = isPackageExists('solid-js') || Boolean(process.env.ENABLE_SOLID);
+export const enableSolidStart =
+  isPackageExists('solid-start') || Boolean(process.env.ENABLE_SOLID_START);
+
+export const enableSolid =
+  isPackageExists('solid-js') || Boolean(process.env.ENABLE_SOLID) || enableSolidStart;
+
+export const enableSvelteKit =
+  isPackageExists('@sveltejs/kit') || Boolean(process.env.ENABLE_SVELTE_KIT);
+
+export const enableSvelte =
+  isPackageExists('svelte') || Boolean(process.env.ENABLE_SVELTE) || enableSvelteKit;
 
 export const enableMiniprogram =
   isPackageExists('@dcloudio/vite-plugin-uni') ||
