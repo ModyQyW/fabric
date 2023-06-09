@@ -418,6 +418,7 @@ chmod +x .husky/*
     "typescript",
     "typescriptreact",
     "vue",
+    "svelte",
     "yaml",
     "json",
     "jsonc",

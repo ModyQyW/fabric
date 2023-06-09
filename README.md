@@ -417,6 +417,7 @@ Experience has proven that automation is the best option. You may want to try pa
     "typescript",
     "typescriptreact",
     "vue",
+    "svelte",
     "yaml",
     "json",
     "jsonc",
