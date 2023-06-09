@@ -14,7 +14,7 @@ import {
   enableMiniprogram,
   enablePrettier,
 } from '../helpers';
-import { javascriptSettings, typescriptSettings, vueSettings } from './settings';
+import { javascriptSettings, typescriptSettings, vueSettings, svelteSettings } from './settings';
 import {
   javascriptParser,
   javascriptParserOptions,
@@ -23,6 +23,8 @@ import {
   typescriptParserOptions,
   vueParser,
   vueParserOptions,
+  svelteParser,
+  svelteParserOptions,
   yamlParser,
 } from './parser';
 import { javascriptRules, typescriptRules, reactRules, vueRules } from './rules';
@@ -130,6 +132,26 @@ const config: Linter.Config = {
       parser: vueParser,
       parserOptions: vueParserOptions,
       rules: vueRules,
+    },
+    {
+      files: ['*.svelte'],
+      extends: [
+        'eslint:recommended',
+        enableTypeScript ? 'plugin:@typescript-eslint/recommended' : '',
+        'plugin:@eslint-community/eslint-comments/recommended',
+        'plugin:import/recommended',
+        enableTypeScript ? 'plugin:import/typescript' : '',
+        'plugin:n/recommended',
+        'plugin:regexp/recommended',
+        'plugin:unicorn/recommended',
+        'plugin:svelte/recommended',
+        'plugin:@unocss/recommended',
+        enablePrettier ? 'plugin:svelte/prettier' : '',
+        enablePrettier ? 'plugin:prettier/recommended' : '',
+      ].filter((item) => !!item),
+      settings: svelteSettings,
+      parser: svelteParser,
+      parserOptions: svelteParserOptions,
     },
     {
       files: ['*.json', '*.jsonc', '*.json5'],

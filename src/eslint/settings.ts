@@ -43,3 +43,11 @@ export const vueSettings = enableTypeScript
       ...javascriptSettings,
       ...vueSpecificSettings,
     };
+
+export const svelteSettings = enableTypeScript
+  ? {
+      ...typescriptSettings,
+    }
+  : {
+      ...javascriptSettings,
+    };

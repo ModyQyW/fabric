@@ -24,6 +24,17 @@ export const vueParserOptions: Linter.ParserOptions = {
   },
 };
 
+export const svelteParser = 'svelte-eslint-parser';
+export const svelteParserOptions: Linter.ParserOptions = {
+  ...javascriptParserOptions,
+  parser: {
+    js: javascriptParser,
+    jsx: javascriptParser,
+    ts: typescriptParser,
+    tsx: typescriptParser,
+  },
+};
+
 export const jsonParser = 'jsonc-eslint-parser';
 
 export const yamlParser = 'yaml-eslint-parser';
