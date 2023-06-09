@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.3.0](https://github.com/ModyQyW/fabric/compare/v8.2.0...v8.3.0) (2023-06-09)
+
+### Features
+
+* support svelte ([1b8fa83](https://github.com/ModyQyW/fabric/commit/1b8fa83d6c1b1c028b6e18102c92fa1e6e31ba1a))
+
+### Bug Fixes
+
+* fix judgement ([4d98bcd](https://github.com/ModyQyW/fabric/commit/4d98bcd05cb4c9b889b2e60d46184ecf780706ee))
+
 ## [8.2.0](https://github.com/ModyQyW/fabric/compare/v8.1.0...v8.2.0) (2023-05-30)
 
 ### Features
