@@ -110,7 +110,7 @@
     "eslint-import-resolver-node": "^0.3.7",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-check-file": "^2.3.0",
-    "eslint-plugin-import": "npm:eslint-plugin-i",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsonc": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-markdown": "^3.0.0",
