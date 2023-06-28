@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.3.2](https://github.com/ModyQyW/fabric/compare/v8.3.1...v8.3.2) (2023-06-28)
+
+### Bug Fixes
+
+* resolve import/no-unresolved ([cc49ad0](https://github.com/ModyQyW/fabric/commit/cc49ad02d7296ce967d748d680c940203cefff47))
+
 ## [8.3.1](https://github.com/ModyQyW/fabric/compare/v8.3.0...v8.3.1) (2023-06-19)
 
 ## [8.3.0](https://github.com/ModyQyW/fabric/compare/v8.2.0...v8.3.0) (2023-06-09)
