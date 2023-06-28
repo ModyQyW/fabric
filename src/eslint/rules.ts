@@ -6,6 +6,8 @@ export const javascriptRules: Linter.RulesRecord = {
   'import/no-unresolved': [
     'error',
     {
+      commonjs: true,
+      caseSensitive: true,
       ignore: [
         '^virtual\\:',
         '^\\~',
@@ -78,6 +80,7 @@ export const typescriptRules: Linter.RulesRecord = {
   'import/namespace': 'off',
   'import/default': 'off',
   'import/no-named-as-default-member': 'off',
+  'import/no-unresolved': 'off', // see https://github.com/iamturns/eslint-config-airbnb-typescript#why-is-importno-unresolved-disabled
   // https://github.com/typescript-eslint/typescript-eslint/blob/v5.59.5/packages/eslint-plugin/src/configs/eslint-recommended.ts
   'constructor-super': 'off', // ts(2335) & ts(2377)
   'getter-return': 'off', // ts(2378)
