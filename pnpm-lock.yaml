@@ -168,8 +168,8 @@ dependencies:
     specifier: ^3.37.0 || ^4.0.0
     version: 3.37.0
   svelte-eslint-parser:
-    specifier: ^0.31.0
-    version: 0.31.0(svelte@3.37.0)
+    specifier: ^0.32.0
+    version: 0.32.0(svelte@3.37.0)
   tsutils:
     specifier: ^3.21.0
     version: 3.21.0(typescript@5.1.5)
@@ -7477,6 +7477,23 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       svelte: ^3.37.0 || ^4.0.0-0
+    peerDependenciesMeta:
+      svelte:
+        optional: true
+    dependencies:
+      eslint-scope: 7.2.0
+      eslint-visitor-keys: 3.4.1
+      espree: 9.5.2
+      postcss: 8.4.24
+      postcss-scss: 4.0.6(postcss@8.4.24)
+      svelte: 3.37.0
+    dev: false
+
+  /svelte-eslint-parser@0.32.0(svelte@3.37.0):
+    resolution: {integrity: sha512-Q8Nh3GHHoWZMv3Ej4zw+3+gyWPR8I5pPTJXEOvW+JOgwhGXqGKh7mOKNlVcEPtk+PCGiK9TPaRtvRkKoJR327A==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      svelte: ^3.37.0 || ^4.0.0
     peerDependenciesMeta:
       svelte:
         optional: true

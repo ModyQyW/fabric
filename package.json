@@ -142,7 +142,7 @@
     "stylelint-config-recommended-scss": "^12.0.0",
     "stylelint-order": "^6.0.3",
     "stylelint-stylistic": "^0.4.2",
-    "svelte-eslint-parser": "^0.31.0",
+    "svelte-eslint-parser": "^0.32.0",
     "tsutils": "^3.21.0",
     "typescript": "^5.1.5",
     "vue-eslint-parser": "^9.3.1",
