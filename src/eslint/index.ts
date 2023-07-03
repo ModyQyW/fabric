@@ -248,6 +248,7 @@ const config: Linter.Config = {
     'typed-router.d.ts',
     'unpackage',
     'yarn.lock',
+    '*timestamp*',
   ],
   globals: {
     __dirname: false,

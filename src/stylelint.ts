@@ -260,6 +260,7 @@ const config: Config = {
   //   'typed-router.d.ts',
   //   'unpackage',
   //   'yarn.lock',
+  //   '*timestamp*',
   // ],
   reportDescriptionlessDisables: true,
   reportInvalidScopeDisables: true,
