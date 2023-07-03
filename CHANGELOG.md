@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [8.3.3](https://github.com/ModyQyW/fabric/compare/v8.3.2...v8.3.3) (2023-07-03)
+
+### Bug Fixes
+
+* ignore some tmp files ([d470819](https://github.com/ModyQyW/fabric/commit/d470819d6bbdb560d50815ee12ea43bb56b86326))
+
 ## [8.3.2](https://github.com/ModyQyW/fabric/compare/v8.3.1...v8.3.2) (2023-06-28)
 
 ### Bug Fixes
