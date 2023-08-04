@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.0.1](https://github.com/ModyQyW/fabric/compare/v9.0.0...v9.0.1) (2023-08-04)
+
+### Bug Fixes
+
+* fix eslint rules ([381142e](https://github.com/ModyQyW/fabric/commit/381142e501b562d0e65cbbed440006263e6f885e))
+
 ## [9.0.0](https://github.com/ModyQyW/fabric/compare/v8.3.3...v9.0.0) (2023-08-04)
 
 ### ⚠ BREAKING CHANGES
