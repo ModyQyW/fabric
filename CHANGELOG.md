@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.0.0](https://github.com/ModyQyW/fabric/compare/v8.3.3...v9.0.0) (2023-08-04)
+
+### ⚠ BREAKING CHANGES
+
+* requires prettier@3
+* requires @typescript-eslint@6
+
+### Features
+
+* requires [@typescript-eslint](https://github.com/typescript-eslint)@6 ([2c0e632](https://github.com/ModyQyW/fabric/commit/2c0e6327ec2774dad90fe17d14b3d63778f0b0d7))
+* requires prettier@3 ([1ed13d1](https://github.com/ModyQyW/fabric/commit/1ed13d1d54d31fd5922d4d381daa8fcbd3ca548d))
+
 ## [8.3.3](https://github.com/ModyQyW/fabric/compare/v8.3.2...v8.3.3) (2023-07-03)
 
 ### Bug Fixes
