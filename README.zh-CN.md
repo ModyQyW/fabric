@@ -102,7 +102,7 @@ trim_trailing_whitespace = false
 看看 [Prettier](https://prettier.io/)。
 
 ```sh
-npm install -D prettier@2
+npm install -D prettier@3
 ```
 
 设置 `.prettierrc.cjs`。
@@ -124,7 +124,7 @@ npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 如果你正在使用 TypeScript，你需要安装额外的依赖。
 
 ```sh
-npm install -D typescript@5 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
+npm install -D typescript@5 @typescript-eslint/eslint-plugin@6 @typescript-eslint/parser@6
 ```
 
 设置 `.eslintrc.cjs`。

@@ -101,7 +101,7 @@ In most cases you should consider using the `tsconfig.json` that comes with the 
 Learn about [Prettier](https://prettier.io/).
 
 ```sh
-npm install -D prettier@2
+npm install -D prettier@3
 ```
 
 Set up `.prettierrc.cjs`.
@@ -123,7 +123,7 @@ npm install -D eslint@8 @babel/core@7 @babel/eslint-parser@7
 Additional dependencies are needed if you are using TypeScript.
 
 ```sh
-npm install -D typescript@5 @typescript-eslint/eslint-plugin@5 @typescript-eslint/parser@5
+npm install -D typescript@5 @typescript-eslint/eslint-plugin@6 @typescript-eslint/parser@6
 ```
 
 Set up `.eslintrc.cjs`.
