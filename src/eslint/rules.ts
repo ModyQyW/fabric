@@ -72,16 +72,20 @@ export const typescriptRules: Linter.RulesRecord = {
   ...javascriptRules,
   // allow for usage
   '@typescript-eslint/no-empty-interface': 'off',
+  '@typescript-eslint/no-empty-function': 'off',
   // better not to use any
   // but the truth is, you have no way to get rid of it
   '@typescript-eslint/no-explicit-any': 'off',
+  // allow for prototyping
+  '@typescript-eslint/no-unused-vars': 'warn',
   // TypeScript provides the same checks as part of standard type checking
   'import/named': 'off',
   'import/namespace': 'off',
   'import/default': 'off',
   'import/no-named-as-default-member': 'off',
-  'import/no-unresolved': 'off', // see https://github.com/iamturns/eslint-config-airbnb-typescript#why-is-importno-unresolved-disabled
-  // https://github.com/typescript-eslint/typescript-eslint/blob/v5.59.5/packages/eslint-plugin/src/configs/eslint-recommended.ts
+  'import/no-unresolved': 'off',
+  // see https://github.com/iamturns/eslint-config-airbnb-typescript#why-is-importno-unresolved-disabled
+  // https://github.com/typescript-eslint/typescript-eslint/blob/v6.2.1/packages/eslint-plugin/src/configs/eslint-recommended.ts
   'constructor-super': 'off', // ts(2335) & ts(2377)
   'getter-return': 'off', // ts(2378)
   'no-const-assign': 'off', // ts(2588)
@@ -102,7 +106,7 @@ export const typescriptRules: Linter.RulesRecord = {
   'prefer-const': 'error', // ts provides better types with const
   'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
   'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
-  'valid-typeof': 'off', // ts(2367)
+  // 'valid-typeof': 'off', // ts(2367) // removed in v6
 };
 
 export const reactRules: Linter.RulesRecord = {
