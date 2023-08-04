@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-module */
 import type { Config } from 'prettier';
 import getDebug from 'debug';
 
@@ -7,17 +6,12 @@ const debug = getDebug('@modyqyw/fabric/prettier');
 debug('JSDoc plugin enabled.');
 debug('PackageJson Plugin enabled.');
 
-const config: Config & { [key: string]: any } = {
+const config: Config & Record<string, any> = {
   printWidth: 100,
   singleQuote: true,
-  trailingComma: 'all',
   jsdocCapitalizeDescription: false,
   tsdoc: true,
-  plugins: [
-    require.resolve('prettier-plugin-jsdoc'),
-    require.resolve('prettier-plugin-packagejson'),
-  ].filter((item) => !!item) as string[],
+  plugins: ['prettier-plugin-jsdoc', 'prettier-plugin-packagejson'],
 };
 
 export default config;
-/* eslint-enable unicorn/prefer-module */
