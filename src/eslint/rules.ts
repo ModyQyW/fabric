@@ -55,6 +55,9 @@ export const javascriptRules: Linter.RulesRecord = {
   'unicorn/prefer-top-level-await': 'off',
   // too ideal for business
   'unicorn/prevent-abbreviations': 'off',
+  // avoid conflicts
+  '@unocss/order-attributify': 'off',
+  // miniprogram
   ...(enableMiniprogram
     ? {
         'unicorn/prefer-array-flat-map': 'off',
