@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.0.2](https://github.com/ModyQyW/fabric/compare/v9.0.1...v9.0.2) (2023-08-10)
+
+### Bug Fixes
+
+* **eslint:** disable @unocss/order-attributify to avoid conflicts ([7ee6bb8](https://github.com/ModyQyW/fabric/commit/7ee6bb8a17ce2cee1160313bdc5a47f2b8b3f66d))
+
 ## [9.0.1](https://github.com/ModyQyW/fabric/compare/v9.0.0...v9.0.1) (2023-08-04)
 
 ### Bug Fixes
