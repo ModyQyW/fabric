@@ -275,7 +275,7 @@ Just run `publint` to check your library.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@13 sort-package-json@2
+npm install -D lint-staged@14 sort-package-json@2
 ```
 
 Set up `.lintstagedrc.cjs`.

@@ -276,7 +276,7 @@ npm install -D publint@0.1
 看看 [LintStaged](https://github.com/okonet/lint-staged)。
 
 ```sh
-npm install -D lint-staged@13 sort-package-json@2
+npm install -D lint-staged@14 sort-package-json@2
 ```
 
 设置 `.lintstagedrc.cjs`。
