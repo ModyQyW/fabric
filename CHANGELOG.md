@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.0.3](https://github.com/ModyQyW/fabric/compare/v9.0.2...v9.0.3) (2023-08-16)
+
+### Bug Fixes
+
+* **stylelint:** add stylelint-prettier ([9cf0857](https://github.com/ModyQyW/fabric/commit/9cf085778389922e2441ac777be4594273007658))
+
 ## [9.0.2](https://github.com/ModyQyW/fabric/compare/v9.0.1...v9.0.2) (2023-08-10)
 
 ### Bug Fixes
