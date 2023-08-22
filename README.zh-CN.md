@@ -26,7 +26,7 @@
 
 ```sh
 # 本地
-npm install -D @modyqyw/fabric@8
+npm install -D @modyqyw/fabric@9
 
 # 全局
 npm install --location=global @modyqyw/fabric@8
@@ -224,7 +224,7 @@ npm install -D markdownlint-cli
 看看 [Commitlint](https://commitlint.js.org/) 和 [Conventional Commits](https://www.conventionalcommits.org/)。
 
 ```sh
-npm install -D @commitlint/cli@17 @commitlint/config-conventional@17 ts-node@10
+npm install -D @commitlint/cli@17 @commitlint/config-conventional@17
 ```
 
 设置 `.commitlintrc.cjs`。
