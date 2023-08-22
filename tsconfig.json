@@ -3,6 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true
   },
   "exclude": ["dist", "node_modules", "playground"]
