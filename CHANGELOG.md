@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.0.4](https://github.com/ModyQyW/fabric/compare/v9.0.3...v9.0.4) (2023-09-06)
+
 ## [9.0.3](https://github.com/ModyQyW/fabric/compare/v9.0.2...v9.0.3) (2023-08-16)
 
 ### Bug Fixes
