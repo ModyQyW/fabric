@@ -68,7 +68,7 @@ const config: Linter.Config = {
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/stylistic',
+        // 'plugin:@typescript-eslint/stylistic',
         'plugin:@eslint-community/eslint-comments/recommended',
         'plugin:import/recommended',
         'plugin:import/typescript',
@@ -115,7 +115,7 @@ const config: Linter.Config = {
       extends: [
         'eslint:recommended',
         enableTypeScript ? 'plugin:@typescript-eslint/recommended' : '',
-        enableTypeScript ? 'plugin:@typescript-eslint/stylistic' : '',
+        // enableTypeScript ? 'plugin:@typescript-eslint/stylistic' : '',
         'plugin:@eslint-community/eslint-comments/recommended',
         'plugin:import/recommended',
         enableTypeScript ? 'plugin:import/typescript' : '',
@@ -140,7 +140,7 @@ const config: Linter.Config = {
       extends: [
         'eslint:recommended',
         enableTypeScript ? 'plugin:@typescript-eslint/recommended' : '',
-        enableTypeScript ? 'plugin:@typescript-eslint/stylistic' : '',
+        // enableTypeScript ? 'plugin:@typescript-eslint/stylistic' : '',
         'plugin:@eslint-community/eslint-comments/recommended',
         'plugin:import/recommended',
         enableTypeScript ? 'plugin:import/typescript' : '',
