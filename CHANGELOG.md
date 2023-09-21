@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [9.0.6](https://github.com/ModyQyW/fabric/compare/v9.0.5...v9.0.6) (2023-09-21)
+
+### Bug Fixes
+
+* ignore uni-pages.d.ts ([92c226f](https://github.com/ModyQyW/fabric/commit/92c226fa61d5f8cb05de6805dbc4ff6847620c66))
+
 ## [9.0.5](https://github.com/ModyQyW/fabric/compare/v9.0.4...v9.0.5) (2023-09-06)
 
 ### Bug Fixes
