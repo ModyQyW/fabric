@@ -259,6 +259,7 @@ const config: Config = {
   //   'tmp',
   //   'typed-router.d.ts',
   //   'unpackage',
+  //   'uni-pages.d.ts',
   //   'yarn.lock',
   //   '*timestamp*',
   // ],
