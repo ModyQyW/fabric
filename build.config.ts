@@ -1,13 +1,21 @@
 import { defineBuildConfig } from 'unbuild';
 
 export default defineBuildConfig({
-  entries: ['./src/index', './src/eslint', './src/prettier', './src/stylelint'],
   clean: true,
   declaration: true,
+  entries: [
+    './src/index',
+    './src/commitlint',
+    './src/eslint',
+    './src/lint-staged',
+    './src/prettier',
+    './src/simple-git-hooks',
+    './src/stylelint',
+  ],
   rollup: {
     emitCJS: true,
     esbuild: {
-      target: 'node16',
+      target: 'node18',
     },
   },
 });
