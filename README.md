@@ -5,34 +5,34 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-Opinionated shareable specification for different JavaScript/TypeScript projects.
+Opinionated shareable specification for different JavaScript/TypeScript projects. **Use it in your old projects on your own risk.**
 
 Requires:
 
 - Latest Node LTS
 - Latest package manager (npm / yarn / pnpm)
-- Recommend to set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm 8
+- Recommend to set `shamefully-hoist=true` in `.npmrc` or use `--shamefully-hoist` when using pnpm
   - See [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
   - Use this to avoid phantom dependencies caused by the lack of specification of some NPM packages (using packages that are not defined in `package.json`)
-- Recommend to set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn 3
+- Recommend to set `nodeLinker: 'node-modules'` in `.yarnrc.yml` when using yarn
   - See [yarn - nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker)
   - Use this to avoid breaking existing projects
 - Use new JSX transform and hooks for React projects
 - Use Composition API for Vue projects
 
-Using `npm` below. Check [nrm](https://github.com/Pana/nrm) and [npmmirror](https://npmmirror.com/) for mirror support.
+Using `npm` below. See [nrm](https://github.com/Pana/nrm) and [npmmirror](https://npmmirror.com/) for mirror support.
 
 ## Usage
 
 ```sh
 # locally
-npm install -D @modyqyw/fabric@9
+npm install -D @modyqyw/fabric@10
 
 # globally
-npm install --location=global @modyqyw/fabric@8
+npm install --location=global @modyqyw/fabric@10
 ```
 
-See more about versions in [node-semver](https://github.com/npm/node-semver).
+See more information about versions in [node-semver](https://github.com/npm/node-semver).
 
 ### Naming
 
@@ -51,12 +51,15 @@ Naming should be simple and clear but it is hardly be checked by linters. So fol
   - [tailwindcss](https://tailwindcss.com/)
   - [mui](https://mui.com/)
   - [antd](https://ant.design/)
+  - [primereact](https://primereact.org/)
   - [vuetify](https://vuetifyjs.com/)
+  - [naive-ui](https://www.naiveui.com/)
+  - [primevue](https://primevue.org/)
   - [element-plus](https://element-plus.org/)
 
 ### Git
 
-Learn about [Git](https://git-scm.com/doc), [Git flow](https://nvie.com/posts/a-successful-git-branching-model/), [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow), [GitLab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) and [Gif LFS](https://git-lfs.github.com/).
+Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. See [Git](https://git-scm.com/doc), [Git flow](https://nvie.com/posts/a-successful-git-branching-model/), [GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow), [GitLab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) and [Gif LFS](https://git-lfs.github.com/) for more information.
 
 ```sh
 git config --global core.autocrlf false
@@ -70,11 +73,12 @@ A `.gitignore` example [here](./.gitignore).
 
 ### EditorConfig
 
-Learn about [EditorConfig](https://editorconfig.org/).
+EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. See [EditorConfig](https://editorconfig.org/) for more information.
 
-Set up `.editorconfig`.
+#### 配置文件
 
 ```sh
+# .editorconfig
 root = true
 
 [*]
@@ -90,15 +94,19 @@ trim_trailing_whitespace = false
 
 ```
 
-### tsconfig.json
+### tsconfig.json / jsconfig.json
+
+The presence of a tsconfig.json file in a directory indicates that the directory is the root of a TypeScript project. The tsconfig.json file specifies the root files and the compiler options required to compile the project. JavaScript projects can use a jsconfig.json file instead, which acts almost the same but has some JavaScript-related compiler flags enabled by default. See [TypeScript](https://www.typescriptlang.org/) for more information.
 
 Learn about [tsconfig.json](https://aka.ms/tsconfig.json).
 
-In most cases you should consider using the `tsconfig.json` that comes with the framework or library. if they don't provide it, [tsconfig/bases](https://github.com/tsconfig/bases) is a good choice.
+In most cases you should consider using the `tsconfig.json` that comes with the framework or library first. if they don't provide it, [tsconfig/bases](https://github.com/tsconfig/bases) is a good choice.
 
 ### Prettier
 
-Learn about [Prettier](https://prettier.io/).
+Prettier is an opinionated code formatter. See [Prettier](https://prettier.io/) for more information.
+
+#### Installation
 
 ```sh
 npm install -D prettier@3
@@ -275,17 +283,17 @@ Just run `publint` to check your library.
 Learn about [LintStaged](https://github.com/okonet/lint-staged).
 
 ```sh
-npm install -D lint-staged@14 sort-package-json@2
+npm install -D lint-staged@15
 ```
 
 Set up `.lintstagedrc.cjs`.
 
 ```js
 module.exports = {
-  'package.json': 'sort-package-json',
-  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml}': 'eslint --fix --cache --ignore-path=.gitignore',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml}':
+    'eslint --fix --cache --ignore-path=.gitignore',
+  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
 };
 ```
 
@@ -293,10 +301,10 @@ You may want to ignore `CHANGELOG.md` if it is generated by some tools.
 
 ```js
 module.exports = {
-  'package.json': 'sort-package-json',
-  '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml}': 'eslint --fix --cache --ignore-path=.gitignore',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml}':
+    'eslint --fix --cache --ignore-path=.gitignore',
+  '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
 };
 ```
 
@@ -322,10 +330,9 @@ Set up `.simple-git-hooks.cjs`.
 
 ```js
 module.exports = {
-  "pre-commit": "npx lint-staged",
-  "commit-msg": "npx commitlint --edit ${1}",
+  'commit-msg': 'npx commitlint --edit ${1}',
+  'pre-commit': 'npx lint-staged',
 };
-
 ```
 
 ### Husky
@@ -381,11 +388,11 @@ chmod +x .husky/*
 Experience has proven that automation is the best option. You may want to try packages below, sorted according to alphabetical order.
 
 - [auto-changelog](https://github.com/CookPete/auto-changelog)
-- [bumpp](https://github.com/antfu/bumpp) - We are using it.
+- [bumpp](https://github.com/antfu/bumpp)
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
-- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) - 我们在使用这个
-- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) - We are using it.
+- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version)
+- [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [keep-a-changelog](https://github.com/oscarotero/keep-a-changelog)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
@@ -417,7 +424,6 @@ Experience has proven that automation is the best option. You may want to try pa
     "typescript",
     "typescriptreact",
     "vue",
-    "svelte",
     "yaml",
     "json",
     "jsonc",
@@ -533,10 +539,12 @@ Sorted according to alphabetical order.
 - [AlloyTeam/eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
 - [antfu/eslint-config](https://github.com/antfu/eslint-config)
 - [basarat/typescript-book](https://github.com/basarat/typescript-book)
+- [dxhuii/eslint-config](https://github.com/dxhuii/eslint-config)
 - [google/styleguide](https://google.github.io/styleguide)
 - [mdo/code-guide](https://github.com/mdo/code-guide)
 - [remix-run/remix/remix-eslint-config](https://github.com/remix-run/remix/tree/main/packages/remix-eslint-config)
 - [standard/standard](https://github.com/standard/standard)
+- [sxzz/eslint-config](https://github.com/sxzz/eslint-config)
 - [vercel/style-guide](https://github.com/vercel/style-guide)
 
 ## License

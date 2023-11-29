@@ -11,28 +11,28 @@
 
 - 最新的 Node LTS
 - 最新的依赖管理工具（npm / yarn / pnpm）
-- 如果在使用 pnpm 8，建议在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
+- 如果在使用 pnpm，建议在 `.npmrc` 里设置 `shamefully-hoist=true` 或使用 `--shamefully-hoist`
   - 详见 [pnpm - shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist)
   - 使用该选项能有效避免部分 NPM 包不够规范而导致的幽灵依赖问题（使用了一些没有定义在 `package.json` 中的包）
-- 如果在使用 yarn 3，建议在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
+- 如果在使用 yarn，建议在 `.yarnrc.yml` 里设置 `nodeLinker: 'node-modules'`
   - 详见 [yarn - nodeLinker](https://yarnpkg.com/configuration/yarnrc#nodeLinker)
   - 使用该选项能有效避免破坏现有项目
 - 对于 React 项目，使用新的 JSX 转换和 hooks
 - 对于 Vue 项目，使用组合式 API，即 Composition API
 
-下面使用 `npm`。如果需要镜像支持，不妨看看 [nrm](https://github.com/Pana/nrm) 和 [npmmirror](https://npmmirror.com/)。
+下面使用 `npm`。镜像支持可查看 [nrm](https://github.com/Pana/nrm) 和 [npmmirror](https://npmmirror.com/)。
 
 ## 使用
 
 ```sh
 # 本地
-npm install -D @modyqyw/fabric@9
+npm install -D @modyqyw/fabric@10
 
 # 全局
-npm install --location=global @modyqyw/fabric@8
+npm install --location=global @modyqyw/fabric@10
 ```
 
-[node-semver](https://github.com/npm/node-semver) 有更多版本说明。
+更多版本说明可查看 [node-semver](https://github.com/npm/node-semver)。
 
 ### 命名
 
@@ -52,12 +52,15 @@ npm install --location=global @modyqyw/fabric@8
   - [tailwindcss](https://tailwindcss.com/)
   - [mui](https://mui.com/)
   - [antd](https://ant.design/)
+  - [primereact](https://primereact.org/)
   - [vuetify](https://vuetifyjs.com/)
+  - [naive-ui](https://www.naiveui.com/)
+  - [primevue](https://primevue.org/)
   - [element-plus](https://element-plus.org/)
 
 ### Git
 
-看看 [Git](https://git-scm.com/doc)、[Git flow](https://nvie.com/posts/a-successful-git-branching-model/)、[GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)、[GitLab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) 和 [Gif LFS](https://git-lfs.github.com/)。
+Git 是一个免费的开源分布式版本控制系统，旨在快速高效地处理从小到大的项目。更多信息可查看 [Git](https://git-scm.com/doc)、[Git flow](https://nvie.com/posts/a-successful-git-branching-model/)、[GitHub flow](https://docs.github.com/en/get-started/quickstart/github-flow)、[GitLab flow](https://docs.gitlab.com/ee/topics/gitlab_flow.html) 和 [Gif LFS](https://git-lfs.github.com/)。
 
 ```sh
 git config --global core.autocrlf false
@@ -71,11 +74,12 @@ git config --global init.defaultBranch main
 
 ### EditorConfig
 
-看看 [EditorConfig](https://editorconfig.org/)。
+EditorConfig 有助于跨不同编辑器和 IDE 处理同一项目的多个开发人员保持一致的编码风格。更多信息可查看 [EditorConfig](https://editorconfig.org/)。
 
-设置 `.editorconfig`。
+#### 配置文件
 
 ```sh
+# .editorconfig
 root = true
 
 [*]
@@ -91,26 +95,62 @@ trim_trailing_whitespace = false
 
 ```
 
-### tsconfig.json
+### tsconfig.json / jsconfig.json
 
-看看 [tsconfig.json](https://aka.ms/tsconfig.json)。
+目录中存在 `tsconfig.json` 文件表示该目录是 TypeScript 项目的根目录。`tsconfig.jso` 文件指定编译项目所需的根文件和编译器选项。JavaScript 项目可以改用 `jsconfig.json` 文件，其行为几乎相同，但默认启用一些与 JavaScript 相关的编译器标志。更多信息可查看 [TypeScript](https://www.typescriptlang.org/)。
 
-在大部分情况下你都应该考虑使用框架或库附带的 `tsconfig.json`。如果它们没有提供，[tsconfig/bases](https://github.com/tsconfig/bases) 是一个不错的选择。
+在大部分情况下你都应该优先考虑使用框架或库附带的 `tsconfig.json`。如果它们没有提供，[tsconfig/bases](https://github.com/tsconfig/bases) 是一个不错的选择。
 
 ### Prettier
 
-看看 [Prettier](https://prettier.io/)。
+Prettier 是一个开箱即用的代码格式化工具。更多信息可查看 [Prettier](https://prettier.io/)。
+
+#### 安装
 
 ```sh
 npm install -D prettier@3
 ```
 
-设置 `.prettierrc.cjs`。
+#### 配置文件
+
+##### ESM
 
 ```js
+// prettier.config.js with "type": "module" in package.json
+// or prettier.config.mjs
+import { prettier } from '@modyqyw/fabric';
+// or
+// import { prettier } from '@modyqyw/fabric/prettier';
+
+export default {
+  ...prettier,
+};
+```
+
+##### CJS
+
+```js
+// prettier.config.js without "type": "module" in package.json
+// or prettier.config.cjs
+const { prettier } = require('@modyqyw/fabric');
+// or
+// const { prettier } = require('@modyqyw/fabric/prettier');
+
 module.exports = {
   ...require('@modyqyw/fabric/prettier'),
 };
+```
+
+#### CLI
+
+设置 `package.json`。
+
+```json
+{
+  "scripts": {
+    "format": "prettier . -w --cache"
+  }
+}
 ```
 
 ### ESLint
@@ -276,17 +316,18 @@ npm install -D publint@0.1
 看看 [LintStaged](https://github.com/okonet/lint-staged)。
 
 ```sh
-npm install -D lint-staged@14 sort-package-json@2
+npm install -D lint-staged@14
 ```
 
 设置 `.lintstagedrc.cjs`。
 
 ```js
 module.exports = {
-  'package.json': 'sort-package-json',
-  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml}': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*': 'prettier -w --cache',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml}':
+    'eslint --fix --cache --ignore-path=.gitignore',
+  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
 };
 ```
 
@@ -294,10 +335,11 @@ module.exports = {
 
 ```js
 module.exports = {
-  'package.json': 'sort-package-json',
-  '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml': 'eslint --fix --cache --ignore-path=.gitignore',
+  '*': 'prettier -w --cache',
   '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue,json,jsonc,json5,yaml,yml':
+    'eslint --fix --cache --ignore-path=.gitignore',
+  '*.md': 'markdownlint --fix --ignore=CHANGELOG.md --ignore-path=.gitignore',
 };
 ```
 
@@ -323,10 +365,9 @@ npm install -D is-ci@3 simple-git-hooks@2
 
 ```js
 module.exports = {
-  "pre-commit": "npx lint-staged",
-  "commit-msg": "npx commitlint --edit ${1}",
+  'commit-msg': 'npx commitlint --edit ${1}',
+  'pre-commit': 'npx lint-staged',
 };
-
 ```
 
 ### Husky
@@ -385,7 +426,7 @@ chmod +x .husky/*
 - [bumpp](https://github.com/antfu/bumpp)
 - [changelogen](https://github.com/unjs/changelogen)
 - [changelogithub](https://github.com/antfu/changelogithub)
-- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) - 我们在使用这个
+- [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version)
 - [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog)
 - [keep-a-changelog](https://github.com/oscarotero/keep-a-changelog)
 - [np](https://github.com/sindresorhus/np)
@@ -418,7 +459,6 @@ chmod +x .husky/*
     "typescript",
     "typescriptreact",
     "vue",
-    "svelte",
     "yaml",
     "json",
     "jsonc",
@@ -534,10 +574,12 @@ chmod +x .husky/*
 - [AlloyTeam/eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
 - [antfu/eslint-config](https://github.com/antfu/eslint-config)
 - [basarat/typescript-book](https://github.com/basarat/typescript-book)
+- [dxhuii/eslint-config](https://github.com/dxhuii/eslint-config)
 - [google/styleguide](https://google.github.io/styleguide)
 - [mdo/code-guide](https://github.com/mdo/code-guide)
 - [remix-run/remix/remix-eslint-config](https://github.com/remix-run/remix/tree/main/packages/remix-eslint-config)
 - [standard/standard](https://github.com/standard/standard)
+- [sxzz/eslint-config](https://github.com/sxzz/eslint-config)
 - [vercel/style-guide](https://github.com/vercel/style-guide)
 
 ## License
