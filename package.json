@@ -99,6 +99,7 @@
     "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
+    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache",
     "lint": "conc \"pnpm:lint:eslint\" \"pnpm:lint:markdownlint\" \"pnpm:lint:publint\"",
     "lint:eslint": "eslint . --fix --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
