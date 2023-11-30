@@ -1,3 +1,4 @@
+import unocss from 'unocss/vite';
 import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
@@ -7,17 +8,6 @@ export default defineConfig({
   // https://vitepress.dev/reference/site-config#description
   description:
     'Opinionated shareable specification for different JavaScript/TypeScript projects',
-  // https://vitepress.dev/reference/site-config#head
-  head: [
-    [
-      'script',
-      {
-        async: 'true',
-        crossorigin: 'anonymous',
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3102250747488251',
-      },
-    ],
-  ],
   // https://vitepress.dev/reference/site-config#lastupdated
   lastUpdated: true,
   // https://vitepress.dev/guide/i18n
@@ -316,4 +306,7 @@ export default defineConfig({
   },
   // https://vitepress.dev/reference/site-config#title
   title: '@modyqyw/fabric',
+  vite: {
+    plugins: [unocss()],
+  },
 });
