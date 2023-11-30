@@ -59,7 +59,7 @@ module.exports = prettier();
 ```json
 {
   "scripts": {
-    "format": "prettier . \"!package-lock.json\" \"!yarn.lock\" \"!pnpm-lock.yaml\" \"bun.lock\"  --ignore-unknown --write --cache"
+    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache"
   }
 }
 ```
