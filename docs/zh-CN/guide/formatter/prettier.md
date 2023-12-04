@@ -1,5 +1,17 @@
 # Prettier
 
+代码格式化器是只关心代码风格、不关心代码质量的工具，可配置项有限。使用代码格式化器可以节省代码风格的争论时间，使项目和团队代码风格统一。
+
+[Prettier](./prettier.md) 是被广泛采用的代码格式化器，它对 JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue 支持良好。
+
+::: tip 其它选择
+[Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) 是后起之秀。如果你感觉 Prettier 速度比较慢，你可以考虑使用它们。但必须留意：它们和 Prettier 并不是 100% 兼容的，它们对 CSS / SCSS / Vue 的支持也有限，你可能会得到意想不到的结果。
+:::
+
+::: warning 不要混用代码格式化器
+在任何情况下，你都不应该混用多个代码格式化器。
+:::
+
 ## 安装
 
 首先你需要安装 Prettier。
@@ -194,9 +206,22 @@ export default {
 
 :::
 
+### 如何与 WebStorm 整合使用？
+
+WebStorm 自带 Prettier，可参考 [如何与 VSC 整合使用？](#如何和-vsc-整合使用) 自行调整。
+
 ### 如何和 lint-staged 整合使用？
 
-请查看 [lint-staged 章节](../git/lint-staged.md)。
+如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
+
+如果你没有使用该库提供的 lint-staged 配置，可以参考以下配置。
+
+```javascript
+// lint-staged.config.cjs
+module.exports = {
+  '*': 'prettier "!*lock*" --ignore-unknown --write --cache',
+};
+```
 
 ### 为什么不和 ESLint 整合使用？
 

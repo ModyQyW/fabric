@@ -1,5 +1,15 @@
 # Prettier
 
+Formatters are tools that only care about code style, not code quality, and have limited configurable items. Using a formatter saves time arguing about code style and makes the project and team code style uniform.
+
+[Prettier](./prettier.md) is a widely-adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.
+
+[Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) are the up-and-comers. Tou might consider using them if you think Prettier is slow. But be careful: they are not 100% compatible with Prettier, and their support for CSS / SCSS / Vue is limited, so you may get unexpected results.
+
+::: warning Don't mix code formatters
+Under no circumstances should you mix multiple code formatters.
+:::
+
 ## Installation
 
 You have to install Prettier first.
@@ -194,9 +204,22 @@ The code world doesn't have just one configuration, and chances are that the pro
 
 :::
 
+### How to integrate with WebStorm?
+
+WebStorm comes with Prettier, see [How to integrate with VSC?](#how-to-integrate-with-vsc) to tweak it yourself.
+
 ### How to integrate with lint-staged?
 
-Please see [lint-staged chapter](../git/lint-staged.md).
+If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
+
+If you are not, you can refer to the following configuration.
+
+```javascript
+// lint-staged.config.cjs
+module.exports = {
+  '*': 'prettier "!*lock*" --ignore-unknown --write --cache',
+};
+```
 
 ### Why not integrate with ESLint?
 
