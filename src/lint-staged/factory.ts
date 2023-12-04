@@ -1,4 +1,4 @@
-import { excludeLockFiles, parseOptions } from './utils';
+import { parseOptions } from './utils';
 import type { Config, Options } from './types';
 
 export function lintStaged(
@@ -19,25 +19,18 @@ export function lintStaged(
     zhlint: enableZhlint,
   } = parseOptions(options);
 
-  const config: Config = {
-    '*.{css,scss,vue}': 'stylelint --fix --cache --ignore-path=.gitignore',
-    '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': 'eslint --fix --cache',
-    '*.md': 'markdownlint --fix --ignore-path=.gitignore',
-  };
+  const config: Config = {};
 
   if (enableESLint) {
-    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = 'eslint --fix --cache';
+    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] =
+      'eslint --fix --cache --no-error-on-unmatched-pattern';
     if (lintJsonc) {
-      config['*.{json,jsonc,json5}'] = (files) => {
-        const excluded = excludeLockFiles(files);
-        return `eslint ${excluded.join(' ')} --fix --cache`;
-      };
+      config['*.{json,jsonc,json5}'] =
+        'eslint --fix --cache --no-error-on-unmatched-pattern';
     }
     if (lintYml) {
-      config['*.{yaml,yml}'] = (files) => {
-        const excluded = excludeLockFiles(files);
-        return `eslint ${excluded.join(' ')} --fix --cache`;
-      };
+      config['*.{yaml,yml}'] =
+        'eslint --fix --cache --no-error-on-unmatched-pattern';
     }
   }
 
@@ -61,10 +54,7 @@ export function lintStaged(
   }
 
   if (enablePrettier) {
-    config[`*`] = (files) => {
-      const excluded = excludeLockFiles(files);
-      return `prettier ${excluded.join(' ')} --ignore-unknown --write --cache`;
-    };
+    config['*'] = 'prettier "!*lock*" --ignore-unknown --write --cache';
   }
 
   return {

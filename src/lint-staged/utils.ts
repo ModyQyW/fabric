@@ -1,4 +1,3 @@
-import micromatch from 'micromatch';
 import {
   hasESLint,
   hasMarkdownlintCli,
@@ -34,13 +33,4 @@ export function parseOptions(options: Options = {}): Required<Options> {
     zhPatterns: options.zhPatterns ?? ['*.{zh-CN,zh-Hans}.{md,markdown}'],
     zhlint: options.zhlint ?? hasZhlint,
   };
-}
-
-export function excludeLockFiles(files: string[]) {
-  return micromatch(files, [
-    '!package-lock.json',
-    '!yarn.lock',
-    '!pnpm-lock.yaml',
-    '!bun.lock',
-  ]);
 }
