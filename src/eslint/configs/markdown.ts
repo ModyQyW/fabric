@@ -6,17 +6,25 @@ import {
 import { pluginMarkdown } from '../plugins';
 import type { Config, Rules } from '../types';
 
-export function markdown({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function markdown({
+  markdownFiles = [GLOB_MARKDOWN],
+  markdownInnerFiles = [GLOB_MARKDOWN_SCRIPT, GLOB_MARKDOWN_VUE],
+  rules = {},
+}: {
+  markdownFiles?: string[];
+  markdownInnerFiles?: string[];
+  rules?: Rules;
+} = {}): Config[] {
   return [
     {
-      files: [GLOB_MARKDOWN],
+      files: markdownFiles,
       plugins: {
         markdown: pluginMarkdown,
       },
       processor: 'markdown/markdown',
     },
     {
-      files: [GLOB_MARKDOWN_SCRIPT, GLOB_MARKDOWN_VUE],
+      files: markdownInnerFiles,
       rules: {
         ...pluginMarkdown.configs.recommended.overrides[1].rules,
         '@typescript-eslint/ban-types': 'off',

@@ -1,5 +1,5 @@
 import { GLOB_VUE } from '../../constants';
-import { hasVue3 } from '../../env';
+import { hasTypeScript, hasVue3 } from '../../env';
 import {
   parserBabel,
   parserTypeScript,
@@ -26,10 +26,18 @@ const vue2Rules = {
   ...pluginVueScopedCss.configs.recommended.rules,
 };
 
-export function vue({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function vue({
+  files = [GLOB_VUE],
+  rules = {},
+  typescriptRules = {},
+}: {
+  files?: string[];
+  rules?: Rules;
+  typescriptRules?: Rules;
+} = {}): Config[] {
   return [
     {
-      files: [GLOB_VUE],
+      files,
       languageOptions: {
         parser: parserVue,
         parserOptions: {
@@ -149,6 +157,7 @@ export function vue({ rules = {} }: { rules?: Rules } = {}): Config[] {
         // too ideal for business
         'vue-scoped-css/enforce-style-type': 'off',
         ...rules,
+        ...(hasTypeScript ? typescriptRules : {}),
       },
     },
   ];

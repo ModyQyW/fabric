@@ -3,12 +3,19 @@ import { pluginReactNative } from '../plugins';
 import type { Config, Rules } from '../types';
 
 export function reactNative({
+  files = [GLOB_JSX, GLOB_TSX],
   rules = {},
+  typescriptFiles = [GLOB_TSX],
   typescriptRules = {},
-}: { rules?: Rules; typescriptRules?: Rules } = {}): Config[] {
+}: {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+} = {}): Config[] {
   return [
     {
-      files: [GLOB_JSX, GLOB_TSX],
+      files,
       plugins: {
         'react-native': pluginReactNative,
       },
@@ -18,7 +25,7 @@ export function reactNative({
       },
     },
     {
-      files: [GLOB_TSX],
+      files: typescriptFiles,
       rules: {
         ...typescriptRules,
       },

@@ -4,12 +4,19 @@ import { pluginReact, pluginReactHooks, pluginReactRefresh } from '../plugins';
 import type { Config, Rules } from '../types';
 
 export function react({
+  files = [GLOB_JSX, GLOB_TSX],
   rules = {},
+  typescriptFiles = [GLOB_TSX],
   typescriptRules = {},
-}: { rules?: Rules; typescriptRules?: Rules } = {}): Config[] {
+}: {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+} = {}): Config[] {
   return [
     {
-      files: [GLOB_JSX, GLOB_TSX],
+      files,
       plugins: {
         react: pluginReact,
         'react-hooks': pluginReactHooks,
@@ -96,7 +103,7 @@ export function react({
       },
     },
     {
-      files: [GLOB_TSX],
+      files: typescriptFiles,
       rules: {
         'react/jsx-no-undef': 'off',
         ...typescriptRules,

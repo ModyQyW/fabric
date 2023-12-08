@@ -2,10 +2,13 @@ import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { pluginN } from '../plugins';
 import type { Config, Rules } from '../types';
 
-export function node({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function node({
+  files = [GLOB_SCRIPT, GLOB_VUE],
+  rules = {},
+}: { files?: string[]; rules?: Rules } = {}): Config[] {
   return [
     {
-      files: [GLOB_SCRIPT, GLOB_VUE],
+      files,
       plugins: {
         n: pluginN,
       },

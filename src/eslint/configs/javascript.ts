@@ -5,10 +5,13 @@ import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { parserBabel } from '../plugins';
 import type { Config, Rules } from '../types';
 
-export function javascript({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function javascript({
+  files = [GLOB_SCRIPT, GLOB_VUE],
+  rules = {},
+}: { files?: string[]; rules?: Rules } = {}): Config[] {
   return [
     {
-      files: [GLOB_SCRIPT, GLOB_VUE],
+      files,
       languageOptions: {
         ecmaVersion: 'latest',
         globals: {
@@ -63,6 +66,7 @@ export function javascript({ rules = {} }: { rules?: Rules } = {}): Config[] {
         // allow console in scripts
         // but recommend to use a logger like winston, consola, pino, etc.
         'no-console': 'off',
+        ...rules,
       },
     },
   ];

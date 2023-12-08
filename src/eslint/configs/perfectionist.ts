@@ -3,11 +3,12 @@ import { pluginPerfectionist } from '../plugins';
 import type { Config, Rules } from '../types';
 
 export function perfectionist({
+  files = [GLOB_SCRIPT, GLOB_VUE],
   rules = {},
-}: { rules?: Rules } = {}): Config[] {
+}: { files?: string[]; rules?: Rules } = {}): Config[] {
   return [
     {
-      files: [GLOB_SCRIPT, GLOB_VUE],
+      files,
       plugins: {
         perfectionist: pluginPerfectionist,
       },
@@ -69,7 +70,6 @@ export function perfectionist({
         'perfectionist/sort-svelte-attributes': 'off',
         // handle by eslint-plugin-vue
         'perfectionist/sort-vue-attributes': 'off',
-
         ...rules,
       },
     },

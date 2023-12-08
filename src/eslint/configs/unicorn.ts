@@ -2,10 +2,13 @@ import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { pluginUnicorn } from '../plugins';
 import type { Config, Rules } from '../types';
 
-export function unicorn({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function unicorn({
+  files = [GLOB_SCRIPT, GLOB_VUE],
+  rules = {},
+}: { files?: string[]; rules?: Rules } = {}): Config[] {
   return [
     {
-      files: [GLOB_SCRIPT, GLOB_VUE],
+      files,
       plugins: {
         unicorn: pluginUnicorn,
       },

@@ -1,15 +1,17 @@
 import { GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE } from '../../constants';
-import { hasTypeScript, hasVue } from '../../env';
+import { hasVue } from '../../env';
 import { parserTypeScript, pluginTypeScript } from '../plugins';
 import type { Config, Rules } from '../types';
 
-export function typescript({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function typescript({
+  files = hasVue
+    ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
+    : [GLOB_DTS, GLOB_TS, GLOB_TSX],
+  rules = {},
+}: { files?: string[]; rules?: Rules } = {}): Config[] {
   return [
     {
-      files:
-        hasVue && hasTypeScript
-          ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
-          : [GLOB_DTS, GLOB_TS, GLOB_TSX],
+      files,
       languageOptions: {
         parser: parserTypeScript,
       },

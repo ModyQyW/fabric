@@ -5,7 +5,7 @@ import {
   GLOB_TSX,
   GLOB_VUE,
 } from '../../constants';
-import { hasTypeScript, hasVue } from '../../env';
+import { hasVue } from '../../env';
 import { pluginI, pluginImport } from '../plugins';
 import type { Config, Rules } from '../types';
 
@@ -15,17 +15,23 @@ const pluginMapping = {
 };
 
 export function imports({
+  files = [GLOB_SCRIPT, GLOB_VUE],
   plugin = 'i',
   rules = {},
+  typescriptFiles = hasVue
+    ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
+    : [GLOB_DTS, GLOB_TS, GLOB_TSX],
   typescriptRules = {},
 }: {
+  files?: string[];
   plugin?: 'i' | 'import';
   rules?: Rules;
+  typescriptFiles?: string[];
   typescriptRules?: Rules;
 } = {}): Config[] {
   return [
     {
-      files: [GLOB_SCRIPT, GLOB_VUE],
+      files,
       plugins: {
         import: pluginMapping[plugin],
       },
@@ -62,10 +68,7 @@ export function imports({
       },
     },
     {
-      files:
-        hasVue && hasTypeScript
-          ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
-          : [GLOB_DTS, GLOB_TS, GLOB_TSX],
+      files: typescriptFiles,
       plugins: {
         import: pluginMapping[plugin],
       },

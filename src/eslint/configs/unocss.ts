@@ -2,10 +2,13 @@ import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { pluginUnocss } from '../plugins';
 import type { Config, Rules } from '../types';
 
-export function unocss({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function unocss({
+  files = [GLOB_SCRIPT, GLOB_VUE],
+  rules = {},
+}: { files?: string[]; rules?: Rules } = {}): Config[] {
   return [
     {
-      files: [GLOB_SCRIPT, GLOB_VUE],
+      files,
       plugins: {
         '@unocss': pluginUnocss,
       },

@@ -2,10 +2,13 @@ import { GLOB_YAML } from '../../constants';
 import { parserYml, pluginYml } from '../plugins';
 import type { Config, Rules } from '../types';
 
-export function yml({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function yml({
+  files = [GLOB_YAML],
+  rules = {},
+}: { files?: string[]; rules?: Rules } = {}): Config[] {
   return [
     {
-      files: [GLOB_YAML],
+      files,
       languageOptions: {
         parser: parserYml,
       },
