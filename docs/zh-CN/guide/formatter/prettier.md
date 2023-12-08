@@ -2,10 +2,10 @@
 
 代码格式化器是只关心代码风格、不关心代码质量的工具，可配置项有限。使用代码格式化器可以节省代码风格的争论时间，使项目和团队代码风格统一。
 
-[Prettier](./prettier.md) 是被广泛采用的代码格式化器，它对 JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue 支持良好。
+Prettier 是被广泛采用的代码格式化器，它对 JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue 支持良好。
 
 ::: tip 其它选择
-[Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) 是后起之秀。如果你感觉 Prettier 速度比较慢，你可以考虑使用它们。但必须留意：它们和 Prettier 并不是 100% 兼容的，它们对 CSS / SCSS / Vue 的支持也有限，你可能会得到意想不到的结果。
+[Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) 是后起之秀。如果你感觉 Prettier 速度比较慢，你可以考虑使用它们，但需要你自行配置。必须留意：它们和 Prettier 并不是 100% 兼容的，它们对 CSS / SCSS / Vue 的支持也有限，你可能会得到意想不到的结果。
 :::
 
 ::: warning 不要混用代码格式化器
@@ -71,16 +71,16 @@ module.exports = prettier();
 ```json
 {
   "scripts": {
-    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache"
+    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache --log-level=warn"
   }
 }
 ```
 
 ## 自定义
 
-给导出的 `prettier` 方法传参可以自定义配置，`prettier` 方法接收两个参数。
+### 参数自定义
 
-### 基本自定义
+给导出的 `prettier` 方法传参可以自定义配置，`prettier` 方法接收两个参数。
 
 第一个参数用于基本自定义，你可以传递 `undefined` 或对象。要明确地启用或禁用某一个插件，需要明确在传递的对象中设置 boolean 值。
 
@@ -129,11 +129,11 @@ export default prettier({
 
 ::: warning 潜在冲突
 
-1. prettier-plugin-css-order 可能与 stylelint-config-recess-order 冲突，所以默认禁用。如果你想启用 prettier-plugin-css-order，请关闭 stylelint-config-recess-order，见 [Stylelint 章节自定义部分](../linter/stylelint#自定义)。
+1. prettier-plugin-css-order 可能与 stylelint-config-recess-order 冲突，所以默认禁用。如果你想启用 prettier-plugin-css-order，请禁用 stylelint-config-recess-order，见 [Stylelint 章节自定义部分](../linter/stylelint#自定义)。
 
 2. @ianvs/prettier-plugin-sort-imports、@trivago/prettier-plugin-sort-imports、prettier-plugin-organize-imports 三者相互冲突，而且可能与 eslint-plugin-perfectionist 冲突，所以默认禁用。如果你想启用三者之一，请关闭 eslint-plugin-perfectionist，见 [ESLint 章节自定义部分](../linter/eslint#自定义)。
 
-3. prettier-plugin-organize-attributes 可能与 eslint-plugin-perfectionist 冲突，所以默认禁用。如果你想启用 prettier-plugin-organize-attributes，请关闭 eslint-plugin-perfectionist，见 [ESLint 章节自定义部分](../linter/eslint#自定义)。
+3. prettier-plugin-organize-attributes 可能与 eslint-plugin-perfectionist 冲突，所以默认禁用。如果你想启用 prettier-plugin-organize-attributes，请禁用 eslint-plugin-perfectionist，见 [ESLint 章节自定义部分](../linter/eslint#自定义)。
 
 4. prettier-plugin-packagejson 默认情况下不会与 eslint-plugin-jsonc 冲突。如果你想要使用 eslint-plugin-jsonc 对 package.json 排序，请禁用 prettier-plugin-packagejson。
 
@@ -141,9 +141,7 @@ export default prettier({
 
 :::
 
-### 高级自定义
-
-第二个参数用于高级自定义，你可以传递一个对象，用于覆盖生成的配置。
+第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置。
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
@@ -188,7 +186,10 @@ export default {
 
 ```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
 ```
 

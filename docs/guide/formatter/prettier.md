@@ -2,9 +2,11 @@
 
 Formatters are tools that only care about code style, not code quality, and have limited configurable items. Using a formatter saves time arguing about code style and makes the project and team code style uniform.
 
-[Prettier](./prettier.md) is a widely-adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.
+Prettier is a widely-adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.
 
-[Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) are the up-and-comers. Tou might consider using them if you think Prettier is slow. But be careful: they are not 100% compatible with Prettier, and their support for CSS / SCSS / Vue is limited, so you may get unexpected results.
+::: tip Other options
+[Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) are the up-and-comers. You might consider using them if you think Prettier is slow, but you'll need to configure them yourself. Be careful: they are not 100% compatible with Prettier, and their support for CSS / SCSS / Vue is limited, so you may get unexpected results.
+:::
 
 ::: warning Don't mix code formatters
 Under no circumstances should you mix multiple code formatters.
@@ -69,16 +71,16 @@ Update your `package.json` and add `format` script.
 ```json
 {
   "scripts": {
-    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache"
+    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache --log-level=warn"
   }
 }
 ```
 
 ## Customization
 
-Passing parameters to the exported `prettier` method can customize, and the `prettier` method takes two parameters.
+### Parameters
 
-### Basic
+Passing parameters to the exported `prettier` method can customize, and the `prettier` method takes two parameters.
 
 The first parameter is used for basic customization, you can pass either `undefined` or an object. To explicitly enable or disable a plugin, you need to explicitly set the boolean value in the passed object.
 
@@ -139,9 +141,7 @@ export default prettier({
 
 :::
 
-### Enhanced
-
-The second parameter is used for advanced customization, where you can pass an object to override the generated configuration.
+The second parameter is used for further customization, you can pass an object to override the generated configuration.
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
@@ -186,7 +186,10 @@ Update the global user configuration as follows, this will specify the default c
 
 ```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
 ```
 
