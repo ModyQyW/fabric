@@ -186,10 +186,7 @@ Update the global user configuration as follows, this will specify the default c
 
 ```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
 ```
 
