@@ -8,10 +8,6 @@ Prettier 是被广泛采用的代码格式化器，它对 JavaScript / TypeScrip
 [Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) 是后起之秀。如果你感觉 Prettier 速度比较慢，你可以考虑使用它们，但需要你自行配置。必须留意：它们和 Prettier 并不是 100% 兼容的，它们对 CSS / SCSS / Vue 的支持也有限，你可能会得到意想不到的结果。
 :::
 
-::: warning 不要混用代码格式化器
-在任何情况下，你都不应该混用多个代码格式化器。
-:::
-
 ## 安装
 
 首先你需要安装 Prettier。

@@ -66,12 +66,7 @@ export default defineConfig({
               {
                 base: '/guide/formatter/',
                 collapsed: false,
-                items: [
-                  { link: 'prettier', text: 'Prettier' },
-                  { link: 'biome', text: 'Biome' },
-                  { link: 'dprint', text: 'dprint' },
-                ],
-                link: 'index',
+                items: [{ link: 'prettier', text: 'Prettier' }],
                 text: 'Formatter',
               },
               {
@@ -80,23 +75,15 @@ export default defineConfig({
                 items: [
                   { link: 'eslint', text: 'ESLint' },
                   { link: 'stylelint', text: 'Stylelint' },
-                  { link: 'biome', text: 'Biome' },
-                  { link: 'oxc', text: 'Oxc' },
                   { link: 'markdownlint', text: 'markdownlint' },
                   { link: 'zhlint', text: 'zhlint' },
                 ],
-                link: 'index',
                 text: 'Linter',
               },
               {
                 base: '/guide/typescript-checker/',
                 collapsed: false,
-                items: [
-                  { link: 'tsc', text: 'tsc' },
-                  { link: 'ezno', text: 'ezno' },
-                  { link: 'stc', text: 'stc' },
-                ],
-                link: 'index',
+                items: [{ link: 'tsc', text: 'tsc' }],
                 text: 'TypeScript Checker',
               },
               {
@@ -108,24 +95,12 @@ export default defineConfig({
                   { link: 'lint-staged', text: 'lint-staged' },
                   { link: 'simple-git-hooks', text: 'simple-git-hooks' },
                 ],
-                link: 'index',
                 text: 'Git',
-              },
-              {
-                base: '/guide/editor-ide',
-                collapsed: false,
-                items: [
-                  { link: 'vsc', text: 'VSC' },
-                  { link: 'webstorm', text: 'WebStorm' },
-                ],
-                link: 'index',
-                text: 'Editor / IDE',
               },
               {
                 base: '/guide/misc',
                 collapsed: false,
                 items: [{ link: 'naming', text: 'Naming' }],
-                link: 'index',
                 text: 'Misc',
               },
             ],
@@ -189,12 +164,7 @@ export default defineConfig({
               {
                 base: '/zh-CN/guide/formatter/',
                 collapsed: false,
-                items: [
-                  { link: 'prettier', text: 'Prettier' },
-                  { link: 'biome', text: 'Biome' },
-                  { link: 'dprint', text: 'dprint' },
-                ],
-                link: 'index',
+                items: [{ link: 'prettier', text: 'Prettier' }],
                 text: '代码格式化器 Formatter',
               },
               {
@@ -203,23 +173,15 @@ export default defineConfig({
                 items: [
                   { link: 'eslint', text: 'ESLint' },
                   { link: 'stylelint', text: 'Stylelint' },
-                  { link: 'biome', text: 'Biome' },
-                  { link: 'oxc', text: 'Oxc' },
                   { link: 'markdownlint', text: 'markdownlint' },
                   { link: 'zhlint', text: 'zhlint' },
                 ],
-                link: 'index',
                 text: '代码检查工具 Linter',
               },
               {
                 base: '/zh-CN/guide/typescript-checker/',
                 collapsed: false,
-                items: [
-                  { link: 'tsc', text: 'tsc' },
-                  { link: 'ezno', text: 'ezno' },
-                  { link: 'stc', text: 'stc' },
-                ],
-                link: 'index',
+                items: [{ link: 'tsc', text: 'tsc' }],
                 text: 'TypeScript 检查工具 TypeScript Checker',
               },
               {
@@ -231,24 +193,12 @@ export default defineConfig({
                   { link: 'lint-staged', text: 'LintStaged' },
                   { link: 'simple-git-hooks', text: 'SimpleGitHooks' },
                 ],
-                link: 'index',
                 text: 'Git',
-              },
-              {
-                base: '/zh-CN/guide/editor-ide',
-                collapsed: false,
-                items: [
-                  { link: 'vsc', text: 'VSC' },
-                  { link: 'webstorm', text: 'WebStorm' },
-                ],
-                link: 'index',
-                text: '编辑器 / IDE',
               },
               {
                 base: '/zh-CN/guide/misc',
                 collapsed: false,
                 items: [{ link: 'naming', text: '命名' }],
-                link: 'index',
                 text: '杂项',
               },
             ],

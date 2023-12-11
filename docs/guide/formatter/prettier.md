@@ -8,10 +8,6 @@ Prettier is a widely-adopted code formatter with good support for JavaScript / T
 [Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) are the up-and-comers. You might consider using them if you think Prettier is slow, but you'll need to configure them yourself. Be careful: they are not 100% compatible with Prettier, and their support for CSS / SCSS / Vue is limited, so you may get unexpected results.
 :::
 
-::: warning Don't mix code formatters
-Under no circumstances should you mix multiple code formatters.
-:::
-
 ## Installation
 
 You have to install Prettier first.
