@@ -190,7 +190,7 @@ Update the global user configuration as follows, this will specify the default c
 }
 ```
 
-If you want to auto format within a specific project, you can modify the working directory configuration as follows, which will automatically format the code after each save. Don't know how to modify it? See [here](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings).
+If you want to auto format within a specific project, you can modify the workspace configuration as follows, which will automatically format the code after each save. Don't know how to modify it? See [here](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings).
 
 ```json
 {
