@@ -1,10 +1,8 @@
 import { configGitignore } from '../plugins';
-import type { Config } from '../types';
+import type { Config, GitignoreOptions } from '../types';
 
-export function gitignore({
-  files = ['.gitignore', '.eslintignore'],
-  strict = false,
-} = {}): Config[] {
+export function gitignore(options: GitignoreOptions = {}): Config[] {
+  const { files = ['.gitignore', '.eslintignore'], strict = false } = options;
   return [
     configGitignore({
       files,

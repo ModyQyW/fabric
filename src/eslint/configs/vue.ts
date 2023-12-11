@@ -7,7 +7,7 @@ import {
   pluginVue,
   pluginVueScopedCss,
 } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, VueOptions } from '../types';
 
 const vueBaseRules = {
   ...pluginVue.configs.base.rules,
@@ -26,15 +26,8 @@ const vue2Rules = {
   ...pluginVueScopedCss.configs.recommended.rules,
 };
 
-export function vue({
-  files = [GLOB_VUE],
-  rules = {},
-  typescriptRules = {},
-}: {
-  files?: string[];
-  rules?: Rules;
-  typescriptRules?: Rules;
-} = {}): Config[] {
+export function vue(options: VueOptions = {}): Config[] {
+  const { files = [GLOB_VUE], rules = {}, typescriptRules = {} } = options;
   return [
     {
       files,

@@ -1,11 +1,9 @@
 import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { pluginN } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, NodeOptions } from '../types';
 
-export function node({
-  files = [GLOB_SCRIPT, GLOB_VUE],
-  rules = {},
-}: { files?: string[]; rules?: Rules } = {}): Config[] {
+export function node(options: NodeOptions = {}): Config[] {
+  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
       files,

@@ -4,17 +4,14 @@ import {
   GLOB_MARKDOWN_VUE,
 } from '../../constants';
 import { pluginMarkdown } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, MarkdownOptions } from '../types';
 
-export function markdown({
-  markdownFiles = [GLOB_MARKDOWN],
-  markdownInnerFiles = [GLOB_MARKDOWN_SCRIPT, GLOB_MARKDOWN_VUE],
-  rules = {},
-}: {
-  markdownFiles?: string[];
-  markdownInnerFiles?: string[];
-  rules?: Rules;
-} = {}): Config[] {
+export function markdown(options: MarkdownOptions = {}): Config[] {
+  const {
+    markdownFiles = [GLOB_MARKDOWN],
+    markdownInnerFiles = [GLOB_MARKDOWN_SCRIPT, GLOB_MARKDOWN_VUE],
+    rules = {},
+  } = options;
   return [
     {
       files: markdownFiles,

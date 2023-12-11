@@ -1,19 +1,15 @@
 import { GLOB_JSX, GLOB_TSX } from '../../constants';
 import { hasVite } from '../../env';
 import { pluginReact, pluginReactHooks, pluginReactRefresh } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, ReactOptions } from '../types';
 
-export function react({
-  files = [GLOB_JSX, GLOB_TSX],
-  rules = {},
-  typescriptFiles = [GLOB_TSX],
-  typescriptRules = {},
-}: {
-  files?: string[];
-  rules?: Rules;
-  typescriptFiles?: string[];
-  typescriptRules?: Rules;
-} = {}): Config[] {
+export function react(options: ReactOptions = {}): Config[] {
+  const {
+    files = [GLOB_JSX, GLOB_TSX],
+    rules = {},
+    typescriptFiles = [GLOB_TSX],
+    typescriptRules = {},
+  } = options;
   return [
     {
       files,

@@ -1,18 +1,14 @@
 import { GLOB_JSX, GLOB_TSX } from '../../constants';
 import { pluginNext } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, NextOptions } from '../types';
 
-export function next({
-  files = [GLOB_JSX, GLOB_TSX],
-  rules = {},
-  typescriptFiles = [GLOB_TSX],
-  typescriptRules = {},
-}: {
-  files?: string[];
-  rules?: Rules;
-  typescriptFiles?: string[];
-  typescriptRules?: Rules;
-} = {}): Config[] {
+export function next(options: NextOptions = {}): Config[] {
+  const {
+    files = [GLOB_JSX, GLOB_TSX],
+    rules = {},
+    typescriptFiles = [GLOB_TSX],
+    typescriptRules = {},
+  } = options;
   return [
     {
       files,

@@ -1,4 +1,4 @@
-import { combine } from '../utils';
+import { combine, isBoolean } from '../utils';
 import {
   gitignore,
   ignores,
@@ -30,58 +30,121 @@ export function eslint(
   userConfigs: (Config | Config[])[] = [],
 ): Config[] {
   const {
-    gitignore: enableGitignore,
-    ignores: enableIgnores,
-    imports: enableImports,
-    javascript: enableJavascript,
-    jsdoc: enableJsdoc,
-    jsonc: enableJsonc,
-    markdown: enableMarkdown,
-    next: enableNext,
-    node: enableNode,
-    nuxt: enableNuxt,
-    perfectionist: enablePerfectionist,
-    prettier: enablePrettier,
-    react: enableReact,
-    reactNative: enableReactNative,
-    regexp: enableRegexp,
-    solid: enableSolid,
-    typescript: enableTypeScript,
-    unicorn: enableUnicorn,
-    unocss: enableUnocss,
-    vue: enableVue,
-    yml: enableYml,
+    gitignore: gitignoreOptions,
+    ignores: ignoresOptions,
+    imports: importsOptions,
+    javascript: javascriptOptions,
+    jsdoc: jsdocOptions,
+    jsonc: jsoncOptions,
+    markdown: markdownOptions,
+    next: nextOptions,
+    node: nodeOptions,
+    nuxt: nuxtOptions,
+    perfectionist: perfectionistOptions,
+    prettier: prettierOptions,
+    react: reactOptions,
+    reactNative: reactNativeOptions,
+    regexp: regexpOptions,
+    solid: solidOptions,
+    typescript: typescriptOptions,
+    unicorn: unicornOptions,
+    unocss: unocssOptions,
+    vue: vueOptions,
+    yml: ymlOptions,
   } = parseOptions(options);
 
   const configs: Config[][] = [];
 
-  if (enableGitignore) configs.push(gitignore());
-  if (enableIgnores) configs.push(ignores());
-  if (enableImports) configs.push(imports());
-  if (enableNode) configs.push(node());
-  if (enablePerfectionist) configs.push(perfectionist());
-  if (enableRegexp) configs.push(regexp());
-  if (enableUnicorn) configs.push(unicorn());
-  if (enableUnocss) configs.push(unocss());
+  if (gitignoreOptions) {
+    if (isBoolean(gitignoreOptions)) configs.push(gitignore());
+    else configs.push(gitignore(gitignoreOptions));
+  }
+  if (ignoresOptions) {
+    if (isBoolean(ignoresOptions)) configs.push(ignores());
+    else configs.push(ignores(ignoresOptions));
+  }
+  if (importsOptions) {
+    if (isBoolean(importsOptions)) configs.push(imports());
+    else configs.push(imports(importsOptions));
+  }
+  if (nodeOptions) {
+    if (isBoolean(nodeOptions)) configs.push(node());
+    else configs.push(node(nodeOptions));
+  }
+  if (perfectionistOptions) {
+    if (isBoolean(perfectionistOptions)) configs.push(perfectionist());
+    else configs.push(perfectionist(perfectionistOptions));
+  }
+  if (regexpOptions) {
+    if (isBoolean(regexpOptions)) configs.push(regexp());
+    else configs.push(regexp(regexpOptions));
+  }
+  if (unicornOptions) {
+    if (isBoolean(unicornOptions)) configs.push(unicorn());
+    else configs.push(unicorn(unicornOptions));
+  }
+  if (unocssOptions) {
+    if (isBoolean(unocssOptions)) configs.push(unocss());
+    else configs.push(unocss(unocssOptions));
+  }
 
-  if (enableJsdoc) configs.push(jsdoc());
-  if (enableJsonc) configs.push(jsonc());
-  if (enableYml) configs.push(yml());
+  if (jsdocOptions) {
+    if (isBoolean(jsdocOptions)) configs.push(jsdoc());
+    else configs.push(jsdoc(jsdocOptions));
+  }
+  if (jsoncOptions) {
+    if (isBoolean(jsoncOptions)) configs.push(jsonc());
+    else configs.push(jsonc(jsoncOptions));
+  }
+  if (ymlOptions) {
+    if (isBoolean(ymlOptions)) configs.push(yml());
+    else configs.push(yml(ymlOptions));
+  }
 
-  if (enableJavascript) configs.push(javascript());
-  if (enableTypeScript) configs.push(typescript());
-  if (enableMarkdown) configs.push(markdown());
+  if (javascriptOptions) {
+    if (isBoolean(javascriptOptions)) configs.push(javascript());
+    else configs.push(javascript(javascriptOptions));
+  }
+  if (typescriptOptions) {
+    if (isBoolean(typescriptOptions)) configs.push(typescript());
+    else configs.push(typescript(typescriptOptions));
+  }
+  if (markdownOptions) {
+    if (isBoolean(markdownOptions)) configs.push(markdown());
+    else configs.push(markdown(markdownOptions));
+  }
 
-  if (enableVue) configs.push(vue());
-  if (enableNuxt) configs.push(nuxt());
+  if (vueOptions) {
+    if (isBoolean(vueOptions)) configs.push(vue());
+    else configs.push(vue(vueOptions));
+  }
+  if (nuxtOptions) {
+    if (isBoolean(nuxtOptions)) configs.push(nuxt());
+    else configs.push(nuxt(nuxtOptions));
+  }
 
-  if (enableReact) configs.push(react());
-  if (enableReactNative) configs.push(reactNative());
-  if (enableNext) configs.push(next());
+  if (reactOptions) {
+    if (isBoolean(reactOptions)) configs.push(react());
+    else configs.push(react(reactOptions));
+  }
+  if (reactNativeOptions) {
+    if (isBoolean(reactNativeOptions)) configs.push(reactNative());
+    else configs.push(reactNative(reactNativeOptions));
+  }
+  if (nextOptions) {
+    if (isBoolean(nextOptions)) configs.push(next());
+    else configs.push(next(nextOptions));
+  }
 
-  if (enableSolid) configs.push(solid());
+  if (solidOptions) {
+    if (isBoolean(solidOptions)) configs.push(solid());
+    else configs.push(solid(solidOptions));
+  }
 
-  if (enablePrettier) configs.push(prettier());
+  if (prettierOptions) {
+    if (isBoolean(prettierOptions)) configs.push(prettier());
+    else configs.push(prettier(prettierOptions));
+  }
 
   return combine(configs, userConfigs);
 }

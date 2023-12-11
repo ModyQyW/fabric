@@ -1,11 +1,9 @@
 import { GLOB_VUE } from '../../constants';
 import { pluginNuxt } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, NuxtOptions } from '../types';
 
-export function nuxt({
-  files = [GLOB_VUE],
-  rules = {},
-}: { files?: string[]; rules?: Rules } = {}): Config[] {
+export function nuxt(options: NuxtOptions = {}): Config[] {
+  const { files = [GLOB_VUE], rules = {} } = options;
   return [
     {
       files,

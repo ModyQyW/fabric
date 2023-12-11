@@ -1,8 +1,104 @@
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
 import type { FlatESLintConfig } from 'eslint-define-config';
 
 export type Config = FlatESLintConfig;
 
 export type Rules = Config['rules'];
+
+export type GitignoreOptions = FlatGitignoreOptions;
+export interface IgnoresOptions {
+  ignores?: string[];
+}
+export interface ImportsOptions {
+  files?: string[];
+  plugin?: 'i' | 'import';
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+}
+export interface JavaScriptOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface JsdocOptions {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+}
+export interface JsoncOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface MarkdownOptions {
+  markdownFiles?: string[];
+  markdownInnerFiles?: string[];
+  rules?: Rules;
+}
+export interface NextOptions {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+}
+export interface NodeOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface NuxtOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface PerfectionistOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface PrettierOptions {
+  rules?: Rules;
+}
+export interface ReactNativeOptions {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+}
+export interface ReactOptions {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+}
+export interface RegExpOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface SolidOptions {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+}
+export interface TypeScriptOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface UnicornOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface UnoCssOptions {
+  files?: string[];
+  rules?: Rules;
+}
+export interface VueOptions {
+  files?: string[];
+  rules?: Rules;
+  typescriptRules?: Rules;
+}
+export interface YmlOptions {
+  files?: string[];
+  rules?: Rules;
+}
 
 export interface Options {
   /**
@@ -10,61 +106,61 @@ export interface Options {
    *
    * @default true
    */
-  gitignore?: boolean;
+  gitignore?: GitignoreOptions | boolean;
   /**
    * Use preset exclude.
    *
    * @default true
    */
-  ignores?: boolean;
+  ignores?: IgnoresOptions | boolean;
   /**
    * Detect import issues.
    *
    * @default true
    */
-  imports?: boolean;
+  imports?: ImportsOptions | boolean;
   /**
    * Detect JavaScript issues.
    *
    * @default true
    */
-  javascript?: boolean;
+  javascript?: JavaScriptOptions | boolean;
   /**
    * Detect JSDoc issues.
    *
    * @default false
    */
-  jsdoc?: boolean;
+  jsdoc?: JsdocOptions | boolean;
   /**
    * Detect jsonc issues.
    *
    * @default true
    */
-  jsonc?: boolean;
+  jsonc?: JsoncOptions | boolean;
   /**
    * Detect markdown issues.
    *
    * @default true
    */
-  markdown?: boolean;
+  markdown?: MarkdownOptions | boolean;
   /**
    * Detect next issues.
    *
    * Enabled by default if you have next installed.
    */
-  next?: boolean;
+  next?: NextOptions | boolean;
   /**
    * Detect node issues.
    *
    * @default true
    */
-  node?: boolean;
+  node?: NodeOptions | boolean;
   /**
    * Detect nuxt issues.
    *
    * Enabled by default if you have nuxt installed.
    */
-  nuxt?: boolean;
+  nuxt?: NuxtOptions | boolean;
   /**
    * Based on eslint-plugin-perfectionist.
    *
@@ -73,65 +169,65 @@ export interface Options {
    *
    * @default true
    */
-  perfectionist?: boolean;
+  perfectionist?: PerfectionistOptions | boolean;
   /**
    * Disable Prettier related rules. But not use Prettier in ESLint.
    *
    * @default true
    */
-  prettier?: boolean;
+  prettier?: PrettierOptions | boolean;
   /**
    * Detect react issues.
    *
    * Enabled by default if you have react installed.
    */
-  react?: boolean;
+  react?: ReactOptions | boolean;
   /**
    * Detect react-native issues.
    *
    * Enabled by default if you have react-native installed.
    */
-  reactNative?: boolean;
+  reactNative?: ReactNativeOptions | boolean;
   /**
    * Detect regexp issues.
    *
    * @default true
    */
-  regexp?: boolean;
+  regexp?: RegExpOptions | boolean;
   /**
    * Detect solid issues.
    *
    * Enabled by default if you have solid installed.
    */
-  solid?: boolean;
+  solid?: SolidOptions | boolean;
   /**
    * Detect TypeScript issues.
    *
    * Enabled by default if you have TypeScript installed.
    */
-  typescript?: boolean;
+  typescript?: TypeScriptOptions | boolean;
   /**
    * Based on eslint-plugin-unicorn.
    *
    * @default true
    */
-  unicorn?: boolean;
+  unicorn?: UnicornOptions | boolean;
   /**
    * Based on eslint-plugin-unocss.
    *
    * Enabled by default if you have UnoCSS installed.
    */
-  unocss?: boolean;
+  unocss?: UnoCssOptions | boolean;
   /**
    * Detect vue issues.
    *
    * Enabled by default if you have vue installed.
    */
-  vue?: boolean;
+  vue?: VueOptions | boolean;
   /**
    * Detect yml issues.
    *
    * @default true
    */
-  yml?: boolean;
+  yml?: YmlOptions | boolean;
 }

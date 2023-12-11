@@ -1,11 +1,9 @@
 import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { pluginRegexp } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, RegExpOptions } from '../types';
 
-export function regexp({
-  files = [GLOB_SCRIPT, GLOB_VUE],
-  rules = {},
-}: { files?: string[]; rules?: Rules } = {}): Config[] {
+export function regexp(options: RegExpOptions = {}): Config[] {
+  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
       files,

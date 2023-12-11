@@ -1,7 +1,8 @@
 import { configPrettier, pluginPrettier } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, PrettierOptions } from '../types';
 
-export function prettier({ rules = {} }: { rules?: Rules } = {}): Config[] {
+export function prettier(options: PrettierOptions = {}): Config[] {
+  const { rules = {} } = options;
   return [
     {
       plugins: {

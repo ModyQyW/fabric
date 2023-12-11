@@ -3,12 +3,10 @@ import js from '@eslint/js';
 import globals from 'globals';
 import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { parserBabel } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, JavaScriptOptions } from '../types';
 
-export function javascript({
-  files = [GLOB_SCRIPT, GLOB_VUE],
-  rules = {},
-}: { files?: string[]; rules?: Rules } = {}): Config[] {
+export function javascript(options: JavaScriptOptions = {}): Config[] {
+  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
       files,

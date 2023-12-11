@@ -1,11 +1,9 @@
 import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { pluginPerfectionist } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, PerfectionistOptions } from '../types';
 
-export function perfectionist({
-  files = [GLOB_SCRIPT, GLOB_VUE],
-  rules = {},
-}: { files?: string[]; rules?: Rules } = {}): Config[] {
+export function perfectionist(options: PerfectionistOptions = {}): Config[] {
+  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
       files,

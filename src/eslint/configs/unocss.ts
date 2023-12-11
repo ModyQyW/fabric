@@ -1,11 +1,9 @@
 import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
 import { pluginUnocss } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, UnoCssOptions } from '../types';
 
-export function unocss({
-  files = [GLOB_SCRIPT, GLOB_VUE],
-  rules = {},
-}: { files?: string[]; rules?: Rules } = {}): Config[] {
+export function unocss(options: UnoCssOptions = {}): Config[] {
+  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
       files,

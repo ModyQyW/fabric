@@ -1,18 +1,14 @@
 import { GLOB_JSX, GLOB_TSX } from '../../constants';
 import { pluginSolid } from '../plugins';
-import type { Config, Rules } from '../types';
+import type { Config, SolidOptions } from '../types';
 
-export function solid({
-  files = [GLOB_JSX, GLOB_TSX],
-  rules = {},
-  typescriptFiles = [GLOB_TSX],
-  typescriptRules = {},
-}: {
-  files?: string[];
-  rules?: Rules;
-  typescriptFiles?: string[];
-  typescriptRules?: Rules;
-} = {}): Config[] {
+export function solid(options: SolidOptions = {}): Config[] {
+  const {
+    files = [GLOB_JSX, GLOB_TSX],
+    rules = {},
+    typescriptFiles = [GLOB_TSX],
+    typescriptRules = {},
+  } = options;
   return [
     {
       files,

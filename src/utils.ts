@@ -21,3 +21,7 @@ export function interopDefault(m: any) {
 export function combine(...args: (any | any[])[]) {
   return args.flat(Number.POSITIVE_INFINITY);
 }
+
+export function isBoolean(value: unknown): value is boolean {
+  return typeof value === 'boolean';
+}
