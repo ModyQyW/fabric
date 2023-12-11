@@ -10,7 +10,7 @@ Prettier 是被广泛采用的代码格式化器，它对 JavaScript / TypeScrip
 
 ## 安装
 
-首先你需要安装 Prettier。
+首先你需要安装 Prettier。目前，我们支持 Prettier v3。
 
 ::: code-group
 
@@ -80,44 +80,44 @@ module.exports = prettier();
 
 第一个参数用于基本自定义，你可以传递 `undefined` 或对象。要明确地启用或禁用某一个插件，需要明确在传递的对象中设置 boolean 值。
 
-目前支持以下插件：
+目前支持以下配置：
 
-- [prettier-plugin-css-order](https://github.com/Siilwyn/prettier-plugin-css-order)：对 CSS / SCSS 声明排序，默认禁用
-- [@ianvs/prettier-plugin-sort-imports](https://github.com/ianvs/prettier-plugin-sort-imports)：对 import 声明排序，默认禁用
-- [prettier-plugin-jsdoc](https://github.com/hosseinmd/prettier-plugin-jsdoc)：格式化 JSDoc 和 TSDoc，默认启用
-- [prettier-plugin-organize-attributes](https://github.com/NiklasPor/prettier-plugin-organize-attributes)：对 HTML / Vue 属性排序，默认禁用
-- [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports)：对 import 声明排序，默认禁用
-- [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson)：对 package.json 排序，默认启用
-- [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)：对 HTML / Vue class 属性排序，安装 TailwindCSS 后默认启用，否则默认禁用
-- [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)：对 import 声明排序，默认禁用
+- cssOrder：基于 [prettier-plugin-css-order](https://github.com/Siilwyn/prettier-plugin-css-order)，对 CSS / SCSS 声明排序，默认禁用
+- ianvsSortImports：基于 [@ianvs/prettier-plugin-sort-imports](https://github.com/ianvs/prettier-plugin-sort-imports)，对 import 声明排序，默认禁用
+- jsdoc：基于 [prettier-plugin-jsdoc](https://github.com/hosseinmd/prettier-plugin-jsdoc)，格式化 JSDoc 和 TSDoc，默认启用
+- organizeAttributes：基于 [prettier-plugin-organize-attributes](https://github.com/NiklasPor/prettier-plugin-organize-attributes)，对 HTML / Vue 属性排序，默认禁用
+- organizeImports：基于 [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports)，对 import 声明排序，默认禁用
+- packageJson：基于 [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson)，对 package.json 排序，默认启用
+- tailwindcss：基于 [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)，对 HTML / Vue class 属性排序，安装 TailwindCSS 后默认启用，否则默认禁用
+- trivagoSortImports：基于 [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)，对 import 声明排序，默认禁用
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
 import { hasTailwindCss, prettier } from '@modyqyw/fabric';
 
 export default prettier({
-  // 对应 prettier-plugin-css-order
+  // 基于 prettier-plugin-css-order
   // 默认为 false，即禁用
   cssOrder: false,
-  // 对应 @ianvs/prettier-plugin-sort-imports
+  // 基于 @ianvs/prettier-plugin-sort-imports
   // 默认为 false，即禁用
   ianvsSortImports: false,
-  // 对应 prettier-plugin-jsdoc
+  // 基于 prettier-plugin-jsdoc
   // 默认为 true，即启用
   jsdoc: true,
-  // 对应 prettier-plugin-organize-attributes
+  // 基于 prettier-plugin-organize-attributes
   // 默认为 false，即禁用
   organizeAttributes: false,
-  // 对应 prettier-plugin-organize-imports
+  // 基于 prettier-plugin-organize-imports
   // 默认为 false，即禁用
   organizeImports: false,
-  // 对应 prettier-plugin-packagejson
+  // 基于 prettier-plugin-packagejson
   // 默认为 true，即启用
   packageJson: true,
-  // 对应 prettier-plugin-tailwindcss
+  // 基于 prettier-plugin-tailwindcss
   // 安装 TailwindCSS 后默认启用，否则默认禁用
   tailwindcss: hasTailwindCss,
-  // 对应 @trivago/prettier-plugin-sort-imports
+  // 基于 @trivago/prettier-plugin-sort-imports
   // 默认为 false，即禁用
   trivagoSortImports: false,
 });
@@ -137,7 +137,7 @@ export default prettier({
 
 :::
 
-第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置。
+第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置（需要自行安装相应的依赖）。
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
@@ -152,7 +152,7 @@ export default prettier(undefined, {
 });
 ```
 
-如果你希望在默认配置上增加自定义配置，你可以像下面这样做：
+如果你希望在默认配置上增加自定义配置，你可以像下面这样做（需要自行安装相应的依赖）：
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
@@ -165,7 +165,7 @@ export default {
   // 使用 prettier-plugin-jsdoc、prettier-plugin-packagejson、prettier-plugin-svelte 和 prettier-plugin-tailwindcss
   // prettier-plugin-tailwindcss 一定要放在最后
   plugins: [
-    ...defaultConfig,
+    ...defaultConfig.plugins,
     'prettier-plugin-svelte',
     'prettier-plugin-tailwindcss',
   ],

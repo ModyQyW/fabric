@@ -14,7 +14,7 @@ export interface Options {
   /**
    * Support SCSS.
    *
-   * Enabled by default if you have SCSS installed.
+   * Enabled by default if you have sass installed.
    */
   scss?: boolean;
   /**

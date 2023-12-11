@@ -2,7 +2,7 @@
 
 Linters are tools that are primarily concerned with code quality and may be concerned with code style, and are rich in configurable items. Using a linter, you can statically analyze the code and find some of the problems in advance.
 
-ESLint is a widely-adopted linter with good support for JavaScript / TypeScript / JSX / TSX / Vue.
+ESLint is a widely adopted linter, mainly for script files.
 
 ::: tip Other options
 [Biome](https://biomejs.dev/) and [oxlint](https://github.com/oxc-project/oxc#-linter) are the up-and-comers. You might consider using them if you think ESLint is slow, but you'll need to configure them yourself. But be careful: they are not 100% compatible with ESLint and you may get unexpected results.
@@ -10,7 +10,7 @@ ESLint is a widely-adopted linter with good support for JavaScript / TypeScript 
 
 ## Installation
 
-You have to install ESLint first.
+You have to install ESLint first. We currently support ESLint v8.
 
 ::: code-group
 
@@ -187,7 +187,7 @@ export default eslint({
 });
 ```
 
-In addition to passing Boolean values, you can also pass configuration items directly.
+In addition to passing Boolean values, you can also pass configuration items directly. This will be treated as enabling the configuration and the passed-in configuration item will be used.
 
 ```javascript
 // eslint.config.js with "type": "module" in package.json

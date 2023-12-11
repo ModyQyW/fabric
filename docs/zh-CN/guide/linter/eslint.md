@@ -2,7 +2,7 @@
 
 代码检查工具是主要关心代码质量、可能关心代码风格的工具，可配置项丰富。使用代码检查工具可以静态分析代码，提前发现部分问题。
 
-ESLint 是被广泛采用的代码检查工具，它对 JavaScript / TypeScript / JSX / TSX / Vue 支持良好。
+ESLint 是被广泛采用的代码检查工具，主要用于脚本文件。
 
 ::: tip 其它选择
 [Biome](https://biomejs.dev/) 和 [oxlint](https://github.com/oxc-project/oxc#-linter) 是后起之秀。如果你感觉 ESLint 速度比较慢，你可以考虑使用它们，但需要你自行配置。但必须留意：它们和 ESLint 并不是 100% 兼容的，你可能会得到意想不到的结果。
@@ -10,7 +10,7 @@ ESLint 是被广泛采用的代码检查工具，它对 JavaScript / TypeScript 
 
 ## 安装
 
-首先你需要安装 ESLint。
+首先你需要安装 ESLint。目前，我们支持 ESLint v8。
 
 ::: code-group
 
@@ -187,7 +187,7 @@ export default eslint({
 });
 ```
 
-除了传递 Boolean 值，你也可以直接传递配置项。
+除了传递 Boolean 值，你也可以直接传递配置项。这将视为启用配置，并使用传入的配置项。
 
 ```javascript
 // eslint.config.js with "type": "module" in package.json

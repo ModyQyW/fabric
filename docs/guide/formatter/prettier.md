@@ -10,7 +10,7 @@ Prettier is a widely-adopted code formatter with good support for JavaScript / T
 
 ## Installation
 
-You have to install Prettier first.
+You have to install Prettier first. We currently support Prettier v3.
 
 ::: code-group
 
@@ -82,14 +82,14 @@ The first parameter is used for basic customization, you can pass either `undefi
 
 The following plugins are currently supported:
 
-- [prettier-plugin-css-order](https://github.com/Siilwyn/prettier-plugin-css-order) - Sort CSS or SCSS declarations. Disabled by default.
-- [@ianvs/prettier-plugin-sort-imports](https://github.com/ianvs/prettier-plugin-sort-imports) - Sort import declarations. Disabled by default.
-- [prettier-plugin-jsdoc](https://github.com/hosseinmd/prettier-plugin-jsdoc) - Format JSDoc and TSDoc comments. Enabled by default.
-- [prettier-plugin-organize-attributes](https://github.com/NiklasPor/prettier-plugin-organize-attributes) - Organize HTML / Vue attributes. Disabled by default.
-- [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports) - Sort import declarations. Disabled by default.
-- [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson) - Sort package.json. Enabled by default.
-- [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - Sort HTML / Vue class attribute. Enabled by default if you have TailwindCSS installed.
-- [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports) - Sort import declarations. Disabled by default.
+- cssOrder - Based on [prettier-plugin-css-order](https://github.com/Siilwyn/prettier-plugin-css-order). Sort CSS or SCSS declarations. Disabled by default.
+- ianvsSortImports - Based on [@ianvs/prettier-plugin-sort-imports](https://github.com/ianvs/prettier-plugin-sort-imports).Sort import declarations. Disabled by default.
+- jsdoc - Based on [prettier-plugin-jsdoc](https://github.com/hosseinmd/prettier-plugin-jsdoc). Format JSDoc and TSDoc comments. Enabled by default.
+- organizeAttributes - Based on [prettier-plugin-organize-attributes](https://github.com/NiklasPor/prettier-plugin-organize-attributes). Organize HTML / Vue attributes. Disabled by default.
+- organizeImports - Based on [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports). Sort import declarations. Disabled by default.
+- packageJson - Based on [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson). Sort package.json. Enabled by default.
+- tailwindcss - Based on [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss). Sort HTML / Vue class attribute. Enabled by default if you have TailwindCSS installed.
+- trivagoSortImports - Based on [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports). Sort import declarations. Disabled by default.
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
@@ -125,19 +125,19 @@ export default prettier({
 
 ::: warning Potential conflicts
 
-1. prettier-plugin-css-order may conflict with stylelint-config-recess-order, so it is disabled by default. If you want to enable prettier-plugin-css-order, please disable stylelint-config-recess-order. See [Stylelint chapter Customization section](../linter/stylelint#customization).
+1. prettier-plugin-css-order may conflict with stylelint-config-recess-order, so it is disabled by default. If you want to enable prettier-plugin-css-order, please disable stylelint-config-recess-order. See [Stylelint chapter Customization section](../linter/stylelint#Customization).
 
-2. @ianvs/prettier-plugin-sort-imports, @trivago/prettier-plugin-sort-imports, and prettier-plugin-organize-imports are in conflict with each other, and may conflict with the eslint- plugin-perfectionist, so they are disabled by default. If you want to enable one of the three, please disable eslint-plugin-perfectionist. See [ESLint chapter Customization section](../linter/eslint#customization).
+2. @ianvs/prettier-plugin-sort-imports, @trivago/prettier-plugin-sort-imports, and prettier-plugin-organize-imports are in conflict with each other, and may conflict with the eslint- plugin-perfectionist, so they are disabled by default. If you want to enable one of the three, please disable eslint-plugin-perfectionist. See [ESLint chapter Customization section](../linter/eslint#Customization).
 
-3. prettier-plugin-organize-attributes may conflict with eslint-plugin-perfectionist, so it is disabled by default. If you want to enable prettier-plugin-organize-attributes, turn off eslint-plugin-perfectionist, see [ESLint chapter Customization section](../linter/eslint#customization).
+3. prettier-plugin-organize-attributes may conflict with eslint-plugin-perfectionist, so it is disabled by default. If you want to enable prettier-plugin-organize-attributes, turn off eslint-plugin-perfectionist, see [ESLint chapter Customization section](../linter/eslint#Customization).
 
 4. prettier-plugin-packagejson does not conflict with eslint-plugin-jsonc by default. If you want to use eslint-plugin-jsonc to sort package.json, please disable prettier-plugin-packagejson.
 
-5. prettier-plugin-tailwindcss may conflict with eslint-plugin-unocss. When you use both TailwindCSS and UnoCSS, please disable one of them manually. If you want to disable eslint-plugin-unocss, see [ESLint chapter Customization section](../linter/eslint#customization).
+5. prettier-plugin-tailwindcss may conflict with eslint-plugin-unocss. When you use both TailwindCSS and UnoCSS, please disable one of them manually. If you want to disable eslint-plugin-unocss, see [ESLint chapter Customization section](../linter/eslint#Customization).
 
 :::
 
-The second parameter is used for further customization, you can pass an object to override the generated configuration.
+The second parameter is used for further customization, you can pass an object to override the generated configuration (you will need to install the dependencies yourself).
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
@@ -152,7 +152,7 @@ export default prettier(undefined, {
 });
 ```
 
-If you wish to add custom configurations to the default configuration, you can do like below:
+If you wish to add custom configurations to the default configuration, you can do like below (you will need to install the dependencies yourself):
 
 ```javascript
 // prettier.config.js with "type": "module" in package.json
@@ -165,7 +165,7 @@ export default {
   // use prettier-plugin-jsdoc、prettier-plugin-packagejson、prettier-plugin-svelte 和 prettier-plugin-tailwindcss
   // prettier-plugin-tailwindcss must be the last one
   plugins: [
-    ...defaultConfig,
+    ...defaultConfig.plugins,
     'prettier-plugin-svelte',
     'prettier-plugin-tailwindcss',
   ],
