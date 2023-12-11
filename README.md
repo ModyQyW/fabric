@@ -557,6 +557,6 @@ Copyright (c) 2020-present ModyQyW
 
 <p align="center">
   <a href="https://cdn.jsdelivr.net/gh/ModyQyW/sponsors/sponsorkit/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/ModyQyW/sponsors/sponsorkit/sponsors.svg"/>
+    <img alt="sponsors" src="https://cdn.jsdelivr.net/gh/ModyQyW/sponsors/sponsorkit/sponsors.svg"/>
   </a>
 </p>
