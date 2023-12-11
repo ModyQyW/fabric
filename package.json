@@ -165,6 +165,7 @@
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-packagejson": "^2.4.7",
     "prettier-plugin-tailwindcss": "^0.5.9",
+    "stylelint-config-html": "^1.1.0",
     "stylelint-config-recess-order": "^4.4.0",
     "stylelint-config-recommended": "^14.0.0",
     "stylelint-config-recommended-scss": "^13.1.0",
@@ -178,9 +179,7 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.38.5",
     "@tsconfig/node20": "^20.1.2",
-    "@types/micromatch": "^4.0.6",
     "@types/node": "^20.10.4",
     "changelogen": "^0.5.5",
     "commitizen": "^4.3.0",
