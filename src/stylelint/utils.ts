@@ -1,4 +1,4 @@
-import { hasScss, hasVue } from '../env';
+import { hasScss } from '../env';
 import type { Options } from './types';
 
 export function parseOptions(options: Options = {}): Required<Options> {
@@ -6,6 +6,5 @@ export function parseOptions(options: Options = {}): Required<Options> {
     order: options.order ?? true,
     scss: options.scss ?? hasScss,
     style: options.style ?? 'recommended',
-    vue: options.vue ?? hasVue,
   };
 }

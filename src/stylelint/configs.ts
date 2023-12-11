@@ -6,34 +6,10 @@ export function extends_(options: Required<Options>) {
   const { order, scss: enableScss, style } = options;
   const extends_: string[] = [];
   if (order) extends_.push('stylelint-config-recess-order');
-  if (style === 'recommended') extends_.push('stylelint-config-recommended');
-  else extends_.push('stylelint-config-standard');
-  if (enableScss) {
-    if (style === 'recommended')
-      extends_.push('stylelint-config-recommended-scss');
-    else extends_.push('stylelint-config-standard-scss');
-    extends_.push('');
-  }
+  extends_.push(`stylelint-config-html`, `stylelint-config-${style}`);
+  if (enableScss) extends_.push(`stylelint-config-${style}-scss`);
   extends_.push('stylelint-prettier/recommended');
   return extends_;
-}
-
-export function overrides(options: Options) {
-  const { scss: enableScss, vue: enableVue } = options;
-  const overrides = [];
-  if (enableScss) {
-    overrides.push({
-      customSyntax: 'postcss-scss',
-      files: ['*.scss', '**/*.scss'],
-    });
-  }
-  if (enableVue) {
-    overrides.push({
-      customSyntax: 'postcss-html',
-      files: ['*.vue', '**/*.vue'],
-    });
-  }
-  return overrides;
 }
 
 export function rules(options: Options = {}) {

@@ -23,10 +23,4 @@ export interface Options {
    * @default 'recommended'
    */
   style?: 'recommended' | 'standard';
-  /**
-   * Support Vue.
-   *
-   * Enabled by default if you have vue installed.
-   */
-  vue?: boolean;
 }

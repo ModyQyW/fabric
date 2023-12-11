@@ -1,5 +1,5 @@
 import { GLOB_EXCLUDE } from '../constants';
-import { extends_, overrides, rules } from './configs';
+import { extends_, rules } from './configs';
 import { parseOptions } from './utils';
 import type { Config, Options } from './types';
 
@@ -11,7 +11,6 @@ export function stylelint(
   return {
     extends: extends_(parsed),
     ignoreFiles: GLOB_EXCLUDE,
-    overrides: overrides(parsed),
     reportDescriptionlessDisables: true,
     reportInvalidScopeDisables: true,
     reportNeedlessDisables: true,
