@@ -4,7 +4,7 @@ Stylelint 是被广泛采用的代码检查工具，主要用于样式文件。
 
 ## 安装
 
-首先你需要安装 Stylelint。目前，我们支持 Stylelint v16。
+首先你需要安装 Stylelint。目前支持 Stylelint v16。
 
 ::: code-group
 
@@ -144,20 +144,33 @@ export default {
 
 先安装 [对应的 Stylelint 插件](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)。
 
-修改全局用户配置如下，这将会指定 Stylelint 检查 CSS、SCSS 和 Vue，在保存时自动修复，并避免和 VSC 自带功能冲突。不知道怎么修改？看 [这里](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson)。
+视实际情况修改 [用户设置](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) 或 [工作区设置](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings)。
 
-```json
+```jsonc
 {
+  // 禁用内置的 CSS 检查
   "css.validate": false,
+
+  // 禁用内置的 LESS 检查
   "less.validate": false,
+
+  // 禁用内置的 SCSS 检查
   "scss.validate": false,
+
+  // 启用 Stylelint 代码片段的语言
   "stylelint.snippet": ["css", "scss", "vue"],
+
+  // Stylelint 检查的语言
   "stylelint.validate": ["css", "scss", "vue"],
+
+  // CSS、SCSS 手动保存后 Stylelint 自动修复
   "[css][scss]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": "explicit"
     }
   },
+
+  // Vue 手动保存后 Stylelint 自动修复
   "[vue]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": "explicit"

@@ -10,7 +10,7 @@ Prettier 是被广泛采用的代码格式化器，它对 JavaScript / TypeScrip
 
 ## 安装
 
-首先你需要安装 Prettier。目前，我们支持 Prettier v3。
+首先你需要安装 Prettier。目前支持 Prettier v3。
 
 ::: code-group
 
@@ -178,27 +178,17 @@ export default {
 
 先安装 [对应的 Prettier 插件](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)。
 
-修改全局用户配置如下，这将会指定默认的代码格式化器为 Prettier，之后你可以使用快捷键手动格式化代码。不知道怎么修改？看 [这里](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson)。
+视实际情况修改 [用户设置](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) 或 [工作区设置](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings)。
 
-```json
+```jsonc
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
-```
+  // 指定默认代码格式化器为 Prettier
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
 
-如果你想要在特定的项目内自动格式化，可以修改工作目录配置如下，这将会在每次保存后自动格式化代码。不知道怎么修改？看 [这里](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings)。
-
-```json
-{
+  // 保存自动格式化
   "editor.formatOnSave": true
 }
 ```
-
-::: tip 为什么不在全局用户配置内配置自动格式化代码？
-
-代码世界并不只有一种配置，你正在协作的项目有可能并不使用代码格式化器，而是使用了 [ESLint Stylistic](https://eslint.style/)、[stylelint-stylistic](https://github.com/elirasza/stylelint-stylistic) 等与代码检查工具集成的库。这时候如果你使用代码格式化器自动格式化，可能会导致项目代码混乱且持续报告警告或错误。建议在确定使用代码格式化器的项目内使用自动格式化。
-
-:::
 
 ### 如何与 WebStorm 整合使用？
 

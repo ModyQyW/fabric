@@ -10,7 +10,7 @@ ESLint is a widely adopted linter, mainly for script files.
 
 ## Installation
 
-You have to install ESLint first. We currently support ESLint v8.
+You have to install ESLint first. Currently ESLint v8 is supported.
 
 ::: code-group
 
@@ -325,35 +325,14 @@ export default combine(
 
 Install [the corresponding ESLint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) first.
 
-Update the global user configuration as follows, this will specify that ESLint checks for JavaScript, JSX, TypeScript, TSX, and Vue and fixes it automatically on save. Don't know how to modify it? See [here](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson).
+Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) or [workspace settings](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings) as appropriate.
 
-```json
+```jsonc
 {
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
-  "[javascript][javascriptreact][typescript][typescriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "[vue]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  }
-}
-```
-
-Modify the workspace configuration as follows, this will specify that ESLint enables flat configuration, additionally checks JSON, JSONC, JSON5, YAML, YML, Markdown and automatically fixes them on save. Don't know how to modify it? See [here](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings).
-
-```json
-{
+  // Enable ESLint flat config.
   "eslint.experimental.useFlatConfig": true,
+
+  // Languages that ESLint validates.
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -365,19 +344,43 @@ Modify the workspace configuration as follows, this will specify that ESLint ena
     "jsonc",
     "yaml"
   ],
+
+  // ESLint auto-fix after JavaScript, JSX, TypeScript, TypeScript JSX manual save.
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // ESLint auto-fix after Vue manual save.
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // ESLint auto-fix after markdown manual save.
   "[markdown][yaml][json][jsonc]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // ESLint auto-fix after JSON, JSONC manual save.
+  "[json][jsonc]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // ESLint auto-fix after YAML manual save.
+  "[yaml]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
   }
 }
 ```
-
-::: tip Why not do all the configuration within the global user configuration?
-
-The code world doesn't have just one configuration, and chances are that you are collaborating on a project that does not support checking JSON, JSONC, JSON5, YAML, YML, and Markdown with ESLint. It is recommended that you add the appropriate configurations to the projects that do support them.
-
-:::
 
 ### How to integrate with WebStorm?
 

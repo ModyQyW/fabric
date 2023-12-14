@@ -4,7 +4,7 @@ Stylelint is a widely adopted linter, mainly for style files.
 
 ## Installation
 
-You have to install Stylelint first. We currently support Stylelint v16.
+You have to install Stylelint first. Currently Stylelint v16 is supported.
 
 ::: code-group
 
@@ -144,20 +144,33 @@ The configuration supports Vue, TailwindCSS and Module CSS by default. When cust
 
 Install [the corresponding Stylelint plugin](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) first.
 
-Update the global user configuration as follows, this will specify that Stylelint checks for CSS, SCSS, and Vue, fixes it automatically on save, and avoids conflicts with VSC's own functionality. Don't know how to modify it? Look [here](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson).
+Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) or [workspace settings](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings) as appropriate.
 
-```json
+```jsonc
 {
+  // Disable the built-in CSS linter.
   "css.validate": false,
+
+  // Disable the built-in LESS linter.
   "less.validate": false,
+
+  // Disable the built-in SCSS linter.
   "scss.validate": false,
+
+  // Languages that enable Stylelint snippets.
   "stylelint.snippet": ["css", "scss", "vue"],
+
+  // Languages that ESLint validates.
   "stylelint.validate": ["css", "scss", "vue"],
+
+  // Stylelint auto-fix after CSS, SCSS manual save.
   "[css][scss]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": "explicit"
     }
   },
+
+  // Stylelint auto-fix after Vue manual save.
   "[vue]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": "explicit"

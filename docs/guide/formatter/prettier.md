@@ -10,7 +10,7 @@ Prettier is a widely-adopted code formatter with good support for JavaScript / T
 
 ## Installation
 
-You have to install Prettier first. We currently support Prettier v3.
+You have to install Prettier first. Currently Prettier v3 is supported.
 
 ::: code-group
 
@@ -178,27 +178,17 @@ export default {
 
 Install [the corresponding Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) first.
 
-Update the global user configuration as follows, this will specify the default code formatter as Prettier, after which you can use shortcuts to format the code manually. Don't know how to update it? See [here](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson).
+Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) or [workspace settings](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings) as appropriate.
 
 ```json
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
-```
+  // Specifies the default formatter to Prettier.
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
 
-If you want to auto format within a specific project, you can modify the workspace configuration as follows, which will automatically format the code after each save. Don't know how to modify it? See [here](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings).
-
-```json
-{
+  // Format on save.
   "editor.formatOnSave": true
 }
 ```
-
-::: tip Why not always auto formatting?
-
-The code world doesn't have just one configuration, and chances are that the project you're collaborating on doesn't use a code formatter, but instead uses libraries such as [ESLint Stylistic](https://eslint.style/), [stylelint-stylistic](https://github.com/elirasza/stylelint-stylistic) and other libraries that integrate with linters. At this point, if you do auto formatting, it may cause the project code to be messed up and continue to report warnings or errors. It is recommended to use auto-formatting within projects that are sure to use code formatters.
-
-:::
 
 ### How to integrate with WebStorm?
 

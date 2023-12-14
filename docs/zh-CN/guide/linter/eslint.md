@@ -10,7 +10,7 @@ ESLint 是被广泛采用的代码检查工具，主要用于脚本文件。
 
 ## 安装
 
-首先你需要安装 ESLint。目前，我们支持 ESLint v8。
+首先你需要安装 ESLint。目前支持 ESLint v8。
 
 ::: code-group
 
@@ -325,35 +325,14 @@ export default combine(
 
 先安装 [对应的 ESLint 插件](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)。
 
-修改全局用户配置如下，这将会指定 ESLint 检查 JavaScript、JSX、TypeScript、TSX 和 Vue，并在保存时自动修复。不知道怎么修改？看 [这里](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson)。
+视实际情况修改 [用户设置](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) 或 [工作区设置](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings)。
 
-```json
+```jsonc
 {
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue"
-  ],
-  "[javascript][javascriptreact][typescript][typescriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  },
-  "[vue]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  }
-}
-```
-
-修改工作目录配置如下，这将会指定 ESLint 启用平面配置，额外检查 JSON、JSONC、JSON5、YAML、YML、Markdown，并在保存时自动修复。不知道怎么修改？看 [这里](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings)。
-
-```json
-{
+  // 启用 ESLint 平面配置
   "eslint.experimental.useFlatConfig": true,
+
+  // ESLint 检查的语言
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -365,19 +344,43 @@ export default combine(
     "jsonc",
     "yaml"
   ],
+
+  // JavaScript、JSX、TypeScript、TypeScript JSX 手动保存后 ESLint 自动修复
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // Vue 手动保存后 ESLint 自动修复
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // markdown 手动保存后 ESLint 自动修复
   "[markdown][yaml][json][jsonc]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // JSON、JSONC 手动保存后 ESLint 自动修复
+  "[json][jsonc]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+
+  // YAML 手动保存后 ESLint 自动修复
+  "[yaml]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
     }
   }
 }
 ```
-
-::: tip 为什么不在全局用户配置内完成所有配置？
-
-代码世界并不只有一种配置，你正在协作的项目有可能并不支持使用 ESLint 检查 JSON、JSONC、JSON5、YAML、YML 和 Markdown。建议在确定支持的项目内增加相应的配置。
-
-:::
 
 ### 如何与 WebStorm 整合使用？
 
