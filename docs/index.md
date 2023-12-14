@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: '@modyqyw/fabric'
-  tagline: Opinionated shareable specification for different JavaScript/TypeScript projects
+  tagline: Opinionated shareable specifications for git-based JavaScript/TypeScript projects
   actions:
     - theme: brand
       text: Get Started

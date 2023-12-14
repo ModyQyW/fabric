@@ -7,7 +7,7 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/fabric/' : '',
   // https://vitepress.dev/reference/site-config#description
   description:
-    'Opinionated shareable specification for different JavaScript/TypeScript projects',
+    'Opinionated shareable specifications for git-based JavaScript/TypeScript projects',
   // https://vitepress.dev/reference/site-config#lastupdated
   lastUpdated: true,
   // https://vitepress.dev/guide/i18n

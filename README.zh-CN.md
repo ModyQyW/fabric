@@ -213,9 +213,9 @@ module.exports = {
 }
 ```
 
-### Markdownlint
+### markdownlint
 
-看看 [Markdown](https://commonmark.org/) 和 [Markdownlint](https://github.com/DavidAnson/markdownlint)。
+看看 [Markdown](https://commonmark.org/) 和 [markdownlint](https://github.com/DavidAnson/markdownlint)。
 
 ```sh
 npm install -D markdownlint-cli

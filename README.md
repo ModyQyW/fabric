@@ -5,7 +5,7 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-Opinionated shareable specification for different JavaScript/TypeScript projects. **Use it in your old projects on your own risk.**
+Opinionated shareable specifications for git-based JavaScript/TypeScript projects. **Use it in your old projects on your own risk.**
 
 Requires:
 
@@ -180,9 +180,9 @@ Set up `package.json`. Use `.gitignore` as the ignore pattern file here.
 }
 ```
 
-### Markdownlint
+### markdownlint
 
-Learn about [Markdown](https://commonmark.org/) and [Markdownlint](https://github.com/DavidAnson/markdownlint).
+Learn about [Markdown](https://commonmark.org/) and [markdownlint](https://github.com/DavidAnson/markdownlint).
 
 ```sh
 npm install -D markdownlint-cli
