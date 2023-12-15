@@ -66,13 +66,17 @@ export default defineConfig({
               {
                 base: '/guide/formatter/',
                 collapsed: false,
-                items: [{ link: 'prettier', text: 'Prettier' }],
+                items: [
+                  { link: 'overview', text: 'Overview' },
+                  { link: 'prettier', text: 'Prettier' },
+                ],
                 text: 'Formatter',
               },
               {
                 base: '/guide/linter/',
                 collapsed: false,
                 items: [
+                  { link: 'overview', text: 'Overview' },
                   { link: 'eslint', text: 'ESLint' },
                   { link: 'stylelint', text: 'Stylelint' },
                   { link: 'markdownlint', text: 'markdownlint' },
@@ -82,13 +86,17 @@ export default defineConfig({
               {
                 base: '/guide/typescript-checker/',
                 collapsed: false,
-                items: [{ link: 'tsc', text: 'tsc' }],
+                items: [
+                  { link: 'overview', text: 'Overview' },
+                  { link: 'tsc', text: 'tsc' },
+                ],
                 text: 'TypeScript Checker',
               },
               {
                 base: '/guide/git/',
                 collapsed: false,
                 items: [
+                  { link: 'overview', text: 'Overview' },
                   { link: 'commitizen', text: 'commitizen' },
                   { link: 'commitlint', text: 'commitlint' },
                   { link: 'lint-staged', text: 'lint-staged' },
@@ -97,10 +105,13 @@ export default defineConfig({
                 text: 'Git',
               },
               {
-                base: '/guide/misc',
+                base: '/guide/best-practice',
                 collapsed: false,
-                items: [{ link: 'naming', text: 'Naming' }],
-                text: 'Misc',
+                items: [
+                  { link: 'overview', text: 'Overview' },
+                  { link: 'naming', text: 'Naming' },
+                ],
+                text: 'Best Practices',
               },
             ],
           },
@@ -163,13 +174,17 @@ export default defineConfig({
               {
                 base: '/zh-CN/guide/formatter/',
                 collapsed: false,
-                items: [{ link: 'prettier', text: 'Prettier' }],
+                items: [
+                  { link: 'overview', text: '概述' },
+                  { link: 'prettier', text: 'Prettier' },
+                ],
                 text: '代码格式化器 Formatter',
               },
               {
                 base: '/zh-CN/guide/linter/',
                 collapsed: false,
                 items: [
+                  { link: 'overview', text: '概述' },
                   { link: 'eslint', text: 'ESLint' },
                   { link: 'stylelint', text: 'Stylelint' },
                   { link: 'markdownlint', text: 'markdownlint' },
@@ -179,13 +194,17 @@ export default defineConfig({
               {
                 base: '/zh-CN/guide/typescript-checker/',
                 collapsed: false,
-                items: [{ link: 'tsc', text: 'tsc' }],
+                items: [
+                  { link: 'overview', text: '概述' },
+                  { link: 'tsc', text: 'tsc' },
+                ],
                 text: 'TypeScript 检查工具 TypeScript Checker',
               },
               {
                 base: '/zh-CN/guide/git/',
                 collapsed: false,
                 items: [
+                  { link: 'overview', text: '概述' },
                   { link: 'commitizen', text: 'Commitizen' },
                   { link: 'commitlint', text: 'Commitlint' },
                   { link: 'lint-staged', text: 'LintStaged' },
@@ -194,10 +213,13 @@ export default defineConfig({
                 text: 'Git',
               },
               {
-                base: '/zh-CN/guide/misc',
+                base: '/zh-CN/guide/best-practice',
                 collapsed: false,
-                items: [{ link: 'naming', text: '命名' }],
-                text: '杂项',
+                items: [
+                  { link: 'overview', text: '概述' },
+                  { link: 'naming', text: '命名' },
+                ],
+                text: '最佳实践 Best Practice',
               },
             ],
           },

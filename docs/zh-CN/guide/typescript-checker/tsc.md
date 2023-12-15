@@ -1,6 +1,6 @@
 # tsc
 
-TypeScript 检查工具是指检查 TypeScript 代码中类型的工具。tsc 是 TypeScript 官方附带的类型检查工具。
+tsc 是 TypeScript 官方附带的类型检查工具。
 
 ::: tip 其它选择
 [ezno](https://github.com/kaleidawave/ezno) 和 [stc](https://stc.dudy.dev/) 是后起之秀。如果你感觉 tsc 速度比较慢，你可以考虑使用它们，但需要你自行配置。必须留意：它们和 tsc 并不是 100% 兼容的，你可能会得到意想不到的结果。
