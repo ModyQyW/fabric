@@ -100,14 +100,6 @@ WebStorm 自带 TypeScript 插件。
 
 ### 如何和 lint-staged 整合使用？
 
-如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
+不建议与 lint-staged 结合使用，请查看 [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) 和 [lint-staged#1352](https://github.com/lint-staged/lint-staged/pull/1352) 内说明。
 
-如果你没有使用该库提供的 lint-staged 配置，可以参考以下配置。
-
-```javascript
-// lint-staged.config.cjs
-module.exports = {
-  '*.{ts,cts,mts,tsx}': () => 'tsc -p tsconfig.json --noEmit',
-  '*.vue': () => 'vue-tsc -p tsconfig.json --noEmit',
-};
-```
+作为替代，你应该在 CI 中运行 tsc / vue-tsc。

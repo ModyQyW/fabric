@@ -78,14 +78,6 @@ WebStorm comes with a TypeScript plugin.
 
 ### How to integrate with lint-staged?
 
-If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
+Not recommended for use with lint-staged, see [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) and [lint-staged#1352](https://). github.com/lint-staged/lint-staged/pull/1352).
 
-If you are not, you can refer to the following configuration.
-
-```javascript
-// lint-staged.config.cjs
-module.exports = {
-  '*.{ts,cts,mts,tsx}': () => 'tsc -p tsconfig.json --noEmit',
-  '*.vue': () => 'vue-tsc -p tsconfig.json --noEmit',
-};
-```
+As an alternative, you should run tsc / vue-tsc in the CI.
