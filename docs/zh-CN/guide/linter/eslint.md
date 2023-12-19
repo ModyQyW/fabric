@@ -400,3 +400,7 @@ module.exports = {
   '*.{yaml,yml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
 };
 ```
+
+### 如何检查类型？
+
+不建议使用 ESLint 检查类型。作为替代，你应该直接运行 tsc / vue-tsc，请查看 [tsc 章节](../typescript-checker/tsc)。

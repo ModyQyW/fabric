@@ -400,3 +400,7 @@ module.exports = {
   '*.{yaml,yml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
 };
 ```
+
+### How to check types?
+
+It is not recommended to use ESLint to check types. As an alternative, you should run tsc / vue-tsc directly, see [tsc chapter](../typescript-checker/tsc).
