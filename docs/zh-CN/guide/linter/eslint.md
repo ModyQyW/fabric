@@ -401,6 +401,10 @@ module.exports = {
 };
 ```
 
-### 如何检查类型？
+### 为什么不检查类型？
 
-不建议使用 ESLint 检查类型。作为替代，你应该直接运行 tsc / vue-tsc，请查看 [tsc 章节](../typescript-checker/tsc)。
+> 类型规则有一个问题。通过在配置中包含 `parserOptions.project`，你会因要求 TypeScript 在 ESLint 进行 linting 之前构建项目而遭受性能损失。对于小型项目，这需要的时间可以忽略不计（几秒或更短）；对于大型项目，可能需要更长的时间。
+
+引自 [typescript-eslint.io/linting/typed-linting#how-is-performance](https://typescript-eslint.io/linting/typed-linting#how-is-performance)。
+
+直接运行 tsc / vue-tsc 可以避免这部分性能损失，同时可以进行更完整的类型检查。请查看 [tsc 章节](../typescript-checker/tsc)。

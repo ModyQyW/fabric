@@ -401,6 +401,10 @@ module.exports = {
 };
 ```
 
-### How to check types?
+### Why not check types?
 
-It is not recommended to use ESLint to check types. As an alternative, you should run tsc / vue-tsc directly, see [tsc chapter](../typescript-checker/tsc).
+> Typed rules come with a catch. By including `parserOptions.project` in your config, you incur the performance penalty of asking TypeScript to do a build of your project before ESLint can do its linting. For small projects this takes a negligible amount of time (a few seconds or less); for large projects, it can take longer.
+
+Quoted from [typescript-eslint.io/linting/typed-linting#how-is-performance](https://typescript-eslint.io/linting/typed-linting#how-is-performance).
+
+Running tsc / vue-tsc directly avoids this performance loss and allows for more complete type checking. See the [tsc chapter](../typescript-checker/tsc).
