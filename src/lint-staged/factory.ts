@@ -11,12 +11,7 @@ export function lintStaged(
     markdownlint: enableMarkdownlint,
     prettier: enablePrettier,
     stylelint: enableStylelint,
-    tsc: enableTsc,
-    tsconfigJson,
-    vueTsc: enableVueTsc,
     yml: lintYml,
-    zhPatterns,
-    zhlint: enableZhlint,
   } = parseOptions(options);
 
   const config: Config = {};
@@ -41,16 +36,6 @@ export function lintStaged(
 
   if (enableMarkdownlint) {
     config['*.{md,markdown}'] = 'markdownlint --fix --ignore-path=.gitignore';
-  }
-  if (enableZhlint) {
-    for (const p of zhPatterns) {
-      config[p] = 'zhlint --fix --ignore=.gitignore';
-    }
-  }
-
-  if (enableTsc || enableVueTsc) {
-    config['*.{ts,cts,mts,tsx,vue}'] = () =>
-      `${enableVueTsc ? 'vue-tsc' : 'tsc'} -p ${tsconfigJson} --noEmit`;
   }
 
   if (enablePrettier) {
