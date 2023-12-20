@@ -76,8 +76,8 @@ VSC comes with a TypeScript plugin. For Vue projects, you need to install the [c
 
 WebStorm comes with a TypeScript plugin.
 
-### How to integrate with lint-staged?
+### Why not integrate with lint-staged?
 
-Not recommended for use with lint-staged, see [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) and [lint-staged#1352](https://). github.com/lint-staged/lint-staged/pull/1352).
+tsc / vue-tsc needs to go through all the project files in order to be able to analyze them, which also means that it's not really possible to **only** run tsc / vue-tsc on a staging file. See [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) and [lint-staged#1352](https://github.com/lint-staged/lint-staged/pull/1352) for more information.
 
-As an alternative, you should run tsc / vue-tsc in the CI.
+As an alternative, you should run tsc / vue-tsc before releasing a new version or in CI.

@@ -98,8 +98,8 @@ VSC 自带 TypeScript 插件。对于 Vue 项目，需要先安装 [对应的 Vu
 
 WebStorm 自带 TypeScript 插件。
 
-### 如何和 lint-staged 整合使用？
+### 为什么不和 lint-staged 整合使用？
 
-不建议与 lint-staged 结合使用，请查看 [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) 和 [lint-staged#1352](https://github.com/lint-staged/lint-staged/pull/1352) 内说明。
+tsc / vue-tsc 需要查看所有项目文件才能分析它们，这也意味着没法真正地 **只** 在暂存文件上运行 tsc / vue-tsc。更多可查看 [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) 和 [lint-staged#1352](https://github.com/lint-staged/lint-staged/pull/1352) 说明。
 
-作为替代，你应该在 CI 中运行 tsc / vue-tsc。
+作为替代，你应该在发布新版本前或在 CI 中运行 tsc / vue-tsc。
