@@ -7,5 +7,5 @@
     "moduleResolution": "Bundler",
     "resolveJsonModule": true
   },
-  "exclude": ["dist", "node_modules", "playground"]
+  "include": ["./src/**/*", "./docs/**/*", "./docs/.vitepress/**/*"]
 }
