@@ -28,6 +28,17 @@ bun install markdownlint-cli -d
 
 ## Configuration
 
+### json
+
+Update your `.markdownlint.json` file.
+
+```json
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
+  "extends": "@modyqyw/fabric/markdownlint.json"
+}
+```
+
 ### CLI
 
 Update your `package.json` and add `lint:markdownlint` script.

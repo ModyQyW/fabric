@@ -1,3 +1,5 @@
+import { copyFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { defineBuildConfig } from 'unbuild';
 
 export default defineBuildConfig({
@@ -12,6 +14,16 @@ export default defineBuildConfig({
     './src/simple-git-hooks',
     './src/stylelint',
   ],
+  hooks: {
+    'build:done': (ctx) => {
+      const {
+        options: { outDir },
+      } = ctx;
+      const dest = resolve(outDir, 'markdownlint.json');
+      const src = resolve('src', 'markdownlint', 'index.json');
+      copyFileSync(src, dest);
+    },
+  },
   rollup: {
     emitCJS: true,
     esbuild: {

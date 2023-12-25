@@ -82,6 +82,7 @@
       "import": "./dist/stylelint.mjs",
       "require": "./dist/stylelint.cjs"
     },
+    "./markdownlint": "./dist/markdownlint.json",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",

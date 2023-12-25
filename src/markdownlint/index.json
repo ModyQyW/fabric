@@ -1,0 +1,39 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
+  "default": true,
+  // https://github.com/DavidAnson/markdownlint/blob/v0.32.1/style/relaxed.json
+  "whitespace": false,
+  "line_length": false,
+  "no-inline-html": false,
+  "no-bare-urls": false,
+  "fenced-code-language": false,
+  "first-line-h1": false,
+  // https://github.com/DavidAnson/markdownlint/blob/v0.32.1/style/prettier.json
+  "blanks-around-fences": false,
+  "blanks-around-headings": false,
+  "blanks-around-lists": false,
+  "code-fence-style": false,
+  "emphasis-style": false,
+  "heading-start-left": false,
+  "hr-style": false,
+  "line-length": false,
+  "list-indent": false,
+  "list-marker-space": false,
+  "no-blanks-blockquote": false,
+  "no-hard-tabs": false,
+  "no-missing-space-atx": false,
+  "no-missing-space-closed-atx": false,
+  "no-multiple-blanks": false,
+  "no-multiple-space-atx": false,
+  "no-multiple-space-blockquote": false,
+  "no-multiple-space-closed-atx": false,
+  "no-trailing-spaces": false,
+  "ol-prefix": false,
+  "strong-style": false,
+  "ul-indent": false,
+  // custom
+  "no-duplicate-heading": {
+    "allow_different_nesting": true,
+    "siblings_only": true
+  }
+}
