@@ -83,12 +83,12 @@ export const hasTsconfigAppJson = existsSync(
 );
 
 export const hasESLint = isPackageExists('eslint');
+export const hasOxlint = isPackageExists('oxlint');
 export const hasStylelint = isPackageExists('stylelint');
 export const hasPrettier = isPackageExists('prettier');
 export const hasTsc = isPackageExists('typescript');
 export const hasVueTsc = isPackageExists('vue-tsc');
 export const hasMarkdownlintCli = isPackageExists('markdownlint-cli');
-export const hasZhlint = isPackageExists('zhlint');
 
 export const hasLintStaged = isPackageExists('lint-staged');
 export const hasCommitlint =

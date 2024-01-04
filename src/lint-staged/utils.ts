@@ -1,6 +1,7 @@
 import {
   hasESLint,
   hasMarkdownlintCli,
+  hasOxlint,
   hasPrettier,
   hasStylelint,
   hasTsconfigAppJson,
@@ -8,7 +9,6 @@ import {
   hasTsconfigVitestJson,
   hasTypeScript,
   hasVueTsc,
-  hasZhlint,
 } from '../env';
 import type { Options } from './types';
 
@@ -17,6 +17,7 @@ export function parseOptions(options: Options = {}): Required<Options> {
     eslint: options.eslint ?? hasESLint,
     jsonc: options.jsonc ?? true,
     markdownlint: options.markdownlint ?? hasMarkdownlintCli,
+    oxlint: options.oxlint ?? hasOxlint,
     prettier: options.prettier ?? hasPrettier,
     stylelint: options.stylelint ?? hasStylelint,
     tsc: options.tsc ?? hasTypeScript,
@@ -30,7 +31,5 @@ export function parseOptions(options: Options = {}): Required<Options> {
             : 'tsconfig.json',
     vueTsc: options.vueTsc ?? hasVueTsc,
     yml: options.yml ?? true,
-    zhPatterns: options.zhPatterns ?? ['*.{zh-CN,zh-Hans}.{md,markdown}'],
-    zhlint: options.zhlint ?? hasZhlint,
   };
 }

@@ -25,23 +25,18 @@ export interface Options {
   yml?: boolean;
 
   /**
+   * Use oxlint.
+   *
+   * Enabled by default if you have oxlint installed.
+   */
+  oxlint?: boolean;
+
+  /**
    * Use markdownlint.
    *
    * Enabled by default if you have markdownlint-cli2 installed.
    */
   markdownlint?: boolean;
-  /**
-   * Markdown files patterns for zhlint.
-   *
-   * @default *.{zh-CN,zh-Hans}.{md,markdown}
-   */
-  zhPatterns?: string[];
-  /**
-   * Use zhlint.
-   *
-   * Enabled by default if you have zhlint installed.
-   */
-  zhlint?: boolean;
 
   /**
    * Use Prettier.

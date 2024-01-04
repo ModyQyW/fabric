@@ -9,6 +9,7 @@ export function lintStaged(
     eslint: enableESLint,
     jsonc: lintJsonc,
     markdownlint: enableMarkdownlint,
+    oxlint: enableOxlint,
     prettier: enablePrettier,
     stylelint: enableStylelint,
     yml: lintYml,
@@ -16,9 +17,19 @@ export function lintStaged(
 
   const config: Config = {};
 
-  if (enableESLint) {
+  if (enableOxlint && enableESLint) {
+    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = [
+      'oxlint --deny=correctness --deny=perf --fix',
+      'eslint --fix --cache --no-error-on-unmatched-pattern',
+    ];
+  } else if (enableOxlint) {
+    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = 'oxlint --fix';
+  } else if (enableESLint) {
     config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] =
       'eslint --fix --cache --no-error-on-unmatched-pattern';
+  }
+
+  if (enableESLint) {
     if (lintJsonc) {
       config['*.{json,jsonc,json5}'] =
         'eslint --fix --cache --no-error-on-unmatched-pattern';
