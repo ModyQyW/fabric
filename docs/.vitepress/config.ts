@@ -78,6 +78,7 @@ export default defineConfig({
                 items: [
                   { link: 'overview', text: 'Overview' },
                   { link: 'eslint', text: 'ESLint' },
+                  { link: 'oxlint', text: 'oxlint' },
                   { link: 'stylelint', text: 'Stylelint' },
                   { link: 'markdownlint', text: 'markdownlint' },
                 ],
@@ -186,6 +187,7 @@ export default defineConfig({
                 items: [
                   { link: 'overview', text: '概述' },
                   { link: 'eslint', text: 'ESLint' },
+                  { link: 'oxlint', text: 'oxlint' },
                   { link: 'stylelint', text: 'Stylelint' },
                   { link: 'markdownlint', text: 'markdownlint' },
                 ],
