@@ -178,7 +178,7 @@ export default defineConfig({
                   { link: 'overview', text: '概述' },
                   { link: 'prettier', text: 'Prettier' },
                 ],
-                text: '代码格式化器 Formatter',
+                text: '代码格式化器',
               },
               {
                 base: '/zh-CN/guide/linter/',
@@ -189,7 +189,7 @@ export default defineConfig({
                   { link: 'stylelint', text: 'Stylelint' },
                   { link: 'markdownlint', text: 'markdownlint' },
                 ],
-                text: '代码检查工具 Linter',
+                text: '代码检查工具',
               },
               {
                 base: '/zh-CN/guide/typescript-checker/',
@@ -198,7 +198,7 @@ export default defineConfig({
                   { link: 'overview', text: '概述' },
                   { link: 'tsc', text: 'tsc' },
                 ],
-                text: 'TypeScript 检查工具 TypeScript Checker',
+                text: 'TypeScript 检查工具',
               },
               {
                 base: '/zh-CN/guide/git/',
@@ -219,7 +219,7 @@ export default defineConfig({
                   { link: 'overview', text: '概述' },
                   { link: 'naming', text: '命名' },
                 ],
-                text: '最佳实践 Best Practice',
+                text: '最佳实践',
               },
             ],
           },
