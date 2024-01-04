@@ -3,7 +3,7 @@
 ESLint is a widely adopted linter, mainly for script files.
 
 ::: tip Other options
-[Biome](https://biomejs.dev/) and [oxlint](https://github.com/oxc-project/oxc#-linter) are the up-and-comers. You might consider using them if you think ESLint is slow, but you'll need to configure them yourself. But be careful: they are not 100% compatible with ESLint and you may get unexpected results.
+[Biome](https://biomejs.dev/) are the up-and-comers. You might consider using them if you think ESLint is slow, but you'll need to configure them yourself. But be careful: they are not 100% compatible with ESLint and you may get unexpected results.
 :::
 
 ## Installation
