@@ -13,7 +13,6 @@ export const pluginI = interopDefault(_pluginI);
 import * as _pluginImport from 'eslint-plugin-import';
 export const pluginImport = interopDefault(_pluginImport);
 
-// @ts-expect-error missing types
 import * as _pluginJsdoc from 'eslint-plugin-jsdoc';
 export const pluginJsdoc = interopDefault(_pluginJsdoc);
 
