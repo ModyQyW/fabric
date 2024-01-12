@@ -37,8 +37,8 @@ You need to check your `package.json` for the presence of `"type": "module"`. If
 ### ESM
 
 ```js
-// prettier.config.js with "type": "module" in package.json
-// or prettier.config.mjs
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 // or
 // import { prettier } from '@modyqyw/fabric/prettier';
@@ -49,8 +49,8 @@ export default prettier();
 ### CJS
 
 ```js
-// prettier.config.js without "type": "module" in package.json
-// or prettier.config.cjs
+// prettier.config.cjs
+// or prettier.config.js without "type": "module" in package.json
 const { prettier } = require('@modyqyw/fabric');
 // or
 // const { prettier } = require('@modyqyw/fabric/prettier');
@@ -90,7 +90,8 @@ The following plugins are currently supported:
 - trivagoSortImports - Based on [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports). Sort import declarations. Disabled by default.
 
 ```javascript
-// prettier.config.js with "type": "module" in package.json
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { hasTailwindCss, prettier } from '@modyqyw/fabric';
 
 export default prettier({
@@ -138,7 +139,8 @@ export default prettier({
 The second parameter is used for further customization, you can pass an object to override the generated configuration (you will need to install the dependencies yourself).
 
 ```javascript
-// prettier.config.js with "type": "module" in package.json
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 
 export default prettier(undefined, {
@@ -153,7 +155,8 @@ export default prettier(undefined, {
 If you wish to add custom configurations to the default configuration, you can do like below (you will need to install the dependencies yourself):
 
 ```javascript
-// prettier.config.js with "type": "module" in package.json
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 
 const defaultConfig = prettier();

@@ -33,7 +33,8 @@ bun install stylelint -d
 ### ESM
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { stylelint } from '@modyqyw/fabric';
 // 或者
 // import { stylelint } from '@modyqyw/fabric/stylelint';
@@ -44,7 +45,8 @@ export default stylelint();
 ### CJS
 
 ```javascript
-// stylelint.config.js without "type": "module" in package.json
+// stylelint.config.cjs
+// or stylelint.config.js without "type": "module" in package.json
 const { stylelint } = require('@modyqyw/fabric');
 // 或者
 // const { stylelint } = require('@modyqyw/fabric/stylelint');
@@ -79,7 +81,8 @@ module.exports = stylelint();
 - style：使用什么风格的配置，默认 `'recommended'`，可选 `'standard'`
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { hasScss } from '@modyqyw/fabric';
 
 export default stylelint({
@@ -105,7 +108,8 @@ export default stylelint({
 第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置。
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { stylelint } from '@modyqyw/fabric';
 
 export default stylelint(undefined, {
@@ -118,7 +122,8 @@ export default stylelint(undefined, {
 如果你希望在默认配置上增加自定义配置（比如支持 LESS），你可以像下面这样做（需要自行安装相应的依赖）：
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { stylelint } from '@modyqyw/fabric';
 
 const defaultConfig = stylelint();

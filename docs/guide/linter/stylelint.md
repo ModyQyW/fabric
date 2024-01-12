@@ -33,7 +33,8 @@ You need to check your `package.json` for the presence of `"type": "module"`. If
 ### ESM
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { stylelint } from '@modyqyw/fabric';
 // or
 // import { stylelint } from '@modyqyw/fabric/stylelint';
@@ -44,7 +45,8 @@ export default stylelint();
 ### CJS
 
 ```javascript
-// stylelint.config.js without "type": "module" in package.json
+// stylelint.config.cjs
+// or stylelint.config.js without "type": "module" in package.json
 const { stylelint } = require('@modyqyw/fabric');
 // or
 // const { stylelint } = require('@modyqyw/fabric/stylelint');
@@ -79,7 +81,8 @@ The following plugins are currently supported:
 - style - What style of configuration to use. By default `'recommended'` and can be `'standard'`.
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { hasScss } from '@modyqyw/fabric';
 
 export default stylelint({
@@ -105,7 +108,8 @@ export default stylelint({
 The second parameter is used for further customization, you can pass an object to override the generated configuration.
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { stylelint } from '@modyqyw/fabric';
 
 export default stylelint(undefined, {
@@ -118,7 +122,8 @@ export default stylelint(undefined, {
 If you wish to add customization to the default configuration (e.g., support for LESS), you can do so as follows (you will need to install the dependencies yourself):
 
 ```javascript
-// stylelint.config.js with "type": "module" in package.json
+// stylelint.config.mjs
+// or stylelint.config.js with "type": "module" in package.json
 import { stylelint } from '@modyqyw/fabric';
 
 const defaultConfig = stylelint();

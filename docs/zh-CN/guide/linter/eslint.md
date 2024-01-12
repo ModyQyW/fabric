@@ -41,7 +41,8 @@ bun install eslint -d
 ### ESM
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { eslint } from '@modyqyw/fabric';
 // 或者
 // import { eslint } from '@modyqyw/fabric/eslint';
@@ -52,7 +53,8 @@ export default eslint();
 ### CJS
 
 ```javascript
-// eslint.config.js without "type": "module" in package.json
+// eslint.config.cjs
+// or eslint.config.js without "type": "module" in package.json
 const { eslint } = require('@modyqyw/fabric');
 // 或者
 // const { eslint } = require('@modyqyw/fabric/eslint');
@@ -105,7 +107,8 @@ module.exports = eslint();
 - yml：基于 [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)，检查 YML 相关问题，默认启用
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import {
   hasNext,
   hasNuxt,
@@ -188,7 +191,8 @@ export default eslint({
 除了传递 Boolean 值，你也可以直接传递配置项。这将视为启用配置，并使用传入的配置项。
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { eslint } from '@modyqyw/fabric';
 
 export default eslint({
@@ -212,7 +216,8 @@ export default eslint({
 第二个参数用于更进一步的自定义，你可以传递一个对象，用于调整生成的配置。
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { eslint } from '@modyqyw/fabric';
 
 export default eslint(undefined, [
@@ -235,7 +240,8 @@ export default eslint(undefined, [
 比如只使用 JavaScript 和 TypeScript 规则：
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { combine } from '@modyqyw/fabric';
 import { javascript, typescript } from '@modyqyw/fabric/eslint';
 
@@ -245,7 +251,8 @@ export default combine(javascript(), typescript());
 你也可以传递参数，来调整部分规则。
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { combine } from '@modyqyw/fabric';
 import { javascript, typescript } from '@modyqyw/fabric/eslint';
 
@@ -258,7 +265,8 @@ export default combine(
 在上面的基础上，增加 Svelte 支持（需要自行安装相应的依赖）：
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import {
   GLOB_SCRIPT,
   GLOB_VUE,

@@ -37,8 +37,8 @@ bun install prettier -d
 ### ESM
 
 ```javascript
-// prettier.config.js with "type": "module" in package.json
-// or prettier.config.mjs
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 // 或者
 // import { prettier } from '@modyqyw/fabric/prettier';
@@ -49,8 +49,8 @@ export default prettier();
 ### CJS
 
 ```javascript
-// prettier.config.js without "type": "module" in package.json
-// or prettier.config.cjs
+// prettier.config.cjs
+// or prettier.config.js without "type": "module" in package.json
 const { prettier } = require('@modyqyw/fabric');
 // 或者
 // const { prettier } = require('@modyqyw/fabric/prettier');
@@ -90,7 +90,8 @@ module.exports = prettier();
 - trivagoSortImports：基于 [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)，对 import 声明排序，默认禁用
 
 ```javascript
-// prettier.config.js with "type": "module" in package.json
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { hasTailwindCss, prettier } from '@modyqyw/fabric';
 
 export default prettier({
@@ -138,7 +139,8 @@ export default prettier({
 第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置（需要自行安装相应的依赖）。
 
 ```javascript
-// prettier.config.js with "type": "module" in package.json
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 
 export default prettier(undefined, {
@@ -153,7 +155,8 @@ export default prettier(undefined, {
 如果你希望在默认配置上增加自定义配置，你可以像下面这样做（需要自行安装相应的依赖）：
 
 ```javascript
-// prettier.config.js with "type": "module" in package.json
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 
 const defaultConfig = prettier();

@@ -116,8 +116,8 @@ npm install -D prettier@3
 ##### ESM
 
 ```js
-// prettier.config.js with "type": "module" in package.json
-// or prettier.config.mjs
+// prettier.config.mjs
+// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 // or
 // import { prettier } from '@modyqyw/fabric/prettier';
@@ -130,8 +130,8 @@ export default {
 ##### CJS
 
 ```js
-// prettier.config.js without "type": "module" in package.json
-// or prettier.config.cjs
+// prettier.config.cjs
+// or prettier.config.js without "type": "module" in package.json
 const { prettier } = require('@modyqyw/fabric');
 // or
 // const { prettier } = require('@modyqyw/fabric/prettier');

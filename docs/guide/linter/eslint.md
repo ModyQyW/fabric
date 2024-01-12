@@ -41,7 +41,8 @@ Try [eslint-ts-patch](https://github.com/antfu/eslint-ts-patch) if you want to u
 ### ESM
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { eslint } from '@modyqyw/fabric';
 // or
 // import { eslint } from '@modyqyw/fabric/eslint';
@@ -52,7 +53,8 @@ export default eslint();
 ### CJS
 
 ```javascript
-// eslint.config.js without "type": "module" in package.json
+// eslint.config.cjs
+// or eslint.config.js without "type": "module" in package.json
 const { eslint } = require('@modyqyw/fabric');
 // or
 // const { eslint } = require('@modyqyw/fabric/eslint');
@@ -105,7 +107,8 @@ The following plugins are currently supported:
 - yml - Based on [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml). Check YAML related issues. Enabled by default.
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import {
   hasNext,
   hasNuxt,
@@ -188,7 +191,8 @@ export default eslint({
 In addition to passing Boolean values, you can also pass configuration items directly. This will be treated as enabling the configuration and the passed-in configuration item will be used.
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { eslint } from '@modyqyw/fabric';
 
 export default eslint({
@@ -212,7 +216,8 @@ export default eslint({
 The second parameter is used for further customization, you can pass an object to override the generated configuration.
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { eslint } from '@modyqyw/fabric';
 
 export default eslint(undefined, [
@@ -235,7 +240,8 @@ In addition to customizing with parameters, you can also customize with combinat
 For example, using only JavaScript and TypeScript rules:
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { combine } from '@modyqyw/fabric';
 import { javascript, typescript } from '@modyqyw/fabric/eslint';
 
@@ -245,7 +251,8 @@ export default combine(javascript(), typescript());
 You can also pass parameters to adjust some of the rules.
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import { combine } from '@modyqyw/fabric';
 import { javascript, typescript } from '@modyqyw/fabric/eslint';
 
@@ -258,7 +265,8 @@ export default combine(
 Add Svelte support to the above (you need to install the dependencies yourself):
 
 ```javascript
-// eslint.config.js with "type": "module" in package.json
+// eslint.config.mjs
+// or eslint.config.js with "type": "module" in package.json
 import {
   GLOB_SCRIPT,
   GLOB_VUE,
