@@ -46,26 +46,6 @@ export interface Options {
   prettier?: boolean;
 
   /**
-   * Use tsc.
-   *
-   * Enabled by default if you have TypeScript installed.
-   */
-  tsc?: boolean;
-  /**
-   * The tsconfig file for tsc / vue-tsc.
-   *
-   * First 'tsconfig.test.json', then 'tsconfig.vitest.json', then
-   * 'tsconfig.app.json', finally 'tsconfig.json'.
-   */
-  tsconfigJson?: string;
-  /**
-   * Use vue-tsc.
-   *
-   * Enabled by default if you have vue-tsc installed.
-   */
-  vueTsc?: boolean;
-
-  /**
    * Use Stylelint.
    *
    * Enabled by default if you have Stylelint installed.
