@@ -348,43 +348,43 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
     "markdown",
     "json",
     "jsonc",
-    "yaml"
+    "yaml",
   ],
 
   // ESLint auto-fix after JavaScript, JSX, TypeScript, TypeScript JSX manual save.
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // ESLint auto-fix after Vue manual save.
   "[vue]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // ESLint auto-fix after markdown manual save.
   "[markdown][yaml][json][jsonc]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // ESLint auto-fix after JSON, JSONC manual save.
   "[json][jsonc]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // ESLint auto-fix after YAML manual save.
   "[yaml]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  }
+      "source.fixAll.eslint": "explicit",
+    },
+  },
 }
 ```
 
@@ -399,8 +399,9 @@ If you are using the lint-staged configuration provided by the package, see the 
 If you are not, you can refer to the following configuration.
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}':
     'eslint --fix --cache --no-error-on-unmatched-pattern',
   '*.{json,jsonc,json5}':

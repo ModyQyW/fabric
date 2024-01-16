@@ -44,7 +44,7 @@ bun install eslint -d
 // eslint.config.mjs
 // or eslint.config.js with "type": "module" in package.json
 import { eslint } from '@modyqyw/fabric';
-// 或者
+// or
 // import { eslint } from '@modyqyw/fabric/eslint';
 
 export default eslint();
@@ -56,7 +56,7 @@ export default eslint();
 // eslint.config.cjs
 // or eslint.config.js without "type": "module" in package.json
 const { eslint } = require('@modyqyw/fabric');
-// 或者
+// or
 // const { eslint } = require('@modyqyw/fabric/eslint');
 
 module.exports = eslint();
@@ -348,43 +348,43 @@ export default combine(
     "markdown",
     "json",
     "jsonc",
-    "yaml"
+    "yaml",
   ],
 
   // JavaScript、JSX、TypeScript、TypeScript JSX 手动保存后 ESLint 自动修复
   "[javascript][javascriptreact][typescript][typescriptreact]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // Vue 手动保存后 ESLint 自动修复
   "[vue]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // markdown 手动保存后 ESLint 自动修复
   "[markdown][yaml][json][jsonc]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // JSON、JSONC 手动保存后 ESLint 自动修复
   "[json][jsonc]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
+      "source.fixAll.eslint": "explicit",
+    },
   },
 
   // YAML 手动保存后 ESLint 自动修复
   "[yaml]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  }
+      "source.fixAll.eslint": "explicit",
+    },
+  },
 }
 ```
 
@@ -399,8 +399,9 @@ WebStorm 自带 ESLint，可参考 [如何与 VSC 整合使用？](#如何和-vs
 如果你没有使用该库提供的 lint-staged 配置，可以参考以下配置。
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}':
     'eslint --fix --cache --no-error-on-unmatched-pattern',
   '*.{json,jsonc,json5}':

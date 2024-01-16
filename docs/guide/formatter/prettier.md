@@ -1,6 +1,6 @@
 # Prettier
 
-Prettier is a widely-adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.
+Prettier is a widely adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.
 
 ::: tip Other options
 [Biome](https://biomejs.dev/) 和 [dprint](https://dprint.dev/) are the up-and-comers. You might consider using them if you think Prettier is slow, but you'll need to configure them yourself. Be careful: they are not 100% compatible with Prettier, and their support for CSS / SCSS / Vue is limited, so you may get unexpected results.
@@ -202,8 +202,9 @@ If you are using the lint-staged configuration provided by the package, see the 
 If you are not, you can refer to the following configuration.
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
   '*': 'prettier "!*lock*" --ignore-unknown --write --cache',
 };
 ```

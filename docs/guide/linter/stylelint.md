@@ -83,7 +83,7 @@ The following plugins are currently supported:
 ```javascript
 // stylelint.config.mjs
 // or stylelint.config.js with "type": "module" in package.json
-import { hasScss } from '@modyqyw/fabric';
+import { stylelint, hasScss } from '@modyqyw/fabric';
 
 export default stylelint({
   // based on stylelint-config-recess-order
@@ -115,6 +115,7 @@ import { stylelint } from '@modyqyw/fabric';
 export default stylelint(undefined, {
   rules: {
     // rules that require customization
+    ...,
   },
 });
 ```
@@ -133,6 +134,7 @@ export default {
   rules: {
     ...defaultConfig.rules,
     // rules that require customization
+    ...,
   },
 };
 ```
@@ -171,16 +173,16 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
   // Stylelint auto-fix after CSS, SCSS manual save.
   "[css][scss]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": "explicit"
-    }
+      "source.fixAll.stylelint": "explicit",
+    },
   },
 
   // Stylelint auto-fix after Vue manual save.
   "[vue]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": "explicit"
-    }
-  }
+      "source.fixAll.stylelint": "explicit",
+    },
+  },
 }
 ```
 
@@ -195,8 +197,9 @@ If you are using the lint-staged configuration provided by the package, see the 
 If you are not, you can refer to the following configuration.
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
-  '*.{css,scss,vue}': 'stylelint --fix --cache --aei --ignore-path=.gitignore';
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
+  '*.{css,scss,vue}': 'stylelint --fix --cache --aei --ignore-path=.gitignore',
 };
 ```

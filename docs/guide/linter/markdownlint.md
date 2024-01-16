@@ -81,8 +81,9 @@ If you are using the lint-staged configuration provided by the package, see the 
 If you are not, you can refer to the following configuration.
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
-  '*.md': 'markdownlint --fix --ignore-path=.gitignore';
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
+  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
 };
 ```

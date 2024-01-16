@@ -40,7 +40,7 @@ bun install prettier -d
 // prettier.config.mjs
 // or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
-// 或者
+// or
 // import { prettier } from '@modyqyw/fabric/prettier';
 
 export default prettier();
@@ -52,7 +52,7 @@ export default prettier();
 // prettier.config.cjs
 // or prettier.config.js without "type": "module" in package.json
 const { prettier } = require('@modyqyw/fabric');
-// 或者
+// or
 // const { prettier } = require('@modyqyw/fabric/prettier');
 
 module.exports = prettier();
@@ -187,7 +187,7 @@ export default {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   // 保存自动格式化
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
 }
 ```
 
@@ -202,8 +202,9 @@ WebStorm 自带 Prettier，可参考 [如何与 VSC 整合使用？](#如何和-
 如果你没有使用该库提供的 lint-staged 配置，可以参考以下配置。
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
   '*': 'prettier "!*lock*" --ignore-unknown --write --cache',
 };
 ```

@@ -81,8 +81,9 @@ WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/20851-markdo
 如果你没有使用该库提供的 lint-staged 配置，可以参考以下配置。
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
-  '*.md': 'markdownlint --fix --ignore-path=.gitignore';
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
+  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
 };
 ```

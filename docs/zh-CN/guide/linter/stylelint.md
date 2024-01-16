@@ -36,7 +36,7 @@ bun install stylelint -d
 // stylelint.config.mjs
 // or stylelint.config.js with "type": "module" in package.json
 import { stylelint } from '@modyqyw/fabric';
-// 或者
+// or
 // import { stylelint } from '@modyqyw/fabric/stylelint';
 
 export default stylelint();
@@ -48,7 +48,7 @@ export default stylelint();
 // stylelint.config.cjs
 // or stylelint.config.js without "type": "module" in package.json
 const { stylelint } = require('@modyqyw/fabric');
-// 或者
+// or
 // const { stylelint } = require('@modyqyw/fabric/stylelint');
 
 module.exports = stylelint();
@@ -83,7 +83,7 @@ module.exports = stylelint();
 ```javascript
 // stylelint.config.mjs
 // or stylelint.config.js with "type": "module" in package.json
-import { hasScss } from '@modyqyw/fabric';
+import { stylelint, hasScss } from '@modyqyw/fabric';
 
 export default stylelint({
   // 基于 stylelint-config-recess-order
@@ -115,6 +115,7 @@ import { stylelint } from '@modyqyw/fabric';
 export default stylelint(undefined, {
   rules: {
     // 需要自定义的规则
+    ...,
   },
 });
 ```
@@ -133,6 +134,7 @@ export default {
   rules: {
     ...defaultConfig.rules,
     // 需要自定义的规则
+    ...,
   },
 };
 ```
@@ -171,16 +173,16 @@ export default {
   // CSS、SCSS 手动保存后 Stylelint 自动修复
   "[css][scss]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": "explicit"
-    }
+      "source.fixAll.stylelint": "explicit",
+    },
   },
 
   // Vue 手动保存后 Stylelint 自动修复
   "[vue]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": "explicit"
-    }
-  }
+      "source.fixAll.stylelint": "explicit",
+    },
+  },
 }
 ```
 
@@ -195,8 +197,9 @@ WebStorm 自带 Stylelint，可参考 [如何与 VSC 整合使用？](#如何和
 如果你没有使用该库提供的 lint-staged 配置，可以参考以下配置。
 
 ```javascript
-// lint-staged.config.cjs
-module.exports = {
-  '*.{css,scss,vue}': 'stylelint --fix --cache --aei --ignore-path=.gitignore';
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+export default {
+  '*.{css,scss,vue}': 'stylelint --fix --cache --aei --ignore-path=.gitignore',
 };
 ```
