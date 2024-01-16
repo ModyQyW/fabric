@@ -1,10 +1,14 @@
+import ci from 'ci-info';
 import unocss from 'unocss/vite';
 import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // https://vitepress.dev/reference/site-config#base
-  base: process.env.NODE_ENV === 'production' ? '/fabric/' : '',
+  base:
+    process.env.NODE_ENV === 'production' && ci.GITHUB_ACTIONS
+      ? '/fabric/'
+      : '',
   // https://vitepress.dev/reference/site-config#description
   description:
     'Opinionated shareable specifications for git-based JavaScript/TypeScript projects',

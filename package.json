@@ -182,6 +182,7 @@
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.4",
+    "ci-info": "^4.0.0",
     "commit-and-tag-version": "^12.2.0",
     "concurrently": "^8.2.2",
     "esbuild-register": "^3.5.0",
