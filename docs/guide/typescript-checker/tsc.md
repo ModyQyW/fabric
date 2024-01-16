@@ -70,7 +70,7 @@ Some projects may provide more than one tsconfig file for initialization, for ex
 
 ### How to integrate with VSC?
 
-VSC comes with a TypeScript plugin. For Vue projects, you need to install the [corresponding Vue plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) and set it up according to the instructions.
+VSC comes with a TypeScript plugin. VSC comes with a TypeScript plugin. For Vue projects, please follow the [Official website](https://vuejs.org/guide/typescript/overview.html) to configure the settings accordingly.
 
 ### How to integrate with WebStorm?
 

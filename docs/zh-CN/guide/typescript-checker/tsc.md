@@ -92,7 +92,7 @@ bun install typescript vue-tsc -d
 
 ### 如何和 VSC 整合使用？
 
-VSC 自带 TypeScript 插件。对于 Vue 项目，需要先安装 [对应的 Vue 插件](https://marketplace.visualstudio.com/items?itemName=Vue.volar) 并根据说明进行相应的设置。
+VSC 自带 TypeScript 插件。对于 Vue 项目，请根据 [官网说明](https://cn.vuejs.org/guide/typescript/overview.html) 进行相应的设置。
 
 ### 如何与 WebStorm 整合使用？
 
