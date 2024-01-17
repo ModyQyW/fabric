@@ -15,7 +15,7 @@ export default defineBuildConfig({
     './src/stylelint',
   ],
   hooks: {
-    'build:done': (ctx) => {
+    'rollup:done': (ctx) => {
       const {
         options: { outDir },
       } = ctx;
