@@ -17,6 +17,7 @@ export default {
 
     giscusTalk(
       {
+        // @ts-expect-error missing types
         category: 'General',
         categoryId: 'MDE4OkRpc2N1c3Npb25DYXRlZ29yeTMyODUxMTMw',
         emitMetadata: '1',
