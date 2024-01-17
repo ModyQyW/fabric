@@ -20,7 +20,7 @@ yarn add lint-staged -D
 pnpm install lint-staged -D
 ```
 
-```shell [bun]
+```shell [bun(experimental)]
 bun install lint-staged -d
 ```
 

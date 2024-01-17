@@ -24,7 +24,7 @@ yarn add prettier -D
 pnpm install prettier -D
 ```
 
-```shell [bun]
+```shell [bun(experimental)]
 bun install prettier -d
 ```
 

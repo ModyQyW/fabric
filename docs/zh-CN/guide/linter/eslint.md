@@ -24,7 +24,7 @@ yarn add eslint -D
 pnpm install eslint -D
 ```
 
-```shell [bun]
+```shell [bun(experimental)]
 bun install eslint -d
 ```
 

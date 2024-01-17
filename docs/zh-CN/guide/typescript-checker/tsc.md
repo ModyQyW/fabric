@@ -24,7 +24,7 @@ yarn add typescript -D
 pnpm install typescript -D
 ```
 
-```shell [bun]
+```shell [bun(experimental)]
 bun install typescript -d
 ```
 
@@ -46,7 +46,7 @@ yarn add typescript vue-tsc -D
 pnpm install typescript vue-tsc -D
 ```
 
-```shell [bun]
+```shell [bun(experimental)]
 bun install typescript vue-tsc -d
 ```
 
