@@ -109,7 +109,7 @@ export default defineConfig({
                 text: 'Git',
               },
               {
-                base: '/guide/best-practice',
+                base: '/guide/best-practices/',
                 collapsed: false,
                 items: [
                   { link: 'overview', text: 'Overview' },
@@ -217,7 +217,7 @@ export default defineConfig({
                 text: 'Git',
               },
               {
-                base: '/zh-CN/guide/best-practice',
+                base: '/zh-CN/guide/best-practices/',
                 collapsed: false,
                 items: [
                   { link: 'overview', text: '概述' },
