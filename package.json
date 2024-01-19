@@ -83,6 +83,7 @@
       "require": "./dist/stylelint.cjs"
     },
     "./markdownlint": "./dist/markdownlint.json",
+    "./markdownlint.json": "./dist/markdownlint.json",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
