@@ -4,7 +4,7 @@ commitlint is a widely adopted Git tool that lints commit messages and helps you
 
 ## Installation
 
-首先你需要安装 commitlint。目前支持 commitlint v18。
+You have to install commitlint-cli first. Currently commitlint-cli v18 is supported.
 
 ::: code-group
 

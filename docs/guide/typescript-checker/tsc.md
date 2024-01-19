@@ -13,19 +13,19 @@ You have to install TypeScript first. Currently TypeScript v5 is supported.
 ::: code-group
 
 ```shell [npm]
-npm install prettier -D
+npm install typescript -D
 ```
 
 ```shell [yarn]
-yarn add prettier -D
+yarn add typescript -D
 ```
 
 ```shell [pnpm]
-pnpm install prettier -D
+pnpm install typescript -D
 ```
 
 ```shell [bun(experimental)]
-bun install prettier -d
+bun install typescript -d
 ```
 
 :::
