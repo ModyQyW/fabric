@@ -210,9 +210,9 @@ export default defineConfig({
                 collapsed: false,
                 items: [
                   { link: 'overview', text: '概述' },
-                  { link: 'commitlint', text: 'Commitlint' },
-                  { link: 'lint-staged', text: 'LintStaged' },
-                  { link: 'simple-git-hooks', text: 'SimpleGitHooks' },
+                  { link: 'commitlint', text: 'commitlint' },
+                  { link: 'lint-staged', text: 'lint-staged' },
+                  { link: 'simple-git-hooks', text: 'simple-git-hooks' },
                 ],
                 text: 'Git',
               },
