@@ -92,6 +92,14 @@ export default commitlint({
 });
 ```
 
+::: tip 编写提交信息
+对于新手来说，编写提交信息并非易事。幸运的是，有很多种方式来简化这一过程。
+
+你可以安装 [VSC 插件](https://marketplace.visualstudio.com/search?term=commit&target=VSCode&category=All%20categories&sortBy=Relevance) 和 [WebStorm 插件](https://plugins.jetbrains.com/search?products=webstorm&search=commit)，辅助编写提交信息。
+
+对于命令行，你可以使用 [commitizen](https://github.com/commitizen/cz-cli)，并使用 @commitlint/prompt 实现与 commitlint 的整合。后者详见 [Commitlint Guide: Use prompt](https://commitlint.js.org/#/guides-use-prompt)。
+:::
+
 第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置。
 
 ```javascript

@@ -49,12 +49,28 @@ Want to know about it first? Of course! See [here](./what-is-modyqyw-fabric.md)!
 
 Use the terminal to open the corresponding project directory and execute the command to install the dependencies.
 
-```shell
-pnpm install @modyqyw/fabric
+::: code-group
+
+```shell [npm]
+npm install @modyqyw/fabric -D
 ```
+
+```shell [yarn]
+yarn add @modyqyw/fabric -D
+```
+
+```shell [pnpm]
+pnpm install @modyqyw/fabric -D
+```
+
+```shell [bun(experimental)]
+bun install @modyqyw/fabric -d
+```
+
+:::
 
 That's it! Next, you can configure the project to suit your needs.
 
 ::: tip Tips for usage
-This library does not provide out-of-the-box configurations for LESS, Svelte, Lit, Angular, etc. If you have a need for it, feel free to PR. And don't forget to maintain them! 👏
+This library does not provide out-of-the-box configuration for LESS, Svelte, Lit, Angular, etc., but you should be able to easily add support following the guidelines.
 :::

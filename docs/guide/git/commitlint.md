@@ -92,6 +92,14 @@ export default commitlint({
 });
 ```
 
+::: tip Writing a commit message
+Writing a commit message is not an easy task for the uninitiated. Fortunately, there are many ways to simplify the process.
+
+You can install the [VSC Plugin](https://marketplace.visualstudio.com/search?term=commit&target=VSCode&category=All%20categories&sortBy=Relevance) and [ WebStorm plugin](https://plugins.jetbrains.com/search?products=webstorm&search=commit) to assist in writing commit messages.
+
+For the command line, you can use [commitizen](https://github.com/commitizen/cz-cli) and implement integration with commitlint using @commitlint/prompt. See [Commitlint Guide: Using prompt](https://commitlint.js.org/#/guides-use-prompt) for details on the latter.
+:::
+
 The second parameter is used for further customization, you can pass an object to override the generated configuration.
 
 ```javascript

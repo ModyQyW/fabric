@@ -49,12 +49,28 @@
 
 使用终端打开对应的项目目录，执行命令安装依赖。
 
-```shell
-pnpm install @modyqyw/fabric
+::: code-group
+
+```shell [npm]
+npm install @modyqyw/fabric -D
 ```
+
+```shell [yarn]
+yarn add @modyqyw/fabric -D
+```
+
+```shell [pnpm]
+pnpm install @modyqyw/fabric -D
+```
+
+```shell [bun(experimental)]
+bun install @modyqyw/fabric -d
+```
+
+:::
 
 就是这么简单！接下来，你可以根据你的需要来配置项目。
 
 ::: tip 适用提示
-这个库没有针对 LESS、Svelte、Lit、Angular 等提供开箱即用的配置。如果你有相关的需求，欢迎 PR。别忘了要持续维护它们！👏
+这个库没有针对 LESS、Svelte、Lit、Angular 等提供开箱即用的配置，但根据指引你应该能轻松地增加支持。
 :::

@@ -108,15 +108,21 @@ export default defineConfig({
                 ],
                 text: 'Git',
               },
-              // {
-              //   base: '/guide/best-practices/',
-              //   collapsed: false,
-              //   items: [
-              //     { link: 'overview', text: 'Overview' },
-              //     { link: 'naming', text: 'Naming' },
-              //   ],
-              //   text: 'Best Practices',
-              // },
+              {
+                base: '/guide/best-practices/',
+                collapsed: false,
+                items: [
+                  { link: 'overview', text: 'Overview' },
+                  { link: 'naming', text: 'Naming' },
+                  { link: 'editor-config', text: 'EditorConfig' },
+                  { link: 'deployment', text: 'Deployment' },
+                ],
+                text: 'Best Practices',
+              },
+              {
+                link: '/acknowledge/',
+                text: 'Acknowledge',
+              },
             ],
           },
         },
@@ -216,15 +222,21 @@ export default defineConfig({
                 ],
                 text: 'Git',
               },
-              // {
-              //   base: '/zh-CN/guide/best-practices/',
-              //   collapsed: false,
-              //   items: [
-              //     { link: 'overview', text: '概述' },
-              //     { link: 'naming', text: '命名' },
-              //   ],
-              //   text: '最佳实践',
-              // },
+              {
+                base: '/zh-CN/guide/best-practices/',
+                collapsed: false,
+                items: [
+                  { link: 'overview', text: '概述' },
+                  { link: 'naming', text: '命名' },
+                  { link: 'editor-config', text: 'EditorConfig' },
+                  { link: 'deployment', text: '部署' },
+                ],
+                text: '最佳实践',
+              },
+              {
+                link: '/acknowledge/',
+                text: '致谢',
+              },
             ],
           },
         },
