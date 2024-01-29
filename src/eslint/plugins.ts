@@ -73,6 +73,10 @@ import * as _pluginReactHooks from 'eslint-plugin-react-hooks';
 export const pluginReactHooks = interopDefault(_pluginReactHooks);
 
 // @ts-expect-error missing types
+import * as _pluginReactPerf from 'eslint-plugin-react-perf';
+export const pluginReactPerf = interopDefault(_pluginReactPerf);
+
+// @ts-expect-error missing types
 import * as _pluginReactRefresh from 'eslint-plugin-react-refresh';
 export const pluginReactRefresh = interopDefault(_pluginReactRefresh);
 

@@ -1,6 +1,11 @@
 import { GLOB_JSX, GLOB_TSX } from '../../constants';
 import { hasVite } from '../../env';
-import { pluginReact, pluginReactHooks, pluginReactRefresh } from '../plugins';
+import {
+  pluginReact,
+  pluginReactHooks,
+  pluginReactPerf,
+  pluginReactRefresh,
+} from '../plugins';
 import type { Config, ReactOptions } from '../types';
 
 export function react(options: ReactOptions = {}): Config[] {
@@ -16,12 +21,14 @@ export function react(options: ReactOptions = {}): Config[] {
       plugins: {
         react: pluginReact,
         'react-hooks': pluginReactHooks,
+        'react-perf': pluginReactPerf,
         'react-refresh': pluginReactRefresh,
       },
       rules: {
         ...pluginReact.configs.recommended.rules,
         ...pluginReact.configs['jsx-runtime'].rules,
         ...pluginReactHooks.configs.recommended.rules,
+        ...pluginReactPerf.configs.recommended.rules,
         'react/sort-comp': [
           'error',
           {
