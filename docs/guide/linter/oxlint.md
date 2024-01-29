@@ -8,7 +8,7 @@ oxlint is not a complete replacement for ESLint; rather, oxlint complements ESLi
 
 ## Installation
 
-You have to install oxlint first. Currently oxlint v0.0 is supported.
+You have to install oxlint first. Currently oxlint v0.2 is supported.
 
 ::: code-group
 
