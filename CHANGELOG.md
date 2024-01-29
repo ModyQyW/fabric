@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.1.0](https://github.com/ModyQyW/fabric/compare/v10.0.0...v10.1.0) (2024-01-29)
+
+### Features
+
+- **eslint:** add eslint-plugin-react-perf ([6667ece](https://github.com/ModyQyW/fabric/commit/6667ecec69091669bf8d1af25230048bc7267546))
+
 ## [10.0.0](https://github.com/ModyQyW/fabric/compare/v9.0.6...v10.0.0) (2024-01-19)
 
 ### ⚠ BREAKING CHANGES
