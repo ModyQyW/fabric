@@ -293,7 +293,6 @@ export default defineConfig({
   // https://vitepress.dev/reference/site-config#title
   title: '@modyqyw/fabric',
   vite: {
-    // @ts-expect-error types error
     plugins: [unocss()],
   },
 });
