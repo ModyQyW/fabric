@@ -7,7 +7,7 @@ English | [简体中文](./README.zh-CN.md)
 
 Opinionated shareable specifications for git-based JavaScript/TypeScript projects.
 
-Online documents on [GitHub Pages](https://modyqyw.github.io/fabric/), [Netlify](https://modyqyw-fabric.netlify.app/) and [Vercel](https://modyqyw-fabric.vercel.app/).
+Online documents on [GitHub Pages](https://modyqyw.github.io/fabric/), [zeabur](https://modyqyw-fabric.zeabur.app/), [netlify](https://modyqyw-fabric.netlify.app/) and [vercel](https://modyqyw-fabric.vercel.app/).
 
 ## [Sponsors](https://github.com/ModyQyW/sponsors)
 

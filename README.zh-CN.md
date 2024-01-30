@@ -7,7 +7,7 @@
 
 开箱即用的共享规范，适用于不同的 JavaScript / TypeScript 项目。
 
-在线文档查看 [GitHub Pages](https://modyqyw.github.io/fabric/zh-CN/)、[Netlify](https://modyqyw-fabric.netlify.app/zh-CN/) 和 [Vercel](https://modyqyw-fabric.vercel.app/zh-CN/)。
+在线文档查看 [GitHub Pages](https://modyqyw.github.io/fabric/zh-CN/)、[zeabur](https://modyqyw-fabric.zeabur.app/)、[netlify](https://modyqyw-fabric.netlify.app/zh-CN/) 和 [vercel](https://modyqyw-fabric.vercel.app/zh-CN/)。
 
 ## [赞助者们](https://github.com/ModyQyW/sponsors)
 
