@@ -28,8 +28,6 @@ bun install lint-staged -d
 
 ## 配置
 
-你需要检查你的 `package.json` 是否存在 `"type": "module"`。如果存在，请查看 [ESM 部分](#esm)，否则请查看 [CJS 部分](#cjs)。
-
 ### ESM
 
 ```javascript

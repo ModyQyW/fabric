@@ -39,7 +39,7 @@ Update your `package.json` and add `lint:oxlint` script.
 ```json
 {
   "scripts": {
-    "lint:oxlint": "oxlint --deny=correctness --deny=perf --fix"
+    "lint:oxlint": "oxlint --deny=correctness --deny=perf"
   }
 }
 ```
@@ -56,8 +56,12 @@ If you are not, you can refer to the following configuration.
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
 export default {
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': [
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}': [
     'oxlint --deny=correctness --deny=perf --fix'
+    'eslint --fix --cache --no-error-on-unmatched-pattern',
+  ],
+  '*.vue': [
+    'oxlint --deny=correctness --deny=perf'
     'eslint --fix --cache --no-error-on-unmatched-pattern',
   ],
 };

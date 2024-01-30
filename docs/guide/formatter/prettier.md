@@ -32,8 +32,6 @@ bun install prettier -d
 
 ## Configuration
 
-You need to check your `package.json` for the presence of `"type": "module"`. If it exists, check the [ESM section](#esm), otherwise check the [CJS section](#cjs).
-
 ### ESM
 
 ```js

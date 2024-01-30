@@ -32,8 +32,6 @@ bun install eslint -d
 
 ## Configuration
 
-You need to check your `package.json` for the presence of `"type": "module"`. If it exists, check the [ESM section](#esm), otherwise check the [CJS section](#cjs).
-
 ::: tip Use other config files
 Try [eslint-ts-patch](https://github.com/antfu/eslint-ts-patch) if you want to use other config files.
 :::
