@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.2.1](https://github.com/ModyQyW/fabric/compare/v10.2.0...v10.2.1) (2024-01-30)
+
+### Bug Fixes
+
+- disable oxlint for vue ([c797c04](https://github.com/ModyQyW/fabric/commit/c797c04466d6661e418e8e4c0e365a0809039184))
+
 ## [10.2.0](https://github.com/ModyQyW/fabric/compare/v10.1.0...v10.2.0) (2024-01-30)
 
 ## [10.1.0](https://github.com/ModyQyW/fabric/compare/v10.0.0...v10.1.0) (2024-01-29)
