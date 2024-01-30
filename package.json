@@ -126,8 +126,8 @@
     "@next/eslint-plugin-next": "^14.1.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/eslint": "^8.56.2",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
     "@unocss/eslint-config": "^0.58.4",
     "@unocss/eslint-plugin": "^0.58.4",
     "eslint-config-flat-gitignore": "^0.1.2",
@@ -190,7 +190,7 @@
     "eslint": "^8.56.0",
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.0",
-    "markdownlint-cli": "^0.38.0",
+    "markdownlint-cli": "^0.39.0",
     "oxlint": "^0.2.6",
     "prettier": "^3.2.4",
     "publint": "^0.2.7",
@@ -212,9 +212,9 @@
     "postcss": "^8.0.0",
     "prettier": "^3.0.0",
     "react": "^18.0.0",
-    "stylelint": "^15.10.0",
+    "stylelint": "^16.0.0",
     "typescript": "^5.0.0",
-    "vue": "^3.2.0 || ^2.7.0 || ^2.6.0"
+    "vue": "^3.2.0"
   },
   "peerDependenciesMeta": {
     "@types/eslint": {
@@ -242,7 +242,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@8.15.0",
+  "packageManager": "pnpm@8.15.1",
   "engines": {
     "node": ">=18"
   },
