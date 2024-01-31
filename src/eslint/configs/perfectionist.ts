@@ -59,7 +59,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         'perfectionist/sort-objects': [
           'error',
           {
-            'partition-by-comment': 'Part:**',
+            'partition-by-comment': true,
             'partition-by-new-line': true,
             type: 'natural',
           },
