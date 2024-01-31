@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.2.2](https://github.com/ModyQyW/fabric/compare/v10.2.1...v10.2.2) (2024-01-31)
+
+### Bug Fixes
+
+- **eslint:** allow vue file more filename cases ([2eb5c02](https://github.com/ModyQyW/fabric/commit/2eb5c02219912d4cbfb6116b1e6631fa74c51dae))
+- **eslint:** perfectionist/sort-objects partition-by-comment defaults to true ([5eb96fa](https://github.com/ModyQyW/fabric/commit/5eb96fac9424301713b6dae0cad15aae3c72b9f3))
+
 ## [10.2.1](https://github.com/ModyQyW/fabric/compare/v10.2.0...v10.2.1) (2024-01-30)
 
 ### Bug Fixes
