@@ -13,19 +13,19 @@ You have to install simple-git-hooks first. Currently simple-git-hooks v2 is sup
 ::: code-group
 
 ```shell [npm]
-npm install simple-git-hooks -D
+npm install simple-git-hooks is-ci -D
 ```
 
 ```shell [yarn]
-yarn add simple-git-hooks -D
+yarn add simple-git-hooks is-ci -D
 ```
 
 ```shell [pnpm]
-pnpm install simple-git-hooks -D
+pnpm install simple-git-hooks is-ci -D
 ```
 
 ```shell [bun(experimental)]
-bun install simple-git-hooks -d
+bun install simple-git-hooks is-ci -d
 ```
 
 :::
@@ -34,6 +34,8 @@ bun install simple-git-hooks -d
 
 simple-git-hooks only supports CJS currently.
 
+### CJS
+
 ```javascript
 // simple-git-hooks.cjs
 const { simpleGitHooks } = require('@modyqyw/fabric');
@@ -41,6 +43,18 @@ const { simpleGitHooks } = require('@modyqyw/fabric');
 // const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
 
 module.exports = simpleGitHooks();
+```
+
+### CLI
+
+Update your `package.json` and add `prepare` script.
+
+```json
+{
+  "scripts": {
+    "prepare": "is-ci || simple-git-hooks"
+  }
+}
 ```
 
 ## Customization

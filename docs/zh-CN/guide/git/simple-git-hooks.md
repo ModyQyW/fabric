@@ -13,19 +13,19 @@ simple-git-hooks 是被广泛采用的 Git 工具，帮助你轻松地管理 Git
 ::: code-group
 
 ```shell [npm]
-npm install simple-git-hooks -D
+npm install simple-git-hooks is-ci -D
 ```
 
 ```shell [yarn]
-yarn add simple-git-hooks -D
+yarn add simple-git-hooks is-ci -D
 ```
 
 ```shell [pnpm]
-pnpm install simple-git-hooks -D
+pnpm install simple-git-hooks is-ci -D
 ```
 
 ```shell [bun(experimental)]
-bun install simple-git-hooks -d
+bun install simple-git-hooks is-ci -d
 ```
 
 :::
@@ -34,6 +34,8 @@ bun install simple-git-hooks -d
 
 simple-git-hooks 目前只支持 CJS。
 
+### CJS
+
 ```javascript
 // simple-git-hooks.cjs
 const { simpleGitHooks } = require('@modyqyw/fabric');
@@ -41,6 +43,18 @@ const { simpleGitHooks } = require('@modyqyw/fabric');
 // const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
 
 module.exports = simpleGitHooks();
+```
+
+### CLI
+
+更新你的 `package.json`，增加 `prepare` 命令。
+
+```json
+{
+  "scripts": {
+    "prepare": "is-ci || simple-git-hooks"
+  }
+}
 ```
 
 ## 自定义
