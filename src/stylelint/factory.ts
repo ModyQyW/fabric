@@ -11,6 +11,12 @@ export function stylelint(
   return {
     extends: extends_(parsed),
     ignoreFiles: GLOB_EXCLUDE,
+    overrides: [
+      {
+        customSyntax: 'postcss-html',
+        files: ['*.vue', '**/*.vue'],
+      },
+    ],
     reportDescriptionlessDisables: true,
     reportInvalidScopeDisables: true,
     reportNeedlessDisables: true,
