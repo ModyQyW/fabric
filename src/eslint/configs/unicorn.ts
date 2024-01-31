@@ -22,6 +22,8 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
             ignore: [
               // README.md, CHANGELOG.md, README.zh-CN.md
               '\\.md$',
+              // MyApp.vue
+              '\\.vue$',
               // index.jsx, Index.jsx, .etc
               '^[Ii]ndex',
               // app.jsx, App.jsx, .etc
