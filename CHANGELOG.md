@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.2.3](https://github.com/ModyQyW/fabric/compare/v10.2.2...v10.2.3) (2024-01-31)
+
+### Bug Fixes
+
+- **stylelint:** fix vue config ([a513eec](https://github.com/ModyQyW/fabric/commit/a513eece977eaa635a398a4e0c915ece418af956))
+
 ## [10.2.2](https://github.com/ModyQyW/fabric/compare/v10.2.1...v10.2.2) (2024-01-31)
 
 ### Bug Fixes
