@@ -63,7 +63,7 @@ Update your `package.json` and add `format` script.
 ```json
 {
   "scripts": {
-    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache --log-level=warn"
+    "format": "prettier . \"!**/package-lock.json\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" --ignore-unknown --write --cache --log-level=warn"
   }
 }
 ```
@@ -203,7 +203,7 @@ If you are not, you can refer to the following configuration.
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
 export default {
-  '*': 'prettier "!*lock*" --ignore-unknown --write --cache',
+  '*': 'prettier "!**/package-lock.json" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache',
 };
 ```
 

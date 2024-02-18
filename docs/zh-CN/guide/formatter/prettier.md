@@ -63,7 +63,7 @@ module.exports = prettier();
 ```json
 {
   "scripts": {
-    "format": "prettier . \"!*lock*\" --ignore-unknown --write --cache --log-level=warn"
+    "format": "prettier . \"!**/package-lock.json\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" --ignore-unknown --write --cache --log-level=warn"
   }
 }
 ```
@@ -203,7 +203,7 @@ WebStorm 自带 Prettier，可参考 [如何与 VSC 整合使用？](#如何和-
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
 export default {
-  '*': 'prettier "!*lock*" --ignore-unknown --write --cache',
+  '*': 'prettier "!**/package-lock.json" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache',
 };
 ```
 
