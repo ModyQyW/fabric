@@ -14,6 +14,7 @@ export function node(options: NodeOptions = {}): Config[] {
         ...pluginN.configs['flat/recommended'].rules,
         'n/no-missing-import': 'off',
         'n/no-missing-require': 'off',
+        'n/shebang': 'off',
         ...rules,
       },
     },
