@@ -51,7 +51,8 @@ export function lintStaged(
   }
 
   if (enablePrettier) {
-    config['*'] = 'prettier "!*lock*" --ignore-unknown --write --cache';
+    config['*'] =
+      'prettier "!**/package-lock.json" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache';
   }
 
   return {
