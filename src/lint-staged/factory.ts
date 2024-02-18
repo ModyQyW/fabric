@@ -18,18 +18,13 @@ export function lintStaged(
   const config: Config = {};
 
   if (enableOxlint && enableESLint) {
-    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'] = [
+    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = [
       'oxlint --deny=correctness --deny=perf --fix',
       'eslint --fix --cache --no-error-on-unmatched-pattern',
     ];
-    config['*.vue'] = [
-      'oxlint --deny=correctness --deny=perf',
-      'eslint --fix --cache --no-error-on-unmatched-pattern',
-    ];
   } else if (enableOxlint) {
-    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}'] =
+    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] =
       'oxlint --deny=correctness --deny=perf --fix';
-    config['*.vue'] = 'oxlint --deny=correctness --deny=perf --fix';
   } else if (enableESLint) {
     config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] =
       'eslint --fix --cache --no-error-on-unmatched-pattern';
