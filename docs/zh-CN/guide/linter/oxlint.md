@@ -39,7 +39,7 @@ bun install oxlint -d
 ```json
 {
   "scripts": {
-    "lint:oxlint": "oxlint --deny=correctness --deny=perf"
+    "lint:oxlint": "oxlint --deny=correctness --deny=perf --fix"
   }
 }
 ```
@@ -56,12 +56,8 @@ bun install oxlint -d
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
 export default {
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}': [
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': [
     'oxlint --deny=correctness --deny=perf --fix'
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
-  ],
-  '*.vue': [
-    'oxlint --deny=correctness --deny=perf'
     'eslint --fix --cache --no-error-on-unmatched-pattern',
   ],
 };
