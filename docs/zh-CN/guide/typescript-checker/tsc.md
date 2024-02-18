@@ -67,7 +67,7 @@ bun install typescript vue-tsc -d
 ```json
 {
   "scripts": {
-    "check:types": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   }
 }
 ```
@@ -77,7 +77,7 @@ bun install typescript vue-tsc -d
 ```json
 {
   "scripts": {
-    "check:types": "vue-tsc -p tsconfig.json --noEmit"
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   }
 }
 ```

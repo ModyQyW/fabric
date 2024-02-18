@@ -45,7 +45,7 @@ Update your `package.json` and add `check:types` script.
 ```json
 {
   "scripts": {
-    "check:types": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   }
 }
 ```
@@ -55,7 +55,7 @@ For Vue projects, you need to change tsc to vue-tsc.
 ```json
 {
   "scripts": {
-    "check:types": "vue-tsc -p tsconfig.json --noEmit"
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
   }
 }
 ```
