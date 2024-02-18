@@ -72,5 +72,23 @@ bun install @modyqyw/fabric -d
 That's it! Next, you can configure the project to suit your needs.
 
 ::: tip Tips for usage
+
 This library does not provide out-of-the-box configuration for LESS, Svelte, Lit, Angular, etc., but you should be able to easily add support following the guidelines.
+
 :::
+
+Of course, you can also configure your project using the CLI (available starting with v10.3), which allows you to quickly configure your project with a single command.
+
+```shell
+mf -h # See how to use it
+
+mf --all # Configure all options
+
+mf --prettier # configure prettier only
+```
+
+::: warning Tips for usage
+
+@modyqyw/fabric does not consider support for older projects. This may break your old project if you use the CLI directly to quickly configure it on the old project!
+
+:::.

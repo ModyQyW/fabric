@@ -72,5 +72,23 @@ bun install @modyqyw/fabric -d
 就是这么简单！接下来，你可以根据你的需要来配置项目。
 
 ::: tip 适用提示
+
 这个库没有针对 LESS、Svelte、Lit、Angular 等提供开箱即用的配置，但根据指引你应该能轻松地增加支持。
+
+:::
+
+当然，你也可以使用 CLI（v10.3 开始提供）来配置项目，实现一条命令快速配置项目。
+
+```shell
+mf -h # 查看使用方法
+
+mf --all # 配置所有选项
+
+mf --prettier # 只配置 prettier
+```
+
+::: warning 适用提示
+
+@modyqyw/fabric 没有考虑支持老旧项目。如果你直接使用 CLI 在旧项目上快速配置，这可能会破坏你的旧项目！
+
 :::
