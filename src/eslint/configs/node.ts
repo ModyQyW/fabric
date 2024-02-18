@@ -12,8 +12,11 @@ export function node(options: NodeOptions = {}): Config[] {
       },
       rules: {
         ...pluginN.configs['flat/recommended'].rules,
+        // handle by eslint-plugin-import / eslint-plugin-i
         'n/no-missing-import': 'off',
+        // handle by eslint-plugin-import / eslint-plugin-i
         'n/no-missing-require': 'off',
+        // allow source code for shebang
         'n/shebang': 'off',
         ...rules,
       },
