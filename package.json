@@ -146,8 +146,7 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "check:deps": "taze -f",
-    "check:types": "tsc --noEmit",
+    "depupdate": "taze -f",
     "dev": "unbuild --stub",
     "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
@@ -161,7 +160,8 @@
     "lint:script": "nr lint:oxlint && nr lint:eslint",
     "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
-    "release": "commit-and-tag-version -a"
+    "release": "commit-and-tag-version -a",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@antfu/install-pkg": "^0.3.1",
