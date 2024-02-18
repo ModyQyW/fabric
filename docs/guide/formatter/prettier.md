@@ -173,7 +173,7 @@ export default {
 
 ## Integration
 
-### How to integrate with VSC?
+### VSC
 
 Install [the corresponding Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) first.
 
@@ -189,11 +189,11 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
 }
 ```
 
-### How to integrate with WebStorm?
+### WebStorm
 
-WebStorm comes with Prettier, see [How to integrate with VSC?](#how-to-integrate-with-vsc) to tweak it yourself.
+WebStorm comes with Prettier, see [VSC](#vsc) to tweak it yourself.
 
-### How to integrate with lint-staged?
+### lint-staged
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
 
@@ -207,7 +207,9 @@ export default {
 };
 ```
 
-### Why not integrate with ESLint?
+### ESLint
+
+It is not recommended to run Prettier inside ESLint.
 
 > Running Prettier inside the linter slows down the linting process, might clutter the editor with annoying warnings, and adds one layer of indirection where things may break. [Prettier's official documentation](https://prettier.io/docs/en/integrating-with-linters.html) recommends using separate commands for linting and formatting, i.e., Prettier for code formatting concerns and ESLint for code-quality concerns.
 

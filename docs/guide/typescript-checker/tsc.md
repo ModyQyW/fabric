@@ -40,7 +40,7 @@ If the tsconfig file was not provided with the project initialization, you can u
 
 ### CLI
 
-Update your `package.json` and add `check:types` script.
+Update your `package.json` and add `typecheck` script.
 
 ```json
 {
@@ -68,15 +68,15 @@ Some projects may provide more than one tsconfig file for initialization, for ex
 
 ## Integration
 
-### How to integrate with VSC?
+### VSC
 
 VSC comes with a TypeScript plugin. VSC comes with a TypeScript plugin. For Vue projects, please follow the [Official website](https://vuejs.org/guide/typescript/overview.html) to configure the settings accordingly.
 
-### How to integrate with WebStorm?
+### WebStorm
 
 WebStorm comes with a TypeScript plugin.
 
-### Why not integrate with lint-staged?
+### lint-staged
 
 tsc / vue-tsc needs to go through all the project files in order to be able to analyze them, which also means that it's not really possible to **only** run tsc / vue-tsc on a staging file. See [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) and [lint-staged#1352](https://github.com/lint-staged/lint-staged/pull/1352) for more information.
 

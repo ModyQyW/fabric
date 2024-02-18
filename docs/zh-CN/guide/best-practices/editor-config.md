@@ -23,10 +23,10 @@ trim_trailing_whitespace = false
 
 ## 整合
 
-### 如何和 VSC 整合使用？
+### VSC
 
 安装 [对应的 EditorConfig 插件](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) 即可。
 
-### 如何与 WebStorm 整合使用？
+### WebStorm
 
 WebStorm 自带 EditorConfig。

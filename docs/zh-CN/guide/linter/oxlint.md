@@ -46,7 +46,7 @@ bun install oxlint -d
 
 ## 整合
 
-### 如何和 lint-staged 整合使用？
+### lint-staged
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 

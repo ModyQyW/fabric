@@ -108,7 +108,7 @@ export default lintStaged(undefined, {
 
 ## Integration
 
-### How to integrate with simple-git-hooks?
+### simple-git-hooks
 
 If you are using the simple-git-hooks configuration provided by the package, see the [simple-git-hooks chapter](../git/simple-git-hooks.md).
 

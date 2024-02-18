@@ -108,7 +108,7 @@ export default lintStaged(undefined, {
 
 ## 整合
 
-### 如何与 simple-git-hooks 整合使用？
+### simple-git-hooks
 
 如果你使用该库提供的 simple-git-hooks 配置，请查看 [simple-git-hooks 章节](../git/simple-git-hooks.md)。
 

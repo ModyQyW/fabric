@@ -145,7 +145,7 @@ The configuration supports Vue, TailwindCSS and Module CSS by default. When cust
 
 ## Integration
 
-### How to integrate with VSC?
+### VSC
 
 Install [the corresponding Stylelint plugin](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) first.
 
@@ -184,11 +184,11 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
 }
 ```
 
-### How to integrate with WebStorm?
+### WebStorm
 
-WebStorm comes with Prettier, see [How to integrate with VSC?](#how-to-integrate-with-vsc) to tweak it yourself.
+WebStorm comes with Prettier, see [VSC](#vsc) to tweak it yourself.
 
-### How to integrate with lint-staged?
+### lint-staged
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
 

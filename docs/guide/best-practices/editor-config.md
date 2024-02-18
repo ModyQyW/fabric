@@ -23,10 +23,10 @@ trim_trailing_whitespace = false
 
 ## Integration
 
-### How to integrate with VSC?
+### VSC
 
 Install the [corresponding EditorConfig plugin](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig).
 
-### How to integrate with WebStorm?
+### WebStorm
 
 WebStorm comes with EditorConfig.

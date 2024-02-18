@@ -173,7 +173,7 @@ export default {
 
 ## 整合
 
-### 如何和 VSC 整合使用？
+### VSC
 
 先安装 [对应的 Prettier 插件](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)。
 
@@ -189,11 +189,11 @@ export default {
 }
 ```
 
-### 如何与 WebStorm 整合使用？
+### WebStorm
 
-WebStorm 自带 Prettier，可参考 [如何与 VSC 整合使用？](#如何和-vsc-整合使用) 自行调整。
+WebStorm 自带 Prettier，可参考 [VSC](#vsc) 自行调整。
 
-### 如何和 lint-staged 整合使用？
+### lint-staged
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 
@@ -207,7 +207,9 @@ export default {
 };
 ```
 
-### 为什么不和 ESLint 整合使用？
+### ESLint
+
+不建议在 ESLint 中调用 Prettier。
 
 > 在 linter 中运行 Prettier 会减慢 linting 过程，可能会因为警告而使编辑器变得混乱，并添加一层可能会导致问题的间接层。[Prettier 的官方文档](https://prettier.io/docs/en/integrating-with-linters.html) 建议使用单独的命令进行代码检查和代码格式化，即 Prettier 用于代码格式化问题，ESLint 用于代码质量问题。
 

@@ -53,7 +53,7 @@ bun install markdownlint-cli -d
 
 ## 整合
 
-### 如何和 VSC 整合使用？
+### VSC
 
 先安装 [对应的 markdownlint 插件](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)。
 
@@ -70,11 +70,11 @@ bun install markdownlint-cli -d
 }
 ```
 
-### 如何与 WebStorm 整合使用？
+### WebStorm
 
 WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/20851-markdownlint) 以获取 markdownlint 支持。
 
-### 如何和 lint-staged 整合使用？
+### lint-staged
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 

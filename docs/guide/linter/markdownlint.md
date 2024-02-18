@@ -53,7 +53,7 @@ Update your `package.json` and add `lint:markdownlint` script.
 
 ## Integration
 
-### How to integrate with VSC?
+### VSC
 
 Install [the corresponding markdownlint plugin](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) first.
 
@@ -70,11 +70,11 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
 }
 ```
 
-### How to integrate with WebStorm?
+### WebStorm
 
 WebStorm can use [plugin](https://plugins.jetbrains.com/plugin/20851-markdownlint) to get markdownlint support.
 
-### How to integrate with lint-staged?
+### lint-staged
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
 

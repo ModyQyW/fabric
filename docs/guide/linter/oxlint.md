@@ -46,7 +46,7 @@ Update your `package.json` and add `lint:oxlint` script.
 
 ## Integration
 
-### How to integrate with lint-staged?
+### lint-staged
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
 

@@ -145,7 +145,7 @@ export default {
 
 ## 整合
 
-### 如何和 VSC 整合使用？
+### VSC
 
 先安装 [对应的 Stylelint 插件](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)。
 
@@ -184,11 +184,11 @@ export default {
 }
 ```
 
-### 如何与 WebStorm 整合使用？
+### WebStorm
 
-WebStorm 自带 Stylelint，可参考 [如何与 VSC 整合使用？](#如何和-vsc-整合使用) 自行调整。
+WebStorm 自带 Stylelint，可参考 [VSC](#vsc) 自行调整。
 
-### 如何和 lint-staged 整合使用？
+### lint-staged
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 

@@ -62,7 +62,7 @@ bun install typescript vue-tsc -d
 
 ### CLI
 
-更新你的 `package.json`，增加 `check:types` 命令。
+更新你的 `package.json`，增加 `typecheck` 命令。
 
 ```json
 {
@@ -88,13 +88,19 @@ bun install typescript vue-tsc -d
 
 :::
 
+::: tip 内存不足
+
+在运行类型检查时，可能会遇到内存不足的问题。请参考 https://github.com/vuejs/language-tools/issues/2210#issuecomment-1362480330 和 https://github.com/vuejs/language-tools/issues/3817#issuecomment-1925009568 解决。
+
+:::
+
 ## 整合
 
-### 如何和 VSC 整合使用？
+### VSC
 
 VSC 自带 TypeScript 插件。对于 Vue 项目，请根据 [官网说明](https://cn.vuejs.org/guide/typescript/overview.html) 进行相应的设置。
 
-### 如何与 WebStorm 整合使用？
+### WebStorm
 
 WebStorm 自带 TypeScript 插件。
 
