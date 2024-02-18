@@ -51,8 +51,17 @@ export function lintStaged(
   }
 
   if (enablePrettier) {
-    config['*'] =
-      'prettier "!**/package-lock.json" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache';
+    config['*'] = (filenames) => {
+      console.log('filenames', filenames);
+      return filenames
+        .filter(
+          (f) =>
+            f.endsWith('package-lock.json') ||
+            f.endsWith('yarn.lock') ||
+            f.endsWith('pnpm-lock.yaml'),
+        )
+        .map((f) => `prettier --ignore-unknown --write --cache ${f}`);
+    };
   }
 
   return {
