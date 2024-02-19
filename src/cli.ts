@@ -13,6 +13,7 @@ import got from 'got';
 import { Listr } from 'listr2';
 import { isPackageExists } from 'local-pkg';
 import semver from 'semver';
+import sortPackageJson from 'sort-package-json';
 import updateNotifier from 'update-notifier';
 import packageJson from '../package.json';
 
@@ -58,7 +59,10 @@ function resolvePath(...paths: string[]) {
   return resolve(cwd, dir, ...paths);
 }
 const packageJsonPath = resolvePath('package.json');
-const packageJsonContent = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+const packageJsonContent = readFileSync(packageJsonPath, 'utf8');
+const packageJsonObject = JSON.parse(packageJsonContent);
+const packageJsonEof = '\n';
+const packageJsonIndent = '  ';
 const isESM = packageJson.type === 'module';
 
 const functionOptions: {
@@ -158,7 +162,7 @@ module.exports = stylelint();`,
     ].filter(Boolean) as string[],
     scripts: {
       typecheck:
-        packageJsonContent?.scripts?.typecheck ?? isPackageExists('vue')
+        packageJsonObject?.scripts?.typecheck ?? isPackageExists('vue')
           ? 'vue-tsc --noEmit'
           : 'tsc --noEmit',
     },
@@ -299,9 +303,9 @@ const tasks = new Listr<Ctx>([
               .map((f) => unlink(resolvePath(f))),
           ),
       );
-      if (packageJsonContent) {
+      if (packageJsonObject) {
         for (const o of filtered) {
-          if (o.field) delete packageJsonContent[o.field];
+          if (o.field) delete packageJsonObject[o.field];
         }
       }
     },
@@ -310,30 +314,42 @@ const tasks = new Listr<Ctx>([
   {
     retry: 1,
     task: async (ctx) => {
+      const promises: Promise<any>[] = [];
       const filtered = functionOptions.filter((o) =>
         ctx.functions.includes(o.value),
       );
       const notInstalled = filtered.filter(
-        (o) => !packageJsonContent?.devDependencies[o.value],
+        (o) => !packageJsonObject?.devDependencies[o.value],
       );
       if (notInstalled.length > 0) {
-        await installPackage(
-          notInstalled.flatMap((f) => f.packages ?? []),
-          { cwd: resolve(cwd, dir), dev: true, silent: true },
+        promises.push(
+          installPackage(
+            notInstalled.flatMap((f) => f.packages ?? []),
+            { cwd: resolve(cwd, dir), dev: true, silent: true },
+          ),
         );
       }
-      const promises: Promise<void>[] = [];
       for (const f of filtered) {
         if (f.path && f.template) {
           promises.push(writeFile(resolvePath(f.path), f.template));
         }
         if (f.scripts) {
-          packageJsonContent.scripts = {
-            ...packageJsonContent.scripts,
+          packageJsonObject.scripts = {
+            ...packageJsonObject.scripts,
             ...f.scripts,
           };
         }
       }
+      promises.push(
+        writeFile(
+          packageJsonPath,
+          JSON.stringify(
+            sortPackageJson(packageJsonObject),
+            null,
+            packageJsonIndent,
+          ) + packageJsonEof,
+        ),
+      );
       await Promise.all(promises);
     },
     title: 'Setup',
