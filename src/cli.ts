@@ -63,6 +63,7 @@ const packageJsonContent = readFileSync(packageJsonPath, 'utf8');
 const packageJsonObject = JSON.parse(packageJsonContent);
 const packageJsonEof = '\n';
 const packageJsonIndent = '  ';
+const isESM = packageJsonObject.type === 'module';
 
 const functionOptions: {
   description: string;
@@ -86,7 +87,8 @@ const functionOptions: {
     },
     template: `import { prettier } from '@modyqyw/fabric';
 
-export default prettier();`,
+export default prettier();
+`,
     value: 'prettier',
   },
   {
@@ -98,9 +100,16 @@ export default prettier();`,
     scripts: {
       'lint:eslint': 'eslint . --fix --cache',
     },
-    template: `import { eslint } from '@modyqyw/fabric';
+    template: isESM
+      ? `import { eslint } from '@modyqyw/fabric';
 
-export default eslint();`,
+export default eslint();
+`
+      : `
+const { eslint } = require('@modyqyw/fabric');
+
+module.exports = eslint();
+`,
     value: 'eslint',
   },
   {
@@ -123,7 +132,8 @@ export default eslint();`,
     },
     template: `import { stylelint } from '@modyqyw/fabric';
 
-export default stylelint();`,
+export default stylelint();
+`,
     value: 'stylelint',
   },
   {
@@ -138,7 +148,8 @@ export default stylelint();`,
     template: `{
   "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
   "extends": "@modyqyw/fabric/markdownlint.json"
-}`,
+}
+`,
     value: 'markdownlint',
   },
   {
@@ -162,7 +173,8 @@ export default stylelint();`,
     patterns: ['.commitlintrc*', 'commitlint.config.*'],
     template: `import { commitlint } from '@modyqyw/fabric';
 
-export default commitlint();`,
+export default commitlint();
+`,
     value: 'commitlint',
   },
   {
@@ -172,7 +184,8 @@ export default commitlint();`,
     path: 'lint-staged.config.mjs',
     patterns: ['.lintstagedrc*', 'lint-staged.config.*'],
     template: `import { lintStaged } from '@modyqyw/fabric';
-export default lintStaged();`,
+export default lintStaged();
+`,
     value: 'lint-staged',
   },
   {
@@ -187,7 +200,8 @@ export default lintStaged();`,
     template: `require('esbuild-register');
 const { simpleGitHooks } = require('@modyqyw/fabric');
 
-module.exports = simpleGitHooks();`,
+module.exports = simpleGitHooks();
+`,
     value: 'simple-git-hooks',
   },
 ];
