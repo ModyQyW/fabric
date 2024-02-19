@@ -149,9 +149,8 @@ export default stylelint();`,
     ].filter(Boolean) as string[],
     scripts: {
       typecheck:
-        packageJsonObject?.scripts?.typecheck ?? isPackageExists('vue')
-          ? 'vue-tsc --noEmit'
-          : 'tsc --noEmit',
+        packageJsonObject?.scripts?.typecheck ??
+        (isPackageExists('vue') ? 'vue-tsc --noEmit' : 'tsc --noEmit'),
     },
     value: 'tsc',
   },
