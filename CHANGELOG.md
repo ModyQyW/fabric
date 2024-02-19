@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.3.8](https://github.com/ModyQyW/fabric/compare/v10.3.7...v10.3.8) (2024-02-19)
+
+
+### Bug Fixes
+
+* **cli:** eslint cjs config ([dfed0c6](https://github.com/ModyQyW/fabric/commit/dfed0c6a6e41bcf67b74930e66a9f0c23ad172cb))
+
 ## [10.3.7](https://github.com/ModyQyW/fabric/compare/v10.3.6...v10.3.7) (2024-02-19)
 
 
