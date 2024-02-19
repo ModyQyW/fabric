@@ -105,7 +105,8 @@ export default prettier();
 
 export default eslint();
 `
-      : `
+      : `/* eslint-disable unicorn/prefer-module */
+require('esbuild-register');
 const { eslint } = require('@modyqyw/fabric');
 
 module.exports = eslint();
