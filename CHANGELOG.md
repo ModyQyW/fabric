@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.3.1](https://github.com/ModyQyW/fabric/compare/v10.3.0...v10.3.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* **cli:** skip install for installed packages ([36725aa](https://github.com/ModyQyW/fabric/commit/36725aa107b478aec213c1195c843bdd70083479))
+
 ## [10.3.0](https://github.com/ModyQyW/fabric/compare/v10.2.3...v10.3.0) (2024-02-18)
 
 
