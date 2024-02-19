@@ -200,9 +200,12 @@ module.exports = lintStaged();`,
   {
     description: 'simple-git-hooks',
     field: 'simple-git-hooks',
-    packages: ['simple-git-hooks'],
+    packages: ['simple-git-hooks', 'is-ci'],
     path: '.simple-git-hooks.cjs',
     patterns: ['.simple-git-hooks*', 'simple-git-hooks.*'],
+    scripts: {
+      prepare: 'is-ci || simple-git-hooks',
+    },
     template: `const { simpleGitHooks } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks();`,
