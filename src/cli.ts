@@ -50,8 +50,8 @@ const program = new Command()
   .parse();
 const args = program.args;
 const opts = program.opts();
-console.log('args', args);
-console.log('opts', opts);
+// console.log('args', args);
+// console.log('opts', opts);
 
 const dir = args[0] || '.';
 const cwd = process.cwd();
@@ -318,8 +318,14 @@ const tasks = new Listr<Ctx>([
       const filtered = functionOptions.filter((o) =>
         ctx.functions.includes(o.value),
       );
-      const notInstalled = filtered.filter(
-        (o) => !packageJsonObject?.devDependencies[o.value],
+      const notInstalled = filtered.filter((o) =>
+        o.packages?.some(
+          (p) =>
+            !(
+              packageJsonObject?.devDependencies[p] ||
+              packageJsonObject?.dependencies[p]
+            ),
+        ),
       );
       if (notInstalled.length > 0) {
         promises.push(
