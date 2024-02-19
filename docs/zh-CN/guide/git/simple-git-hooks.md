@@ -13,19 +13,19 @@ simple-git-hooks 是被广泛采用的 Git 工具，帮助你轻松地管理 Git
 ::: code-group
 
 ```shell [npm]
-npm install simple-git-hooks is-ci -D
+npm install simple-git-hooks is-ci esbuild-register -D
 ```
 
 ```shell [yarn]
-yarn add simple-git-hooks is-ci -D
+yarn add simple-git-hooks is-ci esbuild-register -D
 ```
 
 ```shell [pnpm]
-pnpm install simple-git-hooks is-ci -D
+pnpm install simple-git-hooks is-ci esbuild-register -D
 ```
 
 ```shell [bun(experimental)]
-bun install simple-git-hooks is-ci -d
+bun install simple-git-hooks is-ci esbuild-register -d
 ```
 
 :::
@@ -72,6 +72,7 @@ module.exports = simpleGitHooks();
 
 ```javascript
 // simple-git-hooks.cjs
+require('esbuild-register');
 const {
   simpleGitHooks,
   hasCommitlint,
@@ -88,6 +89,7 @@ module.exports = simpleGitHooks({
 
 ```javascript
 // simple-git-hooks.cjs
+require('esbuild-register');
 const { simpleGitHooks } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks(undefined, {
