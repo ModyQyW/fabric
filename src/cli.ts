@@ -185,6 +185,7 @@ export default commitlint();
     path: 'lint-staged.config.mjs',
     patterns: ['.lintstagedrc*', 'lint-staged.config.*'],
     template: `import { lintStaged } from '@modyqyw/fabric';
+
 export default lintStaged();
 `,
     value: 'lint-staged',
