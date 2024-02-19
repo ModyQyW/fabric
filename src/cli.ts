@@ -313,10 +313,15 @@ const tasks = new Listr<Ctx>([
       const filtered = functionOptions.filter((o) =>
         ctx.functions.includes(o.value),
       );
-      await installPackage(
-        filtered.flatMap((f) => f.packages ?? []),
-        { cwd: resolve(cwd, dir), silent: true },
+      const notInstalled = filtered.filter(
+        (o) => !packageJsonContent?.devDependencies[o.value],
       );
+      if (notInstalled.length > 0) {
+        await installPackage(
+          notInstalled.flatMap((f) => f.packages ?? []),
+          { cwd: resolve(cwd, dir), dev: true, silent: true },
+        );
+      }
       const promises: Promise<void>[] = [];
       for (const f of filtered) {
         if (f.path && f.template) {
