@@ -301,21 +301,21 @@ const tasks = new Listr<Ctx>([
       const filtered = functionOptions.filter((o) =>
         ctx.functions.includes(o.value),
       );
-      const notInstalled = filtered.filter((o) =>
-        o.packages?.some(
-          (p) =>
-            !(
-              packageJsonObject?.devDependencies[p] ||
-              packageJsonObject?.dependencies[p]
-            ),
-        ),
+      const packages = filtered.flatMap((f) => f.packages ?? []);
+      const notInstalled = packages.filter(
+        (p) =>
+          !(
+            packageJsonObject?.devDependencies[p] ||
+            packageJsonObject?.dependencies[p]
+          ),
       );
       if (notInstalled.length > 0) {
         promises.push(
-          installPackage(
-            notInstalled.flatMap((f) => f.packages ?? []),
-            { cwd: resolve(cwd, dir), dev: true, silent: true },
-          ),
+          installPackage(notInstalled, {
+            cwd: resolve(cwd, dir),
+            dev: true,
+            silent: true,
+          }),
         );
       }
       for (const f of filtered) {
