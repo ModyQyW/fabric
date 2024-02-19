@@ -63,7 +63,6 @@ const packageJsonContent = readFileSync(packageJsonPath, 'utf8');
 const packageJsonObject = JSON.parse(packageJsonContent);
 const packageJsonEof = '\n';
 const packageJsonIndent = '  ';
-const isESM = packageJson.type === 'module';
 
 const functionOptions: {
   description: string;
@@ -79,37 +78,29 @@ const functionOptions: {
     description: 'Prettier',
     field: 'prettier',
     packages: ['prettier'],
-    path: isESM ? 'prettier.config.mjs' : 'prettier.config.cjs',
+    path: 'prettier.config.mjs',
     patterns: ['.prettierrc*', 'prettier.config.*'],
     scripts: {
       format:
         'prettier . "!**/packages-lock.json*" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache --log-level=warn',
     },
-    template: isESM
-      ? `import { prettier } from '@modyqyw/fabric';
+    template: `import { prettier } from '@modyqyw/fabric';
 
-export default prettier();`
-      : `const { prettier } = require('@modyqyw/fabric');
-
-module.exports = prettier();`,
+export default prettier();`,
     value: 'prettier',
   },
   {
     description: 'ESLint',
     field: 'eslintConfig',
     packages: ['eslint'],
-    path: isESM ? 'eslint.config.js' : 'eslint.config.js',
+    path: 'eslint.config.js',
     patterns: ['.eslintrc*', 'eslint.config.*'],
     scripts: {
       'lint:eslint': 'eslint . --fix --cache',
     },
-    template: isESM
-      ? `import { eslint } from '@modyqyw/fabric';
+    template: `import { eslint } from '@modyqyw/fabric';
 
-export default eslint();`
-      : `const { eslint } = require('@modyqyw/fabric');
-
-module.exports = eslint();`,
+export default eslint();`,
     value: 'eslint',
   },
   {
@@ -124,19 +115,15 @@ module.exports = eslint();`,
     description: 'Stylelint',
     field: 'stylelint',
     packages: ['stylelint'],
-    path: isESM ? 'stylelint.config.mjs' : 'stylelint.config.cjs',
+    path: 'stylelint.config.mjs',
     patterns: ['.stylelintrc*', 'stylelint.config.*'],
     scripts: {
       'lint:stylelint':
         'stylelint "./**/*.{css,scss,vue}" --fix --cache --aei --ignore-path=.gitignore',
     },
-    template: isESM
-      ? `import { stylelint } from '@modyqyw/fabric';
+    template: `import { stylelint } from '@modyqyw/fabric';
 
-export default stylelint();`
-      : `const { stylelint } = require('@modyqyw/fabric');
-
-module.exports = stylelint();`,
+export default stylelint();`,
     value: 'stylelint',
   },
   {
@@ -172,41 +159,34 @@ module.exports = stylelint();`,
     description: 'commitlint',
     field: 'commitlint',
     packages: ['@commitlint/cli'],
-    path: isESM ? 'commitlint.config.mjs' : 'commitlint.config.cjs',
+    path: 'commitlint.config.mjs',
     patterns: ['.commitlintrc*', 'commitlint.config.*'],
-    template: isESM
-      ? `import { commitlint } from '@modyqyw/fabric';
+    template: `import { commitlint } from '@modyqyw/fabric';
 
-export default commitlint();`
-      : `const { commitlint } = require('@modyqyw/fabric');
-
-module.exports = commitlint();`,
+export default commitlint();`,
     value: 'commitlint',
   },
   {
     description: 'lint-staged',
     field: 'lint-staged',
     packages: ['lint-staged'],
-    path: isESM ? 'lint-staged.config.mjs' : 'lint-staged.config.cjs',
+    path: 'lint-staged.config.mjs',
     patterns: ['.lintstagedrc*', 'lint-staged.config.*'],
-    template: isESM
-      ? `import { lintStaged } from '@modyqyw/fabric';
-export default lintStaged();`
-      : `const { lintStaged } = require('@modyqyw/fabric');
-
-module.exports = lintStaged();`,
+    template: `import { lintStaged } from '@modyqyw/fabric';
+export default lintStaged();`,
     value: 'lint-staged',
   },
   {
     description: 'simple-git-hooks',
     field: 'simple-git-hooks',
-    packages: ['simple-git-hooks', 'is-ci'],
+    packages: ['simple-git-hooks', 'is-ci', 'esbuild-register'],
     path: '.simple-git-hooks.cjs',
     patterns: ['.simple-git-hooks*', 'simple-git-hooks.*'],
     scripts: {
       prepare: 'is-ci || simple-git-hooks',
     },
-    template: `const { simpleGitHooks } = require('@modyqyw/fabric');
+    template: `require('esbuild-register');
+const { simpleGitHooks } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks();`,
     value: 'simple-git-hooks',
