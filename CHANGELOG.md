@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.3.9](https://github.com/ModyQyW/fabric/compare/v10.3.8...v10.3.9) (2024-02-20)
+
+
+### Bug Fixes
+
+* **cli:** filter packages before installed ([899d607](https://github.com/ModyQyW/fabric/commit/899d60743e00e09c9a0c126f32782eb63bdddc3d))
+* **cli:** fix eslint packages ([c67e56d](https://github.com/ModyQyW/fabric/commit/c67e56db802fc83e7471b20c82550c4834f3210c))
+* **cli:** fix lint-staged template ([7cf4231](https://github.com/ModyQyW/fabric/commit/7cf423188c933f0fcf8c4daebe7c38e5e4d10ef4))
+* **lint-staged:** disable prettier on auto generated files ([6beb452](https://github.com/ModyQyW/fabric/commit/6beb452f816aa498ce4add58655f25f971c7c261))
+
 ## [10.3.8](https://github.com/ModyQyW/fabric/compare/v10.3.7...v10.3.8) (2024-02-19)
 
 
