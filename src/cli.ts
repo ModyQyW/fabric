@@ -316,7 +316,7 @@ const tasks = new Listr<Ctx>([
       const filtered = functionOptions.filter((o) =>
         ctx.functions.includes(o.value),
       );
-      const packages = filtered.flatMap((f) => f.packages ?? []);
+      const packages = [...new Set(filtered.flatMap((f) => f.packages ?? []))];
       const notInstalled = packages.filter(
         (p) =>
           !(
