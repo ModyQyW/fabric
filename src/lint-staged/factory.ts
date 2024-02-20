@@ -52,13 +52,17 @@ export function lintStaged(
 
   if (enablePrettier) {
     config['*'] = (filenames) => {
-      console.log('filenames', filenames);
       return filenames
         .filter(
           (f) =>
             f.endsWith('package-lock.json') ||
             f.endsWith('yarn.lock') ||
-            f.endsWith('pnpm-lock.yaml'),
+            f.endsWith('pnpm-lock.yaml') ||
+            f.endsWith('auto-import.d.ts') ||
+            f.endsWith('auto-imports.d.ts') ||
+            f.endsWith('components.d.ts') ||
+            f.endsWith('typed-router.d.ts') ||
+            f.endsWith('uni-pages.d.ts'),
         )
         .map((f) => `prettier --ignore-unknown --write --cache ${f}`);
     };
