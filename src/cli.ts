@@ -94,7 +94,7 @@ export default prettier();
   {
     description: 'ESLint',
     field: 'eslintConfig',
-    packages: ['eslint'],
+    packages: isESM ? ['eslint'] : ['eslint', 'esbuild-register'],
     path: 'eslint.config.js',
     patterns: ['.eslintrc*', 'eslint.config.*'],
     scripts: {
