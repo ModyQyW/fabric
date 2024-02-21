@@ -79,7 +79,7 @@ export function vue(options: VueOptions = {}): Config[] {
           },
         ],
         // too ideal for business
-        'vue/multi-word-component-names': 'warn',
+        'vue/multi-word-component-names': 'off',
         // support miniprogram
         'vue/order-in-components': [
           'warn',
