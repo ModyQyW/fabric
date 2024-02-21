@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.3.10](https://github.com/ModyQyW/fabric/compare/v10.3.9...v10.3.10) (2024-02-21)
+
+
+### Bug Fixes
+
+* **constants:** add !.vuepress into GLOB_EXCLUDE ([4a2cb49](https://github.com/ModyQyW/fabric/commit/4a2cb49093d80f606682043c1552274687fe6a9f))
+* **lint-staged:** improve lint-staged support ([d43d29a](https://github.com/ModyQyW/fabric/commit/d43d29a456f35f487e1af17eac87792ab518a70c))
+
 ## [10.3.9](https://github.com/ModyQyW/fabric/compare/v10.3.8...v10.3.9) (2024-02-20)
 
 
