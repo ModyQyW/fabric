@@ -14,12 +14,26 @@ export interface Options {
   /**
    * Lint jsonc files.
    *
+   * @deprecated Use lintJsonc instead.
    * @default true
    */
   jsonc?: boolean;
   /**
+   * Lint jsonc files.
+   *
+   * @default true
+   */
+  lintJsonc?: boolean;
+  /**
    * Lint yml files.
    *
+   * @default true
+   */
+  lintYml?: boolean;
+  /**
+   * Lint yml files.
+   *
+   * @deprecated Use lintYml instead.
    * @default true
    */
   yml?: boolean;
@@ -38,6 +52,12 @@ export interface Options {
    */
   markdownlint?: boolean;
 
+  /**
+   * Format changelog files.
+   *
+   * @default false
+   */
+  formatChangelog?: boolean;
   /**
    * Use Prettier.
    *

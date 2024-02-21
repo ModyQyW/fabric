@@ -1,3 +1,5 @@
+import { GLOB_EXCLUDE } from '../constants';
+import { filterFilenames } from '../utils';
 import { parseOptions } from './utils';
 import type { Config, Options } from './types';
 
@@ -7,24 +9,32 @@ export function lintStaged(
 ): Config {
   const {
     eslint: enableESLint,
-    jsonc: lintJsonc,
+    formatChangelog,
+    lintJsonc,
+    lintYml,
     markdownlint: enableMarkdownlint,
     oxlint: enableOxlint,
     prettier: enablePrettier,
     stylelint: enableStylelint,
-    yml: lintYml,
   } = parseOptions(options);
 
   const config: Config = {};
 
   if (enableOxlint && enableESLint) {
-    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = [
-      'oxlint --deny=correctness --deny=perf --fix',
-      'eslint --fix --cache --no-error-on-unmatched-pattern',
-    ];
+    // filter files for oxlint usage
+    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = (filenames) => {
+      const filtered = filterFilenames(filenames);
+      return [
+        `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`,
+        `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(' ')}`,
+      ];
+    };
   } else if (enableOxlint) {
-    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] =
-      'oxlint --deny=correctness --deny=perf --fix';
+    // filter files for oxlint usage
+    config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = (filenames) => {
+      const filtered = filterFilenames(filenames);
+      return `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`;
+    };
   } else if (enableESLint) {
     config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] =
       'eslint --fix --cache --no-error-on-unmatched-pattern';
@@ -51,20 +61,17 @@ export function lintStaged(
   }
 
   if (enablePrettier) {
+    // filter files for prettier usage
     config['*'] = (filenames) => {
-      return filenames
-        .filter(
-          (f) =>
-            f.endsWith('package-lock.json') ||
-            f.endsWith('yarn.lock') ||
-            f.endsWith('pnpm-lock.yaml') ||
-            f.endsWith('auto-import.d.ts') ||
-            f.endsWith('auto-imports.d.ts') ||
-            f.endsWith('components.d.ts') ||
-            f.endsWith('typed-router.d.ts') ||
-            f.endsWith('uni-pages.d.ts'),
-        )
-        .map((f) => `prettier --ignore-unknown --write --cache ${f}`);
+      const filtered = filterFilenames(
+        filenames,
+        formatChangelog
+          ? GLOB_EXCLUDE.filter((e) => !e.toUpperCase().includes('CHANGELOG'))
+          : GLOB_EXCLUDE,
+      );
+      return filtered.map(
+        (f) => `prettier --ignore-unknown --write --cache ${f}`,
+      );
     };
   }
 
