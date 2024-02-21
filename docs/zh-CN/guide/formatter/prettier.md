@@ -68,6 +68,20 @@ module.exports = prettier();
 }
 ```
 
+::: tip 忽略文件
+
+ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件支持，而 prettier 支持指定多个忽略模式文件，默认会使用 .gitignore 和 .prettierignore 两个忽略模式文件。
+
+如果你有其它的文件需要忽略，你可以像上面例子使用负模式。下面的例子忽略了所有 dts 文件，在自动生成 dts 文件的项目中很有用。
+
+```json
+{
+  "scripts": {
+    "format": "prettier . \"!**/package-lock.json\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" \"!**/*.d.ts\" --ignore-unknown --write --cache --log-level=warn"
+  }
+}
+```
+
 ## 自定义
 
 ### 参数自定义

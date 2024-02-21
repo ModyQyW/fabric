@@ -48,7 +48,7 @@ Update your `package.json` and add `lint:oxlint` script.
 
 While the ESLint config provides .gitignore, .eslintignore, and some built-in ignore files support, oxlint only supports specifying a single ignore pattern file, and uses both the .gitignore and .eslintignore ignore pattern files by default.
 
-If you have other files to ignore, you can use `--ignore-pattern` like above. It ignores all dts files, which is useful in projects that automatically generate dts files.
+If you have other files to ignore, you can use `--ignore-pattern` like below. It ignores all dts files, which is useful in projects that automatically generate dts files.
 
 ```json
 {

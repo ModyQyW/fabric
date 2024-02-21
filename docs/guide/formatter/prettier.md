@@ -68,6 +68,22 @@ Update your `package.json` and add `format` script.
 }
 ```
 
+::: tip Ignoring files
+
+While the ESLint config provides .gitignore, .eslintignore, and some built-in ignore files support, Prettier supports specifying multiple ignore pattern files, and uses both the .gitignore and .prettierignore ignore pattern files by default.
+
+If you have other files to ignore, you can use negative patterns like above. The example below ignores all dts files, which is useful in projects that automatically generate dts files.
+
+```json
+{
+  "scripts": {
+    "format": "prettier . \"!**/package-lock.json\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" \"!**/*.d.ts\" --ignore-unknown --write --cache --log-level=warn"
+  }
+}
+```
+
+:::
+
 ## Customization
 
 ### Parameters
