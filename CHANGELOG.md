@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.3.11](https://github.com/ModyQyW/fabric/compare/v10.3.10...v10.3.11) (2024-02-21)
+
+
+### Bug Fixes
+
+* **eslint:** disable vue/multi-word-component-names ([78a2a16](https://github.com/ModyQyW/fabric/commit/78a2a165f2095fdf0970b8bbfbda6eb7d5912d4b))
+
 ## [10.3.10](https://github.com/ModyQyW/fabric/compare/v10.3.9...v10.3.10) (2024-02-21)
 
 
