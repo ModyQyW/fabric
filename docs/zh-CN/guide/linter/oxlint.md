@@ -44,6 +44,22 @@ bun install oxlint -d
 }
 ```
 
+::: tip 忽略文件
+
+ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件支持，而 oxlint 只支持指定单个忽略模式文件，默认会使用 .gitignore 和 .eslintignore 两个忽略模式文件。
+
+如果你有其它的文件需要忽略，你可以像下面例子使用 `--ignore-pattern`。这个例子忽略了所有 dts 文件，在自动生成 dts 文件的项目中很有用。
+
+```json
+{
+  "scripts": {
+    "lint:oxlint": "oxlint --deny=correctness --deny=perf --ignore-pattern=*.d.ts --fix"
+  }
+}
+```
+
+:::
+
 ## 整合
 
 ### lint-staged
@@ -55,10 +71,15 @@ bun install oxlint -d
 ```javascript
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
+import { filterFilenames } from '@modyqyw/fabric';
+
 export default {
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': [
-    'oxlint --deny=correctness --deny=perf --fix'
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
-  ],
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': (filenames) => {
+    const filtered = filterFilenames(filenames);
+    return [
+      `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`,
+      `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(' ')}`,
+    ];
+  },
 };
 ```

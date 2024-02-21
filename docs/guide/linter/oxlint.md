@@ -44,6 +44,22 @@ Update your `package.json` and add `lint:oxlint` script.
 }
 ```
 
+::: tip Ignoring files
+
+While the ESLint config provides .gitignore, .eslintignore, and some built-in ignore files support, oxlint only supports specifying a single ignore pattern file, and uses both the .gitignore and .eslintignore ignore pattern files by default.
+
+If you have other files to ignore, you can use `--ignore-pattern` like above. It ignores all dts files, which is useful in projects that automatically generate dts files.
+
+```json
+{
+  "scripts": {
+    "lint:oxlint": "oxlint --deny=correctness --deny=perf --ignore-pattern=*.d.ts --fix"
+  }
+}
+```
+
+:::
+
 ## Integration
 
 ### lint-staged
@@ -55,10 +71,15 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
+import { filterFilenames } from '@modyqyw/fabric';
+
 export default {
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': [
-    'oxlint --deny=correctness --deny=perf --fix'
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
-  ],
+  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': (filenames) => {
+    const filtered = filterFilenames(filenames);
+    return [
+      `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`,
+      `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(' ')}`,
+    ];
+  },
 };
 ```

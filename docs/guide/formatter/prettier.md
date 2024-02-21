@@ -202,8 +202,37 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
+import { filterFilenames } from '@modyqyw/fabric';
+
 export default {
-  '*': 'prettier "!**/package-lock.json" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache',
+  '*': (filenames) => {
+    const filtered = filterFilenames(filenames);
+    return filtered.map(
+      (f) => `prettier --ignore-unknown --write --cache ${f}`,
+    );
+  },
+};
+```
+
+If you are hand-writing CHANGELOG.md, you may want to format it with Prettier.
+
+```javascript
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+import { filterFilenames, GLOB_EXCLUDE } from '@modyqyw/fabric';
+
+export default {
+  '*': (filenames) => {
+    const filtered = filterFilenames(
+      filenames,
+      formatChangelog
+        ? GLOB_EXCLUDE.filter((e) => !e.toUpperCase().includes('CHANGELOG'))
+        : GLOB_EXCLUDE,
+    );
+    return filtered.map(
+      (f) => `prettier --ignore-unknown --write --cache ${f}`,
+    );
+  },
 };
 ```
 

@@ -202,8 +202,37 @@ WebStorm 自带 Prettier，可参考 [VSC](#vsc) 自行调整。
 ```javascript
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
+import { filterFilenames } from '@modyqyw/fabric';
+
 export default {
-  '*': 'prettier "!**/package-lock.json" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache',
+  '*': (filenames) => {
+    const filtered = filterFilenames(filenames);
+    return filtered.map(
+      (f) => `prettier --ignore-unknown --write --cache ${f}`,
+    );
+  },
+};
+```
+
+如果你正在手写 CHANGELOG.md，你可能想要使用 Prettier 来做格式化。
+
+```javascript
+// lint-staged.config.mjs
+// or lint-staged.config.js with "type": "module" in package.json
+import { filterFilenames, GLOB_EXCLUDE } from '@modyqyw/fabric';
+
+export default {
+  '*': (filenames) => {
+    const filtered = filterFilenames(
+      filenames,
+      formatChangelog
+        ? GLOB_EXCLUDE.filter((e) => !e.toUpperCase().includes('CHANGELOG'))
+        : GLOB_EXCLUDE,
+    );
+    return filtered.map(
+      (f) => `prettier --ignore-unknown --write --cache ${f}`,
+    );
+  },
 };
 ```
 

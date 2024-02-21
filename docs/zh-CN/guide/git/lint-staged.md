@@ -63,12 +63,13 @@ module.exports = lintStaged();
 目前支持以下配置：
 
 - eslint：使用 ESLint 检查脚本文件，安装 ESLint 后默认启用，否则默认禁用
-- jsonc：在启用 ESLint 的情况下，使用 ESLint 检查 JSON 文件，默认启用
-- yml：在启用 ESLint 的情况下，使用 ESLint 检查 YML 文件，默认启用
+- lintJsonc：在启用 ESLint 的情况下，使用 ESLint 检查 JSON 文件，默认启用
+- lintYml：在启用 ESLint 的情况下，使用 ESLint 检查 YML 文件，默认启用
 - oxlint：使用 oxlint 检查脚本文件，安装 oxlint 后默认启用，否则默认禁用
 - stylelint：使用 Stylelint 检查样式文件，安装 Stylelint 后默认启用，否则默认禁用
 - markdownlint：使用 markdownlint 检查 markdown 文件，安装 markdownlint-cli 后默认启用，否则默认禁用
 - prettier：使用 Prettier 格式化代码，安装 Prettier 后默认启用，否则默认禁用
+- formatChangelog：在启用 Prettier 的情况下，使用 Prettier 格式化 CHANGELOG.md 文件，默认禁用
 
 ```javascript
 // lint-staged.config.mjs
@@ -84,12 +85,13 @@ import {
 
 export default lintStaged({
   eslint: hasESLint,
-  jsonc: true,
-  yml: true,
+  lintJsonc: true,
+  lintYml: true,
   oxlint: hasOxlint,
   stylelint: hasStylelint,
   markdownlint: hasMarkdownlintCli,
   prettier: hasPrettier,
+  formatChangelog: false,
 });
 ```
 

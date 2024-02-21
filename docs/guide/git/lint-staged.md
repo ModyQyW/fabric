@@ -63,12 +63,13 @@ The first parameter is used for basic customization, you can pass either `undefi
 The following plugins are currently supported:
 
 - eslint - Lint scripts with ESLint. Enabled by default if you have ESLint installed.
-- jsonc - Lint JSON files with ESLint when ESLint is enabled. Enabled by default.
-- yml - Lint YML files with ESLint when ESLint is enabled. Enabled by default.
+- lintJsonc - Lint JSON files with ESLint when ESLint is enabled. Enabled by default.
+- lintYml - Lint YML files with ESLint when ESLint is enabled. Enabled by default.
 - oxlint - Lint scripts with oxlint. Enabled by default if you have oxlint installed.
 - stylelint - Lint styles with Stylelint. Enabled by default if you have Stylelint installed.
 - markdownlint - Lint markdown files with markdownlint. Enabled by default if you have markdownlint-cli installed.
-- prettier：Format with Prettier. Enabled by default if you have Prettier installed.
+- prettier - Format with Prettier. Enabled by default if you have Prettier installed.
+- formatChangelog - Format CHANGELOG.md with Prettier when Prettier is enabled. Disabled by default.
 
 ```javascript
 // lint-staged.config.mjs
