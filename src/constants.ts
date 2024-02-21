@@ -54,6 +54,7 @@ export const GLOB_EXCLUDE = [
   '**/bun.lockb',
   '!.github',
   '!.vitepress',
+  '!.vuepress',
   '!.vscode',
   '**/public',
   '**/out',
