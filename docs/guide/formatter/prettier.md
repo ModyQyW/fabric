@@ -82,6 +82,16 @@ If you have other files to ignore, you can use negative patterns like above. The
 }
 ```
 
+The example below ignores CHANGELOG.md, which is useful in projects that automatically generate a changelog file.
+
+```json
+{
+  "scripts": {
+    "format": "prettier . \"!**/package-lock.json\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" \"!**/CHANGELOG*.md\" --ignore-unknown --write --cache --log-level=warn"
+  }
+}
+```
+
 :::
 
 ## Customization

@@ -82,6 +82,16 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 }
 ```
 
+下面的例子忽略了 CHANGELOG.md，在自动生成改动日志的项目中很有用。
+
+```json
+{
+  "scripts": {
+    "format": "prettier . \"!**/package-lock.json\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" \"!**/CHANGELOG*.md\" --ignore-unknown --write --cache --log-level=warn"
+  }
+}
+```
+
 ## 自定义
 
 ### 参数自定义
