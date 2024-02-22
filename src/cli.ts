@@ -83,7 +83,7 @@ const functionOptions: {
     patterns: ['.prettierrc*', 'prettier.config.*'],
     scripts: {
       format:
-        'prettier . "!**/packages-lock.json*" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache --log-level=warn',
+        'prettier . "!**/package-lock.json*" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache --log-level=warn',
     },
     template: `import { prettier } from '@modyqyw/fabric';
 
