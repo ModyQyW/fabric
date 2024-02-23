@@ -80,8 +80,10 @@ web_modules
 # dotenv environment variables file
 .env
 .env.test
+.env*.test
 .env.*.test
 .env.local
+.env*.local
 .env.*.local
 *.local
 
@@ -100,19 +102,39 @@ dist_tauri
 # Cordova
 dist-cordova
 dist_cordova
+src-cordova/node_modules
+src-cordova/platforms
+src-cordova/plugins
+src-cordova/www
 
 # Capacitor
 dist-capacitor
 dist_capacitor
+src-capacitor/node_modules
+src-capacitor/www
+
+# BEX
+dist-bex
+dist_bex
+src-capacitor/js/core
+src-capacitor/www
 
 # Next.js build output
 .next
 out
 
-# Umi.js build output
+# Umi.js build output / generate output
 .umi
 .umi-production
 .umi-test
+
+# Expo build output / generate output
+.expo
+web-build
+expo-env.d.ts
+
+# Metro
+.metro-health-check*
 
 # Nuxt.js build / generate output
 .nuxt
@@ -120,6 +142,9 @@ out
 .output
 generated
 dist
+
+# Quasar build / generate output
+.quasar
 
 # Rax.js build
 .rax
@@ -180,10 +205,15 @@ dist_ssg
 .yarn/install-state.gz
 .pnp.*
 
-# Apple
-.DS_Store
+# Native
+*.orig.*
+*.jks
+*.p8
 *.p12
+*.key
+*.keystore
 *.mobileprovision
 
-# Android
-*.keystore
+# macOS
+.DS_Store
+*.pem
