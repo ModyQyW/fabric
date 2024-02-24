@@ -78,16 +78,17 @@ const functionOptions: {
   {
     description: 'Prettier',
     field: 'prettier',
-    packages: ['prettier'],
-    path: 'prettier.config.mjs',
+    packages: ['prettier', 'esbuild-register'],
+    path: 'prettier.config.cjs',
     patterns: ['.prettierrc*', 'prettier.config.*'],
     scripts: {
       format:
         'prettier . "!**/package-lock.json*" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache --log-level=warn',
     },
-    template: `import { prettier } from '@modyqyw/fabric';
+    template: `require('esbuild-register');
+const { prettier } = require('@modyqyw/fabric');
 
-export default prettier();
+module.exports = prettier();
 `,
     value: 'prettier',
   },
