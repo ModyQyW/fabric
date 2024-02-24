@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.4.0](https://github.com/ModyQyW/fabric/compare/v10.3.11...v10.4.0) (2024-02-24)
+
+
+### Features
+
+* **cli:** add editorconfig support ([5759c79](https://github.com/ModyQyW/fabric/commit/5759c79e3eb0c18b2a9e8821de79640da6f19ea8))
+* **cli:** use eslint.config.mjs ([822facb](https://github.com/ModyQyW/fabric/commit/822facb6981ee5679983c60c22cb81b176ece755))
+
+
+### Bug Fixes
+
+* **cli:** fix spelling ([b133d5a](https://github.com/ModyQyW/fabric/commit/b133d5af471ff71c9452c43a7ef9e8ea683c0b26))
+* **cli:** generate Prettier CJS ([0de8665](https://github.com/ModyQyW/fabric/commit/0de8665a70129126e877c7ad0a4eaa7bf77477a7))
+* remove node check ([d8e18e2](https://github.com/ModyQyW/fabric/commit/d8e18e2ebf29c502c0c01b8a6b3060f23f055678))
+
 ## [10.3.11](https://github.com/ModyQyW/fabric/compare/v10.3.10...v10.3.11) (2024-02-21)
 
 
