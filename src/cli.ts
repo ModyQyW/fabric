@@ -61,7 +61,7 @@ const packageJsonContent = readFileSync(packageJsonPath, 'utf8');
 const packageJsonObject = JSON.parse(packageJsonContent);
 const packageJsonEof = '\n';
 const packageJsonIndent = '  ';
-const isESM = packageJsonObject.type === 'module';
+// const isESM = packageJsonObject.type === 'module';
 
 const functionOptions: {
   description: string;
@@ -112,22 +112,15 @@ module.exports = prettier();
   {
     description: 'ESLint',
     field: 'eslintConfig',
-    packages: isESM ? ['eslint'] : ['eslint', 'esbuild-register'],
-    path: 'eslint.config.js',
+    packages: ['eslint'],
+    path: 'eslint.config.mjs',
     patterns: ['.eslintrc*', 'eslint.config.*'],
     scripts: {
       'lint:eslint': 'eslint . --fix --cache',
     },
-    template: isESM
-      ? `import { eslint } from '@modyqyw/fabric';
+    template: `import { eslint } from '@modyqyw/fabric';
 
 export default eslint();
-`
-      : `/* eslint-disable unicorn/prefer-module */
-require('esbuild-register');
-const { eslint } = require('@modyqyw/fabric');
-
-module.exports = eslint();
 `,
     value: 'eslint',
   },
