@@ -42,7 +42,8 @@ const program = new Command()
   .option('--commitlint', 'setup commitlint')
   .option('--lint-staged', 'setup lint-staged')
   .option('--simple-git-hooks', 'setup simple-git-hooks')
-  .option('--editorconfig', 'setup .editorconfig')
+  .option('--editor-config', 'setup .editorconfig')
+  .option('--vscode', 'setup .vscode')
   .option('-a, --all', 'setup all functions')
   .option('-c, --clean', 'clean legacy setup')
   .parse();
@@ -90,7 +91,7 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 `,
-    value: 'editorconfig',
+    value: 'editor-config',
   },
   {
     description: 'Prettier',
