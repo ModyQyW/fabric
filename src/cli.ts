@@ -42,6 +42,7 @@ const program = new Command()
   .option('--commitlint', 'setup commitlint')
   .option('--lint-staged', 'setup lint-staged')
   .option('--simple-git-hooks', 'setup simple-git-hooks')
+  .option('--editorconfig', 'setup .editorconfig')
   .option('-a, --all', 'setup all functions')
   .option('-c, --clean', 'clean legacy setup')
   .parse();
@@ -72,6 +73,25 @@ const functionOptions: {
   template?: string;
   value: string;
 }[] = [
+  {
+    description: 'EditorConfig',
+    path: '.editorconfig',
+    patterns: ['.editorconfig'],
+    template: `root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+`,
+    value: 'editorconfig',
+  },
   {
     description: 'Prettier',
     field: 'prettier',
