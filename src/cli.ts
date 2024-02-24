@@ -7,12 +7,9 @@ import { checkbox } from '@inquirer/prompts';
 import { ListrInquirerPromptAdapter } from '@listr2/prompt-adapter-inquirer';
 import { Command } from 'commander';
 import consola from 'consola';
-import { $ } from 'execa';
 import fg from 'fast-glob';
-import got from 'got';
 import { Listr } from 'listr2';
 import { isPackageExists } from 'local-pkg';
-import semver from 'semver';
 import sortPackageJson from 'sort-package-json';
 import updateNotifier from 'update-notifier';
 import packageJson from '../package.json';
@@ -209,52 +206,7 @@ module.exports = simpleGitHooks();
   },
 ];
 
-const installLtsWithFnm = (ctx: Ctx) => {
-  $`fnm install ${ctx.ltsMajor} && fnm alias ${ctx.ltsMajor} default`.catch(
-    () => {
-      throw new Error(
-        `Node.js LTS cannot be installed automatically. Please install https://github.com/schniz/fnm, or manually install Node.js LTS ${ctx.ltsVersion}.`,
-      );
-    },
-  );
-};
 const tasks = new Listr<Ctx>([
-  {
-    retry: 1,
-    task: async (ctx) => {
-      try {
-        ctx.nodeVersions = await got(
-          'https://nodejs.org/dist/index.json',
-        ).json();
-        ctx.ltsVersion = ctx.nodeVersions.find((v) => v.lts)!.version;
-        ctx.ltsMajor = semver.major(ctx.ltsVersion);
-      } catch {
-        throw new Error(
-          'Can not fetch the Node.js versions. Please check your network.',
-        );
-      }
-    },
-    title: 'Fetch Node.js versions, latest LTS and latest LTS major',
-  },
-  {
-    retry: 1,
-    task: async (ctx) => {
-      // Node.js exist => get current version and current major
-      // Node.js not exist => try install LTS with fnm
-      try {
-        const result = await $`node -v`;
-        ctx.currentVersion = result.stdout;
-        ctx.currentMajor = semver.major(ctx.currentVersion);
-      } catch {
-        installLtsWithFnm(ctx);
-      }
-      // Compare current major and LTS major
-      // same => do nothing
-      // not same => try install LTS with fnm
-      if (ctx.currentMajor !== ctx.ltsMajor) installLtsWithFnm(ctx);
-    },
-    title: 'Check Node.js',
-  },
   {
     rendererOptions: {
       persistentOutput: true,
