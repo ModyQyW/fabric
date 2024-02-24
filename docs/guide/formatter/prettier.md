@@ -215,6 +215,12 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
 }
 ```
 
+::: warning Config files
+
+As of 02/24/2024, use [CJS](#cjs) if you need to integrate with VSC, see [issues](https://github.com/prettier/prettier-vscode/issues) for details.
+
+:::
+
 ### WebStorm
 
 WebStorm comes with Prettier, see [VSC](#vsc) to tweak it yourself.

@@ -213,6 +213,12 @@ export default {
 }
 ```
 
+::: warning 配置文件
+
+截至 2024 年 02 月 24 日，如果你需要与 VSC 整合使用，请使用 [CJS](#cjs)，详情请查看 [issues](https://github.com/prettier/prettier-vscode/issues)。
+
+:::
+
 ### WebStorm
 
 WebStorm 自带 Prettier，可参考 [VSC](#vsc) 自行调整。
