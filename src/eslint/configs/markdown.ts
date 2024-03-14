@@ -14,16 +14,17 @@ export function markdown(options: MarkdownOptions = {}): Config[] {
   } = options;
   return [
     {
-      files: markdownFiles,
       plugins: {
         markdown: pluginMarkdown,
       },
+    },
+    {
+      files: markdownFiles,
       processor: 'markdown/markdown',
     },
     {
       files: markdownInnerFiles,
       rules: {
-        ...pluginMarkdown.configs.recommended.overrides[1].rules,
         '@typescript-eslint/ban-types': 'off',
         '@typescript-eslint/comma-dangle': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
@@ -31,6 +32,7 @@ export function markdown(options: MarkdownOptions = {}): Config[] {
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-use-before-define': 'off',
         '@typescript-eslint/no-var-requires': 'off',
+        'eol-last': 'off', // eslint-plugin-markdown 4.0.1
         'import/no-unresolved': 'off',
         'n/no-extraneous-import': 'off',
         'n/no-extraneous-require': 'off',
@@ -42,9 +44,12 @@ export function markdown(options: MarkdownOptions = {}): Config[] {
         'no-alert': 'off',
         'no-console': 'off',
         'no-restricted-imports': 'off',
-        'no-undef': 'off',
-        'no-unused-expressions': 'off',
-        'no-unused-vars': 'off',
+        'no-undef': 'off', // eslint-plugin-markdown 4.0.1
+        'no-unused-expressions': 'off', // eslint-plugin-markdown 4.0.1
+        'no-unused-vars': 'off', // eslint-plugin-markdown 4.0.1
+        'padded-blocks': 'off', // eslint-plugin-markdown 4.0.1
+        strict: 'off', // eslint-plugin-markdown 4.0.1
+        'unicode-bom': 'off', // eslint-plugin-markdown 4.0.1
         'unicorn/prefer-module': 'off',
         ...rules,
       },
