@@ -2,7 +2,7 @@ export type Commands = string | string[];
 
 export type ConfigFn = (filenames: string[]) => Commands | Promise<Commands>;
 
-export type Config = { [key: string]: Commands | ConfigFn } | ConfigFn;
+export type Config = ConfigFn | Record<string, Commands | ConfigFn>;
 
 export interface Options {
   /**

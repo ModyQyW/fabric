@@ -1,8 +1,6 @@
 import type { Config as PrettierConfig } from 'prettier';
 
-export interface Config extends PrettierConfig {
-  [key: string]: any;
-}
+export type Config = Record<string, any> & PrettierConfig;
 
 export interface Options {
   /**
