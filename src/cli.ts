@@ -287,8 +287,8 @@ const tasks = new Listr<Ctx>([
       const notInstalled = packages.filter(
         (p) =>
           !(
-            packageJsonObject?.devDependencies[p] ||
-            packageJsonObject?.dependencies[p]
+            packageJsonObject?.devDependencies?.[p] ||
+            packageJsonObject?.dependencies?.[p]
           ),
       );
       if (notInstalled.length > 0) {
