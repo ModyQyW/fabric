@@ -13,17 +13,49 @@ const vueBaseRules = {
   ...pluginVue.configs.base.rules,
 };
 const vue3Rules = {
-  ...pluginVue.configs.base.rules,
   ...pluginVue.configs['vue3-essential'].rules,
   ...pluginVue.configs['vue3-strongly-recommended'].rules,
   ...pluginVue.configs['vue3-recommended'].rules,
   ...pluginVueScopedCss.configs['vue3-recommended'].rules,
+  'vue/component-api-style': [
+    'error',
+    ['script-setup', 'composition', 'composition-vue2', 'options'],
+  ],
+  'vue/custom-event-name-casing': ['error', 'camelCase'],
+  'vue/define-emits-declaration': 'error',
+  'vue/define-macros-order': [
+    'error',
+    {
+      defineExposeLast: true,
+      order: [
+        'defineOptions',
+        'defineModel',
+        'defineProps',
+        'defineEmits',
+        'defineSlots',
+      ],
+    },
+  ],
+  'vue/define-props-declaration': ['error', 'type-base'],
+  'vue/no-required-prop-with-default': 'error',
+  'vue/prefer-define-options': 'error',
+  'vue/require-macro-variable-name': 'error',
+  'vue/v-on-handler-style': ['error', ['method', 'inline']],
+  'vue/valid-define-options': 'error',
+  'vue-scoped-css/no-deprecated-v-enter-v-leave-class': 'error',
+  'vue-scoped-css/v-deep-pseudo-style': ['error', ':deep'],
+  'vue-scoped-css/v-global-pseudo-style': ['error', ':global'],
+  'vue-scoped-css/v-slotted-pseudo-style': ['error', ':slotted'],
 };
 const vue2Rules = {
   ...pluginVue.configs.essential.rules,
   ...pluginVue.configs['strongly-recommended'].rules,
   ...pluginVue.configs.recommended.rules,
   ...pluginVueScopedCss.configs.recommended.rules,
+  'vue/component-api-style': ['error', ['script-setup', 'composition']],
+  'vue/custom-event-name-casing': ['error', 'kebab-case'],
+  'vue/v-if-else-key': 'warn',
+  'vue-scoped-css/v-deep-pseudo-style': ['error', '::v-deep'],
 };
 
 export function vue(options: VueOptions = {}): Config[] {
@@ -106,6 +138,8 @@ export function vue(options: VueOptions = {}): Config[] {
               'model',
               ['props', 'propsData'],
               'emits',
+              'slots',
+              'expose',
               'setup',
               'asyncData',
               'data',
@@ -149,6 +183,57 @@ export function vue(options: VueOptions = {}): Config[] {
         ],
         // too ideal for business
         'vue-scoped-css/enforce-style-type': 'off',
+        // Uncategorized
+        'vue/block-order': [
+          'error',
+          {
+            order: ['script', 'template', 'style'],
+          },
+        ],
+        'vue/block-tag-newline': [
+          'error',
+          {
+            multiline: 'always',
+            singleline: 'always',
+          },
+        ],
+        'vue/component-name-in-template-casing': ['error', 'PascalCase'],
+        'vue/component-options-name-casing': ['error', 'PascalCase'],
+        'vue/enforce-style-attribute': [
+          'error',
+          { allow: ['scoped', 'module'] },
+        ],
+        'vue/match-component-file-name': [
+          'error',
+          {
+            extensions: ['jsx', 'tsx', 'vue'],
+            shouldMatchCase: true,
+          },
+        ],
+        'vue/next-tick-style': ['error', 'promise'],
+        'vue/no-boolean-default': ['error', 'default-false'],
+        'vue/no-deprecated-model-definition': 'error',
+        'vue/no-duplicate-attr-inheritance': 'error',
+        'vue/no-ref-object-reactivity-loss': 'warn',
+        'vue/no-restricted-v-bind': ['error', '/^v-/'],
+        'vue/no-root-v-if': 'error',
+        'vue/no-setup-props-reactivity-loss': 'warn',
+        'vue/no-unused-emit-declarations': 'error',
+        'vue/no-unused-properties': 'warn',
+        'vue/no-unused-refs': 'warn',
+        'vue/no-use-v-else-with-v-for': 'error',
+        'vue/no-useless-mustaches': 'error',
+        'vue/no-useless-v-bind': 'error',
+        'vue/padding-line-between-blocks': 'error',
+        'vue/prefer-prop-type-boolean-first': 'error',
+        'vue/prefer-separate-static-class': 'error',
+        'vue/prefer-true-attribute-shorthand': 'error',
+        'vue/require-emit-validator': 'error',
+        'vue/require-explicit-slots': 'error',
+        'vue/require-name-property': 'error',
+        'vue/require-typed-object-prop': 'error',
+        'vue/require-typed-ref': 'error',
+        'vue-scoped-css/require-selector-used-inside': 'error',
         ...rules,
         ...(hasTypeScript ? typescriptRules : {}),
       },
