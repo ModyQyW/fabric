@@ -22,6 +22,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
       rules: {
         ...pluginTypeScript.configs['eslint-recommended'].overrides[0].rules,
         ...pluginTypeScript.configs.recommended.rules,
+        ...pluginTypeScript.configs.stylistic.rules,
         // too ideal for business
         '@typescript-eslint/no-empty-function': 'off',
         // too ideal for business
