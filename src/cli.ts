@@ -297,6 +297,14 @@ const tasks = new Listr<Ctx>([
             cwd: resolve(cwd, dir),
             dev: true,
             silent: true,
+          }).catch(() => {
+            // try pnpm workspace
+            return installPackage(notInstalled, {
+              additionalArgs: ['-w'],
+              cwd: resolve(cwd, dir),
+              dev: true,
+              silent: true,
+            });
           }),
         );
       }
