@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.5.0](https://github.com/ModyQyW/fabric/compare/v10.4.0...v10.5.0) (2024-03-15)
+
+
+### Features
+
+* **cli:** add vscode support ([4b4d4d1](https://github.com/ModyQyW/fabric/commit/4b4d4d1f2645b647029259d9730020418d5c8fbc))
+* **eslint:** perfectionist/sort-enums enable partition-by-comment ([567b7d0](https://github.com/ModyQyW/fabric/commit/567b7d0b1c242db36c7248e1023901709ee7eba0))
+* **eslint:** stylelint enable stylistic rules ([95a0509](https://github.com/ModyQyW/fabric/commit/95a0509ebe03e919a34b26a9d3f1043bb12c01de))
+* **eslint:** vue enable more rules ([a8b7538](https://github.com/ModyQyW/fabric/commit/a8b7538c1b3ea0dc3c1b278b25e741a442c7e472))
+* **stylelint:** add stylelint-high-performance-animation ([0ec2d34](https://github.com/ModyQyW/fabric/commit/0ec2d34d0029fc8ad5f3ea611f54ece88e4ae301))
+* upgrade to eslint-plugin-markdown 4.0.1 ([673cc9c](https://github.com/ModyQyW/fabric/commit/673cc9c621bafbd29f0f84f416c38e0765af5432))
+
+
+### Bug Fixes
+
+* **cli:** allow empty devDependencies or dependencies ([b6579a8](https://github.com/ModyQyW/fabric/commit/b6579a80488b34ba7d831a8ec0331f37a8293141))
+* **cli:** fix pnpm workspace support ([ded3e1d](https://github.com/ModyQyW/fabric/commit/ded3e1d461521e891dda4cd0230361652df9f0bb))
+
 ## [10.4.0](https://github.com/ModyQyW/fabric/compare/v10.3.11...v10.4.0) (2024-02-24)
 
 
