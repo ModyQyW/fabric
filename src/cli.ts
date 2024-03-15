@@ -3,10 +3,11 @@ import { readFileSync } from 'node:fs';
 import { unlink, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { installPackage } from '@antfu/install-pkg';
-import { checkbox } from '@inquirer/prompts';
+import { checkbox, confirm } from '@inquirer/prompts';
 import { ListrInquirerPromptAdapter } from '@listr2/prompt-adapter-inquirer';
 import { Command } from 'commander';
 import consola from 'consola';
+import { defu } from 'defu';
 import fg from 'fast-glob';
 import { Listr } from 'listr2';
 import { isPackageExists } from 'local-pkg';
@@ -26,6 +27,7 @@ interface Ctx {
     lts: boolean;
     version: string;
   }[];
+  vscode: boolean;
 }
 
 const program = new Command()
@@ -73,6 +75,8 @@ const functionOptions: {
   scripts?: Record<string, string>;
   template?: string;
   value: string;
+  vscodeRecommendations?: string[];
+  vscodeSettings?: Record<string, any>;
 }[] = [
   {
     description: 'EditorConfig',
@@ -92,6 +96,7 @@ trim_trailing_whitespace = true
 trim_trailing_whitespace = false
 `,
     value: 'editor-config',
+    vscodeRecommendations: ['EditorConfig.EditorConfig'],
   },
   {
     description: 'Prettier',
@@ -109,6 +114,13 @@ const { prettier } = require('@modyqyw/fabric');
 module.exports = prettier();
 `,
     value: 'prettier',
+    vscodeRecommendations: ['esbenp.prettier-vscode'],
+    vscodeSettings: {
+      // 指定默认代码格式化器为 Prettier
+      'editor.defaultFormatter': 'esbenp.prettier-vscode',
+      // 保存自动格式化
+      'editor.formatOnSave': true,
+    },
   },
   {
     description: 'ESLint',
@@ -124,6 +136,53 @@ module.exports = prettier();
 export default eslint();
 `,
     value: 'eslint',
+    vscodeRecommendations: ['dbaeumer.vscode-eslint'],
+    vscodeSettings: {
+      // 启用 ESLint 平面配置
+      'eslint.experimental.useFlatConfig': true,
+      // ESLint 检查的语言
+      'eslint.validate': [
+        'javascript',
+        'javascriptreact',
+        'typescript',
+        'typescriptreact',
+        'vue',
+        'markdown',
+        'json',
+        'jsonc',
+        'yaml',
+      ],
+      // JavaScript、JSX、TypeScript、TypeScript JSX 手动保存后 ESLint 自动修复
+      '[javascript][javascriptreact][typescript][typescriptreact]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.eslint': 'explicit',
+        },
+      },
+      // Vue 手动保存后 ESLint 自动修复
+      '[vue]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.eslint': 'explicit',
+        },
+      },
+      // markdown 手动保存后 ESLint 自动修复
+      '[markdown][yaml][json][jsonc]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.eslint': 'explicit',
+        },
+      },
+      // JSON、JSONC 手动保存后 ESLint 自动修复
+      '[json][jsonc]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.eslint': 'explicit',
+        },
+      },
+      // YAML 手动保存后 ESLint 自动修复
+      '[yaml]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.eslint': 'explicit',
+        },
+      },
+    },
   },
   {
     description: 'oxlint',
@@ -148,6 +207,31 @@ export default eslint();
 export default stylelint();
 `,
     value: 'stylelint',
+    vscodeRecommendations: ['stylelint.vscode-stylelint'],
+    vscodeSettings: {
+      // 禁用内置的 CSS 检查
+      'css.validate': false,
+      // 禁用内置的 LESS 检查
+      'less.validate': false,
+      // 禁用内置的 SCSS 检查
+      'scss.validate': false,
+      // 启用 Stylelint 代码片段的语言
+      'stylelint.snippet': ['css', 'scss', 'vue'],
+      // Stylelint 检查的语言
+      'stylelint.validate': ['css', 'scss', 'vue'],
+      // CSS、SCSS 手动保存后 Stylelint 自动修复
+      '[css][scss]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.stylelint': 'explicit',
+        },
+      },
+      // Vue 手动保存后 Stylelint 自动修复
+      '[vue]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.stylelint': 'explicit',
+        },
+      },
+    },
   },
   {
     description: 'markdownlint',
@@ -164,8 +248,18 @@ export default stylelint();
 }
 `,
     value: 'markdownlint',
+    vscodeRecommendations: ['DavidAnson.vscode-markdownlint'],
+    vscodeSettings: {
+      // markdown 手动保存后 markdownlint 自动修复
+      '[markdown]': {
+        'editor.codeActionsOnSave': {
+          'source.fixAll.markdownlint': 'explicit',
+        },
+      },
+    },
   },
   {
+    // TODO: support monorepo
     description: 'tsc',
     packages: [
       'typescript',
@@ -255,6 +349,24 @@ const tasks = new Listr<Ctx>([
     title: 'Picked functions',
   },
   {
+    rendererOptions: {
+      persistentOutput: true,
+    },
+    task: async (ctx, task) => {
+      if (opts.vscode != null) {
+        ctx.vscode = opts.vscode;
+        task.output = ctx.vscode ? 'Yes' : 'No';
+        return task.skip();
+      }
+      ctx.vscode = await task.prompt(ListrInquirerPromptAdapter).run(confirm, {
+        default: true,
+        message: 'Setup .vscode?',
+      });
+      task.output = ctx.vscode ? 'Yes' : 'No';
+    },
+    title: 'Confirm VSC',
+  },
+  {
     task: async (ctx) => {
       const filtered = functionOptions.filter((o) =>
         ctx.functions.includes(o.value),
@@ -317,6 +429,36 @@ const tasks = new Listr<Ctx>([
             ...packageJsonObject.scripts,
             ...f.scripts,
           };
+        }
+      }
+      if (opts.vscode) {
+        const vscodeRecommendations = filtered.flatMap(
+          (f) => f.vscodeRecommendations ?? [],
+        );
+        if (vscodeRecommendations.length > 0) {
+          promises.push(
+            writeFile(
+              resolvePath('.vscode', 'extensions.json'),
+              JSON.stringify(
+                { recommendations: vscodeRecommendations },
+                null,
+                packageJsonIndent,
+              ) + packageJsonEof,
+            ),
+          );
+        }
+        const vscodeSettings = defu(
+          {},
+          ...filtered.map((f) => f.vscodeSettings ?? {}),
+        );
+        if (Object.keys(vscodeSettings).length > 0) {
+          promises.push(
+            writeFile(
+              resolvePath('.vscode', 'settings.json'),
+              JSON.stringify(vscodeSettings, null, packageJsonIndent) +
+                packageJsonEof,
+            ),
+          );
         }
       }
       promises.push(
