@@ -14,6 +14,13 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         ...pluginPerfectionist.configs['recommended-natural'].rules,
         // not support astro
         'perfectionist/sort-astro-attributes': 'off',
+        'perfectionist/sort-enums': [
+          'error',
+          {
+            'partition-by-comment': true,
+            type: 'natural',
+          },
+        ],
         'perfectionist/sort-imports': [
           'error',
           {
