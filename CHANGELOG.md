@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.5.2](https://github.com/ModyQyW/fabric/compare/v10.5.1...v10.5.2) (2024-03-18)
+
+
+### Bug Fixes
+
+* **eslint:** disable typescript stylistic rules ([4f4bfa0](https://github.com/ModyQyW/fabric/commit/4f4bfa0bdc09a9fb425de03be8e68f6529b232c9))
+
 ## [10.5.1](https://github.com/ModyQyW/fabric/compare/v10.5.0...v10.5.1) (2024-03-18)
 
 
