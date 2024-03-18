@@ -36,7 +36,7 @@ const vue3Rules = {
       ],
     },
   ],
-  'vue/define-props-declaration': ['error', 'type-base'],
+  'vue/define-props-declaration': ['error', 'type-based'],
   'vue/no-required-prop-with-default': 'error',
   'vue/prefer-define-options': 'error',
   'vue/require-macro-variable-name': 'error',
