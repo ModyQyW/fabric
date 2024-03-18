@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.5.1](https://github.com/ModyQyW/fabric/compare/v10.5.0...v10.5.1) (2024-03-18)
+
+
+### Bug Fixes
+
+* **eslint:** fix spell ([f682aa5](https://github.com/ModyQyW/fabric/commit/f682aa57de4516c51d32e73a7d8dd495d1bc79ac))
+
 ## [10.5.0](https://github.com/ModyQyW/fabric/compare/v10.4.0...v10.5.0) (2024-03-15)
 
 
