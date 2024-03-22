@@ -22,5 +22,5 @@ features:
     details: First-class TypeScript support. Strict but not harsh.
   - icon: 🎉
     title: Multi-frameworks
-    details: Support Vue, UniApp, Nuxt, React, Taro, Expo, Next, Solid, Nest, Nitro, Hono etc.
+    details: Support Vue, UniApp, Nuxt, React, Taro, ReactNative, Next, Solid, Nest, Nitro, Hono etc.
 ---
