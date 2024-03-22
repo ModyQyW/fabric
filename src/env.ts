@@ -6,6 +6,18 @@ import { getPackageInfoSync, isPackageExists } from 'local-pkg';
 export const hasTypeScript = isPackageExists('typescript');
 
 export const hasNuxt = isPackageExists('nuxt');
+export const getNuxtVersion = () => {
+  const pkg = getPackageInfoSync('nuxt', { paths: [process.cwd()] });
+  if (
+    pkg &&
+    typeof pkg.version === 'string' &&
+    !Number.isNaN(+pkg.version[0])
+  ) {
+    return +pkg.version[0];
+  }
+  return 3;
+};
+export const hasNuxt3 = getNuxtVersion() === 3;
 export const hasVuePress = isPackageExists('vuepress');
 export const hasVitePress = isPackageExists('vitepress');
 export const hasSlidev = isPackageExists('@slidev/cli');
