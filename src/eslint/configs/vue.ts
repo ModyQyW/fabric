@@ -17,6 +17,12 @@ const vue3Rules = {
   ...pluginVue.configs['vue3-strongly-recommended'].rules,
   ...pluginVue.configs['vue3-recommended'].rules,
   ...pluginVueScopedCss.configs['vue3-recommended'].rules,
+  'vue/block-order': [
+    'error',
+    {
+      order: ['script', 'template', 'style'],
+    },
+  ],
   'vue/component-api-style': [
     'error',
     ['script-setup', 'composition', 'composition-vue2', 'options'],
@@ -52,6 +58,12 @@ const vue2Rules = {
   ...pluginVue.configs['strongly-recommended'].rules,
   ...pluginVue.configs.recommended.rules,
   ...pluginVueScopedCss.configs.recommended.rules,
+  'vue/block-order': [
+    'error',
+    {
+      order: ['template', 'script', 'style'],
+    },
+  ],
   'vue/component-api-style': ['error', ['script-setup', 'composition']],
   'vue/custom-event-name-casing': ['error', 'kebab-case'],
   'vue/v-if-else-key': 'warn',
@@ -184,12 +196,6 @@ export function vue(options: VueOptions = {}): Config[] {
         // too ideal for business
         'vue-scoped-css/enforce-style-type': 'off',
         // Uncategorized
-        'vue/block-order': [
-          'error',
-          {
-            order: ['script', 'template', 'style'],
-          },
-        ],
         'vue/block-tag-newline': [
           'error',
           {
