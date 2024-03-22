@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.6.0](https://github.com/ModyQyW/fabric/compare/v10.5.2...v10.6.0) (2024-03-22)
+
+
+### Features
+
+* support nuxt3 ([faccb58](https://github.com/ModyQyW/fabric/commit/faccb586e268bc8b69f4d4592690b1cd68eea55f))
+
+
+### Bug Fixes
+
+* **cli:** fix vscode judgement ([6b817df](https://github.com/ModyQyW/fabric/commit/6b817dfa4609ab80bfb358de01059fdb95a0c462))
+* **eslint:** set different vue block order for vue2/3 ([a8401a1](https://github.com/ModyQyW/fabric/commit/a8401a17c495160c363b741d187ed60af8ea4551))
+
 ## [10.5.2](https://github.com/ModyQyW/fabric/compare/v10.5.1...v10.5.2) (2024-03-18)
 
 
