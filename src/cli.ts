@@ -431,7 +431,7 @@ const tasks = new Listr<Ctx>([
           };
         }
       }
-      if (opts.vscode) {
+      if (ctx.vscode) {
         const vscodeRecommendations = filtered.flatMap(
           (f) => f.vscodeRecommendations ?? [],
         );
