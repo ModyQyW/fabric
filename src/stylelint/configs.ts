@@ -1,6 +1,6 @@
 import { MINI_PROGRAM_ELEMENTS } from '../constants';
 import { hasMiniProgram } from '../env';
-import { Options } from './types';
+import type { Options } from './types';
 
 export function extends_(options: Required<Options>) {
   const { order, scss: enableScss, style } = options;
