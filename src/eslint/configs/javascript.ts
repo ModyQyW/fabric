@@ -55,6 +55,8 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
       },
       rules: {
         ...js.configs.recommended.rules,
+        // better to always declare variables and functions before using them
+        'no-use-before-define': 'error',
         ...rules,
       },
     },
