@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.7.0](https://github.com/ModyQyW/fabric/compare/v10.6.0...v10.7.0) (2024-03-27)
+
+
+### Features
+
+* **eslint:** add js/ts rules ([fd03d95](https://github.com/ModyQyW/fabric/commit/fd03d9500804a228417fb4bd91d333f2f73876e6))
+
 ## [10.6.0](https://github.com/ModyQyW/fabric/compare/v10.5.2...v10.6.0) (2024-03-22)
 
 
