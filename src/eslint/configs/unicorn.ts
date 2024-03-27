@@ -20,7 +20,7 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
           {
             case: 'kebabCase',
             ignore: [
-              // README.md, CHANGELOG.md, README.zh-CN.md
+              // README.md, CHANGELOG.md, README.zh-Hans.md
               '\\.md$',
               // MyApp.vue
               '\\.vue$',

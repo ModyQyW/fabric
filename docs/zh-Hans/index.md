@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 起步
-      link: /zh-CN/guide/introduction/getting-started
+      link: /zh-Hans/guide/introduction/getting-started
     - theme: alt
       text: 赞助
       link: https://github.com/ModyQyW/sponsors

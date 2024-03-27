@@ -130,9 +130,9 @@ export default defineConfig({
         sidebarMenuLabel: 'Menu',
       },
     },
-    'zh-CN': {
+    'zh-Hans': {
       label: '简体中文',
-      lang: 'zh-CN',
+      lang: 'zh-Hans',
       themeConfig: {
         // https://vitepress.dev/reference/default-theme-config#darkmodeswitchlabel
         darkModeSwitchLabel: '外观',
@@ -159,18 +159,18 @@ export default defineConfig({
         },
         // https://vitepress.dev/reference/default-theme-config
         nav: [
-          { link: '/zh-CN/guide/introduction/getting-started', text: '指南' },
+          { link: '/zh-Hans/guide/introduction/getting-started', text: '指南' },
           { link: 'https://github.com/ModyQyW/sponsors', text: '赞助' },
         ],
         // https://vitepress.dev/reference/default-theme-config#returntotoplabel
         returnToTopLabel: '回到顶部',
         // https://vitepress.dev/reference/default-theme-config#sidebar
         sidebar: {
-          '/zh-CN/guide/': {
-            base: '/zh-CN/guide/',
+          '/zh-Hans/guide/': {
+            base: '/zh-Hans/guide/',
             items: [
               {
-                base: '/zh-CN/guide/introduction/',
+                base: '/zh-Hans/guide/introduction/',
                 collapsed: false,
                 items: [
                   {
@@ -182,7 +182,7 @@ export default defineConfig({
                 text: '介绍',
               },
               {
-                base: '/zh-CN/guide/formatter/',
+                base: '/zh-Hans/guide/formatter/',
                 collapsed: false,
                 items: [
                   { link: 'overview', text: '概述' },
@@ -191,7 +191,7 @@ export default defineConfig({
                 text: '代码格式化器',
               },
               {
-                base: '/zh-CN/guide/linter/',
+                base: '/zh-Hans/guide/linter/',
                 collapsed: false,
                 items: [
                   { link: 'overview', text: '概述' },
@@ -203,7 +203,7 @@ export default defineConfig({
                 text: '代码检查工具',
               },
               {
-                base: '/zh-CN/guide/typescript-checker/',
+                base: '/zh-Hans/guide/typescript-checker/',
                 collapsed: false,
                 items: [
                   { link: 'overview', text: '概述' },
@@ -212,7 +212,7 @@ export default defineConfig({
                 text: 'TypeScript 检查工具',
               },
               {
-                base: '/zh-CN/guide/git/',
+                base: '/zh-Hans/guide/git/',
                 collapsed: false,
                 items: [
                   { link: 'overview', text: '概述' },
@@ -223,7 +223,7 @@ export default defineConfig({
                 text: 'Git',
               },
               {
-                base: '/zh-CN/guide/best-practices/',
+                base: '/zh-Hans/guide/best-practices/',
                 collapsed: false,
                 items: [
                   { link: 'overview', text: '概述' },
@@ -263,26 +263,6 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config#outline
     outline: 'deep',
     search: {
-      options: {
-        locales: {
-          zh: {
-            translations: {
-              button: {
-                buttonAriaLabel: '搜索文档',
-                buttonText: '搜索文档',
-              },
-              modal: {
-                footer: {
-                  navigateText: '切换',
-                  selectText: '选择',
-                },
-                noResultsText: '无法找到相关结果',
-                resetButtonTitle: '清除查询条件',
-              },
-            },
-          },
-        },
-      },
       provider: 'local',
     },
     // https://vitepress.dev/reference/default-theme-config#sociallinks
