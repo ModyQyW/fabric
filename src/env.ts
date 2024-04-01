@@ -60,8 +60,13 @@ export const hasReact =
   hasDocusaurus ||
   hasTaro;
 
+export const hasSvelteKit = isPackageExists('@sveltejs/kit');
+export const hasSvelte = isPackageExists('svelte') || hasSvelteKit;
+
 export const hasSolidStart = isPackageExists('solid-start');
 export const hasSolid = isPackageExists('solid-js') || hasSolidStart;
+
+export const hasAstro = isPackageExists('astro');
 
 export const hasMiniProgram = hasUniApp || hasTaro;
 
