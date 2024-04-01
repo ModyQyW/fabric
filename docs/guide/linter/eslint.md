@@ -297,7 +297,7 @@ export default combine(
       languageOptions: {
         ecmaFeatures: {
           globalReturn: false,
-          jsx: true,
+          jsx: false,
         },
         ecmaVersion: 'latest',
         extraFileExtensions: ['.svelte'],
