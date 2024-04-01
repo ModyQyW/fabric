@@ -1,4 +1,15 @@
 {
+  "[javascript][javascriptreact][typescript][typescriptreact][vue][markdown][json][jsonc][yaml]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[markdown]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.markdownlint": "explicit"
+    }
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "eslint.experimental.useFlatConfig": true,
   "eslint.validate": [
@@ -11,10 +22,5 @@
     "json",
     "jsonc",
     "yaml"
-  ],
-  "[markdown][yaml][json][jsonc]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    }
-  }
+  ]
 }
