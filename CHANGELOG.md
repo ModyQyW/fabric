@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.8.1](https://github.com/ModyQyW/fabric/compare/v10.8.0...v10.8.1) (2024-04-01)
+
+
+### Bug Fixes
+
+* try to improve types ([bc1d219](https://github.com/ModyQyW/fabric/commit/bc1d219d2cb0a7bafc20f880434564a3cacaa7f3))
+
 ## [10.8.0](https://github.com/ModyQyW/fabric/compare/v10.7.0...v10.8.0) (2024-04-01)
 
 
