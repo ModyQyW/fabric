@@ -2,7 +2,7 @@
 
 oxlint is an emerging linter that requires no configuration by default and is mainly used for script files.
 
-::: Positioning of tip oxlint
+::: tip Positioning of tip oxlint
 oxlint is not a complete replacement for ESLint; rather, oxlint complements ESLint because oxlint is very fast. You can run oxlint before running ESLint to get a faster feedback loop.
 :::
 
