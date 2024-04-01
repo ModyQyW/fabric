@@ -11,6 +11,7 @@ import { defu } from 'defu';
 import fg from 'fast-glob';
 import { Listr } from 'listr2';
 import { isPackageExists } from 'local-pkg';
+import sortObjectKeys from 'sort-object-keys';
 import sortPackageJson from 'sort-package-json';
 import updateNotifier from 'update-notifier';
 import packageJson from '../package.json';
@@ -69,6 +70,7 @@ const packageJsonIndent = '  ';
 const functionOptions: {
   description: string;
   field?: string;
+  name: string;
   packages?: string[];
   path?: string;
   patterns?: string[];
@@ -79,7 +81,9 @@ const functionOptions: {
   vscodeSettings?: Record<string, any>;
 }[] = [
   {
-    description: 'EditorConfig',
+    description:
+      'EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.',
+    name: 'EditorConfig',
     path: '.editorconfig',
     patterns: ['.editorconfig'],
     template: `root = true
@@ -95,14 +99,16 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 `,
-    value: 'editor-config',
+    value: 'editorConfig',
     vscodeRecommendations: ['EditorConfig.EditorConfig'],
   },
   {
-    description: 'Prettier',
+    description:
+      "Prettier is a widely adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.",
     field: 'prettier',
+    name: 'Prettier',
     packages: ['prettier', 'esbuild-register'],
-    path: 'prettier.config.cjs',
+    path: 'prettier.config.mjs',
     patterns: ['.prettierrc*', 'prettier.config.*'],
     scripts: {
       format:
@@ -123,8 +129,9 @@ module.exports = prettier();
     },
   },
   {
-    description: 'ESLint',
+    description: 'ESLint is a widely adopted linter, mainly for script files.',
     field: 'eslintConfig',
+    name: 'ESLint',
     packages: ['eslint'],
     path: 'eslint.config.mjs',
     patterns: ['.eslintrc*', 'eslint.config.*'],
@@ -152,40 +159,19 @@ export default eslint();
         'jsonc',
         'yaml',
       ],
-      // JavaScript、JSX、TypeScript、TypeScript JSX 手动保存后 ESLint 自动修复
-      '[javascript][javascriptreact][typescript][typescriptreact]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.eslint': 'explicit',
+      // JavaScript、JSX、TypeScript、TypeScript JSX、Vue、markdown、JSON、JSONC、YAML 手动保存后 ESLint 自动修复
+      '[javascript][javascriptreact][typescript][typescriptreact][vue][markdown][json][jsonc][yaml]':
+        {
+          'editor.codeActionsOnSave': {
+            'source.fixAll.eslint': 'explicit',
+          },
         },
-      },
-      // Vue 手动保存后 ESLint 自动修复
-      '[vue]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.eslint': 'explicit',
-        },
-      },
-      // markdown 手动保存后 ESLint 自动修复
-      '[markdown][yaml][json][jsonc]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.eslint': 'explicit',
-        },
-      },
-      // JSON、JSONC 手动保存后 ESLint 自动修复
-      '[json][jsonc]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.eslint': 'explicit',
-        },
-      },
-      // YAML 手动保存后 ESLint 自动修复
-      '[yaml]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.eslint': 'explicit',
-        },
-      },
     },
   },
   {
-    description: 'oxlint',
+    description:
+      'oxlint is an emerging linter that requires no configuration by default and is mainly used for script files.',
+    name: 'oxlint',
     packages: ['oxlint'],
     scripts: {
       'lint:oxlint': 'oxlint --deny=correctness --deny=perf --fix',
@@ -193,8 +179,10 @@ export default eslint();
     value: 'oxlint',
   },
   {
-    description: 'Stylelint',
+    description:
+      'Stylelint is a widely adopted linter, mainly for style files.',
     field: 'stylelint',
+    name: 'Stylelint',
     packages: ['stylelint'],
     path: 'stylelint.config.mjs',
     patterns: ['.stylelintrc*', 'stylelint.config.*'],
@@ -219,14 +207,8 @@ export default stylelint();
       'stylelint.snippet': ['css', 'scss', 'vue'],
       // Stylelint 检查的语言
       'stylelint.validate': ['css', 'scss', 'vue'],
-      // CSS、SCSS 手动保存后 Stylelint 自动修复
-      '[css][scss]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.stylelint': 'explicit',
-        },
-      },
-      // Vue 手动保存后 Stylelint 自动修复
-      '[vue]': {
+      // CSS、SCSS、Vue 手动保存后 Stylelint 自动修复
+      '[css][scss][vue]': {
         'editor.codeActionsOnSave': {
           'source.fixAll.stylelint': 'explicit',
         },
@@ -234,8 +216,9 @@ export default stylelint();
     },
   },
   {
-    description: 'markdownlint',
+    description: 'markdownlint is the linter for markdown file.',
     field: 'markdownlint',
+    name: 'markdownlint',
     packages: ['markdownlint-cli'],
     path: '.markdownlint.json',
     patterns: ['.markdowlintrc*', '.markdownlint.*', 'markdownlint.config.*'],
@@ -260,7 +243,8 @@ export default stylelint();
   },
   {
     // TODO: support monorepo
-    description: 'tsc',
+    description: 'tsc is the official type checker that comes with TypeScript.',
+    name: 'tsc',
     packages: [
       'typescript',
       isPackageExists('vue') ? 'vue-tsc' : undefined,
@@ -273,8 +257,10 @@ export default stylelint();
     value: 'tsc',
   },
   {
-    description: 'commitlint',
+    description:
+      'commitlint is a widely adopted Git tool that lints commit messages and helps your team adhere to a commit convention.',
     field: 'commitlint',
+    name: 'commitlint',
     packages: ['@commitlint/cli'],
     path: 'commitlint.config.mjs',
     patterns: ['.commitlintrc*', 'commitlint.config.*'],
@@ -285,8 +271,10 @@ export default commitlint();
     value: 'commitlint',
   },
   {
-    description: 'lint-staged',
+    description:
+      'lint-staged is a widely adopted Git tool that executes commands against staged git files to prevent erroneous code from entering the repository.',
     field: 'lint-staged',
+    name: 'lint-staged',
     packages: ['lint-staged'],
     path: 'lint-staged.config.mjs',
     patterns: ['.lintstagedrc*', 'lint-staged.config.*'],
@@ -294,11 +282,13 @@ export default commitlint();
 
 export default lintStaged();
 `,
-    value: 'lint-staged',
+    value: 'lintStaged',
   },
   {
-    description: 'simple-git-hooks',
+    description:
+      'simple-git-hooks is a widely adopted Git tool that helps you manage Git hooks easily.',
     field: 'simple-git-hooks',
+    name: 'simple-git-hooks',
     packages: ['simple-git-hooks', 'is-ci', 'esbuild-register'],
     path: '.simple-git-hooks.cjs',
     patterns: ['.simple-git-hooks*', 'simple-git-hooks.*'],
@@ -310,7 +300,7 @@ const { simpleGitHooks } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks();
 `,
-    value: 'simple-git-hooks',
+    value: 'simpleGitHooks',
   },
 ];
 
@@ -323,30 +313,32 @@ const tasks = new Listr<Ctx>([
       ctx.functions = [];
       let shouldSkip = false;
       if (opts.all) {
-        ctx.functions.push(...functionOptions.map((o) => o.value));
+        ctx.functions.push(...functionOptions.map((o) => o.name));
         shouldSkip = true;
       } else {
         for (const o of functionOptions) {
           if (opts[o.value]) {
-            ctx.functions.push(o.value);
+            ctx.functions.push(o.name);
             shouldSkip = true;
           }
         }
       }
       if (shouldSkip) {
-        task.output = `Picked ${ctx.functions.join(', ')}`;
+        task.output = `${ctx.functions.join(', ')}`;
         return task.skip();
       }
       const functions = (await task
         .prompt(ListrInquirerPromptAdapter)
         .run(checkbox, {
           choices: functionOptions,
-          message: 'Please pick functions',
+          message: 'What functions do you want for your project?',
         })) as string[];
-      ctx.functions = functions;
-      task.output = `Picked ${functions.join(', ')}`;
+      ctx.functions = functions.map(
+        (f) => functionOptions.find((o) => o.value === f)!.name,
+      );
+      task.output = `${ctx.functions.join(', ')}`;
     },
-    title: 'Picked functions',
+    title: 'Select functions',
   },
   {
     rendererOptions: {
@@ -364,12 +356,12 @@ const tasks = new Listr<Ctx>([
       });
       task.output = ctx.vscode ? 'Yes' : 'No';
     },
-    title: 'Confirm VSC',
+    title: 'Setup .vscode?',
   },
   {
     task: async (ctx) => {
       const filtered = functionOptions.filter((o) =>
-        ctx.functions.includes(o.value),
+        ctx.functions.includes(o.name),
       );
       await Promise.all(
         filtered
@@ -393,7 +385,7 @@ const tasks = new Listr<Ctx>([
     task: async (ctx) => {
       const promises: Promise<any>[] = [];
       const filtered = functionOptions.filter((o) =>
-        ctx.functions.includes(o.value),
+        ctx.functions.includes(o.name),
       );
       const packages = [...new Set(filtered.flatMap((f) => f.packages ?? []))];
       const notInstalled = packages.filter(
@@ -409,14 +401,6 @@ const tasks = new Listr<Ctx>([
             cwd: resolve(cwd, dir),
             dev: true,
             silent: true,
-          }).catch(() => {
-            // try pnpm workspace
-            return installPackage(notInstalled, {
-              additionalArgs: ['-w'],
-              cwd: resolve(cwd, dir),
-              dev: true,
-              silent: true,
-            });
           }),
         );
       }
@@ -440,7 +424,11 @@ const tasks = new Listr<Ctx>([
             writeFile(
               resolvePath('.vscode', 'extensions.json'),
               JSON.stringify(
-                { recommendations: vscodeRecommendations },
+                {
+                  recommendations: vscodeRecommendations.toSorted((a, b) =>
+                    a.toLocaleLowerCase().localeCompare(b.toLocaleLowerCase()),
+                  ),
+                },
                 null,
                 packageJsonIndent,
               ) + packageJsonEof,
@@ -455,8 +443,11 @@ const tasks = new Listr<Ctx>([
           promises.push(
             writeFile(
               resolvePath('.vscode', 'settings.json'),
-              JSON.stringify(vscodeSettings, null, packageJsonIndent) +
-                packageJsonEof,
+              JSON.stringify(
+                sortObjectKeys(vscodeSettings),
+                null,
+                packageJsonIndent,
+              ) + packageJsonEof,
             ),
           );
         }
