@@ -145,6 +145,7 @@
       ]
     }
   },
+  "typings": "./dist/index.d.ts",
   "bin": {
     "mf": "./dist/cli.mjs",
     "modyqyw-fabric": "./dist/cli.mjs"
