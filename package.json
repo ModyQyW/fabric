@@ -137,6 +137,14 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/shared/*"
+      ]
+    }
+  },
   "bin": {
     "mf": "./dist/cli.mjs",
     "modyqyw-fabric": "./dist/cli.mjs"
