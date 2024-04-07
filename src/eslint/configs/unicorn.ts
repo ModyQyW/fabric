@@ -37,6 +37,8 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
             ],
           },
         ],
+        // too ideal for business
+        'unicorn/import-style': 'off',
         // not agree
         'unicorn/no-null': 'off',
         // too ideal for library
