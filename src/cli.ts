@@ -107,17 +107,16 @@ trim_trailing_whitespace = false
       "Prettier is a widely adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.",
     field: 'prettier',
     name: 'Prettier',
-    packages: ['prettier', 'esbuild-register'],
+    packages: ['prettier'],
     path: 'prettier.config.mjs',
     patterns: ['.prettierrc*', 'prettier.config.*'],
     scripts: {
       format:
         'prettier . "!**/package-lock.json*" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache --log-level=warn',
     },
-    template: `require('esbuild-register');
-const { prettier } = require('@modyqyw/fabric');
+    template: `import { prettier } from '@modyqyw/fabric';
 
-module.exports = prettier();
+export default prettier();
 `,
     value: 'prettier',
     vscodeRecommendations: ['esbenp.prettier-vscode'],
@@ -126,6 +125,8 @@ module.exports = prettier();
       'editor.defaultFormatter': 'esbenp.prettier-vscode',
       // 保存自动格式化
       'editor.formatOnSave': true,
+      // 启动 Prettier
+      'prettier.enable': true,
     },
   },
   {
