@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.9.0](https://github.com/ModyQyW/fabric/compare/v10.8.2...v10.9.0) (2024-04-09)
+
+
+### Features
+
+* **eslint:** disable unicorn/import-style ([b482469](https://github.com/ModyQyW/fabric/commit/b482469308fda6c191089d43c9f12becabcbe074))
+
+
+### Bug Fixes
+
+* **cli:** create .vscode dir if not exists ([653ad65](https://github.com/ModyQyW/fabric/commit/653ad650016a2bc054092a49ff5b0a4942126c84))
+* **cli:** update prettier config ([7714d2d](https://github.com/ModyQyW/fabric/commit/7714d2d4b508399a06b78afedb1502e1cf7ef8b1))
+* **eslint:** update n rules ([c4f7cfa](https://github.com/ModyQyW/fabric/commit/c4f7cfadd40aeacfac8b1d5f50b8ca4b1cea86ca))
+
 ## [10.8.2](https://github.com/ModyQyW/fabric/compare/v10.8.1...v10.8.2) (2024-04-02)
 
 
