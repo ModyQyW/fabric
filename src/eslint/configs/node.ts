@@ -16,8 +16,8 @@ export function node(options: NodeOptions = {}): Config[] {
         'n/no-missing-import': 'off',
         // handle by eslint-plugin-import / eslint-plugin-i
         'n/no-missing-require': 'off',
-        // allow source code for shebang
-        'n/shebang': 'off',
+        // allow source code for hashbang
+        'n/hashbang': 'off',
         ...rules,
       },
     },
