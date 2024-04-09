@@ -23,7 +23,6 @@ export const pluginJsonc = interopDefault(_pluginJsonc);
 import * as _pluginMarkdown from 'eslint-plugin-markdown';
 export const pluginMarkdown = interopDefault(_pluginMarkdown);
 
-/* @ts-expect-error missing types */
 import * as _pluginN from 'eslint-plugin-n';
 export const pluginN = interopDefault(_pluginN);
 
@@ -38,7 +37,6 @@ export const pluginPrettier = interopDefault(_pluginPrettier);
 import * as _configPrettier from 'eslint-config-prettier';
 export const configPrettier = interopDefault(_configPrettier);
 
-/* @ts-expect-error missing types */
 import * as _pluginRegexp from 'eslint-plugin-regexp';
 export const pluginRegexp = interopDefault(_pluginRegexp);
 
