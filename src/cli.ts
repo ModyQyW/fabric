@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFileSync } from 'node:fs';
+import { accessSync, mkdirSync, readFileSync } from 'node:fs';
 import { unlink, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { installPackage } from '@antfu/install-pkg';
@@ -416,6 +416,11 @@ const tasks = new Listr<Ctx>([
         }
       }
       if (ctx.vscode) {
+        try {
+          accessSync(resolve('.vscode'));
+        } catch {
+          mkdirSync(resolve('.vscode'));
+        }
         const vscodeRecommendations = filtered.flatMap(
           (f) => f.vscodeRecommendations ?? [],
         );
