@@ -135,6 +135,21 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/cli.d.ts",
+        "./dist/commitlint.d.ts",
+        "./dist/eslint.d.ts",
+        "./dist/index.d.ts",
+        "./dist/lint-staged.d.ts",
+        "./dist/prettier.d.ts",
+        "./dist/simple-git-hooks.d.ts",
+        "./dist/stylelint.d.ts"
+      ]
+    }
+  },
   "bin": {
     "mf": "./dist/cli.mjs",
     "modyqyw-fabric": "./dist/cli.mjs"
