@@ -1,6 +1,6 @@
 import type { Config as PrettierConfig } from 'prettier';
 
-export type Config = Record<string, any> & PrettierConfig;
+export type Config = PrettierConfig & Record<string, any>;
 
 export interface Options {
   /**

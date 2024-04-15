@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-exports */
 export * from './commitlint/factory';
 export * from './eslint/factory';
 export * from './lint-staged/factory';
