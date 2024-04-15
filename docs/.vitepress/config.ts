@@ -1,4 +1,3 @@
-import ci from 'ci-info';
 import unocss from 'unocss/vite';
 import { defineConfig } from 'vitepress';
 
@@ -24,7 +23,7 @@ export default defineConfig({
         },
         // https://vitepress.dev/reference/default-theme-config#editlink
         editLink: {
-          pattern: 'https://github.com/ModyQyW/farbci/edit/main/docs/:path',
+          pattern: 'https://github.com/ModyQyW/fabric/edit/main/docs/:path',
           text: 'Edit this page',
         },
         // https://vitepress.dev/reference/default-theme-config#langmenulabel
@@ -138,7 +137,7 @@ export default defineConfig({
         },
         // https://vitepress.dev/reference/default-theme-config#editlink
         editLink: {
-          pattern: 'https://github.com/ModyQyW/farbci/edit/main/docs/:path',
+          pattern: 'https://github.com/ModyQyW/fabric/edit/main/docs/:path',
           text: '编辑此页',
         },
         // https://vitepress.dev/reference/default-theme-config#langmenulabel
