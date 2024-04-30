@@ -29,7 +29,10 @@ export function prettier(
   return {
     plugins,
     singleQuote: true,
+
+    jsdocCapitalizeDescription: false,
     tsdoc: true,
+
     ...userConfig,
   };
 }
