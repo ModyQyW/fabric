@@ -11,6 +11,12 @@ export function stylelint(
   return {
     extends: extends_(parsed),
     ignoreFiles: GLOB_EXCLUDE,
+    overrides: [
+      {
+        customSyntax: 'postcss-html',
+        files: ['*.vue', '**/*.vue'],
+      },
+    ],
     plugins: [
       'stylelint-high-performance-animation',
       // 'stylelint-plugin-defensive-css',
