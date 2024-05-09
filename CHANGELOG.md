@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.9.2](https://github.com/ModyQyW/fabric/compare/v10.9.1...v10.9.2) (2024-05-09)
+
+
+### Bug Fixes
+
+* **eslint:** fix eslint rules ([4d5571f](https://github.com/ModyQyW/fabric/commit/4d5571f0e0689cba74006578fb88936a0ec8cb43))
+* **prettier:** disable jsdoc capitalize ([137006d](https://github.com/ModyQyW/fabric/commit/137006d76e7e371901a61b314f7fa128f8a28fb2))
+
 ## [10.9.1](https://github.com/ModyQyW/fabric/compare/v10.9.0...v10.9.1) (2024-04-15)
 
 
