@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.9.3](https://github.com/ModyQyW/fabric/compare/v10.9.2...v10.9.3) (2024-05-09)
+
+
+### Bug Fixes
+
+* **eslint:** disable vue rules ([f41aea8](https://github.com/ModyQyW/fabric/commit/f41aea886b16b2d1cb39187ca7d573ebdb5b57ba))
+
 ## [10.9.2](https://github.com/ModyQyW/fabric/compare/v10.9.1...v10.9.2) (2024-05-09)
 
 
