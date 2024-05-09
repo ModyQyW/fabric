@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.9.4](https://github.com/ModyQyW/fabric/compare/v10.9.3...v10.9.4) (2024-05-09)
+
+
+### Bug Fixes
+
+* **stylelint:** fix overrides ([3da301c](https://github.com/ModyQyW/fabric/commit/3da301c23f8461ed3b28196fed3faa6e23442cef))
+
 ## [10.9.3](https://github.com/ModyQyW/fabric/compare/v10.9.2...v10.9.3) (2024-05-09)
 
 
