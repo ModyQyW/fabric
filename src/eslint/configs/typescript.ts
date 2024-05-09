@@ -23,7 +23,8 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         ...pluginTypeScript.configs['eslint-recommended'].overrides[0].rules,
         ...pluginTypeScript.configs.recommended.rules,
         // indicate that the export exists only in the type system, not at runtime
-        '@typescript-eslint/consistent-type-imports': 'error',
+        // requires project
+        // '@typescript-eslint/consistent-type-imports': 'error',
         // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         '@typescript-eslint/method-signature-style': 'error',
         // too ideal for business
