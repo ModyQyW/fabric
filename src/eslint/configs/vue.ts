@@ -225,7 +225,6 @@ export function vue(options: VueOptions = {}): Config[] {
         'vue/padding-line-between-blocks': 'error',
         'vue/prefer-prop-type-boolean-first': 'error',
         'vue/prefer-separate-static-class': 'error',
-        'vue/prefer-true-attribute-shorthand': 'error',
         'vue/require-emit-validator': 'error',
         'vue/require-explicit-slots': 'error',
         'vue/require-name-property': 'error',
