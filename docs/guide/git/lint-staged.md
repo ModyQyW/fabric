@@ -75,22 +75,22 @@ The following plugins are currently supported:
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
 import {
-  lintStaged,
   hasESLint,
-  hasOxlint,
-  hasStylelint,
   hasMarkdownlintCli,
+  hasOxlint,
   hasPrettier,
+  hasStylelint,
+  lintStaged,
 } from '@modyqyw/fabric';
 
 export default lintStaged({
   eslint: hasESLint,
   jsonc: true,
-  yml: true,
-  oxlint: hasOxlint,
-  stylelint: hasStylelint,
   markdownlint: hasMarkdownlintCli,
+  oxlint: hasOxlint,
   prettier: hasPrettier,
+  stylelint: hasStylelint,
+  yml: true,
 });
 ```
 
@@ -103,8 +103,7 @@ import { lintStaged } from '@modyqyw/fabric';
 
 export default lintStaged(undefined, {
   // operations that require customization
-  ...,
-})
+});
 ```
 
 ## Integration

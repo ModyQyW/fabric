@@ -170,6 +170,7 @@ export default prettier(undefined, {
   // prettier-plugin-tailwindcss 一定要放在最后
   // 默认配置内的 plugins 将被直接覆盖
   plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
+
   overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
 });
 ```
@@ -249,7 +250,7 @@ export default {
 ```javascript
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
-import { filterFilenames, GLOB_EXCLUDE } from '@modyqyw/fabric';
+import { GLOB_EXCLUDE, filterFilenames } from '@modyqyw/fabric';
 
 export default {
   '*': (filenames) => {

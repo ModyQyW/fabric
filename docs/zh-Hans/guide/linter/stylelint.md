@@ -81,7 +81,7 @@ module.exports = stylelint();
 ```javascript
 // stylelint.config.mjs
 // or stylelint.config.js with "type": "module" in package.json
-import { stylelint, hasScss } from '@modyqyw/fabric';
+import { hasScss, stylelint } from '@modyqyw/fabric';
 
 export default stylelint({
   // 基于 stylelint-config-recess-order
@@ -113,7 +113,6 @@ import { stylelint } from '@modyqyw/fabric';
 export default stylelint(undefined, {
   rules: {
     // 需要自定义的规则
-    ...,
   },
 });
 ```
@@ -132,7 +131,6 @@ export default {
   rules: {
     ...defaultConfig.rules,
     // 需要自定义的规则
-    ...,
   },
 };
 ```

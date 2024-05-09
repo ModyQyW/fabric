@@ -75,23 +75,23 @@ module.exports = lintStaged();
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
 import {
-  lintStaged,
   hasESLint,
-  hasOxlint,
-  hasStylelint,
   hasMarkdownlintCli,
+  hasOxlint,
   hasPrettier,
+  hasStylelint,
+  lintStaged,
 } from '@modyqyw/fabric';
 
 export default lintStaged({
   eslint: hasESLint,
+  formatChangelog: false,
   lintJsonc: true,
   lintYml: true,
-  oxlint: hasOxlint,
-  stylelint: hasStylelint,
   markdownlint: hasMarkdownlintCli,
+  oxlint: hasOxlint,
   prettier: hasPrettier,
-  formatChangelog: false,
+  stylelint: hasStylelint,
 });
 ```
 
@@ -104,8 +104,7 @@ import { lintStaged } from '@modyqyw/fabric';
 
 export default lintStaged(undefined, {
   // 需要自定义的操作
-  ...,
-})
+});
 ```
 
 ## 整合

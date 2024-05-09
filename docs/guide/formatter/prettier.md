@@ -172,6 +172,7 @@ export default prettier(undefined, {
   // prettier-plugin-tailwindcss must be the last one
   // plugins in the default configuration will be directly overridden
   plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
+
   overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
 });
 ```
@@ -251,7 +252,7 @@ If you are hand-writing CHANGELOG.md, you may want to format it with Prettier.
 ```javascript
 // lint-staged.config.mjs
 // or lint-staged.config.js with "type": "module" in package.json
-import { filterFilenames, GLOB_EXCLUDE } from '@modyqyw/fabric';
+import { GLOB_EXCLUDE, filterFilenames } from '@modyqyw/fabric';
 
 export default {
   '*': (filenames) => {

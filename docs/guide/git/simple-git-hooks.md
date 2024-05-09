@@ -74,9 +74,9 @@ The following plugins are currently supported:
 // simple-git-hooks.cjs
 require('esbuild-register');
 const {
-  simpleGitHooks,
   hasCommitlint,
   hasLintStaged,
+  simpleGitHooks,
 } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks({
@@ -94,6 +94,5 @@ const { simpleGitHooks } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks(undefined, {
   // configs that require customization
-  ...,
-})
+});
 ```

@@ -74,9 +74,9 @@ module.exports = simpleGitHooks();
 // simple-git-hooks.cjs
 require('esbuild-register');
 const {
-  simpleGitHooks,
   hasCommitlint,
   hasLintStaged,
+  simpleGitHooks,
 } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks({
@@ -94,6 +94,5 @@ const { simpleGitHooks } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks(undefined, {
   // 需要自定义的配置
-  ...,
-})
+});
 ```

@@ -77,7 +77,6 @@ import {
 } from '@modyqyw/fabric';
 
 export default commitlint({
-  style: 'conventional',
   monorepo: hasPnpmWorkspace
     ? 'pnpm-workspace'
     : hasLerna
@@ -87,6 +86,7 @@ export default commitlint({
         : hasRush
           ? 'rush'
           : false,
+  style: 'conventional',
 });
 ```
 
@@ -107,8 +107,7 @@ import { commitlint } from '@modyqyw/fabric';
 
 export default commitlint(undefined, {
   // 需要自定义的配置
-  ...,
-})
+});
 ```
 
 ## 整合

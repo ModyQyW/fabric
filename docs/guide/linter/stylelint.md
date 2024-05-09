@@ -81,7 +81,7 @@ The following plugins are currently supported:
 ```javascript
 // stylelint.config.mjs
 // or stylelint.config.js with "type": "module" in package.json
-import { stylelint, hasScss } from '@modyqyw/fabric';
+import { hasScss, stylelint } from '@modyqyw/fabric';
 
 export default stylelint({
   // based on stylelint-config-recess-order
@@ -113,7 +113,6 @@ import { stylelint } from '@modyqyw/fabric';
 export default stylelint(undefined, {
   rules: {
     // rules that require customization
-    ...,
   },
 });
 ```
@@ -132,7 +131,6 @@ export default {
   rules: {
     ...defaultConfig.rules,
     // rules that require customization
-    ...,
   },
 };
 ```
