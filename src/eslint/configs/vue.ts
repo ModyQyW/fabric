@@ -46,7 +46,6 @@ const vue3Rules = {
   'vue/no-required-prop-with-default': 'error',
   'vue/prefer-define-options': 'error',
   'vue/require-macro-variable-name': 'error',
-  'vue/v-on-handler-style': ['error', ['method', 'inline']],
   'vue/valid-define-options': 'error',
   'vue-scoped-css/no-deprecated-v-enter-v-leave-class': 'error',
   'vue-scoped-css/v-deep-pseudo-style': ['error', ':deep'],
@@ -208,13 +207,6 @@ export function vue(options: VueOptions = {}): Config[] {
         'vue/enforce-style-attribute': [
           'error',
           { allow: ['scoped', 'module'] },
-        ],
-        'vue/match-component-file-name': [
-          'error',
-          {
-            extensions: ['jsx', 'tsx', 'vue'],
-            shouldMatchCase: true,
-          },
         ],
         'vue/next-tick-style': ['error', 'promise'],
         'vue/no-boolean-default': ['error', 'default-false'],
