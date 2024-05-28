@@ -21,19 +21,19 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
             case: 'kebabCase',
             ignore: [
               // README.md, CHANGELOG.md, README.zh-Hans.md
-              '\\.md$',
-              // MyApp.vue
-              '\\.vue$',
+              String.raw`\.md$`,
+              // MyApp.vue, HelloWorld.vue
+              String.raw`\.vue$`,
               // index.jsx, Index.jsx, .etc
               '^[Ii]ndex',
               // app.jsx, App.jsx, .etc
               '^[Aa]pp',
-              // index.jsx, Index.jsx, .etc
-              '\\.[jt]sx$',
+              // index.jsx, Index.jsx, HelloWorld.jsx, .etc
+              String.raw`\.[jt]sx$`,
               // useCssVar, useDark, .etc
               '^use',
               // [...all].jsx, [...slug].jsx, users-[group].jsx, [[...slug]].jsx, .etc
-              '\\[.*\\]',
+              String.raw`\[.*\]`,
             ],
           },
         ],

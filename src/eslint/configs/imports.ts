@@ -39,14 +39,15 @@ export function imports(options: ImportsOptions = {}): Config[] {
           {
             commonjs: true,
             ignore: [
-              '^virtual\\:',
-              '^\\~',
-              '^\\@',
-              '^windi\\:',
-              'windi\\.css',
-              '^uno\\:',
-              'uno\\.css',
+              String.raw`^virtual\:`,
+              String.raw`^\~`,
+              String.raw`^\@`,
+              String.raw`^windi\:`,
+              String.raw`windi\.css`,
+              String.raw`^uno\:`,
+              String.raw`uno\.css`,
               'vue-router/auto',
+              'vue-router/auto-routes',
               '@intlify/unplugin-vue-i18n',
             ],
           },
@@ -56,7 +57,10 @@ export function imports(options: ImportsOptions = {}): Config[] {
       settings: {
         'import/core-modules': ['electron'],
         'import/extensions': ['.js', '.mjs', '.jsx'],
-        'import/ignore': ['node_modules', '\\.(scss|sass|less|css|svg|json)$'],
+        'import/ignore': [
+          'node_modules',
+          String.raw`\.(scss|sass|less|css|svg|json)$`,
+        ],
         'import/resolver': {
           node: { extensions: ['.js', '.mjs', '.jsx', '.json'] },
         },
