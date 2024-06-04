@@ -8,11 +8,15 @@ export function commitlint(
   const { monorepo, style } = parseOptions(options);
 
   const extends_: string[] = [];
+
+  // handle style
   if (style === 'conventional') {
     extends_.push('@commitlint/config-conventional');
   } else if (style === 'angular') {
     extends_.push('@commitlint/config-angular');
   }
+
+  // handle monorepo
   switch (monorepo) {
     case 'lerna': {
       extends_.push('@commitlint/config-lerna-scopes');

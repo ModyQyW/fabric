@@ -13,6 +13,7 @@ export interface Options {
    * @default true
    */
   monorepo?: 'lerna' | 'nx' | 'pnpm-workspace' | 'rush' | boolean;
+
   /**
    * Commit style.
    *
