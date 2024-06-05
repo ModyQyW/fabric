@@ -284,10 +284,10 @@
     "simple-git-hooks": "^2.11.1",
     "stylelint": "^16.6.1",
     "taze": "^0.13.8",
-    "unbuild": "^3.0.0-rc.1",
+    "unbuild": "^3.0.0-rc.2",
     "unocss": "^0.60.4",
     "viewerjs": "^1.11.6",
-    "vitepress": "^1.2.2",
+    "vitepress": "^1.2.3",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-image-viewer": "^1.1.4",
     "vue-tsc": "^2.0.19"
