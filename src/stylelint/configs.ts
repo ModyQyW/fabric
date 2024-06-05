@@ -4,16 +4,43 @@ import type { Options } from './types';
 
 export function extends_(options: Required<Options>) {
   const { order, scss: enableScss, style } = options;
+
   const extends_: string[] = [];
-  if (order) extends_.push('stylelint-config-recess-order');
+
   extends_.push(`stylelint-config-html`, `stylelint-config-${style}`);
+
+  if (order) extends_.push('stylelint-config-recess-order');
+
   if (enableScss) extends_.push(`stylelint-config-${style}-scss`);
+
   extends_.push('stylelint-prettier/recommended');
+
   return extends_;
 }
 
-export function rules(options: Options = {}) {
-  const { scss: enableScss } = options;
+export function plugins(options: Required<Options>) {
+  const { defensiveCss, highPerformanceAnimation, logicalCss } = options;
+
+  const plugins: string[] = [];
+
+  if (highPerformanceAnimation)
+    plugins.push('stylelint-high-performance-animation');
+
+  if (defensiveCss) plugins.push('stylelint-plugin-defensive-css');
+
+  if (logicalCss) plugins.push('stylelint-plugin-logical-css');
+
+  return plugins;
+}
+
+export function rules(options: Required<Options>) {
+  const {
+    defensiveCss,
+    highPerformanceAnimation,
+    logicalCss,
+    scss: enableScss,
+  } = options;
+
   const rules: Record<string, any> = {
     // https://stylelint.io/user-guide/rules/at-rule-no-unknown/
     'at-rule-no-unknown': [
@@ -21,7 +48,7 @@ export function rules(options: Options = {}) {
       {
         ignoreAtRules: [
           // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
+          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
           'value',
           // tailwindcss
           // https://tailwindcss.com/docs/functions-and-directives#directives
@@ -38,7 +65,7 @@ export function rules(options: Options = {}) {
       {
         ignoreFunctions: [
           // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
+          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
           'global',
           // tailwindcss
           // https://tailwindcss.com/docs/functions-and-directives#functions
@@ -57,7 +84,7 @@ export function rules(options: Options = {}) {
       true,
       {
         // css modules
-        // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
+        // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
         ignoreProperties: ['composes', 'compose-with'],
         ignoreSelectors: [':export', /^:import/],
       },
@@ -68,7 +95,7 @@ export function rules(options: Options = {}) {
       {
         ignorePseudoClasses: [
           // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
+          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
           'export',
           'import',
           'local',
@@ -99,12 +126,43 @@ export function rules(options: Options = {}) {
       {
         ignoreTypes: [
           // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
+          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
           'from',
         ],
       },
     ],
   };
+
+  if (highPerformanceAnimation) {
+    rules['plugin/no-low-performance-animation-properties'] = true;
+  }
+
+  if (defensiveCss) {
+    rules['plugin/use-defensive-css'] = [
+      true,
+      {
+        'accidental-hover': true,
+        'background-repeat': true,
+        'custom-property-fallbacks': true,
+        'flex-wrapping': true,
+        'scroll-chaining': true,
+        'scrollbar-gutter': true,
+        'vendor-prefix-grouping': true,
+      },
+    ];
+  }
+
+  if (logicalCss) {
+    rules['plugin/use-logical-properties-and-values'] = [
+      true,
+      { disableFix: true, severity: 'warning' },
+    ];
+    rules['plugin/use-logical-units'] = [
+      true,
+      { disableFix: true, severity: 'warning' },
+    ];
+  }
+
   if (hasMiniProgram) {
     rules['selector-type-no-unknown'] = [
       true,
@@ -124,6 +182,7 @@ export function rules(options: Options = {}) {
       },
     ];
   }
+
   if (enableScss) {
     rules['at-rule-no-unknown'] = null;
     rules['scss/at-rule-no-unknown'] = [

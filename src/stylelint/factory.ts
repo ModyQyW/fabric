@@ -1,5 +1,5 @@
 import { GLOB_EXCLUDE } from '../constants';
-import { extends_, rules } from './configs';
+import { extends_, plugins, rules } from './configs';
 import { parseOptions } from './utils';
 import type { Config, Options } from './types';
 
@@ -8,6 +8,7 @@ export function stylelint(
   userConfig: Config = {},
 ): Config {
   const parsed = parseOptions(options);
+
   return {
     extends: extends_(parsed),
     ignoreFiles: GLOB_EXCLUDE,
@@ -17,19 +18,11 @@ export function stylelint(
         files: ['*.vue', '**/*.vue'],
       },
     ],
-    plugins: [
-      'stylelint-high-performance-animation',
-      // 'stylelint-plugin-defensive-css',
-      // 'stylelint-plugin-logical-css',
-    ],
+    plugins: plugins(parsed),
     reportDescriptionlessDisables: true,
     reportInvalidScopeDisables: true,
     reportNeedlessDisables: true,
-    rules: {
-      ...rules(parsed),
-      // stylelint-high-performance-animation
-      'plugin/no-low-performance-animation-properties': true,
-    },
+    rules: rules(parsed),
     ...userConfig,
   };
 }
