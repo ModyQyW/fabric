@@ -5,6 +5,7 @@ export interface Options {
    * Enabled by default if you have commitlint installed.
    */
   commitlint?: boolean;
+
   /**
    * Use lint-staged.
    *
