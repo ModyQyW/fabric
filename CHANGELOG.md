@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.10.0](https://github.com/ModyQyW/fabric/compare/v10.9.5...v10.10.0) (2024-06-28)
+
+
+### Features
+
+* add constants ([cbe9d3d](https://github.com/ModyQyW/fabric/commit/cbe9d3d5f55df39c419d73f31f0d2a5fc4d4065f))
+* **stylelint:** add 3 plugins support ([7e8945c](https://github.com/ModyQyW/fabric/commit/7e8945c605f8860bbc2ca2b53706e5b3cc95e85c))
+
+
+### Bug Fixes
+
+* **eslint:** loose node rules ([d6cf921](https://github.com/ModyQyW/fabric/commit/d6cf921c156071b6a4fd75bd7b99a77d7aaa1431))
+* lint ([b0d5eef](https://github.com/ModyQyW/fabric/commit/b0d5eef17c0aea7491ca85b7f0f19c21800f6aec))
+* **markdownlint:** remove comments and deprecated props ([7f5b06e](https://github.com/ModyQyW/fabric/commit/7f5b06ecf0df6b2098a00a9497039cb10a12194d))
+
 ## [10.9.5](https://github.com/ModyQyW/fabric/compare/v10.9.4...v10.9.5) (2024-05-09)
 
 
