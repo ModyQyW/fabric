@@ -28,7 +28,7 @@ bun install markdownlint-cli -d
 
 ## 配置
 
-### json
+### JSON
 
 更新你的 `.markdownlint.json`。
 
