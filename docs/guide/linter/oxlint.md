@@ -8,7 +8,7 @@ oxlint is not a complete replacement for ESLint; rather, oxlint complements ESLi
 
 ## Installation
 
-You have to install oxlint first. Currently oxlint v0.2 is supported.
+You have to install oxlint first. Currently oxlint v0.5 is supported.
 
 ::: code-group
 
@@ -39,7 +39,7 @@ Update your `package.json` and add `lint:oxlint` script.
 ```json
 {
   "scripts": {
-    "lint:oxlint": "oxlint --deny=correctness --deny=perf --fix"
+    "lint:oxlint": "oxlint --fix"
   }
 }
 ```
@@ -53,7 +53,7 @@ If you have other files to ignore, you can use `--ignore-pattern` like below. It
 ```json
 {
   "scripts": {
-    "lint:oxlint": "oxlint --deny=correctness --deny=perf --ignore-pattern=*.d.ts --fix"
+    "lint:oxlint": "oxlint --ignore-pattern=*.d.ts --fix"
   }
 }
 ```
@@ -77,7 +77,7 @@ export default {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': (filenames) => {
     const filtered = filterFilenames(filenames);
     return [
-      `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`,
+      `oxlint --fix ${filtered.join(' ')}`,
       `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(' ')}`,
     ];
   },

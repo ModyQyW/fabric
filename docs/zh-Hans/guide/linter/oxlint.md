@@ -8,7 +8,7 @@ oxlint 不能完全取代 ESLint。相反地，因为 oxlint 非常快，所以 
 
 ## 安装
 
-首先你需要安装 oxlint。目前支持 oxlint v0.2。
+首先你需要安装 oxlint。目前支持 oxlint v0.5。
 
 ::: code-group
 
@@ -39,7 +39,7 @@ bun install oxlint -d
 ```json
 {
   "scripts": {
-    "lint:oxlint": "oxlint --deny=correctness --deny=perf --fix"
+    "lint:oxlint": "oxlint --fix"
   }
 }
 ```
@@ -53,7 +53,7 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 ```json
 {
   "scripts": {
-    "lint:oxlint": "oxlint --deny=correctness --deny=perf --ignore-pattern=*.d.ts --fix"
+    "lint:oxlint": "oxlint --ignore-pattern=*.d.ts --fix"
   }
 }
 ```
@@ -77,7 +77,7 @@ export default {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': (filenames) => {
     const filtered = filterFilenames(filenames);
     return [
-      `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`,
+      `oxlint --fix ${filtered.join(' ')}`,
       `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(' ')}`,
     ];
   },
