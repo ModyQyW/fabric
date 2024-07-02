@@ -7,7 +7,7 @@ export function extends_(options: Required<Options>) {
 
   const extends_: string[] = [];
 
-  extends_.push(`stylelint-config-html`, `stylelint-config-${style}`);
+  extends_.push('stylelint-config-html', `stylelint-config-${style}`);
 
   if (order) extends_.push('stylelint-config-recess-order');
 
