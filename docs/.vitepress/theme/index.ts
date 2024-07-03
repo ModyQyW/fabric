@@ -31,7 +31,6 @@ export default {
         theme: 'preferred_color_scheme',
       },
       {
-        // @ts-expect-error wrong type
         frontmatter,
         route,
       },
