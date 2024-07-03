@@ -175,7 +175,7 @@ export default eslint();
     name: 'oxlint',
     packages: ['oxlint'],
     scripts: {
-      'lint:oxlint': 'oxlint --deny=correctness --deny=perf --fix',
+      'lint:oxlint': 'oxlint --fix',
     },
     value: 'oxlint',
   },
