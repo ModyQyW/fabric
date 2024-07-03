@@ -25,7 +25,7 @@ export function lintStaged(
     config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = (filenames) => {
       const filtered = filterFilenames(filenames);
       return [
-        `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`,
+        `oxlint --fix ${filtered.join(' ')}`,
         `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(' ')}`,
       ];
     };
@@ -33,7 +33,7 @@ export function lintStaged(
     // filter files for oxlint usage
     config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] = (filenames) => {
       const filtered = filterFilenames(filenames);
-      return `oxlint --deny=correctness --deny=perf --fix ${filtered.join(' ')}`;
+      return `oxlint --fix ${filtered.join(' ')}`;
     };
   } else if (enableESLint) {
     config['*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}'] =
