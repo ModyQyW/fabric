@@ -3,13 +3,18 @@ import { accessSync, mkdirSync, readFileSync } from 'node:fs';
 import { unlink, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { installPackage } from '@antfu/install-pkg';
-import { checkbox, confirm } from '@inquirer/prompts';
+import { checkbox, confirm, select } from '@inquirer/prompts';
 import { ListrInquirerPromptAdapter } from '@listr2/prompt-adapter-inquirer';
 import { Command } from 'commander';
 import consola from 'consola';
 import { defu } from 'defu';
 import fg from 'fast-glob';
-import { Listr } from 'listr2';
+import {
+  DefaultRenderer,
+  Listr,
+  type ListrTaskWrapper,
+  SimpleRenderer,
+} from 'listr2';
 import { isPackageExists } from 'local-pkg';
 import sortObjectKeys from 'sort-object-keys';
 import sortPackageJson from 'sort-package-json';
@@ -41,6 +46,7 @@ const program = new Command()
   .option('--oxlint', 'setup oxlint')
   .option('--stylelint', 'setup Stylelint')
   .option('--markdownlint', 'setup markdownlint')
+  .option('--biome', 'setup Biome')
   .option('--tsc', 'setup tsc')
   .option('--commitlint', 'setup commitlint')
   .option('--lint-staged', 'setup lint-staged')
@@ -147,7 +153,8 @@ export default eslint();
     vscodeRecommendations: ['dbaeumer.vscode-eslint'],
     vscodeSettings: {
       // 启用 ESLint 平面配置
-      'eslint.experimental.useFlatConfig': true,
+      'eslint.experimental.useFlatConfig': true, // < 3.0.10
+      'eslint.useFlatConfig': true, // >= 3.0.10
       // ESLint 检查的语言
       'eslint.validate': [
         'javascript',
@@ -243,6 +250,33 @@ export default stylelint();
     },
   },
   {
+    description:
+      'Biome is an all-in-one high-performance toolchain for web projects, aimed to provide functionalities to maintain them. It is a performant linter and a fast formatter.',
+    name: 'Biome',
+    packages: ['@biomejs/biome'],
+    patterns: ['biome.json'],
+    scripts: {
+      check: '@biomejs/biome check --write',
+    },
+    template: `{
+  "extends": "@modyqyw/fabric/biome.json"
+}
+`,
+    value: 'biome',
+    vscodeRecommendations: ['biomejs.biome'],
+    vscodeSettings: {
+      // 手动保存后 Biome 自动修复
+      'editor.codeActionsOnSave': {
+        'quickfix.biome': 'explicit',
+        'source.organizeImports.biome': 'explicit',
+      },
+      // 指定默认代码格式化器为 Biome
+      'editor.defaultFormatter': 'biomejs.biome',
+      // 保存自动格式化
+      'editor.formatOnSave': true,
+    },
+  },
+  {
     // TODO: support monorepo
     description: 'tsc is the official type checker that comes with TypeScript.',
     name: 'tsc',
@@ -305,6 +339,25 @@ module.exports = simpleGitHooks();
   },
 ];
 
+async function getConflictResolution(
+  task: ListrTaskWrapper<Ctx, typeof DefaultRenderer, typeof SimpleRenderer>,
+) {
+  return (await task.prompt(ListrInquirerPromptAdapter).run(select, {
+    choices: [
+      {
+        name: 'Keep Biome and remove other functions',
+        value: 'keep',
+      },
+      {
+        name: 'Remove Biome and keep other functions',
+        value: 'remove',
+      },
+    ],
+    message:
+      'Biome may conflict with other functions and is recommended to be used separately. What do you want to do?',
+  })) as 'keep' | 'remove';
+}
+
 const tasks = new Listr<Ctx>([
   {
     rendererOptions: {
@@ -314,9 +367,33 @@ const tasks = new Listr<Ctx>([
       ctx.functions = [];
       let shouldSkip = false;
       if (opts.all) {
-        ctx.functions.push(...functionOptions.map((o) => o.name));
+        const resolution = await getConflictResolution(task);
+        ctx.functions.push(
+          ...functionOptions
+            .filter((o) => {
+              if (resolution === 'keep') {
+                return (
+                  o.name !== 'Prettier' &&
+                  o.name !== 'ESLint' &&
+                  o.name !== 'oxlint'
+                );
+              }
+              return o.name !== 'biome';
+            })
+            .map((o) => o.name),
+        );
         shouldSkip = true;
       } else {
+        if (opts.biome && (opts.prettier || opts.eslint || opts.oxlint)) {
+          const resolution = await getConflictResolution(task);
+          if (resolution === 'keep') {
+            opts.prettier = false;
+            opts.eslint = false;
+            opts.oxlint = false;
+          } else {
+            opts.biome = false;
+          }
+        }
         for (const o of functionOptions) {
           if (opts[o.value]) {
             ctx.functions.push(o.name);
@@ -334,6 +411,36 @@ const tasks = new Listr<Ctx>([
           choices: functionOptions,
           message: 'What functions do you want for your project?',
         })) as string[];
+      if (
+        functions.includes('biome') &&
+        (functions.includes('prettier') ||
+          functions.includes('eslint') ||
+          functions.includes('oxlint'))
+      ) {
+        const resolution = (await task
+          .prompt(ListrInquirerPromptAdapter)
+          .run(select, {
+            choices: [
+              {
+                name: 'Keep Biome and remove other functions',
+                value: 'keep',
+              },
+              {
+                name: 'Remove Biome and keep other functions',
+                value: 'remove',
+              },
+            ],
+            message:
+              'Biome may conflict with other functions and is recommended to be used separately. What do you want to do?',
+          })) as string;
+        if (resolution === 'keep') {
+          functions.splice(functions.indexOf('biome'), 1);
+        } else {
+          functions.splice(functions.indexOf('prettier'), 1);
+          functions.splice(functions.indexOf('eslint'), 1);
+          functions.splice(functions.indexOf('oxlint'), 1);
+        }
+      }
       ctx.functions = functions.map(
         (f) => functionOptions.find((o) => o.value === f)!.name,
       );
