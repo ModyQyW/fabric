@@ -2,7 +2,7 @@
 
 oxlint is an emerging linter that requires no configuration by default and is mainly used for script files.
 
-::: tip Positioning of tip oxlint
+::: tip Positioning of oxlint
 oxlint is not a complete replacement for ESLint; rather, oxlint complements ESLint because oxlint is very fast. You can run oxlint before running ESLint to get a faster feedback loop.
 :::
 
@@ -61,6 +61,10 @@ If you have other files to ignore, you can use `--ignore-pattern` like below. It
 :::
 
 ## Integration
+
+### VSC
+
+Install [the corresponding oxlint plugin](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
 
 ### lint-staged
 

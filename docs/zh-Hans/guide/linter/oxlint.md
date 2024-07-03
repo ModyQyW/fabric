@@ -62,6 +62,10 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 
 ## 整合
 
+### VSC
+
+安装 [对应的 oxlint 插件](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) 即可。
+
 ### lint-staged
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
