@@ -3,7 +3,7 @@
 Biome is a high-performance toolchain for web projects, aimed to provide functionalities to maintain them. It is a performant linter and a fast formatter.
 
 ::: tip Positioning of Biome
-Biome aims to completely replace ESLint and Prettier. Its speed is very fast, but it is not 100% compatible with ESLint, and it still needs further development.
+Biome aims to completely replace ESLint, Stylelint and Prettier. Its speed is very fast, but it is not 100% compatible with ESLint, and it still needs further development.
 
 Biome has good support for JavaScript, TypeScript, JSX, TSX, JSON and JSONC, but support for the others could be improved, so it is recommended to use it for JS, TS, JSX, and TSX projects, and not to mix it with other code checkers and code formatters.
 
