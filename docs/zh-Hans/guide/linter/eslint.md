@@ -2,10 +2,6 @@
 
 ESLint 是被广泛采用的代码检查工具，主要用于脚本文件。
 
-::: tip 其它选择
-[Biome](https://biomejs.dev/) 是后起之秀。如果你感觉 ESLint 速度比较慢，你可以考虑使用它，但需要你自行配置。但必须留意：它们和 ESLint 并不是 100% 兼容的，你可能会得到意想不到的结果。
-:::
-
 ## 安装
 
 首先你需要安装 ESLint。目前支持 ESLint v8。
@@ -342,7 +338,8 @@ export default combine(
 ```jsonc
 {
   // 启用 ESLint 平面配置
-  "eslint.experimental.useFlatConfig": true,
+  // "eslint.experimental.useFlatConfig": true, // ESLint 插件 < 3.0.10
+  "eslint.useFlatConfig": true, // ESLint 插件 >= 3.0.10
 
   // ESLint 检查的语言
   "eslint.validate": [
