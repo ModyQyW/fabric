@@ -67,6 +67,7 @@ export default defineConfig({
                 items: [
                   { link: 'overview', text: 'Overview' },
                   { link: 'prettier', text: 'Prettier' },
+                  { link: 'biome', text: 'Biome' },
                 ],
                 text: 'Formatter',
               },
@@ -79,6 +80,7 @@ export default defineConfig({
                   { link: 'oxlint', text: 'oxlint' },
                   { link: 'stylelint', text: 'Stylelint' },
                   { link: 'markdownlint', text: 'markdownlint' },
+                  { link: 'biome', text: 'Biome' },
                 ],
                 text: 'Linter',
               },
@@ -181,6 +183,7 @@ export default defineConfig({
                 items: [
                   { link: 'overview', text: '概述' },
                   { link: 'prettier', text: 'Prettier' },
+                  { link: 'biome', text: 'Biome' },
                 ],
                 text: '代码格式化器',
               },
@@ -193,6 +196,7 @@ export default defineConfig({
                   { link: 'oxlint', text: 'oxlint' },
                   { link: 'stylelint', text: 'Stylelint' },
                   { link: 'markdownlint', text: 'markdownlint' },
+                  { link: 'biome', text: 'Biome' },
                 ],
                 text: '代码检查工具',
               },
