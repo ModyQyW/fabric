@@ -1,9 +1,9 @@
 # Biome
 
-Biome 是一个用于 Web 项目的高性能工具链，旨在为开发者提供维护项目的工具，它既可以作为代码检查工具，也可以作为代码格式化器。
+Biome 是一个用于 Web 项目的一体化高性能工具链，旨在为开发者提供维护项目的工具，它既可以作为代码检查工具，也可以作为代码格式化器。
 
 ::: tip Biome 的定位
-Biome 旨在完全替代 ESLint、Stylelint 和 Prettier，它的速度非常快，但它和 ESLint 并非 100% 兼容，目前仍然需要进一步的发展。
+Biome 速度非常快，但它和已有的常见工具（如 ESLint、Stylelint 和 Prettier）并非 100% 兼容，目前仍然需要进一步的发展。
 
 Biome 对 JavaScript、TypeScript、JSX、TSX、JSON 和 JSONC 支持度良好，对其它支持度有待改进，因此建议将其用于 JS、TS、JSX 和 TSX 项目，不要与其它代码检查工具、代码格式化器混合使用。
 
