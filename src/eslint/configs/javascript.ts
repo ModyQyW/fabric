@@ -13,28 +13,20 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
         ecmaVersion: 'latest',
         globals: {
           ...globals.browser,
-          ...globals.es2021,
+          ...globals.es2025,
           ...globals.node,
-          __dirname: false,
-          __filename: false,
           dd: 'readonly', // https://open.dingtalk.com/
-          document: 'readonly',
-          exports: false,
           jd: 'readonly', // https://mp.jd.com/
           ks: 'readonly', // https://mp.kuaishou.com/
-          module: false,
           my: 'readonly', // https://opendocs.alipay.com/mini
-          navigator: 'readonly',
           plus: 'readonly', // http://www.html5plus.org/doc/h5p.html
           qh: 'readonly', // https://mp.360.cn/
           qq: 'readonly', // https://q.qq.com/
-          require: false,
           swan: 'readonly', // https://smartprogram.baidu.com/docs
           tt: 'readonly', // https://developer.open-douyin.com/ https://open.feishu.cn/
           uni: 'readonly', // https://uniapp.dcloud.io/
           uniCloud: 'readonly', // https://uniapp.dcloud.io
           weex: 'readonly', // https://weex.apache.org/
-          window: 'readonly',
           wx: 'readonly', // https://developers.weixin.qq.com/miniprogram/dev/framework/
         },
         parser: parserBabel,
