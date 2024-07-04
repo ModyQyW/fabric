@@ -130,6 +130,7 @@
         "default": "./dist/cli.cjs"
       }
     },
+    "./biome.json": "./dist/biome.json",
     "./markdownlint.json": "./dist/markdownlint.json"
   },
   "main": "./dist/index.cjs",

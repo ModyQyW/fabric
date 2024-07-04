@@ -1,0 +1,116 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "files": {
+    "ignore": [
+      "**/node_modules",
+      "**/dist*",
+      "**/package-lock.json",
+      "**/yarn.lock",
+      "**/pnpm-lock.yaml",
+      "**/bun.lockb",
+      "!.github",
+      "!.vitepress",
+      "!.vuepress",
+      "!.vscode",
+      "**/public",
+      "**/out",
+      "**/output",
+      "**/generated",
+      "**/coverage",
+      "**/temp",
+      "**/.temp",
+      "**/tmp",
+      "**/.tmp",
+      "**/.history",
+      "**/unpackage",
+      "**/fixtures",
+      "**/.nuxt",
+      "**/.next",
+      "**/.vercel",
+      "**/.netlify",
+      "**/.cache",
+      "**/.changeset",
+      "**/.git",
+      "**/.hbuilder",
+      "**/.hbuilderx",
+      "**/.idea",
+      "**/.nitro",
+      "**/.npm",
+      "**/.out",
+      "**/.output",
+      "**/.rax",
+      "**/.umi",
+      "**/.vite-inspect",
+      "**/.vitepress/cache",
+      "**/.vuepress/cache",
+      "**/CHANGELOG*.md",
+      "**/*.min.*",
+      "**/LICENSE*",
+      "**/__snapshots__",
+      "**/auto-import?(s).d.ts",
+      "**/components.d.ts",
+      "**/typed-router.d.ts",
+      "**/uni-pages.d.ts",
+      "**/androidPrivacy.json",
+      "**/pages.json",
+      "**/manifest.json",
+      "**/*timestamp*"
+    ],
+    "ignoreUnknown": true
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    },
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "single",
+      "indentStyle": "space"
+    },
+    "globals": [],
+    "linter": {
+      "enabled": true
+    }
+  },
+  "json": {
+    "parser": {
+      "allowComments": false,
+      "allowTrailingCommas": false
+    },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space"
+    }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true
+    },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "quoteStyle": "single"
+    },
+    "linter": {
+      "enabled": true
+    }
+  }
+}

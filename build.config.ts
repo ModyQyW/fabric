@@ -1,4 +1,4 @@
-import { copyFileSync } from 'node:fs';
+import { copyFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { defineBuildConfig } from 'unbuild';
 
@@ -50,9 +50,16 @@ export default defineBuildConfig({
       const {
         options: { outDir },
       } = ctx;
-      const dest = resolve(outDir, 'markdownlint.json');
-      const src = resolve('src', 'markdownlint', 'index.json');
-      copyFileSync(src, dest);
+      Promise.all([
+        copyFile(
+          resolve('src', 'markdownlint', 'index.json'),
+          resolve(outDir, 'markdownlint.json'),
+        ),
+        copyFile(
+          resolve('src', 'biome', 'index.json'),
+          resolve(outDir, 'biome.json'),
+        ),
+      ]);
     },
   },
   rollup: {
