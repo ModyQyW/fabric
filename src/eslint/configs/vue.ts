@@ -204,10 +204,6 @@ export function vue(options: VueOptions = {}): Config[] {
         ],
         'vue/component-name-in-template-casing': ['error', 'PascalCase'],
         'vue/component-options-name-casing': ['error', 'PascalCase'],
-        'vue/enforce-style-attribute': [
-          'error',
-          { allow: ['scoped', 'module'] },
-        ],
         'vue/next-tick-style': ['error', 'promise'],
         'vue/no-boolean-default': ['error', 'default-false'],
         'vue/no-deprecated-model-definition': 'error',
