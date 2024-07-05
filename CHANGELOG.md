@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.11.0](https://github.com/ModyQyW/fabric/compare/v10.10.0...v10.11.0) (2024-07-05)
+
+
+### Features
+
+* **biome:** add biome json ([ee9eb9d](https://github.com/ModyQyW/fabric/commit/ee9eb9d61370be698d800a6c06d1ac417647f29a))
+* **biome:** update globals ([ced5cd6](https://github.com/ModyQyW/fabric/commit/ced5cd67e973d87cdbcf3045a4d9f68bf4240cbe))
+* **cli:** support biome ([09f03ac](https://github.com/ModyQyW/fabric/commit/09f03acee54622d93a162ee24a1902cf92022990))
+* **eslint:** update globals ([495ac2b](https://github.com/ModyQyW/fabric/commit/495ac2b5a0f1a28989bce6ab24d6f67ac9755e78))
+
+
+### Bug Fixes
+
+* **cli:** update oxlint usage ([d8a842f](https://github.com/ModyQyW/fabric/commit/d8a842f523d419ca42be769f1b66167abc624b90))
+* **eslint:** disable vue/enforce-style-attribute ([866219b](https://github.com/ModyQyW/fabric/commit/866219b3cc309acdeed20a5d04db65949843acec))
+* **lint-staged:** update oxlint usage ([923052e](https://github.com/ModyQyW/fabric/commit/923052eaf611b3198d4005a1cfc09627ca02b386))
+* **stylelint:** remove extra overrides ([a8de612](https://github.com/ModyQyW/fabric/commit/a8de6124d54fda2508785efa757868fdd2dd1931))
+
 ## [10.10.0](https://github.com/ModyQyW/fabric/compare/v10.9.5...v10.10.0) (2024-06-28)
 
 
