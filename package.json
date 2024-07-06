@@ -174,7 +174,7 @@
     "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
     "release": "commit-and-tag-version -a",
-    "typecheck": "tsc --noEmit"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@antfu/install-pkg": "^0.3.3",

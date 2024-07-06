@@ -40,12 +40,12 @@ If the tsconfig file was not provided with the project initialization, you can u
 
 ### CLI
 
-Update your `package.json` and add `typecheck` script.
+Update your `package.json` and add `type-check` script.
 
 ```json
 {
   "scripts": {
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "type-check": "tsc -p tsconfig.json --noEmit"
   }
 }
 ```
@@ -55,7 +55,7 @@ For Vue projects, you need to change tsc to vue-tsc.
 ```json
 {
   "scripts": {
-    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+    "type-check": "vue-tsc -p tsconfig.json --noEmit"
   }
 }
 ```

@@ -24,7 +24,7 @@ jobs:
       - run: pnpm run build
       - run: pnpm run lint
 
-  typecheck:
+  type-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,4 +36,4 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: corepack enable
       - run: pnpm install
-      - run: pnpm run typecheck
+      - run: pnpm run type-check

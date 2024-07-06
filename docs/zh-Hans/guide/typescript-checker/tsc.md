@@ -62,12 +62,12 @@ bun install typescript vue-tsc -d
 
 ### CLI
 
-更新你的 `package.json`，增加 `typecheck` 命令。
+更新你的 `package.json`，增加 `type-check` 命令。
 
 ```json
 {
   "scripts": {
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "type-check": "tsc -p tsconfig.json --noEmit"
   }
 }
 ```
@@ -77,7 +77,7 @@ bun install typescript vue-tsc -d
 ```json
 {
   "scripts": {
-    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+    "type-check": "vue-tsc -p tsconfig.json --noEmit"
   }
 }
 ```
