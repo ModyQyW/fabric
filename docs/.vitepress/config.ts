@@ -1,4 +1,3 @@
-import unocss from 'unocss/vite';
 import { defineConfig } from 'vitepress';
 
 // https://vitepress.dev/reference/site-config
@@ -270,7 +269,4 @@ export default defineConfig({
   },
   // https://vitepress.dev/reference/site-config#title
   title: '@modyqyw/fabric',
-  vite: {
-    plugins: [unocss()],
-  },
 });
