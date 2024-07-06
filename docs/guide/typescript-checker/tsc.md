@@ -2,10 +2,6 @@
 
 tsc is the official type checker that comes with TypeScript.
 
-::: tip Other options
-[ezno](https://github.com/kaleidawave/ezno) are the up-and-comers. You might consider using it if you think tsc is slow, but you'll need to configure it yourself. Be careful: it is not 100% compatible with tsc and you may get unexpected results.
-:::
-
 ## Installation
 
 You have to install TypeScript first. Currently TypeScript v5 is supported.

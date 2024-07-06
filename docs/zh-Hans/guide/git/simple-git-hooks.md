@@ -3,7 +3,7 @@
 simple-git-hooks 是被广泛采用的 Git 工具，帮助你轻松地管理 Git 钩子。
 
 ::: tip 其它选择
-[husky](https://typicode.github.io/husky/) 是一个被更广泛采用的工具，但是 husky 体积较大，而且 husky 修改了 Git 钩子目录，你可能不会喜欢这种做法。你可以考虑使用它，但需要你自行配置。
+[husky](https://typicode.github.io/husky/) 是一个被更广泛采用的工具，但是 husky 修改了 Git 钩子目录，你可能不会喜欢这种做法。你可以考虑使用它，但需要你自行配置。
 :::
 
 ## 安装

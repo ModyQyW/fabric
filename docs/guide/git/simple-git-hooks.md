@@ -3,7 +3,7 @@
 simple-git-hooks is a widely adopted Git tool that helps you manage Git hooks easily.
 
 ::: tip Other options
-[husky](https://typicode.github.io/husky/) is a more widely adopted tool, but husky is bulky and husky modifies the Git hooks directory, which you may not like. You might consider using it, but you'll need to configure it yourself.
+[husky](https://typicode.github.io/husky/) is a more widely adopted tool, but it modifies the Git hooks directory, which you may not like. You might consider using it, but you'll need to configure it yourself.
 :::
 
 ## Installation
