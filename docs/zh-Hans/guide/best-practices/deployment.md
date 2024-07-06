@@ -15,5 +15,5 @@
 - [keep-a-changelog](https://github.com/oscarotero/keep-a-changelog)
 - [np](https://github.com/sindresorhus/np)
 - [release](https://github.com/vercel/release)
-- [release-it](https://github.com/release-it/release-it)
+- [release-it](https://github.com/release-it/release-it) - Recommended
 - [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
