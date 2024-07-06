@@ -166,10 +166,10 @@
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
     "format": "prettier . \"!**/package-lock.json*\" \"!**/yarn.lock\" \"!**/pnpm-lock.yaml\" --ignore-unknown --write --cache --log-level=warn",
-    "lint": "conc \"pnpm:lint:eslint\" \"pnpm:lint:markdownlint\" \"pnpm:lint:publint\"",
+    "lint": "conc \"pnpm:lint:eslint\" \"pnpm:lint:markdownlint\" \"pnpm:lint:package\"",
     "lint:eslint": "eslint . --fix --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
-    "lint:publint": "nr build && publint",
+    "lint:package": "nr build && publint && attw --pack .",
     "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --aei --ignore-path=.gitignore",
     "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
@@ -266,6 +266,7 @@
     "yaml-eslint-parser": "^1.2.3"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.3",
     "@inquirer/type": "^1.4.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.10",
