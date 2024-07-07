@@ -110,6 +110,10 @@ export default defineConfig({
                   { link: 'overview', text: 'Overview' },
                   { link: 'naming', text: 'Naming' },
                   { link: 'editor-config', text: 'EditorConfig' },
+                  {
+                    link: 'ensure-npm-packages-compatibility',
+                    text: 'Ensure NPM Packages Compatibility',
+                  },
                   { link: 'deployment', text: 'Deployment' },
                 ],
                 text: 'Best Practices',
@@ -226,6 +230,10 @@ export default defineConfig({
                   { link: 'overview', text: '概述' },
                   { link: 'naming', text: '命名' },
                   { link: 'editor-config', text: 'EditorConfig' },
+                  {
+                    link: 'ensure-npm-packages-compatibility',
+                    text: '确保 NPM 包兼容性',
+                  },
                   { link: 'deployment', text: '部署' },
                 ],
                 text: '最佳实践',
