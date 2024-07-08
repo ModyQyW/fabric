@@ -114,6 +114,10 @@ export default defineConfig({
                     link: 'ensure-npm-packages-compatibility',
                     text: 'Ensure NPM Packages Compatibility',
                   },
+                  {
+                    link: 'update-project-dependencies-regularly',
+                    text: 'Update Project Dependencies Regularly',
+                  },
                   { link: 'deployment', text: 'Deployment' },
                 ],
                 text: 'Best Practices',
@@ -233,6 +237,10 @@ export default defineConfig({
                   {
                     link: 'ensure-npm-packages-compatibility',
                     text: '确保 NPM 包兼容性',
+                  },
+                  {
+                    link: 'update-project-dependencies-regularly',
+                    text: '定期更新项目依赖',
                   },
                   { link: 'deployment', text: '部署' },
                 ],
