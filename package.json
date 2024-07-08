@@ -169,7 +169,7 @@
     "lint": "conc \"pnpm:lint:eslint\" \"pnpm:lint:markdownlint\" \"pnpm:lint:package\"",
     "lint:eslint": "eslint . --fix --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
-    "lint:package": "nr build && publint && attw --pack .",
+    "lint:package": "pnpm run build && publint && attw --pack .",
     "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --aei --ignore-path=.gitignore",
     "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
