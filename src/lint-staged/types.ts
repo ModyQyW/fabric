@@ -6,9 +6,16 @@ export type Config = ConfigFn | Record<string, Commands | ConfigFn>;
 
 export interface Options {
   /**
-   * Use ESLint.
+   * Use Biome.
    *
-   * Enabled by default if you have ESLint installed.
+   * Enabled by default if you have Biome installed.
+   */
+  biome?: boolean;
+
+  /**
+   * Use ESLint without Biome.
+   *
+   * Enabled by default if you have ESLint installed and biome disabled.
    */
   eslint?: boolean;
   /**
@@ -39,16 +46,17 @@ export interface Options {
   yml?: boolean;
 
   /**
-   * Use oxlint.
+   * Use oxlint without Biome.
    *
-   * Enabled by default if you have oxlint installed.
+   * Enabled by default if you have oxlint installed and biome disabled.
    */
   oxlint?: boolean;
 
   /**
-   * Use markdownlint.
+   * Use markdownlint without Biome.
    *
-   * Enabled by default if you have markdownlint-cli2 installed.
+   * Enabled by default if you have markdownlint-cli installed and biome
+   * disabled.
    */
   markdownlint?: boolean;
 
@@ -59,16 +67,16 @@ export interface Options {
    */
   formatChangelog?: boolean;
   /**
-   * Use Prettier.
+   * Use Prettier without Biome.
    *
-   * Enabled by default if you have Prettier installed.
+   * Enabled by default if you have Prettier installed and biome disabled.
    */
   prettier?: boolean;
 
   /**
-   * Use Stylelint.
+   * Use Stylelint without Biome.
    *
-   * Enabled by default if you have Stylelint installed.
+   * Enabled by default if you have Stylelint installed and biome disabled.
    */
   stylelint?: boolean;
 }

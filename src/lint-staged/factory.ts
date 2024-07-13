@@ -8,6 +8,7 @@ export function lintStaged(
   userConfig: Config = {},
 ): Config {
   const {
+    biome: enableBiome,
     eslint: enableESLint,
     formatChangelog,
     lintJsonc,
@@ -19,6 +20,11 @@ export function lintStaged(
   } = parseOptions(options);
 
   const config: Config = {};
+
+  if (enableBiome) {
+    config['*'] =
+      `biome check --write --no-errors-on-unmatched --files-ignore-unknown=true`;
+  }
 
   if (enableOxlint && enableESLint) {
     // filter files for oxlint usage

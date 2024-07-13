@@ -99,6 +99,7 @@ export const hasTsconfigAppJson = existsSync(
   resolve(process.cwd(), 'tsconfig.app.json'),
 );
 
+export const hasBiome = isPackageExists('biome');
 export const hasESLint = isPackageExists('eslint');
 export const hasOxlint = isPackageExists('oxlint');
 export const hasStylelint = isPackageExists('stylelint');
