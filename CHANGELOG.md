@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.11.1](https://github.com/ModyQyW/fabric/compare/v10.11.0...v10.11.1) (2024-07-13)
+
+
+### Bug Fixes
+
+* fix script ([bfe87bf](https://github.com/ModyQyW/fabric/commit/bfe87bf754529cc3e4d73e653c27de7b721c8ba5))
+* **lint-staged:** fix biome support ([13836ff](https://github.com/ModyQyW/fabric/commit/13836ffd74678f3ead58e1bbf2833560bb302021))
+
 ## [10.11.0](https://github.com/ModyQyW/fabric/compare/v10.10.0...v10.11.0) (2024-07-05)
 
 
