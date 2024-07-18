@@ -17,7 +17,7 @@ import {
 } from 'listr2';
 import { isPackageExists } from 'local-pkg';
 import sortObjectKeys from 'sort-object-keys';
-import sortPackageJson from 'sort-package-json';
+import { sortPackageJson } from 'sort-package-json';
 import updateNotifier from 'update-notifier';
 import packageJson from '../package.json';
 
