@@ -6,18 +6,19 @@ import {
   GLOB_VUE,
 } from '../../constants';
 import { hasVue } from '../../env';
-import { pluginI, pluginImport } from '../plugins';
+import { pluginI, pluginImport, pluginImportX } from '../plugins';
 import type { Config, ImportsOptions } from '../types';
 
 const pluginMapping = {
   i: pluginI,
   import: pluginImport,
+  importX: pluginImportX,
 };
 
 export function imports(options: ImportsOptions = {}): Config[] {
   const {
     files = [GLOB_SCRIPT, GLOB_VUE],
-    plugin = 'i',
+    plugin = 'importX',
     rules = {},
     typescriptFiles = hasVue
       ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
@@ -31,7 +32,11 @@ export function imports(options: ImportsOptions = {}): Config[] {
         import: pluginMapping[plugin],
       },
       rules: {
-        ...pluginMapping[plugin].configs.recommended.rules,
+        ...Object.fromEntries(
+          Object.entries(pluginMapping[plugin].configs.recommended.rules).map(
+            ([k, v]) => [k.replace(/^.*\//, 'import/'), v],
+          ),
+        ),
         // breaks in flat config
         'import/namespace': 'off',
         'import/no-unresolved': [

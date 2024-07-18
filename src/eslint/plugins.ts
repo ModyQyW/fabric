@@ -5,6 +5,9 @@ import { interopDefault } from '../utils';
 import * as _configGitignore from 'eslint-config-flat-gitignore';
 export const configGitignore = interopDefault(_configGitignore);
 
+import * as _pluginImportX from 'eslint-plugin-import-x';
+export const pluginImportX = interopDefault(_pluginImportX);
+
 /* @ts-expect-error missing types */
 import * as _pluginI from 'eslint-plugin-i';
 export const pluginI = interopDefault(_pluginI);
