@@ -417,28 +417,13 @@ const tasks = new Listr<Ctx>([
           functions.includes('eslint') ||
           functions.includes('oxlint'))
       ) {
-        const resolution = (await task
-          .prompt(ListrInquirerPromptAdapter)
-          .run(select, {
-            choices: [
-              {
-                name: 'Keep Biome and remove other functions',
-                value: 'keep',
-              },
-              {
-                name: 'Remove Biome and keep other functions',
-                value: 'remove',
-              },
-            ],
-            message:
-              'Biome may conflict with other functions and is recommended to be used separately. What do you want to do?',
-          })) as string;
+        const resolution = await getConflictResolution(task);
         if (resolution === 'keep') {
-          functions.splice(functions.indexOf('biome'), 1);
-        } else {
           functions.splice(functions.indexOf('prettier'), 1);
           functions.splice(functions.indexOf('eslint'), 1);
           functions.splice(functions.indexOf('oxlint'), 1);
+        } else {
+          functions.splice(functions.indexOf('biome'), 1);
         }
       }
       ctx.functions = functions.map(
