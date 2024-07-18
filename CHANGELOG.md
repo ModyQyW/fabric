@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [10.12.0](https://github.com/ModyQyW/fabric/compare/v10.11.1...v10.12.0) (2024-07-18)
+
+
+### Features
+
+* use eslint-plugin-import-x by default ([1950515](https://github.com/ModyQyW/fabric/commit/19505155444e21db73b3da88dfd18ad4a302d1b2))
+
+
+### Bug Fixes
+
+* **cli:** fix biome config generation ([9f84839](https://github.com/ModyQyW/fabric/commit/9f84839f671e4ee9471c4ba080716674df468d7f))
+* **cli:** fix conflict resolution ([81e2af3](https://github.com/ModyQyW/fabric/commit/81e2af3fa1bb353b6e71b507a040e4e7bf384688))
+* **cli:** use named import ([d1615a1](https://github.com/ModyQyW/fabric/commit/d1615a149491ca544fd8e7b5b449790a26b94256))
+
 ## [10.11.1](https://github.com/ModyQyW/fabric/compare/v10.11.0...v10.11.1) (2024-07-13)
 
 
