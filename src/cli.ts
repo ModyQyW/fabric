@@ -254,6 +254,7 @@ export default stylelint();
       'Biome is an all-in-one high-performance toolchain for web projects, aimed to provide functionalities to maintain them. It is a performant linter and a fast formatter.',
     name: 'Biome',
     packages: ['@biomejs/biome'],
+    path: 'biome.json',
     patterns: ['biome.json'],
     scripts: {
       check: '@biomejs/biome check --write',
