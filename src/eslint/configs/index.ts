@@ -14,6 +14,7 @@ export * from './react';
 export * from './react-native';
 export * from './regexp';
 export * from './solid';
+export * from './tailwindcss';
 export * from './typescript';
 export * from './unicorn';
 export * from './unocss';
