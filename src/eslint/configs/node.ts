@@ -20,10 +20,10 @@ export function node(options: NodeOptions = {}): Config[] {
         // https://github.com/eslint-community/eslint-plugin-n/blob/v17.9.0/lib/configs/_commons.js
         'n/no-extraneous-require': 'error',
         // https://github.com/eslint-community/eslint-plugin-n/blob/v17.9.0/lib/configs/_commons.js
-        // handle by eslint-plugin-import / eslint-plugin-i
+        // handle by eslint-plugin-import-x
         // 'n/no-missing-import': 'off',
         // https://github.com/eslint-community/eslint-plugin-n/blob/v17.9.0/lib/configs/_commons.js
-        // handle by eslint-plugin-import / eslint-plugin-i
+        // handle by eslint-plugin-import-x
         // 'n/no-missing-require': 'off',
         // https://github.com/eslint-community/eslint-plugin-n/blob/v17.9.0/lib/configs/_commons.js
         'n/no-process-exit': 'error',

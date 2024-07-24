@@ -1,7 +1,10 @@
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
 import type { FlatESLintConfig } from 'eslint-define-config';
+import type { ESLint } from 'eslint';
 
 export type Config = FlatESLintConfig;
+
+export type Plugin = ESLint.Plugin;
 
 export type Rules = Config['rules'];
 

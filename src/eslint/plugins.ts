@@ -8,14 +8,6 @@ export const configGitignore = interopDefault(_configGitignore);
 import * as _pluginImportX from 'eslint-plugin-import-x';
 export const pluginImportX = interopDefault(_pluginImportX);
 
-/* @ts-expect-error missing types */
-import * as _pluginI from 'eslint-plugin-i';
-export const pluginI = interopDefault(_pluginI);
-
-/* @ts-expect-error missing types */
-import * as _pluginImport from 'eslint-plugin-import';
-export const pluginImport = interopDefault(_pluginImport);
-
 import * as _pluginJsdoc from 'eslint-plugin-jsdoc';
 export const pluginJsdoc = interopDefault(_pluginJsdoc);
 
@@ -29,7 +21,6 @@ export const pluginMarkdown = interopDefault(_pluginMarkdown);
 import * as _pluginN from 'eslint-plugin-n';
 export const pluginN = interopDefault(_pluginN);
 
-/* @ts-expect-error missing types */
 import * as _pluginPerfectionist from 'eslint-plugin-perfectionist';
 export const pluginPerfectionist = interopDefault(_pluginPerfectionist);
 

@@ -6,19 +6,12 @@ import {
   GLOB_VUE,
 } from '../../constants';
 import { hasVue } from '../../env';
-import { pluginI, pluginImport, pluginImportX } from '../plugins';
+import { pluginImportX } from '../plugins';
 import type { Config, ImportsOptions } from '../types';
-
-const pluginMapping = {
-  i: pluginI,
-  import: pluginImport,
-  importX: pluginImportX,
-};
 
 export function imports(options: ImportsOptions = {}): Config[] {
   const {
     files = [GLOB_SCRIPT, GLOB_VUE],
-    plugin = 'importX',
     rules = {},
     typescriptFiles = hasVue
       ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
@@ -29,16 +22,10 @@ export function imports(options: ImportsOptions = {}): Config[] {
     {
       files,
       plugins: {
-        import: pluginMapping[plugin],
+        // @ts-expect-error not matched
+        import: pluginImportX,
       },
       rules: {
-        ...Object.fromEntries(
-          Object.entries(pluginMapping[plugin].configs.recommended.rules).map(
-            ([k, v]) => [k.replace(/^.*\//, 'import/'), v],
-          ),
-        ),
-        // breaks in flat config
-        'import/namespace': 'off',
         'import/no-unresolved': [
           'error',
           {
@@ -57,6 +44,13 @@ export function imports(options: ImportsOptions = {}): Config[] {
             ],
           },
         ],
+        'import/named': 'error',
+        'import/namespace': 'error',
+        'import/default': 'error',
+        'import/export': 'error',
+        'import/no-named-as-default': 'warn',
+        'import/no-named-as-default-member': 'warn',
+        'import/no-duplicates': 'warn',
         ...rules,
       },
       settings: {
@@ -74,10 +68,11 @@ export function imports(options: ImportsOptions = {}): Config[] {
     {
       files: typescriptFiles,
       plugins: {
-        import: pluginMapping[plugin],
+        // @ts-expect-error not matched
+        import: pluginImportX,
       },
       rules: {
-        ...pluginMapping[plugin].configs.typescript.rules,
+        // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         'import/default': 'off',
         'import/named': 'off',
         'import/namespace': 'off',
