@@ -14,7 +14,6 @@ export interface IgnoresOptions {
 }
 export interface ImportsOptions {
   files?: string[];
-  plugin?: 'i' | 'import';
   rules?: Rules;
   typescriptFiles?: string[];
   typescriptRules?: Rules;
