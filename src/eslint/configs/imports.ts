@@ -26,6 +26,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
         import: pluginImportX,
       },
       rules: {
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
         'import/no-unresolved': [
           'error',
           {
@@ -44,22 +45,44 @@ export function imports(options: ImportsOptions = {}): Config[] {
             ],
           },
         ],
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
         'import/named': 'error',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
         'import/namespace': 'error',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
         'import/default': 'error',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/export.md
         'import/export': 'error',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default.md
         'import/no-named-as-default': 'warn',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
         'import/no-named-as-default-member': 'warn',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-duplicates.md
         'import/no-duplicates': 'warn',
+
         ...rules,
       },
       settings: {
+        // https://github.com/un-ts/eslint-plugin-import-x#import-xcore-modules
         'import/core-modules': ['electron'],
+
+        // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
         'import/extensions': ['.js', '.mjs', '.jsx'],
+
+        // https://github.com/un-ts/eslint-plugin-import-x#import-xignore
         'import/ignore': [
           'node_modules',
           String.raw`\.(scss|sass|less|css|svg|json)$`,
         ],
+
+        // https://github.com/un-ts/eslint-plugin-import-x#resolvers
         'import/resolver': {
           node: { extensions: ['.js', '.mjs', '.jsx', '.json'] },
         },
@@ -72,16 +95,29 @@ export function imports(options: ImportsOptions = {}): Config[] {
         import: pluginImportX,
       },
       rules: {
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         'import/default': 'off',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
+        // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         'import/named': 'off',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
+        // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         'import/namespace': 'off',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
+        // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         'import/no-named-as-default-member': 'off',
+
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
         // see https://github.com/iamturns/eslint-config-airbnb-typescript#why-is-importno-unresolved-disabled
         'import/no-unresolved': 'off',
         ...typescriptRules,
       },
       settings: {
+        // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
         'import/extensions': [
           '.js',
           '.mjs',
@@ -91,9 +127,13 @@ export function imports(options: ImportsOptions = {}): Config[] {
           '.tsx',
           '.d.ts',
         ],
+
+        // https://github.com/un-ts/eslint-plugin-import-x#import-xparsers
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
         },
+
+        // https://github.com/un-ts/eslint-plugin-import-x#resolvers
         'import/resolver': {
           node: {
             extensions: [
