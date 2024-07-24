@@ -1,4 +1,4 @@
-import { combine, isBoolean } from '../utils';
+import { isBoolean } from '../utils';
 import {
   gitignore,
   ignores,
@@ -22,7 +22,7 @@ import {
   vue,
   yml,
 } from './configs';
-import { parseOptions } from './utils';
+import { parseOptions, combine } from './utils';
 import type { Config, Options } from './types';
 
 export function eslint(
@@ -146,5 +146,5 @@ export function eslint(
     else configs.push(prettier(prettierOptions));
   }
 
-  return combine(configs, userConfigs);
+  return combine(...configs, ...userConfigs);
 }

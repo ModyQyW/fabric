@@ -8,7 +8,7 @@ import {
   hasUnoCss,
   hasVue,
 } from '../env';
-import type { Options } from './types';
+import type { Options, Config } from './types';
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {
@@ -34,4 +34,14 @@ export function parseOptions(options: Options = {}): Required<Options> {
     vue: options.vue ?? hasVue,
     yml: options.yml ?? true,
   };
+}
+
+/**
+ * Combine arrays into one.
+ *
+ * @param args Arrays
+ * @returns Array
+ */
+export function combine(...args: (Config | Config[])[]) {
+  return args.flat(Number.POSITIVE_INFINITY) as Config[];
 }
