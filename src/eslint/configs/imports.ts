@@ -5,7 +5,7 @@ import {
   GLOB_TSX,
   GLOB_VUE,
 } from '../../constants';
-import { hasVue } from '../../env';
+import { hasTypeScript, hasVue } from '../../env';
 import { pluginImportX } from '../plugins';
 import type { Config, ImportsOptions } from '../types';
 
@@ -13,7 +13,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
   const {
     files = [GLOB_SCRIPT, GLOB_VUE],
     rules = {},
-    typescriptFiles = hasVue
+    typescriptFiles = hasTypeScript && hasVue
       ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
       : [GLOB_DTS, GLOB_TS, GLOB_TSX],
     typescriptRules = {},
