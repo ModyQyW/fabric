@@ -1,12 +1,14 @@
 import { configGitignore } from '../plugins';
+import defu from 'defu';
 import type { Config, GitignoreOptions } from '../types';
 
 export function gitignore(options: GitignoreOptions = {}): Config[] {
-  const { files = ['.gitignore', '.eslintignore'], strict = false } = options;
   return [
-    configGitignore({
-      files,
-      strict,
-    }),
+    configGitignore(
+      defu(options, {
+        files: ['.gitignore', '.eslintignore'],
+        strict: false,
+      }),
+    ),
   ];
 }
