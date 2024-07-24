@@ -81,6 +81,10 @@ export interface SolidOptions {
   typescriptFiles?: string[];
   typescriptRules?: Rules;
 }
+export interface TailwindCssOptions {
+  files?: string[];
+  rules?: Rules;
+}
 export interface TypeScriptOptions {
   files?: string[];
   rules?: Rules;
@@ -204,6 +208,12 @@ export interface Options {
    */
   solid?: SolidOptions | boolean;
   /**
+   * Detect tailwindcss issues.
+   *
+   * Enabled by default if you have tailwindcss installed.
+   */
+  tailwindcss?: TailwindCssOptions | boolean;
+  /**
    * Detect TypeScript issues.
    *
    * Enabled by default if you have TypeScript installed.
@@ -216,9 +226,9 @@ export interface Options {
    */
   unicorn?: UnicornOptions | boolean;
   /**
-   * Based on eslint-plugin-unocss.
+   * Detect unocss issues.
    *
-   * Enabled by default if you have UnoCSS installed.
+   * Enabled by default if you have unocss installed.
    */
   unocss?: UnoCssOptions | boolean;
   /**

@@ -86,6 +86,10 @@ export const pluginNext = interopDefault(_pluginNext);
 import * as _pluginSolid from 'eslint-plugin-solid';
 export const pluginSolid = interopDefault(_pluginSolid);
 
+/* @ts-expect-error missing types */
+import * as _pluginTailwindcss from 'eslint-plugin-tailwindcss';
+export const pluginTailwindcss = interopDefault(_pluginTailwindcss);
+
 import * as _pluginYml from 'eslint-plugin-yml';
 export const pluginYml = interopDefault(_pluginYml);
 
