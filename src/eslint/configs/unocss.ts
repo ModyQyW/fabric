@@ -8,12 +8,13 @@ export function unocss(options: UnoCssOptions = {}): Config[] {
     {
       files,
       plugins: {
+        // @ts-expect-error not matched
         '@unocss': pluginUnocss,
       },
       rules: {
-        ...pluginUnocss.configs.recommended.rules,
-        // avoid conflicts
-        '@unocss/order-attributify': 'off',
+        // https://unocss.dev/integrations/eslint
+        '@unocss/order': 'warn',
+
         ...rules,
       },
     },
