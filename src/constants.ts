@@ -77,6 +77,7 @@ export const GLOB_EXCLUDE = [
   '**/fixtures',
   '**/.nuxt',
   '**/.next',
+  '**/.svelte-kit',
   '**/.vercel',
   '**/.netlify',
   '**/.cache',
@@ -105,7 +106,7 @@ export const GLOB_EXCLUDE = [
   '**/androidPrivacy.json',
   '**/pages.json',
   '**/manifest.json',
-  '**/*timestamp*',
+  '**/*timestamp-*',
 ];
 
 export const MINI_PROGRAM_ELEMENTS = [
