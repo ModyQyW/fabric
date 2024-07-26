@@ -50,9 +50,6 @@ export function imports(options: ImportsOptions = {}): Config[] {
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-self-import.md
         'import/no-self-import': 'error',
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/first.md
-        'import/first': 'error',
-
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-duplicates.md
         'import/no-duplicates': 'warn',
 
