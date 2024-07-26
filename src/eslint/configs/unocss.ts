@@ -6,6 +6,7 @@ export function unocss(options: UnoCssOptions = {}): Config[] {
   const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
+      name: 'unocss',
       files,
       plugins: {
         // @ts-expect-error not matched

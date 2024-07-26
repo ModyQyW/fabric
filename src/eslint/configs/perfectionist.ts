@@ -6,6 +6,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
   const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
+      name: 'perfectionist',
       files,
       plugins: {
         // @ts-expect-error not matched

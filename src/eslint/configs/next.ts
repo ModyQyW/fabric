@@ -11,6 +11,7 @@ export function next(options: NextOptions = {}): Config[] {
   } = options;
   return [
     {
+      name: 'next',
       files,
       plugins: {
         '@next/next': pluginNext,

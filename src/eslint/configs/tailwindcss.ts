@@ -6,6 +6,7 @@ export function tailwindcss(options: TailwindCssOptions = {}): Config[] {
   const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
+      name: 'tailwindcss',
       files,
       plugins: {
         tailwindcss: pluginTailwindcss,

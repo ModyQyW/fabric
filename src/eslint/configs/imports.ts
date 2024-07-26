@@ -20,6 +20,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
   } = options;
   return [
     {
+      name: 'imports',
       files,
       plugins: {
         // @ts-expect-error not matched

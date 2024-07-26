@@ -6,6 +6,7 @@ export function yml(options: YmlOptions = {}): Config[] {
   const { files = [GLOB_YAML], rules = {} } = options;
   return [
     {
+      name: 'yml',
       files,
       languageOptions: {
         parser: parserYml,
