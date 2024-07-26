@@ -1,5 +1,5 @@
-import { configGitignore } from '../plugins';
 import defu from 'defu';
+import { configGitignore } from '../plugins';
 import type { Config, GitignoreOptions } from '../types';
 
 export function gitignore(options: GitignoreOptions = {}): Config[] {
