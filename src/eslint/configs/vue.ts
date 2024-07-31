@@ -102,25 +102,25 @@ const vue3Rules: Rules = {
   //https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue3-strongly-recommended.js
   'vue/attribute-hyphenation': 'warn',
   'vue/component-definition-name-casing': 'warn',
-  'vue/first-attribute-linebreak': 'warn',
-  'vue/html-closing-bracket-newline': 'warn',
-  'vue/html-closing-bracket-spacing': 'warn',
-  'vue/html-end-tags': 'warn',
-  'vue/html-indent': 'warn',
-  'vue/html-quotes': 'warn',
-  'vue/html-self-closing': 'warn',
-  'vue/max-attributes-per-line': 'warn',
-  'vue/multiline-html-element-content-newline': 'warn',
-  'vue/mustache-interpolation-spacing': 'warn',
-  'vue/no-multi-spaces': 'warn',
-  'vue/no-spaces-around-equal-signs-in-attribute': 'warn',
+  // 'vue/first-attribute-linebreak': 'warn', // Conflicts with Prettier.
+  // 'vue/html-closing-bracket-newline': 'warn', // Conflicts with Prettier.
+  // 'vue/html-closing-bracket-spacing': 'warn', // Conflicts with Prettier.
+  // 'vue/html-end-tags': 'warn', // Conflicts with Prettier.
+  // 'vue/html-indent': 'warn', // Conflicts with Prettier.
+  // 'vue/html-quotes': 'warn', // Conflicts with Prettier.
+  // 'vue/html-self-closing': 'warn', // Conflicts with Prettier.
+  // 'vue/max-attributes-per-line': 'warn', // Conflicts with Prettier.
+  // 'vue/multiline-html-element-content-newline': 'warn', // Conflicts with Prettier.
+  // 'vue/mustache-interpolation-spacing': 'warn', // Conflicts with Prettier.
+  // 'vue/no-multi-spaces': 'warn', // Conflicts with Prettier.
+  // 'vue/no-spaces-around-equal-signs-in-attribute': 'warn', // Conflicts with Prettier.
   'vue/no-template-shadow': 'warn',
   'vue/one-component-per-file': 'warn',
   'vue/prop-name-casing': 'warn',
   'vue/require-default-prop': 'warn',
   'vue/require-explicit-emits': 'warn',
   'vue/require-prop-types': 'warn',
-  'vue/singleline-html-element-content-newline': 'warn',
+  // 'vue/singleline-html-element-content-newline': 'warn', // Conflicts with Prettier.
   'vue/v-bind-style': 'warn',
   'vue/v-on-event-hyphenation': ['warn', 'always', { autofix: true }],
   'vue/v-on-style': 'warn',
@@ -370,24 +370,24 @@ const vue2Rules: Rules = {
   // https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue2-strongly-recommended.js
   'vue/attribute-hyphenation': 'warn',
   'vue/component-definition-name-casing': 'warn',
-  'vue/first-attribute-linebreak': 'warn',
-  'vue/html-closing-bracket-newline': 'warn',
-  'vue/html-closing-bracket-spacing': 'warn',
-  'vue/html-end-tags': 'warn',
-  'vue/html-indent': 'warn',
-  'vue/html-quotes': 'warn',
-  'vue/html-self-closing': 'warn',
-  'vue/max-attributes-per-line': 'warn',
-  'vue/multiline-html-element-content-newline': 'warn',
-  'vue/mustache-interpolation-spacing': 'warn',
-  'vue/no-multi-spaces': 'warn',
-  'vue/no-spaces-around-equal-signs-in-attribute': 'warn',
+  // 'vue/first-attribute-linebreak': 'warn', // Conflicts with Prettier.
+  // 'vue/html-closing-bracket-newline': 'warn', // Conflicts with Prettier.
+  // 'vue/html-closing-bracket-spacing': 'warn', // Conflicts with Prettier.
+  // 'vue/html-end-tags': 'warn', // Conflicts with Prettier.
+  // 'vue/html-indent': 'warn', // Conflicts with Prettier.
+  // 'vue/html-quotes': 'warn', // Conflicts with Prettier.
+  // 'vue/html-self-closing': 'warn', // Conflicts with Prettier.
+  // 'vue/max-attributes-per-line': 'warn', // Conflicts with Prettier.
+  // 'vue/multiline-html-element-content-newline': 'warn', // Conflicts with Prettier.
+  // 'vue/mustache-interpolation-spacing': 'warn', // Conflicts with Prettier.
+  // 'vue/no-multi-spaces': 'warn', // Conflicts with Prettier.
+  // 'vue/no-spaces-around-equal-signs-in-attribute': 'warn', // Conflicts with Prettier.
   'vue/no-template-shadow': 'warn',
   'vue/one-component-per-file': 'warn',
   'vue/prop-name-casing': 'warn',
   'vue/require-default-prop': 'warn',
   'vue/require-prop-types': 'warn',
-  'vue/singleline-html-element-content-newline': 'warn',
+  // 'vue/singleline-html-element-content-newline': 'warn', // Conflicts with Prettier.
   'vue/v-bind-style': 'warn',
   'vue/v-on-style': 'warn',
   'vue/v-slot-style': 'warn',
