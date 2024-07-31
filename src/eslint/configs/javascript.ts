@@ -91,7 +91,7 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
         'no-sparse-arrays': 'error',
         'no-this-before-super': 'error',
         'no-undef': 'error',
-        // 'no-unexpected-multiline': 'error', // conflicts with prettier
+        // 'no-unexpected-multiline': 'error', // Conflicts with Prettier.
         'no-unreachable': 'error',
         'no-unsafe-finally': 'error',
         'no-unsafe-negation': 'error',
