@@ -13,20 +13,46 @@ export function solid(options: SolidOptions = {}): Config[] {
     {
       files,
       plugins: {
-        react: pluginSolid,
+        // @ts-expect-error not matched
+        solid: pluginSolid,
       },
       rules: {
-        ...pluginSolid.configs.recommended.rules,
+        // https://github.com/solidjs-community/eslint-plugin-solid/blob/v0.14.1/src/configs/recommended.ts
+        'solid/jsx-no-duplicate-props': 'error',
+        'solid/jsx-no-undef': 'error',
+        'solid/jsx-uses-vars': 'error',
+        'solid/no-unknown-namespaces': 'error',
+        'solid/no-innerhtml': 'error',
+        'solid/jsx-no-script-url': 'error',
+        'solid/components-return-once': 'warn',
+        'solid/no-destructure': 'error',
+        'solid/prefer-for': 'error',
+        'solid/reactivity': 'warn',
+        'solid/event-handlers': 'warn',
+        'solid/imports': 'warn',
+        'solid/style-prop': 'warn',
+        'solid/no-react-deps': 'warn',
+        'solid/no-react-specific-props': 'warn',
+        'solid/self-closing-comp': 'warn',
+        'solid/no-array-handlers': 'off',
+        'solid/prefer-show': 'off',
+        'solid/no-proxy-apis': 'off',
+        'solid/prefer-classlist': 'off',
+
         ...rules,
       },
     },
     {
       files: typescriptFiles,
       plugins: {
-        react: pluginSolid,
+        // @ts-expect-error not matched
+        solid: pluginSolid,
       },
       rules: {
-        ...pluginSolid.configs.typescript.rules,
+        // https://github.com/solidjs-community/eslint-plugin-solid/blob/v0.14.1/src/configs/typescript.ts
+        'solid/jsx-no-undef': ['error', { typescriptEnabled: true }],
+        'solid/no-unknown-namespaces': 'off',
+
         ...typescriptRules,
       },
     },
