@@ -16,7 +16,14 @@ export function reactNative(options: ReactNativeOptions = {}): Config[] {
         'react-native': pluginReactNative,
       },
       rules: {
-        ...pluginReactNative.configs.all.rules,
+        // https://github.com/Intellicode/eslint-plugin-react-native/blob/v4.1.0/index.js
+        'react-native/no-unused-styles': 'error',
+        'react-native/split-platform-components': 'error',
+        'react-native/no-inline-styles': 'error',
+        'react-native/no-color-literals': 'error',
+        'react-native/no-raw-text': 'error',
+        'react-native/no-single-element-style-arrays': 'error',
+
         ...rules,
       },
     },
