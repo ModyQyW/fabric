@@ -1,3 +1,4 @@
+import { fixupPluginRules } from '@eslint/compat';
 import * as _configGitignore from 'eslint-config-flat-gitignore';
 import * as _pluginImportX from 'eslint-plugin-import-x';
 import * as _pluginJsdoc from 'eslint-plugin-jsdoc';
@@ -58,9 +59,14 @@ export const pluginNuxt2 = interopDefault(_pluginNuxt2);
 export const pluginNuxt3 = interopDefault(_pluginNuxt3);
 export const pluginReact = interopDefault(_pluginReact);
 export const pluginReactHooks = interopDefault(_pluginReactHooks);
-export const pluginReactPerf = interopDefault(_pluginReactPerf);
+export const pluginReactPerf = fixupPluginRules(
+  interopDefault(_pluginReactPerf),
+);
 export const pluginReactRefresh = interopDefault(_pluginReactRefresh);
-export const pluginReactNative = interopDefault(_pluginReactNative);
+// https://github.com/Intellicode/eslint-plugin-react-native/issues/333
+export const pluginReactNative = fixupPluginRules(
+  interopDefault(_pluginReactNative),
+);
 export const pluginNext = interopDefault(_pluginNext);
 export const pluginSolid = interopDefault(_pluginSolid);
 export const pluginTailwindcss = interopDefault(_pluginTailwindcss);
