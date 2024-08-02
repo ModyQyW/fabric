@@ -1,9 +1,23 @@
-import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
+import {
+  GLOB_DTS,
+  GLOB_SCRIPT,
+  GLOB_TS,
+  GLOB_TSX,
+  GLOB_VUE,
+} from '../../constants';
+import { hasTypeScript, hasVue } from '../../env';
 import { pluginTailwindcss } from '../plugins';
 import type { Config, TailwindCssOptions } from '../types';
 
 export function tailwindcss(options: TailwindCssOptions = {}): Config[] {
-  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
+  const {
+    files = [GLOB_SCRIPT, GLOB_VUE],
+    rules = {},
+    typescriptFiles = hasTypeScript && hasVue
+      ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
+      : [GLOB_DTS, GLOB_TS, GLOB_TSX],
+    typescriptRules = {},
+  } = options;
   return [
     {
       name: 'tailwindcss',
@@ -37,6 +51,13 @@ export function tailwindcss(options: TailwindCssOptions = {}): Config[] {
         'tailwindcss/no-unnecessary-arbitrary-value': 'warn',
 
         ...rules,
+      },
+    },
+    {
+      name: 'tailwindcss-typescript',
+      files: typescriptFiles,
+      rules: {
+        ...typescriptRules,
       },
     },
   ];
