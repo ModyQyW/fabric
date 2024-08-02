@@ -1,9 +1,23 @@
-import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
+import {
+  GLOB_DTS,
+  GLOB_SCRIPT,
+  GLOB_TS,
+  GLOB_TSX,
+  GLOB_VUE,
+} from '../../constants';
+import { hasTypeScript, hasVue } from '../../env';
 import { pluginRegexp } from '../plugins';
 import type { Config, RegExpOptions } from '../types';
 
 export function regexp(options: RegExpOptions = {}): Config[] {
-  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
+  const {
+    files = [GLOB_SCRIPT, GLOB_VUE],
+    rules = {},
+    typescriptFiles = hasTypeScript && hasVue
+      ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
+      : [GLOB_DTS, GLOB_TS, GLOB_TSX],
+    typescriptRules = {},
+  } = options;
   return [
     {
       files,
@@ -81,6 +95,13 @@ export function regexp(options: RegExpOptions = {}): Config[] {
         'regexp/use-ignore-case': 'error',
 
         ...rules,
+      },
+    },
+    {
+      name: 'regexp-typescript',
+      files: typescriptFiles,
+      rules: {
+        ...typescriptRules,
       },
     },
   ];
