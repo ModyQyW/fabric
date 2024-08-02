@@ -45,14 +45,19 @@ export interface NextOptions {
 export interface NodeOptions {
   files?: string[];
   rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
 }
 export interface NuxtOptions {
   files?: string[];
   rules?: Rules;
+  typescriptRules?: Rules;
 }
 export interface PerfectionistOptions {
   files?: string[];
   rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
 }
 export interface PrettierOptions {
   rules?: Rules;
@@ -72,6 +77,8 @@ export interface ReactOptions {
 export interface RegExpOptions {
   files?: string[];
   rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
 }
 export interface SolidOptions {
   files?: string[];
@@ -82,6 +89,8 @@ export interface SolidOptions {
 export interface TailwindCssOptions {
   files?: string[];
   rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
 }
 export interface TypeScriptOptions {
   files?: string[];
@@ -90,10 +99,14 @@ export interface TypeScriptOptions {
 export interface UnicornOptions {
   files?: string[];
   rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
 }
 export interface UnoCssOptions {
   files?: string[];
   rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
 }
 export interface VueOptions {
   files?: string[];
