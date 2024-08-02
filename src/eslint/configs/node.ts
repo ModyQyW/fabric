@@ -1,9 +1,23 @@
-import { GLOB_SCRIPT, GLOB_VUE } from '../../constants';
+import {
+  GLOB_DTS,
+  GLOB_SCRIPT,
+  GLOB_TS,
+  GLOB_TSX,
+  GLOB_VUE,
+} from '../../constants';
+import { hasTypeScript, hasVue } from '../../env';
 import { pluginN } from '../plugins';
 import type { Config, NodeOptions } from '../types';
 
 export function node(options: NodeOptions = {}): Config[] {
-  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
+  const {
+    files = [GLOB_SCRIPT, GLOB_VUE],
+    rules = {},
+    typescriptFiles = hasTypeScript && hasVue
+      ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
+      : [GLOB_DTS, GLOB_TS, GLOB_TSX],
+    typescriptRules = {},
+  } = options;
   return [
     {
       name: 'node',
@@ -30,6 +44,13 @@ export function node(options: NodeOptions = {}): Config[] {
         // 'n/hashbang': 'error', // Allow source code to use hashbang for building.
 
         ...rules,
+      },
+    },
+    {
+      name: 'node-typescript',
+      files: typescriptFiles,
+      rules: {
+        ...typescriptRules,
       },
     },
   ];
