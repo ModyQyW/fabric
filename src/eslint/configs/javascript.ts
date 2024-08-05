@@ -107,6 +107,15 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
         'use-isnan': 'error',
         'valid-typeof': 'error',
 
+        // https://eslint.org/docs/latest/rules/no-array-constructor
+        // Comes with https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/no-new-array.md.
+        'no-array-constructor': 'error',
+        // https://eslint.org/docs/latest/rules/no-console
+        // Use consola, pino, winston, etc.
+        'no-console': 'warn',
+        // https://eslint.org/docs/latest/rules/no-lonely-if
+        // Comes with https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/no-lonely-if.md.
+        'no-lonely-if': 'error',
         'no-shadow': 'warn',
         'no-use-before-define': 'warn',
 
