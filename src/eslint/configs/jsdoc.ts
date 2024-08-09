@@ -26,7 +26,7 @@ export function jsdoc(options: JsdocOptions = {}): Config[] {
         jsdoc: pluginJsdoc,
       },
       rules: {
-        // https://github.com/gajus/eslint-plugin-jsdoc/blob/v48.11.0/src/index.js
+        // https://github.com/gajus/eslint-plugin-jsdoc/blob/v50.0.0/src/index.js
         'jsdoc/check-access': 'warn',
         'jsdoc/check-alignment': 'warn',
         'jsdoc/check-examples': 'off',
@@ -91,7 +91,7 @@ export function jsdoc(options: JsdocOptions = {}): Config[] {
       name: 'jsdoc-typescript',
       files: typescriptFiles,
       rules: {
-        // https://github.com/gajus/eslint-plugin-jsdoc/blob/v48.11.0/src/index.js
+        // https://github.com/gajus/eslint-plugin-jsdoc/blob/v50.0.0/src/index.js
         'jsdoc/check-tag-names': ['warn', { typed: true }],
         'jsdoc/no-types': 'warn',
         'jsdoc/no-undefined-types': 'off',
