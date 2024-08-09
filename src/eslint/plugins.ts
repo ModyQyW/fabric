@@ -58,7 +58,9 @@ export const pluginVueScopedCss = interopDefault(_pluginVueScopedCss);
 export const pluginNuxt2 = interopDefault(_pluginNuxt2);
 export const pluginNuxt3 = interopDefault(_pluginNuxt3);
 export const pluginReact = interopDefault(_pluginReact);
-export const pluginReactHooks = interopDefault(_pluginReactHooks);
+export const pluginReactHooks = fixupPluginRules(
+  interopDefault(_pluginReactHooks),
+);
 export const pluginReactPerf = fixupPluginRules(
   interopDefault(_pluginReactPerf),
 );
