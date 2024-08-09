@@ -95,6 +95,8 @@ export interface TailwindCssOptions {
 export interface TypeScriptOptions {
   files?: string[];
   rules?: Rules;
+  typeCheck?: boolean;
+  parserOptions?: Linter.ParserOptions;
 }
 export interface UnicornOptions {
   files?: string[];
