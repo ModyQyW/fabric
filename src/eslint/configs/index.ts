@@ -9,7 +9,6 @@ export * from './next';
 export * from './node';
 export * from './nuxt';
 export * from './perfectionist';
-export * from './prettier';
 export * from './react';
 export * from './react-native';
 export * from './regexp';

@@ -191,12 +191,6 @@ export interface Options {
    */
   perfectionist?: PerfectionistOptions | boolean;
   /**
-   * Disable Prettier related rules. But not use Prettier in ESLint.
-   *
-   * @default true
-   */
-  prettier?: PrettierOptions | boolean;
-  /**
    * Detect react issues.
    *
    * Enabled by default if you have react installed.

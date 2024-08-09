@@ -11,7 +11,6 @@ import {
   node,
   nuxt,
   perfectionist,
-  prettier,
   react,
   reactNative,
   regexp,
@@ -42,7 +41,6 @@ export function eslint(
     node: nodeOptions,
     nuxt: nuxtOptions,
     perfectionist: perfectionistOptions,
-    prettier: prettierOptions,
     react: reactOptions,
     reactNative: reactNativeOptions,
     regexp: regexpOptions,
@@ -146,11 +144,6 @@ export function eslint(
   if (solidOptions) {
     if (isBoolean(solidOptions)) configs.push(solid());
     else configs.push(solid(solidOptions));
-  }
-
-  if (prettierOptions) {
-    if (isBoolean(prettierOptions)) configs.push(prettier());
-    else configs.push(prettier(prettierOptions));
   }
 
   return combine(...configs, ...userConfigs);
