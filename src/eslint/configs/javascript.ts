@@ -116,8 +116,18 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
         // https://eslint.org/docs/latest/rules/no-lonely-if
         // Comes with https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/no-lonely-if.md.
         'no-lonely-if': 'error',
+        // https://eslint.org/docs/latest/rules/no-shadow
         'no-shadow': 'warn',
+        // https://eslint.org/docs/latest/rules/no-use-before-define
         'no-use-before-define': 'warn',
+        // https://eslint.org/docs/latest/rules/no-var
+        'no-var': 'error',
+        // https://eslint.org/docs/latest/rules/prefer-const
+        'prefer-const': 'error',
+        // https://eslint.org/docs/latest/rules/prefer-rest-params
+        'prefer-rest-params': 'error',
+        // https://eslint.org/docs/latest/rules/prefer-spread
+        'prefer-spread': 'error',
 
         ...rules,
       },
