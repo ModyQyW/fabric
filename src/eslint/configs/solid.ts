@@ -11,6 +11,7 @@ export function solid(options: SolidOptions = {}): Config[] {
   } = options;
   return [
     {
+      name: 'solid',
       files,
       plugins: {
         // @ts-expect-error not matched
@@ -43,6 +44,7 @@ export function solid(options: SolidOptions = {}): Config[] {
       },
     },
     {
+      name: 'solid-typescript',
       files: typescriptFiles,
       plugins: {
         // @ts-expect-error not matched

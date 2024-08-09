@@ -7,6 +7,7 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
   const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
   return [
     {
+      name: 'javascript',
       files,
       languageOptions: {
         ecmaVersion: 'latest',

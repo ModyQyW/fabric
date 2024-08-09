@@ -17,6 +17,7 @@ export function react(options: ReactOptions = {}): Config[] {
   } = options;
   return [
     {
+      name: 'react',
       files,
       plugins: {
         react: pluginReact,
@@ -142,6 +143,7 @@ export function react(options: ReactOptions = {}): Config[] {
       },
     },
     {
+      name: 'react-typescript',
       files: typescriptFiles,
       rules: {
         'react/jsx-no-undef': 'off',

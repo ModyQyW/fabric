@@ -20,6 +20,7 @@ export function regexp(options: RegExpOptions = {}): Config[] {
   } = options;
   return [
     {
+      name: 'regexp',
       files,
       plugins: {
         regexp: pluginRegexp,

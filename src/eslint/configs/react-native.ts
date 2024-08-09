@@ -11,6 +11,7 @@ export function reactNative(options: ReactNativeOptions = {}): Config[] {
   } = options;
   return [
     {
+      name: 'react-native',
       files,
       plugins: {
         'react-native': pluginReactNative,
@@ -28,6 +29,7 @@ export function reactNative(options: ReactNativeOptions = {}): Config[] {
       },
     },
     {
+      name: 'react-native-typescript',
       files: typescriptFiles,
       rules: {
         ...typescriptRules,
