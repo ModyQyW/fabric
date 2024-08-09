@@ -24,6 +24,10 @@ export const hasSlidev = isPackageExists('@slidev/cli');
 export const hasUniApp =
   isPackageExists('@dcloudio/vite-plugin-uni') ||
   isPackageExists('@dcloudio/vue-cli-plugin-uni');
+export const hasTaroVue = [
+  '@tarojs/taro',
+  '@tarojs/plugin-framework-vue',
+].every((p) => isPackageExists(p));
 export const hasIonicVue = isPackageExists('@ionic/vue');
 export const hasVue =
   isPackageExists('vue') ||
@@ -32,6 +36,7 @@ export const hasVue =
   hasVitePress ||
   hasSlidev ||
   hasUniApp ||
+  hasTaroVue ||
   hasIonicVue;
 export const getVueVersion = () => {
   const pkg = getPackageInfoSync('vue', { paths: [process.cwd()] });
@@ -46,28 +51,51 @@ export const getVueVersion = () => {
 };
 export const hasVue3 = getVueVersion() === 3;
 
-export const hasNext = isPackageExists('next');
-export const hasExpo = isPackageExists('@expo/cli');
-export const hasReactNative = isPackageExists('react-native') || hasExpo;
+export const hasNext = ['next'].some((p) => isPackageExists(p));
+export const hasRemix = [
+  '@remix-run/node',
+  '@remix-run/react',
+  '@remix-run/serve',
+  '@remix-run/dev',
+  'remix',
+].some((p) => isPackageExists(p));
+export const hasReactNative = ['react-native', '@expo/cli'].some((p) =>
+  isPackageExists(p),
+);
 export const hasIonicReact = isPackageExists('@ionic/react');
 export const hasDocusaurus = isPackageExists('docusaurus');
-export const hasTaro = isPackageExists('@tarojs/taro');
+export const hasTaroReact = [
+  '@tarojs/taro',
+  '@tarojs/plugin-framework-react',
+].every((p) => isPackageExists(p));
 export const hasReact =
   isPackageExists('react') ||
   hasNext ||
+  hasRemix ||
   hasReactNative ||
   hasIonicReact ||
   hasDocusaurus ||
-  hasTaro;
+  hasTaroReact;
 
 export const hasSvelteKit = isPackageExists('@sveltejs/kit');
-export const hasSvelte = isPackageExists('svelte') || hasSvelteKit;
+export const hasTaroSvelte = [
+  '@tarojs/taro',
+  '@tarojs/plugin-framework-svelte',
+].every((p) => isPackageExists(p));
+export const hasSvelte =
+  hasSvelteKit || hasTaroSvelte || isPackageExists('svelte');
 
 export const hasSolidStart = isPackageExists('solid-start');
-export const hasSolid = isPackageExists('solid-js') || hasSolidStart;
+export const hasTaroSolid = [
+  '@tarojs/taro',
+  '@tarojs/plugin-framework-solid',
+].every((p) => isPackageExists(p));
+export const hasSolid =
+  hasSolidStart || hasTaroSolid || isPackageExists('solid-js');
 
 export const hasAstro = isPackageExists('astro');
 
+export const hasTaro = isPackageExists('@tarojs/taro');
 export const hasMiniProgram = hasUniApp || hasTaro;
 
 export const hasScss = isPackageExists('sass');
