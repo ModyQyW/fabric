@@ -7,4 +7,6 @@ const { eslint } = require('./src/eslint');
 
 // import { eslint } from './src/eslint';
 
-export default eslint();
+export default eslint({
+  perfectionist: false,
+});
