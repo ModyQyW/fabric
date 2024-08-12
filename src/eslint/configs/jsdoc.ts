@@ -26,7 +26,7 @@ export function jsdoc(options: JsdocOptions = {}): Config[] {
         jsdoc: pluginJsdoc,
       },
       rules: {
-        // https://github.com/gajus/eslint-plugin-jsdoc/blob/v50.0.0/src/index.js
+        // https://github.com/gajus/eslint-plugin-jsdoc/blob/v50.0.1/src/index.js
         'jsdoc/check-access': 'warn',
         'jsdoc/check-alignment': 'warn',
         'jsdoc/check-examples': 'off',
