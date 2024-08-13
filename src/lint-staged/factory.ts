@@ -13,6 +13,7 @@ export function lintStaged(
     formatChangelog,
     lintJsonc,
     lintYml,
+    lintToml,
     markdownlint: enableMarkdownlint,
     oxlint: enableOxlint,
     prettier: enablePrettier,
@@ -49,6 +50,10 @@ export function lintStaged(
   if (enableESLint) {
     if (lintJsonc) {
       config['*.{json,jsonc,json5}'] =
+        'eslint --fix --cache --no-error-on-unmatched-pattern';
+    }
+    if (lintToml) {
+      config['*.{toml}'] =
         'eslint --fix --cache --no-error-on-unmatched-pattern';
     }
     if (lintYml) {

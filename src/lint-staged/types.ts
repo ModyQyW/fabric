@@ -21,13 +21,6 @@ export interface Options {
   /**
    * Lint jsonc files.
    *
-   * @deprecated Use lintJsonc instead.
-   * @default true
-   */
-  jsonc?: boolean;
-  /**
-   * Lint jsonc files.
-   *
    * @default true
    */
   lintJsonc?: boolean;
@@ -38,12 +31,11 @@ export interface Options {
    */
   lintYml?: boolean;
   /**
-   * Lint yml files.
+   * Lint toml files.
    *
-   * @deprecated Use lintYml instead.
    * @default true
    */
-  yml?: boolean;
+  lintToml?: boolean;
 
   /**
    * Use oxlint without Biome.
