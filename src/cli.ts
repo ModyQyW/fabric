@@ -10,10 +10,10 @@ import consola from 'consola';
 import { defu } from 'defu';
 import fg from 'fast-glob';
 import {
-  DefaultRenderer,
   Listr,
+  type DefaultRenderer,
   type ListrTaskWrapper,
-  SimpleRenderer,
+  type SimpleRenderer,
 } from 'listr2';
 import { isPackageExists } from 'local-pkg';
 import sortObjectKeys from 'sort-object-keys';
@@ -166,9 +166,10 @@ export default eslint();
         'json',
         'jsonc',
         'yaml',
+        'toml',
       ],
-      // JavaScript、JSX、TypeScript、TypeScript JSX、Vue、markdown、JSON、JSONC、YAML 手动保存后 ESLint 自动修复
-      '[javascript][javascriptreact][typescript][typescriptreact][vue][markdown][json][jsonc][yaml]':
+      // JavaScript、JSX、TypeScript、TypeScript JSX、Vue、markdown、JSON、JSONC、YAML、TOML 手动保存后 ESLint 自动修复
+      '[javascript][javascriptreact][typescript][typescriptreact][vue][markdown][json][jsonc][yaml][toml]':
         {
           'editor.codeActionsOnSave': {
             'source.fixAll.eslint': 'explicit',
