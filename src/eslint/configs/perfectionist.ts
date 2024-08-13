@@ -39,7 +39,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         ],
 
         // https://perfectionist.dev/rules/sort-astro-attributes
-        // Handled by other plugins.
+        // Handled by eslint-plugin-astro.
         'perfectionist/sort-astro-attributes': 'off',
 
         // https://perfectionist.dev/rules/sort-classes
@@ -178,7 +178,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         ],
 
         // https://perfectionist.dev/rules/sort-jsx-props
-        // Handled by other plugins.
+        // Handled by eslint-plugin-react.
         'perfectionist/sort-jsx-props': 'off',
 
         // https://perfectionist.dev/rules/sort-maps
@@ -248,7 +248,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         ],
 
         // https://perfectionist.dev/rules/sort-svelte-attributes
-        // Handled by other plugins.
+        // Handled by eslint-plugin-svelte.
         'perfectionist/sort-svelte-attributes': 'off',
 
         // https://perfectionist.dev/rules/sort-switch-case
@@ -288,7 +288,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         ],
 
         // https://perfectionist.dev/rules/sort-vue-attributes
-        // Handled by other plugins.
+        // Handled by eslint-plugin-vue.
         'perfectionist/sort-vue-attributes': 'off',
 
         // https://perfectionist.dev/rules/sort-variable-declarations
