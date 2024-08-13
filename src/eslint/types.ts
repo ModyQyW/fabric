@@ -86,6 +86,10 @@ export interface TailwindCssOptions {
   typescriptFiles?: string[];
   typescriptRules?: Rules;
 }
+export interface TomlOptions {
+  files?: string[];
+  rules?: Rules;
+}
 export interface TypeScriptOptions {
   files?: string[];
   rules?: Rules;
@@ -208,6 +212,12 @@ export interface Options {
    * Enabled by default if you have tailwindcss installed.
    */
   tailwindcss?: TailwindCssOptions | boolean;
+  /**
+   * Detect toml issues.
+   *
+   * @default true
+   */
+  toml?: TomlOptions | boolean;
   /**
    * Detect TypeScript issues.
    *

@@ -13,6 +13,7 @@ export * from './react';
 export * from './react-native';
 export * from './regexp';
 export * from './tailwindcss';
+export * from './toml';
 export * from './typescript';
 export * from './unicorn';
 export * from './unocss';

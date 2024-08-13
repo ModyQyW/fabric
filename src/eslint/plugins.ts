@@ -32,10 +32,12 @@ import * as _pluginReactNative from 'eslint-plugin-react-native';
 import * as _pluginNext from '@next/eslint-plugin-next';
 /* @ts-expect-error missing types */
 import * as _pluginTailwindcss from 'eslint-plugin-tailwindcss';
+import * as _pluginToml from 'eslint-plugin-toml';
 import * as _pluginYml from 'eslint-plugin-yml';
 /* @ts-expect-error missing types */
 import * as _parserBabel from '@babel/eslint-parser';
 import * as _parserJsonc from 'jsonc-eslint-parser';
+import * as _parserToml from 'toml-eslint-parser';
 import * as _parserTypeScript from '@typescript-eslint/parser';
 import * as _parserVue from 'vue-eslint-parser';
 import * as _parserYml from 'yaml-eslint-parser';
@@ -70,9 +72,11 @@ export const pluginReactNative = fixupPluginRules(
 );
 export const pluginNext = interopDefault(_pluginNext);
 export const pluginTailwindcss = interopDefault(_pluginTailwindcss);
+export const pluginToml = interopDefault(_pluginToml);
 export const pluginYml = interopDefault(_pluginYml);
 export const parserBabel = interopDefault(_parserBabel);
 export const parserJsonc = interopDefault(_parserJsonc);
+export const parserToml = interopDefault(_parserToml);
 export const parserTypeScript = interopDefault(_parserTypeScript);
 export const parserVue = interopDefault(_parserVue);
 export const parserYml = interopDefault(_parserYml);

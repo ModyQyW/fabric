@@ -27,6 +27,7 @@ export function parseOptions(options: Options = {}): Required<Options> {
     reactNative: options.reactNative ?? hasReactNative,
     regexp: options.regexp ?? true,
     tailwindcss: options.tailwindcss ?? hasTailwindCss,
+    toml: options.toml ?? true,
     typescript: options.typescript ?? hasTypeScript,
     unicorn: options.unicorn ?? true,
     unocss: options.unocss ?? hasUnoCss,

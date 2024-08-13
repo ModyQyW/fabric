@@ -15,6 +15,7 @@ import {
   reactNative,
   regexp,
   tailwindcss,
+  toml,
   typescript,
   unicorn,
   unocss,
@@ -44,6 +45,7 @@ export function eslint(
     reactNative: reactNativeOptions,
     regexp: regexpOptions,
     tailwindcss: tailwindcssOptions,
+    toml: tomlOptions,
     typescript: typescriptOptions,
     unicorn: unicornOptions,
     unocss: unocssOptions,
@@ -82,48 +84,17 @@ export function eslint(
     else configs.push(unicorn(unicornOptions));
   }
 
-  if (tailwindcssOptions) {
-    if (isBoolean(tailwindcssOptions)) configs.push(tailwindcss());
-    else configs.push(tailwindcss(tailwindcssOptions));
-  }
-  if (unocssOptions) {
-    if (isBoolean(unocssOptions)) configs.push(unocss());
-    else configs.push(unocss(unocssOptions));
-  }
-
-  if (jsdocOptions) {
-    if (isBoolean(jsdocOptions)) configs.push(jsdoc());
-    else configs.push(jsdoc(jsdocOptions));
-  }
-  if (jsoncOptions) {
-    if (isBoolean(jsoncOptions)) configs.push(jsonc());
-    else configs.push(jsonc(jsoncOptions));
-  }
-  if (ymlOptions) {
-    if (isBoolean(ymlOptions)) configs.push(yml());
-    else configs.push(yml(ymlOptions));
-  }
-
   if (javascriptOptions) {
     if (isBoolean(javascriptOptions)) configs.push(javascript());
     else configs.push(javascript(javascriptOptions));
   }
+  if (jsdocOptions) {
+    if (isBoolean(jsdocOptions)) configs.push(jsdoc());
+    else configs.push(jsdoc(jsdocOptions));
+  }
   if (typescriptOptions) {
     if (isBoolean(typescriptOptions)) configs.push(typescript());
     else configs.push(typescript(typescriptOptions));
-  }
-  if (markdownOptions) {
-    if (isBoolean(markdownOptions)) configs.push(markdown());
-    else configs.push(markdown(markdownOptions));
-  }
-
-  if (vueOptions) {
-    if (isBoolean(vueOptions)) configs.push(vue());
-    else configs.push(vue(vueOptions));
-  }
-  if (nuxtOptions) {
-    if (isBoolean(nuxtOptions)) configs.push(nuxt());
-    else configs.push(nuxt(nuxtOptions));
   }
 
   if (reactOptions) {
@@ -137,6 +108,41 @@ export function eslint(
   if (nextOptions) {
     if (isBoolean(nextOptions)) configs.push(next());
     else configs.push(next(nextOptions));
+  }
+
+  if (vueOptions) {
+    if (isBoolean(vueOptions)) configs.push(vue());
+    else configs.push(vue(vueOptions));
+  }
+  if (nuxtOptions) {
+    if (isBoolean(nuxtOptions)) configs.push(nuxt());
+    else configs.push(nuxt(nuxtOptions));
+  }
+
+  if (tailwindcssOptions) {
+    if (isBoolean(tailwindcssOptions)) configs.push(tailwindcss());
+    else configs.push(tailwindcss(tailwindcssOptions));
+  }
+  if (unocssOptions) {
+    if (isBoolean(unocssOptions)) configs.push(unocss());
+    else configs.push(unocss(unocssOptions));
+  }
+
+  if (markdownOptions) {
+    if (isBoolean(markdownOptions)) configs.push(markdown());
+    else configs.push(markdown(markdownOptions));
+  }
+  if (jsoncOptions) {
+    if (isBoolean(jsoncOptions)) configs.push(jsonc());
+    else configs.push(jsonc(jsoncOptions));
+  }
+  if (tomlOptions) {
+    if (isBoolean(tomlOptions)) configs.push(toml());
+    else configs.push(toml(tomlOptions));
+  }
+  if (ymlOptions) {
+    if (isBoolean(ymlOptions)) configs.push(yml());
+    else configs.push(yml(ymlOptions));
   }
 
   return combine(...configs, ...userConfigs);
