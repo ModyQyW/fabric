@@ -44,7 +44,7 @@ export function react(options: ReactOptions = {}): Config[] {
         'react/no-string-refs': 'error',
         'react/no-unescaped-entities': 'error',
         'react/no-unknown-property': 'error',
-        'react/no-unsafe': 0,
+        // 'react/no-unsafe': 'off',
         'react/prop-types': 'error',
         'react/require-render-return': 'error',
         'react/sort-comp': [
@@ -137,6 +137,12 @@ export function react(options: ReactOptions = {}): Config[] {
               : [],
             allowConstantExport: hasVite,
           },
+        ],
+
+        // extra
+        'react/jsx-sort-props': [
+          'warn',
+          { callbacksLast: true, reservedFirst: true },
         ],
 
         ...rules,
