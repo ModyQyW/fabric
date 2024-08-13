@@ -4,7 +4,7 @@ ESLint is a widely adopted linter, mainly for script files.
 
 ## Installation
 
-You have to install ESLint first. Currently ESLint v8 is supported.
+You have to install ESLint first. Currently ESLint v9 is supported.
 
 ::: code-group
 
@@ -28,37 +28,16 @@ bun install eslint -d
 
 ## Configuration
 
-::: tip Use other config files
-Try [eslint-ts-patch](https://github.com/antfu/eslint-ts-patch) if you want to use other config files.
-:::
-
-### ESM
+Create `eslint.config.mjs` in your project root:
 
 ```javascript
 // eslint.config.mjs
-// or eslint.config.js with "type": "module" in package.json
-import { eslint } from '@modyqyw/fabric';
-// or
-// import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from '@modyqyw/fabric/eslint';
 
 export default eslint();
 ```
 
-### CJS
-
-```javascript
-// eslint.config.cjs
-// or eslint.config.js without "type": "module" in package.json
-const { eslint } = require('@modyqyw/fabric');
-// or
-// const { eslint } = require('@modyqyw/fabric/eslint');
-
-module.exports = eslint();
-```
-
-### CLI
-
-Update your `package.json` and add `lint:eslint` script.
+Update `package.json` and add `lint:eslint` script.
 
 ```json
 {
@@ -74,46 +53,55 @@ Update your `package.json` and add `lint:eslint` script.
 
 Passing parameters to the exported `eslint` method can customize, and the `eslint` method takes two parameters.
 
-The first parameter is used for basic customization, you can pass either `undefined` or an object. To explicitly enable or disable a plugin, you need to explicitly set the boolean value in the passed object.
+The first parameter is used for basic customization; you can pass no or empty objects to indicate the use of default values. To explicitly enable a configuration, you need to explicitly set `true` or the configuration object in the passed object; to explicitly disable a configuration, you need to explicitly set `false` in the passed object.
 
-The following plugins are currently supported:
+#### Base
 
 - gitignore - Based on [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore). Support for reading and using .gitignore and .eslintignore content as ignores options for flat configurations. Enabled by default.
 - ignores - Based on ignores option. Enabled by default.
-- imports - Based on [eslint-plugin-i](https://github.com/un-es/eslint-plugin-i) and [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import). Check import related issues. Enabled by default.
 - javascript - Based on [@eslint/js](https://github.com/eslint/eslint/tree/main/packages/js). Check JavaScript related issues. Enabled by default.
 - jsdoc - Based on [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc). Check JSDoc related issues. Enabled by default.
-- jsonc - Based on [eslint-plugin-jsonc](https://github.com/ota-meshi/eslint-plugin-jsonc). Check JSONC related issues. Enabled by default.
-- markdown - Based on [eslint-plugin-markdown](https://github.com/eslint/eslint-plugin-markdown). Check Markdown related issues. Enabled by default.
-- next: Based on [@next/eslint-plugin-next](https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next). Check Next related issues. Enabled by default if you have Next installed.
-- node - Based on [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n). Check Node related issues. Enabled by default.
-- nuxt - Based on [eslint-plugin-nuxt](https://github.com/nuxt/eslint-plugin-nuxt). Check Nuxt related issued. Enabled by default if you have Nuxt installed.
-- perfectionist - Based on [eslint-plugin-perfectionist](https://github.com/azat-io/eslint-plugin-perfectionist). Check orders. Enabled by default.
-- perttier - Based on [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) and [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier). Disabled code style rules. Enabled by default.
-- react - Based on [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react), [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks) and [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh). Check React related issues. Enabled by default if you have React installed.
-- reactNative - Based on [eslint-plugin-react-native](https://github.com/jsx-eslint/eslint-plugin-react-native). Check ReactNative related issues. Enabled by default if you have ReactNative installed.
-- regexp - Based on [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp). Check RegExp related issues. Enabled by default.
-- solid - Based on [eslint-plugin-solid](https://github.com/solidjs-community/eslint-plugin-solid). Check solid related issues. Enabled by default if you have solid installed.
 - typescript - Based on [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint). Check TypeScript related issues. Enabled by default if you have TypeScript installed.
-- unicorn - Based on [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn). Enabled by default.
-- unocss - Based on [eslint-plugin-unocss](https://github.com/unocss/unocss/tree/main/packages/eslint-plugin). Check UnoCSS related issues. Enabled by default if you have Vue installed.
+- imports - Based on [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x). Check import related issues. Enabled by default.
+- node - Based on [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n). Check Node configuration related issues. Enabled by default.
+- perfectionist - Based on [eslint-plugin-perfectionist](https://github.com/azat-io/eslint-plugin-perfectionist). Check orders. Enabled by default.
+- regexp - Based on [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp). Check RegExp related issues. Enabled by default.
+- unicorn - Based on [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn). Check performance and specification related issues. Enabled by default.
+
+#### Library / Framework
+
+- react - Based on [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react), [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks), [eslint-plugin-react-perf](https://github.com/cvazac/eslint-plugin-react-perf) and [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh). Check React related issues. Support Taro. Enabled by default if you have React installed.
+- reactNative - Based on [eslint-plugin-react-native](https://github.com/jsx-eslint/eslint-plugin-react-native). Check ReactNative related issues. Enabled by default if you have ReactNative installed.
+- next: Based on [@next/eslint-plugin-next](https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next). Check Next related issues. Enabled by default if you have Next installed.
 - vue - Based on [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) and [eslint-plugin-vue-scoped-css](https://github.com/future-architect/eslint-plugin-vue-scoped-css). Check Vue related issues. Enabled by default if you have Vue installed.
+- nuxt - Based on [eslint-plugin-nuxt](https://github.com/nuxt/eslint-plugin-nuxt). Check Nuxt related issued. Enabled by default if you have Nuxt installed.
+- tailwindcss - Based on [eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss). Check TailwindCSS related issues. Enabled by default if you have TailwindCSS installed.
+- unocss - Based on [eslint-plugin-unocss](https://github.com/unocss/unocss/tree/main/packages/eslint-plugin). Check UnoCSS related issues. Enabled by default if you have Vue installed.
+
+#### Specific Languages
+
+- jsonc - Based on [eslint-plugin-jsonc](https://github.com/ota-meshi/eslint-plugin-jsonc) and [eslint-plugin-package-json](https://github.com/JoshuaKGoldberg/eslint-plugin-package-json). Check JSON related issues. Enabled by default.
+- markdown - Based on [eslint-plugin-markdown](https://github.com/eslint/eslint-plugin-markdown). Check Markdown related issues. Enabled by default.
+- toml - Based on [eslint-plugin-toml](https://github.com/ota-meshi/eslint-plugin-toml). Check TOML related issues. Enabled by default.
 - yml - Based on [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml). Check YAML related issues. Enabled by default.
+
+#### Examples
+
+The following is the default configuration.
 
 ```javascript
 // eslint.config.mjs
-// or eslint.config.js with "type": "module" in package.json
 import {
-  eslint,
   hasNext,
   hasNuxt,
   hasReact,
   hasReactNative,
-  hasSolid,
+  hasTailwindCss,
   hasTypeScript,
   hasUnoCss,
   hasVue,
 } from '@modyqyw/fabric';
+import { eslint } from '@modyqyw/fabric/eslint';
 
 export default eslint({
   // based on eslint-plugin-flat-gitignore
@@ -122,7 +110,7 @@ export default eslint({
   // based on ignores option
   // true by default, enabled
   ignores: true,
-  // based on eslint-plugin-i and eslint-plugin-import
+  // based on eslint-plugin-import-x
   // true by default, enabled
   imports: true,
   // based on @eslint/js
@@ -149,10 +137,7 @@ export default eslint({
   // based on eslint-plugin-perfectionist
   // true by default, enabled
   perfectionist: true,
-  // based on eslint-plugin-prettier 和 eslint-config-prettier
-  // true by default, enabled
-  prettier: true,
-  // based on eslint-plugin-react、eslint-plugin-react-hooks 和 eslint-plugin-react-refresh
+  // based on eslint-plugin-react, eslint-plugin-react-hooks, eslint-plugin-react-perf and eslint-plugin-react-refresh
   // enabled by default if you have React installed
   react: hasReact,
   // based on eslint-plugin-react-native
@@ -161,9 +146,12 @@ export default eslint({
   // based on eslint-plugin-regexp
   // true by default, enabled
   regexp: true,
-  // based on eslint-plugin-solid
-  // enabled by default if you have solid installed
-  solid: hasSolid,
+  // based on eslint-plugin-tailwindcss
+  // enabled by default if you have TailwindCSS installed
+  tailwindcss: hasTailwindCss,
+  // based on eslint-plugin-toml
+  // true by default, enabled
+  toml: true,
   // based on @typescript-eslint/eslint-plugin
   // enabled by default if you have TypeScript installed
   typescript: hasTypeScript,
@@ -186,37 +174,26 @@ In addition to passing Boolean values, you can also pass configuration items dir
 
 ```javascript
 // eslint.config.mjs
-// or eslint.config.js with "type": "module" in package.json
-import { eslint } from '@modyqyw/fabric';
+import { eslint } from '@modyqyw/fabric/eslint';
 
 export default eslint({
   gitignore: {
+    // Update configuration
     files: ['.gitignore', '.eslintignore'],
     strict: false,
   },
 });
 ```
 
-::: warning Potential conflicts
-
-1. eslint-plugin-perfectionist may conflict with @ianvs/prettier-plugin-sort-imports, @trivago/prettier-plugin-sort-imports, prettier-plugin-organize-imports, prettier-plugin-organize-attributes. If you want to enable one of the four, turn off eslint-plugin-perfectionist, see [Prettier chapter customization section](../formatter/prettier.md#Customization).
-
-2. eslint-plugin-jsonc does not conflict with prettier-plugin-packagejson by default. If you want to use eslint-plugin-jsonc to sort package.json, see [Combination section](#combination) and disable prettier-plugin-packagejson.
-
-3. eslint-plugin-unocss may conflict with prettier-plugin-tailwindcss. When you use both TailwindCSS and UnoCSS, please disable one of them manually. If you want to disable prettier-plugin-tailwindcss, see [Prettier chapter Customization](../formatter/prettier.md#Customization).
-
-:::
-
-The second parameter is used for further customization, you can pass an object to override the generated configuration.
+The second parameter can be used for further customization, you can pass an object to override the generated configuration.
 
 ```javascript
 // eslint.config.mjs
-// or eslint.config.js with "type": "module" in package.json
-import { eslint } from '@modyqyw/fabric';
+import { eslint } from '@modyqyw/fabric/eslint';
 
-export default eslint(undefined, [
-  // By default, using console in scripts/**/* and cli.* does not report errors and warnings.
-  // Adjusted so that using console in scripts/**/* and cli.* gives an error.
+export default eslint({}, [
+  // By default, using console in scripts/**/* and cli.* gives warnings.
+  // Updated so that using console in scripts/**/* and cli.* gives errors.
   // Need to switch to specialized logging libraries such as winston, consola, pino, etc.
   {
     files: ['scripts/**/*', 'cli.*'],
@@ -235,9 +212,7 @@ For example, using only JavaScript and TypeScript rules:
 
 ```javascript
 // eslint.config.mjs
-// or eslint.config.js with "type": "module" in package.json
-import { combine } from '@modyqyw/fabric';
-import { javascript, typescript } from '@modyqyw/fabric/eslint';
+import { combine, javascript, typescript } from '@modyqyw/fabric/eslint';
 
 export default combine(javascript(), typescript());
 ```
@@ -246,9 +221,7 @@ You can also pass parameters to adjust some of the rules.
 
 ```javascript
 // eslint.config.mjs
-// or eslint.config.js with "type": "module" in package.json
-import { combine } from '@modyqyw/fabric';
-import { javascript, typescript } from '@modyqyw/fabric/eslint';
+import { combine, javascript, typescript } from '@modyqyw/fabric/eslint';
 
 export default combine(
   javascript({ rules: { 'no-console': 'error' } }),
@@ -256,12 +229,51 @@ export default combine(
 );
 ```
 
-Add Svelte support to the above (you need to install the dependencies yourself):
+### Solid Support
+
+You have to install [eslint-plugin-solid](https://github.com/solidjs-community/eslint-plugin-solid) yourself.
 
 ```javascript
 // eslint.config.mjs
+import {
+  GLOB_JSX,
+  GLOB_SCRIPT,
+  GLOB_TSX,
+  interopDefault,
+} from '@modyqyw/fabric';
+import { eslint } from '@modyqyw/fabric/eslint';
 import * as _parserBabel from '@babel/eslint-parser';
-// or eslint.config.js with "type": "module" in package.json
+import * as _parserTypeScript from '@typescript-eslint/parser';
+import * as _pluginSolid from 'eslint-plugin-solid';
+
+const parserBabel = interopDefault(_parserBabel);
+const parserTypeScript = interopDefault(_parserTypeScript);
+const pluginSolid = interopDefault(_pluginSolid);
+
+export default eslint(
+  {},
+  // Add Solid support
+  [
+    {
+      name: 'solid',
+      files: [GLOB_JSX, GLOB_TSX],
+      plugins: {
+        solid: pluginSolid,
+      },
+      rules: {
+        ...pluginSolid.configs.recommended.rules,
+      },
+    },
+  ],
+);
+```
+
+### Svelte Support
+
+You have to install [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte) and [svelte-eslint-parser](https://github.com/ota-meshi/svelte-eslint-parser) yourself.
+
+```javascript
+// eslint.config.mjs
 import {
   GLOB_DTS,
   GLOB_SCRIPT,
@@ -269,10 +281,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-  combine,
   interopDefault,
 } from '@modyqyw/fabric';
-import { javascript, typescript } from '@modyqyw/fabric/eslint';
+import { eslint } from '@modyqyw/fabric/eslint';
+import * as _parserBabel from '@babel/eslint-parser';
 import * as _parserTypeScript from '@typescript-eslint/parser';
 import * as _pluginSvelte from 'eslint-plugin-svelte';
 import * as _parserSvelte from 'svelte-eslint-parser';
@@ -282,43 +294,46 @@ const parserBabel = interopDefault(_parserBabel);
 const parserTypeScript = interopDefault(_parserTypeScript);
 const pluginSvelte = interopDefault(_pluginSvelte);
 
-export default combine(
-  // match Svelte files
-  javascript({ files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE] }),
-  typescript({ files: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE] }),
-  // support Svelte
+export default eslint(
+  // Match Svelte files
+  {
+    javascript: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+    },
+    typescript: {
+      files: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+  },
+  // Add Svelte support
   [
     {
-      files: ['**/*.svelte'],
+      name: 'svelte',
+      files: [GLOB_SVELTE],
       languageOptions: {
-        ecmaFeatures: {
-          globalReturn: false,
-          jsx: false,
+        parser: parserSvelte,
+        parserOptions: {
+          ecmaFeatures: {
+            globalReturn: false,
+            jsx: true,
+          },
+          ecmaVersion: 'latest',
+          extraFileExtensions: ['.svelte'],
+          parser: {
+            js: parserBabel,
+            jsx: parserBabel,
+            ts: parserTypeScript,
+            tsx: parserTypeScript,
+          },
+          requireConfigFile: false,
+          sourceType: 'module',
         },
-        ecmaVersion: 'latest',
-        extraFileExtensions: ['.svelte'],
-        parser: {
-          js: parserBabel,
-          jsx: parserBabel,
-          ts: parserTypeScript,
-          tsx: parserTypeScript,
-        },
-        requireConfigFile: false,
-        sourceType: 'module',
       },
       plugins: {
         svelte: pluginSvelte,
       },
       processor: pluginSvelte.processors['.svelte'],
       rules: {
-        // ESLint core rules known to cause problems with `.svelte`.
-        'no-inner-declarations': 'off', // The AST generated by svelte-eslint-parser will false positives in it rule because the root node of the script is not the `Program`.
-        // "no-irregular-whitespace": "off",
-        // Self assign is one of way to update reactive value in Svelte.
-        'no-self-assign': 'off',
-        // eslint-plugin-svelte rules
-        'svelte/comment-directive': 'error',
-        'svelte/system': 'error',
+        ...pluginSvelte.configs.base.rules,
         ...pluginSvelte.configs.recommended.rules,
         ...pluginSvelte.configs.prettier.rules,
       },
@@ -329,9 +344,9 @@ export default combine(
 
 ## Integration
 
-### VSC
+### Integration of VSC?
 
-Install [the corresponding ESLint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) first.
+Install [the corresponding ESLint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) first.
 
 Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_settingsjson) or [workspace settings](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings) as appropriate.
 
@@ -351,6 +366,7 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
     "json",
     "jsonc",
     "yaml",
+    "toml",
   ],
 
   // ESLint auto-fix after JavaScript, JSX, TypeScript, TypeScript JSX manual save.
@@ -368,7 +384,7 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
   },
 
   // ESLint auto-fix after markdown manual save.
-  "[markdown][yaml][json][jsonc]": {
+  "[markdown]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit",
     },
@@ -387,16 +403,23 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
       "source.fixAll.eslint": "explicit",
     },
   },
+
+  // ESLint auto-fix after TOML manual save.
+  "[toml]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+    },
+  },
 }
 ```
 
-### WebStorm
+### Integration of WebStorm?
 
-WebStorm comes with Prettier, see [VSC?](#vsc) to tweak it yourself.
+WebStorm comes with ESLint, see [Integration of VSC?](#integration-of-vsc) to tweak it yourself.
 
-### lint-staged
+### Integration of lint-staged?
 
-If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
+If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged).
 
 If you are not, you can refer to the following configuration.
 
@@ -409,13 +432,51 @@ export default {
   '*.{json,jsonc,json5}':
     'eslint --fix --cache --no-error-on-unmatched-pattern',
   '*.{yaml,yml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
+  '*.{toml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
 };
 ```
 
-### Why not check types?
+### Integration of Prettier?
 
-> Typed rules come with a catch. By including `parserOptions.project` in your config, you incur the performance penalty of asking TypeScript to do a build of your project before ESLint can do its linting. For small projects this takes a negligible amount of time (a few seconds or less); for large projects, it can take longer.
+Cited from [vuejs/eslint-config-prettier](https://github.com/vuejs/eslint-config-prettier#use-separate-commands-for-linting-and-formatting):
 
-Quoted from [typescript-eslint.io/linting/typed-linting#how-is-performance](https://typescript-eslint.io/linting/typed-linting#how-is-performance).
+> Running prettier inside the linter slows down the linting process, might clutter the editor with annoying warnings, and adds one layer of indirection where things may break. [Prettier's official documentation](https://prettier.io/docs/en/integrating-with-linters.html) recommends using separate commands for linting and formatting, i.e., Prettier for code formatting concerns and ESLint for code-quality concerns.
 
-Running tsc / vue-tsc directly avoids this performance loss and allows for more complete type checking. See the [tsc chapter](../typescript-checker/tsc).
+This library is consistent with its view that it is not recommended to call Prettier from within ESLint, and it is recommended to run Prettier separately. By default, running ESLint will not conflict with Prettier or other code formatters. See also the [Prettier chapter](.../formatter/prettier/prettier)
+
+Some Prettier plugins may conflict with the ESLint plugin, so add them with caution:
+
+| ESLint Plugins                                  | Prettier Plugins                                                                                                                                                                                                                                                     | Notes                                                                    |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| eslint-plugin-perfectionist                     | @ianvs/prettier-plugin-sort-imports, @trivago/prettier-plugin-sort-imports, prettier-plugin-organize-imports, prettier-plugin-organize-imports, prettier-plugin-organize-imports, and prettier-plugin-organize-imports. imports, prettier-plugin-organize-attributes | The five conflict with each other, please enable only one of them.       |
+| eslint-plugin-vue                               | prettier-plugin-organize-attributes                                                                                                                                                                                                                                  | Both conflict with each other, please enable only one of them.           |
+| eslint-plugin-react                             | prettier-plugin-organize-attributes                                                                                                                                                                                                                                  | Both conflict with each other, please enable only one of them.           |
+| eslint-plugin-jsonc                             | prettier-plugin-packagejson                                                                                                                                                                                                                                          | Conflicts may occur if you use eslint-plugin-jsonc to sort package.json. |
+| eslint-plugin-tailwindcss, eslint-plugin-unocss | prettier-plugin-tailwindcss                                                                                                                                                                                                                                          | The three conflict with each other, please enable only one of them.      |
+
+### 插件冲突？
+
+eslint-plugin-tailwindcss and eslint-plugin-unocss conflict with each other, so manually disable one of them if both TailwindCSS and UnoCSS are installed.
+
+### 检查类型？
+
+Cited in [typescript-eslint.io/linting/typed-linting#how-is-performance](https://typescript-eslint.io/linting/typed-linting#how-is-performance):
+
+> Typed rules come with a catch. By using typed linting in your config, you incur the performance penalty of asking TypeScript to do a build of your project before ESLint can do its linting. For small projects this takes a negligible amount of time (a few seconds or less); for large projects, it can take longer.
+>
+> Most of our users do not mind this cost as the power and safety of type-aware static analysis rules is worth the tradeoff. Additionally, most users primarily consume lint errors via IDE plugins which, through caching, do not suffer the same penalties. This means that generally they usually only run a complete lint before a push, or via their CI, where the extra time often doesn't matter.
+
+Type-aware rules are enabled by default when TypeScript configuration is enabled. If you don't think these rules are too friendly for you, you can turn them off.
+
+```javascript
+// eslint.config.mjs
+import { eslint } from '@modyqyw/fabric/eslint';
+
+export default eslint({
+  typescript: {
+    typeCheck: false,
+  },
+});
+```
+
+You should also run tsc / vue-tsc directly for more complete type checking. See the [tsc chapter](../typescript-checker/tsc).
