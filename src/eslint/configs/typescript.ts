@@ -33,7 +33,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         '@typescript-eslint': pluginTypeScript,
       },
       rules: {
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.0.1/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.1.0/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
         'constructor-super': 'off', // ts(2335) & ts(2377)
         'getter-return': 'off', // ts(2378)
         'no-const-assign': 'off', // ts(2588)
@@ -42,6 +42,8 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         'no-dupe-keys': 'off', // ts(1117)
         'no-func-assign': 'off', // ts(2630)
         'no-import-assign': 'off', // ts(2632) & ts(2540)
+        // TODO - remove this once we no longer support ESLint v8
+        // 'no-new-symbol': 'off', // ts(7009)
         'no-new-native-nonconstructor': 'off', // ts(7009)
         'no-obj-calls': 'off', // ts(2349)
         'no-redeclare': 'off', // ts(2451)
@@ -50,13 +52,18 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         'no-undef': 'off', // ts(2304) & ts(2552)
         'no-unreachable': 'off', // ts(7027)
         'no-unsafe-negation': 'off', // ts(2365) & ts(2322) & ts(2358)
+        // 'no-var': 'error', // ts transpiles let/const to var, so no need for vars any more
+        // 'prefer-const': 'error', // ts provides better types with const
+        // 'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
+        // 'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
 
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.0.1/packages/eslint-plugin/src/configs/recommended.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.1.0/packages/eslint-plugin/src/configs/recommended.ts
         '@typescript-eslint/ban-ts-comment': 'error',
         'no-array-constructor': 'off',
         '@typescript-eslint/no-array-constructor': 'error',
         '@typescript-eslint/no-duplicate-enum-values': 'error',
         '@typescript-eslint/no-empty-object-type': 'error',
+        // '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/no-explicit-any': 'warn',
         '@typescript-eslint/no-extra-non-null-assertion': 'error',
         '@typescript-eslint/no-misused-new': 'error',
@@ -76,7 +83,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         '@typescript-eslint/prefer-namespace-keyword': 'error',
         '@typescript-eslint/triple-slash-reference': 'error',
 
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.0.1/packages/eslint-plugin/src/configs/recommended-type-checked-only.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.1.0/packages/eslint-plugin/src/configs/recommended-type-checked-only.ts
         ...(typeCheck
           ? {
               '@typescript-eslint/await-thenable': 'error',
@@ -115,7 +122,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         '@typescript-eslint/method-signature-style': 'error',
         // https://typescript-eslint.io/rules/no-import-type-side-effects/
-        '@typescript-eslint/no-import-type-side-effects': 'off',
+        '@typescript-eslint/no-import-type-side-effects': 'error',
         // https://typescript-eslint.io/rules/no-use-before-define/
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': 'warn',
