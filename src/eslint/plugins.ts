@@ -6,6 +6,7 @@ import * as _pluginJsonc from 'eslint-plugin-jsonc';
 /* @ts-expect-error missing types */
 import * as _pluginMarkdown from 'eslint-plugin-markdown';
 import * as _pluginN from 'eslint-plugin-n';
+import * as _pluginPackageJson from 'eslint-plugin-package-json';
 import * as _pluginPerfectionist from 'eslint-plugin-perfectionist';
 import * as _pluginRegexp from 'eslint-plugin-regexp';
 import * as _pluginTypeScript from '@typescript-eslint/eslint-plugin';
@@ -49,6 +50,7 @@ export const pluginJsdoc = interopDefault(_pluginJsdoc);
 export const pluginJsonc = interopDefault(_pluginJsonc);
 export const pluginMarkdown = interopDefault(_pluginMarkdown);
 export const pluginN = interopDefault(_pluginN);
+export const pluginPackageJson = interopDefault(_pluginPackageJson);
 export const pluginPerfectionist = interopDefault(_pluginPerfectionist);
 export const pluginRegexp = interopDefault(_pluginRegexp);
 export const pluginTypeScript = interopDefault(_pluginTypeScript);

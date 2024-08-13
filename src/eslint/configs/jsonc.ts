@@ -1,5 +1,5 @@
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../../constants';
-import { parserJsonc, pluginJsonc } from '../plugins';
+import { parserJsonc, pluginJsonc, pluginPackageJson } from '../plugins';
 import type { Config, JsoncOptions } from '../types';
 
 export function jsonc(options: JsoncOptions = {}): Config[] {
@@ -14,6 +14,8 @@ export function jsonc(options: JsoncOptions = {}): Config[] {
       plugins: {
         // @ts-expect-error not matched
         jsonc: pluginJsonc,
+        // @ts-expect-error not matched
+        'package-json': pluginPackageJson,
       },
       rules: {
         // https://github.com/ota-meshi/eslint-plugin-jsonc/blob/v2.16.0/lib/configs/base.ts
@@ -49,6 +51,17 @@ export function jsonc(options: JsoncOptions = {}): Config[] {
         // 'jsonc/space-unary-ops': 'error',
         'jsonc/valid-json-number': 'error',
         'jsonc/vue-custom-block/no-parsing-error': 'error',
+
+        // https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/blob/v0.15.2/src/configs/recommended.ts
+        'package-json/order-properties': 'error',
+        'package-json/repository-shorthand': 'error',
+        'package-json/sort-collections': 'error',
+        'package-json/unique-dependencies': 'error',
+        'package-json/valid-local-dependency': 'error',
+        'package-json/valid-name': 'error',
+        'package-json/valid-package-def': 'error',
+        'package-json/valid-repository-directory': 'error',
+        'package-json/valid-version': 'error',
 
         ...rules,
       },
