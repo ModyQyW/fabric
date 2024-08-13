@@ -80,12 +80,6 @@ export interface RegExpOptions {
   typescriptFiles?: string[];
   typescriptRules?: Rules;
 }
-export interface SolidOptions {
-  files?: string[];
-  rules?: Rules;
-  typescriptFiles?: string[];
-  typescriptRules?: Rules;
-}
 export interface TailwindCssOptions {
   files?: string[];
   rules?: Rules;
@@ -208,12 +202,6 @@ export interface Options {
    * @default true
    */
   regexp?: RegExpOptions | boolean;
-  /**
-   * Detect solid issues.
-   *
-   * Enabled by default if you have solid installed.
-   */
-  solid?: SolidOptions | boolean;
   /**
    * Detect tailwindcss issues.
    *

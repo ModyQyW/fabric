@@ -14,7 +14,6 @@ import {
   react,
   reactNative,
   regexp,
-  solid,
   tailwindcss,
   typescript,
   unicorn,
@@ -44,7 +43,6 @@ export function eslint(
     react: reactOptions,
     reactNative: reactNativeOptions,
     regexp: regexpOptions,
-    solid: solidOptions,
     tailwindcss: tailwindcssOptions,
     typescript: typescriptOptions,
     unicorn: unicornOptions,
@@ -139,11 +137,6 @@ export function eslint(
   if (nextOptions) {
     if (isBoolean(nextOptions)) configs.push(next());
     else configs.push(next(nextOptions));
-  }
-
-  if (solidOptions) {
-    if (isBoolean(solidOptions)) configs.push(solid());
-    else configs.push(solid(solidOptions));
   }
 
   return combine(...configs, ...userConfigs);

@@ -30,7 +30,6 @@ import * as _pluginReactRefresh from 'eslint-plugin-react-refresh';
 import * as _pluginReactNative from 'eslint-plugin-react-native';
 /* @ts-expect-error missing types */
 import * as _pluginNext from '@next/eslint-plugin-next';
-import * as _pluginSolid from 'eslint-plugin-solid';
 /* @ts-expect-error missing types */
 import * as _pluginTailwindcss from 'eslint-plugin-tailwindcss';
 import * as _pluginYml from 'eslint-plugin-yml';
@@ -70,7 +69,6 @@ export const pluginReactNative = fixupPluginRules(
   interopDefault(_pluginReactNative),
 );
 export const pluginNext = interopDefault(_pluginNext);
-export const pluginSolid = interopDefault(_pluginSolid);
 export const pluginTailwindcss = interopDefault(_pluginTailwindcss);
 export const pluginYml = interopDefault(_pluginYml);
 export const parserBabel = interopDefault(_parserBabel);
