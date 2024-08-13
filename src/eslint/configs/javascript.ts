@@ -114,21 +114,31 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
         // https://eslint.org/docs/latest/rules/no-console
         // Use consola, pino, winston, etc.
         'no-console': 'warn',
+        // https://eslint.org/docs/latest/rules/no-eval
+        'no-eval': 'error',
+        // https://eslint.org/docs/latest/rules/no-implied-eval
+        'no-implied-eval': 'error',
         // https://eslint.org/docs/latest/rules/no-lonely-if
         // Comes with https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/no-lonely-if.md.
         'no-lonely-if': 'error',
         // https://eslint.org/docs/latest/rules/no-shadow
         'no-shadow': 'warn',
+        // https://eslint.org/docs/latest/rules/no-throw-literal
+        'no-throw-literal': 'error',
         // https://eslint.org/docs/latest/rules/no-use-before-define
         'no-use-before-define': 'warn',
         // https://eslint.org/docs/latest/rules/no-var
         'no-var': 'error',
         // https://eslint.org/docs/latest/rules/prefer-const
         'prefer-const': 'error',
+        // https://eslint.org/docs/latest/rules/prefer-promise-reject-errors
+        'prefer-promise-reject-errors': 'off',
         // https://eslint.org/docs/latest/rules/prefer-rest-params
         'prefer-rest-params': 'error',
         // https://eslint.org/docs/latest/rules/prefer-spread
         'prefer-spread': 'error',
+        // https://eslint.org/docs/latest/rules/require-await
+        'require-await': 'off',
 
         ...rules,
       },
