@@ -22,5 +22,5 @@ features:
     details: TypeScript 优先，严格但不严苛。
   - icon: 🎉
     title: 适用度高
-    details: 支持 Vue、UniApp、Nuxt、React、Taro、ReactNative、Next、Solid、Nest、Nitro、Hono 等项目使用
+    details: 支持 Vue、UniApp、Nuxt、React、Taro、ReactNative、Next、Nitro、Hono 等项目使用
 ---
