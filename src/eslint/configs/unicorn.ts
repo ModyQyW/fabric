@@ -382,7 +382,7 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
         'unicorn/prefer-ternary': 'error',
 
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-top-level-await.md
-        'unicorn/prefer-top-level-await': 'error',
+        'unicorn/prefer-top-level-await': 'warn',
 
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-type-error.md
         'unicorn/prefer-type-error': 'error',
