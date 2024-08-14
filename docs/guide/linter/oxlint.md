@@ -8,7 +8,7 @@ oxlint is not a complete replacement for ESLint; rather, oxlint complements ESLi
 
 ## Installation
 
-You have to install oxlint first. Currently oxlint v0.5 is supported.
+You have to install oxlint first. Currently oxlint v0.7 is supported.
 
 ::: code-group
 
@@ -32,9 +32,7 @@ bun install oxlint -d
 
 ## Configuration
 
-### CLI
-
-Update your `package.json` and add `lint:oxlint` script.
+Update `package.json` and add `lint:oxlint` script.
 
 ```json
 {
@@ -60,13 +58,13 @@ If you have other files to ignore, you can use `--ignore-pattern` like below. It
 
 :::
 
-## Integration
+## FAQ
 
-### VSC
+### Integration of VSC?
 
 Install [the corresponding oxlint plugin](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
 
-### lint-staged
+### Integration of lint-staged?
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
 
@@ -74,7 +72,6 @@ If you are not, you can refer to the following configuration.
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 import { filterFilenames } from '@modyqyw/fabric';
 
 export default {

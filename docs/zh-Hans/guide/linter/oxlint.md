@@ -8,7 +8,7 @@ oxlint 不能完全取代 ESLint。相反地，因为 oxlint 非常快，所以 
 
 ## 安装
 
-首先你需要安装 oxlint。目前支持 oxlint v0.5。
+首先你需要安装 oxlint。目前支持 oxlint v0.7。
 
 ::: code-group
 
@@ -32,9 +32,7 @@ bun install oxlint -d
 
 ## 配置
 
-### CLI
-
-更新你的 `package.json`，增加 `lint:oxlint` 命令。
+更新 `package.json`，增加 `lint:oxlint` 命令。
 
 ```json
 {
@@ -60,13 +58,13 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 
 :::
 
-## 整合
+## FAQ
 
-### VSC
+### 整合 VSC？
 
 安装 [对应的 oxlint 插件](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) 即可。
 
-### lint-staged
+### 整合 lint-staged？
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 
@@ -74,7 +72,6 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 import { filterFilenames } from '@modyqyw/fabric';
 
 export default {
