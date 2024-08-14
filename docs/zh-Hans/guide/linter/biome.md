@@ -38,17 +38,15 @@ bun install @biomejs/biome -d
 
 ### JSON
 
-更新你的 `biome.json`。
+在项目根目录下创建 `biome.json`。
 
 ```json
 {
-  "extends": ["./node_modules/@modyqyw/fabric/biome.json"]
+  "extends": ["@modyqyw/fabric/biome.json"]
 }
 ```
 
-### CLI
-
-更新你的 `package.json`，增加 `lint:biome` 命令。
+更新 `package.json`，增加 `lint:biome` 命令。
 
 ```json
 {
@@ -68,9 +66,11 @@ bun install @biomejs/biome -d
 }
 ```
 
-## 整合
+如果需要自定义，请参考 [Biome 官方文档 / 配置](https://biomejs.dev/zh-cn/reference/configuration/)。
 
-### VSC
+## FAQ
+
+### 整合 VSC？
 
 先安装 [对应的 Biome 插件](https://marketplace.visualstudio.com/items?itemName=biomejs.biome)。
 
@@ -85,11 +85,24 @@ bun install @biomejs/biome -d
 }
 ```
 
-### WebStorm
+如果你希望同时使用代码格式化和代码检查：
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true
+}
+```
+
+### 整合 WebStorm？
 
 WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/22761-biome) 以获取 Biome 支持。
 
-### lint-staged
+### 整合 lint-staged？
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 
@@ -97,9 +110,9 @@ WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/22761-biome)
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 export default {
   '*': 'biome lint --write --no-errors-on-unmatched --files-ignore-unknown=true',
+  // 如果你希望同时使用代码格式化和代码检查
   // '*': 'biome check --write --no-errors-on-unmatched --files-ignore-unknown=true',
 };
 ```
