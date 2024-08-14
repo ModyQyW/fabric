@@ -36,19 +36,15 @@ bun install @biomejs/biome -d
 
 ## Configuration
 
-### JSON
-
-Update your `biome.json`.
+Create `biome.json` in your project root:
 
 ```json
 {
-  "extends": ["./node_modules/@modyqyw/fabric/biome.json"]
+  "extends": ["@modyqyw/fabric/biome.json"]
 }
 ```
 
-### CLI
-
-Update your `package.json` and add `format:biome` script.
+Update `package.json` and add `format:biome` script.
 
 ```json
 {
@@ -68,9 +64,11 @@ Replace `format:biome` with `check` if you want to use formatting and linting at
 }
 ```
 
-## Integration
+If customization is required, please refer to [Biome Official Documentation / Configuration](https://biomejs.dev/reference/configuration/).
 
-### VSC
+## FAQ
+
+### Integration of VSC?
 
 Install [the corresponding Biome plugin](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) first.
 
@@ -83,11 +81,24 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
 }
 ```
 
-### WebStorm
+If you want to use formatting and linting at the same time:
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true
+}
+```
+
+### Integration of WebStorm?
 
 WebStorm can use [plugin](https://plugins.jetbrains.com/plugin/22761-biome) to get Biome support.
 
-### lint-staged
+### Integration of lint-staged?
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
 
@@ -95,9 +106,9 @@ If you are not, you can refer to the following configuration.
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 export default {
   '*': 'biome format --write --no-errors-on-unmatched --files-ignore-unknown=true',
+  // If you want to use formatting and linting at the same time
   // '*': 'biome check --write --no-errors-on-unmatched --files-ignore-unknown=true',
 };
 ```
