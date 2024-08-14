@@ -55,39 +55,7 @@ Passing parameters to the exported `eslint` method can customize, and the `eslin
 
 The first parameter is used for basic customization; you can pass no or empty objects to indicate the use of default values. To explicitly enable a configuration, you need to explicitly set `true` or the configuration object in the passed object; to explicitly disable a configuration, you need to explicitly set `false` in the passed object.
 
-#### Base
-
-- gitignore - Based on [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore). Support for reading and using .gitignore and .eslintignore content as ignores options for flat configurations. Enabled by default.
-- ignores - Based on ignores option. Enabled by default.
-- javascript - Based on [@eslint/js](https://github.com/eslint/eslint/tree/main/packages/js). Check JavaScript related issues. Enabled by default.
-- jsdoc - Based on [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc). Check JSDoc related issues. Enabled by default.
-- typescript - Based on [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint). Check TypeScript related issues. Enabled by default if you have TypeScript installed.
-- imports - Based on [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x). Check import related issues. Enabled by default.
-- node - Based on [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n). Check Node configuration related issues. Enabled by default.
-- perfectionist - Based on [eslint-plugin-perfectionist](https://github.com/azat-io/eslint-plugin-perfectionist). Check orders. Enabled by default.
-- regexp - Based on [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp). Check RegExp related issues. Enabled by default.
-- unicorn - Based on [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn). Check performance and specification related issues. Enabled by default.
-
-#### Library / Framework
-
-- react - Based on [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react), [eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks), [eslint-plugin-react-perf](https://github.com/cvazac/eslint-plugin-react-perf) and [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh). Check React related issues. Support Taro. Enabled by default if you have React installed.
-- reactNative - Based on [eslint-plugin-react-native](https://github.com/jsx-eslint/eslint-plugin-react-native). Check ReactNative related issues. Enabled by default if you have ReactNative installed.
-- next: Based on [@next/eslint-plugin-next](https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next). Check Next related issues. Enabled by default if you have Next installed.
-- vue - Based on [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) and [eslint-plugin-vue-scoped-css](https://github.com/future-architect/eslint-plugin-vue-scoped-css). Check Vue related issues. Enabled by default if you have Vue installed.
-- nuxt - Based on [eslint-plugin-nuxt](https://github.com/nuxt/eslint-plugin-nuxt). Check Nuxt related issued. Enabled by default if you have Nuxt installed.
-- tailwindcss - Based on [eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss). Check TailwindCSS related issues. Enabled by default if you have TailwindCSS installed.
-- unocss - Based on [eslint-plugin-unocss](https://github.com/unocss/unocss/tree/main/packages/eslint-plugin). Check UnoCSS related issues. Enabled by default if you have Vue installed.
-
-#### Specific Languages
-
-- jsonc - Based on [eslint-plugin-jsonc](https://github.com/ota-meshi/eslint-plugin-jsonc) and [eslint-plugin-package-json](https://github.com/JoshuaKGoldberg/eslint-plugin-package-json). Check JSON related issues. Enabled by default.
-- markdown - Based on [eslint-plugin-markdown](https://github.com/eslint/eslint-plugin-markdown). Check Markdown related issues. Enabled by default.
-- toml - Based on [eslint-plugin-toml](https://github.com/ota-meshi/eslint-plugin-toml). Check TOML related issues. Enabled by default.
-- yml - Based on [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml). Check YAML related issues. Enabled by default.
-
-#### Examples
-
-The following is the default configuration.
+The following is the default configuration:
 
 ```javascript
 // eslint.config.mjs
@@ -105,72 +73,92 @@ import { eslint } from '@modyqyw/fabric/eslint';
 
 export default eslint({
   // based on eslint-plugin-flat-gitignore
+  // support reading and using .gitignore and .eslintignore content as ignores options for flat configurations
   // true by default, enabled
   gitignore: true,
   // based on ignores option
   // true by default, enabled
   ignores: true,
   // based on eslint-plugin-import-x
+  // check import related issues
   // true by default, enabled
   imports: true,
   // based on @eslint/js
+  // check JavaScript related issues
   // true by default, enabled
   javascript: true,
   // based on eslint-plugin-jsdoc
+  // check JSDoc related issues
   // false by default, disabled
   jsdoc: false,
-  // based on eslint-plugin-jsonc
+  // based on eslint-plugin-jsonc and eslint-plugin-package-json
+  // check JSON related issues
   // true by default, enabled
   jsonc: true,
   // based on eslint-plugin-markdown
+  // check Markdown related issues
   // true by default, enabled
   markdown: true,
   // based on @next/eslint-plugin-next
+  // check Next related issues
   // enabled by default if you have Next installed
   next: hasNext,
   // based on eslint-plugin-n
+  // check Node configuration related issues
   // true by default, enabled
   node: true,
   // based on eslint-plugin-nuxt
+  // check Nuxt related issues
   // enabled by default if you have Nuxt installed
   nuxt: hasNuxt,
   // based on eslint-plugin-perfectionist
+  // check orders related issues
   // true by default, enabled
   perfectionist: true,
   // based on eslint-plugin-react, eslint-plugin-react-hooks, eslint-plugin-react-perf and eslint-plugin-react-refresh
+  // check React related issues, support Taro
   // enabled by default if you have React installed
   react: hasReact,
   // based on eslint-plugin-react-native
+  // check ReactNative related issues
   // enabled by default if you have ReactNative installed
   reactNative: hasReactNative,
   // based on eslint-plugin-regexp
+  // check RegExp related issues
   // true by default, enabled
   regexp: true,
   // based on eslint-plugin-tailwindcss
+  // check TailwindCSS related issues
   // enabled by default if you have TailwindCSS installed
   tailwindcss: hasTailwindCss,
   // based on eslint-plugin-toml
+  // check TOML related issues
   // true by default, enabled
   toml: true,
   // based on @typescript-eslint/eslint-plugin
+  // check TypeScript related issues
   // enabled by default if you have TypeScript installed
   typescript: hasTypeScript,
   // based on eslint-plugin-unicorn
+  // check performance and specification related issues
   // true by default, enabled
   unicorn: true,
   // based on eslint-plugin-unocss
+  // check UnoCSS related issues
   // enabled by default if you have UnoCSS installed
   unocss: hasUnoCss,
   // based on eslint-plugin-vue 和 eslint-plugin-vue-scoped-css
+  // check Vue related issues, support uni-app
   // enabled by default if you have Vue installed
   vue: hasVue,
   // based on eslint-plugin-yml
+  // check YML related issues
   // true by default, enabled
   yml: true,
 });
 ```
 
-In addition to passing Boolean values, you can also pass configuration items directly. This will be treated as enabling the configuration and the passed-in configuration item will be used.
+In addition to passing Boolean values, you can also pass configuration objects directly. This will be treated as enabling configuration and the passed configuration object will be used.
 
 ```javascript
 // eslint.config.mjs
@@ -442,23 +430,19 @@ Cited from [vuejs/eslint-config-prettier](https://github.com/vuejs/eslint-config
 
 > Running prettier inside the linter slows down the linting process, might clutter the editor with annoying warnings, and adds one layer of indirection where things may break. [Prettier's official documentation](https://prettier.io/docs/en/integrating-with-linters.html) recommends using separate commands for linting and formatting, i.e., Prettier for code formatting concerns and ESLint for code-quality concerns.
 
-This library is consistent with its view that it is not recommended to call Prettier from within ESLint, and it is recommended to run Prettier separately. By default, running ESLint will not conflict with Prettier or other code formatters. See also the [Prettier chapter](.../formatter/prettier/prettier)
+This library is consistent with its view that it is not recommended to call Prettier from within ESLint and Stylelint, and it is recommended to run Prettier separately. By default, running ESLint and Stylelint will not conflict with Prettier or other code formatters. See also the [Prettier chapter](.../formatter/prettier)
 
-Some Prettier plugins may conflict with the ESLint plugin, so add them with caution:
+### Plugin conflicts?
 
-| ESLint Plugins                                  | Prettier Plugins                                                                                                                                                                                                                                                     | Notes                                                                    |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| eslint-plugin-perfectionist                     | @ianvs/prettier-plugin-sort-imports, @trivago/prettier-plugin-sort-imports, prettier-plugin-organize-imports, prettier-plugin-organize-imports, prettier-plugin-organize-imports, and prettier-plugin-organize-imports. imports, prettier-plugin-organize-attributes | The five conflict with each other, please enable only one of them.       |
-| eslint-plugin-vue                               | prettier-plugin-organize-attributes                                                                                                                                                                                                                                  | Both conflict with each other, please enable only one of them.           |
-| eslint-plugin-react                             | prettier-plugin-organize-attributes                                                                                                                                                                                                                                  | Both conflict with each other, please enable only one of them.           |
-| eslint-plugin-jsonc                             | prettier-plugin-packagejson                                                                                                                                                                                                                                          | Conflicts may occur if you use eslint-plugin-jsonc to sort package.json. |
-| eslint-plugin-tailwindcss, eslint-plugin-unocss | prettier-plugin-tailwindcss                                                                                                                                                                                                                                          | The three conflict with each other, please enable only one of them.      |
+| ESLint Plugins                                                      | Prettier Plugins                                                                                             | Stylelint Plugins             | Notes                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| eslint-plugin-perfectionist、eslint-plugin-import-x                 | @ianvs/prettier-plugin-sort-imports、@trivago/prettier-plugin-sort-imports、prettier-plugin-organize-imports |                               | They both handle the import order and conflict with each other, and are handled by default with eslint-plugin-perfectionist.                                                                                           |
+| eslint-plugin-perfectionist、eslint-plugin-vue、eslint-plugin-react | prettier-plugin-organize-attributes                                                                          |                               | They both handle attribute ordering of components or elements, by default using eslint-plugin-vue to handle Vue component attribute ordering, and eslint-plugin-react to handle React component ordering.              |
+| eslint-plugin-jsonc                                                 | prettier-plugin-packagejson                                                                                  |                               | If you use eslint-plugin-jsonc to sort package.json you may get conflicts.                                                                                                                                             |
+| eslint-plugin-tailwindcss、eslint-plugin-unocss                     | prettier-plugin-tailwindcss                                                                                  |                               | All three handle the sorting of classes, and the ESLint plugin is enabled by default depending on whether it is installed or not; if it is installed at the same time, you need to explicitly enable only one of them. |
+|                                                                     | prettier-plugin-css-order                                                                                    | stylelint-config-recess-order | Both handle the ordering of CSS properties, by default using stylelint-config-recess-order.                                                                                                                            |
 
-### 插件冲突？
-
-eslint-plugin-tailwindcss and eslint-plugin-unocss conflict with each other, so manually disable one of them if both TailwindCSS and UnoCSS are installed.
-
-### 检查类型？
+### Check types?
 
 Cited in [typescript-eslint.io/linting/typed-linting#how-is-performance](https://typescript-eslint.io/linting/typed-linting#how-is-performance):
 
@@ -466,7 +450,7 @@ Cited in [typescript-eslint.io/linting/typed-linting#how-is-performance](https:/
 >
 > Most of our users do not mind this cost as the power and safety of type-aware static analysis rules is worth the tradeoff. Additionally, most users primarily consume lint errors via IDE plugins which, through caching, do not suffer the same penalties. This means that generally they usually only run a complete lint before a push, or via their CI, where the extra time often doesn't matter.
 
-Type-aware rules are enabled by default when TypeScript configuration is enabled. If you don't think these rules are too friendly for you, you can turn them off.
+Typed rules are enabled by default when TypeScript configuration is enabled. If you don't think these rules are too friendly for you, you can turn them off.
 
 ```javascript
 // eslint.config.mjs

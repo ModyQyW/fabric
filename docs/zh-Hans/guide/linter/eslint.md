@@ -54,39 +54,7 @@ export default eslint();
 
 第一个参数用于基本自定义，你可以不传递或传递空对象表示使用默认值。要明确启用某一个配置，需要明确在传递的对象中设置 `true` 或配置对象；要明确禁用某一个配置，需要明确在传递的对象中设置 `false`。
 
-#### 基本
-
-- gitignore：基于 [eslint-config-flat-gitignore](https://github.com/antfu/eslint-config-flat-gitignore)，支持读取并使用 .gitignore 和 .eslintignore 内容作为平面配置的 ignores 选项，默认启用
-- ignores：基于平面配置的 ignores 选项，默认启用
-- javascript：基于 [@eslint/js](https://github.com/eslint/eslint/tree/main/packages/js)，检查 JavaScript 相关问题，默认启用
-- jsdoc：基于 [eslint-plugin-jsdoc](https://github.com/gajus/eslint-plugin-jsdoc)，检查 JSDoc 相关问题，默认禁用
-- typescript：基于 [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint)，检查 TypeScript 相关问题，安装 TypeScript 后默认启用，否则默认禁用
-- imports：基于 [eslint-plugin-import-x](https://github.com/un-es/eslint-plugin-import-x)，检查导入相关问题，默认启用
-- node：基于 [eslint-plugin-n](https://github.com/eslint-community/eslint-plugin-n)，检查 Node 配置相关问题，默认启用
-- perfectionist：基于 [eslint-plugin-perfectionist](https://github.com/azat-io/eslint-plugin-perfectionist)，检查排序，默认启用
-- regexp：基于 [eslint-plugin-regexp](https://github.com/ota-meshi/eslint-plugin-regexp)，检查正则相关问题，默认启用
-- unicorn：基于 [eslint-plugin-unicorn](https://github.com/sindresorhus/eslint-plugin-unicorn)，检查性能和规范相关问题，默认启用
-
-#### 库/框架
-
-- react：基于 [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)、[eslint-plugin-react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)、[eslint-plugin-react-perf](https://github.com/cvazac/eslint-plugin-react-perf)、[eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh)，检查 React 相关问题，支持 Taro，安装 React 后默认启用，否则默认禁用
-- reactNative：基于 [eslint-plugin-react-native](https://github.com/jsx-eslint/eslint-plugin-react-native)，检查 ReactNative 相关问题，安装 ReactNative 后默认启用，否则默认禁用
-- next：基于 [@next/eslint-plugin-next](https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next)，检查 Next 相关问题，安装 Next 后默认启用，否则默认禁用
-- vue：基于 [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) 和 [eslint-plugin-vue-scoped-css](https://github.com/future-architect/eslint-plugin-vue-scoped-css)，检查 Vue 相关问题，支持 uni-app，安装 Vue 后默认启用，否则默认禁用
-- nuxt：基于 [@nuxt/eslint-plugin](https://github.com/nuxt/eslint) 和 [eslint-plugin-nuxt](https://github.com/nuxt/eslint-plugin-nuxt)，检查 Nuxt 相关问题，安装 Nuxt 后默认启用，否则默认禁用
-- tailwindcss：基于 [eslint-plugin-tailwindcss](https://github.com/francoismassart/eslint-plugin-tailwindcss)，检查 TailwindCSS 相关问题，安装 TailwindCSS 后默认启用，否则默认禁用
-- unocss：基于 [eslint-plugin-unocss](https://github.com/unocss/unocss/tree/main/packages/eslint-plugin)，检查 UnoCSS 相关问题，安装 UnoCSS 后默认启用，否则默认禁用
-
-#### 特殊语言
-
-- jsonc：基于 [eslint-plugin-jsonc](https://github.com/ota-meshi/eslint-plugin-jsonc) 和 [eslint-plugin-package-json](https://github.com/JoshuaKGoldberg/eslint-plugin-package-json)，检查 JSON 相关问题，默认启用
-- markdown：基于 [eslint-plugin-markdown](https://github.com/eslint/eslint-plugin-markdown)，检查 Markdown 相关问题，默认启用
-- toml: 基于 [eslint-plugin-toml](https://github.com/ota-meshi/eslint-plugin-toml)，检查 TOML 相关问题，默认启用
-- yml：基于 [eslint-plugin-yml](https://github.com/ota-meshi/eslint-plugin-yml)，检查 YML 相关问题，默认启用
-
-#### 示例
-
-以下是默认配置。
+以下是默认配置：
 
 ```javascript
 // eslint.config.mjs
@@ -104,72 +72,92 @@ import { eslint } from '@modyqyw/fabric/eslint';
 
 export default eslint({
   // 基于 eslint-plugin-flat-gitignore
+  // 支持读取并使用 .gitignore 和 .eslintignore 内容作为平面配置的 ignores 选项
   // 默认为 true，即启用
   gitignore: true,
   // 基于平面配置的 ignores 选项
   // 默认为 true，即启用
   ignores: true,
   // 基于 eslint-plugin-import-x
+  // 检查导入相关问题
   // 默认为 true，即启用
   imports: true,
   // 基于 @eslint/js
+  // 检查 JavaScript 相关问题
   // 默认为 true，即启用
   javascript: true,
   // 基于 eslint-plugin-jsdoc
+  // 检查 JSDoc 相关问题
   // 默认为 false，即禁用
   jsdoc: false,
-  // 基于 eslint-plugin-jsonc
+  // 基于 eslint-plugin-jsonc 和 eslint-plugin-package-json
+  // 检查 JSON 相关问题
   // 默认为 true，即启用
   jsonc: true,
   // 基于 eslint-plugin-markdown
+  // 检查 Markdown 相关问题
   // 默认为 true，即启用
   markdown: true,
   // 基于 @next/eslint-plugin-next
+  // 检查 Next 相关问题
   // 安装 Next 后默认启用，否则默认禁用
   next: hasNext,
   // 基于 eslint-plugin-n
+  // 检查 Node 配置相关问题
   // 默认为 true，即启用
   node: true,
   // 基于 eslint-plugin-nuxt
+  // 检查 Nuxt 相关问题
   // 安装 Nuxt 后默认启用，否则默认禁用
   nuxt: hasNuxt,
   // 基于 eslint-plugin-perfectionist
+  // 检查排序相关问题
   // 默认为 true，即启用
   perfectionist: true,
   // 基于 eslint-plugin-react、eslint-plugin-react-hooks、eslint-plugin-react-perf 和 eslint-plugin-react-refresh
+  // 检查 React 相关问题，支持 Taro
   // 安装 React 后默认启用，否则默认禁用
   react: hasReact,
   // 基于 eslint-plugin-react-native
+  // 检查 ReactNative 相关问题
   // 安装 ReactNative 后默认启用，否则默认禁用
   reactNative: hasReactNative,
   // 基于 eslint-plugin-regexp
+  // 检查正则相关问题
   // 默认为 true，即启用
   regexp: true,
   // 基于 eslint-plugin-tailwindcss
+  // 检查 TailwindCSS 相关问题
   // 安装 TailwindCSS 后默认启用，否则默认禁用
   tailwindcss: hasTailwindCss,
   // 基于 eslint-plugin-toml
+  // 检查 TOML 相关问题
   // 默认为 true，即启用
   toml: true,
   // 基于 @typescript-eslint/eslint-plugin
+  // 检查 TypeScript 相关问题
   // 安装 TypeScript 后默认启用，否则默认禁用
   typescript: hasTypeScript,
   // 基于 eslint-plugin-unicorn
+  // 检查性能和规范相关问题
   // 默认为 true，即启用
   unicorn: true,
   // 基于 eslint-plugin-unocss
+  // 检查 UnoCSS 相关问题
   // 安装 UnoCSS 后默认启用，否则默认禁用
   unocss: hasUnoCss,
   // 基于 eslint-plugin-vue 和 eslint-plugin-vue-scoped-css
+  // 检查 Vue 相关问题，支持 uni-app
   // 安装 Vue 后默认启用，否则默认禁用
   vue: hasVue,
   // 基于 eslint-plugin-yml
+  // 检查 YML 相关问题
   // 默认为 true，即启用
   yml: true,
 });
 ```
 
-除了传递 Boolean 值，你也可以直接传递配置项。这将视为启用配置，并使用传入的配置项。
+除了传递 Boolean 值，你也可以直接传递配置对象。这将视为启用配置，并使用传入的配置对象。
 
 ```javascript
 // eslint.config.mjs
@@ -443,21 +431,17 @@ export default {
 
 > 在 linter 中运行 Prettier 会减慢 linting 过程，可能会因为警告而使编辑器变得混乱，并添加一层可能会导致问题的间接层。[Prettier 的官方文档](https://prettier.io/docs/en/integrating-with-linters.html) 建议使用单独的命令进行代码检查和代码格式化，即 Prettier 用于代码格式化问题，ESLint 用于代码质量问题。
 
-这个库的观点与其一致，不建议在 ESLint 中调用 Prettier，建议单独运行 Prettier。默认地，运行 ESLint 不会与 Prettier 或其它代码格式化器冲突。另请查看 [Prettier 章节](../formatter/prettier.md)。
-
-部分 Prettier 插件与 ESLint 插件可能有冲突，请谨慎添加：
-
-| ESLint 插件                                     | Prettier 插件                                                                                                                                     | 备注                                                            |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| eslint-plugin-perfectionist                     | @ianvs/prettier-plugin-sort-imports、@trivago/prettier-plugin-sort-imports、prettier-plugin-organize-imports、prettier-plugin-organize-attributes | 五者彼此冲突，请只开启其中之一                                  |
-| eslint-plugin-vue                               | prettier-plugin-organize-attributes                                                                                                               | 两者彼此冲突，请只开启其中之一                                  |
-| eslint-plugin-react                             | prettier-plugin-organize-attributes                                                                                                               | 两者彼此冲突，请只开启其中之一                                  |
-| eslint-plugin-jsonc                             | prettier-plugin-packagejson                                                                                                                       | 如果使用 eslint-plugin-jsonc 对 package.json 排序可能会产生冲突 |
-| eslint-plugin-tailwindcss、eslint-plugin-unocss | prettier-plugin-tailwindcss                                                                                                                       | 三者彼此冲突，请只开启其中之一                                  |
+这个库的观点与其一致，不建议在 ESLint 和 Stylelint 中调用 Prettier，建议单独运行 Prettier。默认地，运行 ESLint 和 Stylelint 不会与 Prettier 或其它代码格式化器冲突。另请查看 [Prettier 章节](../formatter/prettier.md)。
 
 ### 插件冲突？
 
-eslint-plugin-tailwindcss 和 eslint-plugin-unocss 彼此冲突，在同时安装了 TailwindCSS 和 UnoCSS 时，请手动关闭其中之一。
+| ESLint 插件                                                         | Prettier 插件                                                                                                | Stylelint 插件                | 备注                                                                                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| eslint-plugin-perfectionist、eslint-plugin-import-x                 | @ianvs/prettier-plugin-sort-imports、@trivago/prettier-plugin-sort-imports、prettier-plugin-organize-imports |                               | 它们都处理导入顺序，彼此冲突，默认使用 eslint-plugin-perfectionist 处理                                                          |
+| eslint-plugin-perfectionist、eslint-plugin-vue、eslint-plugin-react | prettier-plugin-organize-attributes                                                                          |                               | 它们都会处理组件或元素的属性排序，默认使用 eslint-plugin-vue 处理 Vue 组件属性排序，使用 eslint-plugin-react 处理 React 组件排序 |
+| eslint-plugin-jsonc                                                 | prettier-plugin-packagejson                                                                                  |                               | 如果使用 eslint-plugin-jsonc 对 package.json 排序可能会产生冲突                                                                  |
+| eslint-plugin-tailwindcss、eslint-plugin-unocss                     | prettier-plugin-tailwindcss                                                                                  |                               | 三者都会处理 class 的排序，默认根据是否安装来开启 ESLint 插件，如果同时安装需要明确只启用一个                                    |
+|                                                                     | prettier-plugin-css-order                                                                                    | stylelint-config-recess-order | 两者都处理 CSS 属性顺序，默认使用 stylelint-config-recess-order 处理                                                             |
 
 ### 检查类型？
 
