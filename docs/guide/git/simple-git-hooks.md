@@ -24,30 +24,21 @@ yarn add simple-git-hooks is-ci esbuild-register -D
 pnpm install simple-git-hooks is-ci esbuild-register -D
 ```
 
-```shell [bun(experimental)]
-bun install simple-git-hooks is-ci esbuild-register -d
-```
-
 :::
 
 ## Configuration
 
-simple-git-hooks only supports CJS currently.
-
-### CJS
+Create `prettier.config.mjs` in your project root:
 
 ```javascript
 // simple-git-hooks.cjs
-const { simpleGitHooks } = require('@modyqyw/fabric');
-// or
-// const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
+require('esbuild-register');
+const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
 
 module.exports = simpleGitHooks();
 ```
 
-### CLI
-
-Update your `package.json` and add `prepare` script.
+Update `package.json` and add `prepare` script.
 
 ```json
 {
@@ -63,9 +54,9 @@ Update your `package.json` and add `prepare` script.
 
 Passing parameters to the exported `simpleGitHooks` method can customize, and the `simpleGitHooks` method takes two parameters.
 
-The first parameter is used for basic customization, you can pass either `undefined` or an object. To explicitly enable or disable a plugin, you need to explicitly set the boolean value in the passed object.
+The first parameter is used for basic customization; you can pass no or empty objects to indicate the use of default values. To explicitly enable or disable a plugin, you need to explicitly set the boolean value in the passed object.
 
-The following plugins are currently supported:
+The following is the default configuration:
 
 - commitlint - Use commitlint to lint commit messages. Enabled by default if you have commitlint installed.
 - lintStaged - Use lint-staged to execute commands against staged git files. Enabled by default if you have lint-staged installed.
@@ -73,14 +64,15 @@ The following plugins are currently supported:
 ```javascript
 // simple-git-hooks.cjs
 require('esbuild-register');
-const {
-  hasCommitlint,
-  hasLintStaged,
-  simpleGitHooks,
-} = require('@modyqyw/fabric');
+const { hasCommitlint, hasLintStaged } = require('@modyqyw/fabric');
+const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
 
 module.exports = simpleGitHooks({
+  // Lint commit messages with commitlint.
+  // Enabled by default if you have commitlint installed.
   commitlint: hasCommitlint,
+  // Execute commands against staged git files with lint-staged.
+  // Enabled by default if you have lint-staged installed.
   lintStaged: hasLintStaged,
 });
 ```
@@ -92,7 +84,10 @@ The second parameter is used for further customization, you can pass an object t
 require('esbuild-register');
 const { simpleGitHooks } = require('@modyqyw/fabric');
 
-module.exports = simpleGitHooks(undefined, {
-  // configs that require customization
-});
+module.exports = simpleGitHooks(
+  {},
+  {
+    // configs that require customization
+  },
+);
 ```

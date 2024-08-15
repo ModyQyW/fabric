@@ -24,30 +24,21 @@ yarn add simple-git-hooks is-ci esbuild-register -D
 pnpm install simple-git-hooks is-ci esbuild-register -D
 ```
 
-```shell [bun(experimental)]
-bun install simple-git-hooks is-ci esbuild-register -d
-```
-
 :::
 
 ## 配置
 
-simple-git-hooks 目前只支持 CJS。
-
-### CJS
+在项目根目录下创建 `simple-git-hooks.cjs`：
 
 ```javascript
 // simple-git-hooks.cjs
-const { simpleGitHooks } = require('@modyqyw/fabric');
-// or
-// const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
+require('esbuild-register');
+const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
 
 module.exports = simpleGitHooks();
 ```
 
-### CLI
-
-更新你的 `package.json`，增加 `prepare` 命令。
+更新 `package.json`，增加 `prepare` 命令。
 
 ```json
 {
@@ -63,24 +54,22 @@ module.exports = simpleGitHooks();
 
 给导出的 `simpleGitHooks` 方法传参可以自定义配置，`simpleGitHooks` 方法接收两个参数。
 
-第一个参数用于基本自定义，你可以传递 `undefined` 或对象。要明确地启用或禁用某一个配置，需要明确在传递的对象中设置 boolean 值。
+第一个参数用于基本自定义，你可以不传递或传递空对象表示使用默认值。要明确地启用或禁用某一个插件，需要明确在传递的对象中设置 boolean 值。
 
-目前支持以下配置：
-
-- commitlint：使用 commitlint 检查提交信息，安装 commitlint 后默认启用，否则默认禁用
-- lintStaged：使用 lint-staged 针对暂存的 git 文件执行命令，安装 lint-staged 后默认启用，否则默认禁用
+以下是默认配置：
 
 ```javascript
 // simple-git-hooks.cjs
 require('esbuild-register');
-const {
-  hasCommitlint,
-  hasLintStaged,
-  simpleGitHooks,
-} = require('@modyqyw/fabric');
+const { hasCommitlint, hasLintStaged } = require('@modyqyw/fabric');
+const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
 
 module.exports = simpleGitHooks({
+  // 是否使用 commitlint 检查提交信息
+  // 安装 commitment 后默认启用，否则默认禁用
   commitlint: hasCommitlint,
+  // 是否使用 lint-staged 针对暂存的 git 文件执行命令
+  // 安装 lint-staged 后默认启用，否则默认禁用
   lintStaged: hasLintStaged,
 });
 ```
@@ -92,7 +81,10 @@ module.exports = simpleGitHooks({
 require('esbuild-register');
 const { simpleGitHooks } = require('@modyqyw/fabric');
 
-module.exports = simpleGitHooks(undefined, {
-  // 需要自定义的配置
-});
+module.exports = simpleGitHooks(
+  {},
+  {
+    // 需要自定义的配置
+  },
+);
 ```
