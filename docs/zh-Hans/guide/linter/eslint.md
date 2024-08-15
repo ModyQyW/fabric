@@ -20,10 +20,6 @@ yarn add eslint -D
 pnpm install eslint -D
 ```
 
-```shell [bun(experimental)]
-bun install eslint -d
-```
-
 :::
 
 ## 配置
