@@ -46,11 +46,11 @@ export default defineBuildConfig({
     // './src/stylelint',
   ],
   hooks: {
-    'rollup:done': (ctx) => {
+    'rollup:done': async (ctx) => {
       const {
         options: { outDir },
       } = ctx;
-      Promise.all([
+      await Promise.all([
         copyFile(
           resolve('src', 'markdownlint', 'index.json'),
           resolve(outDir, 'markdownlint.json'),
