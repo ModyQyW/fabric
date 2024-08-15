@@ -3,34 +3,33 @@ import { hasMiniProgram } from '../env';
 import type { Options } from './types';
 
 export function extends_(options: Required<Options>) {
-  const { order, scss: enableScss, style } = options;
+  const { order, scss: enableScss } = options;
 
-  const extends_: string[] = [];
+  const array: string[] = [
+    'stylelint-config-html',
+    'stylelint-config-standard',
+  ];
 
-  extends_.push('stylelint-config-html', `stylelint-config-${style}`);
+  if (enableScss) array.push('stylelint-config-standard-scss');
 
-  if (order) extends_.push('stylelint-config-recess-order');
+  if (order) array.push('stylelint-config-recess-order');
 
-  if (enableScss) extends_.push(`stylelint-config-${style}-scss`);
-
-  extends_.push('stylelint-prettier/recommended');
-
-  return extends_;
+  return array;
 }
 
 export function plugins(options: Required<Options>) {
   const { defensiveCss, highPerformanceAnimation, logicalCss } = options;
 
-  const plugins: string[] = [];
+  const array: string[] = [];
 
   if (highPerformanceAnimation)
-    plugins.push('stylelint-high-performance-animation');
+    array.push('stylelint-high-performance-animation');
 
-  if (defensiveCss) plugins.push('stylelint-plugin-defensive-css');
+  if (defensiveCss) array.push('stylelint-plugin-defensive-css');
 
-  if (logicalCss) plugins.push('stylelint-plugin-logical-css');
+  if (logicalCss) array.push('stylelint-plugin-logical-css');
 
-  return plugins;
+  return array;
 }
 
 export function rules(options: Required<Options>) {
@@ -41,7 +40,7 @@ export function rules(options: Required<Options>) {
     scss: enableScss,
   } = options;
 
-  const rules: Record<string, any> = {
+  const object: Record<string, any> = {
     // https://stylelint.io/user-guide/rules/at-rule-no-unknown/
     'at-rule-no-unknown': [
       true,
@@ -77,8 +76,6 @@ export function rules(options: Required<Options>) {
         ],
       },
     ],
-    // run prettier directly
-    'prettier/prettier': null,
     // https://stylelint.io/user-guide/rules/property-no-unknown/
     'property-no-unknown': [
       true,
@@ -87,6 +84,15 @@ export function rules(options: Required<Options>) {
         // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
         ignoreProperties: ['composes', 'compose-with'],
         ignoreSelectors: [':export', /^:import/],
+      },
+    ],
+    // https://stylelint.io/user-guide/rules/selector-class-pattern/
+    'selector-class-pattern': [
+      // https://regexr.com/3apms
+      '^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$',
+      {
+        message: (selector: string) =>
+          `Expected class selector "${selector}" to be kebab-case or BEM`,
       },
     ],
     // https://stylelint.io/user-guide/rules/selector-pseudo-class-no-unknown/
@@ -116,29 +122,37 @@ export function rules(options: Required<Options>) {
     // https://stylelint.io/user-guide/rules/selector-pseudo-element-no-unknown/
     'selector-pseudo-element-no-unknown': [
       true,
-      // vue
-      // legacy support
+      // vue legacy support
       { ignorePseudoElements: ['v-global', 'v-deep', 'v-slotted'] },
     ],
     // https://stylelint.io/user-guide/rules/selector-type-no-unknown/
     'selector-type-no-unknown': [
       true,
       {
+        ignore: ['custom-elements'],
         ignoreTypes: [
           // css modules
           // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
           'from',
+          // mini program
+          ...(hasMiniProgram ? MINI_PROGRAM_ELEMENTS : []),
         ],
+      },
+    ],
+    'unit-no-unknown': [
+      true,
+      {
+        ignoreUnits: hasMiniProgram ? ['rpx'] : [],
       },
     ],
   };
 
   if (highPerformanceAnimation) {
-    rules['plugin/no-low-performance-animation-properties'] = true;
+    object['plugin/no-low-performance-animation-properties'] = true;
   }
 
   if (defensiveCss) {
-    rules['plugin/use-defensive-css'] = [
+    object['plugin/use-defensive-css'] = [
       true,
       {
         'accidental-hover': true,
@@ -153,44 +167,24 @@ export function rules(options: Required<Options>) {
   }
 
   if (logicalCss) {
-    rules['plugin/use-logical-properties-and-values'] = [
+    object['plugin/use-logical-properties-and-values'] = [
       true,
       { disableFix: true, severity: 'warning' },
     ];
-    rules['plugin/use-logical-units'] = [
+    object['plugin/use-logical-units'] = [
       true,
       { disableFix: true, severity: 'warning' },
-    ];
-  }
-
-  if (hasMiniProgram) {
-    rules['selector-type-no-unknown'] = [
-      true,
-      {
-        ignoreTypes: [
-          ...MINI_PROGRAM_ELEMENTS,
-          // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
-          'from',
-        ],
-      },
-    ];
-    rules['unit-no-unknown'] = [
-      true,
-      {
-        ignoreUnits: ['rpx'],
-      },
     ];
   }
 
   if (enableScss) {
-    rules['at-rule-no-unknown'] = null;
-    rules['scss/at-rule-no-unknown'] = [
+    object['at-rule-no-unknown'] = null;
+    object['scss/at-rule-no-unknown'] = [
       true,
       {
         ignoreAtRules: [
           // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
+          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
           'value',
           // tailwindcss
           // https://tailwindcss.com/docs/functions-and-directives#directives
@@ -201,13 +195,13 @@ export function rules(options: Required<Options>) {
         ],
       },
     ];
-    rules['function-no-unknown'] = null;
-    rules['scss/function-no-unknown'] = [
+    object['function-no-unknown'] = null;
+    object['scss/function-no-unknown'] = [
       true,
       {
         ignoreFunctions: [
           // css modules
-          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.3.0/index.js
+          // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
           'global',
           // tailwindcss
           // https://tailwindcss.com/docs/functions-and-directives#functions
@@ -219,22 +213,33 @@ export function rules(options: Required<Options>) {
         ],
       },
     ];
+    object['property-no-unknown'] = null;
+    object['scss/property-no-unknown'] = [
+      true,
+      {
+        // css modules
+        // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
+        ignoreProperties: ['composes', 'compose-with'],
+        ignoreSelectors: [':export', /^:import/],
+      },
+    ];
     // disable stylistic rules
-    rules['scss/at-else-closing-brace-newline-after'] = null;
-    rules['scss/at-else-closing-brace-space-after'] = null;
-    rules['scss/at-else-empty-line-before'] = null;
-    rules['scss/at-else-if-parentheses-space-before'] = null;
-    rules['scss/at-function-parentheses-space-before'] = null;
-    rules['scss/at-if-closing-brace-newline-after'] = null;
-    rules['scss/at-if-closing-brace-space-after'] = null;
-    rules['scss/at-mixin-parentheses-space-before'] = null;
-    rules['scss/dollar-variable-colon-newline-after'] = null;
-    rules['scss/dollar-variable-colon-space-after'] = null;
-    rules['scss/dollar-variable-colon-space-before'] = null;
-    rules['scss/operator-no-newline-after'] = null;
-    rules['scss/operator-no-newline-before'] = null;
-    rules['scss/operator-no-unspaced'] = null;
+    // https://github.com/prettier/stylelint-config-prettier-scss/blob/v1.0.0/src/index.js
+    object['scss/at-else-closing-brace-newline-after'] = null;
+    object['scss/at-else-closing-brace-space-after'] = null;
+    object['scss/at-else-empty-line-before'] = null;
+    object['scss/at-else-if-parentheses-space-before'] = null;
+    object['scss/at-function-parentheses-space-before'] = null;
+    object['scss/at-if-closing-brace-newline-after'] = null;
+    object['scss/at-if-closing-brace-space-after'] = null;
+    object['scss/at-mixin-parentheses-space-before'] = null;
+    object['scss/dollar-variable-colon-newline-after'] = null;
+    object['scss/dollar-variable-colon-space-after'] = null;
+    object['scss/dollar-variable-colon-space-before'] = null;
+    object['scss/operator-no-newline-after'] = null;
+    object['scss/operator-no-newline-before'] = null;
+    object['scss/operator-no-unspaced'] = null;
   }
 
-  return rules;
+  return object;
 }

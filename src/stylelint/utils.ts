@@ -12,7 +12,5 @@ export function parseOptions(options: Options = {}): Required<Options> {
     logicalCss: options.logicalCss ?? false,
 
     scss: options.scss ?? hasScss,
-
-    style: options.style ?? 'recommended',
   };
 }

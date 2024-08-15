@@ -39,11 +39,4 @@ export interface Options {
    * Enabled by default if you have sass installed.
    */
   scss?: boolean;
-
-  /**
-   * CSS and SCSS code style.
-   *
-   * @default 'recommended'
-   */
-  style?: 'recommended' | 'standard';
 }
