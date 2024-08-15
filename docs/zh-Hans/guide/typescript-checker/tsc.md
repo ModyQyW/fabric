@@ -20,10 +20,6 @@ yarn add typescript -D
 pnpm install typescript -D
 ```
 
-```shell [bun(experimental)]
-bun install typescript -d
-```
-
 :::
 
 tsc 不支持 Vue。如果你正在开发 Vue 项目，你需要使用 [vue-tsc](https://www.npmjs.com/package/vue-tsc)。
@@ -40,10 +36,6 @@ yarn add typescript vue-tsc -D
 
 ```shell [pnpm]
 pnpm install typescript vue-tsc -D
-```
-
-```shell [bun(experimental)]
-bun install typescript vue-tsc -d
 ```
 
 :::

@@ -20,10 +20,6 @@ yarn add typescript -D
 pnpm install typescript -D
 ```
 
-```shell [bun(experimental)]
-bun install typescript -d
-```
-
 :::
 
 ## Configuration
