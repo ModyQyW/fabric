@@ -20,10 +20,6 @@ yarn add stylelint -D
 pnpm install stylelint -D
 ```
 
-```shell [bun(experimental)]
-bun install stylelint -d
-```
-
 :::
 
 ## 配置
