@@ -125,9 +125,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
         ],
 
         // https://github.com/un-ts/eslint-plugin-import-x#resolvers
-        'import/resolver': {
-          node: { extensions: ['.js', '.mjs', '.jsx', '.json'] },
-        },
+        'import/resolver': 'oxc',
       },
     },
     {
@@ -177,32 +175,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
         },
 
         // https://github.com/un-ts/eslint-plugin-import-x#resolvers
-        'import/resolver': {
-          node: {
-            extensions: [
-              '.js',
-              '.mjs',
-              '.jsx',
-              '.ts',
-              '.mts',
-              '.tsx',
-              '.d.ts',
-              '.json',
-            ],
-          },
-          typescript: {
-            extensions: [
-              '.js',
-              '.mjs',
-              '.jsx',
-              '.ts',
-              '.mts',
-              '.tsx',
-              '.d.ts',
-              '.json',
-            ],
-          },
-        },
+        'import/resolver': 'oxc',
       },
     },
   ];
