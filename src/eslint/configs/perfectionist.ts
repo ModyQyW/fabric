@@ -114,7 +114,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         'perfectionist/sort-named-imports': 'error',
 
         // https://perfectionist.dev/rules/sort-object-types
-        '@typescript-eslint/adjacent-overload-signatures': 'off',
+        // '@typescript-eslint/adjacent-overload-signatures': 'off',
         'perfectionist/sort-object-types': 'error',
 
         // https://perfectionist.dev/rules/sort-objects
