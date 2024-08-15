@@ -7,7 +7,7 @@ Biome is very fast, but it is not 100% compatible with existing common tools (su
 
 Biome has good support for JavaScript, TypeScript, JSX, TSX, JSON and JSONC, but support for the others could be improved, so it is recommended to use it for JS, TS, JSX, and TSX projects, and not to mix it with other code checkers and code formatters.
 
-For specific support, please refer to [Biome official document] (https://biomejs.dev/internals/language-support/).
+For specific support, please refer to [Biome official document](https://biomejs.dev/internals/language-support/).
 :::
 
 ## Installation
