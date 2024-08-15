@@ -4,7 +4,7 @@ markdownlint is the linter for [markdown file](https://commonmark.org/).
 
 ## 安装
 
-You have to install markdownlint-cli first. Currently markdownlint-cli v0.39 is supported.
+You have to install markdownlint-cli first. Currently markdownlint-cli v0.41 is supported.
 
 ::: code-group
 
@@ -28,9 +28,7 @@ bun install markdownlint-cli -d
 
 ## Configuration
 
-### JSON
-
-Update your `.markdownlint.json` file.
+Create `.markdownlint.json` in your project root:
 
 ```json
 {
@@ -39,9 +37,7 @@ Update your `.markdownlint.json` file.
 }
 ```
 
-### CLI
-
-Update your `package.json` and add `lint:markdownlint` script.
+Update `package.json` and add `lint:markdownlint` script.
 
 ```json
 {
@@ -51,9 +47,9 @@ Update your `package.json` and add `lint:markdownlint` script.
 }
 ```
 
-## Integration
+## FAQ
 
-### VSC
+### Integration of VSC?
 
 Install [the corresponding markdownlint plugin](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) first.
 
@@ -70,11 +66,11 @@ Update [user settings](https://code.visualstudio.com/docs/getstarted/settings#_s
 }
 ```
 
-### WebStorm
+### Integration of WebStorm?
 
 WebStorm can use [plugin](https://plugins.jetbrains.com/plugin/20851-markdownlint) to get markdownlint support.
 
-### lint-staged
+### Integration of lint-staged?
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
 
@@ -82,7 +78,6 @@ If you are not, you can refer to the following configuration.
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 export default {
   '*.md': 'markdownlint --fix --ignore-path=.gitignore',
 };

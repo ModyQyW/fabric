@@ -4,7 +4,7 @@ markdownlint 是用于 [markdown 文件](https://commonmark.org/) 的代码检�
 
 ## 安装
 
-首先你需要安装 markdownlint-cli。目前支持 markdownlint-cli v0.39。
+首先你需要安装 markdownlint-cli。目前支持 markdownlint-cli v0.41。
 
 ::: code-group
 
@@ -28,9 +28,7 @@ bun install markdownlint-cli -d
 
 ## 配置
 
-### JSON
-
-更新你的 `.markdownlint.json`。
+在项目根目录下创建 `.markdownlint.json`。
 
 ```json
 {
@@ -39,9 +37,7 @@ bun install markdownlint-cli -d
 }
 ```
 
-### CLI
-
-更新你的 `package.json`，增加 `lint:markdownlint` 命令。
+更新 `package.json`，增加 `lint:markdownlint` 命令。
 
 ```json
 {
@@ -51,9 +47,11 @@ bun install markdownlint-cli -d
 }
 ```
 
-## 整合
+如果需要自定义，请参考 [markdownlint README](https://github.com/DavidAnson/markdownlint#readme)。
 
-### VSC
+## FAQ
+
+### 整合 VSC？
 
 先安装 [对应的 markdownlint 插件](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)。
 
@@ -70,11 +68,11 @@ bun install markdownlint-cli -d
 }
 ```
 
-### WebStorm
+### 整合 WebStorm？
 
 WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/20851-markdownlint) 以获取 markdownlint 支持。
 
-### lint-staged
+### 整合 lint-staged？
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 
@@ -82,7 +80,6 @@ WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/20851-markdo
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 export default {
   '*.md': 'markdownlint --fix --ignore-path=.gitignore',
 };
