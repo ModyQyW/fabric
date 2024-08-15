@@ -414,7 +414,6 @@ WebStorm 自带 ESLint，可参考 [整合 VSC?](#整合-vsc) 自行调整。
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 export default {
   '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}':
     'eslint --fix --cache --no-error-on-unmatched-pattern',
