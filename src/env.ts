@@ -107,9 +107,10 @@ export const hasTailwindCss = isPackageExists('tailwindcss');
 
 export const hasVite = isPackageExists('vite');
 
-export const hasLerna = isPackageExists('lerna');
+export const hasLerna =
+  isPackageExists('lerna') || isPackageExists('@lerna-lite/cli');
 export const hasNx = isPackageExists('nx');
-export const hasRush = isPackageExists('rush');
+export const hasRush = isPackageExists('@microsoft/rush');
 export const hasPnpmWorkspace = existsSync(
   resolve(process.cwd(), 'pnpm-workspace.yaml'),
 );
