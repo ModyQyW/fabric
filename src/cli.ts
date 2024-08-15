@@ -377,7 +377,8 @@ const tasks = new Listr<Ctx>([
                 return (
                   o.name !== 'Prettier' &&
                   o.name !== 'ESLint' &&
-                  o.name !== 'oxlint'
+                  o.name !== 'oxlint' &&
+                  o.name !== 'stylelint'
                 );
               }
               return o.name !== 'biome';
@@ -386,12 +387,16 @@ const tasks = new Listr<Ctx>([
         );
         shouldSkip = true;
       } else {
-        if (opts.biome && (opts.prettier || opts.eslint || opts.oxlint)) {
+        if (
+          opts.biome &&
+          (opts.prettier || opts.eslint || opts.oxlint || opts.stylelint)
+        ) {
           const resolution = await getConflictResolution(task);
           if (resolution === 'keep') {
             opts.prettier = false;
             opts.eslint = false;
             opts.oxlint = false;
+            opts.stylelint = false;
           } else {
             opts.biome = false;
           }
@@ -417,13 +422,15 @@ const tasks = new Listr<Ctx>([
         functions.includes('biome') &&
         (functions.includes('prettier') ||
           functions.includes('eslint') ||
-          functions.includes('oxlint'))
+          functions.includes('oxlint') ||
+          functions.includes('stylelint'))
       ) {
         const resolution = await getConflictResolution(task);
         if (resolution === 'keep') {
           functions.splice(functions.indexOf('prettier'), 1);
           functions.splice(functions.indexOf('eslint'), 1);
           functions.splice(functions.indexOf('oxlint'), 1);
+          functions.splice(functions.indexOf('stylelint'), 1);
         } else {
           functions.splice(functions.indexOf('biome'), 1);
         }
