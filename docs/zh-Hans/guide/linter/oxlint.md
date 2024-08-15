@@ -24,10 +24,6 @@ yarn add oxlint -D
 pnpm install oxlint -D
 ```
 
-```shell [bun(experimental)]
-bun install oxlint -d
-```
-
 :::
 
 ## 配置
