@@ -64,6 +64,10 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 
 安装 [对应的 oxlint 插件](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode) 即可。
 
+### 整合 WebStorm？
+
+目前还没有相应插件，请追踪 [oxc discussions 3269](https://github.com/oxc-project/oxc/discussions/3269) 和 [Oxlint support for all Intellij-based IDEs](https://youtrack.jetbrains.com/issue/WEB-64726/Oxlint-support-for-all-Intellij-based-IDEs)。
+
 ### 整合 lint-staged？
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。

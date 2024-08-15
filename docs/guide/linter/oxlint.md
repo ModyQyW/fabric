@@ -64,6 +64,10 @@ If you have other files to ignore, you can use `--ignore-pattern` like below. It
 
 Install [the corresponding oxlint plugin](https://marketplace.visualstudio.com/items?itemName=oxc.oxc-vscode).
 
+### Integration of WebStorm?
+
+There is no corresponding plugin yet, please track down [oxc discussions 3269](https://github.com/oxc-project/oxc/discussions/3269) and [Oxlint support for all Intellij-based IDEs](https://youtrack.jetbrains.com/issue/WEB-64726/Oxlint-support-for-all-Intellij-based-IDEs).
+
 ### Integration of lint-staged?
 
 If you are using the lint-staged configuration provided by the package, see the [lint-staged chapter](../git/lint-staged.md).
