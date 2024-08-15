@@ -15,14 +15,14 @@ export function parseOptions(
 
   return {
     biome,
-    eslint: biome ? false : (options.eslint ?? hasESLint),
+    eslint: options.eslint ?? (hasESLint && !biome),
     formatChangelog: options.formatChangelog ?? false,
     lintJsonc: options.lintJsonc ?? true,
     lintToml: options.lintToml ?? true,
     lintYml: options.lintYml ?? true,
-    markdownlint: biome ? false : (options.markdownlint ?? hasMarkdownlintCli),
-    oxlint: biome ? false : (options.oxlint ?? hasOxlint),
-    prettier: biome ? false : (options.prettier ?? hasPrettier),
-    stylelint: biome ? false : (options.stylelint ?? hasStylelint),
+    markdownlint: options.markdownlint ?? hasMarkdownlintCli,
+    oxlint: options.oxlint ?? (hasOxlint && !biome),
+    prettier: options.prettier ?? (hasPrettier && !biome),
+    stylelint: options.stylelint ?? (hasStylelint && !biome),
   };
 }
