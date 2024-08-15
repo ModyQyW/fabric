@@ -63,10 +63,6 @@ yarn add @modyqyw/fabric -D
 pnpm install @modyqyw/fabric -D
 ```
 
-```shell [bun(experimental)]
-bun install @modyqyw/fabric -d
-```
-
 :::
 
 就是这么简单！接下来，你可以根据你的需要来配置项目。
