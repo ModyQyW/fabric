@@ -28,10 +28,6 @@ yarn add @biomejs/biome -D
 pnpm install @biomejs/biome -D
 ```
 
-```shell [bun(experimental)]
-bun install @biomejs/biome -d
-```
-
 :::
 
 ## Configuration
