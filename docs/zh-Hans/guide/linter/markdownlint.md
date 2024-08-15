@@ -20,10 +20,6 @@ yarn add markdownlint-cli -D
 pnpm install markdownlint-cli -D
 ```
 
-```shell [bun(experimental)]
-bun install markdownlint-cli -d
-```
-
 :::
 
 ## 配置
