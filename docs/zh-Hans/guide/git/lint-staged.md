@@ -20,36 +20,17 @@ yarn add lint-staged -D
 pnpm install lint-staged -D
 ```
 
-```shell [bun(experimental)]
-bun install lint-staged -d
-```
-
 :::
 
 ## 配置
 
-### ESM
+在项目根目录下创建 `lint-staged.config.mjs`：
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
-import { lintStaged } from '@modyqyw/fabric';
-// or
-// import { lintStaged } from '@modyqyw/fabric/lint-staged';
+import { lintStaged } from '@modyqyw/fabric/lint-staged';
 
 export default lintStaged();
-```
-
-### CJS
-
-```javascript
-// lint-staged.config.cjs
-// or lint-staged.config.js without "type": "module" in package.json
-const { lintStaged } = require('@modyqyw/fabric');
-// or
-// const { lintStaged } = require('@modyqyw/fabric/lint-staged');
-
-module.exports = lintStaged();
 ```
 
 ## 自定义
@@ -58,40 +39,53 @@ module.exports = lintStaged();
 
 给导出的 `lintStaged` 方法传参可以自定义配置，`lintStaged` 方法接收两个参数。
 
-第一个参数用于基本自定义，你可以传递 `undefined` 或对象。要明确地启用或禁用某一个配置，需要明确在传递的对象中设置 boolean 值。
+第一个参数用于基本自定义，你可以不传递或传递空对象表示使用默认值。要明确地启用或禁用某一个插件，需要明确在传递的对象中设置 boolean 值。
 
-目前支持以下配置：
-
-- eslint：使用 ESLint 检查脚本文件，安装 ESLint 后默认启用，否则默认禁用
-- lintJsonc：在启用 ESLint 的情况下，使用 ESLint 检查 JSON 文件，默认启用
-- lintYml：在启用 ESLint 的情况下，使用 ESLint 检查 YML 文件，默认启用
-- oxlint：使用 oxlint 检查脚本文件，安装 oxlint 后默认启用，否则默认禁用
-- stylelint：使用 Stylelint 检查样式文件，安装 Stylelint 后默认启用，否则默认禁用
-- markdownlint：使用 markdownlint 检查 markdown 文件，安装 markdownlint-cli 后默认启用，否则默认禁用
-- prettier：使用 Prettier 格式化代码，安装 Prettier 后默认启用，否则默认禁用
-- formatChangelog：在启用 Prettier 的情况下，使用 Prettier 格式化 CHANGELOG.md 文件，默认禁用
+以下是默认配置：
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 import {
+  hasBiome,
   hasESLint,
   hasMarkdownlintCli,
   hasOxlint,
   hasPrettier,
   hasStylelint,
-  lintStaged,
 } from '@modyqyw/fabric';
+import { lintStaged } from '@modyqyw/fabric/lint-staged';
 
 export default lintStaged({
-  eslint: hasESLint,
-  formatChangelog: false,
+  // 使用 Biome 检查
+  // 安装 Biome 后默认启用，否则默认禁用
+  biome: hasBiome,
+  // 使用 ESLint 检查脚本文件
+  // 安装 ESLint 且没有启用 Biome 时默认启用，否则默认禁用
+  eslint: hasESLint && !hasBiome,
+  // 在启用 ESLint 的情况下，使用 ESLint 检查 JSON 文件
+  // 默认启用
   lintJsonc: true,
+  // 在启用 ESLint 的情况下，使用 ESLint 检查 TOML 文件
+  // 默认启用
+  lintToml: true,
+  // 在启用 ESLint 的情况下，使用 ESLint 检查 YML 文件
+  // 默认启用
   lintYml: true,
+  // 使用 markdownlint-cli 检查 markdown 文件
+  // 安装 markdownlint-cli 后默认启用，否则默认禁用
   markdownlint: hasMarkdownlintCli,
-  oxlint: hasOxlint,
-  prettier: hasPrettier,
-  stylelint: hasStylelint,
+  // 使用 oxlint 检查脚本文件
+  // 安装 oxlint 且没有启用 Biome 时默认启用，否则默认禁用
+  oxlint: hasOxlint && !hasBiome,
+  // 使用 Prettier 格式化代码
+  // 安装 Prettier 且没有启用 Biome 时默认启用，否则默认禁用
+  prettier: hasPrettier && !hasBiome,
+  // 在启用 Prettier 的情况下，使用 Prettier 格式化 CHANGELOG.md 文件
+  // 默认禁用
+  formatChangelog: false,
+  // 使用 Stylelint 检查样式文件
+  // 安装 Stylelint 且没有启用 Biome 时默认启用，否则默认禁用
+  stylelint: hasStylelint && !hasBiome,
 });
 ```
 
@@ -99,17 +93,19 @@ export default lintStaged({
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
-import { lintStaged } from '@modyqyw/fabric';
+import { lintStaged } from '@modyqyw/fabric/lint-staged';
 
-export default lintStaged(undefined, {
-  // 需要自定义的操作
-});
+export default lintStaged(
+  {},
+  {
+    // 需要自定义的操作
+  },
+);
 ```
 
-## 整合
+## FAQ
 
-### simple-git-hooks
+### 整合 simple-git-hooks？
 
 如果你使用该库提供的 simple-git-hooks 配置，请查看 [simple-git-hooks 章节](../git/simple-git-hooks.md)。
 

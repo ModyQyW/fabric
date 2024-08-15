@@ -20,36 +20,17 @@ yarn add lint-staged -D
 pnpm install lint-staged -D
 ```
 
-```shell [bun(experimental)]
-bun install lint-staged -d
-```
-
 :::
 
 ## Configuration
 
-### ESM
+Create `lint-staged.config.mjs` in your project root:
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
-import { lintStaged } from '@modyqyw/fabric';
-// or
-// import { lintStaged } from '@modyqyw/fabric/lint-staged';
+import { lintStaged } from '@modyqyw/fabric/lint-staged';
 
 export default lintStaged();
-```
-
-### CJS
-
-```javascript
-// lint-staged.config.cjs
-// or lint-staged.config.js without "type": "module" in package.json
-const { lintStaged } = require('@modyqyw/fabric');
-// or
-// const { lintStaged } = require('@modyqyw/fabric/lint-staged');
-
-module.exports = lintStaged();
 ```
 
 ## Customization
@@ -58,39 +39,52 @@ module.exports = lintStaged();
 
 Passing parameters to the exported `lintStaged` method can customize, and the `lintStaged` method takes two parameters.
 
-The first parameter is used for basic customization, you can pass either `undefined` or an object. To explicitly enable or disable a plugin, you need to explicitly set the boolean value in the passed object.
+The first parameter is used for basic customization; you can pass no or empty objects to indicate the use of default values. To explicitly enable or disable a plugin, you need to explicitly set the boolean value in the passed object.
 
-The following plugins are currently supported:
-
-- eslint - Lint scripts with ESLint. Enabled by default if you have ESLint installed.
-- lintJsonc - Lint JSON files with ESLint when ESLint is enabled. Enabled by default.
-- lintYml - Lint YML files with ESLint when ESLint is enabled. Enabled by default.
-- oxlint - Lint scripts with oxlint. Enabled by default if you have oxlint installed.
-- stylelint - Lint styles with Stylelint. Enabled by default if you have Stylelint installed.
-- markdownlint - Lint markdown files with markdownlint. Enabled by default if you have markdownlint-cli installed.
-- prettier - Format with Prettier. Enabled by default if you have Prettier installed.
-- formatChangelog - Format CHANGELOG.md with Prettier when Prettier is enabled. Disabled by default.
+The following is the default configuration:
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 import {
+  hasBiome,
   hasESLint,
   hasMarkdownlintCli,
   hasOxlint,
   hasPrettier,
   hasStylelint,
-  lintStaged,
 } from '@modyqyw/fabric';
+import { lintStaged } from '@modyqyw/fabric/lint-staged';
 
 export default lintStaged({
-  eslint: hasESLint,
-  jsonc: true,
+  // Check with Biome.
+  // Enabled by default if you have Biome installed.
+  biome: hasBiome,
+  // Lint scripts with ESLint.
+  // Enabled by default if you have ESLint installed and you have not enabled Biome.
+  eslint: hasESLint && hasBiome,
+  // Lint JSON with ESLint when ESLint is enabled.
+  // Enabled by default.
+  lintJsonc: true,
+  // Lint TOML with ESLint when ESLint is enabled.
+  // Enabled by default.
+  lintToml: true,
+  // Lint YML with ESLint when ESLint is enabled.
+  // Enabled by default.
+  lintYml: true,
+  // Lint markdown files with markdownlint-cli.
+  // Enabled by default if you have markdownlint-cli installed.
   markdownlint: hasMarkdownlintCli,
-  oxlint: hasOxlint,
-  prettier: hasPrettier,
-  stylelint: hasStylelint,
-  yml: true,
+  // Lint scripts with oxlint.
+  // Enabled by default if you have oxlint installed and you have not enabled Biome.
+  oxlint: hasOxlint && !hasBiome,
+  // Format with Prettier.
+  // Enabled by default if you have Prettier installed and you have not enabled Biome.
+  prettier: hasPrettier && !hasBiome,
+  // Format CHANGELOG.md with Prettier when Prettier is enabled.
+  formatChangelog: false,
+  // Lint styles with Stylelint.
+  // Enabled by default if you have Stylelint installed and you have not enabled Biome.
+  stylelint: hasStylelint && !hasBiome,
 });
 ```
 
@@ -98,17 +92,19 @@ The second parameter is used for further customization, you can pass an object t
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
-import { lintStaged } from '@modyqyw/fabric';
+import { lintStaged } from '@modyqyw/fabric/lint-staged';
 
-export default lintStaged(undefined, {
-  // operations that require customization
-});
+export default lintStaged(
+  {},
+  {
+    // operations that require customization
+  },
+);
 ```
 
-## Integration
+## FAQ
 
-### simple-git-hooks
+### Integration of simple-git-hooks?
 
 If you are using the simple-git-hooks configuration provided by the package, see the [simple-git-hooks chapter](../git/simple-git-hooks.md).
 
