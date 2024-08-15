@@ -24,41 +24,20 @@ yarn add prettier -D
 pnpm install prettier -D
 ```
 
-```shell [bun(experimental)]
-bun install prettier -d
-```
-
 :::
 
 ## 配置
 
-### ESM
+在项目根目录下创建 `prettier.config.mjs`：
 
 ```javascript
 // prettier.config.mjs
-// or prettier.config.js with "type": "module" in package.json
-import { prettier } from '@modyqyw/fabric';
-// or
-// import { prettier } from '@modyqyw/fabric/prettier';
+import { prettier } from '@modyqyw/fabric/prettier';
 
 export default prettier();
 ```
 
-### CJS
-
-```javascript
-// prettier.config.cjs
-// or prettier.config.js without "type": "module" in package.json
-const { prettier } = require('@modyqyw/fabric');
-// or
-// const { prettier } = require('@modyqyw/fabric/prettier');
-
-module.exports = prettier();
-```
-
-### CLI
-
-更新你的 `package.json`，增加 `format` 命令。
+更新 `package.json`，增加 `format` 命令。
 
 ```json
 {
@@ -92,113 +71,74 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 }
 ```
 
+:::
+
 ## 自定义
 
 ### 参数自定义
 
 给导出的 `prettier` 方法传参可以自定义配置，`prettier` 方法接收两个参数。
 
-第一个参数用于基本自定义，你可以传递 `undefined` 或对象。要明确地启用或禁用某一个插件，需要明确在传递的对象中设置 boolean 值。
+第一个参数用于基本自定义，你可以不传递或传递空对象表示使用默认值。要明确地启用或禁用某一个插件，需要明确在传递的对象中设置 boolean 值。
 
-目前支持以下配置：
-
-- cssOrder：基于 [prettier-plugin-css-order](https://github.com/Siilwyn/prettier-plugin-css-order)，对 CSS / SCSS 声明排序，默认禁用
-- ianvsSortImports：基于 [@ianvs/prettier-plugin-sort-imports](https://github.com/ianvs/prettier-plugin-sort-imports)，对 import 声明排序，默认禁用
-- jsdoc：基于 [prettier-plugin-jsdoc](https://github.com/hosseinmd/prettier-plugin-jsdoc)，格式化 JSDoc 和 TSDoc，默认启用
-- organizeAttributes：基于 [prettier-plugin-organize-attributes](https://github.com/NiklasPor/prettier-plugin-organize-attributes)，对 HTML / Vue 属性排序，默认禁用
-- organizeImports：基于 [prettier-plugin-organize-imports](https://github.com/simonhaenisch/prettier-plugin-organize-imports)，对 import 声明排序，默认禁用
-- packageJson：基于 [prettier-plugin-packagejson](https://github.com/matzkoh/prettier-plugin-packagejson)，对 package.json 排序，默认启用
-- tailwindcss：基于 [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)，对 HTML / Vue class 属性排序，安装 TailwindCSS 后默认启用，否则默认禁用
-- trivagoSortImports：基于 [@trivago/prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)，对 import 声明排序，默认禁用
+以下是默认配置：
 
 ```javascript
 // prettier.config.mjs
-// or prettier.config.js with "type": "module" in package.json
-import { hasTailwindCss, prettier } from '@modyqyw/fabric';
+import { hasTailwindCss } from '@modyqyw/fabric';
+import { prettier } from '@modyqyw/fabric/prettier';
 
 export default prettier({
-  // 基于 prettier-plugin-css-order
-  // 默认为 false，即禁用
-  cssOrder: false,
-  // 基于 @ianvs/prettier-plugin-sort-imports
-  // 默认为 false，即禁用
-  ianvsSortImports: false,
   // 基于 prettier-plugin-jsdoc
   // 默认为 true，即启用
   jsdoc: true,
-  // 基于 prettier-plugin-organize-attributes
-  // 默认为 false，即禁用
-  organizeAttributes: false,
-  // 基于 prettier-plugin-organize-imports
-  // 默认为 false，即禁用
-  organizeImports: false,
-  // 基于 prettier-plugin-packagejson
-  // 默认为 true，即启用
-  packageJson: true,
-  // 基于 prettier-plugin-tailwindcss
-  // 安装 TailwindCSS 后默认启用，否则默认禁用
-  tailwindcss: hasTailwindCss,
-  // 基于 @trivago/prettier-plugin-sort-imports
-  // 默认为 false，即禁用
-  trivagoSortImports: false,
 });
 ```
 
-::: warning 潜在冲突
-
-1. prettier-plugin-css-order 可能与 stylelint-config-recess-order 冲突，所以默认禁用。如果你想启用 prettier-plugin-css-order，请禁用 stylelint-config-recess-order，见 [Stylelint 章节自定义部分](../linter/stylelint#自定义)。
-
-2. @ianvs/prettier-plugin-sort-imports、@trivago/prettier-plugin-sort-imports、prettier-plugin-organize-imports 三者相互冲突，而且可能与 eslint-plugin-perfectionist 冲突，所以默认禁用。如果你想启用三者之一，请关闭 eslint-plugin-perfectionist，见 [ESLint 章节自定义部分](../linter/eslint#自定义)。
-
-3. prettier-plugin-organize-attributes 可能与 eslint-plugin-perfectionist 冲突，所以默认禁用。如果你想启用 prettier-plugin-organize-attributes，请禁用 eslint-plugin-perfectionist，见 [ESLint 章节自定义部分](../linter/eslint#自定义)。
-
-4. prettier-plugin-packagejson 默认情况下不会与 eslint-plugin-jsonc 冲突。如果你想要使用 eslint-plugin-jsonc 对 package.json 排序，请禁用 prettier-plugin-packagejson。
-
-5. prettier-plugin-tailwindcss 可能与 eslint-plugin-unocss 冲突。当你同时使用 TailwindCSS 和 UnoCSS 时，请手动关闭其中之一。如果你想禁用 eslint-plugin-unocss，见 [ESLint 章节自定义部分](../linter/eslint#自定义)。
-
-:::
-
-第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置（需要自行安装相应的依赖）。
+第二个参数用于更进一步的自定义，你可以传递一个对象，用于覆盖生成的配置。如果你想要调整插件相关，你需要自行安装相应的依赖并留意 [插件冲突](#插件冲突)。
 
 ```javascript
 // prettier.config.mjs
-// or prettier.config.js with "type": "module" in package.json
 import { prettier } from '@modyqyw/fabric';
 
-export default prettier(undefined, {
-  // 使用 prettier-plugin-svelte 和 prettier-plugin-tailwindcss
-  // prettier-plugin-tailwindcss 一定要放在最后
-  // 默认配置内的 plugins 将被直接覆盖
-  plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
+export default prettier(
+  {},
+  {
+    // 使用 prettier-plugin-svelte 和 prettier-plugin-tailwindcss
+    // prettier-plugin-tailwindcss 一定要放在最后
+    // 默认配置内的 plugins 将被直接覆盖
+    plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
 
-  overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
-});
+    overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
+  },
+);
 ```
 
-如果你希望在默认配置上增加自定义配置，你可以像下面这样做（需要自行安装相应的依赖）：
+如果你希望在默认配置上增加自定义配置，你可以像下面这样做，这也需要你自行安装相应的依赖并留意插件冲突：
 
 ```javascript
 // prettier.config.mjs
-// or prettier.config.js with "type": "module" in package.json
-import { prettier } from '@modyqyw/fabric';
+import { prettier } from '@modyqyw/fabric/prettier';
 
 const defaultConfig = prettier();
 
 export default {
   ...defaultConfig,
-  // 使用 prettier-plugin-jsdoc、prettier-plugin-packagejson、prettier-plugin-svelte 和 prettier-plugin-tailwindcss
+  // 使用 prettier-plugin-jsdoc、prettier-plugin-svelte 和 prettier-plugin-tailwindcss
   // prettier-plugin-tailwindcss 一定要放在最后
   plugins: [
     ...defaultConfig.plugins,
     'prettier-plugin-svelte',
     'prettier-plugin-tailwindcss',
   ],
+
+  overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
 };
 ```
 
-## 整合
+## FAQ
 
-### VSC
+### 整合 VSC？
 
 先安装 [对应的 Prettier 插件](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)。
 
@@ -214,17 +154,11 @@ export default {
 }
 ```
 
-::: warning 配置文件
+### 整合 WebStorm？
 
-截至 2024 年 02 月 24 日，如果你需要与 VSC 整合使用，请使用 [CJS](#cjs)，详情请查看 [issues](https://github.com/prettier/prettier-vscode/issues)。
+WebStorm 自带 Prettier，可参考 [整合 VSC?](#整合-vsc) 自行调整。
 
-:::
-
-### WebStorm
-
-WebStorm 自带 Prettier，可参考 [VSC](#vsc) 自行调整。
-
-### lint-staged
+### 整合 lint-staged？
 
 如果你使用该库提供的 lint-staged 配置，请查看 [lint-staged 章节](../git/lint-staged.md)。
 
@@ -232,7 +166,6 @@ WebStorm 自带 Prettier，可参考 [VSC](#vsc) 自行调整。
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 import { filterFilenames } from '@modyqyw/fabric';
 
 export default {
@@ -249,7 +182,6 @@ export default {
 
 ```javascript
 // lint-staged.config.mjs
-// or lint-staged.config.js with "type": "module" in package.json
 import { GLOB_EXCLUDE, filterFilenames } from '@modyqyw/fabric';
 
 export default {
@@ -267,10 +199,20 @@ export default {
 };
 ```
 
-### ESLint
+### 整合 ESLint / Stylelint？
 
-不建议在 ESLint 中调用 Prettier。
+引自 [vuejs/eslint-config-prettier](https://github.com/vuejs/eslint-config-prettier#use-separate-commands-for-linting-and-formatting)：
 
 > 在 linter 中运行 Prettier 会减慢 linting 过程，可能会因为警告而使编辑器变得混乱，并添加一层可能会导致问题的间接层。[Prettier 的官方文档](https://prettier.io/docs/en/integrating-with-linters.html) 建议使用单独的命令进行代码检查和代码格式化，即 Prettier 用于代码格式化问题，ESLint 用于代码质量问题。
 
-引自 [vuejs/eslint-config-prettier](https://github.com/vuejs/eslint-config-prettier#use-separate-commands-for-linting-and-formatting)。
+这个库的观点与其一致，不建议在 ESLint 和 Stylelint 中调用 Prettier，建议单独运行 Prettier。默认地，运行 ESLint 和 Stylelint 不会与 Prettier 或其它代码格式化器冲突。另请查看 [ESLint 章节](../linter/eslint) 和 [Stylelint 章节](../linter/stylelint)。
+
+### 插件冲突？
+
+| ESLint 插件                                                         | Prettier 插件                                                                                                | Stylelint 插件                | 备注                                                                                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| eslint-plugin-perfectionist、eslint-plugin-import-x                 | @ianvs/prettier-plugin-sort-imports、@trivago/prettier-plugin-sort-imports、prettier-plugin-organize-imports |                               | 它们都处理导入顺序，彼此冲突，默认使用 eslint-plugin-perfectionist 处理                                                          |
+| eslint-plugin-perfectionist、eslint-plugin-vue、eslint-plugin-react | prettier-plugin-organize-attributes                                                                          |                               | 它们都会处理组件或元素的属性排序，默认使用 eslint-plugin-vue 处理 Vue 组件属性排序，使用 eslint-plugin-react 处理 React 组件排序 |
+| eslint-plugin-jsonc                                                 | prettier-plugin-packagejson                                                                                  |                               | 如果使用 eslint-plugin-jsonc 对 package.json 排序可能会产生冲突                                                                  |
+| eslint-plugin-tailwindcss、eslint-plugin-unocss                     | prettier-plugin-tailwindcss                                                                                  |                               | 三者都会处理 class 的排序，默认根据是否安装来开启 ESLint 插件，如果同时安装需要明确只启用一个                                    |
+|                                                                     | prettier-plugin-css-order                                                                                    | stylelint-config-recess-order | 两者都处理 CSS 属性顺序，默认使用 stylelint-config-recess-order 处理                                                             |
