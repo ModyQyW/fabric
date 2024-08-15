@@ -173,7 +173,7 @@ export default eslint({
 });
 ```
 
-The second parameter can be used for further customization, you can pass an object to override the generated configuration.
+The second parameter is used for further customization, you can pass an object to override the generated configuration. If you want to tweak the plugin, you'll need to install the appropriate dependencies yourself and keep an eye out for [Plugin Conflicts](#plugin-conflicts).
 
 ```javascript
 // eslint.config.mjs
