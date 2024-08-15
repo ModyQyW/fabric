@@ -9,7 +9,7 @@ Want to know about it first? Of course! See [here](./what-is-modyqyw-fabric.md)!
   - If you can't access GitHub smoothly, try [set Hosts](https://github.com/ineo6/hosts) or use scientific internet.
   - If you can't access NPM smoothly, try setting up mirroring using [nrm](https://github.com/Pana/nrm), setting up [mirror](https://npmmirror.com/) manually, or using scientific internet.
 
-- [Node.js](https://nodejs.org/) v18 or higher
+- [Node.js](https://nodejs.org/) v20.11 or higher
 
   - Use [fnm](https://github.com/Schniz/fnm) or [volta](https://volta.sh/) to manage Node.js versions is recommended.
   - The LTS version (the version where X is an even number in X.Y.Z) is recommended.
@@ -71,12 +71,6 @@ bun install @modyqyw/fabric -d
 
 That's it! Next, you can configure the project to suit your needs.
 
-::: tip Tips for usage
-
-This library does not provide out-of-the-box configuration for LESS, Svelte, Lit, Angular, etc., but you should be able to easily add support following the guidelines.
-
-:::
-
 Of course, you can also configure your project using the CLI (available starting with v10.3), which allows you to quickly configure your project with a single command.
 
 ```shell
@@ -91,4 +85,4 @@ mf --prettier # configure prettier only
 
 @modyqyw/fabric does not consider support for older projects. This may break your old project if you use the CLI directly to quickly configure it on the old project!
 
-:::.
+:::

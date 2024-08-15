@@ -9,7 +9,7 @@
   - 如果你无法顺畅地访问 GitHub，请尝试 [设置 Hosts](https://github.com/ineo6/hosts) 或使用科学上网。
   - 如果你无法顺畅地访问 NPM，请尝试使用 [nrm](https://github.com/Pana/nrm) 设置镜像、手动设置 [镜像](https://npmmirror.com/) 或使用科学上网。
 
-- [Node.js](https://nodejs.org/) v18 或更高版本
+- [Node.js](https://nodejs.org/) v20.11 或更高版本
 
   - 建议使用 [fnm](https://github.com/Schniz/fnm) 或 [volta](https://volta.sh/) 来管理 Node.js 版本。
   - 建议使用 LTS 版本（X.Y.Z 中 X 为双数的版本）。
@@ -70,12 +70,6 @@ bun install @modyqyw/fabric -d
 :::
 
 就是这么简单！接下来，你可以根据你的需要来配置项目。
-
-::: tip 适用提示
-
-这个库没有针对 LESS、Svelte、Lit、Angular 等提供开箱即用的配置，但根据指引你应该能轻松地增加支持。
-
-:::
 
 当然，你也可以使用 CLI（v10.3 开始提供）来配置项目，实现一条命令快速配置项目。
 
