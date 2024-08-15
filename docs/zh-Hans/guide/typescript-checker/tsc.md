@@ -50,15 +50,29 @@ bun install typescript vue-tsc -d
 
 ## 配置
 
-### tsconfig
+你应该尽可能地使用项目初始化时提供的 tsconfig 文件，或在其基础上调整。如果项目初始化没有提供 tsconfig 文件，你可以使用 [tsconfig/bases](https://github.com/tsconfig/bases)，或在其基础上调整。以下是一个示例。
 
-你应该尽可能地使用项目初始化时提供的 tsconfig 文件，或在其基础上调整。
+```json
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Bundler"
+  },
+  "include": ["src/**/*"]
+}
+```
 
-如果项目初始化没有提供 tsconfig 文件，你可以使用 [tsconfig/bases](https://github.com/tsconfig/bases)，或在其基础上调整。
+::: tip 理解 tsconfig.json
 
-### CLI
+请参考 [中高级前端必须掌握的 tsconfig.json 配置最新最全指南](https://juejin.cn/post/7259715842873655333)、[The TSConfig Cheat Sheet](https://www.totaltypescript.com/tsconfig-cheat-sheet) 和 [TypeScript 官方文档 tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)。
 
-更新你的 `package.json`，增加 `type-check` 命令。
+:::
+
+更新 `package.json`，增加 `type-check` 命令。
 
 ```json
 {
@@ -90,18 +104,29 @@ bun install typescript vue-tsc -d
 
 :::
 
-## 整合
+## FAQ
 
-### VSC
+### 整合 VSC？
 
 VSC 自带 TypeScript 插件。对于 Vue 项目，请根据 [官网说明](https://cn.vuejs.org/guide/typescript/overview.html) 进行相应的设置。
 
-### WebStorm
+### 整合 WebStorm？
 
 WebStorm 自带 TypeScript 插件。
 
-### 为什么不和 lint-staged 整合使用？
+### 整合 lint-staged？
 
-tsc / vue-tsc 需要查看所有项目文件才能分析它们，这也意味着没法真正地 **只** 在暂存文件上运行 tsc / vue-tsc。更多可查看 [lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) 和 [lint-staged#1352](https://github.com/lint-staged/lint-staged/pull/1352) 说明。
+tsc / vue-tsc 需要查看所有项目文件才能分析它们，这也意味着没法真正地 **只** 在暂存文件上运行 tsc / vue-tsc。更多可查看 [typescript#27379](https://github.com/microsoft/TypeScript/issues/27379)、[lint-staged#1223](https://github.com/lint-staged/lint-staged/issues/1223) 和 [lint-staged#1352](https://github.com/lint-staged/lint-staged/pull/1352) 说明。
 
-作为替代，你应该在发布新版本前或在 CI 中运行 tsc / vue-tsc。
+作为替代，你应该在发布新版本前或在 CI 中运行 tsc / vue-tsc，或者使用 [tsc-files](https://github.com/gustavopch/tsc-files) / [vue-tsc-files](https://github.com/iToXiQ/vue-tsc-files)。
+
+我们鼓励前一种做法。如果你希望使用后一种做法，可以参考以下配置。
+
+```javascript
+// lint-staged.config.mjs
+export default {
+  '*.{ts,tsx}': 'tsc-files --noEmit',
+  // 对于 vue 项目
+  // "*.{ts,tsx,vue}": "vue-tsc-files --noEmit",
+};
+```
