@@ -4,7 +4,7 @@ commitlint 是被广泛采用的 Git 工具，检查提交信息，帮助团队�
 
 ## 安装
 
-首先你需要安装 commitlint。目前支持 commitlint v18。
+首先你需要安装 commitlint。目前支持 commitlint v19。
 
 ::: code-group
 
@@ -20,36 +20,17 @@ yarn add @commitlint/cli -D
 pnpm install @commitlint/cli -D
 ```
 
-```shell [bun(experimental)]
-bun install @commitlint/cli -d
-```
-
 :::
 
 ## 配置
 
-### ESM
+在项目根目录下创建 `commitlint.config.mjs`：
 
 ```javascript
 // commitlint.config.mjs
-// or commitlint.config.js with "type": "module" in package.json
-import { commitlint } from '@modyqyw/fabric';
-// or
-// import { commitlint } from '@modyqyw/fabric/commitlint';
+import { commitlint } from '@modyqyw/fabric/commitlint';
 
 export default commitlint();
-```
-
-### CJS
-
-```javascript
-// commitlint.config.cjs
-// or commitlint.config.js without "type": "module" in package.json
-const { commitlint } = require('@modyqyw/fabric');
-// or
-// const { commitlint } = require('@modyqyw/fabric/commitlint');
-
-module.exports = commitlint();
 ```
 
 ## 自定义
@@ -58,34 +39,23 @@ module.exports = commitlint();
 
 给导出的 `commitlint` 方法传参可以自定义配置，`commitlint` 方法接收两个参数。
 
-第一个参数用于基本自定义，你可以传递 `undefined` 或对象。要明确地启用或禁用某一个配置，需要明确在传递的对象中设置 boolean 值。
+第一个参数用于基本自定义，你可以不传递或传递空对象表示使用默认值。要明确地启用或禁用某一个配置，需要明确在传递的对象中设置 boolean 值。
 
-目前支持以下配置：
-
-- style：提交信息的风格，默认为 `'conventional'`，可选 `'angular'`
-- monorepo：是否支持 monorepo，默认为 `true`，表示自动检测，可选 `false`（禁用）、`'learn'`、`'nx'`、`'pnpm-workspace'`、`'rush'`
+以下是默认配置：
 
 ```javascript
 // commitlint.config.mjs
-// or commitlint.config.js with "type": "module" in package.json
-import {
-  commitlint,
-  hasLerna,
-  hasNx,
-  hasPnpmWorkspace,
-  hasRush,
-} from '@modyqyw/fabric';
+import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from '@modyqyw/fabric';
+import { commitlint } from '@modyqyw/fabric/commitlint';
 
 export default commitlint({
-  monorepo: hasPnpmWorkspace
-    ? 'pnpm-workspace'
-    : hasLerna
-      ? 'lerna'
-      : hasNx
-        ? 'nx'
-        : hasRush
-          ? 'rush'
-          : false,
+  // 是否提供 monorepo 支持
+  // 默认为 true，即自动检测
+  // 可选 false（禁用）、'learn'、'nx'、'pnpm-workspace'、'rush'
+  monorepo: true,
+  // 提交信息风格
+  // 默认为 'conventional'，即约定式提交
+  // 可选 'angular'
   style: 'conventional',
 });
 ```
@@ -102,17 +72,19 @@ export default commitlint({
 
 ```javascript
 // commitlint.config.mjs
-// or commitlint.config.js with "type": "module" in package.json
-import { commitlint } from '@modyqyw/fabric';
+import { commitlint } from '@modyqyw/fabric/commitlint';
 
-export default commitlint(undefined, {
-  // 需要自定义的配置
-});
+export default commitlint(
+  {},
+  {
+    // 需要自定义的配置
+  },
+);
 ```
 
-## 整合
+## FAQ
 
-### simple-git-hooks
+### 整合 simple-git-hooks？
 
 如果你使用该库提供的 simple-git-hooks 配置，请查看 [simple-git-hooks 章节](../git/simple-git-hooks.md)。
 
