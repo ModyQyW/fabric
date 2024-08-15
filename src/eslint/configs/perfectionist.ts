@@ -28,87 +28,26 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
       },
       rules: {
         // https://perfectionist.dev/rules/sort-array-includes
-        'perfectionist/sort-array-includes': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            groupKind: 'literals-first',
-          },
-        ],
+        'perfectionist/sort-array-includes': 'error',
 
         // https://perfectionist.dev/rules/sort-astro-attributes
         // Handled by eslint-plugin-astro.
         'perfectionist/sort-astro-attributes': 'off',
 
         // https://perfectionist.dev/rules/sort-classes
-        'perfectionist/sort-classes': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            partitionByComment: true,
-            groups: [
-              'index-signature',
-              'protected-decorated-accessor-property',
-              'private-decorated-accessor-property',
-              'decorated-accessor-property',
-              'protected-decorated-property',
-              'private-decorated-property',
-              'decorated-property',
-              'private-property',
-              'protected-property',
-              'static-property',
-              'property',
-              'constructor',
-              'protected-method',
-              'private-method',
-              'static-protected-method',
-              'static-private-method',
-              'static-method',
-              'decorated-method',
-              'decorated-get-method',
-              'decorated-set-method',
-              'get-method',
-              'set-method',
-              'method',
-              'unknown',
-            ],
-            customGroups: {},
-          },
-        ],
+        'perfectionist/sort-classes': 'error',
 
         // https://perfectionist.dev/rules/sort-enums
-        'perfectionist/sort-enums': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            partitionByComment: true,
-          },
-        ],
+        'perfectionist/sort-enums': 'error',
 
         // https://perfectionist.dev/rules/sort-exports
-        'perfectionist/sort-exports': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-          },
-        ],
+        'perfectionist/sort-exports': 'error',
 
         // https://perfectionist.dev/rules/sort-imports
         'import/order': 'off',
         'perfectionist/sort-imports': [
           'error',
           {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
             internalPattern: ['~/**', '~~/**', '@/**', '@@/**'],
             newlinesBetween: 'ignore',
             groups: [
@@ -130,35 +69,19 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
               'index-type',
               'unknown',
             ],
-            customGroups: { type: {}, value: {} },
-            environment: 'node',
           },
         ],
 
         // https://perfectionist.dev/rules/sort-interfaces
         '@typescript-eslint/adjacent-overload-signatures': 'off',
-        'perfectionist/sort-interfaces': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            ignorePattern: [],
-            partitionByNewLine: true,
-            groupKind: 'mixed',
-            groups: [],
-            customGroups: {},
-          },
-        ],
+        'perfectionist/sort-interfaces': 'error',
 
         // https://perfectionist.dev/rules/sort-intersection-types
-        '@typescript-eslint/sort-type-constituents': 'off',
+        // deprecated
+        // '@typescript-eslint/sort-type-constituents': 'off',
         'perfectionist/sort-intersection-types': [
           'error',
           {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
             groups: [
               'conditional',
               'function',
@@ -182,93 +105,35 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         'perfectionist/sort-jsx-props': 'off',
 
         // https://perfectionist.dev/rules/sort-maps
-        'perfectionist/sort-maps': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-          },
-        ],
+        'perfectionist/sort-maps': 'error',
 
         // https://perfectionist.dev/rules/sort-named-exports
-        'perfectionist/sort-named-exports': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            groupKind: 'mixed',
-          },
-        ],
+        'perfectionist/sort-named-exports': 'error',
 
         // https://perfectionist.dev/rules/sort-named-imports
-        'perfectionist/sort-named-imports': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            ignoreAlias: false,
-            groupKind: 'mixed',
-          },
-        ],
+        'perfectionist/sort-named-imports': 'error',
 
         // https://perfectionist.dev/rules/sort-object-types
-        // '@typescript-eslint/adjacent-overload-signatures': 'off',
-        'perfectionist/sort-object-types': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            partitionByNewLine: true,
-            groupKind: 'mixed',
-            groups: [],
-            customGroups: {},
-          },
-        ],
+        '@typescript-eslint/adjacent-overload-signatures': 'off',
+        'perfectionist/sort-object-types': 'error',
 
         // https://perfectionist.dev/rules/sort-objects
         'sort-keys': 'off',
-        'perfectionist/sort-objects': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-            partitionByComment: true,
-            partitionByNewLine: true,
-            styledComponents: true,
-            ignorePattern: [],
-            destructureOnly: false,
-            groups: [],
-            customGroups: {},
-          },
-        ],
+        'perfectionist/sort-objects': 'error',
 
         // https://perfectionist.dev/rules/sort-svelte-attributes
         // Handled by eslint-plugin-svelte.
         'perfectionist/sort-svelte-attributes': 'off',
 
         // https://perfectionist.dev/rules/sort-switch-case
-        'perfectionist/sort-switch-case': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-          },
-        ],
+        'perfectionist/sort-switch-case': 'error',
 
         // https://perfectionist.dev/rules/sort-union-types
+        // deprecated
         // '@typescript-eslint/sort-type-constituents': 'off',
         'perfectionist/sort-union-types': [
           'error',
           {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
             groups: [
               'conditional',
               'function',
@@ -287,21 +152,24 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
           },
         ],
 
+        // https://perfectionist.dev/rules/sort-variable-declarations
+        'perfectionist/sort-variable-declarations': 'error',
+
         // https://perfectionist.dev/rules/sort-vue-attributes
         // Handled by eslint-plugin-vue.
         'perfectionist/sort-vue-attributes': 'off',
 
-        // https://perfectionist.dev/rules/sort-variable-declarations
-        'perfectionist/sort-variable-declarations': [
-          'error',
-          {
-            type: 'natural',
-            order: 'asc',
-            ignoreCase: true,
-          },
-        ],
-
         ...rules,
+      },
+      settings: {
+        perfectionist: {
+          type: 'natural',
+          order: 'asc',
+          ignoreCase: true,
+          ignorePattern: [],
+          partitionByComment: true,
+          partitionByNewLine: true,
+        },
       },
     },
     {
