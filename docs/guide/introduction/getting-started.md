@@ -9,7 +9,7 @@ Want to know about it first? Of course! See [here](./what-is-modyqyw-fabric.md)!
   - If you can't access GitHub smoothly, try [set Hosts](https://github.com/ineo6/hosts) or use scientific internet.
   - If you can't access NPM smoothly, try setting up mirroring using [nrm](https://github.com/Pana/nrm), setting up [mirror](https://npmmirror.com/) manually, or using scientific internet.
 
-- [Node.js](https://nodejs.org/) v20.11 or higher
+- [Node.js](https://nodejs.org/) v20.11.0 / v21.2.0 or higher
 
   - Use [fnm](https://github.com/Schniz/fnm) or [volta](https://volta.sh/) to manage Node.js versions is recommended.
   - The LTS version (the version where X is an even number in X.Y.Z) is recommended.

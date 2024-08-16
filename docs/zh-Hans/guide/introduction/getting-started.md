@@ -9,7 +9,7 @@
   - 如果你无法顺畅地访问 GitHub，请尝试 [设置 Hosts](https://github.com/ineo6/hosts) 或使用科学上网。
   - 如果你无法顺畅地访问 NPM，请尝试使用 [nrm](https://github.com/Pana/nrm) 设置镜像、手动设置 [镜像](https://npmmirror.com/) 或使用科学上网。
 
-- [Node.js](https://nodejs.org/) v20.11 或更高版本
+- [Node.js](https://nodejs.org/) v20.11 / v21.2.0 或更高版本
 
   - 建议使用 [fnm](https://github.com/Schniz/fnm) 或 [volta](https://volta.sh/) 来管理 Node.js 版本。
   - 建议使用 LTS 版本（X.Y.Z 中 X 为双数的版本）。
