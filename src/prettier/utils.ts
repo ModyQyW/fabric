@@ -1,5 +1,5 @@
-import { hasTailwindCss } from '../env';
-import type { Options } from './types';
+import { hasTailwindCss } from "../env";
+import type { Options } from "./types";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {

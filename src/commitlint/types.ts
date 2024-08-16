@@ -1,4 +1,4 @@
-import type { UserConfig } from '@commitlint/types';
+import type { UserConfig } from "@commitlint/types";
 
 export type Config = UserConfig;
 
@@ -12,12 +12,12 @@ export interface Options {
    *
    * @default true
    */
-  monorepo?: 'lerna' | 'nx' | 'pnpm-workspace' | 'rush' | boolean;
+  monorepo?: "lerna" | "nx" | "pnpm-workspace" | "rush" | boolean;
 
   /**
    * Commit style.
    *
-   * @default 'conventional'
+   * @default "conventional"
    */
-  style?: 'angular' | 'conventional';
+  style?: "angular" | "conventional";
 }

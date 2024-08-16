@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from '../../constants';
-import { hasTypeScript, hasVue } from '../../env';
-import { pluginUnocss } from '../plugins';
-import type { Config, UnoCssOptions } from '../types';
+} from "../../constants";
+import { hasTypeScript, hasVue } from "../../env";
+import { pluginUnocss } from "../plugins";
+import type { Config, UnoCssOptions } from "../types";
 
 export function unocss(options: UnoCssOptions = {}): Config[] {
   const {
@@ -20,21 +20,21 @@ export function unocss(options: UnoCssOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: 'unocss',
+      name: "unocss",
       files,
       plugins: {
         // @ts-expect-error not matched
-        '@unocss': pluginUnocss,
+        "@unocss": pluginUnocss,
       },
       rules: {
         // https://unocss.dev/integrations/eslint
-        '@unocss/order': 'warn',
+        "@unocss/order": "warn",
 
         ...rules,
       },
     },
     {
-      name: 'unocss-typescript',
+      name: "unocss-typescript",
       files: typescriptFiles,
       rules: {
         ...typescriptRules,

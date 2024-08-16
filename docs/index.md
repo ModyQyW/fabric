@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: '@modyqyw/fabric'
+  name: "@modyqyw/fabric"
   tagline: Opinionated shareable specifications for git-based JavaScript/TypeScript projects
   actions:
     - theme: brand

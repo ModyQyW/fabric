@@ -72,14 +72,14 @@ If you are not, you can refer to the following configuration.
 
 ```javascript
 // lint-staged.config.mjs
-import { filterFilenames } from '@modyqyw/fabric';
+import { filterFilenames } from "@modyqyw/fabric";
 
 export default {
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}': (filenames) => {
+  "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}": (filenames) => {
     const filtered = filterFilenames(filenames);
     return [
-      `oxlint --fix ${filtered.join(' ')}`,
-      `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(' ')}`,
+      `oxlint --fix ${filtered.join(" ")}`,
+      `eslint --fix --cache --no-error-on-unmatched-pattern ${filtered.join(" ")}`,
     ];
   },
 };

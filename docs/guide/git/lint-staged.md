@@ -28,7 +28,7 @@ Create `lint-staged.config.mjs` in your project root:
 
 ```javascript
 // lint-staged.config.mjs
-import { lintStaged } from '@modyqyw/fabric/lint-staged';
+import { lintStaged } from "@modyqyw/fabric/lint-staged";
 
 export default lintStaged();
 ```
@@ -52,8 +52,8 @@ import {
   hasOxlint,
   hasPrettier,
   hasStylelint,
-} from '@modyqyw/fabric';
-import { lintStaged } from '@modyqyw/fabric/lint-staged';
+} from "@modyqyw/fabric";
+import { lintStaged } from "@modyqyw/fabric/lint-staged";
 
 export default lintStaged({
   // Check with Biome.
@@ -92,7 +92,7 @@ The second parameter is used for further customization, you can pass an object t
 
 ```javascript
 // lint-staged.config.mjs
-import { lintStaged } from '@modyqyw/fabric/lint-staged';
+import { lintStaged } from "@modyqyw/fabric/lint-staged";
 
 export default lintStaged(
   {},
@@ -113,6 +113,6 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // simple-git-hooks.cjs
 module.exports = {
-  'pre-commit': 'npx lint-staged',
+  "pre-commit": "npx lint-staged",
 };
 ```

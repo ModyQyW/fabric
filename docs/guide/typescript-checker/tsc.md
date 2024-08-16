@@ -99,7 +99,7 @@ We encourage the former approach. If you wish to use the latter approach, you ca
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.{ts,tsx}': 'tsc-files --noEmit',
+  "*.{ts,tsx}": "tsc-files --noEmit",
   // For vue projects
   // "*.{ts,tsx,vue}": "vue-tsc-files --noEmit",
 };

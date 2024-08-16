@@ -7,8 +7,8 @@ import {
   hasTypeScript,
   hasUnoCss,
   hasVue,
-} from '../env';
-import type { Options, Config } from './types';
+} from "../env";
+import type { Options, Config } from "./types";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {

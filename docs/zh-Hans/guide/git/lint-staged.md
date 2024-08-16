@@ -28,7 +28,7 @@ pnpm install lint-staged -D
 
 ```javascript
 // lint-staged.config.mjs
-import { lintStaged } from '@modyqyw/fabric/lint-staged';
+import { lintStaged } from "@modyqyw/fabric/lint-staged";
 
 export default lintStaged();
 ```
@@ -52,8 +52,8 @@ import {
   hasOxlint,
   hasPrettier,
   hasStylelint,
-} from '@modyqyw/fabric';
-import { lintStaged } from '@modyqyw/fabric/lint-staged';
+} from "@modyqyw/fabric";
+import { lintStaged } from "@modyqyw/fabric/lint-staged";
 
 export default lintStaged({
   // 使用 Biome 检查
@@ -93,7 +93,7 @@ export default lintStaged({
 
 ```javascript
 // lint-staged.config.mjs
-import { lintStaged } from '@modyqyw/fabric/lint-staged';
+import { lintStaged } from "@modyqyw/fabric/lint-staged";
 
 export default lintStaged(
   {},
@@ -114,6 +114,6 @@ export default lintStaged(
 ```javascript
 // simple-git-hooks.cjs
 module.exports = {
-  'pre-commit': 'npx lint-staged',
+  "pre-commit": "npx lint-staged",
 };
 ```

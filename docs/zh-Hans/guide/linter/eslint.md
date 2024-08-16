@@ -27,7 +27,7 @@ pnpm install eslint -D
 在项目根目录下创建 `eslint.config.mjs`：
 
 ```javascript
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint();
 ```
@@ -63,8 +63,8 @@ import {
   hasTypeScript,
   hasUnoCss,
   hasVue,
-} from '@modyqyw/fabric';
-import { eslint } from '@modyqyw/fabric/eslint';
+} from "@modyqyw/fabric";
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   // 基于 eslint-plugin-flat-gitignore
@@ -157,12 +157,12 @@ export default eslint({
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   // 调整配置
   gitignore: {
-    files: ['.gitignore', '.eslintignore'],
+    files: [".gitignore", ".eslintignore"],
     strict: false,
   },
 });
@@ -172,17 +172,17 @@ export default eslint({
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({}, [
   // 默认地，在 scripts/**/* 和 cli.* 中使用 console 会警告
   // 调整后，在 scripts/**/* 和 cli.* 中使用 console 会报错
   // 需要改用专门的日志库，如 winston、consola、pino 等
   {
-    name: 'scripts',
-    files: ['scripts/**/*', 'cli.*'],
+    name: "scripts",
+    files: ["scripts/**/*", "cli.*"],
     rules: {
-      'no-console': 'error',
+      "no-console": "error",
     },
   },
 ]);
@@ -196,7 +196,7 @@ export default eslint({}, [
 
 ```javascript
 // eslint.config.mjs
-import { combine, javascript, typescript } from '@modyqyw/fabric/eslint';
+import { combine, javascript, typescript } from "@modyqyw/fabric/eslint";
 
 export default combine(javascript(), typescript());
 ```
@@ -205,10 +205,10 @@ export default combine(javascript(), typescript());
 
 ```javascript
 // eslint.config.mjs
-import { combine, javascript, typescript } from '@modyqyw/fabric/eslint';
+import { combine, javascript, typescript } from "@modyqyw/fabric/eslint";
 
 export default combine(
-  javascript({ rules: { 'no-console': 'error' } }),
+  javascript({ rules: { "no-console": "error" } }),
   typescript(),
 );
 ```
@@ -224,11 +224,11 @@ import {
   GLOB_SCRIPT,
   GLOB_TSX,
   interopDefault,
-} from '@modyqyw/fabric';
-import { eslint } from '@modyqyw/fabric/eslint';
-import * as _parserBabel from '@babel/eslint-parser';
-import * as _parserTypeScript from '@typescript-eslint/parser';
-import * as _pluginSolid from 'eslint-plugin-solid';
+} from "@modyqyw/fabric";
+import { eslint } from "@modyqyw/fabric/eslint";
+import * as _parserBabel from "@babel/eslint-parser";
+import * as _parserTypeScript from "@typescript-eslint/parser";
+import * as _pluginSolid from "eslint-plugin-solid";
 
 const parserBabel = interopDefault(_parserBabel);
 const parserTypeScript = interopDefault(_parserTypeScript);
@@ -239,7 +239,7 @@ export default eslint(
   // 增加 Solid 支持
   [
     {
-      name: 'solid',
+      name: "solid",
       files: [GLOB_JSX, GLOB_TSX],
       plugins: {
         solid: pluginSolid,
@@ -266,12 +266,12 @@ import {
   GLOB_TSX,
   GLOB_VUE,
   interopDefault,
-} from '@modyqyw/fabric';
-import { eslint } from '@modyqyw/fabric/eslint';
-import * as _parserBabel from '@babel/eslint-parser';
-import * as _parserTypeScript from '@typescript-eslint/parser';
-import * as _pluginSvelte from 'eslint-plugin-svelte';
-import * as _parserSvelte from 'svelte-eslint-parser';
+} from "@modyqyw/fabric";
+import { eslint } from "@modyqyw/fabric/eslint";
+import * as _parserBabel from "@babel/eslint-parser";
+import * as _parserTypeScript from "@typescript-eslint/parser";
+import * as _pluginSvelte from "eslint-plugin-svelte";
+import * as _parserSvelte from "svelte-eslint-parser";
 
 const parserSvelte = interopDefault(_parserSvelte);
 const parserBabel = interopDefault(_parserBabel);
@@ -291,7 +291,7 @@ export default eslint(
   // 增加 Svelte 支持
   [
     {
-      name: 'svelte',
+      name: "svelte",
       files: [GLOB_SVELTE],
       languageOptions: {
         parser: parserSvelte,
@@ -300,8 +300,8 @@ export default eslint(
             globalReturn: false,
             jsx: true,
           },
-          ecmaVersion: 'latest',
-          extraFileExtensions: ['.svelte'],
+          ecmaVersion: "latest",
+          extraFileExtensions: [".svelte"],
           parser: {
             js: parserBabel,
             jsx: parserBabel,
@@ -309,13 +309,13 @@ export default eslint(
             tsx: parserTypeScript,
           },
           requireConfigFile: false,
-          sourceType: 'module',
+          sourceType: "module",
         },
       },
       plugins: {
         svelte: pluginSvelte,
       },
-      processor: pluginSvelte.processors['.svelte'],
+      processor: pluginSvelte.processors[".svelte"],
       rules: {
         ...pluginSvelte.configs.base.rules,
         ...pluginSvelte.configs.recommended.rules,
@@ -411,12 +411,12 @@ WebStorm 自带 ESLint，可参考 [整合 VSC?](#整合-vsc) 自行调整。
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
-  '*.{json,jsonc,json5}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
-  '*.{yaml,yml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
-  '*.{toml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
+  "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}":
+    "eslint --fix --cache --no-error-on-unmatched-pattern",
+  "*.{json,jsonc,json5}":
+    "eslint --fix --cache --no-error-on-unmatched-pattern",
+  "*.{yaml,yml}": "eslint --fix --cache --no-error-on-unmatched-pattern",
+  "*.{toml}": "eslint --fix --cache --no-error-on-unmatched-pattern",
 };
 ```
 
@@ -452,7 +452,7 @@ export default {
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   typescript: {
@@ -467,7 +467,7 @@ export default eslint({
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   typescript: {

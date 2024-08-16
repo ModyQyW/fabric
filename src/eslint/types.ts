@@ -1,11 +1,11 @@
-import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore';
-import type { ESLint, Linter } from 'eslint';
+import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
+import type { ESLint, Linter } from "eslint";
 
 export type Config = Linter.FlatConfig;
 
 export type Plugin = ESLint.Plugin;
 
-export type Rules = Config['rules'];
+export type Rules = Config["rules"];
 
 export type GitignoreOptions = FlatGitignoreOptions;
 export interface IgnoresOptions {

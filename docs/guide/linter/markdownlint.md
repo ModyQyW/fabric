@@ -75,6 +75,6 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
+  "*.md": "markdownlint --fix --ignore-path=.gitignore",
 };
 ```

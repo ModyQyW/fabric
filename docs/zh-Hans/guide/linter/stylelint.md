@@ -28,7 +28,7 @@ pnpm install stylelint -D
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 export default stylelint();
 ```
@@ -55,8 +55,8 @@ export default stylelint();
 
 ```javascript
 // stylelint.config.mjs
-import { hasScss } from '@modyqyw/fabric';
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { hasScss } from "@modyqyw/fabric";
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 export default stylelint({
   // 基于 stylelint-order 和 stylelint-config-recess-order
@@ -72,7 +72,7 @@ export default stylelint({
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 export default stylelint(
   {},
@@ -88,7 +88,7 @@ export default stylelint(
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 const defaultConfig = stylelint();
 
@@ -111,55 +111,55 @@ LESS 并未处于积极开发状态，强烈建议使用 SCSS 或 CSS Modules �
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric';
+import { stylelint } from "@modyqyw/fabric";
 
 // 不可同时启用
 const defaultConfig = stylelint({ scss: false });
 
 export default {
   ...defaultConfig,
-  extends: [...defaultConfig.extends, 'stylelint-config-standard-less'],
+  extends: [...defaultConfig.extends, "stylelint-config-standard-less"],
   rules: {
     ...defaultConfig.rules,
-    'at-rule-no-unknown': [
+    "at-rule-no-unknown": [
       true,
       {
         ignoreAtRules: [
           // css modules
           // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
-          'value',
+          "value",
           // tailwindcss
           // https://tailwindcss.com/docs/functions-and-directives#directives
-          'tailwind',
-          'layer',
-          'apply',
-          'config',
+          "tailwind",
+          "layer",
+          "apply",
+          "config",
           // LESS
-          'plugin',
+          "plugin",
         ],
       },
     ],
-    'selector-pseudo-class-no-unknown': [
+    "selector-pseudo-class-no-unknown": [
       true,
       {
         ignorePseudoClasses: [
           // css modules
           // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
-          'export',
-          'import',
-          'local',
-          'external',
+          "export",
+          "import",
+          "local",
+          "external",
           // css modules
           // also vue global selectors
           // also LESS
           // https://vuejs.org/api/sfc-css-features.html#scoped-css
-          'global',
+          "global",
           // vue deep selectors
           // https://vuejs.org/api/sfc-css-features.html#deep-selectors
-          'deep',
+          "deep",
           // vue slotted selectors
           // https://vuejs.org/api/sfc-css-features.html#slotted-selectors
-          'slotted',
+          "slotted",
         ],
       },
     ],
@@ -221,7 +221,7 @@ WebStorm 自带 Stylelint，可参考 [整合 VSC?](#整合-vsc) 自行调整。
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.{css,scss,vue}': 'stylelint --fix --cache --aei --ignore-path=.gitignore',
+  "*.{css,scss,vue}": "stylelint --fix --cache --aei --ignore-path=.gitignore",
 };
 ```
 

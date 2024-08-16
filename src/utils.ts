@@ -1,5 +1,5 @@
-import multimatch from 'multimatch';
-import { GLOB_EXCLUDE } from './constants';
+import multimatch from "multimatch";
+import { GLOB_EXCLUDE } from "./constants";
 
 /**
  * Interop default.
@@ -14,7 +14,7 @@ export function interopDefault<T>(
 }
 
 export function isBoolean(value: unknown): value is boolean {
-  return typeof value === 'boolean';
+  return typeof value === "boolean";
 }
 
 export function filterFilenames(filenames: string[], patterns = GLOB_EXCLUDE) {

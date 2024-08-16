@@ -28,7 +28,7 @@ pnpm install @commitlint/cli -D
 
 ```javascript
 // commitlint.config.mjs
-import { commitlint } from '@modyqyw/fabric/commitlint';
+import { commitlint } from "@modyqyw/fabric/commitlint";
 
 export default commitlint();
 ```
@@ -45,8 +45,8 @@ export default commitlint();
 
 ```javascript
 // commitlint.config.mjs
-import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from '@modyqyw/fabric';
-import { commitlint } from '@modyqyw/fabric/commitlint';
+import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from "@modyqyw/fabric";
+import { commitlint } from "@modyqyw/fabric/commitlint";
 
 export default commitlint({
   // 是否提供 monorepo 支持
@@ -56,7 +56,7 @@ export default commitlint({
   // 提交信息风格
   // 默认为 'conventional'，即约定式提交
   // 可选 'angular'
-  style: 'conventional',
+  style: "conventional",
 });
 ```
 
@@ -72,7 +72,7 @@ export default commitlint({
 
 ```javascript
 // commitlint.config.mjs
-import { commitlint } from '@modyqyw/fabric/commitlint';
+import { commitlint } from "@modyqyw/fabric/commitlint";
 
 export default commitlint(
   {},
@@ -93,6 +93,6 @@ export default commitlint(
 ```javascript
 // simple-git-hooks.cjs
 module.exports = {
-  'commit-msg': 'npx commitlint --edit ${1}',
+  "commit-msg": "npx commitlint --edit ${1}",
 };
 ```

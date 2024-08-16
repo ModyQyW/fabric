@@ -1,25 +1,25 @@
 #!/usr/bin/env node
-import { accessSync, mkdirSync, readFileSync } from 'node:fs';
-import { unlink, writeFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
-import { installPackage } from '@antfu/install-pkg';
-import { checkbox, confirm, select } from '@inquirer/prompts';
-import { ListrInquirerPromptAdapter } from '@listr2/prompt-adapter-inquirer';
-import { Command } from 'commander';
-import consola from 'consola';
-import { defu } from 'defu';
-import fg from 'fast-glob';
+import { accessSync, mkdirSync, readFileSync } from "node:fs";
+import { unlink, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { installPackage } from "@antfu/install-pkg";
+import { checkbox, confirm, select } from "@inquirer/prompts";
+import { ListrInquirerPromptAdapter } from "@listr2/prompt-adapter-inquirer";
+import { Command } from "commander";
+import consola from "consola";
+import { defu } from "defu";
+import fg from "fast-glob";
 import {
   Listr,
   type DefaultRenderer,
   type ListrTaskWrapper,
   type SimpleRenderer,
-} from 'listr2';
-import { isPackageExists } from 'local-pkg';
-import sortObjectKeys from 'sort-object-keys';
-import { sortPackageJson } from 'sort-package-json';
-import updateNotifier from 'update-notifier';
-import packageJson from '../package.json';
+} from "listr2";
+import { isPackageExists } from "local-pkg";
+import sortObjectKeys from "sort-object-keys";
+import { sortPackageJson } from "sort-package-json";
+import updateNotifier from "update-notifier";
+import packageJson from "../package.json";
 
 updateNotifier({ pkg: packageJson }).notify();
 
@@ -40,37 +40,37 @@ const program = new Command()
   .name(packageJson.name)
   .description(packageJson.description)
   .version(packageJson.version)
-  .argument('[dir]', 'dir to setup @modyqyw/fabric', '.')
-  .option('--prettier', 'setup Prettier')
-  .option('--eslint', 'setup ESLint')
-  .option('--oxlint', 'setup oxlint')
-  .option('--stylelint', 'setup Stylelint')
-  .option('--markdownlint', 'setup markdownlint')
-  .option('--biome', 'setup Biome')
-  .option('--tsc', 'setup tsc')
-  .option('--commitlint', 'setup commitlint')
-  .option('--lint-staged', 'setup lint-staged')
-  .option('--simple-git-hooks', 'setup simple-git-hooks')
-  .option('--editor-config', 'setup .editorconfig')
-  .option('--vscode', 'setup .vscode')
-  .option('-a, --all', 'setup all functions')
-  .option('-c, --clean', 'clean legacy setup')
+  .argument("[dir]", "dir to setup @modyqyw/fabric", ".")
+  .option("--prettier", "setup Prettier")
+  .option("--eslint", "setup ESLint")
+  .option("--oxlint", "setup oxlint")
+  .option("--stylelint", "setup Stylelint")
+  .option("--markdownlint", "setup markdownlint")
+  .option("--biome", "setup Biome")
+  .option("--tsc", "setup tsc")
+  .option("--commitlint", "setup commitlint")
+  .option("--lint-staged", "setup lint-staged")
+  .option("--simple-git-hooks", "setup simple-git-hooks")
+  .option("--editor-config", "setup .editorconfig")
+  .option("--vscode", "setup .vscode")
+  .option("-a, --all", "setup all functions")
+  .option("-c, --clean", "clean legacy setup")
   .parse();
 const args = program.args;
 const opts = program.opts();
 // console.log('args', args);
 // console.log('opts', opts);
 
-const dir = args[0] || '.';
+const dir = args[0] || ".";
 const cwd = process.cwd();
 function resolvePath(...paths: string[]) {
   return resolve(cwd, dir, ...paths);
 }
-const packageJsonPath = resolvePath('package.json');
-const packageJsonContent = readFileSync(packageJsonPath, 'utf8');
+const packageJsonPath = resolvePath("package.json");
+const packageJsonContent = readFileSync(packageJsonPath, "utf8");
 const packageJsonObject = JSON.parse(packageJsonContent);
-const packageJsonEof = '\n';
-const packageJsonIndent = '  ';
+const packageJsonEof = "\n";
+const packageJsonIndent = "  ";
 // const isESM = packageJsonObject.type === 'module';
 
 const functionOptions: {
@@ -88,10 +88,10 @@ const functionOptions: {
 }[] = [
   {
     description:
-      'EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.',
-    name: 'EditorConfig',
-    path: '.editorconfig',
-    patterns: ['.editorconfig'],
+      "EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs.",
+    name: "EditorConfig",
+    path: ".editorconfig",
+    patterns: [".editorconfig"],
     template: `root = true
 
 [*]
@@ -105,17 +105,17 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 `,
-    value: 'editorConfig',
-    vscodeRecommendations: ['EditorConfig.EditorConfig'],
+    value: "editorConfig",
+    vscodeRecommendations: ["EditorConfig.EditorConfig"],
   },
   {
     description:
       "Prettier is a widely adopted code formatter with good support for JavaScript / TypeScript / JSX / TSX / CSS / SCSS / Vue, and it's my top pick for formatters.",
-    field: 'prettier',
-    name: 'Prettier',
-    packages: ['prettier'],
-    path: 'prettier.config.mjs',
-    patterns: ['.prettierrc*', 'prettier.config.*'],
+    field: "prettier",
+    name: "Prettier",
+    packages: ["prettier"],
+    path: "prettier.config.mjs",
+    patterns: [".prettierrc*", "prettier.config.*"],
     scripts: {
       format:
         'prettier . "!**/package-lock.json*" "!**/yarn.lock" "!**/pnpm-lock.yaml" --ignore-unknown --write --cache --log-level=warn',
@@ -124,220 +124,220 @@ trim_trailing_whitespace = false
 
 export default prettier();
 `,
-    value: 'prettier',
-    vscodeRecommendations: ['esbenp.prettier-vscode'],
+    value: "prettier",
+    vscodeRecommendations: ["esbenp.prettier-vscode"],
     vscodeSettings: {
       // 指定默认代码格式化器为 Prettier
-      'editor.defaultFormatter': 'esbenp.prettier-vscode',
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
       // 保存自动格式化
-      'editor.formatOnSave': true,
+      "editor.formatOnSave": true,
       // 启动 Prettier
-      'prettier.enable': true,
+      "prettier.enable": true,
     },
   },
   {
-    description: 'ESLint is a widely adopted linter, mainly for script files.',
-    field: 'eslintConfig',
-    name: 'ESLint',
-    packages: ['eslint'],
-    path: 'eslint.config.mjs',
-    patterns: ['.eslintrc*', 'eslint.config.*'],
+    description: "ESLint is a widely adopted linter, mainly for script files.",
+    field: "eslintConfig",
+    name: "ESLint",
+    packages: ["eslint"],
+    path: "eslint.config.mjs",
+    patterns: [".eslintrc*", "eslint.config.*"],
     scripts: {
-      'lint:eslint': 'eslint . --fix --cache',
+      "lint:eslint": "eslint . --fix --cache",
     },
     template: `import { eslint } from '@modyqyw/fabric';
 
 export default eslint();
 `,
-    value: 'eslint',
-    vscodeRecommendations: ['dbaeumer.vscode-eslint'],
+    value: "eslint",
+    vscodeRecommendations: ["dbaeumer.vscode-eslint"],
     vscodeSettings: {
       // 启用 ESLint 平面配置
-      'eslint.experimental.useFlatConfig': true, // < 3.0.10
-      'eslint.useFlatConfig': true, // >= 3.0.10
+      "eslint.experimental.useFlatConfig": true, // < 3.0.10
+      "eslint.useFlatConfig": true, // >= 3.0.10
       // ESLint 检查的语言
-      'eslint.validate': [
-        'javascript',
-        'javascriptreact',
-        'typescript',
-        'typescriptreact',
-        'vue',
-        'markdown',
-        'json',
-        'jsonc',
-        'yaml',
-        'toml',
+      "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "markdown",
+        "json",
+        "jsonc",
+        "yaml",
+        "toml",
       ],
       // JavaScript、JSX、TypeScript、TypeScript JSX、Vue、markdown、JSON、JSONC、YAML、TOML 手动保存后 ESLint 自动修复
-      '[javascript][javascriptreact][typescript][typescriptreact][vue][markdown][json][jsonc][yaml][toml]':
+      "[javascript][javascriptreact][typescript][typescriptreact][vue][markdown][json][jsonc][yaml][toml]":
         {
-          'editor.codeActionsOnSave': {
-            'source.fixAll.eslint': 'explicit',
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
           },
         },
     },
   },
   {
     description:
-      'oxlint is an emerging linter that requires no configuration by default and is mainly used for script files.',
-    name: 'oxlint',
-    packages: ['oxlint'],
+      "oxlint is an emerging linter that requires no configuration by default and is mainly used for script files.",
+    name: "oxlint",
+    packages: ["oxlint"],
     scripts: {
-      'lint:oxlint': 'oxlint --fix',
+      "lint:oxlint": "oxlint --fix",
     },
-    value: 'oxlint',
+    value: "oxlint",
   },
   {
     description:
-      'Stylelint is a widely adopted linter, mainly for style files.',
-    field: 'stylelint',
-    name: 'Stylelint',
-    packages: ['stylelint'],
-    path: 'stylelint.config.mjs',
-    patterns: ['.stylelintrc*', 'stylelint.config.*'],
+      "Stylelint is a widely adopted linter, mainly for style files.",
+    field: "stylelint",
+    name: "Stylelint",
+    packages: ["stylelint"],
+    path: "stylelint.config.mjs",
+    patterns: [".stylelintrc*", "stylelint.config.*"],
     scripts: {
-      'lint:stylelint':
+      "lint:stylelint":
         'stylelint "./**/*.{css,scss,vue}" --fix --cache --aei --ignore-path=.gitignore',
     },
     template: `import { stylelint } from '@modyqyw/fabric';
 
 export default stylelint();
 `,
-    value: 'stylelint',
-    vscodeRecommendations: ['stylelint.vscode-stylelint'],
+    value: "stylelint",
+    vscodeRecommendations: ["stylelint.vscode-stylelint"],
     vscodeSettings: {
       // 禁用内置的 CSS 检查
-      'css.validate': false,
+      "css.validate": false,
       // 禁用内置的 LESS 检查
-      'less.validate': false,
+      "less.validate": false,
       // 禁用内置的 SCSS 检查
-      'scss.validate': false,
+      "scss.validate": false,
       // 启用 Stylelint 代码片段的语言
-      'stylelint.snippet': ['css', 'scss', 'vue'],
+      "stylelint.snippet": ["css", "scss", "vue"],
       // Stylelint 检查的语言
-      'stylelint.validate': ['css', 'scss', 'vue'],
+      "stylelint.validate": ["css", "scss", "vue"],
       // CSS、SCSS、Vue 手动保存后 Stylelint 自动修复
-      '[css][scss][vue]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.stylelint': 'explicit',
+      "[css][scss][vue]": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll.stylelint": "explicit",
         },
       },
     },
   },
   {
-    description: 'markdownlint is the linter for markdown file.',
-    field: 'markdownlint',
-    name: 'markdownlint',
-    packages: ['markdownlint-cli'],
-    path: '.markdownlint.json',
-    patterns: ['.markdowlintrc*', '.markdownlint.*', 'markdownlint.config.*'],
+    description: "markdownlint is the linter for markdown file.",
+    field: "markdownlint",
+    name: "markdownlint",
+    packages: ["markdownlint-cli"],
+    path: ".markdownlint.json",
+    patterns: [".markdowlintrc*", ".markdownlint.*", "markdownlint.config.*"],
     scripts: {
-      'lint:markdownlint': 'markdownlint . --fix --ignore-path=.gitignore',
+      "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     },
     template: `{
   "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
   "extends": "@modyqyw/fabric/markdownlint.json"
 }
 `,
-    value: 'markdownlint',
-    vscodeRecommendations: ['DavidAnson.vscode-markdownlint'],
+    value: "markdownlint",
+    vscodeRecommendations: ["DavidAnson.vscode-markdownlint"],
     vscodeSettings: {
       // markdown 手动保存后 markdownlint 自动修复
-      '[markdown]': {
-        'editor.codeActionsOnSave': {
-          'source.fixAll.markdownlint': 'explicit',
+      "[markdown]": {
+        "editor.codeActionsOnSave": {
+          "source.fixAll.markdownlint": "explicit",
         },
       },
     },
   },
   {
     description:
-      'Biome is an all-in-one high-performance toolchain for web projects, aimed to provide functionalities to maintain them. It is a performant linter and a fast formatter.',
-    name: 'Biome',
-    packages: ['@biomejs/biome'],
-    path: 'biome.json',
-    patterns: ['biome.json'],
+      "Biome is an all-in-one high-performance toolchain for web projects, aimed to provide functionalities to maintain them. It is a performant linter and a fast formatter.",
+    name: "Biome",
+    packages: ["@biomejs/biome"],
+    path: "biome.json",
+    patterns: ["biome.json"],
     scripts: {
-      check: '@biomejs/biome check --write',
+      check: "@biomejs/biome check --write",
     },
     template: `{
   "extends": "@modyqyw/fabric/biome.json"
 }
 `,
-    value: 'biome',
-    vscodeRecommendations: ['biomejs.biome'],
+    value: "biome",
+    vscodeRecommendations: ["biomejs.biome"],
     vscodeSettings: {
       // 手动保存后 Biome 自动修复
-      'editor.codeActionsOnSave': {
-        'quickfix.biome': 'explicit',
-        'source.organizeImports.biome': 'explicit',
+      "editor.codeActionsOnSave": {
+        "quickfix.biome": "explicit",
+        "source.organizeImports.biome": "explicit",
       },
       // 指定默认代码格式化器为 Biome
-      'editor.defaultFormatter': 'biomejs.biome',
+      "editor.defaultFormatter": "biomejs.biome",
       // 保存自动格式化
-      'editor.formatOnSave': true,
+      "editor.formatOnSave": true,
     },
   },
   {
     // TODO: support monorepo
-    description: 'tsc is the official type checker that comes with TypeScript.',
-    name: 'tsc',
+    description: "tsc is the official type checker that comes with TypeScript.",
+    name: "tsc",
     packages: [
-      'typescript',
-      isPackageExists('vue') ? 'vue-tsc' : undefined,
+      "typescript",
+      isPackageExists("vue") ? "vue-tsc" : undefined,
     ].filter(Boolean) as string[],
     scripts: {
-      'type-check':
-        packageJsonObject?.scripts?.['type-check'] ??
-        (isPackageExists('vue') ? 'vue-tsc --noEmit' : 'tsc --noEmit'),
+      "type-check":
+        packageJsonObject?.scripts?.["type-check"] ??
+        (isPackageExists("vue") ? "vue-tsc --noEmit" : "tsc --noEmit"),
     },
-    value: 'tsc',
+    value: "tsc",
   },
   {
     description:
-      'commitlint is a widely adopted Git tool that lints commit messages and helps your team adhere to a commit convention.',
-    field: 'commitlint',
-    name: 'commitlint',
-    packages: ['@commitlint/cli'],
-    path: 'commitlint.config.mjs',
-    patterns: ['.commitlintrc*', 'commitlint.config.*'],
+      "commitlint is a widely adopted Git tool that lints commit messages and helps your team adhere to a commit convention.",
+    field: "commitlint",
+    name: "commitlint",
+    packages: ["@commitlint/cli"],
+    path: "commitlint.config.mjs",
+    patterns: [".commitlintrc*", "commitlint.config.*"],
     template: `import { commitlint } from '@modyqyw/fabric';
 
 export default commitlint();
 `,
-    value: 'commitlint',
+    value: "commitlint",
   },
   {
     description:
-      'lint-staged is a widely adopted Git tool that executes commands against staged git files to prevent erroneous code from entering the repository.',
-    field: 'lint-staged',
-    name: 'lint-staged',
-    packages: ['lint-staged'],
-    path: 'lint-staged.config.mjs',
-    patterns: ['.lintstagedrc*', 'lint-staged.config.*'],
+      "lint-staged is a widely adopted Git tool that executes commands against staged git files to prevent erroneous code from entering the repository.",
+    field: "lint-staged",
+    name: "lint-staged",
+    packages: ["lint-staged"],
+    path: "lint-staged.config.mjs",
+    patterns: [".lintstagedrc*", "lint-staged.config.*"],
     template: `import { lintStaged } from '@modyqyw/fabric';
 
 export default lintStaged();
 `,
-    value: 'lintStaged',
+    value: "lintStaged",
   },
   {
     description:
-      'simple-git-hooks is a widely adopted Git tool that helps you manage Git hooks easily.',
-    field: 'simple-git-hooks',
-    name: 'simple-git-hooks',
-    packages: ['simple-git-hooks', 'is-ci', 'esbuild-register'],
-    path: '.simple-git-hooks.cjs',
-    patterns: ['.simple-git-hooks*', 'simple-git-hooks.*'],
+      "simple-git-hooks is a widely adopted Git tool that helps you manage Git hooks easily.",
+    field: "simple-git-hooks",
+    name: "simple-git-hooks",
+    packages: ["simple-git-hooks", "is-ci", "esbuild-register"],
+    path: ".simple-git-hooks.cjs",
+    patterns: [".simple-git-hooks*", "simple-git-hooks.*"],
     scripts: {
-      prepare: 'is-ci || simple-git-hooks',
+      prepare: "is-ci || simple-git-hooks",
     },
     template: `require('esbuild-register');
 const { simpleGitHooks } = require('@modyqyw/fabric');
 
 module.exports = simpleGitHooks();
 `,
-    value: 'simpleGitHooks',
+    value: "simpleGitHooks",
   },
 ];
 
@@ -347,17 +347,17 @@ async function getConflictResolution(
   return (await task.prompt(ListrInquirerPromptAdapter).run(select, {
     choices: [
       {
-        name: 'Keep Biome and remove other functions',
-        value: 'keep',
+        name: "Keep Biome and remove other functions",
+        value: "keep",
       },
       {
-        name: 'Remove Biome and keep other functions',
-        value: 'remove',
+        name: "Remove Biome and keep other functions",
+        value: "remove",
       },
     ],
     message:
-      'Biome may conflict with other functions and is recommended to be used separately. What do you want to do?',
-  })) as 'keep' | 'remove';
+      "Biome may conflict with other functions and is recommended to be used separately. What do you want to do?",
+  })) as "keep" | "remove";
 }
 
 const tasks = new Listr<Ctx>([
@@ -373,15 +373,15 @@ const tasks = new Listr<Ctx>([
         ctx.functions.push(
           ...functionOptions
             .filter((o) => {
-              if (resolution === 'keep') {
+              if (resolution === "keep") {
                 return (
-                  o.name !== 'Prettier' &&
-                  o.name !== 'ESLint' &&
-                  o.name !== 'oxlint' &&
-                  o.name !== 'stylelint'
+                  o.name !== "Prettier" &&
+                  o.name !== "ESLint" &&
+                  o.name !== "oxlint" &&
+                  o.name !== "stylelint"
                 );
               }
-              return o.name !== 'biome';
+              return o.name !== "biome";
             })
             .map((o) => o.name),
         );
@@ -392,7 +392,7 @@ const tasks = new Listr<Ctx>([
           (opts.prettier || opts.eslint || opts.oxlint || opts.stylelint)
         ) {
           const resolution = await getConflictResolution(task);
-          if (resolution === 'keep') {
+          if (resolution === "keep") {
             opts.prettier = false;
             opts.eslint = false;
             opts.oxlint = false;
@@ -409,38 +409,38 @@ const tasks = new Listr<Ctx>([
         }
       }
       if (shouldSkip) {
-        task.output = `${ctx.functions.join(', ')}`;
+        task.output = `${ctx.functions.join(", ")}`;
         return task.skip();
       }
       const functions = (await task
         .prompt(ListrInquirerPromptAdapter)
         .run(checkbox, {
           choices: functionOptions,
-          message: 'What functions do you want for your project?',
+          message: "What functions do you want for your project?",
         })) as string[];
       if (
-        functions.includes('biome') &&
-        (functions.includes('prettier') ||
-          functions.includes('eslint') ||
-          functions.includes('oxlint') ||
-          functions.includes('stylelint'))
+        functions.includes("biome") &&
+        (functions.includes("prettier") ||
+          functions.includes("eslint") ||
+          functions.includes("oxlint") ||
+          functions.includes("stylelint"))
       ) {
         const resolution = await getConflictResolution(task);
-        if (resolution === 'keep') {
-          functions.splice(functions.indexOf('prettier'), 1);
-          functions.splice(functions.indexOf('eslint'), 1);
-          functions.splice(functions.indexOf('oxlint'), 1);
-          functions.splice(functions.indexOf('stylelint'), 1);
+        if (resolution === "keep") {
+          functions.splice(functions.indexOf("prettier"), 1);
+          functions.splice(functions.indexOf("eslint"), 1);
+          functions.splice(functions.indexOf("oxlint"), 1);
+          functions.splice(functions.indexOf("stylelint"), 1);
         } else {
-          functions.splice(functions.indexOf('biome'), 1);
+          functions.splice(functions.indexOf("biome"), 1);
         }
       }
       ctx.functions = functions.map(
         (f) => functionOptions.find((o) => o.value === f)!.name,
       );
-      task.output = `${ctx.functions.join(', ')}`;
+      task.output = `${ctx.functions.join(", ")}`;
     },
-    title: 'Select functions',
+    title: "Select functions",
   },
   {
     rendererOptions: {
@@ -449,16 +449,16 @@ const tasks = new Listr<Ctx>([
     task: async (ctx, task) => {
       if (opts.vscode != null) {
         ctx.vscode = opts.vscode;
-        task.output = ctx.vscode ? 'Yes' : 'No';
+        task.output = ctx.vscode ? "Yes" : "No";
         return task.skip();
       }
       ctx.vscode = await task.prompt(ListrInquirerPromptAdapter).run(confirm, {
         default: true,
-        message: 'Setup .vscode?',
+        message: "Setup .vscode?",
       });
-      task.output = ctx.vscode ? 'Yes' : 'No';
+      task.output = ctx.vscode ? "Yes" : "No";
     },
-    title: 'Setup .vscode?',
+    title: "Setup .vscode?",
   },
   {
     task: async (ctx) => {
@@ -480,7 +480,7 @@ const tasks = new Listr<Ctx>([
         }
       }
     },
-    title: 'Clean legacy setup',
+    title: "Clean legacy setup",
   },
   {
     retry: 1,
@@ -519,9 +519,9 @@ const tasks = new Listr<Ctx>([
       }
       if (ctx.vscode) {
         try {
-          accessSync(resolve('.vscode'));
+          accessSync(resolve(".vscode"));
         } catch {
-          mkdirSync(resolve('.vscode'));
+          mkdirSync(resolve(".vscode"));
         }
         const vscodeRecommendations = filtered.flatMap(
           (f) => f.vscodeRecommendations ?? [],
@@ -529,7 +529,7 @@ const tasks = new Listr<Ctx>([
         if (vscodeRecommendations.length > 0) {
           promises.push(
             writeFile(
-              resolvePath('.vscode', 'extensions.json'),
+              resolvePath(".vscode", "extensions.json"),
               JSON.stringify(
                 {
                   recommendations: vscodeRecommendations.toSorted((a, b) =>
@@ -549,7 +549,7 @@ const tasks = new Listr<Ctx>([
         if (Object.keys(vscodeSettings).length > 0) {
           promises.push(
             writeFile(
-              resolvePath('.vscode', 'settings.json'),
+              resolvePath(".vscode", "settings.json"),
               JSON.stringify(
                 sortObjectKeys(vscodeSettings),
                 null,
@@ -571,7 +571,7 @@ const tasks = new Listr<Ctx>([
       );
       await Promise.all(promises);
     },
-    title: 'Setup',
+    title: "Setup",
   },
 ]);
 tasks.run().catch((error) => {

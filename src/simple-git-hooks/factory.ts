@@ -1,5 +1,5 @@
-import { parseOptions } from './utils';
-import type { Options } from './types';
+import { parseOptions } from "./utils";
+import type { Options } from "./types";
 
 export function simpleGitHooks(
   options: Options = {},
@@ -11,11 +11,11 @@ export function simpleGitHooks(
   const config: Record<string, string> = {};
 
   if (enableCommitlint) {
-    config['commit-msg'] = 'npx commitlint --edit ${1}';
+    config["commit-msg"] = "npx commitlint --edit ${1}";
   }
 
   if (enableLintStaged) {
-    config['pre-commit'] = 'npx lint-staged';
+    config["pre-commit"] = "npx lint-staged";
   }
 
   return {

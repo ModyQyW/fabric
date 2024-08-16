@@ -77,6 +77,6 @@ WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/20851-markdo
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.md': 'markdownlint --fix --ignore-path=.gitignore',
+  "*.md": "markdownlint --fix --ignore-path=.gitignore",
 };
 ```

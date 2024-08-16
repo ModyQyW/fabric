@@ -1,4 +1,4 @@
-import type { Config as PrettierConfig } from 'prettier';
+import type { Config as PrettierConfig } from "prettier";
 
 export type Config = PrettierConfig & Record<string, any>;
 

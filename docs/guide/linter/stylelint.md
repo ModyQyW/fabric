@@ -26,7 +26,7 @@ pnpm install stylelint -D
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 export default stylelint();
 ```
@@ -53,8 +53,8 @@ The following is the default configuration, Vue, CSS Modules and TailwindCSS sup
 
 ```javascript
 // stylelint.config.mjs
-import { hasScss } from '@modyqyw/fabric';
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { hasScss } from "@modyqyw/fabric";
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 export default stylelint({
   // based on stylelint-order and stylelint-config-recess-order
@@ -70,7 +70,7 @@ The second parameter is used for further customization, you can pass an object t
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 export default stylelint(
   {},
@@ -86,7 +86,7 @@ If you wish to add customization to the default configuration, you can do so lik
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric/stylelint';
+import { stylelint } from "@modyqyw/fabric/stylelint";
 
 const defaultConfig = stylelint();
 
@@ -109,55 +109,55 @@ You need to install [stylelint-config-standard-less](https://github.com/stylelin
 
 ```javascript
 // stylelint.config.mjs
-import { stylelint } from '@modyqyw/fabric';
+import { stylelint } from "@modyqyw/fabric";
 
 // Cannot enable both at the same time.
 const defaultConfig = stylelint({ scss: false });
 
 export default {
   ...defaultConfig,
-  extends: [...defaultConfig.extends, 'stylelint-config-standard-less'],
+  extends: [...defaultConfig.extends, "stylelint-config-standard-less"],
   rules: {
     ...defaultConfig.rules,
-    'at-rule-no-unknown': [
+    "at-rule-no-unknown": [
       true,
       {
         ignoreAtRules: [
           // css modules
           // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
-          'value',
+          "value",
           // tailwindcss
           // https://tailwindcss.com/docs/functions-and-directives#directives
-          'tailwind',
-          'layer',
-          'apply',
-          'config',
+          "tailwind",
+          "layer",
+          "apply",
+          "config",
           // LESS
-          'plugin',
+          "plugin",
         ],
       },
     ],
-    'selector-pseudo-class-no-unknown': [
+    "selector-pseudo-class-no-unknown": [
       true,
       {
         ignorePseudoClasses: [
           // css modules
           // https://github.com/pascalduez/stylelint-config-css-modules/blob/4.4.0/index.js
-          'export',
-          'import',
-          'local',
-          'external',
+          "export",
+          "import",
+          "local",
+          "external",
           // css modules
           // also vue global selectors
           // also LESS
           // https://vuejs.org/api/sfc-css-features.html#scoped-css
-          'global',
+          "global",
           // vue deep selectors
           // https://vuejs.org/api/sfc-css-features.html#deep-selectors
-          'deep',
+          "deep",
           // vue slotted selectors
           // https://vuejs.org/api/sfc-css-features.html#slotted-selectors
-          'slotted',
+          "slotted",
         ],
       },
     ],
@@ -219,7 +219,7 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.{css,scss,vue}': 'stylelint --fix --cache --aei --ignore-path=.gitignore',
+  "*.{css,scss,vue}": "stylelint --fix --cache --aei --ignore-path=.gitignore",
 };
 ```
 

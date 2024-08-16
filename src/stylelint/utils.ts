@@ -1,5 +1,5 @@
-import { hasScss } from '../env';
-import type { Options } from './types';
+import { hasScss } from "../env";
+import type { Options } from "./types";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {

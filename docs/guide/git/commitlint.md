@@ -28,7 +28,7 @@ Create `commitlint.config.mjs` in your project root:
 
 ```javascript
 // commitlint.config.mjs
-import { commitlint } from '@modyqyw/fabric/commitlint';
+import { commitlint } from "@modyqyw/fabric/commitlint";
 
 export default commitlint();
 ```
@@ -45,8 +45,8 @@ The following is the default configuration:
 
 ```javascript
 // commitlint.config.mjs
-import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from '@modyqyw/fabric';
-import { commitlint } from '@modyqyw/fabric/commitlint';
+import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from "@modyqyw/fabric";
+import { commitlint } from "@modyqyw/fabric/commitlint";
 
 export default commitlint({
   // Support monorepo
@@ -56,7 +56,7 @@ export default commitlint({
   // Commit message style
   // Default 'conventional', conventional commits
   // Optional 'angular'
-  style: 'conventional',
+  style: "conventional",
 });
 ```
 
@@ -72,7 +72,7 @@ The second parameter is used for further customization, you can pass an object t
 
 ```javascript
 // commitlint.config.mjs
-import { commitlint } from '@modyqyw/fabric/commitlint';
+import { commitlint } from "@modyqyw/fabric/commitlint";
 
 export default commitlint(
   {},
@@ -93,6 +93,6 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // simple-git-hooks.cjs
 module.exports = {
-  'commit-msg': 'npx commitlint --edit ${1}',
+  "commit-msg": "npx commitlint --edit ${1}",
 };
 ```

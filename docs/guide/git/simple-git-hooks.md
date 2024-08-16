@@ -32,8 +32,8 @@ Create `prettier.config.mjs` in your project root:
 
 ```javascript
 // simple-git-hooks.cjs
-require('esbuild-register');
-const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
+require("esbuild-register");
+const { simpleGitHooks } = require("@modyqyw/fabric/simple-git-hooks");
 
 module.exports = simpleGitHooks();
 ```
@@ -63,9 +63,9 @@ The following is the default configuration:
 
 ```javascript
 // simple-git-hooks.cjs
-require('esbuild-register');
-const { hasCommitlint, hasLintStaged } = require('@modyqyw/fabric');
-const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
+require("esbuild-register");
+const { hasCommitlint, hasLintStaged } = require("@modyqyw/fabric");
+const { simpleGitHooks } = require("@modyqyw/fabric/simple-git-hooks");
 
 module.exports = simpleGitHooks({
   // Lint commit messages with commitlint.
@@ -81,8 +81,8 @@ The second parameter is used for further customization, you can pass an object t
 
 ```javascript
 // simple-git-hooks.cjs
-require('esbuild-register');
-const { simpleGitHooks } = require('@modyqyw/fabric');
+require("esbuild-register");
+const { simpleGitHooks } = require("@modyqyw/fabric");
 
 module.exports = simpleGitHooks(
   {},

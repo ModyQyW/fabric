@@ -117,7 +117,7 @@ tsc / vue-tsc 需要查看所有项目文件才能分析它们，这也意味着
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.{ts,tsx}': 'tsc-files --noEmit',
+  "*.{ts,tsx}": "tsc-files --noEmit",
   // 对于 vue 项目
   // "*.{ts,tsx,vue}": "vue-tsc-files --noEmit",
 };

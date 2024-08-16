@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from '../../constants';
-import { hasTypeScript, hasVue } from '../../env';
-import { pluginImportX } from '../plugins';
-import type { Config, ImportsOptions } from '../types';
+} from "../../constants";
+import { hasTypeScript, hasVue } from "../../env";
+import { pluginImportX } from "../plugins";
+import type { Config, ImportsOptions } from "../types";
 
 export function imports(options: ImportsOptions = {}): Config[] {
   const {
@@ -20,7 +20,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: 'imports',
+      name: "imports",
       files,
       plugins: {
         // @ts-expect-error not matched
@@ -28,35 +28,35 @@ export function imports(options: ImportsOptions = {}): Config[] {
       },
       rules: {
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/export.md
-        'import/export': 'error',
+        "import/export": "error",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-mutable-exports.md
-        'import/no-mutable-exports': 'error',
+        "import/no-mutable-exports": "error",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default.md
-        'import/no-named-as-default': 'warn',
+        "import/no-named-as-default": "warn",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
-        'import/no-named-as-default-member': 'warn',
+        "import/no-named-as-default-member": "warn",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
-        'import/default': 'error',
+        "import/default": "error",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
-        'import/named': 'error',
+        "import/named": "error",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
-        'import/namespace': 'error',
+        "import/namespace": "error",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-self-import.md
-        'import/no-self-import': 'error',
+        "import/no-self-import": "error",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-duplicates.md
-        'import/no-duplicates': 'warn',
+        "import/no-duplicates": "warn",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
-        'import/no-unresolved': [
-          'error',
+        "import/no-unresolved": [
+          "error",
           {
             commonjs: true,
             ignore: [
@@ -67,43 +67,43 @@ export function imports(options: ImportsOptions = {}): Config[] {
               String.raw`windi\.css`,
               String.raw`^uno\:`,
               String.raw`uno\.css`,
-              'vue-router/auto',
-              'vue-router/auto-routes',
-              '@intlify/unplugin-vue-i18n',
+              "vue-router/auto",
+              "vue-router/auto-routes",
+              "@intlify/unplugin-vue-i18n",
             ],
           },
         ],
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/order.md
-        'import/order': [
-          'error',
+        "import/order": [
+          "error",
           {
             groups: [
-              'builtin',
-              'external',
-              'internal',
-              'parent',
-              'sibling',
-              'index',
-              'object',
-              'type',
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object",
+              "type",
             ],
             pathGroups: [
               {
-                pattern: '~/**',
-                group: 'internal',
+                pattern: "~/**",
+                group: "internal",
               },
               {
-                pattern: '~~/**',
-                group: 'internal',
+                pattern: "~~/**",
+                group: "internal",
               },
               {
-                pattern: '@/**',
-                group: 'internal',
+                pattern: "@/**",
+                group: "internal",
               },
               {
-                pattern: '@@/**',
-                group: 'internal',
+                pattern: "@@/**",
+                group: "internal",
               },
             ],
           },
@@ -113,19 +113,19 @@ export function imports(options: ImportsOptions = {}): Config[] {
       },
       settings: {
         // https://github.com/un-ts/eslint-plugin-import-x#import-xcore-modules
-        'import/core-modules': ['electron'],
+        "import/core-modules": ["electron"],
 
         // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
-        'import/extensions': ['.js', '.mjs', '.jsx'],
+        "import/extensions": [".js", ".mjs", ".jsx"],
 
         // https://github.com/un-ts/eslint-plugin-import-x#import-xignore
-        'import/ignore': [
-          'node_modules',
+        "import/ignore": [
+          "node_modules",
           String.raw`\.(scss|sass|less|css|svg|json)$`,
         ],
 
         // https://github.com/un-ts/eslint-plugin-import-x#resolvers
-        'import/resolver': 'oxc',
+        "import/resolver": "oxc",
       },
     },
     {
@@ -137,45 +137,45 @@ export function imports(options: ImportsOptions = {}): Config[] {
       rules: {
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
-        'import/no-named-as-default-member': 'off',
+        "import/no-named-as-default-member": "off",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
-        'import/default': 'off',
+        "import/default": "off",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
-        'import/named': 'off',
+        "import/named": "off",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
-        'import/namespace': 'off',
+        "import/namespace": "off",
 
         // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
         // See https://github.com/iamturns/eslint-config-airbnb-typescript#why-is-importno-unresolved-disabled
-        'import/no-unresolved': 'off',
+        "import/no-unresolved": "off",
 
         ...typescriptRules,
       },
       settings: {
         // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
-        'import/extensions': [
-          '.js',
-          '.mjs',
-          '.jsx',
-          '.ts',
-          '.mts',
-          '.tsx',
-          '.d.ts',
+        "import/extensions": [
+          ".js",
+          ".mjs",
+          ".jsx",
+          ".ts",
+          ".mts",
+          ".tsx",
+          ".d.ts",
         ],
 
         // https://github.com/un-ts/eslint-plugin-import-x#import-xparsers
-        'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.mts', '.tsx', '.d.ts'],
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".mts", ".tsx", ".d.ts"],
         },
 
         // https://github.com/un-ts/eslint-plugin-import-x#resolvers
-        'import/resolver': 'oxc',
+        "import/resolver": "oxc",
       },
     },
   ];

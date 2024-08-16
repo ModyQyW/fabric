@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: '@modyqyw/fabric'
+  name: "@modyqyw/fabric"
   tagline: 开箱即用的共享规范，适用于不同的 JavaScript / TypeScript 项目。
   actions:
     - theme: brand

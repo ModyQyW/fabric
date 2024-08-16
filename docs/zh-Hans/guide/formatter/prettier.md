@@ -32,7 +32,7 @@ pnpm install prettier -D
 
 ```javascript
 // prettier.config.mjs
-import { prettier } from '@modyqyw/fabric/prettier';
+import { prettier } from "@modyqyw/fabric/prettier";
 
 export default prettier();
 ```
@@ -85,8 +85,8 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 
 ```javascript
 // prettier.config.mjs
-import { hasTailwindCss } from '@modyqyw/fabric';
-import { prettier } from '@modyqyw/fabric/prettier';
+import { hasTailwindCss } from "@modyqyw/fabric";
+import { prettier } from "@modyqyw/fabric/prettier";
 
 export default prettier({
   // 基于 prettier-plugin-jsdoc
@@ -99,7 +99,7 @@ export default prettier({
 
 ```javascript
 // prettier.config.mjs
-import { prettier } from '@modyqyw/fabric';
+import { prettier } from "@modyqyw/fabric";
 
 export default prettier(
   {},
@@ -107,9 +107,9 @@ export default prettier(
     // 使用 prettier-plugin-svelte 和 prettier-plugin-tailwindcss
     // prettier-plugin-tailwindcss 一定要放在最后
     // 默认配置内的 plugins 将被直接覆盖
-    plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
+    plugins: ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
 
-    overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
+    overrides: [{ files: "*.svelte", options: { parser: "svelte" } }],
   },
 );
 ```
@@ -118,7 +118,7 @@ export default prettier(
 
 ```javascript
 // prettier.config.mjs
-import { prettier } from '@modyqyw/fabric/prettier';
+import { prettier } from "@modyqyw/fabric/prettier";
 
 const defaultConfig = prettier();
 
@@ -128,11 +128,11 @@ export default {
   // prettier-plugin-tailwindcss 一定要放在最后
   plugins: [
     ...defaultConfig.plugins,
-    'prettier-plugin-svelte',
-    'prettier-plugin-tailwindcss',
+    "prettier-plugin-svelte",
+    "prettier-plugin-tailwindcss",
   ],
 
-  overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
+  overrides: [{ files: "*.svelte", options: { parser: "svelte" } }],
 };
 ```
 
@@ -166,10 +166,10 @@ WebStorm 自带 Prettier，可参考 [整合 VSC?](#整合-vsc) 自行调整。
 
 ```javascript
 // lint-staged.config.mjs
-import { filterFilenames } from '@modyqyw/fabric';
+import { filterFilenames } from "@modyqyw/fabric";
 
 export default {
-  '*': (filenames) => {
+  "*": (filenames) => {
     const filtered = filterFilenames(filenames);
     return filtered.map(
       (f) => `prettier --ignore-unknown --write --cache ${f}`,
@@ -182,14 +182,14 @@ export default {
 
 ```javascript
 // lint-staged.config.mjs
-import { GLOB_EXCLUDE, filterFilenames } from '@modyqyw/fabric';
+import { GLOB_EXCLUDE, filterFilenames } from "@modyqyw/fabric";
 
 export default {
-  '*': (filenames) => {
+  "*": (filenames) => {
     const filtered = filterFilenames(
       filenames,
       formatChangelog
-        ? GLOB_EXCLUDE.filter((e) => !e.toUpperCase().includes('CHANGELOG'))
+        ? GLOB_EXCLUDE.filter((e) => !e.toUpperCase().includes("CHANGELOG"))
         : GLOB_EXCLUDE,
     );
     return filtered.map(

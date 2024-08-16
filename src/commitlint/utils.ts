@@ -1,19 +1,19 @@
-import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from '../env';
-import type { Options } from './types';
+import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from "../env";
+import type { Options } from "./types";
 
 export function parseOptions(options: Options = {}): Required<Options> {
-  const { style = 'conventional' } = options;
+  const { style = "conventional" } = options;
 
   let { monorepo = true } = options;
   if (monorepo === true) {
     monorepo = hasPnpmWorkspace
-      ? 'pnpm-workspace'
+      ? "pnpm-workspace"
       : hasLerna
-        ? 'lerna'
+        ? "lerna"
         : hasNx
-          ? 'nx'
+          ? "nx"
           : hasRush
-            ? 'rush'
+            ? "rush"
             : false;
   }
 

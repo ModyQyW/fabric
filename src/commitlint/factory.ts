@@ -1,5 +1,5 @@
-import { parseOptions } from './utils';
-import type { Config, Options } from './types';
+import { parseOptions } from "./utils";
+import type { Config, Options } from "./types";
 
 export function commitlint(
   options: Options = {},
@@ -10,28 +10,28 @@ export function commitlint(
   const extends_: string[] = [];
 
   // handle style
-  if (style === 'conventional') {
-    extends_.push('@commitlint/config-conventional');
-  } else if (style === 'angular') {
-    extends_.push('@commitlint/config-angular');
+  if (style === "conventional") {
+    extends_.push("@commitlint/config-conventional");
+  } else if (style === "angular") {
+    extends_.push("@commitlint/config-angular");
   }
 
   // handle monorepo
   switch (monorepo) {
-    case 'lerna': {
-      extends_.push('@commitlint/config-lerna-scopes');
+    case "lerna": {
+      extends_.push("@commitlint/config-lerna-scopes");
       break;
     }
-    case 'nx': {
-      extends_.push('@commitlint/config-nx-scopes');
+    case "nx": {
+      extends_.push("@commitlint/config-nx-scopes");
       break;
     }
-    case 'pnpm-workspace': {
-      extends_.push('@commitlint/config-pnpm-scopes');
+    case "pnpm-workspace": {
+      extends_.push("@commitlint/config-pnpm-scopes");
       break;
     }
-    case 'rush': {
-      extends_.push('@commitlint/config-rush-scopes');
+    case "rush": {
+      extends_.push("@commitlint/config-rush-scopes");
       break;
     }
     default: {

@@ -103,7 +103,7 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*': 'biome format --write --no-errors-on-unmatched --files-ignore-unknown=true',
+  "*": "biome format --write --no-errors-on-unmatched --files-ignore-unknown=true",
   // If you want to use formatting and linting at the same time
   // '*': 'biome check --write --no-errors-on-unmatched --files-ignore-unknown=true',
 };

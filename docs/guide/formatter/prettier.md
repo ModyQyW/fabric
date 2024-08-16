@@ -32,7 +32,7 @@ Create `prettier.config.mjs` in your project root:
 
 ```js
 // prettier.config.mjs
-import { prettier } from '@modyqyw/fabric/prettier';
+import { prettier } from "@modyqyw/fabric/prettier";
 
 export default prettier();
 ```
@@ -85,8 +85,8 @@ The following is the default configuration:
 
 ```javascript
 // prettier.config.mjs
-import { hasTailwindCss } from '@modyqyw/fabric';
-import { prettier } from '@modyqyw/fabric/prettier';
+import { hasTailwindCss } from "@modyqyw/fabric";
+import { prettier } from "@modyqyw/fabric/prettier";
 
 export default prettier({
   // Based on prettier-plugin-jsdoc
@@ -99,7 +99,7 @@ The second parameter is used for further customization, you can pass an object t
 
 ```javascript
 // prettier.config.mjs
-import { prettier } from '@modyqyw/fabric/prettier';
+import { prettier } from "@modyqyw/fabric/prettier";
 
 export default prettier(
   {},
@@ -107,9 +107,9 @@ export default prettier(
     // use prettier-plugin-svelte and prettier-plugin-tailwindcss
     // prettier-plugin-tailwindcss must be the last one
     // plugins in the default configuration will be directly overridden
-    plugins: ['prettier-plugin-svelte', 'prettier-plugin-tailwindcss'],
+    plugins: ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
 
-    overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
+    overrides: [{ files: "*.svelte", options: { parser: "svelte" } }],
   },
 );
 ```
@@ -118,7 +118,7 @@ If you wish to add customization to the default configuration, you can do so lik
 
 ```javascript
 // prettier.config.mjs
-import { prettier } from '@modyqyw/fabric';
+import { prettier } from "@modyqyw/fabric";
 
 const defaultConfig = prettier();
 
@@ -128,11 +128,11 @@ export default {
   // prettier-plugin-tailwindcss must be the last one
   plugins: [
     ...defaultConfig.plugins,
-    'prettier-plugin-svelte',
-    'prettier-plugin-tailwindcss',
+    "prettier-plugin-svelte",
+    "prettier-plugin-tailwindcss",
   ],
 
-  overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
+  overrides: [{ files: "*.svelte", options: { parser: "svelte" } }],
 };
 ```
 
@@ -166,10 +166,10 @@ If you are not, you can refer to the following configuration.
 
 ```javascript
 // lint-staged.config.mjs
-import { filterFilenames } from '@modyqyw/fabric';
+import { filterFilenames } from "@modyqyw/fabric";
 
 export default {
-  '*': (filenames) => {
+  "*": (filenames) => {
     const filtered = filterFilenames(filenames);
     return filtered.map(
       (f) => `prettier --ignore-unknown --write --cache ${f}`,
@@ -182,14 +182,14 @@ If you are hand-writing CHANGELOG.md, you may want to format it with Prettier.
 
 ```javascript
 // lint-staged.config.mjs
-import { GLOB_EXCLUDE, filterFilenames } from '@modyqyw/fabric';
+import { GLOB_EXCLUDE, filterFilenames } from "@modyqyw/fabric";
 
 export default {
-  '*': (filenames) => {
+  "*": (filenames) => {
     const filtered = filterFilenames(
       filenames,
       formatChangelog
-        ? GLOB_EXCLUDE.filter((e) => !e.toUpperCase().includes('CHANGELOG'))
+        ? GLOB_EXCLUDE.filter((e) => !e.toUpperCase().includes("CHANGELOG"))
         : GLOB_EXCLUDE,
     );
     return filtered.map(

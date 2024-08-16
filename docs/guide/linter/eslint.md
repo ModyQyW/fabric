@@ -28,7 +28,7 @@ Create `eslint.config.mjs` in your project root:
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint();
 ```
@@ -64,8 +64,8 @@ import {
   hasTypeScript,
   hasUnoCss,
   hasVue,
-} from '@modyqyw/fabric';
-import { eslint } from '@modyqyw/fabric/eslint';
+} from "@modyqyw/fabric";
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   // Based on eslint-plugin-flat-gitignore
@@ -158,12 +158,12 @@ In addition to passing Boolean values, you can also pass configuration objects d
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   gitignore: {
     // Update configuration
-    files: ['.gitignore', '.eslintignore'],
+    files: [".gitignore", ".eslintignore"],
     strict: false,
   },
 });
@@ -173,16 +173,16 @@ The second parameter is used for further customization, you can pass an object t
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({}, [
   // By default, using console in scripts/**/* and cli.* gives warnings.
   // Updated so that using console in scripts/**/* and cli.* gives errors.
   // Need to switch to specialized logging libraries such as winston, consola, pino, etc.
   {
-    files: ['scripts/**/*', 'cli.*'],
+    files: ["scripts/**/*", "cli.*"],
     rules: {
-      'no-console': 'error',
+      "no-console": "error",
     },
   },
 ]);
@@ -196,7 +196,7 @@ For example, using only JavaScript and TypeScript rules:
 
 ```javascript
 // eslint.config.mjs
-import { combine, javascript, typescript } from '@modyqyw/fabric/eslint';
+import { combine, javascript, typescript } from "@modyqyw/fabric/eslint";
 
 export default combine(javascript(), typescript());
 ```
@@ -205,10 +205,10 @@ You can also pass parameters to adjust some of the rules.
 
 ```javascript
 // eslint.config.mjs
-import { combine, javascript, typescript } from '@modyqyw/fabric/eslint';
+import { combine, javascript, typescript } from "@modyqyw/fabric/eslint";
 
 export default combine(
-  javascript({ rules: { 'no-console': 'error' } }),
+  javascript({ rules: { "no-console": "error" } }),
   typescript(),
 );
 ```
@@ -224,11 +224,11 @@ import {
   GLOB_SCRIPT,
   GLOB_TSX,
   interopDefault,
-} from '@modyqyw/fabric';
-import { eslint } from '@modyqyw/fabric/eslint';
-import * as _parserBabel from '@babel/eslint-parser';
-import * as _parserTypeScript from '@typescript-eslint/parser';
-import * as _pluginSolid from 'eslint-plugin-solid';
+} from "@modyqyw/fabric";
+import { eslint } from "@modyqyw/fabric/eslint";
+import * as _parserBabel from "@babel/eslint-parser";
+import * as _parserTypeScript from "@typescript-eslint/parser";
+import * as _pluginSolid from "eslint-plugin-solid";
 
 const parserBabel = interopDefault(_parserBabel);
 const parserTypeScript = interopDefault(_parserTypeScript);
@@ -239,7 +239,7 @@ export default eslint(
   // Add Solid support
   [
     {
-      name: 'solid',
+      name: "solid",
       files: [GLOB_JSX, GLOB_TSX],
       plugins: {
         solid: pluginSolid,
@@ -266,12 +266,12 @@ import {
   GLOB_TSX,
   GLOB_VUE,
   interopDefault,
-} from '@modyqyw/fabric';
-import { eslint } from '@modyqyw/fabric/eslint';
-import * as _parserBabel from '@babel/eslint-parser';
-import * as _parserTypeScript from '@typescript-eslint/parser';
-import * as _pluginSvelte from 'eslint-plugin-svelte';
-import * as _parserSvelte from 'svelte-eslint-parser';
+} from "@modyqyw/fabric";
+import { eslint } from "@modyqyw/fabric/eslint";
+import * as _parserBabel from "@babel/eslint-parser";
+import * as _parserTypeScript from "@typescript-eslint/parser";
+import * as _pluginSvelte from "eslint-plugin-svelte";
+import * as _parserSvelte from "svelte-eslint-parser";
 
 const parserSvelte = interopDefault(_parserSvelte);
 const parserBabel = interopDefault(_parserBabel);
@@ -291,7 +291,7 @@ export default eslint(
   // Add Svelte support
   [
     {
-      name: 'svelte',
+      name: "svelte",
       files: [GLOB_SVELTE],
       languageOptions: {
         parser: parserSvelte,
@@ -300,8 +300,8 @@ export default eslint(
             globalReturn: false,
             jsx: true,
           },
-          ecmaVersion: 'latest',
-          extraFileExtensions: ['.svelte'],
+          ecmaVersion: "latest",
+          extraFileExtensions: [".svelte"],
           parser: {
             js: parserBabel,
             jsx: parserBabel,
@@ -309,13 +309,13 @@ export default eslint(
             tsx: parserTypeScript,
           },
           requireConfigFile: false,
-          sourceType: 'module',
+          sourceType: "module",
         },
       },
       plugins: {
         svelte: pluginSvelte,
       },
-      processor: pluginSvelte.processors['.svelte'],
+      processor: pluginSvelte.processors[".svelte"],
       rules: {
         ...pluginSvelte.configs.base.rules,
         ...pluginSvelte.configs.recommended.rules,
@@ -410,12 +410,12 @@ If you are not, you can refer to the following configuration.
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
-  '*.{json,jsonc,json5}':
-    'eslint --fix --cache --no-error-on-unmatched-pattern',
-  '*.{yaml,yml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
-  '*.{toml}': 'eslint --fix --cache --no-error-on-unmatched-pattern',
+  "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,vue}":
+    "eslint --fix --cache --no-error-on-unmatched-pattern",
+  "*.{json,jsonc,json5}":
+    "eslint --fix --cache --no-error-on-unmatched-pattern",
+  "*.{yaml,yml}": "eslint --fix --cache --no-error-on-unmatched-pattern",
+  "*.{toml}": "eslint --fix --cache --no-error-on-unmatched-pattern",
 };
 ```
 
@@ -451,7 +451,7 @@ If you want the execution to be more efficient, specify `languageOptions.parserO
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   typescript: {
@@ -466,7 +466,7 @@ If you don't think these rules are too friendly for you, you can turn them off.
 
 ```javascript
 // eslint.config.mjs
-import { eslint } from '@modyqyw/fabric/eslint';
+import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
   typescript: {

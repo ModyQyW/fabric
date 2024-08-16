@@ -1,3 +1,3 @@
-import { commitlint } from './src/commitlint';
+import { commitlint } from "./src/commitlint";
 
 export default commitlint();

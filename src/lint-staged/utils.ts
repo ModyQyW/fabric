@@ -5,12 +5,12 @@ import {
   hasOxlint,
   hasPrettier,
   hasStylelint,
-} from '../env';
-import type { Options } from './types';
+} from "../env";
+import type { Options } from "./types";
 
 export function parseOptions(
   options: Options = {},
-): Required<Omit<Options, 'jsonc' | 'yml'>> {
+): Required<Omit<Options, "jsonc" | "yml">> {
   const biome = options.biome ?? hasBiome;
 
   return {

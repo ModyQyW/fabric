@@ -107,7 +107,7 @@ WebStorm 可以使用 [插件](https://plugins.jetbrains.com/plugin/22761-biome)
 ```javascript
 // lint-staged.config.mjs
 export default {
-  '*': 'biome lint --write --no-errors-on-unmatched --files-ignore-unknown=true',
+  "*": "biome lint --write --no-errors-on-unmatched --files-ignore-unknown=true",
   // 如果你希望同时使用代码格式化和代码检查
   // '*': 'biome check --write --no-errors-on-unmatched --files-ignore-unknown=true',
 };

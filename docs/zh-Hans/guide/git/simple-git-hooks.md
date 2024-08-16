@@ -32,8 +32,8 @@ pnpm install simple-git-hooks is-ci esbuild-register -D
 
 ```javascript
 // simple-git-hooks.cjs
-require('esbuild-register');
-const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
+require("esbuild-register");
+const { simpleGitHooks } = require("@modyqyw/fabric/simple-git-hooks");
 
 module.exports = simpleGitHooks();
 ```
@@ -60,9 +60,9 @@ module.exports = simpleGitHooks();
 
 ```javascript
 // simple-git-hooks.cjs
-require('esbuild-register');
-const { hasCommitlint, hasLintStaged } = require('@modyqyw/fabric');
-const { simpleGitHooks } = require('@modyqyw/fabric/simple-git-hooks');
+require("esbuild-register");
+const { hasCommitlint, hasLintStaged } = require("@modyqyw/fabric");
+const { simpleGitHooks } = require("@modyqyw/fabric/simple-git-hooks");
 
 module.exports = simpleGitHooks({
   // 是否使用 commitlint 检查提交信息
@@ -78,8 +78,8 @@ module.exports = simpleGitHooks({
 
 ```javascript
 // simple-git-hooks.cjs
-require('esbuild-register');
-const { simpleGitHooks } = require('@modyqyw/fabric');
+require("esbuild-register");
+const { simpleGitHooks } = require("@modyqyw/fabric");
 
 module.exports = simpleGitHooks(
   {},
