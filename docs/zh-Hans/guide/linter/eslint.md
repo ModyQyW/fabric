@@ -446,7 +446,24 @@ export default {
 >
 > 我们的大多数用户并不介意这笔成本，因为类型感知静态分析规则的功能和安全性值得权衡。此外，大多数用户主要通过 IDE 插件处理代码检查错误，而通过缓存不会耗费过多的时间。这意味着通常他们通常只在推送前或通过 CI 运行完整的代码检查，额外花费的时间通常可以接受。
 
-在启用 TypeScript 配置时默认启用类型规则。如果你认为这些规则对你来说并不太友好，可以关闭它们。
+在启用 TypeScript 配置时默认启用类型规则。
+
+如果你希望执行效率更高，请手动指定 `languageOptions.parserOptions.tsconfigRootDir`。
+
+```javascript
+// eslint.config.mjs
+import { eslint } from '@modyqyw/fabric/eslint';
+
+export default eslint({
+  typescript: {
+    parserOptions: {
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+});
+```
+
+如果你认为这些规则对你来说并不太友好，可以关闭它们。
 
 ```javascript
 // eslint.config.mjs

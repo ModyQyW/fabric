@@ -445,7 +445,24 @@ Cited in [typescript-eslint.io/linting/typed-linting#how-is-performance](https:/
 >
 > Most of our users do not mind this cost as the power and safety of type-aware static analysis rules is worth the tradeoff. Additionally, most users primarily consume lint errors via IDE plugins which, through caching, do not suffer the same penalties. This means that generally they usually only run a complete lint before a push, or via their CI, where the extra time often doesn't matter.
 
-Typed rules are Enabled by default when TypeScript configuration is enabled. If you don't think these rules are too friendly for you, you can turn them off.
+Typed rules are Enabled by default when TypeScript configuration is enabled.
+
+If you want the execution to be more efficient, specify `languageOptions.parserOptions.tsconfigRootDir` manually.
+
+```javascript
+// eslint.config.mjs
+import { eslint } from '@modyqyw/fabric/eslint';
+
+export default eslint({
+  typescript: {
+    parserOptions: {
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+});
+```
+
+If you don't think these rules are too friendly for you, you can turn them off.
 
 ```javascript
 // eslint.config.mjs
