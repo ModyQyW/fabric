@@ -21,8 +21,9 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         ...(typeCheck
           ? {
               parserOptions: {
-                projectService: true,
-                tsconfigRootDir: import.meta.dirname,
+                projectService: {
+                  allowDefaultProject: ['*.js', '*.config.*'],
+                },
                 ...parserOptions,
               },
             }
