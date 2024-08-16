@@ -1,5 +1,5 @@
-import { parseOptions } from './utils';
-import type { Config, Options } from './types';
+import { parseOptions } from "./utils";
+import type { Config, Options } from "./types";
 
 export function prettier(
   options: Options = {},
@@ -8,11 +8,10 @@ export function prettier(
   const { jsdoc } = parseOptions(options);
 
   const plugins = [];
-  if (jsdoc) plugins.push('prettier-plugin-jsdoc');
+  if (jsdoc) plugins.push("prettier-plugin-jsdoc");
 
   return {
     plugins,
-    singleQuote: true,
 
     jsdocCapitalizeDescription: false,
     tsdoc: true,

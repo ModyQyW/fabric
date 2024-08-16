@@ -61,7 +61,8 @@
   "vcs": {
     "enabled": true,
     "clientKind": "git",
-    "useIgnoreFile": true
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
   },
   "linter": {
     "enabled": true,
@@ -85,7 +86,6 @@
     },
     "formatter": {
       "enabled": true,
-      "quoteStyle": "single",
       "indentStyle": "space"
     },
     "globals": [
@@ -222,8 +222,7 @@
     },
     "formatter": {
       "enabled": true,
-      "indentStyle": "space",
-      "quoteStyle": "single"
+      "indentStyle": "space"
     },
     "linter": {
       "enabled": true
