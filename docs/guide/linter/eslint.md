@@ -111,6 +111,10 @@ export default eslint({
   // Check orders related issues
   // Default true (enabled)
   perfectionist: true,
+  // Based on eslint-plugin-promise
+  // Check Promise related issues
+  // Default true (enabled)
+  promise: true,
   // Based on eslint-plugin-react, eslint-plugin-react-hooks, eslint-plugin-react-perf and eslint-plugin-react-refresh
   // Check React related issues, support Taro
   // Enabled by default if you have React installed

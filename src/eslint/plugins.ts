@@ -20,6 +20,8 @@ import * as _pluginVueScopedCss from "eslint-plugin-vue-scoped-css";
 import * as _pluginNuxt2 from "eslint-plugin-nuxt";
 import * as _pluginNuxt3 from "@nuxt/eslint-plugin";
 /* @ts-expect-error missing types */
+import * as _pluginPromise from "eslint-plugin-promise";
+/* @ts-expect-error missing types */
 import * as _pluginReact from "eslint-plugin-react";
 /* @ts-expect-error missing types */
 import * as _pluginReactHooks from "eslint-plugin-react-hooks";
@@ -60,6 +62,7 @@ export const pluginVue = interopDefault(_pluginVue);
 export const pluginVueScopedCss = interopDefault(_pluginVueScopedCss);
 export const pluginNuxt2 = interopDefault(_pluginNuxt2);
 export const pluginNuxt3 = interopDefault(_pluginNuxt3);
+export const pluginPromise = interopDefault(_pluginPromise);
 export const pluginReact = interopDefault(_pluginReact);
 export const pluginReactHooks = fixupPluginRules(
   interopDefault(_pluginReactHooks),

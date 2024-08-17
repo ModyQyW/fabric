@@ -11,6 +11,7 @@ import {
   node,
   nuxt,
   perfectionist,
+  promise,
   react,
   reactNative,
   regexp,
@@ -41,6 +42,7 @@ export function eslint(
     node: nodeOptions,
     nuxt: nuxtOptions,
     perfectionist: perfectionistOptions,
+    promise: promiseOptions,
     react: reactOptions,
     reactNative: reactNativeOptions,
     regexp: regexpOptions,
@@ -74,6 +76,10 @@ export function eslint(
   if (perfectionistOptions) {
     if (isBoolean(perfectionistOptions)) configs.push(perfectionist());
     else configs.push(perfectionist(perfectionistOptions));
+  }
+  if (promiseOptions) {
+    if (isBoolean(promiseOptions)) configs.push(promise());
+    else configs.push(promise(promiseOptions));
   }
   if (regexpOptions) {
     if (isBoolean(regexpOptions)) configs.push(regexp());

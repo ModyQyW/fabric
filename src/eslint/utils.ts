@@ -23,6 +23,7 @@ export function parseOptions(options: Options = {}): Required<Options> {
     node: options.node ?? true,
     nuxt: options.nuxt ?? hasNuxt,
     perfectionist: options.perfectionist ?? true,
+    promise: options.promise ?? true,
     react: options.react ?? hasReact,
     reactNative: options.reactNative ?? hasReactNative,
     regexp: options.regexp ?? true,

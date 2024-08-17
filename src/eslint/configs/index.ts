@@ -8,6 +8,7 @@ export * from "./markdown";
 export * from "./next";
 export * from "./node";
 export * from "./nuxt";
+export * from "./promise";
 export * from "./perfectionist";
 export * from "./react";
 export * from "./react-native";

@@ -59,8 +59,11 @@ export interface PerfectionistOptions {
   typescriptFiles?: string[];
   typescriptRules?: Rules;
 }
-export interface PrettierOptions {
+export interface PromiseOptions {
+  files?: string[];
   rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
 }
 export interface ReactNativeOptions {
   files?: string[];
@@ -182,12 +185,15 @@ export interface Options {
   /**
    * Based on eslint-plugin-perfectionist.
    *
-   * Conflicts with ianvs/prettier-plugin-sort-imports,
-   * trivago/prettier-plugin-sort-imports and prettier-organize-imports.
-   *
    * @default true
    */
   perfectionist?: PerfectionistOptions | boolean;
+  /**
+   * Detect promise issues.
+   *
+   * @default true
+   */
+  promise?: PromiseOptions | boolean;
   /**
    * Detect react issues.
    *
