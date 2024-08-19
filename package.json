@@ -9,6 +9,7 @@
     "front-end",
     "frontend",
     "prettier",
+    "biome",
     "markdownlint",
     "eslint",
     "stylelint",
