@@ -1,5 +1,6 @@
 import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { ESLint, Linter } from "eslint";
+import type { ESLintReactSettings } from "@eslint-react/shared";
 
 export type Config = Linter.FlatConfig;
 
@@ -76,6 +77,7 @@ export interface ReactOptions {
   rules?: Rules;
   typescriptFiles?: string[];
   typescriptRules?: Rules;
+  settings?: ESLintReactSettings;
 }
 export interface RegExpOptions {
   files?: string[];

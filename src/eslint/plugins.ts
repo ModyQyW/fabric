@@ -21,8 +21,10 @@ import * as _pluginNuxt2 from "eslint-plugin-nuxt";
 import * as _pluginNuxt3 from "@nuxt/eslint-plugin";
 /* @ts-expect-error missing types */
 import * as _pluginPromise from "eslint-plugin-promise";
-/* @ts-expect-error missing types */
-import * as _pluginReact from "eslint-plugin-react";
+import * as _pluginReactX from "eslint-plugin-react-x";
+import * as _pluginReactDom from "eslint-plugin-react-dom";
+import * as _pluginReactHooksExtra from "eslint-plugin-react-hooks-extra";
+import * as _pluginReactNamingConvention from "eslint-plugin-react-naming-convention";
 /* @ts-expect-error missing types */
 import * as _pluginReactHooks from "eslint-plugin-react-hooks";
 /* @ts-expect-error missing types */
@@ -63,7 +65,12 @@ export const pluginVueScopedCss = interopDefault(_pluginVueScopedCss);
 export const pluginNuxt2 = interopDefault(_pluginNuxt2);
 export const pluginNuxt3 = interopDefault(_pluginNuxt3);
 export const pluginPromise = interopDefault(_pluginPromise);
-export const pluginReact = interopDefault(_pluginReact);
+export const pluginReactX = interopDefault(_pluginReactX);
+export const pluginReactDom = interopDefault(_pluginReactDom);
+export const pluginReactHooksExtra = interopDefault(_pluginReactHooksExtra);
+export const pluginReactNamingConvention = interopDefault(
+  _pluginReactNamingConvention,
+);
 export const pluginReactHooks = fixupPluginRules(
   interopDefault(_pluginReactHooks),
 );

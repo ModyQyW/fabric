@@ -1,7 +1,10 @@
 import { GLOB_JSX, GLOB_TSX } from "../../constants";
-import { hasVite, hasRemix } from "../../env";
+import { hasVite, hasRemix, hasNext } from "../../env";
 import {
-  pluginReact,
+  pluginReactX,
+  pluginReactDom,
+  pluginReactHooksExtra,
+  pluginReactNamingConvention,
   pluginReactHooks,
   pluginReactPerf,
   pluginReactRefresh,
@@ -14,108 +17,82 @@ export function react(options: ReactOptions = {}): Config[] {
     rules = {},
     typescriptFiles = [GLOB_TSX],
     typescriptRules = {},
+    settings = {},
   } = options;
   return [
     {
       name: "react",
       files,
       plugins: {
-        react: pluginReact,
+        // @ts-expect-error not matched
+        "react-x": pluginReactX,
+        // @ts-expect-error not matched
+        "react-dom": pluginReactDom,
+        // @ts-expect-error not matched
+        "react-hooks-extra": pluginReactHooksExtra,
+        // @ts-expect-error not matched
+        "react-naming-convention": pluginReactNamingConvention,
         "react-hooks": pluginReactHooks,
         "react-perf": pluginReactPerf,
         "react-refresh": pluginReactRefresh,
       },
       rules: {
-        // https://github.com/jsx-eslint/eslint-plugin-react/blob/v7.35.0/index.js
-        "react/display-name": "error",
-        "react/jsx-key": "error",
-        "react/jsx-no-comment-textnodes": "error",
-        "react/jsx-no-duplicate-props": "error",
-        "react/jsx-no-target-blank": "error",
-        "react/jsx-no-undef": "error",
-        "react/jsx-uses-vars": "error",
-        "react/no-children-prop": "error",
-        "react/no-danger-with-children": "error",
-        "react/no-deprecated": "error",
-        "react/no-direct-mutation-state": "error",
-        "react/no-find-dom-node": "error",
-        "react/no-is-mounted": "error",
-        "react/no-render-return-value": "error",
-        "react/no-string-refs": "error",
-        "react/no-unescaped-entities": "error",
-        "react/no-unknown-property": "error",
-        // 'react/no-unsafe': 'off',
-        "react/prop-types": "error",
-        "react/require-render-return": "error",
-        "react/sort-comp": [
-          "error",
-          {
-            groups: {
-              lifecycle: [
-                "displayName",
-                "propTypes",
-                "contextTypes",
-                "childContextTypes",
-                "mixins",
-                "statics",
-                "defaultProps",
-                "constructor",
-                "getDefaultProps",
-                "getInitialState",
-                "state",
-                "getChildContext",
-                "getDerivedStateFromProps",
-                "componentWillMount",
-                "UNSAFE_componentWillMount",
-                "componentDidMount",
-                "componentWillReceiveProps",
-                "UNSAFE_componentWillReceiveProps",
-                "shouldComponentUpdate",
-                "componentWillUpdate",
-                "UNSAFE_componentWillUpdate",
-                "getSnapshotBeforeUpdate",
-                "componentDidUpdate",
-                "componentDidCatch",
-                "componentWillUnmount",
-                // support miniprogram
-                "onLaunch",
-                "onLoad",
-                "onUnload",
-                "onReady",
-                "componentDidShow",
-                "componentDidHide",
-                "onPullDownRefresh",
-                "onReachBottom",
-                "onPageScroll",
-                "onAddToFavorites",
-                "onShareAppMessage",
-                "onShareTimeline",
-                "onResize",
-                "onTabItemTap",
-                "onSaveExitState",
-                "onTitleClick",
-                "onOptionMenuClick",
-                "onPopMenuClick",
-                "onPullIntercept",
-              ],
-              rendering: ["/^render.+$/", "render"],
-            },
-            order: [
-              "static-variables",
-              "static-methods",
-              "instance-variables",
-              "lifecycle",
-              "/^handle.+$/",
-              "/^on.+$/",
-              "getters",
-              "setters",
-              "/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
-              "instance-methods",
-              "everything-else",
-              "rendering",
-            ],
-          },
-        ],
+        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-x/README.md
+        "react-x/ensure-forward-ref-using-ref": "warn",
+        "react-x/no-access-state-in-setstate": "error",
+        "react-x/no-array-index-key": "warn",
+        "react-x/no-children-count": "warn",
+        "react-x/no-children-for-each": "warn",
+        "react-x/no-children-map": "warn",
+        "react-x/no-children-only": "warn",
+        "react-x/no-children-to-array": "warn",
+        "react-x/no-clone-element": "warn",
+        "react-x/no-comment-textnodes": "warn",
+        "react-x/no-component-will-mount": "error",
+        "react-x/no-component-will-receive-props": "error",
+        "react-x/no-component-will-update": "error",
+        "react-x/no-create-ref": "error",
+        "react-x/no-default-props": "error",
+        "react-x/no-direct-mutation-state": "error",
+        "react-x/no-duplicate-key": "error",
+        "react-x/no-implicit-key": "warn",
+        "react-x/no-missing-key": "error",
+        "react-x/no-nested-components": "warn",
+        "react-x/no-prop-types": "error",
+        "react-x/no-redundant-should-component-update": "error",
+        "react-x/no-set-state-in-component-did-mount": "warn",
+        "react-x/no-set-state-in-component-did-update": "warn",
+        "react-x/no-set-state-in-component-will-update": "warn",
+        "react-x/no-string-refs": "error",
+        "react-x/no-unsafe-component-will-mount": "warn",
+        "react-x/no-unsafe-component-will-receive-props": "warn",
+        "react-x/no-unsafe-component-will-update": "warn",
+        "react-x/no-unstable-context-value": "error",
+        "react-x/no-unstable-default-props": "error",
+        "react-x/no-unused-class-component-members": "warn",
+        "react-x/no-unused-state": "warn",
+
+        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-dom/README.md
+        "react-dom/no-children-in-void-dom-elements": "warn",
+        "react-dom/no-dangerously-set-innerhtml": "warn",
+        "react-dom/no-dangerously-set-innerhtml-with-children": "error",
+        "react-dom/no-find-dom-node": "error",
+        "react-dom/no-missing-button-type": "warn",
+        "react-dom/no-missing-iframe-sandbox": "warn",
+        "react-dom/no-namespace": "error",
+        "react-dom/no-render-return-value": "error",
+        "react-dom/no-script-url": "warn",
+        "react-dom/no-unsafe-iframe-sandbox": "warn",
+        "react-dom/no-unsafe-target-blank": "warn",
+
+        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-hooks-extra/README.md
+        "react-hooks-extra/no-direct-set-state-in-use-effect": "warn",
+        "react-hooks-extra/no-direct-set-state-in-use-layout-effect": "warn",
+        "react-hooks-extra/prefer-use-state-lazy-initialization": "warn",
+
+        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-naming-convention/README.md
+        "naming-convention/filename-extension": ["warn", "as-needed"],
+        "naming-convention/use-state": "warn",
 
         // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks
         // eslint-plugin-react-hooks v4.6.2
@@ -132,22 +109,35 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-refresh/only-export-components": [
           "warn",
           {
-            allowExportNames: hasRemix
-              ? ["meta", "links", "headers", "loader", "action"]
-              : [],
+            allowExportNames: [
+              ...(hasRemix
+                ? ["meta", "links", "headers", "loader", "action"]
+                : []),
+              ...(hasNext
+                ? [
+                    "config",
+                    "generateStaticParams",
+                    "metadata",
+                    "generateMetadata",
+                    "viewport",
+                    "generateViewport",
+                  ]
+                : []),
+            ],
             allowConstantExport: hasVite,
           },
         ],
 
         ...rules,
       },
+      settings: {
+        ...settings,
+      },
     },
     {
       name: "react-typescript",
       files: typescriptFiles,
       rules: {
-        "react/jsx-no-undef": "off",
-
         ...typescriptRules,
       },
     },
