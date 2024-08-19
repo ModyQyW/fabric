@@ -114,7 +114,7 @@ export default eslint({
   // 检查 Promise 相关问题
   // 默认为 true，即启用
   promise: true,
-  // 基于 eslint-plugin-react、eslint-plugin-react-hooks、eslint-plugin-react-perf 和 eslint-plugin-react-refresh
+  // 基于 eslint-plugin-react-x、eslint-plugin-react-dom、eslint-plugin-react-hooks、eslint-plugin-react-hooks-extra、eslint-plugin-react-naming-convention、eslint-plugin-react-perf 和 eslint-plugin-react-refresh
   // 检查 React 相关问题，支持 Taro
   // 安装 React 后默认启用，否则默认禁用
   react: hasReact,

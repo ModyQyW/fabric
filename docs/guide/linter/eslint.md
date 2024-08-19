@@ -115,7 +115,7 @@ export default eslint({
   // Check Promise related issues
   // Default true (enabled)
   promise: true,
-  // Based on eslint-plugin-react, eslint-plugin-react-hooks, eslint-plugin-react-perf and eslint-plugin-react-refresh
+  // Based on eslint-plugin-react-x, eslint-plugin-react-dom, eslint-plugin-react-hooks, eslint-plugin-react-hooks-extra, eslint-plugin-react-naming-convention, eslint-plugin-react-perf and eslint-plugin-react-refresh
   // Check React related issues, support Taro
   // Enabled by default if you have React installed
   react: hasReact,
