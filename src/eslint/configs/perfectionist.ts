@@ -101,8 +101,16 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         ],
 
         // https://perfectionist.dev/rules/sort-jsx-props
-        // Handled by eslint-plugin-react.
-        "perfectionist/sort-jsx-props": "off",
+        "perfectionist/sort-jsx-props": [
+          "error",
+          {
+            groups: ["reserved", "unknown", "callback"],
+            customGroups: {
+              reserved: ["children", "dangerouslySetInnerHTML", "key", "ref"],
+              callback: "on*",
+            },
+          },
+        ],
 
         // https://perfectionist.dev/rules/sort-maps
         "perfectionist/sort-maps": "error",

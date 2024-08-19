@@ -139,12 +139,6 @@ export function react(options: ReactOptions = {}): Config[] {
           },
         ],
 
-        // extra
-        "react/jsx-sort-props": [
-          "warn",
-          { callbacksLast: true, reservedFirst: true },
-        ],
-
         ...rules,
       },
     },
