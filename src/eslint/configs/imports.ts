@@ -116,7 +116,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
         "import/core-modules": ["electron"],
 
         // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
-        "import/extensions": [".js", ".mjs", ".jsx"],
+        "import/extensions": [".js", ".cjs", ".mjs", ".jsx"],
 
         // https://github.com/un-ts/eslint-plugin-import-x#import-xignore
         "import/ignore": [
@@ -161,9 +161,11 @@ export function imports(options: ImportsOptions = {}): Config[] {
         // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
         "import/extensions": [
           ".js",
+          ".cjs",
           ".mjs",
           ".jsx",
           ".ts",
+          ".cts",
           ".mts",
           ".tsx",
           ".d.ts",
@@ -171,7 +173,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
 
         // https://github.com/un-ts/eslint-plugin-import-x#import-xparsers
         "import/parsers": {
-          "@typescript-eslint/parser": [".ts", ".mts", ".tsx", ".d.ts"],
+          "@typescript-eslint/parser": [".ts", ".cts", ".mts", ".tsx", ".d.ts"],
         },
 
         // https://github.com/un-ts/eslint-plugin-import-x#resolvers
