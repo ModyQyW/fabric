@@ -105,8 +105,9 @@ export interface TomlOptions {
 export interface TypeScriptOptions {
   files?: string[];
   rules?: Rules;
-  typeCheck?: boolean;
   parserOptions?: Linter.ParserOptions;
+  languageOptions?: Linter.LanguageOptions;
+  typeCheck?: boolean;
 }
 export interface UnicornOptions {
   files?: string[];

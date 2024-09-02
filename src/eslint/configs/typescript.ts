@@ -9,8 +9,9 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
       ? [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE]
       : [GLOB_DTS, GLOB_TS, GLOB_TSX],
     rules = {},
+    parserOptions = {},
+    languageOptions = {},
     typeCheck = true,
-    parserOptions,
   } = options;
   return [
     {
@@ -27,7 +28,12 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
                 ...parserOptions,
               },
             }
-          : {}),
+          : {
+              parserOptions: {
+                ...parserOptions,
+              },
+            }),
+        ...languageOptions,
       },
       plugins: {
         // @ts-expect-error not matched
