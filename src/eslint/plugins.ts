@@ -23,6 +23,7 @@ import * as _pluginNuxt3 from "@nuxt/eslint-plugin";
 import * as _pluginPromise from "eslint-plugin-promise";
 import * as _pluginReactX from "eslint-plugin-react-x";
 import * as _pluginReactDom from "eslint-plugin-react-dom";
+import * as _pluginReactWebApi from "eslint-plugin-react-web-api";
 import * as _pluginReactHooksExtra from "eslint-plugin-react-hooks-extra";
 import * as _pluginReactNamingConvention from "eslint-plugin-react-naming-convention";
 /* @ts-expect-error missing types */
@@ -67,6 +68,7 @@ export const pluginNuxt3 = interopDefault(_pluginNuxt3);
 export const pluginPromise = interopDefault(_pluginPromise);
 export const pluginReactX = interopDefault(_pluginReactX);
 export const pluginReactDom = interopDefault(_pluginReactDom);
+export const pluginReactWebApi = interopDefault(_pluginReactWebApi);
 export const pluginReactHooksExtra = interopDefault(_pluginReactHooksExtra);
 export const pluginReactNamingConvention = interopDefault(
   _pluginReactNamingConvention,

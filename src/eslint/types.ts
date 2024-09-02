@@ -75,8 +75,13 @@ export interface ReactNativeOptions {
 export interface ReactOptions {
   files?: string[];
   rules?: Rules;
+  parserOptions?: Linter.ParserOptions;
+  languageOptions?: Linter.LanguageOptions;
   typescriptFiles?: string[];
   typescriptRules?: Rules;
+  typescriptParserOptions?: Linter.ParserOptions;
+  typescriptLanguageOptions?: Linter.LanguageOptions;
+  typeCheck?: boolean;
   settings?: ESLintReactSettings;
 }
 export interface RegExpOptions {

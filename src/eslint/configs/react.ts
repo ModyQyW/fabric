@@ -1,8 +1,11 @@
 import { GLOB_JSX, GLOB_TSX } from "../../constants";
 import { hasVite, hasRemix, hasNext } from "../../env";
 import {
+  parserBabel,
+  parserTypeScript,
   pluginReactX,
   pluginReactDom,
+  pluginReactWebApi,
   pluginReactHooksExtra,
   pluginReactNamingConvention,
   pluginReactHooks,
@@ -15,19 +18,45 @@ export function react(options: ReactOptions = {}): Config[] {
   const {
     files = [GLOB_JSX, GLOB_TSX],
     rules = {},
+    parserOptions = {},
+    languageOptions = {},
     typescriptFiles = [GLOB_TSX],
     typescriptRules = {},
+    typescriptParserOptions = {},
+    typescriptLanguageOptions = {},
+    typeCheck = true,
     settings = {},
   } = options;
   return [
     {
       name: "react",
       files,
+      languageOptions: {
+        parser: parserBabel,
+        parserOptions: {
+          babelOptions: {
+            babelrc: false,
+            configFile: false,
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+          ecmaFeatures: {
+            globalReturn: false,
+            jsx: true,
+          },
+          ecmaVersion: "latest",
+          requireConfigFile: false,
+          sourceType: "module",
+          ...parserOptions,
+        },
+        ...languageOptions,
+      },
       plugins: {
         // @ts-expect-error not matched
         "react-x": pluginReactX,
         // @ts-expect-error not matched
         "react-dom": pluginReactDom,
+        // @ts-expect-error not matched
+        "react-web-api": pluginReactWebApi,
         // @ts-expect-error not matched
         "react-hooks-extra": pluginReactHooksExtra,
         // @ts-expect-error not matched
@@ -37,7 +66,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-refresh": pluginReactRefresh,
       },
       rules: {
-        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-x/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.12.4/packages/plugins/eslint-plugin-react-x/README.md
         "react-x/ensure-forward-ref-using-ref": "warn",
         "react-x/no-access-state-in-setstate": "error",
         "react-x/no-array-index-key": "warn",
@@ -72,7 +101,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-x/no-unused-class-component-members": "warn",
         "react-x/no-unused-state": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-dom/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.12.4/packages/plugins/eslint-plugin-react-dom/README.md
         "react-dom/no-children-in-void-dom-elements": "warn",
         "react-dom/no-dangerously-set-innerhtml": "warn",
         "react-dom/no-dangerously-set-innerhtml-with-children": "error",
@@ -85,12 +114,17 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-dom/no-unsafe-iframe-sandbox": "warn",
         "react-dom/no-unsafe-target-blank": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-hooks-extra/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.12.4/packages/plugins/eslint-plugin-react-web-api/README.md
+        "react-web-api/no-leaked-timeout": "error",
+        "react-web-api/no-leaked-interval": "error",
+        "react-web-api/no-leaked-event-listener": "error",
+
+        // https://github.com/Rel1cx/eslint-react/blob/v1.12.4/packages/plugins/eslint-plugin-react-hooks-extra/README.md
+        "react-hooks-extra/ensure-custom-hooks-using-other-hooks": "warn",
         "react-hooks-extra/no-direct-set-state-in-use-effect": "warn",
-        "react-hooks-extra/no-direct-set-state-in-use-layout-effect": "warn",
         "react-hooks-extra/prefer-use-state-lazy-initialization": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.10.1/packages/plugins/eslint-plugin-react-naming-convention/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.12.4/packages/plugins/eslint-plugin-react-naming-convention/README.md
         "naming-convention/filename-extension": ["warn", "as-needed"],
         "naming-convention/use-state": "warn",
 
@@ -105,7 +139,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-perf/jsx-no-new-array-as-prop": "error",
         "react-perf/jsx-no-new-function-as-prop": "error",
 
-        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.9
+        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.11
         "react-refresh/only-export-components": [
           "warn",
           {
@@ -137,7 +171,31 @@ export function react(options: ReactOptions = {}): Config[] {
     {
       name: "react-typescript",
       files: typescriptFiles,
+      languageOptions: {
+        parser: parserTypeScript,
+        ...(typeCheck
+          ? {
+              parserOptions: {
+                projectService: {
+                  allowDefaultProject: ["*.js", "*.config.*"],
+                },
+                ...typescriptParserOptions,
+              },
+            }
+          : {
+              parserOptions: {
+                ...typescriptParserOptions,
+              },
+            }),
+        ...typescriptLanguageOptions,
+      },
       rules: {
+        ...(typeCheck
+          ? {
+              "react-x/no-leaked-conditional-rendering": "warn",
+            }
+          : {}),
+
         ...typescriptRules,
       },
     },
