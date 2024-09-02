@@ -4,7 +4,12 @@ import { parserBabel } from "../plugins";
 import type { Config, JavaScriptOptions } from "../types";
 
 export function javascript(options: JavaScriptOptions = {}): Config[] {
-  const { files = [GLOB_SCRIPT, GLOB_VUE], rules = {} } = options;
+  const {
+    files = [GLOB_SCRIPT, GLOB_VUE],
+    rules = {},
+    parserOptions = {},
+    languageOptions = {},
+  } = options;
   return [
     {
       name: "javascript",
@@ -38,8 +43,10 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
           ecmaVersion: "latest",
           requireConfigFile: false,
           sourceType: "module",
+          ...parserOptions,
         },
         sourceType: "module",
+        ...languageOptions,
       },
       linterOptions: {
         reportUnusedDisableDirectives: true,

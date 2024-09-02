@@ -21,6 +21,8 @@ export interface ImportsOptions {
 export interface JavaScriptOptions {
   files?: string[];
   rules?: Rules;
+  parserOptions?: Linter.ParserOptions;
+  languageOptions?: Linter.LanguageOptions;
 }
 export interface JsdocOptions {
   files?: string[];
