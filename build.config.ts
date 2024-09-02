@@ -63,9 +63,14 @@ export default defineBuildConfig({
     },
   },
   rollup: {
+    dts: {
+      // https://github.com/unjs/unbuild/issues/135
+      respectExternal: false,
+    },
     emitCJS: true,
     esbuild: {
       target: "node20.11",
     },
+    inlineDependencies: true,
   },
 });
