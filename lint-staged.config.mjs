@@ -7,4 +7,6 @@ const { lintStaged } = require("./src/lint-staged");
 
 // import { lintStaged } from './src/lint-staged';
 
-export default lintStaged();
+export default lintStaged({
+  oxlint: false,
+});
