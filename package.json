@@ -181,7 +181,6 @@
     "lint:eslint": "eslint . --fix --cache",
     "lint:markdownlint": "markdownlint . --fix --ignore-path=.gitignore",
     "lint:package": "pnpm run build && publint && attw --pack .",
-    "lint:stylelint": "stylelint \"./**/*.{css,scss,vue}\" --fix --cache --aei --ignore-path=.gitignore",
     "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
     "release": "commit-and-tag-version -a",
