@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ModyQyW/fabric.git"
+    "url": "git+https://github.com/ModyQyW/fabric.git"
   },
   "funding": [
     {
