@@ -129,6 +129,9 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         "sort-keys": "off",
         "perfectionist/sort-objects": "error",
 
+        // https://perfectionist.dev/rules/sort-sets
+        "perfectionist/sort-sets": "error",
+
         // https://perfectionist.dev/rules/sort-svelte-attributes
         // Handled by eslint-plugin-svelte.
         "perfectionist/sort-svelte-attributes": "off",
