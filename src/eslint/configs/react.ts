@@ -66,7 +66,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-refresh": pluginReactRefresh,
       },
       rules: {
-        // https://github.com/Rel1cx/eslint-react/blob/v1.13.0/packages/plugins/eslint-plugin-react-x/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.14.0/packages/plugins/eslint-plugin-react-x/README.md
         "react-x/ensure-forward-ref-using-ref": "warn",
         "react-x/no-access-state-in-setstate": "error",
         "react-x/no-array-index-key": "warn",
@@ -101,7 +101,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-x/no-unused-class-component-members": "warn",
         "react-x/no-unused-state": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.13.0/packages/plugins/eslint-plugin-react-dom/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.14.0/packages/plugins/eslint-plugin-react-dom/README.md
         "react-dom/no-children-in-void-dom-elements": "warn",
         "react-dom/no-dangerously-set-innerhtml": "warn",
         "react-dom/no-dangerously-set-innerhtml-with-children": "error",
@@ -114,20 +114,20 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-dom/no-unsafe-iframe-sandbox": "warn",
         "react-dom/no-unsafe-target-blank": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.13.0/packages/plugins/eslint-plugin-react-web-api/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.14.0/packages/plugins/eslint-plugin-react-web-api/README.md
         "react-web-api/no-leaked-timeout": "error",
         "react-web-api/no-leaked-interval": "error",
         "react-web-api/no-leaked-event-listener": "error",
         "react-web-api/no-leaked-resize-observer": "error",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.13.0/packages/plugins/eslint-plugin-react-hooks-extra/README.md
-        "hooks-extra/no-redundant-custom-hook": "warn",
-        "hooks-extra/no-direct-set-state-in-use-effect": "warn",
-        "hooks-extra/prefer-use-state-lazy-initialization": "warn",
+        // https://github.com/Rel1cx/eslint-react/blob/v1.14.0/packages/plugins/eslint-plugin-react-hooks-extra/README.md
+        "react-hooks-extra/no-redundant-custom-hook": "warn",
+        "react-hooks-extra/no-direct-set-state-in-use-effect": "warn",
+        "react-hooks-extra/prefer-use-state-lazy-initialization": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.13.0/packages/plugins/eslint-plugin-react-naming-convention/README.md
-        "naming-convention/filename-extension": ["warn", "as-needed"],
-        "naming-convention/use-state": "warn",
+        // https://github.com/Rel1cx/eslint-react/blob/v1.14.0/packages/plugins/eslint-plugin-react-naming-convention/README.md
+        "react-naming-convention/filename-extension": ["warn", "as-needed"],
+        "react-naming-convention/use-state": "warn",
 
         // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks
         // eslint-plugin-react-hooks v4.6.2
