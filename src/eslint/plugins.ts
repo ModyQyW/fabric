@@ -7,11 +7,11 @@ import * as _pluginJsonc from "eslint-plugin-jsonc";
 import * as _pluginMarkdown from "eslint-plugin-markdown";
 import * as _pluginN from "eslint-plugin-n";
 import * as _pluginPackageJson from "eslint-plugin-package-json";
-import * as _pluginPerfectionist from "eslint-plugin-perfectionist";
+import _pluginPerfectionist from "eslint-plugin-perfectionist";
 import * as _pluginRegexp from "eslint-plugin-regexp";
 import * as _pluginTypeScript from "@typescript-eslint/eslint-plugin";
 import * as _pluginUnicorn from "eslint-plugin-unicorn";
-import * as _pluginUnocss from "@unocss/eslint-plugin";
+import _pluginUnocss from "@unocss/eslint-plugin";
 /* @ts-expect-error missing types */
 import * as _pluginVue from "eslint-plugin-vue";
 /* @ts-expect-error missing types */
@@ -48,6 +48,7 @@ import * as _parserTypeScript from "@typescript-eslint/parser";
 import * as _parserVue from "vue-eslint-parser";
 import * as _parserYml from "yaml-eslint-parser";
 import { interopDefault } from "../utils";
+import type { ESLint } from "eslint";
 
 export const configGitignore = interopDefault(_configGitignore);
 export const pluginImportX = interopDefault(_pluginImportX);
@@ -56,7 +57,9 @@ export const pluginJsonc = interopDefault(_pluginJsonc);
 export const pluginMarkdown = interopDefault(_pluginMarkdown);
 export const pluginN = interopDefault(_pluginN);
 export const pluginPackageJson = interopDefault(_pluginPackageJson);
-export const pluginPerfectionist = interopDefault(_pluginPerfectionist);
+export const pluginPerfectionist = interopDefault(
+  _pluginPerfectionist,
+) as unknown as ESLint.Plugin;
 export const pluginRegexp = interopDefault(_pluginRegexp);
 export const pluginTypeScript = interopDefault(_pluginTypeScript);
 export const pluginUnicorn = interopDefault(_pluginUnicorn);

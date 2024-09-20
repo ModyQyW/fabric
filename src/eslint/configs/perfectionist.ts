@@ -23,7 +23,6 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
       name: "perfectionist",
       files,
       plugins: {
-        // @ts-expect-error not matched
         perfectionist: pluginPerfectionist,
       },
       rules: {

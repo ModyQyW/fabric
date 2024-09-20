@@ -2,7 +2,7 @@ import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { ESLint, Linter } from "eslint";
 import type { ESLintReactSettings } from "@eslint-react/shared";
 
-export type Config = Linter.FlatConfig;
+export type Config = Linter.Config;
 
 export type Plugin = ESLint.Plugin;
 
