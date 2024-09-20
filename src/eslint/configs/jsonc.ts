@@ -52,7 +52,7 @@ export function jsonc(options: JsoncOptions = {}): Config[] {
         "jsonc/valid-json-number": "error",
         "jsonc/vue-custom-block/no-parsing-error": "error",
 
-        // https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/blob/v0.15.2/src/configs/recommended.ts
+        // https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/blob/v0.15.3/src/configs/recommended.ts
         "package-json/order-properties": "error",
         "package-json/repository-shorthand": "error",
         "package-json/sort-collections": "error",
