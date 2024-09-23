@@ -1,17 +1,20 @@
 <script setup lang="ts">
 // https://github.com/Justin3go/justin3go.github.io/commit/13a08c192be464f2052efd8f1da9547d4184eede
 // https://juejin.cn/post/7363078360786370599
-import { nextTick, onMounted } from 'vue';
+import { nextTick, onMounted } from "vue";
 
 defineOptions({
-  name: 'VAd',
+  name: "VAd",
 });
 
-onMounted(() => {
-  nextTick(() => {
-    const script = document.createElement('script');
-    script.innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({});';
-    document.querySelector('#google-ads')!.append(script);
+onMounted(async () => {
+  await nextTick(() => {
+    if (typeof window === "undefined") return;
+    const script = document.createElement("script");
+    script.innerHTML = "(adsbygoogle = window.adsbygoogle || []).push({});";
+    const div = document.querySelector("#google-ads");
+    if (!div || div.querySelector("script")) return;
+    div.append(script);
   });
 });
 </script>
