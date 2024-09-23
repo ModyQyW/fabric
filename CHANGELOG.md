@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.1.0](https://github.com/ModyQyW/fabric/compare/v11.0.0...v11.1.0) (2024-09-23)
+
+
+### Features
+
+* update biome rules ([94ef667](https://github.com/ModyQyW/fabric/commit/94ef6678da7dea6ba78886df31429a1c72fd54c0))
+
 ## [11.0.0](https://github.com/ModyQyW/fabric/compare/v10.12.0...v11.0.0) (2024-09-20)
 
 
