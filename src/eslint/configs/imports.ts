@@ -27,34 +27,34 @@ export function imports(options: ImportsOptions = {}): Config[] {
         import: pluginImportX,
       },
       rules: {
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/export.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/export.md
         "import/export": "error",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-mutable-exports.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-mutable-exports.md
         "import/no-mutable-exports": "error",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-named-as-default.md
         "import/no-named-as-default": "warn",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-named-as-default-member.md
         "import/no-named-as-default-member": "warn",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/default.md
         "import/default": "error",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/named.md
         "import/named": "error",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/namespace.md
         "import/namespace": "error",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-self-import.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-self-import.md
         "import/no-self-import": "error",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-duplicates.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-duplicates.md
         "import/no-duplicates": "warn",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-unresolved.md
         "import/no-unresolved": [
           "error",
           {
@@ -74,7 +74,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
           },
         ],
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/order.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/order.md
         "import/order": [
           "error",
           {
@@ -135,23 +135,23 @@ export function imports(options: ImportsOptions = {}): Config[] {
         import: pluginImportX,
       },
       rules: {
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default-member.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-named-as-default-member.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         "import/no-named-as-default-member": "off",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/default.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/default.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         "import/default": "off",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/named.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/named.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         "import/named": "off",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/namespace.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/namespace.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import
         "import/namespace": "off",
 
-        // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-unresolved.md
         // See https://github.com/iamturns/eslint-config-airbnb-typescript#why-is-importno-unresolved-disabled
         "import/no-unresolved": "off",
 
