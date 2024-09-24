@@ -51,15 +51,10 @@ export function react(options: ReactOptions = {}): Config[] {
         ...languageOptions,
       },
       plugins: {
-        // @ts-expect-error not matched
         "react-x": pluginReactX,
-        // @ts-expect-error not matched
         "react-dom": pluginReactDom,
-        // @ts-expect-error not matched
         "react-web-api": pluginReactWebApi,
-        // @ts-expect-error not matched
         "react-hooks-extra": pluginReactHooksExtra,
-        // @ts-expect-error not matched
         "react-naming-convention": pluginReactNamingConvention,
         "react-hooks": pluginReactHooks,
         "react-perf": pluginReactPerf,

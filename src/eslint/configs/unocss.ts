@@ -23,7 +23,6 @@ export function unocss(options: UnoCssOptions = {}): Config[] {
       name: "unocss",
       files,
       plugins: {
-        // @ts-expect-error not matched
         "@unocss": pluginUnocss,
       },
       rules: {

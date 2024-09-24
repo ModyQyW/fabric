@@ -23,7 +23,6 @@ export function imports(options: ImportsOptions = {}): Config[] {
       name: "imports",
       files,
       plugins: {
-        // @ts-expect-error not matched
         import: pluginImportX,
       },
       rules: {
@@ -130,10 +129,6 @@ export function imports(options: ImportsOptions = {}): Config[] {
     },
     {
       files: typescriptFiles,
-      plugins: {
-        // @ts-expect-error not matched
-        import: pluginImportX,
-      },
       rules: {
         // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.3.0/docs/rules/no-named-as-default-member.md
         // https://typescript-eslint.io/troubleshooting/typed-linting/performance/#eslint-plugin-import

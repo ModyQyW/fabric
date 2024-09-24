@@ -9,7 +9,6 @@ export function toml(options: TomlOptions = {}): Config[] {
       name: "toml",
       files,
       plugins: {
-        // @ts-expect-error not matched
         toml: pluginToml,
       },
       languageOptions: {

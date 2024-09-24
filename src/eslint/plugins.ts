@@ -51,46 +51,88 @@ import { interopDefault } from "../utils";
 import type { ESLint } from "eslint";
 
 export const configGitignore = interopDefault(_configGitignore);
-export const pluginImportX = interopDefault(_pluginImportX);
-export const pluginJsdoc = interopDefault(_pluginJsdoc);
-export const pluginJsonc = interopDefault(_pluginJsonc);
-export const pluginMarkdown = interopDefault(_pluginMarkdown);
-export const pluginN = interopDefault(_pluginN);
-export const pluginPackageJson = interopDefault(_pluginPackageJson);
+export const pluginImportX = interopDefault(
+  _pluginImportX,
+) as unknown as ESLint.Plugin;
+export const pluginJsdoc = interopDefault(
+  _pluginJsdoc,
+) as unknown as ESLint.Plugin;
+export const pluginJsonc = interopDefault(
+  _pluginJsonc,
+) as unknown as ESLint.Plugin;
+export const pluginMarkdown = interopDefault(
+  _pluginMarkdown,
+) as unknown as ESLint.Plugin;
+export const pluginN = interopDefault(_pluginN) as unknown as ESLint.Plugin;
+export const pluginPackageJson = interopDefault(
+  _pluginPackageJson,
+) as unknown as ESLint.Plugin;
 export const pluginPerfectionist = interopDefault(
   _pluginPerfectionist,
 ) as unknown as ESLint.Plugin;
-export const pluginRegexp = interopDefault(_pluginRegexp);
-export const pluginTypeScript = interopDefault(_pluginTypeScript);
-export const pluginUnicorn = interopDefault(_pluginUnicorn);
-export const pluginUnocss = interopDefault(_pluginUnocss);
-export const pluginVue = interopDefault(_pluginVue);
-export const pluginVueScopedCss = interopDefault(_pluginVueScopedCss);
-export const pluginNuxt2 = interopDefault(_pluginNuxt2);
-export const pluginNuxt3 = interopDefault(_pluginNuxt3);
-export const pluginPromise = interopDefault(_pluginPromise);
-export const pluginReactX = interopDefault(_pluginReactX);
-export const pluginReactDom = interopDefault(_pluginReactDom);
-export const pluginReactWebApi = interopDefault(_pluginReactWebApi);
-export const pluginReactHooksExtra = interopDefault(_pluginReactHooksExtra);
+export const pluginRegexp = interopDefault(
+  _pluginRegexp,
+) as unknown as ESLint.Plugin;
+export const pluginTypeScript = interopDefault(
+  _pluginTypeScript,
+) as unknown as ESLint.Plugin;
+export const pluginUnicorn = interopDefault(
+  _pluginUnicorn,
+) as unknown as ESLint.Plugin;
+export const pluginUnocss = interopDefault(
+  _pluginUnocss,
+) as unknown as ESLint.Plugin;
+export const pluginVue = interopDefault(_pluginVue) as unknown as ESLint.Plugin;
+export const pluginVueScopedCss = interopDefault(
+  _pluginVueScopedCss,
+) as unknown as ESLint.Plugin;
+export const pluginNuxt2 = interopDefault(
+  _pluginNuxt2,
+) as unknown as ESLint.Plugin;
+export const pluginNuxt3 = interopDefault(
+  _pluginNuxt3,
+) as unknown as ESLint.Plugin;
+export const pluginPromise = interopDefault(
+  _pluginPromise,
+) as unknown as ESLint.Plugin;
+export const pluginReactX = interopDefault(
+  _pluginReactX,
+) as unknown as ESLint.Plugin;
+export const pluginReactDom = interopDefault(
+  _pluginReactDom,
+) as unknown as ESLint.Plugin;
+export const pluginReactWebApi = interopDefault(
+  _pluginReactWebApi,
+) as unknown as ESLint.Plugin;
+export const pluginReactHooksExtra = interopDefault(
+  _pluginReactHooksExtra,
+) as unknown as ESLint.Plugin;
 export const pluginReactNamingConvention = interopDefault(
   _pluginReactNamingConvention,
-);
+) as unknown as ESLint.Plugin;
 export const pluginReactHooks = fixupPluginRules(
   interopDefault(_pluginReactHooks),
-);
+) as unknown as ESLint.Plugin;
 export const pluginReactPerf = fixupPluginRules(
   interopDefault(_pluginReactPerf),
-);
-export const pluginReactRefresh = interopDefault(_pluginReactRefresh);
+) as unknown as ESLint.Plugin;
+export const pluginReactRefresh = interopDefault(
+  _pluginReactRefresh,
+) as unknown as ESLint.Plugin;
 // https://github.com/Intellicode/eslint-plugin-react-native/issues/333
 export const pluginReactNative = fixupPluginRules(
   interopDefault(_pluginReactNative),
-);
-export const pluginNext = interopDefault(_pluginNext);
-export const pluginTailwindcss = interopDefault(_pluginTailwindcss);
-export const pluginToml = interopDefault(_pluginToml);
-export const pluginYml = interopDefault(_pluginYml);
+) as unknown as ESLint.Plugin;
+export const pluginNext = interopDefault(
+  _pluginNext,
+) as unknown as ESLint.Plugin;
+export const pluginTailwindcss = interopDefault(
+  _pluginTailwindcss,
+) as unknown as ESLint.Plugin;
+export const pluginToml = interopDefault(
+  _pluginToml,
+) as unknown as ESLint.Plugin;
+export const pluginYml = interopDefault(_pluginYml) as unknown as ESLint.Plugin;
 export const parserBabel = interopDefault(_parserBabel);
 export const parserJsonc = interopDefault(_parserJsonc);
 export const parserToml = interopDefault(_parserToml);

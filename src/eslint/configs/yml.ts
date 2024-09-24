@@ -12,7 +12,6 @@ export function yml(options: YmlOptions = {}): Config[] {
         parser: parserYml,
       },
       plugins: {
-        // @ts-expect-error not matched
         yml: pluginYml,
       },
       rules: {

@@ -12,9 +12,7 @@ export function jsonc(options: JsoncOptions = {}): Config[] {
         parser: parserJsonc,
       },
       plugins: {
-        // @ts-expect-error not matched
         jsonc: pluginJsonc,
-        // @ts-expect-error not matched
         "package-json": pluginPackageJson,
       },
       rules: {

@@ -36,7 +36,6 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         ...languageOptions,
       },
       plugins: {
-        // @ts-expect-error not matched
         "@typescript-eslint": pluginTypeScript,
       },
       rules: {

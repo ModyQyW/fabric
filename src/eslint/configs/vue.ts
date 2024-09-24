@@ -594,6 +594,7 @@ export function vue(options: VueOptions = {}): Config[] {
         vue: pluginVue,
         "vue-scoped-css": pluginVueScopedCss,
       },
+      // @ts-expect-error maybe undefined
       processor: pluginVue.processors[".vue"],
       rules: {
         ...vueBaseRules,
