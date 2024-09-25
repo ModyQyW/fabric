@@ -95,6 +95,7 @@ export const GLOB_EXCLUDE = [
   "**/.rax",
   "**/.umi",
   "**/.vite-inspect",
+  "**/cache",
   "**/.vitepress/cache",
   "**/.vuepress/cache",
   "**/CHANGELOG*.md",
