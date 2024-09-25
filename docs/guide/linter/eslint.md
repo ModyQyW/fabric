@@ -419,7 +419,7 @@ export default {
   "*.{json,jsonc,json5}":
     "eslint --fix --cache --no-error-on-unmatched-pattern",
   "*.{yaml,yml}": "eslint --fix --cache --no-error-on-unmatched-pattern",
-  "*.{toml}": "eslint --fix --cache --no-error-on-unmatched-pattern",
+  "*.toml": "eslint --fix --cache --no-error-on-unmatched-pattern",
 };
 ```
 

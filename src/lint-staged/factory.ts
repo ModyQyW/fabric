@@ -53,8 +53,7 @@ export function lintStaged(
         "eslint --fix --cache --no-error-on-unmatched-pattern";
     }
     if (lintToml) {
-      config["*.{toml}"] =
-        "eslint --fix --cache --no-error-on-unmatched-pattern";
+      config["*.toml"] = "eslint --fix --cache --no-error-on-unmatched-pattern";
     }
     if (lintYml) {
       config["*.{yaml,yml}"] =
