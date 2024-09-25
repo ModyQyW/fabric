@@ -4,7 +4,7 @@ markdownlint 是用于 [markdown 文件](https://commonmark.org/) 的代码检�
 
 ## 安装
 
-首先你需要安装 markdownlint-cli。目前支持 markdownlint-cli v0.41。
+首先你需要安装 markdownlint-cli。目前支持 markdownlint-cli v0.42。
 
 ::: code-group
 

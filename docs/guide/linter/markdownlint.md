@@ -4,7 +4,7 @@ markdownlint is the linter for [markdown file](https://commonmark.org/).
 
 ## 安装
 
-You have to install markdownlint-cli first. Currently markdownlint-cli v0.41 is supported.
+You have to install markdownlint-cli first. Currently markdownlint-cli v0.42 is supported.
 
 ::: code-group
 
