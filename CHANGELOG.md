@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.1.2](https://github.com/ModyQyW/fabric/compare/v11.1.1...v11.1.2) (2024-09-25)
+
+
+### Bug Fixes
+
+* add exclude ([d5fb472](https://github.com/ModyQyW/fabric/commit/d5fb472e106d669af079e3f06d9698adcf131031))
+
 ## [11.1.1](https://github.com/ModyQyW/fabric/compare/v11.1.0...v11.1.1) (2024-09-24)
 
 
