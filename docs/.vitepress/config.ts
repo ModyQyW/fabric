@@ -265,6 +265,10 @@ export default defineConfig({
       level: [1, 2, 3, 4, 5, 6],
     },
   },
+  // https://vitepress.dev/guide/sitemap-generation
+  sitemap: {
+    hostname: "https://fabric.modyqyw.top",
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config#footer
     footer: {
