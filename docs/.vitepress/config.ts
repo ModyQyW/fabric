@@ -5,8 +5,46 @@ export default defineConfig({
   // https://vitepress.dev/reference/site-config#description
   description:
     "Opinionated shareable specifications for git-based JavaScript/TypeScript projects",
+
+  // https://vitepress.dev/reference/site-config#head
+  head: [
+    // icon
+    ["link", { href: "/images/w.svg", rel: "icon", type: "image/svg+xml" }],
+    ["link", { href: "/images/w256.png", rel: "icon", type: "image/png" }],
+    // Open Graph
+    ["meta", { content: "website", property: "og:type" }],
+    ["meta", { content: "@modyqyw/fabric", property: "og:title" }],
+    ["meta", { content: "@modyqyw/fabric", property: "og:site_name" }],
+    // Google Analytics
+    [
+      "script",
+      {
+        async: "",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-4DR242MWH7",
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4DR242MWH7');`,
+    ],
+    // Google AdSense
+    [
+      "script",
+      {
+        async: "",
+        crossorigin: "anonymous",
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3102250747488251",
+      },
+    ],
+  ],
+
   // https://vitepress.dev/reference/site-config#lastupdated
   lastUpdated: true,
+
   // https://vitepress.dev/guide/i18n
   locales: {
     root: {
@@ -258,6 +296,7 @@ export default defineConfig({
       },
     },
   },
+
   // https://vitepress.dev/reference/site-config#markdown
   markdown: {
     lineNumbers: true,
@@ -265,10 +304,12 @@ export default defineConfig({
       level: [1, 2, 3, 4, 5, 6],
     },
   },
+
   // https://vitepress.dev/guide/sitemap-generation
   sitemap: {
     hostname: "https://fabric.modyqyw.top",
   },
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config#footer
     footer: {
@@ -287,6 +328,7 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/ModyQyW/fabric" },
     ],
   },
+
   // https://vitepress.dev/reference/site-config#title
   title: "@modyqyw/fabric",
 });
