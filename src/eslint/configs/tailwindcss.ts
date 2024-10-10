@@ -26,28 +26,28 @@ export function tailwindcss(options: TailwindCssOptions = {}): Config[] {
         tailwindcss: pluginTailwindcss,
       },
       rules: {
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/classnames-order.md
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/classnames-order.md
         "tailwindcss/classnames-order": "warn",
 
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/enforces-negative-arbitrary-values.md
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/enforces-negative-arbitrary-values.md
         "tailwindcss/enforces-negative-arbitrary-values": "warn",
 
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/enforces-shorthand.md
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/enforces-shorthand.md
         "tailwindcss/enforces-shorthand": "warn",
 
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/migration-from-tailwind-2.md
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/migration-from-tailwind-2.md
         "tailwindcss/migration-from-tailwind-2": "warn",
 
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/no-arbitrary-value.md
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/no-arbitrary-value.md
         "tailwindcss/no-arbitrary-value": "off",
 
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/no-custom-classname.md
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/no-custom-classname.md
         "tailwindcss/no-custom-classname": "off",
 
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/no-contradicting-classname.md∑
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/no-contradicting-classname.md∑
         "tailwindcss/no-contradicting-classname": "error",
 
-        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/master/docs/rules/no-unnecessary-arbitrary-value.md
+        // https://github.com/francoismassart/eslint-plugin-tailwindcss/blob/v3.17.5/docs/rules/no-unnecessary-arbitrary-value.md
         "tailwindcss/no-unnecessary-arbitrary-value": "warn",
 
         ...rules,
