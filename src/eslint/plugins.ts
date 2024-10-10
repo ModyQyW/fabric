@@ -40,7 +40,6 @@ import * as _pluginNext from "@next/eslint-plugin-next";
 import * as _pluginTailwindcss from "eslint-plugin-tailwindcss";
 import * as _pluginToml from "eslint-plugin-toml";
 import * as _pluginYml from "eslint-plugin-yml";
-/* @ts-expect-error missing types */
 import * as _parserBabel from "@babel/eslint-parser";
 import * as _parserJsonc from "jsonc-eslint-parser";
 import * as _parserToml from "toml-eslint-parser";
