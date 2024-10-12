@@ -7,6 +7,8 @@ defineOptions({
   name: "VAd",
 });
 
+/* eslint-disable unicorn/no-abusive-eslint-disable */
+/* eslint-disable */
 onMounted(async () => {
   await nextTick(() => {
     if (typeof window === "undefined") return;
@@ -17,6 +19,7 @@ onMounted(async () => {
     div.append(script);
   });
 });
+/* eslint-enable */
 </script>
 
 <template>
