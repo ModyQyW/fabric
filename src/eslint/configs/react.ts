@@ -125,7 +125,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-naming-convention/use-state": "warn",
 
         // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks
-        // eslint-plugin-react-hooks v4.6.2
+        // eslint-plugin-react-hooks v5.0.0
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
 
