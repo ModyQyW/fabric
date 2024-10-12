@@ -297,7 +297,7 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
         "unicorn/prefer-export-from": "error",
 
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-global-this.md
-        "unicorn/prefer-global-this": "error",
+        "unicorn/prefer-global-this": "warn",
 
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-includes.md
         "unicorn/prefer-includes": "error",
