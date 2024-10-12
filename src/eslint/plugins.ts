@@ -12,7 +12,6 @@ import * as _pluginRegexp from "eslint-plugin-regexp";
 import * as _pluginTypeScript from "@typescript-eslint/eslint-plugin";
 import * as _pluginUnicorn from "eslint-plugin-unicorn";
 import _pluginUnocss from "@unocss/eslint-plugin";
-/* @ts-expect-error missing types */
 import * as _pluginVue from "eslint-plugin-vue";
 /* @ts-expect-error missing types */
 import * as _pluginVueScopedCss from "eslint-plugin-vue-scoped-css";
