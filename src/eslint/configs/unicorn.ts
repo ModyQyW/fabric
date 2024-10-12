@@ -36,6 +36,9 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/consistent-destructuring.md
         "unicorn/consistent-destructuring": "warn",
 
+        // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/consistent-existence-index-check.md
+        "unicorn/consistent-existence-index-check": "warn",
+
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/consistent-empty-array-spread.md
         "unicorn/consistent-empty-array-spread": "error",
 
@@ -293,6 +296,9 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-export-from.md
         "unicorn/prefer-export-from": "error",
 
+        // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-global-this.md
+        "unicorn/prefer-global-this": "error",
+
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-includes.md
         "unicorn/prefer-includes": "error",
 
@@ -304,6 +310,9 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
 
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-logical-operator-over-ternary.md
         "unicorn/prefer-logical-operator-over-ternary": "error",
+
+        // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-math-min-max.md
+        "unicorn/prefer-math-min-max": "error",
 
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v55.0.0/docs/rules/prefer-math-trunc.md
         "unicorn/prefer-math-trunc": "error",
