@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.2.0](https://github.com/ModyQyW/fabric/compare/v11.1.4...v11.2.0) (2024-10-12)
+
+
+### Features
+
+* **eslint:** add unicorn rules ([896c8a5](https://github.com/ModyQyW/fabric/commit/896c8a58829e9d157f17c172dffebe1b970eea44))
+* **eslint:** add vue/no-deprecated-delete-set for vue3 ([88c57cc](https://github.com/ModyQyW/fabric/commit/88c57cc2a0ec94ce917e87085b650e3f46ea3507))
+
+
+### Bug Fixes
+
+* **eslint:** loose unicorn rules ([61c35fa](https://github.com/ModyQyW/fabric/commit/61c35fa3adb23528b04657f2f62483a086cc0d83))
+* remove directive ([c1d7110](https://github.com/ModyQyW/fabric/commit/c1d711072a6b8c4844d7c284937c22212a9342bf))
+
 ## [11.1.4](https://github.com/ModyQyW/fabric/compare/v11.1.3...v11.1.4) (2024-10-10)
 
 ## [11.1.3](https://github.com/ModyQyW/fabric/compare/v11.1.2...v11.1.3) (2024-09-30)
