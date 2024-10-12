@@ -268,6 +268,7 @@ const vue3Rules: Rules = {
   "vue/html-button-has-type": "error",
   "vue/next-tick-style": "error",
   "vue/no-boolean-default": ["error", "default-false"],
+  "vue/no-deprecated-delete-set": "error",
   "vue/no-deprecated-model-definition": "error",
   "vue/no-duplicate-attr-inheritance": "error",
   "vue/no-empty-component-block": "error",
