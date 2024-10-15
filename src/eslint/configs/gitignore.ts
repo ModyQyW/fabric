@@ -1,4 +1,4 @@
-import defu from "defu";
+import { defu } from "defu";
 import { configGitignore } from "../plugins";
 import type { Config, GitignoreOptions } from "../types";
 
