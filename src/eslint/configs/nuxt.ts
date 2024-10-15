@@ -36,5 +36,14 @@ export function nuxt(options: NuxtOptions = {}): Config[] {
         ...(hasTypeScript ? typescriptRules : {}),
       },
     },
+    hasNuxt3
+      ? {
+          name: "nuxt-config",
+          files: ["**/nuxt.config.?([cm])[jt]s?(x)"],
+          rules: {
+            "nuxt/nuxt-config-keys-order": "error",
+          },
+        }
+      : {},
   ];
 }
