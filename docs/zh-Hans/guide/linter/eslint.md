@@ -67,7 +67,10 @@ import {
 import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
-  // 基于 eslint-plugin-flat-gitignore
+  // 基于 eslint-plugin-command
+  // 默认为 true，即启用
+  command: true,
+  // 基于 eslint-config-flat-gitignore
   // 支持读取并使用 .gitignore 和 .eslintignore 内容作为平面配置的 ignores 选项
   // 默认为 true，即启用
   gitignore: true,
