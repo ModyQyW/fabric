@@ -1,3 +1,4 @@
+export * from "./command";
 export * from "./gitignore";
 export * from "./ignores";
 export * from "./imports";

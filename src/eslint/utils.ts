@@ -12,6 +12,7 @@ import type { Options, Config } from "./types";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {
+    command: options.command ?? true,
     gitignore: options.gitignore ?? true,
     ignores: options.ignores ?? true,
     imports: options.imports ?? true,

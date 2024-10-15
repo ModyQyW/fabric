@@ -1,5 +1,6 @@
 import { isBoolean } from "../utils";
 import {
+  command,
   gitignore,
   ignores,
   imports,
@@ -31,6 +32,7 @@ export function eslint(
   userConfigs: (Config | Config[])[] = [],
 ): Config[] {
   const {
+    command: commandOptions,
     gitignore: gitignoreOptions,
     ignores: ignoresOptions,
     imports: importsOptions,
@@ -57,6 +59,10 @@ export function eslint(
 
   const configs: Config[][] = [];
 
+  if (commandOptions) {
+    if (isBoolean(commandOptions)) configs.push(command());
+    else configs.push(command(commandOptions));
+  }
   if (gitignoreOptions) {
     if (isBoolean(gitignoreOptions)) configs.push(gitignore());
     else configs.push(gitignore(gitignoreOptions));

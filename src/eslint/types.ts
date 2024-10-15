@@ -1,4 +1,5 @@
 import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
+import type { ESLintPluginCommandOptions } from "eslint-plugin-command/types";
 import type { ESLint, Linter } from "eslint";
 import type { ESLintReactSettings } from "@eslint-react/shared";
 
@@ -7,6 +8,8 @@ export type Config = Linter.Config;
 export type Plugin = ESLint.Plugin;
 
 export type Rules = Config["rules"];
+
+export type CommandOptions = ESLintPluginCommandOptions;
 
 export type GitignoreOptions = FlatGitignoreOptions;
 export interface IgnoresOptions {
@@ -132,6 +135,12 @@ export interface YmlOptions {
 }
 
 export interface Options {
+  /**
+   * Based on eslint-plugin-command.
+   *
+   * @default true
+   */
+  command?: CommandOptions | boolean;
   /**
    * Based on eslint-config-flat-gitignore. Use gitignore and eslintignore.
    *

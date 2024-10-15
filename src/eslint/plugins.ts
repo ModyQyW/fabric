@@ -1,5 +1,6 @@
 import { fixupPluginRules } from "@eslint/compat";
 import * as _configGitignore from "eslint-config-flat-gitignore";
+import * as _configCommand from "eslint-plugin-command/config";
 import * as _pluginImportX from "eslint-plugin-import-x";
 import * as _pluginJsdoc from "eslint-plugin-jsdoc";
 import * as _pluginJsonc from "eslint-plugin-jsonc";
@@ -49,6 +50,7 @@ import { interopDefault } from "../utils";
 import type { ESLint } from "eslint";
 
 export const configGitignore = interopDefault(_configGitignore);
+export const configCommand = interopDefault(_configCommand);
 export const pluginImportX = interopDefault(
   _pluginImportX,
 ) as unknown as ESLint.Plugin;
