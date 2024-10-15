@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.3.0](https://github.com/ModyQyW/fabric/compare/v11.2.0...v11.3.0) (2024-10-15)
+
+
+### Features
+
+* **eslint:** add eslint-plugin-command ([69908b6](https://github.com/ModyQyW/fabric/commit/69908b66d0288e40a263891e2c0e8149fd0f6661))
+* **eslint:** add nuxt rules ([fbe819a](https://github.com/ModyQyW/fabric/commit/fbe819afc33fdf3f8eff15b370fb688b7f27810c))
+
 ## [11.2.0](https://github.com/ModyQyW/fabric/compare/v11.1.4...v11.2.0) (2024-10-12)
 
 
