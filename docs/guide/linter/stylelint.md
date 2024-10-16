@@ -229,7 +229,7 @@ Cited from [vuejs/eslint-config-prettier](https://github.com/vuejs/eslint-config
 
 > Running prettier inside the linter slows down the linting process, might clutter the editor with annoying warnings, and adds one layer of indirection where things may break. [Prettier's official documentation](https://prettier.io/docs/en/integrating-with-linters.html) recommends using separate commands for linting and formatting, i.e., Prettier for code formatting concerns and ESLint for code-quality concerns.
 
-This library is consistent with its view that it is not recommended to call Prettier from within ESLint and Stylelint, and it is recommended to run Prettier separately. By default, running ESLint and Stylelint will not conflict with Prettier or other code formatters. See also the [Prettier chapter](.../formatter/prettier)
+This library is consistent with its view that it is not recommended to call Prettier from within ESLint and Stylelint, and it is recommended to run Prettier separately. By default, running ESLint and Stylelint will not conflict with Prettier or other code formatters. See also the [Prettier chapter](../formatter/prettier)
 
 ### Plugin conflicts?
 
