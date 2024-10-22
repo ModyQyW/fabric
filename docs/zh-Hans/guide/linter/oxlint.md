@@ -8,7 +8,7 @@ oxlint 不能完全取代 ESLint。相反地，因为 oxlint 非常快，所以 
 
 ## 安装
 
-首先你需要安装 oxlint。目前支持 oxlint v0.9。
+首先你需要安装 oxlint。目前支持 oxlint v0.10。
 
 ::: code-group
 
