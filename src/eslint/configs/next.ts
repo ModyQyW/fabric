@@ -77,7 +77,7 @@ export function next(options: NextOptions = {}): Config[] {
         "@next/next/no-typos": "warn",
 
         // https://nextjs.org/docs/messages/no-unwanted-polyfillio
-        "@next/next/no-unwanted-polyfillio": "warn",
+        "@next/next/no-unwanted-polyfillio": "error",
 
         ...rules,
       },
