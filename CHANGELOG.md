@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.3.1](https://github.com/ModyQyW/fabric/compare/v11.3.0...v11.3.1) (2024-10-22)
+
+
+### Bug Fixes
+
+* **cli:** fix name judgement ([e9a6924](https://github.com/ModyQyW/fabric/commit/e9a692419e455857f39c1141f6d23cce27c9c730))
+* **eslint:** @next/next/no-unwanted-polyfillio set to error because of chain attack ([0d4c05b](https://github.com/ModyQyW/fabric/commit/0d4c05b6f83942294be9210c462994c2f5a69aaf))
+
 ## [11.3.0](https://github.com/ModyQyW/fabric/compare/v11.2.0...v11.3.0) (2024-10-15)
 
 
