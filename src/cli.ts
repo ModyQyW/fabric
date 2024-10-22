@@ -8,7 +8,7 @@ import { ListrInquirerPromptAdapter } from "@listr2/prompt-adapter-inquirer";
 import { Command } from "commander";
 import consola from "consola";
 import { defu } from "defu";
-import fg from "fast-glob";
+import { globSync } from "tinyglobby";
 import {
   Listr,
   type DefaultRenderer,
@@ -469,9 +469,9 @@ const tasks = new Listr<Ctx>([
         filtered
           .filter((f) => !!f.patterns)
           .flatMap((f) =>
-            fg
-              .sync(f.patterns!, { dot: true })
-              .map((f) => unlink(resolvePath(f))),
+            globSync(f.patterns!, { dot: true }).map((f) =>
+              unlink(resolvePath(f)),
+            ),
           ),
       );
       if (packageJsonObject) {
