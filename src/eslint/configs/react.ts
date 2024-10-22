@@ -130,12 +130,12 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-hooks/exhaustive-deps": "warn",
 
         // https://github.com/cvazac/eslint-plugin-react-perf/tree/35e9912004da57880939edd4a1ca202740157c66
-        // eslint-plugin-react-perf v3.3.2
+        // eslint-plugin-react-perf v3.3.3
         "react-perf/jsx-no-new-object-as-prop": "error",
         "react-perf/jsx-no-new-array-as-prop": "error",
         "react-perf/jsx-no-new-function-as-prop": "error",
 
-        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.12
+        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.13
         "react-refresh/only-export-components": [
           "warn",
           {

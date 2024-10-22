@@ -10,13 +10,13 @@ import {
 import type { Config, Rules, VueOptions } from "../types";
 
 const vueBaseRules: Rules = {
-  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/base.js
+  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.29.1/lib/configs/base.js
   "vue/comment-directive": "error",
   "vue/jsx-uses-vars": "error",
 };
 
 const vue3Rules: Rules = {
-  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue3-essential.js
+  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.29.1/lib/configs/vue3-essential.js
   // 'vue/multi-word-component-names': 'error', // Too ideal for business.
   "vue/multi-word-component-names": "warn",
   "vue/no-arrow-functions-in-watch": "error",
@@ -99,7 +99,7 @@ const vue3Rules: Rules = {
   "vue/valid-v-slot": "error",
   "vue/valid-v-text": "error",
 
-  //https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue3-strongly-recommended.js
+  //https://github.com/vuejs/eslint-plugin-vue/blob/v9.29.1/lib/configs/vue3-strongly-recommended.js
   "vue/attribute-hyphenation": "warn",
   "vue/component-definition-name-casing": "warn",
   // 'vue/first-attribute-linebreak': 'warn', // Conflicts with Prettier.
@@ -126,7 +126,7 @@ const vue3Rules: Rules = {
   "vue/v-on-style": "warn",
   "vue/v-slot-style": "warn",
 
-  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue3-recommended.js
+  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.29.1/lib/configs/vue3-recommended.js
   // 'vue/attributes-order': 'warn',
   "vue/attributes-order": [
     "warn",
@@ -307,7 +307,7 @@ const vue3Rules: Rules = {
 };
 
 const vue2Rules: Rules = {
-  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue2-essential.js
+  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.29.1/lib/configs/vue2-essential.js
   // 'vue/multi-word-component-names': 'error', // Too ideal for business.
   "vue/multi-word-component-names": "off",
   "vue/no-arrow-functions-in-watch": "error",
@@ -368,7 +368,7 @@ const vue2Rules: Rules = {
   "vue/valid-v-slot": "error",
   "vue/valid-v-text": "error",
 
-  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue2-strongly-recommended.js
+  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.29.1/lib/configs/vue2-strongly-recommended.js
   "vue/attribute-hyphenation": "warn",
   "vue/component-definition-name-casing": "warn",
   // 'vue/first-attribute-linebreak': 'warn', // Conflicts with Prettier.
@@ -393,7 +393,7 @@ const vue2Rules: Rules = {
   "vue/v-on-style": "warn",
   "vue/v-slot-style": "warn",
 
-  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.27.0/lib/configs/vue2-recommended.js
+  // https://github.com/vuejs/eslint-plugin-vue/blob/v9.29.1/lib/configs/vue2-recommended.js
   // 'vue/attributes-order': 'warn',
   "vue/attributes-order": [
     "warn",
