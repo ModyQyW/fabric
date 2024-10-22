@@ -378,10 +378,10 @@ const tasks = new Listr<Ctx>([
                   o.name !== "Prettier" &&
                   o.name !== "ESLint" &&
                   o.name !== "oxlint" &&
-                  o.name !== "stylelint"
+                  o.name !== "Stylelint"
                 );
               }
-              return o.name !== "biome";
+              return o.name !== "Biome";
             })
             .map((o) => o.name),
         );
