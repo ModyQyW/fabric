@@ -484,3 +484,7 @@ export default eslint({
 ```
 
 你也应该直接运行 tsc / vue-tsc 以进行更为完整的类型检查。请查看 [tsc 章节](../typescript-checker/tsc)。
+
+### 更好的性能？
+
+看看 [eslint-p](https://github.com/origin-1/eslint-p) 是否满足需求。

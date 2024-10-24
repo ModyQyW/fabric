@@ -483,3 +483,7 @@ export default eslint({
 ```
 
 You should also run tsc / vue-tsc directly for more complete type checking. See the [tsc chapter](../typescript-checker/tsc).
+
+### Better performance?
+
+Check [eslint-p](https://github.com/origin-1/eslint-p).
