@@ -135,7 +135,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-perf/jsx-no-new-array-as-prop": "error",
         "react-perf/jsx-no-new-function-as-prop": "error",
 
-        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.13
+        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.14
         "react-refresh/only-export-components": [
           "warn",
           {
