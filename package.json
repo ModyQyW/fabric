@@ -183,6 +183,7 @@
     "lint:package": "pnpm run build && publint && attw --pack .",
     "prepare": "is-ci || simple-git-hooks",
     "prepublishOnly": "pnpm run build",
+    "preversion": "git-branch-is main && conc \"pnpm:lint\" \"pnpm:type-check\"",
     "release": "commit-and-tag-version -a",
     "type-check": "tsc --noEmit"
   },
@@ -282,6 +283,7 @@
     "concurrently": "^9.0.1",
     "esbuild-register": "^3.6.0",
     "eslint": "^9.13.0",
+    "git-branch-is": "^4.0.0",
     "is-ci": "^3.0.1",
     "lint-staged": "^15.2.10",
     "markdownlint-cli": "^0.42.0",

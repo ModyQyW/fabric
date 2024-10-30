@@ -288,6 +288,9 @@ importers:
       eslint:
         specifier: ^9.13.0
         version: 9.13.0(jiti@2.3.3)
+      git-branch-is:
+        specifier: ^4.0.0
+        version: 4.0.0
       is-ci:
         specifier: ^3.0.1
         version: 3.0.1
@@ -2795,6 +2798,10 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
 
+  commander@6.2.1:
+    resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
+    engines: {node: '>= 6'}
+
   commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
@@ -3702,6 +3709,11 @@ packages:
 
   get-tsconfig@4.8.1:
     resolution: {integrity: sha512-k9PN+cFBmaLWtVz29SkUoqU5O0slLuHJXt/2P+tMVFT+phsSGXGkp9t3rQIqdz0e+06EHNGs3oM6ZX1s2zHxRg==}
+
+  git-branch-is@4.0.0:
+    resolution: {integrity: sha512-isA1/lMHEaorz2JpcqmSZMnS1EerfMqQdawJ2eebU2MVUI8QWiab0iYrBbs4zaAEPVCPVGYXOGGZVeQFSjCGzg==}
+    engines: {node: '>=10.13', npm: '>=1.3.7'}
+    hasBin: true
 
   git-hooks-list@1.0.3:
     resolution: {integrity: sha512-Y7wLWcrLUXwk2noSka166byGCvhMtDRpgHdzCno1UQv/n/Hegp++a2xBWJL1lJarnKD3SWaljD+0z1ztqxuKyQ==}
@@ -8842,6 +8854,8 @@ snapshots:
 
   commander@4.1.1: {}
 
+  commander@6.2.1: {}
+
   commander@7.2.0: {}
 
   comment-parser@1.4.1: {}
@@ -9995,6 +10009,10 @@ snapshots:
   get-tsconfig@4.8.1:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  git-branch-is@4.0.0:
+    dependencies:
+      commander: 6.2.1
 
   git-hooks-list@1.0.3: {}
 
