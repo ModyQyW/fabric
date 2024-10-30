@@ -39,7 +39,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         "@typescript-eslint": pluginTypeScript,
       },
       rules: {
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.11.0/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.12.2/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
         "constructor-super": "off", // ts(2335) & ts(2377)
         "getter-return": "off", // ts(2378)
         "no-const-assign": "off", // ts(2588)
@@ -63,7 +63,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         // 'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
         // 'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
 
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.11.0/packages/eslint-plugin/src/configs/recommended.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.12.2/packages/eslint-plugin/src/configs/recommended.ts
         "@typescript-eslint/ban-ts-comment": "error",
         "no-array-constructor": "off",
         "@typescript-eslint/no-array-constructor": "error",
@@ -89,7 +89,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         "@typescript-eslint/prefer-namespace-keyword": "error",
         "@typescript-eslint/triple-slash-reference": "error",
 
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.11.0/packages/eslint-plugin/src/configs/recommended-type-checked-only.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.12.2/packages/eslint-plugin/src/configs/recommended-type-checked-only.ts
         ...(typeCheck
           ? {
               "@typescript-eslint/await-thenable": "error",
