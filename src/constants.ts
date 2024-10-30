@@ -102,13 +102,14 @@ export const GLOB_EXCLUDE = [
   "**/*.min.*",
   "**/LICENSE*",
   "**/__snapshots__",
-  "**/auto-import?(s).d.ts",
-  "**/components.d.ts",
-  "**/typed-router.d.ts",
-  "**/uni-pages.d.ts",
-  "**/androidPrivacy.json",
-  "**/pages.json",
-  "**/manifest.json",
+  "**/auto-import?(s).d.ts", // unplugin-auto-import
+  "**/components.d.ts", // unplugin-vue-components
+  "**/typed-router.d.ts", // nuxt-typed-router
+  "**/uni-pages.d.ts", // @uni-helper/vite-plugin-uni-pages
+  "**/routeTree.gen.ts", // @tanstack/react-router
+  "**/androidPrivacy.json", // uni-app
+  "**/pages.json", // uni-app
+  "**/manifest.json", // uni-app
   "**/*timestamp-*",
 ];
 
