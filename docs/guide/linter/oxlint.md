@@ -8,7 +8,7 @@ oxlint is not a complete replacement for ESLint; rather, oxlint complements ESLi
 
 ## Installation
 
-You have to install oxlint first. Currently oxlint v0.10 is supported.
+You have to install oxlint first. Currently oxlint v0.11 is supported.
 
 ::: code-group
 
@@ -62,7 +62,9 @@ Install [the corresponding oxlint plugin](https://marketplace.visualstudio.com/i
 
 ### Integration of WebStorm?
 
-There is no corresponding plugin yet, please track down [oxc discussions 3269](https://github.com/oxc-project/oxc/discussions/3269) and [Oxlint support for all Intellij-based IDEs](https://youtrack.jetbrains.com/issue/WEB-64726/Oxlint-support-for-all-Intellij-based-IDEs).
+There is only [MVP version](https://github.com/oxc-project/oxc-intellij-plugin/tree/main) yet.
+
+Please track down [oxc discussions 3269](https://github.com/oxc-project/oxc/discussions/3269) and [Oxlint support for all Intellij-based IDEs](https://youtrack.jetbrains.com/issue/WEB-64726/Oxlint-support-for-all-Intellij-based-IDEs).
 
 ### Integration of lint-staged?
 

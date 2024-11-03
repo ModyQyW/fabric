@@ -8,7 +8,7 @@ oxlint 不能完全取代 ESLint。相反地，因为 oxlint 非常快，所以 
 
 ## 安装
 
-首先你需要安装 oxlint。目前支持 oxlint v0.10。
+首先你需要安装 oxlint。目前支持 oxlint v0.11。
 
 ::: code-group
 
@@ -62,7 +62,9 @@ ESLint 配置提供了 .gitignore、.eslintignore 和一部分内置忽略文件
 
 ### 整合 WebStorm？
 
-目前还没有相应插件，请追踪 [oxc discussions 3269](https://github.com/oxc-project/oxc/discussions/3269) 和 [Oxlint support for all Intellij-based IDEs](https://youtrack.jetbrains.com/issue/WEB-64726/Oxlint-support-for-all-Intellij-based-IDEs)。
+目前只有 [MVP 版本](https://github.com/oxc-project/oxc-intellij-plugin/tree/main)。
+
+请追踪 [oxc discussions 3269](https://github.com/oxc-project/oxc/discussions/3269) 和 [Oxlint support for all Intellij-based IDEs](https://youtrack.jetbrains.com/issue/WEB-64726/Oxlint-support-for-all-Intellij-based-IDEs)。
 
 ### 整合 lint-staged？
 
