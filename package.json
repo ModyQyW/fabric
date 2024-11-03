@@ -241,7 +241,6 @@
     "eslint-plugin-vue": "^9.30.0",
     "eslint-plugin-vue-scoped-css": "^2.8.1",
     "eslint-plugin-yml": "^1.15.0",
-    "fast-glob": "^3.3.2",
     "globals": "^15.11.0",
     "jsonc-eslint-parser": "^2.4.0",
     "listr2": "^8.2.5",
