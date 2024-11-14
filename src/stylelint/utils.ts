@@ -1,5 +1,5 @@
-import { hasScss } from "../env";
-import type { Options } from "./types";
+import { hasScss } from "../env.ts";
+import type { Options } from "./types.ts";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {

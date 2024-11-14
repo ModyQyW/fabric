@@ -1,5 +1,5 @@
-import { parseOptions } from "./utils";
-import type { Options } from "./types";
+import { parseOptions } from "./utils.ts";
+import type { Options } from "./types.ts";
 
 export function simpleGitHooks(
   options: Options = {},

@@ -1,7 +1,7 @@
-import { GLOB_EXCLUDE } from "../constants";
-import { filterFilenames } from "../utils";
-import { parseOptions } from "./utils";
-import type { Config, Options } from "./types";
+import { GLOB_EXCLUDE } from "../constants.ts";
+import { filterFilenames } from "../utils.ts";
+import { parseOptions } from "./utils.ts";
+import type { Config, Options } from "./types.ts";
 
 export function lintStaged(
   options: Options = {},
@@ -24,7 +24,7 @@ export function lintStaged(
 
   if (enableBiome) {
     config["*"] =
-      `biome check --write --no-errors-on-unmatched --files-ignore-unknown=true`;
+      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true";
   }
 
   if (enableOxlint && enableESLint) {

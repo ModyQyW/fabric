@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from "../../constants";
-import { hasTypeScript, hasVue } from "../../env";
-import { pluginTailwindcss } from "../plugins";
-import type { Config, TailwindCssOptions } from "../types";
+} from "../../constants.ts";
+import { hasTypeScript, hasVue } from "../../env.ts";
+import { pluginTailwindcss } from "../plugins.ts";
+import type { Config, TailwindCssOptions } from "../types.ts";
 
 export function tailwindcss(options: TailwindCssOptions = {}): Config[] {
   const {

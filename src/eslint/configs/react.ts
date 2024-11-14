@@ -1,5 +1,5 @@
-import { GLOB_JSX, GLOB_TSX } from "../../constants";
-import { hasVite, hasRemix, hasNext } from "../../env";
+import { GLOB_JSX, GLOB_TSX } from "../../constants.ts";
+import { hasVite, hasRemix, hasNext } from "../../env.ts";
 import {
   parserBabel,
   parserTypeScript,
@@ -11,8 +11,8 @@ import {
   pluginReactHooks,
   pluginReactPerf,
   pluginReactRefresh,
-} from "../plugins";
-import type { Config, ReactOptions } from "../types";
+} from "../plugins.ts";
+import type { Config, ReactOptions } from "../types.ts";
 
 export function react(options: ReactOptions = {}): Config[] {
   const {

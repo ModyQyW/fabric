@@ -1,7 +1,7 @@
-import { GLOB_EXCLUDE } from "../constants";
-import { extends_, plugins, rules } from "./configs";
-import { parseOptions } from "./utils";
-import type { Config, Options } from "./types";
+import { GLOB_EXCLUDE } from "../constants.ts";
+import { extends_, plugins, rules } from "./configs.ts";
+import { parseOptions } from "./utils.ts";
+import type { Config, Options } from "./types.ts";
 
 export function stylelint(
   options: Options = {},

@@ -1,6 +1,6 @@
-import { GLOB_YAML } from "../../constants";
-import { parserYml, pluginYml } from "../plugins";
-import type { Config, YmlOptions } from "../types";
+import { GLOB_YAML } from "../../constants.ts";
+import { parserYml, pluginYml } from "../plugins.ts";
+import type { Config, YmlOptions } from "../types.ts";
 
 export function yml(options: YmlOptions = {}): Config[] {
   const { files = [GLOB_YAML], rules = {} } = options;

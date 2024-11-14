@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from "../../constants";
-import { hasTypeScript, hasVue } from "../../env";
-import { pluginJsdoc } from "../plugins";
-import type { Config, JsdocOptions } from "../types";
+} from "../../constants.ts";
+import { hasTypeScript, hasVue } from "../../env.ts";
+import { pluginJsdoc } from "../plugins.ts";
+import type { Config, JsdocOptions } from "../types.ts";
 
 export function jsdoc(options: JsdocOptions = {}): Config[] {
   const {

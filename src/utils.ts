@@ -1,5 +1,5 @@
 import multimatch from "multimatch";
-import { GLOB_EXCLUDE } from "./constants";
+import { GLOB_EXCLUDE } from "./constants.ts";
 
 /**
  * Interop default.

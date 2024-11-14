@@ -1,5 +1,5 @@
-import { parseOptions } from "./utils";
-import type { Config, Options } from "./types";
+import { parseOptions } from "./utils.ts";
+import type { Config, Options } from "./types.ts";
 
 export function prettier(
   options: Options = {},

@@ -1,13 +1,13 @@
-import { GLOB_VUE } from "../../constants";
-import { hasTypeScript, hasVue3, hasMiniProgram } from "../../env";
+import { GLOB_VUE } from "../../constants.ts";
+import { hasTypeScript, hasVue3, hasMiniProgram } from "../../env.ts";
 import {
   parserBabel,
   parserTypeScript,
   parserVue,
   pluginVue,
   pluginVueScopedCss,
-} from "../plugins";
-import type { Config, Rules, VueOptions } from "../types";
+} from "../plugins.ts";
+import type { Config, Rules, VueOptions } from "../types.ts";
 
 const vueBaseRules: Rules = {
   // https://github.com/vuejs/eslint-plugin-vue/blob/v9.30.0/lib/configs/base.js

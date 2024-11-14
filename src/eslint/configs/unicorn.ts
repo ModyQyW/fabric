@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from "../../constants";
-import { hasTypeScript, hasVue } from "../../env";
-import { pluginUnicorn } from "../plugins";
-import type { Config, UnicornOptions } from "../types";
+} from "../../constants.ts";
+import { hasTypeScript, hasVue } from "../../env.ts";
+import { pluginUnicorn } from "../plugins.ts";
+import type { Config, UnicornOptions } from "../types.ts";
 
 export function unicorn(options: UnicornOptions = {}): Config[] {
   const {

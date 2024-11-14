@@ -1,5 +1,5 @@
-export * from "./configs";
-export * from "./factory";
-export * from "./plugins";
-export * from "./types";
-export * from "./utils";
+export * from "./configs/index.ts";
+export * from "./factory.ts";
+export * from "./plugins.ts";
+export type * from "./types.ts";
+export * from "./utils.ts";

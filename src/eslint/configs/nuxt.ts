@@ -1,7 +1,7 @@
-import { GLOB_VUE } from "../../constants";
-import { hasNuxt3, hasTypeScript } from "../../env";
-import { pluginNuxt2, pluginNuxt3 } from "../plugins";
-import type { Config, NuxtOptions, Rules } from "../types";
+import { GLOB_VUE } from "../../constants.ts";
+import { hasNuxt3, hasTypeScript } from "../../env.ts";
+import { pluginNuxt2, pluginNuxt3 } from "../plugins.ts";
+import type { Config, NuxtOptions, Rules } from "../types.ts";
 
 const nuxt3Rules: Rules = {
   "nuxt/prefer-import-meta": "error",

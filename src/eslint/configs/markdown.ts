@@ -2,9 +2,9 @@ import {
   GLOB_MARKDOWN,
   GLOB_MARKDOWN_SCRIPT,
   GLOB_MARKDOWN_VUE,
-} from "../../constants";
-import { pluginMarkdown } from "../plugins";
-import type { Config, MarkdownOptions } from "../types";
+} from "../../constants.ts";
+import { pluginMarkdown } from "../plugins.ts";
+import type { Config, MarkdownOptions } from "../types.ts";
 
 export function markdown(options: MarkdownOptions = {}): Config[] {
   const {

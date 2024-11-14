@@ -1,6 +1,6 @@
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../../constants";
-import { parserJsonc, pluginJsonc, pluginPackageJson } from "../plugins";
-import type { Config, JsoncOptions } from "../types";
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../../constants.ts";
+import { parserJsonc, pluginJsonc, pluginPackageJson } from "../plugins.ts";
+import type { Config, JsoncOptions } from "../types.ts";
 
 export function jsonc(options: JsoncOptions = {}): Config[] {
   const { files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC], rules = {} } = options;

@@ -5,8 +5,8 @@ import {
   hasOxlint,
   hasPrettier,
   hasStylelint,
-} from "../env";
-import type { Options } from "./types";
+} from "../env.ts";
+import type { Options } from "./types.ts";
 
 export function parseOptions(
   options: Options = {},

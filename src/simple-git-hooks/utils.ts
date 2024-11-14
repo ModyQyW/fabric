@@ -1,5 +1,5 @@
-import { hasCommitlint, hasLintStaged } from "../env";
-import type { Options } from "./types";
+import { hasCommitlint, hasLintStaged } from "../env.ts";
+import type { Options } from "./types.ts";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {

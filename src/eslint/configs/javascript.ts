@@ -1,7 +1,7 @@
 import globals from "globals";
-import { GLOB_SCRIPT, GLOB_VUE } from "../../constants";
-import { parserBabel } from "../plugins";
-import type { Config, JavaScriptOptions } from "../types";
+import { GLOB_SCRIPT, GLOB_VUE } from "../../constants.ts";
+import { parserBabel } from "../plugins.ts";
+import type { Config, JavaScriptOptions } from "../types.ts";
 
 export function javascript(options: JavaScriptOptions = {}): Config[] {
   const {

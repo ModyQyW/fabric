@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from "../../constants";
-import { hasTypeScript, hasVue } from "../../env";
-import { pluginPerfectionist } from "../plugins";
-import type { Config, PerfectionistOptions } from "../types";
+} from "../../constants.ts";
+import { hasTypeScript, hasVue } from "../../env.ts";
+import { pluginPerfectionist } from "../plugins.ts";
+import type { Config, PerfectionistOptions } from "../types.ts";
 
 export function perfectionist(options: PerfectionistOptions = {}): Config[] {
   const {

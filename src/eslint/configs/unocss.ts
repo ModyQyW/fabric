@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from "../../constants";
-import { hasTypeScript, hasVue } from "../../env";
-import { pluginUnocss } from "../plugins";
-import type { Config, UnoCssOptions } from "../types";
+} from "../../constants.ts";
+import { hasTypeScript, hasVue } from "../../env.ts";
+import { pluginUnocss } from "../plugins.ts";
+import type { Config, UnoCssOptions } from "../types.ts";
 
 export function unocss(options: UnoCssOptions = {}): Config[] {
   const {

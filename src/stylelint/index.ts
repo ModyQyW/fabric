@@ -1,4 +1,4 @@
-export * from "./configs";
-export * from "./factory";
-export * from "./types";
-export * from "./utils";
+export * from "./configs.ts";
+export * from "./factory.ts";
+export type * from "./types.ts";
+export * from "./utils.ts";

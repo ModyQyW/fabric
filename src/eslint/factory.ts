@@ -1,4 +1,4 @@
-import { isBoolean } from "../utils";
+import { isBoolean } from "../utils.ts";
 import {
   command,
   gitignore,
@@ -23,9 +23,9 @@ import {
   unocss,
   vue,
   yml,
-} from "./configs";
-import { parseOptions, combine } from "./utils";
-import type { Config, Options } from "./types";
+} from "./configs/index.ts";
+import { parseOptions, combine } from "./utils.ts";
+import type { Config, Options } from "./types.ts";
 
 export function eslint(
   options: Options = {},

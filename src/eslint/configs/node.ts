@@ -4,10 +4,10 @@ import {
   GLOB_TS,
   GLOB_TSX,
   GLOB_VUE,
-} from "../../constants";
-import { hasTypeScript, hasVue } from "../../env";
-import { pluginN } from "../plugins";
-import type { Config, NodeOptions } from "../types";
+} from "../../constants.ts";
+import { hasTypeScript, hasVue } from "../../env.ts";
+import { pluginN } from "../plugins.ts";
+import type { Config, NodeOptions } from "../types.ts";
 
 export function node(options: NodeOptions = {}): Config[] {
   const {

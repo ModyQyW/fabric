@@ -1,6 +1,6 @@
-import { GLOB_JSX, GLOB_TSX } from "../../constants";
-import { pluginNext } from "../plugins";
-import type { Config, NextOptions } from "../types";
+import { GLOB_JSX, GLOB_TSX } from "../../constants.ts";
+import { pluginNext } from "../plugins.ts";
+import type { Config, NextOptions } from "../types.ts";
 
 export function next(options: NextOptions = {}): Config[] {
   const {

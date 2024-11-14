@@ -46,7 +46,7 @@ import * as _parserToml from "toml-eslint-parser";
 import * as _parserTypeScript from "@typescript-eslint/parser";
 import * as _parserVue from "vue-eslint-parser";
 import * as _parserYml from "yaml-eslint-parser";
-import { interopDefault } from "../utils";
+import { interopDefault } from "../utils.ts";
 import type { ESLint } from "eslint";
 
 export const configGitignore = interopDefault(_configGitignore);

@@ -1,6 +1,6 @@
-import { GLOB_JSX, GLOB_TSX } from "../../constants";
-import { pluginReactNative } from "../plugins";
-import type { Config, ReactNativeOptions } from "../types";
+import { GLOB_JSX, GLOB_TSX } from "../../constants.ts";
+import { pluginReactNative } from "../plugins.ts";
+import type { Config, ReactNativeOptions } from "../types.ts";
 
 export function reactNative(options: ReactNativeOptions = {}): Config[] {
   const {

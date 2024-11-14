@@ -1,6 +1,6 @@
-import { GLOB_TOML } from "../../constants";
-import { parserToml, pluginToml } from "../plugins";
-import type { Config, TomlOptions } from "../types";
+import { GLOB_TOML } from "../../constants.ts";
+import { parserToml, pluginToml } from "../plugins.ts";
+import type { Config, TomlOptions } from "../types.ts";
 
 export function toml(options: TomlOptions = {}): Config[] {
   const { files = [GLOB_TOML], rules = {} } = options;

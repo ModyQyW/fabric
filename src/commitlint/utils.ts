@@ -1,5 +1,5 @@
-import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from "../env";
-import type { Options } from "./types";
+import { hasLerna, hasNx, hasPnpmWorkspace, hasRush } from "../env.ts";
+import type { Options } from "./types.ts";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   const { style = "conventional" } = options;

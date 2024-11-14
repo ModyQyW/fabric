@@ -1,7 +1,7 @@
-import { GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE } from "../../constants";
-import { hasVue } from "../../env";
-import { parserTypeScript, pluginTypeScript } from "../plugins";
-import type { Config, TypeScriptOptions } from "../types";
+import { GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE } from "../../constants.ts";
+import { hasVue } from "../../env.ts";
+import { parserTypeScript, pluginTypeScript } from "../plugins.ts";
+import type { Config, TypeScriptOptions } from "../types.ts";
 
 export function typescript(options: TypeScriptOptions = {}): Config[] {
   const {
