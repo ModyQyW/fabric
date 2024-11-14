@@ -10,6 +10,7 @@ import { GLOB_EXCLUDE } from "./constants.ts";
 export function interopDefault<T>(
   m: T,
 ): T extends { default: infer U } ? U : T {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
   return (m as any).default || m;
 }
 
