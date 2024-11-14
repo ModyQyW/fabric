@@ -16,12 +16,12 @@ export function jsonc(options: JsoncOptions = {}): Config[] {
         "package-json": pluginPackageJson,
       },
       rules: {
-        // https://github.com/ota-meshi/eslint-plugin-jsonc/blob/v2.16.0/lib/configs/base.ts
+        // https://github.com/ota-meshi/eslint-plugin-jsonc/blob/v2.18.1/lib/configs/base.ts
         strict: "off",
         "no-unused-expressions": "off",
         "no-unused-vars": "off",
 
-        // https://github.com/ota-meshi/eslint-plugin-jsonc/blob/v2.16.0/lib/configs/recommended-with-jsonc.ts
+        // https://github.com/ota-meshi/eslint-plugin-jsonc/blob/v2.18.1/lib/configs/recommended-with-jsonc.ts
         "jsonc/no-bigint-literals": "error",
         "jsonc/no-binary-expression": "error",
         "jsonc/no-binary-numeric-literals": "error",
@@ -50,7 +50,7 @@ export function jsonc(options: JsoncOptions = {}): Config[] {
         "jsonc/valid-json-number": "error",
         "jsonc/vue-custom-block/no-parsing-error": "error",
 
-        // https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/blob/v0.15.4/src/configs/recommended.ts
+        // https://github.com/JoshuaKGoldberg/eslint-plugin-package-json/blob/v0.15.6/src/configs/recommended.ts
         "package-json/order-properties": "error",
         "package-json/repository-shorthand": "error",
         "package-json/sort-collections": "error",
