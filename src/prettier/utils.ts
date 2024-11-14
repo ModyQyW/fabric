@@ -1,4 +1,4 @@
-import type { Options } from "./types";
+import type { Options } from "./types.ts";
 
 export function parseOptions(options: Options = {}): Required<Options> {
   return {
