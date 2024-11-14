@@ -3,8 +3,6 @@ name: Publish Any Commit
 
 on:
   pull_request:
-    branches:
-      - "**"
   push:
     branches:
       - "**"
