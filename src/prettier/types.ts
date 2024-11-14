@@ -1,5 +1,6 @@
 import type { Config as PrettierConfig } from "prettier";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Config = PrettierConfig & Record<string, any>;
 
 export interface Options {
