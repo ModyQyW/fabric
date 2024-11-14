@@ -1,5 +1,5 @@
 require("esbuild-register");
-// eslint-disable-next-line import/no-unresolved
-const { simpleGitHooks } = require("./src/simple-git-hooks");
+
+const { simpleGitHooks } = require("./src/simple-git-hooks/factory.ts");
 
 module.exports = simpleGitHooks();
