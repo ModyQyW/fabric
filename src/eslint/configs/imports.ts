@@ -29,6 +29,14 @@ export function imports(options: ImportsOptions = {}): Config[] {
         // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.4.0/docs/rules/export.md
         "import/export": "error",
 
+        // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.4.0/docs/rules/extensions.md
+        // https://vite.dev/guide/performance.html#reduce-resolve-operations
+        "import/extensions": [
+          "warn",
+          "ignorePackages",
+          { checkTypeImports: true },
+        ],
+
         // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.4.0/docs/rules/no-mutable-exports.md
         "import/no-mutable-exports": "error",
 
