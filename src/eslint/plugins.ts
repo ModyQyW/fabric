@@ -111,9 +111,11 @@ export const pluginReactNamingConvention = interopDefault(
   _pluginReactNamingConvention,
 ) as unknown as ESLint.Plugin;
 export const pluginReactHooks = fixupPluginRules(
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   interopDefault(_pluginReactHooks),
 ) as unknown as ESLint.Plugin;
 export const pluginReactPerf = fixupPluginRules(
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   interopDefault(_pluginReactPerf),
 ) as unknown as ESLint.Plugin;
 export const pluginReactRefresh = interopDefault(
@@ -121,6 +123,7 @@ export const pluginReactRefresh = interopDefault(
 ) as unknown as ESLint.Plugin;
 // https://github.com/Intellicode/eslint-plugin-react-native/issues/333
 export const pluginReactNative = fixupPluginRules(
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   interopDefault(_pluginReactNative),
 ) as unknown as ESLint.Plugin;
 export const pluginNext = interopDefault(
