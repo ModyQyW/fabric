@@ -5,6 +5,7 @@
     "lib": ["ESNext"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true
   },
   "include": ["./src/**/*", "./docs/**/*", "./docs/.vitepress/**/*"]
