@@ -39,9 +39,10 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         "@typescript-eslint": pluginTypeScript,
       },
       rules: {
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.12.2/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.14.0/packages/eslint-plugin/src/configs/eslint-recommended-raw.ts
         "constructor-super": "off", // ts(2335) & ts(2377)
         "getter-return": "off", // ts(2378)
+        "no-class-assign": "off", // ts(2629)
         "no-const-assign": "off", // ts(2588)
         "no-dupe-args": "off", // ts(2300)
         "no-dupe-class-members": "off", // ts(2393) & ts(2300)
@@ -63,7 +64,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         // 'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
         // 'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
 
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.12.2/packages/eslint-plugin/src/configs/recommended.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.14.0/packages/eslint-plugin/src/configs/recommended.ts
         "@typescript-eslint/ban-ts-comment": "error",
         "no-array-constructor": "off",
         "@typescript-eslint/no-array-constructor": "error",
@@ -89,9 +90,25 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
         "@typescript-eslint/prefer-namespace-keyword": "error",
         "@typescript-eslint/triple-slash-reference": "error",
 
-        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.12.2/packages/eslint-plugin/src/configs/recommended-type-checked-only.ts
+        // https://github.com/typescript-eslint/typescript-eslint/blob/v8.14.0/packages/eslint-plugin/src/configs/stylistic.ts
+        "@typescript-eslint/adjacent-overload-signatures": "error",
+        "@typescript-eslint/array-type": "error",
+        "@typescript-eslint/ban-tslint-comment": "error",
+        "@typescript-eslint/class-literal-property-style": "error",
+        "@typescript-eslint/consistent-generic-constructors": "error",
+        "@typescript-eslint/consistent-indexed-object-style": "error",
+        "@typescript-eslint/consistent-type-assertions": "error",
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/no-confusing-non-null-assertion": "error",
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/prefer-for-of": "error",
+        "@typescript-eslint/prefer-function-type": "error",
+
         ...(typeCheck
           ? {
+              // https://github.com/typescript-eslint/typescript-eslint/blob/v8.14.0/packages/eslint-plugin/src/configs/recommended-type-checked-only.ts
               "@typescript-eslint/await-thenable": "error",
               "@typescript-eslint/no-array-delete": "error",
               "@typescript-eslint/no-base-to-string": "error",
@@ -119,6 +136,17 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
               "@typescript-eslint/restrict-plus-operands": "error",
               "@typescript-eslint/restrict-template-expressions": "error",
               "@typescript-eslint/unbound-method": "error",
+
+              // https://github.com/typescript-eslint/typescript-eslint/blob/v8.14.0/packages/eslint-plugin/src/configs/stylistic-type-checked-only.ts
+              "dot-notation": "off",
+              "@typescript-eslint/dot-notation": "error",
+              "@typescript-eslint/non-nullable-type-assertion-style": "error",
+              "@typescript-eslint/prefer-find": "error",
+              "@typescript-eslint/prefer-includes": "error",
+              "@typescript-eslint/prefer-nullish-coalescing": "error",
+              "@typescript-eslint/prefer-optional-chain": "error",
+              "@typescript-eslint/prefer-regexp-exec": "error",
+              "@typescript-eslint/prefer-string-starts-ends-with": "error",
             }
           : {}),
 
