@@ -8,4 +8,5 @@ const { eslint } = require("./src/eslint/factory.ts");
 
 export default eslint({
   perfectionist: false,
+  unocss: false,
 });
