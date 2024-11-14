@@ -1,5 +1,6 @@
 import { MINI_PROGRAM_ELEMENTS } from "../constants.ts";
 import { hasMiniProgram } from "../env.ts";
+import type { Config } from "stylelint";
 import type { Options } from "./types.ts";
 
 export function extends_(options: Required<Options>) {
@@ -40,7 +41,7 @@ export function rules(options: Required<Options>) {
     scss: enableScss,
   } = options;
 
-  const object: Record<string, any> = {
+  const object: Config["rules"] = {
     // https://stylelint.io/user-guide/rules/at-rule-no-unknown/
     "at-rule-no-unknown": [
       true,
