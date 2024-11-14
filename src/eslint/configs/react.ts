@@ -61,8 +61,10 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-refresh": pluginReactRefresh,
       },
       rules: {
-        // https://github.com/Rel1cx/eslint-react/blob/v1.15.2/packages/plugins/eslint-plugin-react-x/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.16.1/packages/plugins/eslint-plugin-react-x/README.md
         "react-x/ensure-forward-ref-using-ref": "warn",
+        "react-x/jsx-no-duplicate-props": "warn",
+        "react-x/jsx-uses-vars": "warn",
         "react-x/no-access-state-in-setstate": "error",
         "react-x/no-array-index-key": "warn",
         "react-x/no-children-count": "warn",
@@ -96,31 +98,32 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-x/no-unused-class-component-members": "warn",
         "react-x/no-unused-state": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.15.2/packages/plugins/eslint-plugin-react-dom/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.16.1/packages/plugins/eslint-plugin-react-dom/README.md
         "react-dom/no-children-in-void-dom-elements": "warn",
-        "react-dom/no-dangerously-set-innerhtml": "warn",
         "react-dom/no-dangerously-set-innerhtml-with-children": "error",
+        "react-dom/no-dangerously-set-innerhtml": "warn",
         "react-dom/no-find-dom-node": "error",
         "react-dom/no-missing-button-type": "warn",
         "react-dom/no-missing-iframe-sandbox": "warn",
         "react-dom/no-namespace": "error",
         "react-dom/no-render-return-value": "error",
         "react-dom/no-script-url": "warn",
+        "react-dom/no-unknown-property": "warn",
         "react-dom/no-unsafe-iframe-sandbox": "warn",
         "react-dom/no-unsafe-target-blank": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.15.2/packages/plugins/eslint-plugin-react-web-api/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.16.1/packages/plugins/eslint-plugin-react-web-api/README.md
         "react-web-api/no-leaked-timeout": "error",
         "react-web-api/no-leaked-interval": "error",
         "react-web-api/no-leaked-event-listener": "error",
         "react-web-api/no-leaked-resize-observer": "error",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.15.2/packages/plugins/eslint-plugin-react-hooks-extra/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.16.1/packages/plugins/eslint-plugin-react-hooks-extra/README.md
         "react-hooks-extra/no-redundant-custom-hook": "warn",
         "react-hooks-extra/no-direct-set-state-in-use-effect": "warn",
         "react-hooks-extra/prefer-use-state-lazy-initialization": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.15.2/packages/plugins/eslint-plugin-react-naming-convention/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.16.1/packages/plugins/eslint-plugin-react-naming-convention/README.md
         "react-naming-convention/filename-extension": ["warn", "as-needed"],
         "react-naming-convention/use-state": "warn",
 
@@ -129,7 +132,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
 
-        // https://github.com/cvazac/eslint-plugin-react-perf/tree/35e9912004da57880939edd4a1ca202740157c66
+        // https://github.com/cvazac/eslint-plugin-react-perf/commit/9bfa930661a23218f5460ebd39d35d76ccdb5724
         // eslint-plugin-react-perf v3.3.3
         "react-perf/jsx-no-new-object-as-prop": "error",
         "react-perf/jsx-no-new-array-as-prop": "error",
@@ -186,6 +189,10 @@ export function react(options: ReactOptions = {}): Config[] {
         ...typescriptLanguageOptions,
       },
       rules: {
+        "react-x/jsx-no-duplicate-props": "off",
+        "react-x/jsx-uses-vars": "warn",
+        "react-dom/no-unknown-property": "off",
+
         ...(typeCheck
           ? {
               "react-x/no-leaked-conditional-rendering": "warn",
