@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.5.0](https://github.com/ModyQyW/fabric/compare/v11.4.1...v11.5.0) (2024-11-15)
+
+
+### Features
+
+* **eslint:** add unused-imports ([980df9b](https://github.com/ModyQyW/fabric/commit/980df9b20adff822a6795dfeee77f9e4e6c73155))
+* **eslint:** enable more ts rules ([90efbe5](https://github.com/ModyQyW/fabric/commit/90efbe5fc8c3813048ddb2eda18b333fbb7bb512))
+* **eslint:** enable vue/prefer-use-template-ref ([c65d5d7](https://github.com/ModyQyW/fabric/commit/c65d5d7ba0b0721f61e199c1e9129b5cc56640f8))
+* **prettier:** add curly support ([17a9e7a](https://github.com/ModyQyW/fabric/commit/17a9e7aa9be48ff2d8f81720aec2131108ed7062))
+
+
+### Bug Fixes
+
+* eslint fix ([2020f8a](https://github.com/ModyQyW/fabric/commit/2020f8af52087a2fa922b87415c8dfc8af5be7ad))
+* **eslint:** add import/extensions ([bedcecf](https://github.com/ModyQyW/fabric/commit/bedcecf1b555985f226bc707abba5ccd014fc040))
+* **eslint:** suppress types error ([269e08e](https://github.com/ModyQyW/fabric/commit/269e08ec3d97d7a2706b5407a4ccf005a48c9396))
+* **eslint:** update react rules and comments ([a80ce2f](https://github.com/ModyQyW/fabric/commit/a80ce2ff653efbef856c34086427688b03e4d26f))
+* **prettier:** suppress types error ([6bfb5be](https://github.com/ModyQyW/fabric/commit/6bfb5bef46f73f6e3105f7238d04e07c8f0ed36e))
+* **stylelint:** suppress types error ([4d5fd09](https://github.com/ModyQyW/fabric/commit/4d5fd0943951a60db18a03e4588015ec4668c441))
+* **utils:** suppress types error ([82dd5d2](https://github.com/ModyQyW/fabric/commit/82dd5d293eb60f16c88694f4c4bb2c7498b87403))
+
 ## [11.4.1](https://github.com/ModyQyW/fabric/compare/v11.4.0...v11.4.1) (2024-11-03)
 
 ## [11.4.0](https://github.com/ModyQyW/fabric/compare/v11.3.2...v11.4.0) (2024-10-30)
