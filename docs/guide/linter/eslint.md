@@ -340,10 +340,6 @@ export default eslint(
       files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
       typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
     },
-    promise: {
-      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
-      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
-    },
     regexp: {
       files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
       typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
