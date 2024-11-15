@@ -40,6 +40,8 @@ export function markdown(options: MarkdownOptions = {}): Config[] {
         "n/no-unpublished-import": "off",
         "n/no-unpublished-require": "off",
         "unicorn/prefer-module": "off",
+        "unused-imports/no-unused-imports": "off",
+        "unused-imports/no-unused-vars": "off",
         "vue/no-unused-emit-declarations": "off",
 
         ...rules,

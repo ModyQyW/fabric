@@ -19,5 +19,6 @@ export * from "./toml.ts";
 export * from "./typescript.ts";
 export * from "./unicorn.ts";
 export * from "./unocss.ts";
+export * from "./unused-imports.ts";
 export * from "./vue.ts";
 export * from "./yml.ts";

@@ -21,6 +21,7 @@ import {
   typescript,
   unicorn,
   unocss,
+  unusedImports,
   vue,
   yml,
 } from "./configs/index.ts";
@@ -32,11 +33,16 @@ export function eslint(
   userConfigs: (Config | Config[])[] = [],
 ): Config[] {
   const {
-    command: commandOptions,
+    // ---- Ignores ----
     gitignore: gitignoreOptions,
     ignores: ignoresOptions,
-    imports: importsOptions,
+    // ---- Languages ----
     javascript: javascriptOptions,
+    typescript: typescriptOptions,
+    // ---- Base ----
+    command: commandOptions,
+    imports: importsOptions,
+    unusedImports: unusedImportsOptions,
     jsdoc: jsdocOptions,
     jsonc: jsoncOptions,
     markdown: markdownOptions,
@@ -50,7 +56,7 @@ export function eslint(
     regexp: regexpOptions,
     tailwindcss: tailwindcssOptions,
     toml: tomlOptions,
-    typescript: typescriptOptions,
+
     unicorn: unicornOptions,
     unocss: unocssOptions,
     vue: vueOptions,
@@ -66,6 +72,7 @@ export function eslint(
     if (isBoolean(gitignoreOptions)) configs.push(gitignore());
     else configs.push(gitignore(gitignoreOptions));
   }
+
   // ignores
   if (ignoresOptions) {
     if (isBoolean(ignoresOptions)) configs.push(ignores());
@@ -88,16 +95,16 @@ export function eslint(
 
   // ---- Base ----
 
+  // command
+  if (commandOptions) {
+    if (isBoolean(commandOptions)) configs.push(command());
+    else configs.push(command(commandOptions));
+  }
+
   // JSDoc
   if (jsdocOptions) {
     if (isBoolean(jsdocOptions)) configs.push(jsdoc());
     else configs.push(jsdoc(jsdocOptions));
-  }
-
-  // Command
-  if (commandOptions) {
-    if (isBoolean(commandOptions)) configs.push(command());
-    else configs.push(command(commandOptions));
   }
 
   // imports
@@ -106,16 +113,10 @@ export function eslint(
     else configs.push(imports(importsOptions));
   }
 
-  // Node
-  if (nodeOptions) {
-    if (isBoolean(nodeOptions)) configs.push(node());
-    else configs.push(node(nodeOptions));
-  }
-
-  // Perfectionist
-  if (perfectionistOptions) {
-    if (isBoolean(perfectionistOptions)) configs.push(perfectionist());
-    else configs.push(perfectionist(perfectionistOptions));
+  // unused imports
+  if (unusedImportsOptions) {
+    if (isBoolean(unusedImportsOptions)) configs.push(unusedImports());
+    else configs.push(unusedImports(unusedImportsOptions));
   }
 
   // Promise
@@ -130,7 +131,19 @@ export function eslint(
     else configs.push(regexp(regexpOptions));
   }
 
-  // Unicorn
+  // Node
+  if (nodeOptions) {
+    if (isBoolean(nodeOptions)) configs.push(node());
+    else configs.push(node(nodeOptions));
+  }
+
+  // perfectionist
+  if (perfectionistOptions) {
+    if (isBoolean(perfectionistOptions)) configs.push(perfectionist());
+    else configs.push(perfectionist(perfectionistOptions));
+  }
+
+  // unicorn
   if (unicornOptions) {
     if (isBoolean(unicornOptions)) configs.push(unicorn());
     else configs.push(unicorn(unicornOptions));
@@ -180,7 +193,7 @@ export function eslint(
     else configs.push(unocss(unocssOptions));
   }
 
-  // ---- Specify File Type ----
+  // ---- Special File Type ----
 
   // Markdown
   if (markdownOptions) {
