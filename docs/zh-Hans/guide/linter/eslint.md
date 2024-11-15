@@ -67,92 +67,119 @@ import {
 import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
-  // 基于 eslint-plugin-command
-  // 默认为 true，即启用
-  command: true,
   // 基于 eslint-config-flat-gitignore
   // 支持读取并使用 .gitignore 和 .eslintignore 内容作为平面配置的 ignores 选项
   // 默认为 true，即启用
   gitignore: true,
+
   // 基于平面配置的 ignores 选项
   // 默认为 true，即启用
   ignores: true,
-  // 基于 eslint-plugin-import-x
-  // 检查导入相关问题
-  // 默认为 true，即启用
-  imports: true,
+
   // 基于 @eslint/js
   // 检查 JavaScript 相关问题
   // 默认为 true，即启用
   javascript: true,
-  // 基于 eslint-plugin-jsdoc
-  // 检查 JSDoc 相关问题
-  // 默认为 false，即禁用
-  jsdoc: false,
-  // 基于 eslint-plugin-jsonc 和 eslint-plugin-package-json
-  // 检查 JSON 相关问题
-  // 默认为 true，即启用
-  jsonc: true,
-  // 基于 eslint-plugin-markdown
-  // 检查 Markdown 相关问题
-  // 默认为 true，即启用
-  markdown: true,
-  // 基于 @next/eslint-plugin-next
-  // 检查 Next 相关问题
-  // 安装 Next 后默认启用，否则默认禁用
-  next: hasNext,
-  // 基于 eslint-plugin-n
-  // 检查 Node 配置相关问题
-  // 默认为 true，即启用
-  node: true,
-  // 基于 eslint-plugin-nuxt
-  // 检查 Nuxt 相关问题
-  // 安装 Nuxt 后默认启用，否则默认禁用
-  nuxt: hasNuxt,
-  // 基于 eslint-plugin-perfectionist
-  // 检查排序相关问题
-  // 默认为 true，即启用
-  perfectionist: true,
-  // 基于 eslint-plugin-promise
-  // 检查 Promise 相关问题
-  // 默认为 true，即启用
-  promise: true,
-  // 基于 eslint-plugin-react-x、eslint-plugin-react-dom、eslint-plugin-react-hooks、eslint-plugin-react-hooks-extra、eslint-plugin-react-naming-convention、eslint-plugin-react-perf 和 eslint-plugin-react-refresh
-  // 检查 React 相关问题，支持 Taro
-  // 安装 React 后默认启用，否则默认禁用
-  react: hasReact,
-  // 基于 eslint-plugin-react-native
-  // 检查 ReactNative 相关问题
-  // 安装 ReactNative 后默认启用，否则默认禁用
-  reactNative: hasReactNative,
-  // 基于 eslint-plugin-regexp
-  // 检查正则相关问题
-  // 默认为 true，即启用
-  regexp: true,
-  // 基于 eslint-plugin-tailwindcss
-  // 检查 TailwindCSS 相关问题
-  // 安装 TailwindCSS 后默认启用，否则默认禁用
-  tailwindcss: hasTailwindCss,
-  // 基于 eslint-plugin-toml
-  // 检查 TOML 相关问题
-  // 默认为 true，即启用
-  toml: true,
+
   // 基于 @typescript-eslint/eslint-plugin
   // 检查 TypeScript 相关问题
   // 安装 TypeScript 后默认启用，否则默认禁用
   typescript: hasTypeScript,
+
+  // 基于 eslint-plugin-command
+  // 默认为 true，即启用
+  command: true,
+
+  // 基于 eslint-plugin-jsdoc
+  // 检查 JSDoc 相关问题
+  // 默认为 false，即禁用
+  jsdoc: false,
+
+  // 基于 eslint-plugin-import-x
+  // 检查导入相关问题
+  // 默认为 true，即启用
+  imports: true,
+
+  // 基于 eslint-plugin-unused-imports
+  // 检查未使用的导入相关问题
+  // 默认为 true，即启用
+  unusedImports: true,
+
+  // 基于 eslint-plugin-promise
+  // 检查 Promise 相关问题
+  // 默认为 true，即启用
+  promise: true,
+
+  // 基于 eslint-plugin-regexp
+  // 检查正则相关问题
+  // 默认为 true，即启用
+  regexp: true,
+
+  // 基于 eslint-plugin-n
+  // 检查 Node 配置相关问题
+  // 默认为 true，即启用
+  node: true,
+
+  // 基于 eslint-plugin-perfectionist
+  // 检查排序相关问题
+  // 默认为 true，即启用
+  perfectionist: true,
+
   // 基于 eslint-plugin-unicorn
   // 检查性能和规范相关问题
   // 默认为 true，即启用
   unicorn: true,
-  // 基于 eslint-plugin-unocss
-  // 检查 UnoCSS 相关问题
-  // 安装 UnoCSS 后默认启用，否则默认禁用
-  unocss: hasUnoCss,
+
+  // 基于 eslint-plugin-react-x、eslint-plugin-react-dom、eslint-plugin-react-hooks、eslint-plugin-react-hooks-extra、eslint-plugin-react-naming-convention、eslint-plugin-react-perf 和 eslint-plugin-react-refresh
+  // 检查 React 相关问题，支持 Taro
+  // 安装 React 后默认启用，否则默认禁用
+  react: hasReact,
+
+  // 基于 eslint-plugin-react-native
+  // 检查 ReactNative 相关问题
+  // 安装 ReactNative 后默认启用，否则默认禁用
+  reactNative: hasReactNative,
+
+  // 基于 @next/eslint-plugin-next
+  // 检查 Next 相关问题
+  // 安装 Next 后默认启用，否则默认禁用
+  next: hasNext,
+
   // 基于 eslint-plugin-vue 和 eslint-plugin-vue-scoped-css
   // 检查 Vue 相关问题，支持 uni-app
   // 安装 Vue 后默认启用，否则默认禁用
   vue: hasVue,
+
+  // 基于 eslint-plugin-nuxt
+  // 检查 Nuxt 相关问题
+  // 安装 Nuxt 后默认启用，否则默认禁用
+  nuxt: hasNuxt,
+
+  // 基于 eslint-plugin-tailwindcss
+  // 检查 TailwindCSS 相关问题
+  // 安装 TailwindCSS 后默认启用，否则默认禁用
+  tailwindcss: hasTailwindCss,
+
+  // 基于 eslint-plugin-unocss
+  // 检查 UnoCSS 相关问题
+  // 安装 UnoCSS 后默认启用，否则默认禁用
+  unocss: hasUnoCss,
+
+  // 基于 eslint-plugin-markdown
+  // 检查 Markdown 相关问题
+  // 默认为 true，即启用
+  markdown: true,
+
+  // 基于 eslint-plugin-jsonc 和 eslint-plugin-package-json
+  // 检查 JSON 相关问题
+  // 默认为 true，即启用
+  jsonc: true,
+
+  // 基于 eslint-plugin-toml
+  // 检查 TOML 相关问题
+  // 默认为 true，即启用
+  toml: true,
+
   // 基于 eslint-plugin-yml
   // 检查 YML 相关问题
   // 默认为 true，即启用
@@ -267,6 +294,9 @@ export default eslint(
 // eslint.config.mjs
 import {
   GLOB_DTS,
+  GLOB_MARKDOWN_SCRIPT,
+  GLOB_MARKDOWN_VUE,
+  GLOB_MARKDOWN_SVELTE,
   GLOB_SCRIPT,
   GLOB_SVELTE,
   GLOB_TS,
@@ -293,6 +323,57 @@ export default eslint(
     },
     typescript: {
       files: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    jsdoc: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    imports: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    unusedImports: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    promise: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    promise: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    regexp: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    node: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    perfectionist: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    unicorn: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    tailwindcss: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    unocss: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    markdown: {
+      markdownInnerFiles: [
+        GLOB_MARKDOWN_SCRIPT,
+        GLOB_MARKDOWN_VUE,
+        GLOB_MARKDOWN_SVELTE,
+      ],
     },
   },
   // 增加 Svelte 支持

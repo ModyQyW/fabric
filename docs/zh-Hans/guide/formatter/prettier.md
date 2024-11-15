@@ -89,6 +89,10 @@ import { hasTailwindCss } from "@modyqyw/fabric";
 import { prettier } from "@modyqyw/fabric/prettier";
 
 export default prettier({
+  // 基于 prettier-plugin-curly
+  // 默认为 true，即启用
+  curly: true,
+
   // 基于 prettier-plugin-jsdoc
   // 默认为 true，即启用
   jsdoc: true,
@@ -124,7 +128,7 @@ const defaultConfig = prettier();
 
 export default {
   ...defaultConfig,
-  // 使用 prettier-plugin-jsdoc、prettier-plugin-svelte 和 prettier-plugin-tailwindcss
+  // 使用 prettier-plugin-curly、prettier-plugin-jsdoc、prettier-plugin-svelte 和 prettier-plugin-tailwindcss
   // prettier-plugin-tailwindcss 一定要放在最后
   plugins: [
     ...defaultConfig.plugins,

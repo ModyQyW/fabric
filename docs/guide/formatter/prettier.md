@@ -89,6 +89,10 @@ import { hasTailwindCss } from "@modyqyw/fabric";
 import { prettier } from "@modyqyw/fabric/prettier";
 
 export default prettier({
+  // Based on prettier-plugin-curly
+  // Default true (enabled)
+  curly: true,
+
   // Based on prettier-plugin-jsdoc
   // Default true (enabled)
   jsdoc: true,
@@ -124,7 +128,7 @@ const defaultConfig = prettier();
 
 export default {
   ...defaultConfig,
-  // use prettier-plugin-jsdoc、prettier-plugin-svelte and prettier-plugin-tailwindcss
+  // use prettier-plugin-curly, prettier-plugin-jsdoc, prettier-plugin-svelte and prettier-plugin-tailwindcss
   // prettier-plugin-tailwindcss must be the last one
   plugins: [
     ...defaultConfig.plugins,

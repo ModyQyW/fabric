@@ -68,92 +68,119 @@ import {
 import { eslint } from "@modyqyw/fabric/eslint";
 
 export default eslint({
-  // Based on eslint-plugin-command
-  // Default true (enabled)
-  command: true,
   // Based on eslint-config-flat-gitignore
   // Support reading and using .gitignore and .eslintignore content as ignores options for flat configurations
   // Default true (enabled)
   gitignore: true,
+
   // Based on ignores option
   // Default true (enabled)
   ignores: true,
-  // Based on eslint-plugin-import-x
-  // Check import related issues
-  // Default true (enabled)
-  imports: true,
+
   // Based on @eslint/js
   // Check JavaScript related issues
   // Default true (enabled)
   javascript: true,
-  // Based on eslint-plugin-jsdoc
-  // Check JSDoc related issues
-  // Default false (disabled)
-  jsdoc: false,
-  // Based on eslint-plugin-jsonc and eslint-plugin-package-json
-  // Check JSON related issues
-  // Default true (enabled)
-  jsonc: true,
-  // Based on eslint-plugin-markdown
-  // Check Markdown related issues
-  // Default true (enabled)
-  markdown: true,
-  // Based on @next/eslint-plugin-next
-  // Check Next related issues
-  // Enabled by default if you have Next installed
-  next: hasNext,
-  // Based on eslint-plugin-n
-  // Check Node configuration related issues
-  // Default true (enabled)
-  node: true,
-  // Based on eslint-plugin-nuxt
-  // Check Nuxt related issues
-  // Enabled by default if you have Nuxt installed
-  nuxt: hasNuxt,
-  // Based on eslint-plugin-perfectionist
-  // Check orders related issues
-  // Default true (enabled)
-  perfectionist: true,
-  // Based on eslint-plugin-promise
-  // Check Promise related issues
-  // Default true (enabled)
-  promise: true,
-  // Based on eslint-plugin-react-x, eslint-plugin-react-dom, eslint-plugin-react-hooks, eslint-plugin-react-hooks-extra, eslint-plugin-react-naming-convention, eslint-plugin-react-perf and eslint-plugin-react-refresh
-  // Check React related issues, support Taro
-  // Enabled by default if you have React installed
-  react: hasReact,
-  // Based on eslint-plugin-react-native
-  // Check ReactNative related issues
-  // Enabled by default if you have ReactNative installed
-  reactNative: hasReactNative,
-  // Based on eslint-plugin-regexp
-  // Check RegExp related issues
-  // Default true (enabled)
-  regexp: true,
-  // Based on eslint-plugin-tailwindcss
-  // Check TailwindCSS related issues
-  // Enabled by default if you have TailwindCSS installed
-  tailwindcss: hasTailwindCss,
-  // Based on eslint-plugin-toml
-  // Check TOML related issues
-  // Default true (enabled)
-  toml: true,
+
   // Based on @typescript-eslint/eslint-plugin
   // Check TypeScript related issues
   // Enabled by default if you have TypeScript installed
   typescript: hasTypeScript,
+
+  // Based on eslint-plugin-command
+  // Default true (enabled)
+  command: true,
+
+  // Based on eslint-plugin-jsdoc
+  // Check JSDoc related issues
+  // Default false (disabled)
+  jsdoc: false,
+
+  // Based on eslint-plugin-import-x
+  // Check import related issues
+  // Default true (enabled)
+  imports: true,
+
+  // Based on eslint-plugin-unused-imports
+  // Check unusued import related issues
+  // Default true (enabled)
+  unusedImports: true,
+
+  // Based on eslint-plugin-promise
+  // Check Promise related issues
+  // Default true (enabled)
+  promise: true,
+
+  // Based on eslint-plugin-regexp
+  // Check RegExp related issues
+  // Default true (enabled)
+  regexp: true,
+
+  // Based on eslint-plugin-n
+  // Check Node configuration related issues
+  // Default true (enabled)
+  node: true,
+
+  // Based on eslint-plugin-perfectionist
+  // Check orders related issues
+  // Default true (enabled)
+  perfectionist: true,
+
   // Based on eslint-plugin-unicorn
   // Check performance and specification related issues
   // Default true (enabled)
   unicorn: true,
-  // Based on eslint-plugin-unocss
-  // Check UnoCSS related issues
-  // Enabled by default if you have UnoCSS installed
-  unocss: hasUnoCss,
+
+  // Based on eslint-plugin-react-x, eslint-plugin-react-dom, eslint-plugin-react-hooks, eslint-plugin-react-hooks-extra, eslint-plugin-react-naming-convention, eslint-plugin-react-perf and eslint-plugin-react-refresh
+  // Check React related issues, support Taro
+  // Enabled by default if you have React installed
+  react: hasReact,
+
+  // Based on eslint-plugin-react-native
+  // Check ReactNative related issues
+  // Enabled by default if you have ReactNative installed
+  reactNative: hasReactNative,
+
+  // Based on @next/eslint-plugin-next
+  // Check Next related issues
+  // Enabled by default if you have Next installed
+  next: hasNext,
+
   // Based on eslint-plugin-vue 和 eslint-plugin-vue-scoped-css
   // Check Vue related issues, support uni-app
   // Enabled by default if you have Vue installed
   vue: hasVue,
+
+  // Based on eslint-plugin-nuxt
+  // Check Nuxt related issues
+  // Enabled by default if you have Nuxt installed
+  nuxt: hasNuxt,
+
+  // Based on eslint-plugin-tailwindcss
+  // Check TailwindCSS related issues
+  // Enabled by default if you have TailwindCSS installed
+  tailwindcss: hasTailwindCss,
+
+  // Based on eslint-plugin-unocss
+  // Check UnoCSS related issues
+  // Enabled by default if you have UnoCSS installed
+  unocss: hasUnoCss,
+
+  // Based on eslint-plugin-markdown
+  // Check Markdown related issues
+  // Default true (enabled)
+  markdown: true,
+
+  // Based on eslint-plugin-jsonc and eslint-plugin-package-json
+  // Check JSON related issues
+  // Default true (enabled)
+  jsonc: true,
+
+  // Based on eslint-plugin-toml
+  // Check TOML related issues
+  // Default true (enabled)
+  toml: true,
+
   // Based on eslint-plugin-yml
   // Check YML related issues
   // Default true (enabled)
@@ -267,6 +294,9 @@ You have to install [eslint-plugin-svelte](https://github.com/sveltejs/eslint-pl
 // eslint.config.mjs
 import {
   GLOB_DTS,
+  GLOB_MARKDOWN_SCRIPT,
+  GLOB_MARKDOWN_VUE,
+  GLOB_MARKDOWN_SVELTE,
   GLOB_SCRIPT,
   GLOB_SVELTE,
   GLOB_TS,
@@ -293,6 +323,57 @@ export default eslint(
     },
     typescript: {
       files: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    jsdoc: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    imports: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    unusedImports: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    promise: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    promise: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    regexp: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    node: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    perfectionist: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    unicorn: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    tailwindcss: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    unocss: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    markdown: {
+      markdownInnerFiles: [
+        GLOB_MARKDOWN_SCRIPT,
+        GLOB_MARKDOWN_VUE,
+        GLOB_MARKDOWN_SVELTE,
+      ],
     },
   },
   // Add Svelte support
