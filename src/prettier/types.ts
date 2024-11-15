@@ -5,6 +5,13 @@ export type Config = PrettierConfig & Record<string, any>;
 
 export interface Options {
   /**
+   * Format curly braces.
+   *
+   * @default true
+   */
+  curly?: boolean;
+
+  /**
    * Format JSDoc and TSDoc comments. Use prettier-plugin-jsdoc.
    *
    * @default true
