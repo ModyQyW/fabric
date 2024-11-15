@@ -41,25 +41,26 @@ export function eslint(
     typescript: typescriptOptions,
     // ---- Base ----
     command: commandOptions,
+    jsdoc: jsdocOptions,
     imports: importsOptions,
     unusedImports: unusedImportsOptions,
-    jsdoc: jsdocOptions,
-    jsonc: jsoncOptions,
-    markdown: markdownOptions,
-    next: nextOptions,
-    node: nodeOptions,
-    nuxt: nuxtOptions,
-    perfectionist: perfectionistOptions,
     promise: promiseOptions,
+    regexp: regexpOptions,
+    node: nodeOptions,
+    perfectionist: perfectionistOptions,
+    unicorn: unicornOptions,
+    // ---- Frameworks ----
     react: reactOptions,
     reactNative: reactNativeOptions,
-    regexp: regexpOptions,
-    tailwindcss: tailwindcssOptions,
-    toml: tomlOptions,
-
-    unicorn: unicornOptions,
-    unocss: unocssOptions,
+    next: nextOptions,
     vue: vueOptions,
+    nuxt: nuxtOptions,
+    tailwindcss: tailwindcssOptions,
+    unocss: unocssOptions,
+    // ---- Special File Type ----
+    markdown: markdownOptions,
+    jsonc: jsoncOptions,
+    toml: tomlOptions,
     yml: ymlOptions,
   } = parseOptions(options);
 
@@ -69,154 +70,226 @@ export function eslint(
 
   // gitignore
   if (gitignoreOptions) {
-    if (isBoolean(gitignoreOptions)) configs.push(gitignore());
-    else configs.push(gitignore(gitignoreOptions));
+    if (isBoolean(gitignoreOptions)) {
+      configs.push(gitignore());
+    } else {
+      configs.push(gitignore(gitignoreOptions));
+    }
   }
 
   // ignores
   if (ignoresOptions) {
-    if (isBoolean(ignoresOptions)) configs.push(ignores());
-    else configs.push(ignores(ignoresOptions));
+    if (isBoolean(ignoresOptions)) {
+      configs.push(ignores());
+    } else {
+      configs.push(ignores(ignoresOptions));
+    }
   }
 
   // ---- Languages ----
 
   // JavaScript
   if (javascriptOptions) {
-    if (isBoolean(javascriptOptions)) configs.push(javascript());
-    else configs.push(javascript(javascriptOptions));
+    if (isBoolean(javascriptOptions)) {
+      configs.push(javascript());
+    } else {
+      configs.push(javascript(javascriptOptions));
+    }
   }
 
   // TypeScript
   if (typescriptOptions) {
-    if (isBoolean(typescriptOptions)) configs.push(typescript());
-    else configs.push(typescript(typescriptOptions));
+    if (isBoolean(typescriptOptions)) {
+      configs.push(typescript());
+    } else {
+      configs.push(typescript(typescriptOptions));
+    }
   }
 
   // ---- Base ----
 
   // command
   if (commandOptions) {
-    if (isBoolean(commandOptions)) configs.push(command());
-    else configs.push(command(commandOptions));
+    if (isBoolean(commandOptions)) {
+      configs.push(command());
+    } else {
+      configs.push(command(commandOptions));
+    }
   }
 
   // JSDoc
   if (jsdocOptions) {
-    if (isBoolean(jsdocOptions)) configs.push(jsdoc());
-    else configs.push(jsdoc(jsdocOptions));
+    if (isBoolean(jsdocOptions)) {
+      configs.push(jsdoc());
+    } else {
+      configs.push(jsdoc(jsdocOptions));
+    }
   }
 
   // imports
   if (importsOptions) {
-    if (isBoolean(importsOptions)) configs.push(imports());
-    else configs.push(imports(importsOptions));
+    if (isBoolean(importsOptions)) {
+      configs.push(imports());
+    } else {
+      configs.push(imports(importsOptions));
+    }
   }
 
   // unused imports
   if (unusedImportsOptions) {
-    if (isBoolean(unusedImportsOptions)) configs.push(unusedImports());
-    else configs.push(unusedImports(unusedImportsOptions));
+    if (isBoolean(unusedImportsOptions)) {
+      configs.push(unusedImports());
+    } else {
+      configs.push(unusedImports(unusedImportsOptions));
+    }
   }
 
   // Promise
   if (promiseOptions) {
-    if (isBoolean(promiseOptions)) configs.push(promise());
-    else configs.push(promise(promiseOptions));
+    if (isBoolean(promiseOptions)) {
+      configs.push(promise());
+    } else {
+      configs.push(promise(promiseOptions));
+    }
   }
 
   // RegExp
   if (regexpOptions) {
-    if (isBoolean(regexpOptions)) configs.push(regexp());
-    else configs.push(regexp(regexpOptions));
+    if (isBoolean(regexpOptions)) {
+      configs.push(regexp());
+    } else {
+      configs.push(regexp(regexpOptions));
+    }
   }
 
   // Node
   if (nodeOptions) {
-    if (isBoolean(nodeOptions)) configs.push(node());
-    else configs.push(node(nodeOptions));
+    if (isBoolean(nodeOptions)) {
+      configs.push(node());
+    } else {
+      configs.push(node(nodeOptions));
+    }
   }
 
   // perfectionist
   if (perfectionistOptions) {
-    if (isBoolean(perfectionistOptions)) configs.push(perfectionist());
-    else configs.push(perfectionist(perfectionistOptions));
+    if (isBoolean(perfectionistOptions)) {
+      configs.push(perfectionist());
+    } else {
+      configs.push(perfectionist(perfectionistOptions));
+    }
   }
 
   // unicorn
   if (unicornOptions) {
-    if (isBoolean(unicornOptions)) configs.push(unicorn());
-    else configs.push(unicorn(unicornOptions));
+    if (isBoolean(unicornOptions)) {
+      configs.push(unicorn());
+    } else {
+      configs.push(unicorn(unicornOptions));
+    }
   }
 
   // ---- Frameworks ----
 
   // React
   if (reactOptions) {
-    if (isBoolean(reactOptions)) configs.push(react());
-    else configs.push(react(reactOptions));
+    if (isBoolean(reactOptions)) {
+      configs.push(react());
+    } else {
+      configs.push(react(reactOptions));
+    }
   }
 
   // React Native
   if (reactNativeOptions) {
-    if (isBoolean(reactNativeOptions)) configs.push(reactNative());
-    else configs.push(reactNative(reactNativeOptions));
+    if (isBoolean(reactNativeOptions)) {
+      configs.push(reactNative());
+    } else {
+      configs.push(reactNative(reactNativeOptions));
+    }
   }
 
   // Next
   if (nextOptions) {
-    if (isBoolean(nextOptions)) configs.push(next());
-    else configs.push(next(nextOptions));
+    if (isBoolean(nextOptions)) {
+      configs.push(next());
+    } else {
+      configs.push(next(nextOptions));
+    }
   }
 
   // Vue
   if (vueOptions) {
-    if (isBoolean(vueOptions)) configs.push(vue());
-    else configs.push(vue(vueOptions));
+    if (isBoolean(vueOptions)) {
+      configs.push(vue());
+    } else {
+      configs.push(vue(vueOptions));
+    }
   }
 
   // Nuxt
   if (nuxtOptions) {
-    if (isBoolean(nuxtOptions)) configs.push(nuxt());
-    else configs.push(nuxt(nuxtOptions));
+    if (isBoolean(nuxtOptions)) {
+      configs.push(nuxt());
+    } else {
+      configs.push(nuxt(nuxtOptions));
+    }
   }
 
   // TailwindCSS
   if (tailwindcssOptions) {
-    if (isBoolean(tailwindcssOptions)) configs.push(tailwindcss());
-    else configs.push(tailwindcss(tailwindcssOptions));
+    if (isBoolean(tailwindcssOptions)) {
+      configs.push(tailwindcss());
+    } else {
+      configs.push(tailwindcss(tailwindcssOptions));
+    }
   }
 
   // UnoCSS
   if (unocssOptions) {
-    if (isBoolean(unocssOptions)) configs.push(unocss());
-    else configs.push(unocss(unocssOptions));
+    if (isBoolean(unocssOptions)) {
+      configs.push(unocss());
+    } else {
+      configs.push(unocss(unocssOptions));
+    }
   }
 
   // ---- Special File Type ----
 
   // Markdown
   if (markdownOptions) {
-    if (isBoolean(markdownOptions)) configs.push(markdown());
-    else configs.push(markdown(markdownOptions));
+    if (isBoolean(markdownOptions)) {
+      configs.push(markdown());
+    } else {
+      configs.push(markdown(markdownOptions));
+    }
   }
 
   // JSONC
   if (jsoncOptions) {
-    if (isBoolean(jsoncOptions)) configs.push(jsonc());
-    else configs.push(jsonc(jsoncOptions));
+    if (isBoolean(jsoncOptions)) {
+      configs.push(jsonc());
+    } else {
+      configs.push(jsonc(jsoncOptions));
+    }
   }
 
   // TOML
   if (tomlOptions) {
-    if (isBoolean(tomlOptions)) configs.push(toml());
-    else configs.push(toml(tomlOptions));
+    if (isBoolean(tomlOptions)) {
+      configs.push(toml());
+    } else {
+      configs.push(toml(tomlOptions));
+    }
   }
 
   // YML
   if (ymlOptions) {
-    if (isBoolean(ymlOptions)) configs.push(yml());
-    else configs.push(yml(ymlOptions));
+    if (isBoolean(ymlOptions)) {
+      configs.push(yml());
+    } else {
+      configs.push(yml(ymlOptions));
+    }
   }
 
   return combine(...configs, ...userConfigs);
