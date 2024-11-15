@@ -26,7 +26,7 @@ export function regexp(options: RegExpOptions = {}): Config[] {
         regexp: pluginRegexp,
       },
       rules: {
-        // https://github.com/ota-meshi/eslint-plugin-regexp/blob/v2.6.0/lib/configs/rules/recommended.ts
+        // https://github.com/ota-meshi/eslint-plugin-regexp/blob/v2.7.0/lib/configs/rules/recommended.ts
         "no-control-regex": "error",
         "no-misleading-character-class": "error",
         "no-regex-spaces": "error",

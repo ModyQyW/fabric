@@ -26,7 +26,7 @@ export function node(options: NodeOptions = {}): Config[] {
         n: pluginN,
       },
       rules: {
-        // https://github.com/eslint-community/eslint-plugin-n/blob/v17.13.1/lib/configs/_commons.js
+        // https://github.com/eslint-community/eslint-plugin-n/blob/v17.13.2/lib/configs/_commons.js
         "n/no-deprecated-api": "error",
         "n/no-extraneous-import": "error",
         "n/no-extraneous-require": "error",
