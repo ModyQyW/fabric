@@ -23,7 +23,7 @@ export function nuxt(options: NuxtOptions = {}): Config[] {
   const { files = [GLOB_VUE], rules = {}, typescriptRules = {} } = options;
   return [
     {
-      name: "nuxt",
+      name: "frameworks/nuxt",
       files,
       plugins: {
         nuxt: hasNuxt3 ? pluginNuxt3 : pluginNuxt2,

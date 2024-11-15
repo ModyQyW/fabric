@@ -20,7 +20,7 @@ export function regexp(options: RegExpOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "regexp",
+      name: "base/regexp",
       files,
       plugins: {
         regexp: pluginRegexp,
@@ -99,7 +99,7 @@ export function regexp(options: RegExpOptions = {}): Config[] {
       },
     },
     {
-      name: "regexp-typescript",
+      name: "base/regexp/typescript",
       files: typescriptFiles,
       rules: {
         ...typescriptRules,

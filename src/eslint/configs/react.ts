@@ -29,7 +29,7 @@ export function react(options: ReactOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "react",
+      name: "frameworks/react",
       files,
       languageOptions: {
         parser: parserBabel,
@@ -168,7 +168,7 @@ export function react(options: ReactOptions = {}): Config[] {
       },
     },
     {
-      name: "react-typescript",
+      name: "frameworks/react/typescript",
       files: typescriptFiles,
       languageOptions: {
         parser: parserTypeScript,

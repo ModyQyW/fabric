@@ -12,7 +12,7 @@ export function javascript(options: JavaScriptOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "javascript",
+      name: "languages/javascript",
       files,
       languageOptions: {
         ecmaVersion: "latest",

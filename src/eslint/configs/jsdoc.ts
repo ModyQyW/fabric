@@ -20,7 +20,7 @@ export function jsdoc(options: JsdocOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "jsdoc",
+      name: "base/jsdoc",
       files,
       plugins: {
         jsdoc: pluginJsdoc,

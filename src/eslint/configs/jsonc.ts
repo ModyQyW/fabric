@@ -6,7 +6,7 @@ export function jsonc(options: JsoncOptions = {}): Config[] {
   const { files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC], rules = {} } = options;
   return [
     {
-      name: "jsonc",
+      name: "other/jsonc",
       files,
       languageOptions: {
         parser: parserJsonc,

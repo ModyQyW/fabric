@@ -570,7 +570,7 @@ export function vue(options: VueOptions = {}): Config[] {
   const { files = [GLOB_VUE], rules = {}, typescriptRules = {} } = options;
   return [
     {
-      name: "vue",
+      name: "frameworks/vue",
       files,
       languageOptions: {
         parser: parserVue,

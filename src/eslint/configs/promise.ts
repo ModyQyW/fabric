@@ -21,7 +21,7 @@ export function promise(options: PromiseOptions = {}): Config[] {
 
   return [
     {
-      name: "promise",
+      name: "base/promise",
       files,
       plugins: {
         promise: pluginPromise,
@@ -48,7 +48,7 @@ export function promise(options: PromiseOptions = {}): Config[] {
       },
     },
     {
-      name: "promise-typescript",
+      name: "base/promise/typescript",
       files: typescriptFiles,
       rules: {
         ...typescriptRules,

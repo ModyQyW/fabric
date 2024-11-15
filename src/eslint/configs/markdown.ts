@@ -14,7 +14,7 @@ export function markdown(options: MarkdownOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "markdown",
+      name: "other/markdown",
       files: markdownFiles,
       plugins: {
         markdown: pluginMarkdown,
@@ -22,7 +22,7 @@ export function markdown(options: MarkdownOptions = {}): Config[] {
       processor: "markdown/markdown",
     },
     {
-      name: "markdown/code-blocks",
+      name: "other/markdown/code-blocks",
       files: markdownInnerFiles,
       rules: {
         // https://github.com/eslint/markdown/blob/v5.1.0/lib/index.js

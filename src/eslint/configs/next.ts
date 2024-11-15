@@ -11,7 +11,7 @@ export function next(options: NextOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "next",
+      name: "frameworks/next",
       files,
       plugins: {
         "@next/next": pluginNext,

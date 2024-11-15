@@ -20,7 +20,7 @@ export function node(options: NodeOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "node",
+      name: "base/node",
       files,
       plugins: {
         n: pluginN,
@@ -47,7 +47,7 @@ export function node(options: NodeOptions = {}): Config[] {
       },
     },
     {
-      name: "node-typescript",
+      name: "base/node/typescript",
       files: typescriptFiles,
       rules: {
         ...typescriptRules,

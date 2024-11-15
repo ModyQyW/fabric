@@ -6,7 +6,7 @@ export function toml(options: TomlOptions = {}): Config[] {
   const { files = [GLOB_TOML], rules = {} } = options;
   return [
     {
-      name: "toml",
+      name: "other/toml",
       files,
       plugins: {
         toml: pluginToml,

@@ -11,7 +11,7 @@ export function reactNative(options: ReactNativeOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "react-native",
+      name: "frameworks/react-native",
       files,
       plugins: {
         "react-native": pluginReactNative,

@@ -20,7 +20,7 @@ export function tailwindcss(options: TailwindCssOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "tailwindcss",
+      name: "frameworks/tailwindcss",
       files,
       plugins: {
         tailwindcss: pluginTailwindcss,
@@ -54,7 +54,7 @@ export function tailwindcss(options: TailwindCssOptions = {}): Config[] {
       },
     },
     {
-      name: "tailwindcss-typescript",
+      name: "frameworks/tailwindcss/typescript",
       files: typescriptFiles,
       rules: {
         ...typescriptRules,

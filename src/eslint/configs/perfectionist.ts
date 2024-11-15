@@ -20,7 +20,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "perfectionist",
+      name: "base/perfectionist",
       files,
       plugins: {
         perfectionist: pluginPerfectionist,
@@ -183,7 +183,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
       },
     },
     {
-      name: "perfectionist-typescript",
+      name: "base/perfectionist/typescript",
       files: typescriptFiles,
       rules: {
         ...typescriptRules,

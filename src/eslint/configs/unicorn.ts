@@ -20,7 +20,7 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "unicorn",
+      name: "base/unicorn",
       files,
       plugins: {
         unicorn: pluginUnicorn,
@@ -432,7 +432,7 @@ export function unicorn(options: UnicornOptions = {}): Config[] {
       },
     },
     {
-      name: "unicorn-typescript",
+      name: "base/unicorn/typescript",
       files: typescriptFiles,
       rules: {
         // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/v56.0.0/docs/rules/no-unused-properties.md

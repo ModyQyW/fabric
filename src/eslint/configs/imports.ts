@@ -20,7 +20,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "imports",
+      name: "base/imports",
       files,
       plugins: {
         import: pluginImportX,
@@ -136,6 +136,7 @@ export function imports(options: ImportsOptions = {}): Config[] {
       },
     },
     {
+      name: "base/imports/typescript",
       files: typescriptFiles,
       rules: {
         // https://github.com/un-ts/eslint-plugin-import-x/blob/v4.4.2/docs/rules/no-named-as-default-member.md

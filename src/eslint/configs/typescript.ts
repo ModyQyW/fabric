@@ -15,7 +15,7 @@ export function typescript(options: TypeScriptOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "typescript",
+      name: "languages/typescript",
       files,
       languageOptions: {
         parser: parserTypeScript,

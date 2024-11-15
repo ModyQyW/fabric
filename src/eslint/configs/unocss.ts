@@ -20,7 +20,7 @@ export function unocss(options: UnoCssOptions = {}): Config[] {
   } = options;
   return [
     {
-      name: "unocss",
+      name: "frameworks/unocss",
       files,
       plugins: {
         "@unocss": pluginUnocss,
@@ -33,7 +33,7 @@ export function unocss(options: UnoCssOptions = {}): Config[] {
       },
     },
     {
-      name: "unocss-typescript",
+      name: "frameworks/unocss/typescript",
       files: typescriptFiles,
       rules: {
         ...typescriptRules,
