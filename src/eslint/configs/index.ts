@@ -1,3 +1,4 @@
+export * from "./barrel.ts";
 export * from "./command.ts";
 export * from "./gitignore.ts";
 export * from "./ignores.ts";

@@ -15,6 +15,8 @@ import * as _pluginImportX from "eslint-plugin-import-x";
 
 import * as _pluginUnusedImports from "eslint-plugin-unused-imports";
 
+import * as _pluginNoBarrelFiles from "eslint-plugin-no-barrel-files";
+
 /* @ts-expect-error missing types */
 import * as _pluginPromise from "eslint-plugin-promise";
 
@@ -108,6 +110,9 @@ export const pluginImportX = interopDefault(
 
 // unused imports
 export const pluginUnusedImports = interopDefault(_pluginUnusedImports);
+
+// no barrel files
+export const pluginNoBarrelFiles = interopDefault(_pluginNoBarrelFiles);
 
 // Promise
 export const pluginPromise = interopDefault(

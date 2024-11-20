@@ -107,6 +107,9 @@ importers:
       eslint-plugin-n:
         specifier: ^17.13.2
         version: 17.13.2(eslint@9.15.0(jiti@2.4.0))
+      eslint-plugin-no-barrel-files:
+        specifier: ^1.2.0
+        version: 1.2.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
       eslint-plugin-nuxt:
         specifier: ^4.0.0
         version: 4.0.0(eslint@9.15.0(jiti@2.4.0))
@@ -3373,6 +3376,9 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
+
+  eslint-plugin-no-barrel-files@1.2.0:
+    resolution: {integrity: sha512-ji2YpLo4zHMwlCj52658Nr/69mjw2mrkw6g5ZPNmWCE7+dVZpv2AO7pKFmU4qiXEMS6UOjBMneAIm8QDUQgCMA==}
 
   eslint-plugin-nuxt@4.0.0:
     resolution: {integrity: sha512-v3Vwdk8YKe52bAz8eSIDqQuTtfL/T1r9dSl1uhC5SyR5pgLxgKkQdxXVf/Bf6Ax7uyd9rHqiAuYVdqqDb7ILdA==}
@@ -9576,6 +9582,14 @@ snapshots:
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.6.3
+
+  eslint-plugin-no-barrel-files@1.2.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3):
+    dependencies:
+      '@typescript-eslint/utils': 8.15.0(eslint@9.15.0(jiti@2.4.0))(typescript@5.6.3)
+    transitivePeerDependencies:
+      - eslint
+      - supports-color
+      - typescript
 
   eslint-plugin-nuxt@4.0.0(eslint@9.15.0(jiti@2.4.0)):
     dependencies:

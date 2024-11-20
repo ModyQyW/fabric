@@ -106,6 +106,11 @@ export default eslint({
   // Default true (enabled)
   unusedImports: true,
 
+  // Based on eslint-plugin-no-barrel-files
+  // Check barrel related issues
+  // Default false (disabled)
+  barrel: false,
+
   // Based on eslint-plugin-promise
   // Check Promise related issues
   // Default true (enabled)
@@ -333,6 +338,10 @@ export default eslint(
       typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
     },
     unusedImports: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    barrel: {
       files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
       typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
     },

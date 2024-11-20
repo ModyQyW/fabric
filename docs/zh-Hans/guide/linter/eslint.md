@@ -105,6 +105,11 @@ export default eslint({
   // 默认为 true，即启用
   unusedImports: true,
 
+  // 基于 eslint-plugin-no-barrel-files
+  // 检查 barrel 相关问题
+  // 默认为 false，即禁用
+  barrel: false,
+
   // 基于 eslint-plugin-promise
   // 检查 Promise 相关问题
   // 默认为 true，即启用
@@ -333,6 +338,10 @@ export default eslint(
       typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
     },
     unusedImports: {
+      files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
+      typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
+    },
+    barrel: {
       files: [GLOB_SCRIPT, GLOB_VUE, GLOB_SVELTE],
       typescriptFiles: [GLOB_DTS, GLOB_TS, GLOB_TSX, GLOB_VUE, GLOB_SVELTE],
     },

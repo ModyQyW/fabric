@@ -1,5 +1,6 @@
 import { isBoolean } from "../utils.ts";
 import {
+  barrel,
   command,
   gitignore,
   ignores,
@@ -44,6 +45,7 @@ export function eslint(
     jsdoc: jsdocOptions,
     imports: importsOptions,
     unusedImports: unusedImportsOptions,
+    barrel: barrelOptions,
     promise: promiseOptions,
     regexp: regexpOptions,
     node: nodeOptions,
@@ -141,6 +143,14 @@ export function eslint(
       configs.push(unusedImports());
     } else {
       configs.push(unusedImports(unusedImportsOptions));
+    }
+  }
+
+  if (barrelOptions) {
+    if (isBoolean(barrelOptions)) {
+      configs.push(barrel());
+    } else {
+      configs.push(barrel(barrelOptions));
     }
   }
 

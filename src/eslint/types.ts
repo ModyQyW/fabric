@@ -67,6 +67,14 @@ export interface UnusedImportsOptions {
   typescriptRules?: Rules;
 }
 
+// barrel
+export interface BarrelOptions {
+  files?: string[];
+  rules?: Rules;
+  typescriptFiles?: string[];
+  typescriptRules?: Rules;
+}
+
 // Promise
 export interface PromiseOptions {
   files?: string[];
@@ -265,6 +273,14 @@ export interface Options {
    * @default true
    */
   unusedImports?: UnusedImportsOptions | boolean;
+
+  // barrel
+  /**
+   * Detect barrel issues.
+   *
+   * @default false
+   */
+  barrel?: BarrelOptions | boolean;
 
   // Promise
   /**

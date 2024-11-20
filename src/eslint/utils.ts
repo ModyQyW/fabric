@@ -20,6 +20,7 @@ export function parseOptions(options: Options = {}): Required<Options> {
     jsdoc: options.jsdoc ?? false,
     imports: options.imports ?? true,
     unusedImports: options.unusedImports ?? true,
+    barrel: options.barrel ?? false,
     promise: options.promise ?? true,
     regexp: options.regexp ?? true,
     node: options.node ?? true,
