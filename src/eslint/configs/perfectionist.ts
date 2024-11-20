@@ -29,18 +29,20 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         // https://perfectionist.dev/rules/sort-array-includes
         "perfectionist/sort-array-includes": "error",
 
-        // https://perfectionist.dev/rules/sort-astro-attributes
-        // Handled by eslint-plugin-astro.
-        "perfectionist/sort-astro-attributes": "off",
-
         // https://perfectionist.dev/rules/sort-classes
         "perfectionist/sort-classes": "error",
+
+        // https://perfectionist.dev/rules/sort-decorators
+        "perfectionist/sort-decorators": "error",
 
         // https://perfectionist.dev/rules/sort-enums
         "perfectionist/sort-enums": "error",
 
         // https://perfectionist.dev/rules/sort-exports
         "perfectionist/sort-exports": "error",
+
+        // https://perfectionist.dev/rules/sort-heritage-clauses
+        "perfectionist/sort-heritage-clauses": "error",
 
         // https://perfectionist.dev/rules/sort-imports
         "import/order": "off",
@@ -77,7 +79,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
 
         // https://perfectionist.dev/rules/sort-intersection-types
         // deprecated
-        // '@typescript-eslint/sort-type-constituents': 'off',
+        // "@typescript-eslint/sort-type-constituents": "off",
         "perfectionist/sort-intersection-types": [
           "error",
           {
@@ -114,6 +116,9 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         // https://perfectionist.dev/rules/sort-maps
         "perfectionist/sort-maps": "error",
 
+        // https://perfectionist.dev/rules/sort-modules
+        "perfectionist/sort-modules": "error",
+
         // https://perfectionist.dev/rules/sort-named-exports
         "perfectionist/sort-named-exports": "error",
 
@@ -130,10 +135,6 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
 
         // https://perfectionist.dev/rules/sort-sets
         "perfectionist/sort-sets": "error",
-
-        // https://perfectionist.dev/rules/sort-svelte-attributes
-        // Handled by eslint-plugin-svelte.
-        "perfectionist/sort-svelte-attributes": "off",
 
         // https://perfectionist.dev/rules/sort-switch-case
         "perfectionist/sort-switch-case": "error",
@@ -165,10 +166,6 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         // https://perfectionist.dev/rules/sort-variable-declarations
         "perfectionist/sort-variable-declarations": "error",
 
-        // https://perfectionist.dev/rules/sort-vue-attributes
-        // Handled by eslint-plugin-vue.
-        "perfectionist/sort-vue-attributes": "off",
-
         ...rules,
       },
       settings: {
@@ -177,6 +174,8 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
           order: "asc",
           ignoreCase: true,
           ignorePattern: [],
+          specialCharacters: "keep",
+          locales: "en-US",
           partitionByComment: true,
           partitionByNewLine: true,
         },
