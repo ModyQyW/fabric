@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.6.0](https://github.com/ModyQyW/fabric/compare/v11.5.0...v11.6.0) (2024-11-20)
+
+
+### Features
+
+* **eslint:** add barrel config ([40db1d9](https://github.com/ModyQyW/fabric/commit/40db1d9c025f4bbb8b68302bc42cac42b7375bba))
+* **eslint:** perfectionist v4 ([8867b14](https://github.com/ModyQyW/fabric/commit/8867b14bf06cbe9755c461166c3cc63838f4fcda))
+
 ## [11.5.0](https://github.com/ModyQyW/fabric/compare/v11.4.1...v11.5.0) (2024-11-15)
 
 
