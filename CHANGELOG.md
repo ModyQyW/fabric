@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.6.1](https://github.com/ModyQyW/fabric/compare/v11.6.0...v11.6.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* **eslint:** [perfectionist] fix sort-imports internalPattern ([deede0b](https://github.com/ModyQyW/fabric/commit/deede0b95b3c8cedf22cfcaff4da8dc027e8554b))
+* **eslint:** [perfectionist] update sort-objects groups ([7b283dd](https://github.com/ModyQyW/fabric/commit/7b283ddcf5d04d0bdedec1bb6ffd2af47e433eef))
+
 ## [11.6.0](https://github.com/ModyQyW/fabric/compare/v11.5.0...v11.6.0) (2024-11-20)
 
 
