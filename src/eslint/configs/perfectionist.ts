@@ -131,7 +131,15 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
 
         // https://perfectionist.dev/rules/sort-objects
         "sort-keys": "off",
-        "perfectionist/sort-objects": "error",
+        "perfectionist/sort-objects": [
+          "error",
+          {
+            groups: ["top", "unknown", "method"],
+            customGroups: {
+              top: ["name", "key", "id", "queryKey", "queryFn"],
+            },
+          },
+        ],
 
         // https://perfectionist.dev/rules/sort-sets
         "perfectionist/sort-sets": "error",
