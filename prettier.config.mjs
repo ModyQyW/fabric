@@ -1,9 +1,8 @@
 import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 require("esbuild-register");
-/** @type {typeof import("./src/prettier")} */
-const { prettier } = require("./src/prettier/index.ts");
+const { prettier } = require("./src/prettier/factory.ts");
 
-// import { prettier } from './src/prettier';
+// import { prettier } from "./src/prettier/factory.ts";
 
 export default prettier();
