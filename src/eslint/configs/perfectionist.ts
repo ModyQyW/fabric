@@ -49,7 +49,7 @@ export function perfectionist(options: PerfectionistOptions = {}): Config[] {
         "perfectionist/sort-imports": [
           "error",
           {
-            internalPattern: ["~/**", "~~/**", "@/**", "@@/**"],
+            internalPattern: ["^~{1,2}/.*", "^@{1,2}/.*"],
             newlinesBetween: "ignore",
             groups: [
               "builtin",
