@@ -27,6 +27,7 @@ export function promise(options: PromiseOptions = {}): Config[] {
         promise: pluginPromise,
       },
       rules: {
+        // https://github.com/eslint-community/eslint-plugin-promise/blob/v7.2.1/index.js
         "promise/always-return": "error",
         // 'promise/avoid-new': 'off',
         "promise/catch-or-return": "error",

@@ -222,7 +222,7 @@ const vue3Rules: Rules = {
   ],
   "vue/this-in-template": "warn",
 
-  // https://github.com/future-architect/eslint-plugin-vue-scoped-css/blob/v2.8.1/lib/configs/vue3-recommended.ts
+  // https://github.com/future-architect/eslint-plugin-vue-scoped-css/blob/v2.9.0/lib/configs/vue3-recommended.ts
   // 'vue-scoped-css/enforce-style-type': 'error', // Too ideal for business.
   "vue-scoped-css/enforce-style-type": [
     "error",
@@ -490,7 +490,7 @@ const vue2Rules: Rules = {
   ],
   "vue/this-in-template": "warn",
 
-  // https://github.com/future-architect/eslint-plugin-vue-scoped-css/blob/v2.8.1/lib/configs/recommended.ts
+  // https://github.com/future-architect/eslint-plugin-vue-scoped-css/blob/v2.9.0/lib/configs/recommended.ts
   // 'vue-scoped-css/enforce-style-type': 'error', // Too ideal for business.
   "vue-scoped-css/enforce-style-type": [
     "error",
