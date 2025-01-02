@@ -28,7 +28,7 @@ pnpm install simple-git-hooks is-ci esbuild-register -D
 
 ## Configuration
 
-Create `prettier.config.mjs` in your project root:
+Create `simple-git-hooks.cjs` in your project root:
 
 ```javascript
 // simple-git-hooks.cjs
