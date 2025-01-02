@@ -12,6 +12,7 @@ import * as _configCommand from "eslint-plugin-command/config";
 import * as _pluginJsdoc from "eslint-plugin-jsdoc";
 
 import * as _pluginImportX from "eslint-plugin-import-x";
+import * as _importResolverOxc from "eslint-import-resolver-oxc";
 
 import * as _pluginUnusedImports from "eslint-plugin-unused-imports";
 
@@ -37,7 +38,6 @@ import * as _pluginReactNamingConvention from "eslint-plugin-react-naming-conven
 import * as _pluginReactHooks from "eslint-plugin-react-hooks";
 /* @ts-expect-error missing types */
 import * as _pluginReactPerf from "eslint-plugin-react-perf";
-/* @ts-expect-error missing types */
 import * as _pluginReactRefresh from "eslint-plugin-react-refresh";
 
 /* @ts-expect-error missing types */
@@ -107,6 +107,7 @@ export const pluginJsdoc = interopDefault(
 export const pluginImportX = interopDefault(
   _pluginImportX,
 ) as unknown as ESLint.Plugin;
+export const importResolverOxc = interopDefault(_importResolverOxc);
 
 // unused imports
 export const pluginUnusedImports = interopDefault(_pluginUnusedImports);

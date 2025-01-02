@@ -61,10 +61,8 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-refresh": pluginReactRefresh,
       },
       rules: {
-        // https://github.com/Rel1cx/eslint-react/blob/v1.17.1/packages/plugins/eslint-plugin-react-x/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-x/README.md
         "react-x/ensure-forward-ref-using-ref": "warn",
-        "react-x/jsx-no-duplicate-props": "warn",
-        "react-x/jsx-uses-vars": "warn",
         "react-x/no-access-state-in-setstate": "error",
         "react-x/no-array-index-key": "warn",
         "react-x/no-children-count": "warn",
@@ -77,13 +75,16 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-x/no-component-will-mount": "error",
         "react-x/no-component-will-receive-props": "error",
         "react-x/no-component-will-update": "error",
+        "react-x/no-context-provider": "warn",
         "react-x/no-create-ref": "error",
         "react-x/no-default-props": "error",
         "react-x/no-direct-mutation-state": "error",
+        "react-x/no-duplicate-jsx-props": "warn",
         "react-x/no-duplicate-key": "error",
+        "react-x/no-forward-ref": "warn",
         "react-x/no-implicit-key": "warn",
         "react-x/no-missing-key": "error",
-        "react-x/no-nested-components": "warn",
+        "react-x/no-nested-components": "error",
         "react-x/no-prop-types": "error",
         "react-x/no-redundant-should-component-update": "error",
         "react-x/no-set-state-in-component-did-mount": "warn",
@@ -93,13 +94,13 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-x/no-unsafe-component-will-mount": "warn",
         "react-x/no-unsafe-component-will-receive-props": "warn",
         "react-x/no-unsafe-component-will-update": "warn",
-        "react-x/no-unstable-context-value": "error",
-        "react-x/no-unstable-default-props": "error",
+        "react-x/no-unstable-context-value": "warn",
+        "react-x/no-unstable-default-props": "warn",
         "react-x/no-unused-class-component-members": "warn",
         "react-x/no-unused-state": "warn",
+        "react-x/use-jsx-vars": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.17.1/packages/plugins/eslint-plugin-react-dom/README.md
-        "react-dom/no-children-in-void-dom-elements": "warn",
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-dom/README.md
         "react-dom/no-dangerously-set-innerhtml-with-children": "error",
         "react-dom/no-dangerously-set-innerhtml": "warn",
         "react-dom/no-find-dom-node": "error",
@@ -111,24 +112,25 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-dom/no-unknown-property": "warn",
         "react-dom/no-unsafe-iframe-sandbox": "warn",
         "react-dom/no-unsafe-target-blank": "warn",
+        "react-dom/no-void-elements-with-children": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.17.1/packages/plugins/eslint-plugin-react-web-api/README.md
-        "react-web-api/no-leaked-timeout": "error",
-        "react-web-api/no-leaked-interval": "error",
-        "react-web-api/no-leaked-event-listener": "error",
-        "react-web-api/no-leaked-resize-observer": "error",
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-web-api/README.md
+        "react-web-api/no-leaked-event-listener": "warn",
+        "react-web-api/no-leaked-interval": "warn",
+        "react-web-api/no-leaked-resize-observer": "warn",
+        "react-web-api/no-leaked-timeout": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.17.1/packages/plugins/eslint-plugin-react-hooks-extra/README.md
-        "react-hooks-extra/no-redundant-custom-hook": "warn",
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-hooks-extra/README.md
         "react-hooks-extra/no-direct-set-state-in-use-effect": "warn",
+        "react-hooks-extra/no-useless-custom-hooks": "warn",
         "react-hooks-extra/prefer-use-state-lazy-initialization": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.17.1/packages/plugins/eslint-plugin-react-naming-convention/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-naming-convention/README.md
         "react-naming-convention/filename-extension": ["warn", "as-needed"],
         "react-naming-convention/use-state": "warn",
 
         // https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks
-        // eslint-plugin-react-hooks v5.0.0
+        // eslint-plugin-react-hooks v5.1.0
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
 
@@ -138,7 +140,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-perf/jsx-no-new-array-as-prop": "error",
         "react-perf/jsx-no-new-function-as-prop": "error",
 
-        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.14
+        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.16
         "react-refresh/only-export-components": [
           "warn",
           {

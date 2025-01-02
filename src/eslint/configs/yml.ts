@@ -15,12 +15,12 @@ export function yml(options: YmlOptions = {}): Config[] {
         yml: pluginYml,
       },
       rules: {
-        // https://github.com/ota-meshi/eslint-plugin-yml/blob/v1.14.0/src/configs/base.ts
+        // https://github.com/ota-meshi/eslint-plugin-yml/blob/v1.16.0/src/configs/base.ts
         "no-irregular-whitespace": "off",
         "no-unused-vars": "off",
         "spaced-comment": "off",
 
-        // https://github.com/ota-meshi/eslint-plugin-yml/blob/v1.14.0/src/configs/standard.ts
+        // https://github.com/ota-meshi/eslint-plugin-yml/blob/v1.16.0/src/configs/standard.ts
         // 'yml/block-mapping-question-indicator-newline': 'error',
         "yml/block-mapping": "error",
         // 'yml/block-sequence-hyphen-indicator-newline': 'error',
