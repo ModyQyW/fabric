@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.8.0](https://github.com/ModyQyW/fabric/compare/v11.7.0...v11.8.0) (2025-01-14)
+
+
+### Features
+
+* **eslint:** update rules ([72f6415](https://github.com/ModyQyW/fabric/commit/72f64157496eb31196c3171adb5b9f153f361741))
+
 ## [11.7.0](https://github.com/ModyQyW/fabric/compare/v11.6.2...v11.7.0) (2025-01-02)
 
 
