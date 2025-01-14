@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [11.8.1](https://github.com/ModyQyW/fabric/compare/v11.8.0...v11.8.1) (2025-01-14)
+
+
+### Bug Fixes
+
+* **eslint:** improve react refresh rules config ([281a649](https://github.com/ModyQyW/fabric/commit/281a649a835afef0ccac15feffad00d37c921048))
+
 ## [11.8.0](https://github.com/ModyQyW/fabric/compare/v11.7.0...v11.8.0) (2025-01-14)
 
 
