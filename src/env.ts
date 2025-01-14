@@ -59,6 +59,12 @@ export const hasRemix = [
   "@remix-run/dev",
   "remix",
 ].some((p) => isPackageExists(p));
+export const hasReactRouter = [
+  "@react-router/node",
+  "@react-router/react",
+  "@react-router/serve",
+  "@react-router/dev",
+].some((p) => isPackageExists(p));
 export const hasReactNative = ["react-native", "@expo/cli"].some((p) =>
   isPackageExists(p),
 );

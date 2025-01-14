@@ -1,5 +1,5 @@
 import { GLOB_JSX, GLOB_TSX } from "../../constants.ts";
-import { hasVite, hasRemix, hasNext } from "../../env.ts";
+import { hasVite, hasRemix, hasNext, hasReactRouter } from "../../env.ts";
 import {
   parserBabel,
   parserTypeScript,
@@ -145,11 +145,18 @@ export function react(options: ReactOptions = {}): Config[] {
           "warn",
           {
             allowExportNames: [
-              ...(hasRemix
+              ...(hasRemix || hasReactRouter
                 ? ["meta", "links", "headers", "loader", "action"]
                 : []),
               ...(hasNext
                 ? [
+                    "dynamic",
+                    "dynamicParams",
+                    "revalidate",
+                    "fetchCache",
+                    "runtime",
+                    "preferredRegion",
+                    "maxDuration",
                     "config",
                     "generateStaticParams",
                     "metadata",
