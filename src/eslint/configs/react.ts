@@ -61,7 +61,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-refresh": pluginReactRefresh,
       },
       rules: {
-        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-x/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.2/packages/plugins/eslint-plugin-react-x/README.md
         "react-x/ensure-forward-ref-using-ref": "warn",
         "react-x/no-access-state-in-setstate": "error",
         "react-x/no-array-index-key": "warn",
@@ -100,7 +100,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-x/no-unused-state": "warn",
         "react-x/use-jsx-vars": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-dom/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.2/packages/plugins/eslint-plugin-react-dom/README.md
         "react-dom/no-dangerously-set-innerhtml-with-children": "error",
         "react-dom/no-dangerously-set-innerhtml": "warn",
         "react-dom/no-find-dom-node": "error",
@@ -114,18 +114,18 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-dom/no-unsafe-target-blank": "warn",
         "react-dom/no-void-elements-with-children": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-web-api/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.2/packages/plugins/eslint-plugin-react-web-api/README.md
         "react-web-api/no-leaked-event-listener": "warn",
         "react-web-api/no-leaked-interval": "warn",
         "react-web-api/no-leaked-resize-observer": "warn",
         "react-web-api/no-leaked-timeout": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-hooks-extra/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.2/packages/plugins/eslint-plugin-react-hooks-extra/README.md
         "react-hooks-extra/no-direct-set-state-in-use-effect": "warn",
         "react-hooks-extra/no-useless-custom-hooks": "warn",
         "react-hooks-extra/prefer-use-state-lazy-initialization": "warn",
 
-        // https://github.com/Rel1cx/eslint-react/blob/v1.23.0/packages/plugins/eslint-plugin-react-naming-convention/README.md
+        // https://github.com/Rel1cx/eslint-react/blob/v1.23.2/packages/plugins/eslint-plugin-react-naming-convention/README.md
         "react-naming-convention/filename-extension": ["warn", "as-needed"],
         "react-naming-convention/use-state": "warn",
 
@@ -140,7 +140,7 @@ export function react(options: ReactOptions = {}): Config[] {
         "react-perf/jsx-no-new-array-as-prop": "error",
         "react-perf/jsx-no-new-function-as-prop": "error",
 
-        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.16
+        // https://github.com/ArnaudBarre/eslint-plugin-react-refresh/tree/v0.4.18
         "react-refresh/only-export-components": [
           "warn",
           {
@@ -191,8 +191,8 @@ export function react(options: ReactOptions = {}): Config[] {
         ...typescriptLanguageOptions,
       },
       rules: {
-        "react-x/jsx-no-duplicate-props": "off",
-        "react-x/jsx-uses-vars": "warn",
+        "react-x/no-duplicate-jsx-props": "off",
+        "react-x/use-jsx-vars": "warn",
         "react-dom/no-unknown-property": "off",
 
         ...(typeCheck
