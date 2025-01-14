@@ -32,9 +32,3 @@ jobs:
       - run: pnpx changelogithub
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - uses: wearerequired/git-mirror-action@master
-        with:
-          source-repo: git@github.com:ModyQyW/fabric.git
-          destination-repo: git@gitee.com:ModyQyW/fabric.git
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
