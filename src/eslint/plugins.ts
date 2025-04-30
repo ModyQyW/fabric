@@ -12,7 +12,7 @@ import * as _configCommand from "eslint-plugin-command/config";
 import * as _pluginJsdoc from "eslint-plugin-jsdoc";
 
 import * as _pluginImportX from "eslint-plugin-import-x";
-import * as _importResolverOxc from "eslint-import-resolver-oxc";
+import * as _importResolverTypescript from "eslint-import-resolver-typescript";
 
 import * as _pluginUnusedImports from "eslint-plugin-unused-imports";
 
@@ -107,7 +107,9 @@ export const pluginJsdoc = interopDefault(
 export const pluginImportX = interopDefault(
   _pluginImportX,
 ) as unknown as ESLint.Plugin;
-export const importResolverOxc = interopDefault(_importResolverOxc);
+export const importResolverTypeScript = interopDefault(
+  _importResolverTypescript,
+);
 
 // unused imports
 export const pluginUnusedImports = interopDefault(_pluginUnusedImports);

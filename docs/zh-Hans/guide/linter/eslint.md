@@ -258,16 +258,16 @@ export default combine(
 
 ```javascript
 // eslint.config.mjs
+import * as _parserBabel from "@babel/eslint-parser";
+import * as _parserTypeScript from "@typescript-eslint/parser";
+import * as _pluginSolid from "eslint-plugin-solid";
+import { eslint } from "@modyqyw/fabric/eslint";
 import {
   GLOB_JSX,
   GLOB_SCRIPT,
   GLOB_TSX,
   interopDefault,
 } from "@modyqyw/fabric";
-import { eslint } from "@modyqyw/fabric/eslint";
-import * as _parserBabel from "@babel/eslint-parser";
-import * as _parserTypeScript from "@typescript-eslint/parser";
-import * as _pluginSolid from "eslint-plugin-solid";
 
 const parserBabel = interopDefault(_parserBabel);
 const parserTypeScript = interopDefault(_parserTypeScript);
@@ -297,6 +297,11 @@ export default eslint(
 
 ```javascript
 // eslint.config.mjs
+import * as _parserBabel from "@babel/eslint-parser";
+import * as _parserTypeScript from "@typescript-eslint/parser";
+import * as _pluginSvelte from "eslint-plugin-svelte";
+import * as _parserSvelte from "svelte-eslint-parser";
+import { eslint } from "@modyqyw/fabric/eslint";
 import {
   GLOB_DTS,
   GLOB_MARKDOWN_SCRIPT,
@@ -309,11 +314,6 @@ import {
   GLOB_VUE,
   interopDefault,
 } from "@modyqyw/fabric";
-import { eslint } from "@modyqyw/fabric/eslint";
-import * as _parserBabel from "@babel/eslint-parser";
-import * as _parserTypeScript from "@typescript-eslint/parser";
-import * as _pluginSvelte from "eslint-plugin-svelte";
-import * as _parserSvelte from "svelte-eslint-parser";
 
 const parserSvelte = interopDefault(_parserSvelte);
 const parserBabel = interopDefault(_parserBabel);

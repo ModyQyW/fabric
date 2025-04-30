@@ -6,8 +6,12 @@ import {
   GLOB_VUE,
 } from "../../constants.ts";
 import { hasTypeScript, hasVue } from "../../env.ts";
-import { pluginImportX } from "../plugins.ts";
+import { importResolverTypeScript, pluginImportX } from "../plugins.ts";
 import type { Config, ImportsOptions } from "../types.ts";
+
+const importResolverNext = [
+  importResolverTypeScript.createTypeScriptImportResolver(),
+];
 
 export function imports(options: ImportsOptions = {}): Config[] {
   const {
@@ -120,19 +124,10 @@ export function imports(options: ImportsOptions = {}): Config[] {
       },
       settings: {
         // https://github.com/un-ts/eslint-plugin-import-x#import-xcore-modules
-        "import/core-modules": ["electron"],
-
-        // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
-        "import/extensions": [".js", ".cjs", ".mjs", ".jsx"],
-
-        // https://github.com/un-ts/eslint-plugin-import-x#import-xignore
-        "import/ignore": [
-          "node_modules",
-          String.raw`\.(scss|sass|less|css|svg|json)$`,
-        ],
+        "import-x/core-modules": ["electron"],
 
         // https://github.com/un-ts/eslint-plugin-import-x#resolvers
-        "import/resolver": "oxc",
+        "import-x/resolver-next": importResolverNext,
       },
     },
     {
@@ -162,26 +157,13 @@ export function imports(options: ImportsOptions = {}): Config[] {
         ...typescriptRules,
       },
       settings: {
-        // https://github.com/un-ts/eslint-plugin-import-x#import-xextensions
-        "import/extensions": [
-          ".js",
-          ".cjs",
-          ".mjs",
-          ".jsx",
-          ".ts",
-          ".cts",
-          ".mts",
-          ".tsx",
-          ".d.ts",
-        ],
-
         // https://github.com/un-ts/eslint-plugin-import-x#import-xparsers
-        "import/parsers": {
+        "import-x/parsers": {
           "@typescript-eslint/parser": [".ts", ".cts", ".mts", ".tsx", ".d.ts"],
         },
 
         // https://github.com/un-ts/eslint-plugin-import-x#resolvers
-        "import/resolver": "oxc",
+        "import-x/resolver-next": importResolverNext,
       },
     },
   ];
