@@ -1,39 +1,56 @@
-name: ci
+name: CI
 
 on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
 
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .node-version
-          cache: pnpm
-          registry-url: https://registry.npmjs.org
-      - run: corepack enable
-      - run: pnpm install
-      - run: pnpm run build
-      - run: pnpm run lint
+  merge_group: {}
 
-  type-check:
-    runs-on: ubuntu-latest
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node_version: [20, 22, 24]
+      fail-fast: false
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - name: Set git to use LF
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v6
         with:
-          node-version-file: .node-version
+          node-version: ${{ matrix.node_version }}
           cache: pnpm
           registry-url: https://registry.npmjs.org
-      - run: corepack enable
-      - run: pnpm install
-      - run: pnpm run type-check
+
+      - name: Setup corepack
+        run: npm install -f -g npm@latest corepack@latest && corepack enable
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test
+
+      - name: Type Check
+        run: pnpm type-check

@@ -1,22 +1,22 @@
-name: Publish Any Commit
+name: autofix.ci
 
 on:
-  pull_request:
   push:
     branches:
-      - "**"
-    tags:
-      - "!**"
+      - main
+
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  autofix:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -34,8 +34,8 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Build
-        run: pnpm build
+      - name: Check
+        run: pnpm check
 
-      - name: Release
-        run: pnpx pkg-pr-new publish --compact --pnpm './packages/*'
+      - name: Autofix
+        uses: autofix-ci/action@v1
